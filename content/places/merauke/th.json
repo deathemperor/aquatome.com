@@ -3,6 +3,12 @@
   "name": "เมเราเก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-18T18:20:37.695Z",
+    "why": "Thai atlases and the Royal Institute transliteration write Merauke as เมอเราเก or เมอราเกอ (stress on \"Mer-au-ke\" = เมอราอูเก); เมเราเก doesn't match the usual Thai rendering and also lacks a kind word such as แคว้น/เขต/จังหวัด."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

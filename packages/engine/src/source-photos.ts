@@ -2,10 +2,11 @@ import { createHash } from 'node:crypto'
 import sharp from 'sharp'
 import type { Photo, SourceId } from '@aq/schema'
 import { parse } from 'node-html-parser'
-import { ArchiveRefused } from './archive'
-import type { PageImage } from './outline'
+import { archiveStops } from './archive'
+import { dropEmails, type PageImage } from './outline'
 import { creditKind, type CreditKind } from './photo-credit'
 import { ARTWORK } from './photos'
+import { pictureCredit } from './publisher-credits'
 
 export type Media = { urlFor: (key: string) => string; put: (key: string, bytes: Uint8Array) => Promise<{ url: string; thumb?: string; width: number; height: number }> }
 /** Layout dimensions are never a file size. Filename alternatives wait for retrieval before collapsing. */
@@ -16,6 +17,8 @@ const EXTRA_DOWNLOADS = 4
 const THUMBNAIL = /\/(?:icons?|thumbs?|thumbnails?)\//i
 
 const JUNK = /logo|icon|sprite|avatar|banner|badge|placeholder|gravatar|payment|flag|button|spinner|loader|emoji|pixel|tracking/i
+/** A commenter's picture by its address: a Gravatar file is a bare hash, so the file name alone never shows it (16 Nov). */
+const AVATAR = /^https?:\/\/([a-z0-9-]+\.)*gravatar\.com\/|\/avatars?\//i
 /** QR codes for the page's own address (PlanetCatfish: quickchart.io/qr?…, /cache/qr/…). */
 const QR = /\/qr(\/|\?|$)/i
 const SCENERY = /habitat|biotope|locality|\bmap\b/i
@@ -59,7 +62,7 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
   for (const img of [...images.filter(i => !newlyEligible(i)), ...images.filter(newlyEligible)]) {
     let src: string
     try { src = new URL(img.src, pageUrl).href } catch { continue }
-    if (!/^https?:/.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || JUNK.test(`${file(src)} ${img.alt}`) || QR.test(src)) continue
+    if (!/^https?:/.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || JUNK.test(`${file(src)} ${img.alt}`) || AVATAR.test(src) || QR.test(src)) continue
     if (img.link && linksElsewhere(img.link, pageUrl)) continue
     const thumbnailWidth = Number(file(src).match(/-(\d+)x\d+\.[a-z0-9]+$/i)?.[1])
     if ((newlyEligible(img) && THUMBNAIL.test(src)) || (thumbnailWidth && thumbnailWidth < minWidth)) continue
@@ -105,24 +108,27 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
 
 /**
  * Photos kept on pages of their own (ScotCat): the species page shows thumbnails, each linking to a page with the
- * full image and "© <photographer>". The first `max` photo pages are read (each is a request to the source).
+ * full image and "© <photographer>". The first `max` photo pages are read (each is a request to the source). `missed`,
+ * when given, gets each photo page whose request failed or that the source answered with an error.
  */
-export async function linkedPhotos(html: string, pageUrl: string, photoPage: RegExp, get: (url: string) => Promise<{ html: string }>, max = 4): Promise<PageImage[]> {
+export async function linkedPhotos(html: string, pageUrl: string, photoPage: RegExp, get: (url: string) => Promise<{ html: string; status?: number }>, max = 4, missed?: string[]): Promise<PageImage[]> {
   const pages = [...new Set(parse(html).querySelectorAll('a[href]').filter(a => a.querySelector('img')).flatMap(a => {
     try { return [new URL(a.getAttribute('href')!, pageUrl).href] } catch { return [] }
   }).filter(u => photoPage.test(u)))].slice(0, max)
   const out: PageImage[] = []
   for (const u of pages) {
     let page: string
-    try { page = (await get(u)).html } catch (e) { if (e instanceof ArchiveRefused) throw e; console.warn(`photo page skipped ${u}: ${(e as Error).message}`); continue }
+    // A page the source answers with an error (the browser's fetcher returns it rather than failing) is a failed request too.
+    try { const r = await get(u); if ((r.status ?? 200) >= 400) throw new Error(`HTTP ${r.status}`); page = r.html } catch (e) { if (archiveStops(e)) throw e; console.warn(`photo page skipped ${u}: ${(e as Error).message}`); missed?.push(u); continue }
     const img = parse(page).querySelectorAll('img').filter(i => !/\.(gif|png)$|thumbnails\//i.test(i.getAttribute('src') ?? '')).sort((a, b) => Number(b.getAttribute('width') ?? 0) - Number(a.getAttribute('width') ?? 0))[0]
     if (!img?.getAttribute('src')) continue
     // The credit follows the image; the site's own "©2026 SCOTCAT.COM" footer is further down.
     const at = page.indexOf(img.getAttribute('src')!)
     const author = page.slice(at, at + 600).match(/(?:©|&copy;)(?:\s|&nbsp;|<[^>]+>)*([^<]+)/)?.[1]?.replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()
+    const credit = author && dropEmails(author).replace(/\s+/g, ' ').trim()
     const width = Number(img.getAttribute('width')) || undefined
     const height = Number(img.getAttribute('height')) || undefined
-    out.push({ src: new URL(img.getAttribute('src')!, u).href, alt: (img.getAttribute('alt') ?? '').replace(/\s*=\s*/, ': ').trim(), ...(width ? { displayWidth: width } : {}), ...(height ? { displayHeight: height } : {}), page: u, ...(author ? { author } : {}) })
+    out.push({ src: new URL(img.getAttribute('src')!, u).href, alt: dropEmails(img.getAttribute('alt') ?? '').replace(/\s*=\s*/, ': ').replace(/\s+/g, ' ').trim(), ...(width ? { displayWidth: width } : {}), ...(height ? { displayHeight: height } : {}), page: u, ...(credit ? { author: credit } : {}) })
   }
   return out
 }
@@ -194,6 +200,9 @@ export async function storeSourcePhotos(
   const out: SourcePhoto[] = []
   let extra = 0
   const keyFor = (src: string) => photoKey(source, src)
+  // The name the page prints with a picture: its photographer (ScotCat's ©), or its figure's line as printed
+  // (publisher-credits.ts pictureCredit), so a photo is stored with it (the chief of staff, 10 and 17 Nov 2026).
+  const line = (img: Picked) => img.author ?? pictureCredit(img.credit, sourceName, deps)
   const take = mayTake(source, sourceName, deps, existing)
   const shows = (img: Picked) => existing.some(p => p.url === deps.media.urlFor(keyFor(img.src)))
   // A photo held back is known before any request: none is made for it, nor for a copy the page doesn't show of one it
@@ -212,6 +221,8 @@ export async function storeSourcePhotos(
       const key = keyFor(img.src)
       if (deps.blocked?.[deps.media.urlFor(key)]) { group.done = true; break }
       const known = existing.find(p => p.url === deps.media.urlFor(key))
+      // A photo stored already keeps its credit here: only the sweep and the line-read list name a stored one, since they
+      // read every copy of it first (publisher-credits.ts; found in Codex's read, 20 Nov 2026).
       if (known) { out.push(img.heading ? { ...known, heading: img.heading } : known); group.done = true; break }
       if (extraRequest) {
         if (extra >= EXTRA_DOWNLOADS) continue
@@ -221,14 +232,14 @@ export async function storeSourcePhotos(
       try {
         bytes = await deps.bytes(img.src, pageUrl)
       } catch (e) {
-        if (e instanceof ArchiveRefused) throw e // the page waits for the archive, rather than losing its pictures
+        if (archiveStops(e)) throw e // the page waits for the archive, rather than losing its pictures
         console.warn(`photo skipped ${img.src}: ${(e as Error).message}`) // one unreachable image doesn't fail the page
         continue
       }
       const { width = 0, height = 0 } = await (deps.size ?? (b => sharp(b).metadata()))(bytes).catch(() => ({ width: 0, height: 0 }))
       if (width < (img.minWidth ?? MIN_WIDTH) || !okShape(width, height)) continue
       const stored = await deps.media.put(key, bytes) // storage failures (token, bucket) fail the page so it is retried
-      out.push({ ...stored, licence: SOURCE_PHOTO_LICENCE, author: img.author ? `${img.author} / ${sourceName}` : sourceName, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), source, ...(img.heading ? { heading: img.heading } : {}) })
+      out.push({ ...stored, licence: SOURCE_PHOTO_LICENCE, author: line(img) ? `${line(img)} / ${sourceName}` : sourceName, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), source, ...(img.heading ? { heading: img.heading } : {}) })
       group.done = true
       break
     }

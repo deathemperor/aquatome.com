@@ -1,0 +1,65 @@
+{
+  "id": "ictalurus-pricei",
+  "scientificName": "Ictalurus pricei",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Ictalurus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "mexico",
+    "rio-yaqui",
+    "united-states",
+    "arizona"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 57
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1556",
+      "html": "<ul><li>Scientific name: Ictalurus pricei (Rutter, 1896)</li><li>Common name: Yaqui Catfish</li><li>Type locality: San Bernardino Creek, Rio Yaqui, Arizona, U.S.A. or northern border of Sonora, Mexico.</li><li>IUCN Red List: Endangered (last assessed 2018).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1556",
+      "html": "<p>North America: Rio Yaqui and Rio Casas Grandes drainages in northwestern Mexico and (presumably) extreme southeastern Arizona in the USA.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1556",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/6b3900ad0e178b9e.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Jacob Malcom",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catostomus_bernardini.jpg",
+      "caption": "Catostomus bernardini - Yaqui sucker (middle) with Yaqui Catfish (left) and Roundtail Chub (right).",
+      "thumb": "https://media.aquatome.com/commons/6b3900ad0e178b9e-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "epBPuVUOCDo",
+      "title": "A Yaqui catfish (Ictalurus pricei) at the Arizona Sonora Desert Museum in Tucson, AZ.",
+      "durationSec": 19,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-25"
+}

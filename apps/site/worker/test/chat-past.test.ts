@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { createSession } from '../accounts/session'
+import { TESTER_ID } from '../accounts/tester'
+import { testerAccount } from '../accounts/tester-sign-in'
 import { deleteUser } from '../accounts/users'
 import type { ChatEnv } from '../chat/api'
 import type { Source } from '../chat/handbook'
@@ -141,6 +143,12 @@ test('another account\'s conversation, or an unknown one, is 404; the list and e
   const gated = { ...e, CHAT: 'owner', OWNER_ACCOUNTS: me.id }
   expect((await list(gated, other.token)).body).toEqual({ error: 'unavailable' })
   expect((await list(gated, me.token)).status).toBe(200)
+  // And the test account's, while it is on (accounts/tester.ts); off, its session is none and it finds chat off too.
+  expect(await testerAccount(db, 'k', NOW)).toBe(true)
+  const testerToken = await createSession(db, TESTER_ID, 'app', NOW, 15)
+  expect((await list({ ...gated, CHAT_TESTER: 'on' }, testerToken)).status).toBe(200)
+  expect((await list(gated, testerToken)).body).toEqual({ error: 'unavailable' })
+  expect((await list({ ...e, CHAT_TESTER: 'off' }, testerToken)).body).toEqual({ error: 'session' })
   const noAuth = new Request('https://x.test/api/chat/conversations')
   expect((await chatPast(noAuth, new URL(noAuth.url), e, NOW, { source })).status).toBe(401)
 })
@@ -171,7 +179,20 @@ test('a report is kept once a turn, the first reason standing; a reason is one l
   store.m.set(conversationKey(me.account, id), JSON.stringify({ created: 1, turns: [{ n: 1, question: 'Hỏi', text: 'Đáp sai', blocks: [], at: 1 }] }))
   expect((await report(e, me.token, id, { turn: 1, reason: 'Sai nhiệt độ' })).body).toEqual(recorded('chat-report-saved.json').body)
   expect((await report(e, me.token, id, { turn: 1, reason: 'Lý do khác' })).body).toEqual(recorded('chat-report-already.json').body)
-  expect(JSON.parse(store.m.get(reportKey(me.account, id, 1))!)).toMatchObject({ conversation: id, turn: 1, question: 'Hỏi', text: 'Đáp sai', reason: 'Sai nhiệt độ' })
+  expect(JSON.parse(store.m.get(reportKey(me.account, id, 1))!)).toMatchObject({ conversation: id, turn: 1, role: 'reader', question: 'Hỏi', text: 'Đáp sai', reason: 'Sai nhiệt độ' })
+  // The test account asks and does nothing else (accounts/tester.ts): its report finds no session, on open chat and on
+  // the owner's alike, and nothing is kept.
+  expect(await testerAccount(db, 'k', NOW)).toBe(true)
+  const testerToken = await createSession(db, TESTER_ID, 'app', NOW, 15)
+  const testerAccountId = await chatAccount('k', TESTER_ID)
+  for (const mode of ['1', 'owner']) {
+    const tid = crypto.randomUUID()
+    await row(db, testerAccountId, { id: tid, question: 'Hỏi', started: '2026-11-07T10:00:00Z', last: '2026-11-07T10:00:00Z', n: 1 })
+    store.m.set(conversationKey(testerAccountId, tid), JSON.stringify({ created: 1, turns: [{ n: 1, question: 'Hỏi', text: 'Đáp', blocks: [], at: 1 }] }))
+    const r = await report({ ...e, CHAT: mode, CHAT_TESTER: 'on' }, testerToken, tid, { turn: 1 })
+    expect([r.status, r.body], mode).toEqual([401, { error: 'session' }])
+    expect(store.m.has(reportKey(testerAccountId, tid, 1))).toBe(false)
+  }
   expect((await report(e, me.token, id, { turn: 2 })).status).toBe(404)
   expect((await report(e, me.token, id, {})).body).toEqual({ error: 'bad request' })
   expect((await report(e, me.token, id, { turn: 1, reason: 'a\nb' })).body).toEqual({ error: 'bad request' })

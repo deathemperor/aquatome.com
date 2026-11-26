@@ -9,6 +9,214 @@
     "oceania",
     "palau"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PW"
+      ],
+      "regions": [
+        "Mariana Islands",
+        "Pohnpei"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the island nation of Palau, eastern Micronesia, but also thought to occur throughout the Mariana Islands further north and eastwards as far as Pohnpei.",
+          "countries": [
+            "PW"
+          ],
+          "regions": [
+            "Mariana Islands",
+            "Pohnpei"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2376111,
+      "total": 94,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "PW",
+          34
+        ],
+        [
+          "ID",
+          33
+        ],
+        [
+          "PG",
+          10
+        ],
+        [
+          "NC",
+          8
+        ],
+        [
+          "GU",
+          6
+        ],
+        [
+          "AU",
+          2
+        ],
+        [
+          "FM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          122.34375,
+          -1.40625,
+          11,
+          0
+        ],
+        [
+          127.96875,
+          -4.21875,
+          6,
+          0
+        ],
+        [
+          129.375,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          129.375,
+          -1.40625,
+          4,
+          0
+        ],
+        [
+          130.78125,
+          -1.40625,
+          3,
+          0
+        ],
+        [
+          132.1875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          133.59375,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          133.59375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          133.59375,
+          7.03125,
+          34,
+          34
+        ],
+        [
+          136.40625,
+          -2.8125,
+          3,
+          0
+        ],
+        [
+          143.4375,
+          12.65625,
+          6,
+          0
+        ],
+        [
+          144.84375,
+          -16.875,
+          2,
+          0
+        ],
+        [
+          144.84375,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          146.25,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          149.0625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          149.0625,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          150.46875,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          151.875,
+          -11.25,
+          2,
+          0
+        ],
+        [
+          151.875,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          153.28125,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          161.71875,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          164.53125,
+          -21.09375,
+          6,
+          0
+        ],
+        [
+          165.9375,
+          -22.5,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -167,7 +375,7 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Odyssey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
       "caption": "Adult male of S. pelewensis collected from the island of Palau.",
       "source": "seriouslyfish"
@@ -178,7 +386,7 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Odyssey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
       "caption": "Adult female from Palau.",
       "source": "seriouslyfish"
@@ -189,7 +397,7 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Odyssey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
       "caption": "Underwater at a habitat on Palau.",
       "source": "seriouslyfish"

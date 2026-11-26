@@ -1,12 +1,16 @@
 {
   "id": "anatolichthys-sureyanus",
-  "summary": "Cá răng thỏ Burdur (Anatolichthys sureyanus) hợp với người đủ tâm huyết làm dự án nuôi và nhân giống lâu dài, độ khó 4/8. Cá dài tối đa 5 cm, cần bể dài từ 120 cm (khoảng 108 lít), nước lạnh 5–22 °C, pH 8–10, độ cứng 15–35 dGH, nuôi thành đàn riêng. Khó nhất là giữ nước kiềm, cứng và cho cá qua mùa đông lạnh; loài này cũng hiếm, khó mua ở cửa hàng.",
+  "summary": "Cá răng thỏ Burdur (Anatolichthys sureyanus) hợp với người đủ tâm huyết theo một dự án nuôi và nhân giống lâu dài chứ không phải nuôi cho sặc sỡ. Cần bể đáy từ 120 cm, nuôi riêng thành đàn, nước kiềm pH 8–10, độ cứng 15–35 dGH, pha muối biển 3–5 g/L, nhiệt độ 5–22 °C. Khó nhất là giữ nước đúng thông số, cho cá qua \"mùa đông\" lạnh vài tháng mỗi năm và tách trứng kịp vì cá hay ăn trứng, cá con.",
   "mistakes": [
-    "Nuôi cá quanh năm ở nhiệt độ ấm: cho cá một mùa đông lạnh kéo dài vài tháng, nếu không cá đẻ kém và sống ngắn hơn.",
-    "Nuôi trong nước trung tính hoặc axit: giữ pH 8–10 và độ cứng 15–35 dGH, vì cá có lẽ không sống được trong nước axit.",
-    "Để trứng và cá bột chung bể với cá bố mẹ: kiểm tra giá thể hằng ngày trong mùa đẻ, vì cá ăn trứng và cá con, rồi chuyển giá thể có trứng sang thùng nước cùng nhiệt độ và thành phần với bể cá bố mẹ."
+    "Đừng bỏ qua giai đoạn \"mùa đông\": mỗi năm hãy giữ nước lạnh vài tháng, nếu không cá đẻ kém và sống ngắn hơn.",
+    "Đừng nuôi trong nước axit: giữ pH kiềm như nước hồ và pha muối biển 3–5 g/L.",
+    "Đừng để trứng nằm lại trong bể đàn: cá ăn trứng và cá con, nên kiểm tra giá thể hằng ngày trong mùa đẻ và chuyển giá thể có trứng sang thùng riêng."
   ],
   "speciesUpdatedAt": "2026-10-29",
-  "generatedAt": "2026-10-31T17:26:06.054Z",
-  "review": "approved"
+  "writtenFrom": "15183294bc77145c",
+  "generatedAt": "2026-11-21T19:28:36.748Z",
+  "review": "pending",
+  "problems": [
+    "\"nếu không cá đẻ kém và sống ngắn hơn\": the page hedges this (\"chắc là sẽ đẻ kém đi và sống ngắn hơn\", i.e. probably). The summary turns the hedge into a certainty."
+  ]
 }

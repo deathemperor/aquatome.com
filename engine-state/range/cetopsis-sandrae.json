@@ -1,0 +1,82 @@
+{
+  "id": "cetopsis-sandrae",
+  "native": {
+    "input": "37f25eb9302cc092",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Tapajós system in Brazil (Amazon, Lower Amazon, Tapajós, Upper Tapajós, Juruena, Arinos).",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tapajós",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Tapajós system in Brazil (Amazon, Lower Amazon, Tapajós, Upper Tapajós, Juruena, Arinos).",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Tapajós system in Brazil (Amazon, Lower Amazon, Tapajós, Upper Tapajós, Juruena, Arinos).",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Juruena",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Tapajós system in Brazil (Amazon, Lower Amazon, Tapajós, Upper Tapajós, Juruena, Arinos).",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cetopsis sandrae",
+    "status": "ACCEPTED",
+    "taxonKey": 2337985,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        9
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-23T01:48:47.136Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-24T05:12:35.728Z",
+    "error": "claude failed (1): other"
+  }
+}

@@ -1,11 +1,15 @@
 {
   "id": "aphanotorulus-unicolor",
-  "summary": "Cá lau kiếng Aphanotorulus unicolor hợp với người muốn nuôi một loài lau kiếng khá dễ nuôi, không kén ăn, sống ở nền cát. Kích thước trưởng thành 20 cm, cần nước ấm 25–28 °C, pH 6,5–7,2 và nền cát mịn. Hồ sơ không nêu bể tối thiểu. Chưa có báo cáo nào về việc loài này sinh sản, nên đừng tính chuyện nhân giống.",
+  "summary": "Cá lau kiếng Aphanotorulus unicolor hợp với người muốn nuôi loài khá dễ, không kén ăn: thức ăn viên chìm, đông lạnh hay sống đều nhận. Cần nước ấm 25–28 °C, pH 6,5–7,2 và nền cát mịn; cá trưởng thành khoảng 20 cm nên cần bể đủ rộng. Điểm khó nhất là hồ sơ chưa nêu bể tối thiểu và chưa có báo cáo nào về việc cá sinh sản.",
   "mistakes": [
-    "Lót nền khác cát: nên dùng nền cát mịn, vì cá sống ở nền đáy cát.",
-    "Để nước nguội như bể cá thường: nên giữ nước ấm hơn mức thường, trong khoảng 25–28 °C."
+    "Dùng nền không phải cát mịn; cá cần nền cát mịn nên hãy lót cát mịn.",
+    "Giữ nước ở mức nhiệt thường thấy; cá cần nước ấm hơn mức thường nên hãy giữ trong khoảng 25–28 °C."
   ],
   "speciesUpdatedAt": "2026-11-05",
-  "generatedAt": "2026-11-09T11:13:26.699Z",
-  "review": "approved"
+  "writtenFrom": "47c508e20204a347",
+  "generatedAt": "2026-11-21T19:25:24.328Z",
+  "review": "pending",
+  "problems": [
+    "\"cần bể đủ rộng\": the page gives no advice about tank size or space, and the card has no minimum tank. This advice is invented and was inferred from the 20 cm adult size."
+  ]
 }

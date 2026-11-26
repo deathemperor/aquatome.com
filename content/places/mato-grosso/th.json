@@ -3,6 +3,12 @@
   "name": "มาตูโกรสซู",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-20T11:53:40.527Z",
+    "why": "Thai atlases write Mato Grosso as \"มาตูโกรสซู\" only loosely; the standard form is \"มาตูกรอสซู\" or \"มาตูโกรซู\" and it lacks the Thai kind word \"รัฐ\" (state), so the name is incomplete."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

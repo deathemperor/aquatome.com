@@ -1,0 +1,107 @@
+{
+  "id": "arius-leptonotacanthus",
+  "scientificName": "Arius leptonotacanthus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Arius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "gulf-of-thailand",
+    "indonesia",
+    "madura-strait"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Western Central Pacific: along the Gulf of Thailand and Indonesia; in coastal waters and estuaries.",
+          "countries": [
+            "TH",
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345266,
+      "total": 1,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          118.125,
+          5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 21
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/jayaramichthys_leptonotacanthus.htm",
+      "html": "<ul><li>Common name: Smooth-spined sea catfish</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/jayaramichthys_leptonotacanthus.htm",
+      "html": "<p>Western Central Pacific: along the Gulf of Thailand and Indonesia; in coastal waters and estuaries. Type locality: In Freto Madurae prope Kammal et Surabaya.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/jayaramichthys_leptonotacanthus.htm",
+      "html": "<p>The Ariidae is one of two siluriform families with a strong representation in marine environments. Consisting of about 150 species in 29 genera (Betancur-R., 2009), this cosmopolitan group of marine fishes is predominantly restricted to the continental shelves of warm-temperate to tropical regions worldwide, although about 43 species are restricted to freshwater habitats (Betancur-R., 2010).</p><p>Description: Distinguished from other Singapore ariids in having a combination of a moderately prominent lateral ethmoid, short, supraoccipital process with a high keel, and palatal teeth in two elliptical or pear-shaped patches on each side of the mouth, with their long axes parallel or diverging posteriorly.</p><p>Etymology: The genus name Jayaramichthys honours Indian ichthyologist Kottore Chidambaram Jayaram (1926–2011), who contributed \"greatly\" to our understanding of the taxonomy, evolution and biogeography of ariids from the Indian subcontinent; ichthys, fish. The specific name leptonotacanthus: leptos, thin; notos, back; acanthus, spine, referring to its slender dorsal spine.</p><p>Remarks: Still found on some online searches as Arius leptonotacanthus.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

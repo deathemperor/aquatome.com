@@ -16,6 +16,144 @@
     "palau",
     "babeldaob"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW",
+        "JP",
+        "PW"
+      ],
+      "regions": [
+        "Yaeyama",
+        "Ryukyu",
+        "Bonin",
+        "Iriomote Island",
+        "Mariana Islands",
+        "Babeldaob"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species' known range extends in a rough eastward arc from southern Taiwan (Pintung and Taitung counties) through the Japanese island groups of Yaeyama, Ryukyu (in the latter it has been found as far north as the Osumi Islands, close to mainland Japan) and Bonin, with Micronesia representing the south-eastern limit.",
+          "countries": [
+            "TW"
+          ],
+          "regions": [
+            "Yaeyama",
+            "Ryukyu",
+            "Bonin"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as 'Nakama River, Yaeyama-gun, Iriomote Island, Okinawa Prefecture, Japan'.",
+          "countries": [
+            "JP"
+          ],
+          "regions": [
+            "Iriomote Island"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Micronesia it has been recorded from the Mariana Islands (only Guam as far as is known) and Babeldaob (aka Babelthuap) Island, Palau, and its distribution thus overlaps with that of several congeners, including S. atropurpureus.",
+          "countries": [
+            "PW"
+          ],
+          "regions": [
+            "Mariana Islands",
+            "Babeldaob"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2376128,
+      "total": 47,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "JP",
+          29
+        ],
+        [
+          "TW",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          21.09375,
+          11,
+          11
+        ],
+        [
+          120.9375,
+          21.09375,
+          5,
+          5
+        ],
+        [
+          120.9375,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          122.34375,
+          23.90625,
+          5,
+          5
+        ],
+        [
+          123.75,
+          23.90625,
+          8,
+          8
+        ],
+        [
+          127.96875,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          127.96875,
+          28.125,
+          1,
+          1
+        ],
+        [
+          129.375,
+          28.125,
+          7,
+          7
+        ],
+        [
+          129.375,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          130.78125,
+          29.53125,
+          2,
+          2
+        ],
+        [
+          130.78125,
+          30.9375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -150,7 +288,7 @@
       "width": 800,
       "height": 382,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Odyssey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-percnopterygionus",
       "caption": "Dominant male specimen - yellow colour phase.",
       "source": "seriouslyfish"
@@ -161,7 +299,7 @@
       "width": 819,
       "height": 614,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Leo Chan / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-percnopterygionus",
       "caption": "Female in the aquarium.",
       "source": "seriouslyfish"
@@ -172,7 +310,7 @@
       "width": 800,
       "height": 453,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Odyssey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-percnopterygionus",
       "caption": "Nuptial male, Okinawa, Japan.",
       "source": "seriouslyfish"
@@ -183,7 +321,7 @@
       "width": 800,
       "height": 571,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Odyssey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-percnopterygionus",
       "caption": "Two males sparring, Okinawa, Japan.",
       "source": "seriouslyfish"

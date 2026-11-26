@@ -15,13 +15,16 @@
     "behaviour:seriouslyfish": "<p>Đây là loài cá lớn và săn mồi. Nó nuốt được những con mồi to đến bất ngờ, nên phải chọn bạn cùng bể thật kỹ. Cố gắng chọn những con to hơn nó để khỏi xảy ra chuyện đáng tiếc. Nếu bể đủ rộng, bạn có thể ghép chung với cá tai tượng khổng lồ (giant gourami), cá rồng (arowana) và các loài cá chép cỡ lớn.</p>",
     "dimorphism:seriouslyfish": "<p>Chưa rõ.</p>",
     "reproduction:seriouslyfish": "<p>Hiện chưa có ghi nhận nào về việc cho loài này sinh sản thành công trong bể nuôi.</p>",
-    "notes:seriouslyfish": "<p>Loài này không phổ biến lắm ngoài cửa hàng. Lý do có lẽ là nó trông không bắt mắt mà lại lớn rất to. Nó chỉ hợp với những bể lớn nhất.</p>"
+    "notes:seriouslyfish": "<p>Loài này không phổ biến lắm ngoài cửa hàng. Lý do có lẽ là nó trông không bắt mắt mà lại lớn rất to. Nó chỉ hợp với những bể lớn nhất.</p>",
+    "distribution:glaser": "<p>Tuy nhiên, loài này phân bố rất rộng. Nó có ở sông Nile, ở hầu khắp Tây Phi, và cả ở những con sông chảy qua xavan và rừng ven sông ở Đông Phi.</p>",
+    "behaviour:glaser": "<p>Trong bể, loài này khá hiền, nhưng cá nhỏ thì đương nhiên sẽ bị ăn. Clarotes laticeps bơi ra chỗ nước thoáng nhiều hơn mức người ta thường thấy ở kiểu cá này. Chúng còn hay cố nhảy lên khỏi mặt nước để đớp mồi, nên phải đậy nắp bể cho kỹ.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "glaser": 0.9
     }
   }
 }

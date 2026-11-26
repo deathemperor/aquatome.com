@@ -2,32 +2,6 @@
   "id": "bagre-marinus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/19792536.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/19792536-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "jedwardson",
-      "sourceUrl": "https://www.inaturalist.org/photos/19792536",
-      "caption": "Cá da trơn gafftopsail sống gần mặt nước, râu dài",
-      "best": true,
-      "kind": "habitat",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/74011571.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/74011571-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Morgan Hay",
-      "sourceUrl": "https://www.inaturalist.org/photos/74011571",
-      "caption": "Cá da trơn gafftopsail còn sống, vừa câu lên khỏi mặt nước biển",
-      "best": true,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/26723211.webp",
       "thumb": "https://media.aquatome.com/inaturalist/26723211-480.webp",
       "width": 1024,
@@ -37,60 +11,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/26723211",
       "caption": "Cá da trơn gafftopsail bơi sát mặt nước biển, vây lưng giương cao",
       "best": true,
-      "kind": "habitat",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/92372567.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/92372567-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Eamon Corbett",
-      "sourceUrl": "https://www.inaturalist.org/photos/92372567",
-      "caption": "Cá da trơn gafftopsail còn sống trong lưới, vây lưng cao",
-      "best": true,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/712771997.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/712771997-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "koskinonodon",
-      "sourceUrl": "https://www.inaturalist.org/photos/712771997",
-      "caption": "Cá da trơn gafftopsail ở vùng nước nông ven bờ",
-      "best": true,
-      "kind": "habitat",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/342762796.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/342762796-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Kristof Zyskowski",
-      "sourceUrl": "https://www.inaturalist.org/photos/342762796",
-      "caption": "Cá da trơn gafftopsail vừa câu được, nhìn nghiêng rõ vây",
-      "best": true,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/459060984.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/459060984-480.webp",
-      "width": 907,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Quinn",
-      "sourceUrl": "https://www.inaturalist.org/photos/459060984",
-      "caption": "Cá da trơn gafftopsail còn sống, treo trên dây câu gần mặt nước",
-      "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/490614687.webp",
@@ -102,8 +23,19 @@
       "sourceUrl": "https://www.inaturalist.org/photos/490614687",
       "caption": "Cá da trơn gafftopsail bơi gần mặt nước, râu dài",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/712771997.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/712771997-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "koskinonodon",
+      "sourceUrl": "https://www.inaturalist.org/photos/712771997",
+      "caption": "Cá da trơn gafftopsail ở vùng nước nông ven bờ",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/564823734.webp",
@@ -115,8 +47,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/564823734",
       "caption": "Cá da trơn gafftopsail trong vợt sau khi câu được",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/641184282.webp",
@@ -128,8 +59,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/641184282",
       "caption": "Cá da trơn gafftopsail còn sống trong vợt trên thuyền",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/641184278.webp",
@@ -141,21 +71,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/641184278",
       "caption": "Cá da trơn gafftopsail còn sống trong vợt, vây lưng cao",
       "best": true,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/452654129.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/452654129-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Josmar Olivares",
-      "sourceUrl": "https://www.inaturalist.org/photos/452654129",
-      "caption": "Cá da trơn gafftopsail treo trên dây câu ban đêm",
-      "best": false,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/641546672.webp",
@@ -167,11 +83,38 @@
       "sourceUrl": "https://www.inaturalist.org/photos/641546672",
       "caption": "Đầu và vây lưng cá da trơn gafftopsail trong vợt",
       "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/3117059.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/3117059-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "soulflower_ecological",
+      "sourceUrl": "https://www.inaturalist.org/photos/3117059",
+      "caption": "Cá da trơn gafftopsail trong thùng trắng, nhìn nghiêng rõ nét",
+      "best": true,
       "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/4700401.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/4700401-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Gerry Salmon",
+      "sourceUrl": "https://www.inaturalist.org/photos/4700401",
+      "caption": "Cá da trơn gafftopsail với râu dài trên sàn gỗ bến tàu",
+      "best": true,
+      "kind": "other",
+      "setup": false,
       "unchecked": true
     }
   ],
-  "seen": 220,
-  "updatedAt": "2026-11-14",
-  "builtAt": "2026-11-14"
+  "seen": 240,
+  "updatedAt": "2026-11-25",
+  "builtAt": "2026-11-25"
 }

@@ -1,0 +1,43 @@
+{
+  "id": "astroblepus-putumayoensis",
+  "native": {
+    "input": "72cd26f8c81aa2f3",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Colombia, Department of Putumayo, Rumiyaco River, tributary of the Mocoa River.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mocoa River",
+        "source": "scotcat",
+        "quote": "South America: Colombia, Department of Putumayo, Rumiyaco River, tributary of the Mocoa River.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus putumayoensis",
+    "status": "ACCEPTED",
+    "taxonKey": 9468282,
+    "datasets": [],
+    "native": [
+      "CO"
+    ],
+    "requests": 2,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

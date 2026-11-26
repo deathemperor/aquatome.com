@@ -1,7 +1,21 @@
 {
   "id": "channa-stewartii",
-  "photos": [],
-  "seen": 5,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/111186483.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/111186483-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Phalee BMC",
+      "sourceUrl": "https://www.inaturalist.org/photos/111186483",
+      "caption": "Cá lóc Assam bơi trên nền sỏi trong suối nước trong",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    }
+  ],
+  "seen": 9,
+  "updatedAt": "2026-11-18",
+  "builtAt": "2026-11-18"
 }

@@ -9,7 +9,8 @@
     "asia",
     "thailand",
     "laos",
-    "cambodia"
+    "cambodia",
+    "mekong"
   ],
   "range": {
     "native": {
@@ -18,9 +19,12 @@
         "LA",
         "KH"
       ],
-      "regions": [],
+      "regions": [
+        "Mekong"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -32,6 +36,14 @@
             "KH"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Osphronemus exodon is a giant gourami from the Mekong river.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
         }
       ]
     },
@@ -119,6 +131,10 @@
       {
         "source": "seriouslyfish",
         "value": 60
+      },
+      {
+        "source": "glaser",
+        "value": 60
       }
     ],
     "tankCm": [
@@ -142,6 +158,18 @@
       "html": "<p>The elephant ear gourami, Osphronemus exodon, is a large gourami from Thailand, Laos and Cambodia. Its greatly enlarged teeth, with an extra set in concentric bands on the outer lips, stay visible when the mouth is closed and are used to pick fruit from overhanging branches. Reaching 60 cm, it inhabits still or slow-moving areas of large rivers and enters flooded forest in the rainy season.</p><ul><li>Needs a very large tank</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/osphronemus-exodon-2/",
+      "html": "<p>Osphronemus exodon is a giant gourami from the Mekong river. It becomes about 60 cm long.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/osphronemus-exodon-2/",
+      "html": "<p>Osphronemus exodon is a real rarity; after quite a long time some juvenile, 5-6 cm long specimens could be imported again.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
@@ -150,8 +178,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/osphromenus_exodon_en/",
-      "html": "<p>Cambodia.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/osphronemus-exodon-2/",
+      "html": "<p>Mekong river.</p>"
     },
     {
       "key": "habitat",
@@ -190,28 +218,35 @@
       "html": "<p>Some adults may become very aggressive but this is often due to being kept in an aquarium that is too small. Given plenty of room this fish will usually coexist with tankmates such as knifefish, large barbs, catfish and Loricariids.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/osphronemus-exodon-2/",
+      "html": "<p>Juvenile giant gouramis of all species are pretty aggressive against each other. Only after puberty – at a size of 15-20 cm – does this aggressiveness become less. In very large tanks one can try nevertheless to keep a number of juveniles together, but even under these conditions some fin damage will be rather normal. Whoever does not like this is recommended to keep juveniles singly until they have a size of about 20 cm and then accompany them with conspecifics in a very large tank. Adult giant gouramies are quite peaceful towards their own kind. Other fish are usually ignored by giant gouramies in all life stages.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
       "html": "<p>Unknown.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/osphronemus-exodon-2/",
+      "html": "<p>Juveniles look very much like the common giant gourami (O. goramy); only experts notice the higher number of stripes on the flanks and the somewhat differently shaped caudal spot. Adults cannot be mistaken: they have teeth on their lips. It is unknown what these teeth are for.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
-      "html": "<p>Not yet reported in aquaria, but probably breeds in a similar fashion to its cousin O. goramy. In that species the male builds a large nest out of vegetation (including grasses and roots in nature). Spawning occurs in the vicinity of the nest and the eggs are then taken there by the male. The female is chased away at this point. The eggs hatch in 24-36 hours and the fry become free swimming 3-5 days later. The male continues to guard them for 2-3 weeks in the wild but can be removed from the aquarium once the young are free swimming. They are large enough to accept brine shrimp nauplii and powdered flake from the first day. Obviously an enormous aquarium, or perhaps a tropical pond, would be required for any serious breeding attempt.</p>"
+      "html": "<p>Not yet reported in aquaria, but probably breeds in a similar fashion to its cousin O. goramy. In that species the male builds a large nest out of vegetation (including grasses and roots in nature). Spawning occurs in the vicinity of the nest and the eggs are then taken there by the male. The female is chased away at this point. The eggs hatch in 24-36 hours and the fry become free swimming 3-5 days later. The male continues to guard them for 2-3 weeks in the wild but can be removed from the aquarium once the young are free swimming. They are large enough to accept brine shrimp nauplii and powdered flake from the first day. Obviously an enormous aquarium, or perhaps a tropical pond, would be required for any serious breeding attempt.</p>",
+      "fixed": true
     },
     {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
       "html": "<p>A bizarre and very recent addition to the genus, O. exodon is infrequently imported to the hobby, but has been seen occasionally. It has specially adapted mouthparts whereby it has greatly enlarged teeth. An extra set of teeth can also be seen growing in concentric bands on the outer lips! These are used in nature to literally 'pick' fruit from overhanging branches, with the fish often leaping from the water to grab a particularly juicy fig or other fruit. When the mouth of the fish is closed these teeth remain external. It can be distinguished from other members of the genus by its very large gill covers and more obviously, its unique dentition. Juvenile specimens exhibit vertical barring and also possess a dark spot just in front of the caudal peduncle.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/osphromenus_exodon_en/",
-      "html": "<p>Even though this fish looks like the common gourami, it is really something special and rare. As far as is known, this species had never before been imported to Germany. When they reach a size of about 30–40 cm, they turn their lips inside out and show many small white teeth. Unfortunately, this stage is only shown in pictures in the original description. A tip: see this fish at the Wilhelma zoo in Stuttgart, Germany.</p>"
     }
   ],
   "photos": [
@@ -221,7 +256,7 @@
       "width": 887,
       "height": 591,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Colin Dunlop / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
       "caption": "Young adult with characteristic external teeth clearly visible.",
       "source": "seriouslyfish"
@@ -255,5 +290,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-17"
 }

@@ -1,0 +1,16 @@
+{
+  "slug": "pacaya",
+  "name": "Pacaya",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T17:59:22.116Z",
+    "why": "The place is a region in Peru, and the source's \"Rio Pacaya\" is a river, so an atlas in Malaysia would write \"Sungai Pacaya\" or similar, not bare \"Pacaya\", which drops the kind word."
+  },
+  "quality": {
+    "score": 0.5,
+    "indexable": false
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "id": "doumea-typica",
+  "scientificName": "Doumea typica",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Doumea",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "gabon",
+    "ogooue",
+    "democratic-republic-of-the-congo",
+    "congo-river",
+    "cameroon",
+    "republic-of-the-congo"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "CG",
+        "GA"
+      ],
+      "regions": [
+        "Congo River",
+        "Ogôoué"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Congo River basin and coastal rivers from Cameroon to Congo.",
+          "countries": [
+            "CM",
+            "CG"
+          ],
+          "regions": [
+            "Congo River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Remarks: D. typica is the type species for this genus and the holotype was collected in the Doumé Falls, Gabon, hence the genus name.",
+          "countries": [
+            "GA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Doumé (rivière Ogôoué).",
+          "countries": [],
+          "regions": [
+            "Ogôoué"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340797,
+      "total": 107,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "GA",
+          41
+        ],
+        [
+          "CM",
+          38
+        ],
+        [
+          "CG",
+          22
+        ],
+        [
+          "CD",
+          5
+        ],
+        [
+          "CI",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -8.4375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          9.84375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          9.84375,
+          0,
+          7,
+          7
+        ],
+        [
+          9.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          9.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          5.625,
+          11,
+          11
+        ],
+        [
+          11.25,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          11.25,
+          -4.21875,
+          17,
+          17
+        ],
+        [
+          11.25,
+          -2.8125,
+          11,
+          11
+        ],
+        [
+          11.25,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          11.25,
+          0,
+          5,
+          5
+        ],
+        [
+          11.25,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          11.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          11.25,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          11.25,
+          5.625,
+          9,
+          9
+        ],
+        [
+          12.65625,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          -5.625,
+          4,
+          0
+        ],
+        [
+          12.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          0,
+          8,
+          8
+        ],
+        [
+          14.0625,
+          5.625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 13
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/doumea_typica.htm",
+      "html": "<ul><li>Common name: none</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/doumea_typica.htm",
+      "html": "<p>Africa: Congo River basin and coastal rivers from Cameroon to Congo. Type locality: Doumé (rivière Ogôoué).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/doumea_typica.htm",
+      "html": "<p>The nine species in this genus prefer the upper courses of the rivers as they are rheophilic (an organism that prefers to live in fast moving water).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/doumea_typica.htm",
+      "html": "<p>These catfish are slim and elongated and possess bony projections (plates) that radiate from the vertebrae reaching all the way to the skin. The projections expand over the skin's surface, forming a shield that in some species covers much of the body. They lack a swimbladder so they tend to avoid open waters.</p><p>Etymology: The specific name typica: serving as type of genus.</p><p>Remarks: D. typica is the type species for this genus and the holotype was collected in the Doumé Falls, Gabon, hence the genus name.</p><p>IUCN Red List: The species is widespread within the Central Africa assessment region and is assessed as Least Concern, but needs updating (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/doumea_typica.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ferraris, C.J. Jr., 1991. Catfish in the Aquarium. An introduction to Catfish Keeping and the Diversity of Catfish Forms and Behavior. Tetra Press.</p><p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Moelants, T. 2010. Doumea typica. The IUCN Red List of Threatened Species 2010.</p><p>Seegers, L., 2008. The catfishes of Africa: A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p><p>Skelton, P.H. and G.G. Teugels, 1986. Amphiliidae. p. 54-65. In J. Daget, J.-P. Gosse and D.F.E. Thys van den Audenaerde (eds.) Check-list of the freshwater fishes of Africa (CLOFFA). ISNB, Brussels; MRAC, Tervuren; and ORSTOM, Paris. Vol. 2.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

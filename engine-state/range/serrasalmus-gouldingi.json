@@ -1,0 +1,135 @@
+{
+  "id": "serrasalmus-gouldingi",
+  "native": {
+    "input": "79f79bd2b7caf10b",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Goulding's piranha, Serrasalmus gouldingi, is a deep-bodied piranha from the rio Negro drainage in Brazil and the Casiquiare system in Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Goulding's piranha, Serrasalmus gouldingi, is a deep-bodied piranha from the rio Negro drainage in Brazil and the Casiquiare system in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed within the rio Negro drainage in northern Brazil, from above its confluence with the Casiquiare watershed at least as far south as the Archipelago das Anavilhanas in the lower Negro basin, and possibly to its mouth.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Goulding's piranha, Serrasalmus gouldingi, is a deep-bodied piranha from the rio Negro drainage in Brazil and the Casiquiare system in Venezuela.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare",
+        "source": "seriouslyfish",
+        "quote": "Goulding's piranha, Serrasalmus gouldingi, is a deep-bodied piranha from the rio Negro drainage in Brazil and the Casiquiare system in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Anavilhanas",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed within the rio Negro drainage in northern Brazil, from above its confluence with the Casiquiare watershed at least as far south as the Archipelago das Anavilhanas in the lower Negro basin, and possibly to its mouth.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Serrasalmus gouldingi",
+    "status": "ACCEPTED",
+    "taxonKey": 2354151,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        31
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        30
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        28
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        18
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        12
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        11
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        5
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T00:17:46.244Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-24T23:11:38.206Z",
+    "error": "claude failed (1): other"
+  }
+}

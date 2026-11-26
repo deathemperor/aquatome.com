@@ -98,18 +98,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/61942264.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/61942264-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY",
-      "author": "Franz Anthony",
-      "sourceUrl": "https://www.inaturalist.org/photos/61942264",
-      "caption": "Cá lìm kìm đấu ngoài tự nhiên gần mặt nước",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/a22c214484bfd6dc.webp",
       "thumb": "https://media.aquatome.com/commons/a22c214484bfd6dc-480.webp",
       "width": 1200,
@@ -118,18 +106,6 @@
       "author": "Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dermogenys_pusilla_by_OpenCage.jpg",
       "caption": "Cá lìm kìm đấu màu bạc bơi gần đá trong bể",
-      "best": false,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/33360997.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/33360997-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY",
-      "author": "Franz Anthony",
-      "sourceUrl": "https://www.inaturalist.org/photos/33360997",
-      "caption": "Cá lìm kìm đấu bơi gần mặt nước trong bể",
       "best": false,
       "kind": "other"
     },
@@ -143,6 +119,30 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dermogenys_pusill.jpg",
       "caption": "Cá lìm kìm đấu xám bạc bơi sát mặt nước, có phản chiếu",
       "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/61942264.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/61942264-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY",
+      "author": "Franz Anthony",
+      "sourceUrl": "https://www.inaturalist.org/photos/61942264",
+      "caption": "Cá lìm kìm đấu ngoài tự nhiên gần mặt nước",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/33360997.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/33360997-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY",
+      "author": "Franz Anthony",
+      "sourceUrl": "https://www.inaturalist.org/photos/33360997",
+      "caption": "Cá lìm kìm đấu bơi gần mặt nước trong bể",
+      "best": false,
       "kind": "other"
     }
   ],

@@ -3,10 +3,12 @@
   "name": "Cá chuột cờ đuôi",
   "altNames": [
     "Cá chuột đuôi cờ",
-    "Flagtail Catfish",
+    "Flagtail catfish",
     "Cá chuột Flag Tail Porthole",
     "Flag Tail Porthole Catfish",
-    "Flag Tail Hoplo"
+    "Flag Tail Hoplo",
+    "Cá chuột Dianema đuôi sọc",
+    "Flagtail Dianema"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá chuột cờ đuôi (Dianema urostriatum) là loài cá da trơn hiền lành thuộc họ Callichthyidae, sống ở một số vùng thuộc lưu vực Amazon của Brazil. Chúng không ở dòng sông chính mà sống trong những con lạch nước chảy chậm, các nhánh sông, hồ ngập lũ và ao. Toàn bộ cá có trên thị trường đều là cá bắt ngoài tự nhiên. Cá mới nhập về có thể khá yếu, nhưng khi đã quen bể thì chúng thường rất khỏe và dễ thích nghi. Loài này hợp với bể cộng đồng cỡ lớn.</p>",
@@ -28,14 +30,26 @@
     "behaviour:planetcatfish": "<p>Đây là loài cá rất hiền và hay bơi ở tầng giữa. Nếu muốn một con cá da trơn cỡ lớn cho bể cộng đồng thì loài này là lựa chọn lý tưởng.</p>",
     "dimorphism:planetcatfish": "<p>Con cái có thân dày và nặng nề hơn con đực.</p>",
     "reproduction:planetcatfish": "<p>Loài này có thể cho sinh sản trong bể. Muốn cá đẻ thì phải cho ăn thức ăn sống và tạo chu kỳ mùa khô, mùa mưa. Trứng bám vào vật nổi che trên mặt nước và xếp thành cụm tròn giống cá chuột Corydoras. Trứng cũng to cỡ trứng cá chuột. Lúc cá đẻ không thấy có tổ bọt.</p>",
-    "references:planetcatfish": "<p>Loricariidae, Callichthyidae, Doradidae e Trichomycteridae Annexo no. 5, pp 15.</p>"
+    "references:planetcatfish": "<p>Loricariidae, Callichthyidae, Doradidae e Trichomycteridae Annexo no. 5, pp 15.</p>",
+    "quickFacts:glaser": "<p>Trong nhóm họ hàng Callichthyinae, loài đẹp nhất chắc chắn là Dianema urostriatum. Vây đuôi sọc đen trắng nổi bật cho biết nó đến từ đâu: vùng nước bị chất humic nhuộm nâu sẫm. Ở đó, cá sống theo đàn cần có dấu hiệu riêng để nhận ra nhau cả khi nước tối, nhìn không rõ. Cá hồng y sống cùng nơi thì có sọc neon, còn Dianema urostriatum có vây đuôi sọc.</p>",
+    "behaviour:glaser": "<p>Đây là loài cá hiền, hay bơi đi bơi lại. Dù khá to (hơn 10 cm), chúng hầu như không gây nguy hiểm cho cá khác vì miệng nhỏ. Khác với hầu hết loài họ hàng, D. urostriatum bơi nhiều ở vùng nước trống.</p>",
+    "diet:glaser": "<p>Chúng ăn được mọi loại thức ăn khô, đông lạnh và tươi sống thường cho cá cảnh, và không đụng tới cây.</p>",
+    "reproduction:glaser": "<p>Đến mùa sinh sản, cá đực làm tổ bọt giống cá sặc, cá betta, rồi canh trứng cho tới khi cá con tự bơi được.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
       "seriouslyfish": 0.8,
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "glaser": 0.8
     }
+  },
+  "held": {
+    "checks": [
+      "elsewhere",
+      "harm"
+    ],
+    "at": "2026-11-20"
   }
 }

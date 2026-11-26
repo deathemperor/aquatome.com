@@ -10,7 +10,8 @@
     "pakistan",
     "india",
     "bangladesh",
-    "nepal"
+    "nepal",
+    "brahmaputra"
   ],
   "range": {
     "native": {
@@ -22,7 +23,8 @@
       ],
       "regions": [],
       "sources": [
-        "scotcat"
+        "scotcat",
+        "planetcatfish"
       ],
       "quotes": [
         {
@@ -251,6 +253,10 @@
       {
         "source": "scotcat",
         "value": 28
+      },
+      {
+        "source": "planetcatfish",
+        "value": 30
       }
     ]
   },
@@ -262,10 +268,22 @@
       "html": "<ul><li>Family: Ailiidae</li><li>Common name: Gangetic ailia</li><li>Size: 28.0 cm</li><li>Temperature: 22–24°C (71–75°F)</li><li>pH: 6.5–7.2</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1414",
+      "html": "<p>Scientific name: Ailia coila (Hamilton, 1822). Type locality: Bengal. Maximum size: 300 mm SL. IUCN Red List category: Near Threatened (last assessed 2010).</p>"
+    },
+    {
       "key": "distribution",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
       "html": "<p>Asia: Pakistan, India, Bangladesh and Nepal. Ailia coila was originally described as Malapterurus coila by Hamilton (1822) from freshwater rivers of West Bengal.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1414",
+      "html": "<p>Asia: Pakistan, India, Bangladesh and Nepal.</p>"
     },
     {
       "key": "maintenance",
@@ -280,6 +298,12 @@
       "html": "<p>Feeds on insects, shrimps, other crustaceans and small fish. In captivity, being predatory in nature, they will need meaty foods such as shrimps, earthworms, mealworms etc.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1414",
+      "html": "<p>Breeding: unreported.</p>"
+    },
+    {
       "key": "notes",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
@@ -290,6 +314,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/ailiidae/ailia_coila.htm",
       "html": "<ul><li>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2019).</li><li>Mishra, Abhisek. pers comm 2023.</li><li>Ng, H.H. &amp; Dahanukar, N. 2011. Ailia coila. The IUCN Red List of Threatened Species 2011.</li><li>Sampod, Rhaman Mabubur., pers comm, FB. 2023.</li><li>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1414",
+      "html": "<p>An account of the fishes found in the river Ganges, pp 158, 375.</p>"
     }
   ],
   "photos": [
@@ -377,5 +407,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-21"
 }

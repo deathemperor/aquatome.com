@@ -8,8 +8,81 @@
   "places": [
     "south-america",
     "peru",
-    "ucayali"
+    "ucayali",
+    "rio-ucayali",
+    "brazil",
+    "para"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Rio Ucayali",
+        "Rio Itayi",
+        "Rio Pacaya",
+        "River Pacaya"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Rio Ucayali",
+            "Rio Itayi",
+            "Rio Pacaya"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The type was found in Peru (\"Caño yarina\", on the bank of the River Pacaya, tributary of the Puinahua Canal, arm of the lower Rio Ucayali).",
+          "countries": [],
+          "regions": [
+            "River Pacaya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354163,
+      "total": 5,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "PE",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -42,6 +115,10 @@
       {
         "source": "seriouslyfish",
         "value": 11.4
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
@@ -65,10 +142,22 @@
       "html": "<p>Sanchez's piranha, Serrasalmus sanchezi, is a small piranha endemic to Peru, collected from rivers including the Ucayali, Itayi and Pacaya. It is sometimes still sold as 'Spilo cf' or 'Ruby-red Spilo', and its red throat has led to confusion with S. medinai and even Pygocentrus nattereri. The serrae on the underside are arranged irregularly, unlike other Serrasalmus. Whether it can be kept in groups remains hotly debated.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-cf-sanchezi-para-2/",
+      "html": "<p>With about 15 cm final size (this information comes from the scientific literature) S. sanchezi remains quite small; it is a very aggressive species, which is best cared for individually.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-sanchezi",
       "html": "<p>Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-cf-sanchezi-para-2/",
+      "html": "<p>Serrasalmus sanchezi was only scientifically described in 1964. The type was found in Peru (\"Caño yarina\", on the bank of the River Pacaya, tributary of the Puinahua Canal, arm of the lower Rio Ucayali). Piranhas 5-8 cm long have now been received from the Brazilian state of Pará, which best correspond to S. sanchezi in their combination of characteristics. However, since the region of origin is quite far from Ucayali (approx. 2,000 km), they are called S. cf. sanchezi \"Pará\".</p>"
     },
     {
       "key": "habitat",
@@ -123,21 +212,82 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-sanchezi",
       "html": "<p>There are currently 24 described species of Serrasalmus, many of which look superficially similar. S. sanchezi has frequently been confused with S. spilopleura in the past, and is sometimes still sold as \"Spilo cf\" or \"Ruby-red Spilo\". It actually appears to be more closely related to S. rhombeus or S. irritans than S. spilopleura. The characteristic red throat has also led to it being confused with S. medinai and even the red-bellied piranha Pygocentrus nattereri on occasion. Apparently the species is most easily identified by examining the serrae on the underside of the fish. These are arranged in an irregular fashion in S. sanchezi but follow a uniform pattern in other Serrasalmus.</p><p>It's unclear whether the fish being sold as \"purple sanchezi\" are a geographical variant of the species as it's possible that all specimens develop deep purple scaling when adult.</p><p>Most experts agree that a detailed revision of Serrasalmus is necessary, as historically the genus has been viewed as something of a \"catch-all\" for similar-looking fin-biting/predatory characins. The juvenile forms of numerous species look broadly similar, characteristically developing the more distinctive adult patterning as they mature. This has resulted in new species being erected erroneously and there have been several attempts to reorganise the group. The most recent major revision was undertaken by Géry in the late 1970s, but a handful of new species have been described since then.</p><p>It's worth noting that in South America only Pygocentrus species such as P. nattereri are known as piranha, with Serrasalmus and other related genera being referred to by other names such as Pirambeba. Serrasalmus species are therefore not considered to be \"true\" piranhas, the name being applied to them by the English-speaking world and aquatic hobby. The relationship between these genera is too complex to address here, although when observing mature fish clear morphological differences are apparent. In his 1991 revision of Pygocentrus Fink stated the following: \"Relative to other serrasalmin, Pygocentrus is diagnosable by several features, including prepelvic serrae number, morphology of the gas bladder and skull, and head width.\"</p><p>It should also be said that serrasalmids are not the fearsome \"monster fish\" as often depicted by the media. Obvious care must be taken when performing tank maintenance but these fish will usually only bite when threatened, and they can be quite skittish in an aquarium setting unless their rather specialist needs are catered for. Most also live in excess of ten years and become less active as they mature, so think carefully before buying one.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-cf-sanchezi-para-2/",
+      "html": "<p>When trying to identify piranhas, one often pokes in the dark. The differences between juvenile and adult forms are dramatic, both in terms of physical and color characteristics. Some characteristics have proved to be quite reliable in combination: 1 - is a dark pigmented shoulder spot (humeral spot) present or not? 2 - Are dark bands present in the caudal fin and where do they run (e.g. at the edge of the fin, through the fin or at the base); 3 - the colour of the iris (red or brass). With these few characteristics the species can be limited quite well.</p><p>S. hollandi has a very similar pattern, but has a much duller head profile. S. hollandi comes from the river system of the Rio Madeira.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/9318756cebde7e6a.webp",
+      "thumb": "https://media.aquatome.com/commons/9318756cebde7e6a-480.webp",
       "width": 960,
       "height": 720,
       "licence": "Public domain",
       "author": "Deevo89",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:SP_A0154.jpg",
-      "caption": "Serrasalmus sanchezi in the home aquaria",
-      "thumb": "https://media.aquatome.com/commons/9318756cebde7e6a-480.webp"
+      "caption": "Serrasalmus sanchezi in the home aquaria"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2e0d14a8fb59a964.webp",
+      "thumb": "https://media.aquatome.com/glaser/2e0d14a8fb59a964-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-cf-sanchezi-para-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/038c03f53d4162c1.webp",
+      "thumb": "https://media.aquatome.com/glaser/038c03f53d4162c1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-cf-sanchezi-para-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/197e010d493d98b3.webp",
+      "thumb": "https://media.aquatome.com/glaser/197e010d493d98b3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-cf-sanchezi-para-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "22BJAh0CNN0",
+      "title": "Cakep banget guys ikan piranha ini, namanya serrasalmus sanchezi. Ekornya butterfly kayak goldfish.",
+      "durationSec": 123,
+      "lang": "id"
+    },
+    {
+      "youtubeId": "YXjDvZwLWC4",
+      "title": "New Serrasalmus Sanchezi in 40 Breeder",
+      "durationSec": 34,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6E0NmeldqlQ",
+      "title": "*FIRST LOOK* at My Serrasalmus Sanchezi PIRANHA",
+      "durationSec": 60,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "hUJGqkdp_bM",
+      "title": "Serrasalmus Sanchezi",
+      "durationSec": 12,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -167,5 +317,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-20"
 }

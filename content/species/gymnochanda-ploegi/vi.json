@@ -3,24 +3,25 @@
   "name": "Cá thủy tinh lùn",
   "altNames": [
     "Cá thủy tinh Gymnochanda ploegi",
-    "Dwarf Glass Fish"
+    "Dwarf Glass Fish",
+    "Cá thủy tinh lùn Gymnochanda"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Gymnochanda ploegi là một loài cá sơn thủy tinh (glass-perch) bé xíu, thân trong suốt, được mô tả vào năm 2014. Cá trưởng thành chỉ dài khoảng 2,5–3 cm SL (chiều dài chuẩn, không tính đuôi). Nhờ vậy nó thuộc nhóm nhỏ nhất trong giống.</p><ul><li>Kích thước: tối đa 3 cm chiều dài chuẩn (hiếm khi tới 3,5 cm)</li><li>Nhiệt độ: 24–28 °C</li><li>pH 5,0–6,5</li></ul>",
-    "distribution:bwaquatics": "<p>Cá sống trong các vùng đầm lầy than bùn và các con suối trong rừng ở Tây Kalimantan (Borneo), Indonesia.</p>",
-    "habitat:bwaquatics": "<p>Ngoài tự nhiên, cá sống trong nước đen mềm, có tính axit và rất ít khoáng. Nơi đó cây cối mọc dày và ánh sáng yếu. Đây là kiểu môi trường điển hình của rừng than bùn.</p>",
-    "waterConditions:bwaquatics": "<p>Loài này cần nước rất mềm và có tính axit, giống nước đen ở vùng than bùn.</p><ul><li>pH 5,0–6,5</li><li>GH ≤ 2 dGH</li><li>KH ≤ 1 dKH</li><li>TDS 20–90 ppm</li><li>Nhiệt độ 24–28 °C. Giữ nhiệt độ ổn định và nước luôn giàu oxy.</li></ul><p>Nước phải sạch và ổn định thì cá mới sống được. Tuyệt đối không cho muối vào bể.</p>",
-    "equipment:bwaquatics": "<p>Bạn nên để dòng chảy nhẹ và đèn dịu. Thả thêm cây nổi để cá có chỗ trốn.</p>",
-    "diet:bwaquatics": "<p>Đây là loài ăn thịt, chuyên săn những con mồi rất nhỏ. Cá ăn các loại mồi sống tí hon như giun vi sinh (micro-worm), bo bo (daphnia), Artemia mới nở và côn trùng nhỏ. Khi đã quen bể, cá có thể chịu ăn thức ăn đông lạnh băm nhuyễn hoặc cám hạt siêu nhỏ.</p>",
-    "behaviour:bwaquatics": "<p>Cá rất yếu và không chịu nổi nước bẩn hay nước nhiều khoáng. Bạn nên nuôi theo đàn, tốt nhất từ 6 con trở lên, cùng các bạn cùng bể hiền lành để cá đỡ stress.</p><p>Chỉ nên nuôi chung với những loài thật nhỏ, hiền và ưa nước mềm. Ví dụ như rasbora Boraras, các loài tetra nhỏ, chạch kuhli (Kuhli loach), tép nhỏ, hoặc những loài cá siêu nhỏ tính điềm đạm khác sống trong nước đen. Tránh xa cá hung dữ, cá bơi nhanh và cá đẻ con.</p>",
-    "dimorphism:bwaquatics": "<p>Cá đực có tia vây lưng và vây hậu môn dài hơn, thân thường ánh lên sắc đỏ hoặc vàng nhạt. Cá cái thì trong suốt hơn.</p>",
-    "reproduction:bwaquatics": "<p>Cho loài này sinh sản trong bể rất khó. Lý do là cá bột quá nhỏ và cá có tập tính đẻ trứng đặc thù.</p>"
+    "quickFacts:bwaquatics": "<p>Gymnochanda ploegi là một loài cá sơn thủy tinh nhỏ xíu, không có vảy. Con lớn nhất dài khoảng 2,8 cm, đo từ mõm tới gốc đuôi. Trong Sách Đỏ IUCN, loài này xếp vào nhóm Thiếu dữ liệu (Data Deficient).</p>",
+    "distribution:bwaquatics": "<p>Loài này sống ở vùng Sanggau và vùng hồ Kapuas, Tây Kalimantan, trên đảo Borneo. Tan và Lim mô tả nó năm 2014. Tên loài đặt theo Alex Ploeg, Tổng thư ký Ornamental Fish International, người mất trên chuyến bay MH17 cũng trong năm đó.</p>",
+    "habitat:bwaquatics": "<p>Ngoài tự nhiên, cá sống trong các vũng nước đứng gần rừng ngập và hệ thống sông. Ở đó nước mềm, chua, cây mọc dày và ánh sáng yếu. Môi trường sống: các vũng nước đứng gần rừng ngập than bùn.</p>",
+    "maintenance:bwaquatics": "<p>Bể cần dòng chảy nhẹ, đèn dịu và thả cây nổi cho cá có chỗ trốn. Loài này rất yếu, không chịu được nước bẩn hay nước nhiều khoáng.</p>",
+    "waterConditions:bwaquatics": "<ul><li>TDS: 20 đến 90 ppm</li><li>pH: 5,0 đến 6,5. Tuyệt đối không cho muối vào bể.</li><li>Nhiệt độ: 24 đến 28 °C. Giữ nhiệt ổn định và nước luôn đủ oxy.</li></ul>",
+    "diet:bwaquatics": "<p>Đây là loài săn mồi cỡ nhỏ. Cho ăn giun vi sinh (microworm), bo bo, Artemia mới nở và côn trùng nhỏ. Khi đã quen bể, cá có thể chịu ăn thức ăn đông lạnh cắt thật nhỏ hoặc cám hạt li ti.</p>",
+    "behaviour:bwaquatics": "<p>Cá hiền, nên nuôi đàn từ 6 con trở lên. Chỉ thả chung với những loài nước mềm thật nhỏ và hiền, như Boraras, các loại tetra nhỏ, cá chạch kuhli và tép nhỏ. Đừng nuôi chung với cá bơi nhanh, cá dữ hay cá đẻ con.</p>",
+    "dimorphism:bwaquatics": "<p>Thân cá nhỏ, trong suốt và không có vảy, nhìn xuyên qua thấy được bong bóng và xương sống. Con đực đủ lớn có vây lưng thứ hai và vây hậu môn xòe rộng, tia vây dài ra. Thân nó màu hồng nhạt, nửa trên ửng đỏ. Vây lưng và vây hậu môn màu đỏ nâu, viền đen, còn đuôi ánh đỏ. Con cái không có vây dài, thân hơi vàng pha chút đỏ và gần như trong suốt.</p>",
+    "reproduction:bwaquatics": "<p>Cho loài này đẻ trong bể rất khó, vì cá bột quá nhỏ và cá có kiểu đẻ riêng.</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.8
+      "bwaquatics": 0.85
     }
   }
 }

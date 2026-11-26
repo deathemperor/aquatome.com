@@ -16,7 +16,7 @@ public final class HandbookPaths {
   /// Each kind's shard count when its pages were kept: with another, the kept shards are other files.
   private var keptCounts: [String: Int]
   /// The index's pages by path in its form: one the index gives in the other form is found too.
-  private var byPath: [String: HandbookIndex.Item] = [:]
+  private var byPath = ItemsByKey([]) { _ in nil }
   /// Where the index has its Vietnamese pages; nil for an Indonesian or Thai index.
   private var form: PathForm?
   /// The form what's kept is in: the index's when it last moved; under "/vi/" from an app older than the move.
@@ -40,7 +40,7 @@ public final class HandbookPaths {
   public func use(_ index: HandbookIndex) {
     let form = PathForm(index)
     self.form = form
-    byPath = Dictionary(index.items.map { (form?.path($0.path) ?? $0.path, $0) }, uniquingKeysWith: { a, _ in a })
+    byPath = ItemsByKey(index.items) { form?.path($0.path) ?? $0.path }
     guard let form else { return }
     // The lists by the index's form, not the shards': a move cut short, then the site back the way it was, finds the
     // shards where they were but the lists already moved.
@@ -119,6 +119,17 @@ public final class HandbookPaths {
     }
     if !out.isEmpty { saveKept() }
     return out
+  }
+
+  /// Whether another language than `lang` has pages kept for offline, and pages saved, on this phone: they stay with
+  /// their language and come back with it, which an empty shelf or list in this one says.
+  public static func elsewhere(than lang: String, languages: [String], defaults: UserDefaults = .standard) -> (kept: Bool, saved: Bool) {
+    let others = languages.filter { $0 != lang }
+    let kept = others.contains { !(defaults.stringArray(forKey: "handbook.kept.\($0)") ?? []).isEmpty }
+    let saved = others.contains { l in
+      defaults.data(forKey: "handbook.reading.\(l)").flatMap { try? JSONDecoder().decode(ReadingList.self, from: $0) }.map { !$0.saved.isEmpty } ?? false
+    }
+    return (kept, saved)
   }
 
   private func change(_ edit: (inout ReadingList) -> Void) {

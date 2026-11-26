@@ -1,8 +1,13 @@
 {
   "slug": "yangtze",
-  "name": "Yangtze",
+  "name": "Sungai Yangtze",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-21T01:16:04.068Z"
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

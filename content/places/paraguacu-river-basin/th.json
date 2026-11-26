@@ -1,0 +1,16 @@
+{
+  "slug": "paraguacu-river-basin",
+  "name": "ลุ่มแม่น้ำปารากวาซู",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T01:15:23.228Z",
+    "why": "The Thai is well-formed with the right kind word, but it transliterates Portuguese \"Paraguaçu\" as \"ปารากวาซู\" (Paraguay-like), whereas Brazilian Portuguese ç/gua is better rendered \"ปารากวาสุ\" and the usual Thai form is uncertain."
+  },
+  "quality": {
+    "score": 0.72,
+    "indexable": false
+  }
+}

@@ -93,8 +93,8 @@ cool() {
 }
 # Before a check's second try: the first try's own load gone. calm alone didn't wait for it: at 02:28 on 2026-11-12 the
 # photos part's second try began the moment its first ended, at a 5-minute load far under calm's 4 a core, and ran two
-# to four times slower than the first, its site tests out of time. The first try's workers (two packages' side by side)
-# leave the 1-minute load as they end: the second try waits a minute, then until that load is under one a core, up to
+# to four times slower than the first, its site tests out of time. The first try's workers (then two packages' side by
+# side) leave the 1-minute load as they end: the second try waits a minute, then until that load is under one a core, up to
 # 10 more minutes, then goes ahead. GitHub's runners run one part each, so there it doesn't wait.
 settled() {
   [ -z "${GITHUB_ACTIONS:-}" ] || return 0
@@ -120,8 +120,8 @@ checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c
 # the root `pnpm test` gives up at a package's first failure, so the others may not have finished, and a package can fail
 # with no test named. A step that passes the second time goes on, and its failed tests are logged as "flaky:" to be
 # fixed. The second try starts once the first's own load has gone (settled), and runs the packages one at a time
-# (pnpm's workspace-concurrency, set for the whole step): the same tests and the same limits, on half the load of
-# its own. If it fails again: TIMED_OUT when tests ran out of time on that run, and the run's work is kept
+# (pnpm's workspace-concurrency, set for the whole step; on the Mac the first try too, since 16 Nov): the same tests and
+# the same limits, on half the load of its own. If it fails again: TIMED_OUT when tests ran out of time on that run, and the run's work is kept
 # (keep_unpublished).
 # Each test's time limits, times AQ_TEST_TIME_SCALE (the vitest configs and @aq/schema/test-time read it): 1 on a Mac at
 # full strength, HOT_TIME_SCALE while heat has taken cores away and on a check's second try on the Mac. Waiting for cool
@@ -136,6 +136,11 @@ checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c
 # core with every core at work, at their own limits, and ran out of time.
 HOT_TIME_SCALE=6
 SECOND_TRY_WORKERS=2
+# The first try on the Mac starts FIRST_TRY_WORKERS at a time and tests one package at a time, at night too: pnpm ran up to
+# four packages side by side, each with a vitest worker for every core but one, and an engine run's checks could take
+# every core of a Mac the leads, the simulators and the owner share ("you are killing the machine", the owner, 16 Nov
+# 2026; the chief of staff's cap, that day). GitHub's runner is a machine of its own and keeps vitest's own number.
+FIRST_TRY_WORKERS=4
 # The 5-minute load and the cores, "load cores"; nothing where there's no reading (not a Mac).
 load5() { local l c; l=$(sysctl -n vm.loadavg 2>/dev/null) && c=$(sysctl -n hw.ncpu 2>/dev/null) || return 0; echo "$(awk '{print int($3)}' <<<"$l") $c"; }
 # Why a check's tests get more than their own time, or nothing: heat has taken cores, or (on the Mac, not on GitHub's
@@ -160,7 +165,11 @@ verify() {
     why=$(slow_mac)
     AQ_TEST_TIME_SCALE=1
     [ -z "$why" ] || { AQ_TEST_TIME_SCALE=$HOT_TIME_SCALE; log "$why: tests get $AQ_TEST_TIME_SCALE times their time"; }
-    checks "$step" >>"$TEST_LOG" 2>&1 && continue
+    if [ -n "${GITHUB_ACTIONS:-}" ]; then
+      checks "$step" >>"$TEST_LOG" 2>&1 && continue
+    else
+      VITEST_MAX_WORKERS=$FIRST_TRY_WORKERS checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1 && continue
+    fi
     first=$from
     if ran_out "$first"; then log "tests ran out of time on a busy Mac: checking again once it is calmer"; else log "a check failed: running it once more once the Mac is calmer"; fi
     settled
@@ -180,7 +189,8 @@ verify() {
   done
 }
 # The tests that failed in $TEST_LOG since byte $1, one a line: vitest's FAIL lines, with pnpm's prefix and the colours off.
-failed_tests() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | sed -nE 's/^([^[:space:]]+ test:)?[[:space:]]*FAIL[[:space:]]+//p' | sort -u; }
+# The prefix is "<package> test: ", or "<package> test:content: " from a content run's short step (CONTENT_STEP).
+failed_tests() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | sed -nE 's/^([^[:space:]]+ test(:content)?:)?[[:space:]]*FAIL[[:space:]]+//p' | sort -u; }
 # Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time: vitest's own line for a test, a hook
 # (beforeAll and the like) or a worker that didn't start in time, "Error: Test timed out in 30000ms.", at the start of a
 # line after pnpm's prefix, colours off. Only those: a failing test that quotes one, in its assertion, a diff, its title,
@@ -189,7 +199,7 @@ failed_tests() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')
 # console.log, a later line of a many-line message) still reads as out of time, which keeps the work and loses nothing;
 # a stricter pattern risks the other way, a real time-out held, its retries lost (the chief of staff, 14 Nov). grep reads
 # it all (-c, not -q): under pipefail, tail cut off by grep's early exit would make a match read as none.
-ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | grep -cE '^([^[:space:]]+ test: )?Error: ((Test|Hook) timed out in [0-9]+ms\.|\[vitest-pool[^]]*\]: Timeout (waiting for worker to respond|starting [a-z]+ runner))' >/dev/null; }
+ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | grep -cE '^([^[:space:]]+ test(:content)?: )?Error: ((Test|Hook) timed out in [0-9]+ms\.|\[vitest-pool[^]]*\]: Timeout (waiting for worker to respond|starting [a-z]+ runner))' >/dev/null; }
 
 # A run whose tests ran out of time even on their second try (TIMED_OUT) ran on a Mac too busy for them, not on broken
 # work: its commit goes on a branch of its own, kept/<job>/<when>, which the next run's start from main (from_main)
@@ -565,17 +575,42 @@ main_pages() {
 added() { git diff --name-only --no-renames --diff-filter=A "$1" "$2" -- content | sort; }
 # The content files any commit after $1 up to $2 added, renames not followed, sorted: one a later commit deleted too.
 ever_added() { git log --format= --name-only --no-renames --diff-filter=A "$1..$2" -- content | sed '/^$/d' | sort -u; }
+# After a pull that brought main's commits in, clean or not: a page's hold follows the record that won, so a release on
+# main during a run stands, and so does a hold (main-holds.mjs says which pages and why; Page Recovery and the chief of
+# staff, 16 Nov 2026). Only the hold moves, and only on a page whose text is main's: one whose text isn't stays as merged,
+# and is counted in the log. In a commit of its own. `main_holds <this run's HEAD before the pull> [<main>, @{u}]` is false
+# when it put main's holds back, a tree no check has seen, so the caller checks again, as a clash does.
+CYCLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+main_holds() {
+  local up=${2:-} base out holds texts harms
+  [ -n "$up" ] || up='@{u}'
+  up=$(git rev-parse "$up") && base=$(git merge-base "$1" "$up") || return 0
+  [ "$base" != "$up" ] || return 0
+  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up"); then
+    log "main's holds: the pages main read during this run couldn't be compared, so their holds stay as merged"
+    return 0
+  fi
+  holds=$(sed -n 's/^hold //p' <<<"$out") texts=$(sed -n 's/^text //p' <<<"$out") harms=$(sed -n 's/^harm //p' <<<"$out")
+  [ -z "$texts" ] || log "$(grep -c . <<<"$texts") pages main read during this run have main's record and this run's text, left as merged: $(head -5 <<<"$texts" | tr '\n' ' ')"
+  [ -z "$harms" ] || log "$(grep -c . <<<"$harms") pages main read during this run stay held: another of their languages is held for harm: $(head -5 <<<"$harms" | tr '\n' ' ')"
+  [ -n "$holds" ] || return 0
+  # shellcheck disable=SC2086 # content paths have no spaces
+  git checkout "$up" -- $holds
+  git commit -q -m "content: main's holds on $(grep -c . <<<"$holds") pages main read during this run"
+  log "$(grep -c . <<<"$holds") pages main read during this run take main's hold, as its record has it: $(head -5 <<<"$holds" | tr '\n' ' ')"
+  return 1
+}
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
 # when its tests failed for real; KEPT_WHY says why it isn't published; BRANCH, the branch's name now (a check that
 # passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
-  local check=1 clash main head
+  local check=1 clash main head swept run
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   for _ in 1 2 3; do
-    main=$(git rev-parse origin/main 2>/dev/null || true)
+    main=$(git rev-parse origin/main 2>/dev/null || true) run=$(git rev-parse HEAD) swept=
     if ! net git pull -q --rebase origin main; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort 2>/dev/null || true
@@ -584,15 +619,33 @@ push_kept() {
       check=1
     fi
     # Main's pages put back is a tree the checks haven't seen: on a try after a lost push, back over what the sweep made of
-    # them (Grok's read of 19652e876, 14 Nov). main_pages commits only when it changed something.
+    # them (Grok's read of 19652e876, 14 Nov). main_pages commits only when it changed something, and so do main's holds
+    # (main_holds), after it: a page it put back whole is main's already.
     head=$(git rev-parse HEAD)
     [ -z "$BRANCH" ] || main_pages "$BRANCH"
+    main_holds "$run" origin/main || true
     [ "$(git rev-parse HEAD)" = "$head" ] || check=1
-    # A clean pull that brought main's commits in is swept and checked too, as swept_pull says why.
-    [ "$(git rev-parse origin/main 2>/dev/null)" = "$main" ] || check=1
-    if [ -n "$check" ]; then
+    # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
+    # main, it's checked in full; once it has, its lost push goes again as a run's own push does (push(), swept_pull):
+    # checked again only if the sweep changed more than the pages' dates or its reports, the calendar changed on both
+    # sides, or the migration failed (swept_clean), whatever main's commits changed, code too. On 15 Nov the held photos run of the night before passed its checks and lost its
+    # push three times, a full re-test of 30 to 50 minutes each on a hot Mac, while main took leads' merges, most with
+    # code (the Site lead and the chief of staff, 15 Nov).
+    # That sweep is the one the check sees, if it runs: a second would clear a failed migration's flag, and the tests
+    # would pass a tree whose photo records weren't migrated, which push() never publishes (Grok's read).
+    if [ "$(git rev-parse origin/main 2>/dev/null)" != "$main" ] && [ -z "$check" ]; then
+      head=$(git rev-parse HEAD)
       sweep_merged
-      if ! verify 'pnpm test'; then
+      swept=1
+      if swept_clean "$head" "$main" "$(git rev-parse origin/main)"; then
+        log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
+      else
+        check=1
+      fi
+    fi
+    if [ -n "$check" ]; then
+      [ -n "$swept" ] || sweep_merged
+      if ! verify_cycle; then
         if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
         elif [ -n "${MIGRATE_FAILED:-}" ]; then KEPT_WHY="its photo records couldn't be migrated"
         else KEPT_FAILED=1; fi
@@ -611,12 +664,110 @@ push_kept() {
   KEPT_WHY="the push didn't land"
   return 1
 }
-# verify, as a cycle's commit needs it: the tests, which build the site from their own fixture content. The real site
-# (about 7,600 pages) isn't built here: that build was about 14 of the checks' 16 minutes on a GitHub runner and 1 to 3
+# Which checks, the whole suite or the content's (the chief of staff, 16 Nov): four content runs every three hours each
+# proved main's code again, an hour and a half through one queue, and at 06:40 that day the pages, sf and photos runs had
+# been up 4.5 to 6.5 hours waiting on a test turn. A content run changes content, not code, and GitHub's unit tests run on
+# every code commit to main (ci.yml). So when the code this run is about to publish on is exactly a main commit's code,
+# and that commit's unit-test job finished green on GitHub, the run checks what it changed: the content, with the loader
+# (check-content) and every test file that reads it, without the site's fixture builds, which read none (CONTENT_STEP,
+# each package's test:content; the files left out are in scripts/content-tests.json, and ci.yml fails if one of them
+# reads the content). Anything that can't be shown takes the whole suite, as before: code
+# in this run's own commits, a commit GitHub hasn't finished (waited on up to UNIT_WAIT_SECONDS), one it cancelled or
+# failed, GitHub not answering, an origin that isn't GitHub (the cycle tests' repositories), the cloud's runner (its
+# token can't read checks). On the Mac the whole suite still runs once a day at a quiet hour (full_due), for the Mac
+# itself drifting: an update, a tool's version. Each run's log says which path it took and why.
+FULL_STEP='pnpm test'
+CONTENT_STEP='pnpm engine check-content && pnpm test:content'
+# What a content run writes and main's CI doesn't test (ci.yml's paths-ignore): the content, docs/review counted as it.
+CONTENT_PATHS=(content engine-state sources docs/review)
+UNIT_JOB='Unit tests, typecheck and browser checks'
+UNIT_WAIT_SECONDS=${UNIT_WAIT_SECONDS:-1200}
+FULL_STAMP="${FULL_STAMP:-$HOME/.cache/aquatome/full-suite-passed}"
+DAILY_WHY="the whole suite: its daily run on this Mac"
+# The newest commit on HEAD's line that changed anything but the content: HEAD's code is that commit's.
+code_commit() { git log -1 --format=%H HEAD -- . "${CONTENT_PATHS[@]/#/:(exclude)}"; }
+# GitHub's word on the unit-test job of commit $1: success, failure, cancelled…, pending while it runs, or nothing. A
+# stand-in (AQ_UNIT_JOB, a command given the commit) for the tests; otherwise only for a GitHub origin, under net's limit.
+# Only one of GitHub's own words: an error's body, or net's line when it gives up (log writes to stdout), is no answer.
+unit_job() {
+  local word
+  if [ -n "${AQ_UNIT_JOB:-}" ]; then word=$("$AQ_UNIT_JOB" "$1"); else
+    case "$(git remote get-url origin 2>/dev/null)" in *github.com[:/]deathemperor/aquatome.com*) ;; *) return 0 ;; esac
+    word=$(GIT_NET_SECONDS=60 net gh api "repos/deathemperor/aquatome.com/commits/$1/check-runs?per_page=100" \
+      --jq "[.check_runs[] | select(.name == \"$UNIT_JOB\") | if .status == \"completed\" then .conclusion else \"pending\" end] | if any(. == \"success\") then \"success\" elif any(. == \"pending\") then \"pending\" else (.[0] // \"\") end" 2>/dev/null)
+  fi
+  case "$word" in success | failure | cancelled | skipped | timed_out | action_required | neutral | stale | startup_failure | pending) echo "$word" ;; esac
+}
+# The whole suite's daily run on the Mac: none passed in 20 hours and it's a quiet hour (1 to 6), or the last pass is
+# 30 hours old and it's outside the owner's working day (8 to 21). Never in that day: on 16 Nov the first run after #1484
+# merged (photos, 11:10) found no pass stamped, counted that as past 30 hours and took the whole suite at 11:13 (the chief
+# of staff); and a night's daily run that fails would have had every run of the next morning take it again, once its
+# last pass was 30 hours old (a reader of #1516). A Mac with no pass stamped waits for the quiet hours. Only the
+# daily run's own pass is stamped ($FULL_STAMP): a whole suite taken for another reason at 13:00 would put the next
+# quiet window inside the 20 hours, and the run then went at a busy hour of the next day (a reader of #1484, 16 Nov).
+# Unless another run took it in the last 12 hours ($FULL_STAMP.taken) and may still be at it: a pass is stamped only at
+# its end, after a wait for the queue that has run past 4 hours, and the runs reach their checks an hour apart. A daily
+# run whose checks fail gives it back for the next run to take.
+full_due() {
+  engine_clone || return 1
+  [ -n "$(find "$FULL_STAMP" -mmin -1200 2>/dev/null)" ] && return 1
+  [ -n "$(find "$FULL_STAMP.taken" -mmin -720 2>/dev/null)" ] && return 1
+  local hour; hour=${AQ_HOUR:-$(date +%H)}; hour=${hour#0}
+  [ "$hour" -ge 1 ] && [ "$hour" -le 6 ] && return 0
+  [ "$hour" -lt 8 ] || [ "$hour" -ge 22 ] || return 1
+  [ -e "$FULL_STAMP" ] && [ -z "$(find "$FULL_STAMP" -mmin -1800 2>/dev/null)" ]
+}
+# CHECKS_STEP, the step this commit takes, and CHECKS_WHY, why.
+checks_for() {
+  local code word waited=0 asked=$SECONDS said_waiting=
+  CHECKS_STEP=$FULL_STEP
+  if engine_cloud; then CHECKS_WHY="the whole suite: the cloud's runner doesn't read GitHub's checks"; return; fi
+  if full_due; then
+    mkdir -p "$(dirname "$FULL_STAMP")" && touch "$FULL_STAMP.taken"
+    CHECKS_WHY=$DAILY_WHY; return
+  fi
+  code=$(code_commit)
+  if [ -z "$code" ] || ! git merge-base --is-ancestor "$code" origin/main 2>/dev/null; then
+    CHECKS_WHY="the whole suite: this run's own commits change code"; return
+  fi
+  for (( ; ; )); do
+    word=$(unit_job "$code")
+    # By the clock, GitHub's answers' own time too.
+    waited=$((SECONDS - asked))
+    [ "$word" = pending ] && [ "$waited" -lt "$UNIT_WAIT_SECONDS" ] || break
+    [ -n "${said_waiting:-}" ] || log "GitHub's unit tests on ${code:0:9}, the code this run publishes on, are still running: waiting up to $((UNIT_WAIT_SECONDS / 60)) min"
+    said_waiting=1
+    sleep "${UNIT_POLL_SECONDS:-60}"
+  done
+  if [ "$word" = success ]; then
+    CHECKS_STEP=$CONTENT_STEP
+    CHECKS_WHY="the content's checks: its code is main's ${code:0:9}, whose unit tests passed on GitHub"
+  else
+    case "$word" in
+      pending) word="still running after $((waited / 60)) min" ;;
+      '') word="gave no answer" ;;
+      *) word="ended $word" ;;
+    esac
+    CHECKS_WHY="the whole suite: GitHub's unit tests on ${code:0:9}, the code this run publishes on, $word"
+  fi
+}
+# verify, as a content run's commit needs it: the checks checks_for picks, which build the site, if at all, from the
+# tests' own fixture content. The real site (about 7,600 pages) isn't built here: that build was about 14 of the checks' 16 minutes on a GitHub runner and 1 to 3
 # hours on this Mac at a load of 300 to 600 (2026-11-07), holding the lock while other jobs waited; no test reads it;
 # and in the history read on 2026-11-07 it never failed where the tests passed. deploy.yml builds the real site before
 # anything goes live and fails before the upload, so readers keep the live site and a "Deploy failed" issue opens.
-verify_cycle() { verify 'pnpm test'; }
+verify_cycle() {
+  local daily=
+  checks_for
+  log "tests: $CHECKS_WHY"
+  [ "$CHECKS_WHY" != "$DAILY_WHY" ] || daily=1
+  if ! verify "$CHECKS_STEP"; then
+    [ -z "$daily" ] || rm -f "$FULL_STAMP.taken"
+    return 1
+  fi
+  [ -z "$daily" ] || touch "$FULL_STAMP"
+  return 0
+}
 
 # Before the checks: the cycle's commit on top of main as it is now. A cycle runs for hours from the main it started on,
 # and a test that main failed then and has fixed since would hold back all of the cycle's pages: the pages part of
@@ -641,12 +792,54 @@ sweep_merged() {
 # merges item by item (merge-entity.mjs keeps an item one side changed), so a photo removed on main could come back on a
 # page this run also changed, and stay for a cycle, until the next sweep (the chief of staff, 2026-11-12). So after a pull
 # that brought main's commits in, the sweep runs on the merge, as after a clash. `swept_pull <main before the pull>` is
-# true when the sweep had nothing to do, so the push goes ahead, and false when it committed, so the tests run again.
+# true when the calendar changed on one side at most and the sweep had nothing to do, or changed only the pages' dates or
+# its reports on content that loads (swept_clean), so the push goes ahead, and false otherwise, so the tests run again.
 swept_pull() {
   [ "$(git rev-parse '@{u}' 2>/dev/null)" = "$1" ] && return 0
   local head; head=$(git rev-parse HEAD)
   sweep_merged
-  [ -z "${MIGRATE_FAILED:-}" ] && [ "$(git rev-parse HEAD)" = "$head" ]
+  swept_clean "$head" "$1" "$(git rev-parse '@{u}')"
+}
+# The sweep after a pull dates the pages main's commits changed (content/page-dates.json, the sitemap's dates), so it
+# changes that file at nearly every pull while main takes content, and each change was a full re-test: on 15 Nov the
+# photos run, its checks passed, lost its push at 09:07 and was tested in full again for two pages' dates. Of the 85
+# sweeps that reached main from 10 to 15 Nov, 58 changed that file alone, and 17 more only it and two of the sweep's own
+# reports, or a report alone (SWEPT_REPORTS: the photo-subjects review note and the list of heads with no animal). The one
+# test that reads those is the privacy test, which runs the photo records' guard over the real note and every engine-state
+# file; the migration in sweep_merged rewrites the note and runs that guard on the merge (MIGRATE_FAILED if it fails), and
+# of the two reports the sweep after it writes only the list, whose link and day the guard passes over (a reader's catch,
+# 15 Nov). The daily report reads the list on main. No test reads a real page's date: the site's tests build from
+# their fixture content, and the tests that load the real content only parse that file (load.ts). But the dates move
+# because main brought pages, and that re-test was then the only check of main's new pages merged with this run's (a
+# reader's catch, 15 Nov). So a sweep that changed only those files is checked by loading the content with the site's
+# loader, everything in it, every language, the dates in their format (check-content, content-check.ts): 25 s to 3
+# minutes on this Mac by its load, at low priority and under net's limit, with no turn in the checks queue. A load that
+# fails or runs out of time, or anything else the sweep changed, is checked in full (the chief of staff, 15 Nov). The load
+# doesn't stand for the other rules those tests hold the real content to, nor for files the loader doesn't open. One of
+# those is checked in full whenever both sides changed it, sweep or none: the calendar (content/curation.json), which
+# merges line by line and which this run and a lead's PR both write, so their merge is a calendar neither tested (no page
+# twice in four weeks, every fish day's photo, the hand lists' guides; the photos part of 8 Nov; readers' catch and the
+# Site lead, 15 Nov). When main didn't move in the pull, main's side changed nothing, and the test reads false.
+# The same for the picture files merge-main-whole.mjs merges (.gitattributes) when both sides changed the same lines: those
+# clashed and were checked in full until the driver merged them by record (a reader's catch, 16 Nov); the driver notes
+# them against the commit the pull replayed onto.
+# `swept_clean <HEAD before the sweep> <main before the pull> <main after it>` is true when the migration didn't fail, the
+# calendar changed on one side at most, no picture file's lines clashed, and the sweep committed nothing, or only those
+# files, on content that loads.
+SWEPT_REPORTS='content/page-dates\.json|docs/review/photo-subjects\.md|engine-state/_photo-no-animal-heads\.json'
+swept_clean() {
+  [ -z "${MIGRATE_FAILED:-}" ] || return 1
+  if ! git diff --quiet "$2" "$3" -- content/curation.json && ! git diff --quiet "$3" "$1" -- content/curation.json; then
+    log "the calendar changed on main and in this run: checked again"
+    return 1
+  fi
+  local clashed; clashed=$(grep -s "^$3 " "$(git rev-parse --git-path main-whole-clashes)" | cut -d' ' -f2- | tr '\n' ' ')
+  if [ -n "$clashed" ]; then log "picture files with lines changed on both sides, merged by record: checked again ($clashed)"; return 1; fi
+  [ "$(git rev-parse HEAD)" != "$1" ] || return 0
+  local files; files=$(git diff --no-renames --name-only "$1" HEAD) || return 1
+  [ -z "$(grep -vxE "$SWEPT_REPORTS" <<<"$files" || true)" ] || return 1
+  net nice -n 10 pnpm engine check-content || { log "the content didn't load, or took too long: checked again"; return 1; }
+  log "the sweep changed only the pages' dates or its reports, and the content loads as the site's loader loads it: not checked again"
 }
 # Work whose checks passed but whose push lost to main three times (each try pulled, swept and pushed while main moved
 # on: five merges in forty minutes on 14 Nov, when the sf run lost three) is kept as work out of time is, and the next run
@@ -669,8 +862,12 @@ replan_merged() {
   git add content/curation.json
   git diff --cached --quiet || git commit -q -m "content: the calendar planned again on main's"
 }
+# A clean pull here brings main's holds as push() does (main_holds): a species or plant page merges by field and never
+# clashes, so a release on main before this pull would otherwise stay under the run's hold, and push(), whose base is then
+# this main, wouldn't see it (a reader of #1505, 16 Nov 2026). The sweep and the checks come after it (engine-cycle.sh).
 catch_up() {
-  net git pull -q --rebase && return 0
+  local run; run=$(git rev-parse HEAD)
+  if net git pull -q --rebase; then main_holds "$run" || true; return 0; fi
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
 }

@@ -38,6 +38,32 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/108997293.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/108997293-480.webp",
+      "width": 537,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Jonathan Hughes",
+      "sourceUrl": "https://www.inaturalist.org/photos/108997293",
+      "caption": "Lá Rêu Leptodictyum riparium cận cảnh, xanh trong",
+      "best": true,
+      "kind": "detail",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/232090019.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/232090019-480.webp",
+      "width": 773,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Helen Waterman",
+      "sourceUrl": "https://www.inaturalist.org/photos/232090019",
+      "caption": "Cận cảnh các nhánh Rêu Leptodictyum riparium xanh tươi",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/commons/4dec08a7bc57c4fc.webp",
       "thumb": "https://media.aquatome.com/commons/4dec08a7bc57c4fc-480.webp",
       "width": 1200,
@@ -73,6 +99,19 @@
       "kind": "detail"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/136090438.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/136090438-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Susan Marley",
+      "sourceUrl": "https://www.inaturalist.org/photos/136090438",
+      "caption": "Rêu Leptodictyum riparium mọc thành thảm trên thân gỗ",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/commons/a7a6d5e69d074b05.webp",
       "thumb": "https://media.aquatome.com/commons/a7a6d5e69d074b05-480.webp",
       "width": 1200,
@@ -85,6 +124,32 @@
       "kind": "detail"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/144211214.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/144211214-480.webp",
+      "width": 353,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Jonathan Hughes",
+      "sourceUrl": "https://www.inaturalist.org/photos/144211214",
+      "caption": "Nhánh Rêu Leptodictyum riparium với lá xếp đều",
+      "best": false,
+      "kind": "detail",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/106713602.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/106713602-480.webp",
+      "width": 1024,
+      "height": 726,
+      "licence": "CC BY",
+      "author": "Zihao Wang",
+      "sourceUrl": "https://www.inaturalist.org/photos/106713602",
+      "caption": "Cành Rêu Leptodictyum riparium cận cảnh với giọt nước",
+      "best": false,
+      "kind": "detail",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/tropica/977a924f800f7c89.webp",
       "thumb": "https://media.aquatome.com/tropica/977a924f800f7c89-480.webp",
       "width": 1200,
@@ -94,6 +159,19 @@
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Leptodictyumriparium(003ETC)/28671",
       "source": "tropica",
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/232090035.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/232090035-480.webp",
+      "width": 833,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Helen Waterman",
+      "sourceUrl": "https://www.inaturalist.org/photos/232090035",
+      "caption": "Nhánh Rêu Leptodictyum riparium đặt trên nền giấy",
+      "best": false,
+      "kind": "detail",
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/tropica/a4e318e011eba17a.webp",
@@ -117,9 +195,139 @@
       "caption": "Rêu Leptodictyum riparium mọc thành thảm ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/159615269.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/159615269-480.webp",
+      "width": 498,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Helen Waterman",
+      "sourceUrl": "https://www.inaturalist.org/photos/159615269",
+      "caption": "Thảm Rêu Leptodictyum riparium xanh tươi dày đặc",
+      "best": true,
+      "kind": "emersed",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/59586757.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/59586757-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Brandon Corder",
+      "sourceUrl": "https://www.inaturalist.org/photos/59586757",
+      "caption": "Thảm rêu Leptodictyum riparium xanh tươi mọc ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/99079946.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/99079946-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Susan Marley",
+      "sourceUrl": "https://www.inaturalist.org/photos/99079946",
+      "caption": "Đám rêu Leptodictyum riparium mọc trên đá ẩm ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/106713612.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/106713612-480.webp",
+      "width": 1024,
+      "height": 752,
+      "licence": "CC BY",
+      "author": "Zihao Wang",
+      "sourceUrl": "https://www.inaturalist.org/photos/106713612",
+      "caption": "Thảm Rêu Leptodictyum riparium rủ xuống ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/181808475.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/181808475-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Jonathan Hughes",
+      "sourceUrl": "https://www.inaturalist.org/photos/181808475",
+      "caption": "Thảm Rêu Leptodictyum riparium xanh tươi mọc ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/190343891.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/190343891-480.webp",
+      "width": 865,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Helen Waterman",
+      "sourceUrl": "https://www.inaturalist.org/photos/190343891",
+      "caption": "Thảm Rêu Leptodictyum riparium xanh mướt, cận cảnh",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/187314157.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/187314157-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Andrew Sebastian",
+      "sourceUrl": "https://www.inaturalist.org/photos/187314157",
+      "caption": "Rêu Leptodictyum riparium mọc thành đám trong tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/106713738.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/106713738-480.webp",
+      "width": 1024,
+      "height": 721,
+      "licence": "CC BY",
+      "author": "Zihao Wang",
+      "sourceUrl": "https://www.inaturalist.org/photos/106713738",
+      "caption": "Cành Rêu Leptodictyum riparium có cuống bào tử",
+      "best": false,
+      "kind": "detail",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/190343913.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/190343913-480.webp",
+      "width": 837,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Helen Waterman",
+      "sourceUrl": "https://www.inaturalist.org/photos/190343913",
+      "caption": "Cụm Rêu Leptodictyum riparium đặt trên nền giấy",
+      "best": false,
+      "kind": "detail",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/190343940.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/190343940-480.webp",
+      "width": 650,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Helen Waterman",
+      "sourceUrl": "https://www.inaturalist.org/photos/190343940",
+      "caption": "Thân Rêu Leptodictyum riparium phủ lá dày, chụp cận cảnh",
+      "best": false,
+      "kind": "detail",
+      "setup": true
     }
   ],
-  "seen": 23,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-10"
+  "seen": 83,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

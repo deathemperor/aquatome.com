@@ -1,0 +1,70 @@
+{
+  "id": "moenkhausia-rubra",
+  "native": {
+    "input": "adaf8a6b523f6e55",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is so far known only from the Rio Juína and the Rio Juruena, both belonging to the upper Rio Tapajós drainage, Mato Grosso state, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tapajós",
+        "source": "glaser",
+        "quote": "The species is so far known only from the Rio Juína and the Rio Juruena, both belonging to the upper Rio Tapajós drainage, Mato Grosso state, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Juruena",
+        "source": "glaser",
+        "quote": "The species is so far known only from the Rio Juína and the Rio Juruena, both belonging to the upper Rio Tapajós drainage, Mato Grosso state, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Juína",
+        "source": "glaser",
+        "quote": "The species is so far known only from the Rio Juína and the Rio Juruena, both belonging to the upper Rio Tapajós drainage, Mato Grosso state, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Moenkhausia rubra",
+    "status": "ACCEPTED",
+    "taxonKey": 8241770,
+    "datasets": [
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        20
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-23T01:48:47.136Z"
+  }
+}

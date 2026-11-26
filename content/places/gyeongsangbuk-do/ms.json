@@ -3,6 +3,12 @@
   "name": "Gyeongsang Utara",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-19T18:55:06.745Z",
+    "why": "Malay atlases write this province as \"Gyeongsang Utara\" in form, but it is usually given with the kind word \"Wilayah\" (Wilayah Gyeongsang Utara) or the Korean \"Gyeongsang Utara\" alone is acceptable; the bare name lacks the kind word Malay uses."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

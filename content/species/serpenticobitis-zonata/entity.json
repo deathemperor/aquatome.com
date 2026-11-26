@@ -12,6 +12,62 @@
     "thailand",
     "chanthaburi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH"
+      ],
+      "regions": [
+        "Xe Bangfai",
+        "Xe Bang Hiang",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Serpenticobitis zonata is a small loach from the Xe Bangfai and Xe Bang Hiang drainages in Laos, and Chanthaburi province in south-eastern Thailand.",
+          "countries": [
+            "LA",
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Xe Bangfai and Xe Bang Hiang river drainages in Laos, both of which are part of the middle Mekong basin, plus the south-eastern province of Chanthaburi, Thailand.",
+          "countries": [],
+          "regions": [
+            "Xe Bangfai",
+            "Xe Bang Hiang",
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368148,
+      "total": 1,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          16.875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -146,7 +202,7 @@
       "width": 700,
       "height": 501,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Nonn Panitvong/Siamensis.org / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serpenticobitis-zonata",
       "caption": "Specimen in its natural habitat, Upper Mae Nom river, Thailand.",
       "source": "seriouslyfish"

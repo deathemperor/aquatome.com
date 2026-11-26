@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fitFindings, fitKey, fitRules, fitSource, fitText, type FitFinding, type FitState } from './fit'
 import { gateChecks, GATE_KINDS, HELD_BY_HAND, type HandHold, type Held } from './gate'
-import { loadPages, type Page } from './pages'
+import { fixedParts, loadPages, type Page } from './pages'
 import { norm, readable, render } from './reader'
 import { givesDose, metricFigures, numberIn, usTankOf } from './round'
 
@@ -126,7 +126,7 @@ const asText = (from: string) => render(from) || from
 /** The US tank sizes a source gives in gallons: "a 20-gallon tank", "50 gallons", "5.5 gal". */
 const gallonsIn = (text: string) => new Set([...text.matchAll(/(\d+(?:\.\d+)?)[\s-]*(?:US\s+)?gal(?:lon)?s?\b/gi)].map(m => Number(m[1])))
 
-type Lang = Record<string, unknown> & { name: string; held?: Held; body?: string; definition?: string; sections?: Record<string, string>; summary?: string[]; faq?: { q: string; a: string }[] }
+type Lang = Record<string, unknown> & { name: string; held?: Held; body?: string; bodyFixed?: boolean; faqFixed?: boolean; definition?: string; sections?: Record<string, string>; summary?: string[]; faq?: { q: string; a: string }[] }
 /** Where a part the checker reads (fitText) is kept in the page's language file. */
 const PATH = (field: string): (string | number)[] => {
   if (field.startsWith('sections.')) return ['sections', field.slice('sections.'.length)]
@@ -187,8 +187,13 @@ export async function unitsMend(root: string, o: { limit?: number; first?: reado
     }
     if (unsourced) { leave(unsourced); continue }
     // Every part the checker reads, mended where it gives one of these volumes.
-    // A name a person fixed stays (nameFixed): the rules keep the page held if it still has a units fault.
-    const parts = [...(p.nameFixed || t.nameFixed ? [] : [{ field: 'name', text: p.title }]), ...readable(p).map(f => ({ field: f.field, text: f.html })), ...p.lines.map(l => ({ field: l.field, text: l.text }))]
+    // A name a person fixed stays (nameFixed), and so does a body (bodyFixed) with its summary, the body in short, as the
+    // video writer keeps them (youtube.ts), an FAQ (faqFixed) or a section marked fixed, as every writer leaves them (the
+    // chief of staff, 16 Nov 2026, after a hand-fixed guide's 340 litres became 350; the summary since 20 Nov, when the
+    // Writing Lead's lines went into two guides' summaries): the rules keep the page held if it still has a units fault.
+    const fixed = await fixedParts(join(root, 'content', p.kind, p.id))
+    const byPerson = (field: string) => ((field === 'body' || field.startsWith('summary.')) && !!t.bodyFixed) || (field.startsWith('faq.') && !!t.faqFixed) || fixed.has(field)
+    const parts = [...(p.nameFixed || t.nameFixed ? [] : [{ field: 'name', text: p.title }]), ...readable(p).map(f => ({ field: f.field, text: f.html })), ...p.lines.map(l => ({ field: l.field, text: l.text }))].filter(x => !byPerson(x.field))
     // In a part whose source the repository keeps, a volume is mended only where that source gives the tank in gallons
     // and not the litres themselves ("Raise the fry in 75 litres" in another section stays).
     const changes: { field: string; old: string; now: string }[] = []
@@ -206,7 +211,7 @@ export async function unitsMend(root: string, o: { limit?: number; first?: reado
       lines: p.lines.map(l => ({ ...l, text: changes.find(c => c.field === l.field)?.now ?? l.text })),
     }
     const left = fitRules(next).filter(f => f.check === 'units').map(f => f.quote)
-    if (!changes.length) { leave('none of its volumes is where the page can be mended (a range, a dose\'s water)'); continue }
+    if (!changes.length) { leave('none of its volumes is where the page can be mended (a range, a dose\'s water, a part a person fixed)'); continue }
     if (!changes.every(c => onlyFigures(c.old, c.now, p.lang))) { leave('a mended part would differ in more than its figures'); continue }
     if (changes.some(c => namesTwice(c.old, c.now, p.lang))) { leave('a mended sentence would name one volume twice'); continue }
     if (left.length) { leave(`the rules would still find ${left.join(', ')}`); continue }

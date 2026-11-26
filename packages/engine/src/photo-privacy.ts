@@ -23,7 +23,7 @@ function decisions(name:string,data:Record<string,any>):unknown {
  if(name==='_video-stills.json')return mapValues(data,v=>({...v,...(v.failed!==undefined?{failed:!!v.failed}:{}),...(v.kept?{kept:mapValues(v.kept,why=>!!why)}:{})}))
  return mapValues(data,verdict)
 }
-const rejectedPattern=/^(?:watermark|people|dead|logo|face|faces|subject|too poor to show|unwell|rejected): withheld \[sha256:[a-f0-9]{64}\]$/
+const rejectedPattern=/^(?:watermark|people|dead|logo|face|faces|subject|too poor to show|unwell|rejected|waiting): withheld \[sha256:[a-f0-9]{64}\]$/
 const previousOwnerNote='Two independent original species passes; crop preserves all retained pixels.'
 export function photoPrivacyViolations(file:string,data:unknown):{code:string;locationHash:string}[] {
  const out:{code:string;locationHash:string}[]=[],name=basename(file),add=(code:string,path:string)=>out.push({code,locationHash:observationHash(path)})
@@ -42,7 +42,7 @@ export function photoPrivacyViolations(file:string,data:unknown):{code:string;lo
   if(Object.hasOwn(v,'note')&&(typeof v.ok==='string'&&typeof v.typical==='boolean'||typeof v.dead==='boolean'||typeof v.mark==='boolean'&&typeof v.person==='boolean')){
    if(v.note!==photoReason(v)&&v.note!==previousOwnerNote)add('free photo verdict explanation',path)
    if(v.noteHash!==undefined&&(typeof v.noteHash!=='string'||!/^[a-f0-9]{64}$/.test(v.noteHash)))add('invalid observation fingerprint',path)
-   if(Object.keys(v).some(k=>!['ok','typical','person','logo','guide','file','mark','brand','poor','unwell','q','other','dead','frames','note','noteHash','hints'].includes(k)))add('uncontrolled verdict field',path)
+   if(Object.keys(v).some(k=>!['ok','typical','young','person','logo','guide','file','mark','brand','poor','unwell','q','other','dead','frames','note','noteHash','hints'].includes(k)))add('uncontrolled verdict field',path)
   }
   if(v.hints!==undefined&&(!v.hints||typeof v.hints.dead!=='boolean'||typeof v.hints.people!=='boolean'||(v.hints.artwork!==undefined&&typeof v.hints.artwork!=='boolean')||Object.keys(v.hints).some(k=>!['dead','people','artwork'].includes(k))))add('uncontrolled recheck hints',path)
   for(const[k,x]of Object.entries(v))walk(x,path+'/'+k)
@@ -84,10 +84,28 @@ export function compactPhotoReview(text:string,subjects:Record<string,Record<str
  }).join('\n').replace('names what the photo shows instead','records a different subject')
 }
 
+/** Could photoPrivacyViolations flag this file? Only through its three named files' own checks, or a key its walk reacts to
+(ocr, what, note, hints). A key is in the text as written, "ocr", or with a letter escaped (\u006f), never otherwise. */
+const flaggable=(file:string,text:string)=>['_photo-rejected.json','_video-stills.json','_video-rejected.json'].includes(basename(file))||text.includes('\\u')||/"(?:ocr|what|note|hints)"/.test(text)
+/** Reads in flight at once: a file the Mac's file cache has let go of waits on the disk, and these waits overlap. */
+const READS_AT_ONCE=16
+// The guard reads every JSON file under engine-state/: 7,732 files, 67 MB, on 14 Nov 2026, when the test that runs it on
+// the repository hit its 180 s limit in an engine run's checks on a loaded Mac. Most of its time is the reads: other work
+// soon pushes these files out of the Mac's file cache, and then each read waits on the disk. One at a time, those waits
+// add up; 16 at once, they overlap. Only 68 of the files, 19 MB, hold a key a check reacts to, and the rest are read and
+// passed over unparsed. With the file cache emptied first, at a load of 16 to 40, the test took 10.5 s and 15.1 s with
+// every file parsed one at a time, 7.0 s and 12.4 s passing over those files, and 2.2 s and 5.8 s with 16 reads at once
+// too. A malformed file of the passed-over kind no longer throws here: this guard looks for lettering, and the engine
+// parses that file wherever it reads it.
 export async function assertPhotoPrivacy(root:string):Promise<void> {
- const state=join(root,'engine-state')
- for(const f of (await readdir(state,{recursive:true})).filter(f=>f.endsWith('.json'))){
-  const data=JSON.parse(await readFile(join(state,f),'utf8')),bad=photoPrivacyViolations(f,data)
+ const state=join(root,'engine-state'),files=(await readdir(state,{recursive:true})).filter(f=>f.endsWith('.json'))
+ const reads:(Promise<string>|undefined)[]=[]
+ const read=(i:number)=>{if(i<files.length&&!reads[i]){const p=readFile(join(state,files[i]!),'utf8');p.catch(()=>{});reads[i]=p}}
+ for(let i=0;i<files.length;i++){
+  for(let j=i;j<i+READS_AT_ONCE;j++)read(j)
+  const f=files[i]!,text=await reads[i]!;reads[i]=undefined
+  if(!flaggable(f,text))continue
+  const bad=photoPrivacyViolations(f,JSON.parse(text))
   if(bad.length)throw new PhotoPrivacyValidationError(`photo privacy: ${f} has ${bad.length} unsafe observation fields`)
  }
  const doc=await readFile(join(root,'docs/review/photo-subjects.md'),'utf8').catch(e=>{if(e.code==='ENOENT')return '';throw e})

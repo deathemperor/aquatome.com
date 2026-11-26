@@ -198,19 +198,23 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertTrue(drawn(app, "appearance-app", was), "the tabs aren't as the phone is again")
   }
 
-  /// "Ngôn ngữ": a language chosen in the sheet opens the app in it from the next launch, as iOS's Settings → AquaTome →
-  /// Language would (both keep the app's AppleLanguages), with a line in that language saying so until then, and none for
-  /// the language it's in; "Theo máy" gives it back to the phone, which has none of the three (Vietnamese). The relaunches
-  /// leave out -AppleLanguages, which would stand over the kept choice. The language is read off "Bể của tôi", a tab both
-  /// looks have (v2's search tab has no title).
-  func testALanguageChosenInTheSheetOpensTheAppInItNextTime() {
+  /// "Ngôn ngữ": a language chosen in the sheet shows at once, and is kept where iOS's Settings → AquaTome → Language keeps
+  /// it (the app's AppleLanguages), so the app opens in it next time too. While the app shows another language than it
+  /// opened in, a line says the words iOS draws itself follow from the next open; none once it has opened in it. "Theo
+  /// máy" gives it back to the phone, which has none of the three (Vietnamese), at once and at the next launch. The
+  /// relaunches leave out -AppleLanguages, which would stand over the kept choice. The language is read off "Bể của tôi",
+  /// a tab both looks have (v2's search tab has no title).
+  func testALanguageChosenInTheSheetShowsAtOnceAndOpensTheAppInItNextTime() {
     var app = launch()
     XCTAssertTrue(reached(app, "language").exists, "no Ngôn ngữ row")
     XCTAssertFalse(element(app, "language-note").exists, "a note with nothing chosen")
     pickLanguage(app, "ภาษาไทย")
-    XCTAssertEqual(reached(app, "language-note").label, "จะใช้ภาษาไทยเมื่อเปิดแอปครั้งถัดไป")
+    XCTAssertTrue(app.tabBars.buttons["ตู้ของฉัน"].waitForExistence(timeout: 10), "not in Thai at once")
+    XCTAssertEqual(reached(app, "language-note").label,
+                   "คำบางคำที่ iOS แสดงเอง (ปุ่มยกเลิกตอนค้นหา หน้าแชร์ หน้าลงชื่อเข้าใช้ และคำขออนุญาต) จะเปลี่ยนตามภาษาใหม่เมื่อเปิดแอปครั้งถัดไป")
     pickLanguage(app, "Tiếng Việt")
-    XCTAssertTrue(element(app, "language-note").waitForNonExistence(timeout: 5), "a note for the language it's in")
+    XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].waitForExistence(timeout: 10), "not back in Vietnamese at once")
+    XCTAssertTrue(element(app, "language-note").waitForNonExistence(timeout: 5), "a note for the language it opened in")
     pickLanguage(app, "ภาษาไทย")
     app = relaunchKeepingLanguage(app)
     XCTAssertTrue(app.tabBars.buttons["ตู้ของฉัน"].waitForExistence(timeout: 10), "not in Thai after the relaunch")
@@ -218,7 +222,9 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertTrue(reached(app, "language").exists, "no Ngôn ngữ row in Thai")
     XCTAssertFalse(element(app, "language-note").exists, "the note outlived the relaunch")
     pickLanguage(app, "ตามเครื่อง")
-    XCTAssertEqual(reached(app, "language-note").label, "Ứng dụng sẽ dùng Tiếng Việt từ lần mở sau.")
+    XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].waitForExistence(timeout: 10), "Theo máy isn't the phone's language at once")
+    XCTAssertEqual(reached(app, "language-note").label,
+                   "Vài chữ do iOS hiện (nút Hủy khi tìm, bảng chia sẻ, màn đăng nhập, câu xin quyền) sẽ theo ngôn ngữ mới từ lần mở ứng dụng sau.")
     app = relaunchKeepingLanguage(app)
     XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].waitForExistence(timeout: 10), "not back in the phone's language")
   }

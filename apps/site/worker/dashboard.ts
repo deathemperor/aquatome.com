@@ -29,7 +29,8 @@ import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection,
   photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection, type AffSummary, type Overview, type RecentPhoto, type WaitingPhoto,
 } from './admin/pages'
-import { hostPath, isFailed, loginPage, NAV, REPORT_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
+import { ASKS_PATH, hostPath, isFailed, loginPage, NAV, REPORT_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
+import { ASKS_PUT, asksPage, putAsks, readStored } from './admin/asks'
 import { READERS_FROM } from './admin/ae'
 import { HOME_TZ, localDay, viewerZone } from './admin/time'
 import { changelogPage, changelogSection, loadChangelog } from './daily/changelog'
@@ -272,6 +273,8 @@ const runsHtml: Load<string> = async (env, url, now, tz) => {
   const day = DAY.test(asked) && !Number.isNaN(t) && new Date(t).toISOString().slice(0, 10) === asked ? asked : now.toISOString().slice(0, 10)
   return runsPage(day, env.UPLOADS ? await soft('fish-id runs', listRuns(env.UPLOADS, day)) : unset('R2'), now, tz)
 }
+/** The owner's asks (admin/asks.ts): the last list the Mac sent; web only, outside NAV for now. */
+const asksHtml: Load<string> = async (env, _url, now, tz) => asksPage({ now, tz, s: env.UPLOADS ? await soft('asks', readStored(env.UPLOADS)) : unset('R2') })
 const runHtml = (day: string, id: string): Load<string | undefined> => async (env, _url, now, tz) => {
   const r = env.UPLOADS ? await readRun(env.UPLOADS, day, id) : null
   return r ? runPage(day, r, now, tz) : undefined
@@ -383,6 +386,11 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   }
   // The old token form's address: the dashboard signs in with the site's accounts now.
   if (path === '/_ab/login') return see('/_ab/')
+  // The chief of staff's list of the owner's asks, from the job on the Mac (admin/asks.ts): the dashboard token only.
+  if (path === ASKS_PUT) {
+    if (!bearerOk(req, env.AB_DASH_TOKEN) || !env.UPLOADS) return notFound()
+    return putAsks(req, env.UPLOADS, now)
+  }
   if (path === '/_ab/hidden.json') {
     // The build reads this (Bearer token) to drop hidden pages from lists, sitemap and search.
     if (req.method !== 'GET' || (!bearerOk(req, env.AB_DASH_TOKEN) && !(await owner()))) return notFound()
@@ -483,7 +491,7 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   const key = (path.endsWith('/') ? path : `${path}/`) as WebPath
   const report = REPORT_PAGE.exec(key)
   const oneRun = RUN_PAGE.exec(key)
-  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : (key as string) === RUNS_PATH ? runsHtml : oneRun ? runHtml(oneRun[1]!, oneRun[2]!) : undefined
+  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : (key as string) === RUNS_PATH ? runsHtml : key === ASKS_PATH ? asksHtml : oneRun ? runHtml(oneRun[1]!, oneRun[2]!) : undefined
   if (!render) return notFound()
   if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
   // Moved to its own host once Access guards it. A bearer asked for something else, and gets what it always got. Never

@@ -1,8 +1,13 @@
 {
   "slug": "mbamba-bay",
-  "name": "Teluk Mbamba",
+  "name": "Mbamba Bay",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-18T05:53:57.897Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

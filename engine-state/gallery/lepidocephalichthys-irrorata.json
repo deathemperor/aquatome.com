@@ -2,9 +2,7 @@
  "queue": [],
  "judged": [],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/4f03f188e508aa48.webp": "c878131e0f91aa6e",
-  "https://media.aquatome.com/seriouslyfish/030334636930b163.webp": "8390938796928181",
-  "https://media.aquatome.com/seriouslyfish/179fc769538a9438.webp": "0a0af2f9634daa9a"
+  "https://media.aquatome.com/seriouslyfish/4f03f188e508aa48.webp": "c878131e0f91aa6e"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -14,5 +12,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2368068,
+  "next": null
  }
 }

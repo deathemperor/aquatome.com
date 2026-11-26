@@ -1,0 +1,116 @@
+{
+  "id": "vandellia-sanguinea",
+  "native": {
+    "input": "43896419f0077d25",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: San Antonio de Rio Madeira, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Orinoco and Essequibo River basins, including Guyana waters and coastal rivers of the Guianas.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Orinoco and Essequibo River basins, including Guyana waters and coastal rivers of the Guianas.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Orinoco and Essequibo River basins, including Guyana waters and coastal rivers of the Guianas.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Orinoco and Essequibo River basins, including Guyana waters and coastal rivers of the Guianas.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon, Orinoco and Essequibo River basins. Type locality: San Antonio de Rio Madeira.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Amazon, Orinoco and Essequibo River basins. Type locality: San Antonio de Rio Madeira.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "scotcat",
+        "quote": "South America: Amazon, Orinoco and Essequibo River basins. Type locality: San Antonio de Rio Madeira.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "BR"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Vandellia sanguinea",
+    "status": "ACCEPTED",
+    "taxonKey": 5202902,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        55
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        20
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        19
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        13
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T05:18:20.405Z"
+  }
+}

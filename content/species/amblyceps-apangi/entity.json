@@ -1,0 +1,147 @@
+{
+  "id": "amblyceps-apangi",
+  "scientificName": "Amblyceps apangi",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Amblyceps",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "brahmaputra"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Padma",
+        "Jamuna",
+        "Subansiri",
+        "Dikrong"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Amblyceps apangi Nath & Dey, 1989. Type locality: Dikrong River, Arunachal Pradesh, India. IUCN Red List category: Least Concern (last assessed 2009).",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Brahmaputra drainage in India (North Eastern India, Padma, Jamuna, Brahmaputra, Subansiri, Dikrong).",
+          "countries": [],
+          "regions": [
+            "Brahmaputra",
+            "Padma",
+            "Jamuna",
+            "Subansiri",
+            "Dikrong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342856,
+      "total": 11,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "IN",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          91.40625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          94.21875,
+          28.125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1421",
+      "html": "<p>Amblyceps apangi Nath &amp; Dey, 1989. Type locality: Dikrong River, Arunachal Pradesh, India. IUCN Red List category: Least Concern (last assessed 2009).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1421",
+      "html": "<p>Asia: Brahmaputra drainage in India (North Eastern India, Padma, Jamuna, Brahmaputra, Subansiri, Dikrong).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1421",
+      "html": "<p>Readily eats all manner of live and prepared foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1421",
+      "html": "<p>Other fish collected alongside it belong to the genera Devario, Danio, Opsarius, Garra, Rasbora, Aborichthys, Schistura, Olyra and Batasio.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1421",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1421",
+      "html": "<p>Journal Assam Scientific Society v. 32 (no. 1), pp 2, Fig. 2.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

@@ -1,10 +1,23 @@
 {
  "queue": [],
  "judged": [
-  "File:Synodontis schoutedeni David, 1936 3044607443.jpg"
+  "File:Synodontis schoutedeni David, 1936 3044607443.jpg",
+  "inat:53146408"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/543cc2541ec3c6ef.webp": "f0216b71ece2f369"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 113676,
+  "pass": "done",
+  "after": {
+   "research": 33814707,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2344466,
+  "next": null
+ }
 }

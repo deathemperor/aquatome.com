@@ -1,0 +1,57 @@
+{
+  "id": "chelonodontops-bengalensis",
+  "native": {
+    "input": "c74ac6ed3a5d2680",
+    "at": "2026-11-22T12:48:24.036Z",
+    "claims": [
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Chelonodontops bengalensis was originally found in the sea off Bangladesh, later also off the coast of India.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Chelonodontops bengalensis was originally found in the sea off Bangladesh, later also off the coast of India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chelonodontops bengalensis",
+    "status": "ACCEPTED",
+    "taxonKey": 10990107,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "9f2af0c5-2ff7-42fe-aad6-c0b5af96535a",
+        1
+      ]
+    ],
+    "native": [
+      "BD",
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-22T12:48:24.036Z"
+  }
+}

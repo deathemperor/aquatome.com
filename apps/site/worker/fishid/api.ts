@@ -13,7 +13,7 @@ import { factShardOf, factShards, type Facts, type FactsShard } from './facts'
 import { healthyKeys, loadKeys, parseKeys, rotate, type Attempt, type HealthStore, type KeyEntry, type KeyHealth, type KeyProblem } from './keys'
 import { keepPhoto } from './kept'
 import { saveRun, turnsOf, type RunRecord } from './transcript'
-import { emptyDay, ledgerClient, usdCap, type Counts } from './ledger'
+import { emptyDay, ledgerClient, usdCap, type Counts, type DayView } from './ledger'
 import { emptyLog, FROM, toFishIdPoint, type CallLog, type From } from './log'
 import { matchGuesses, type Result } from './match'
 import { relayFetch } from './relay'
@@ -476,9 +476,9 @@ export type KeyRow = { n: number; hash: string; workspace: boolean; state: 'ok' 
 /**
  * `counts`: today's fallbacks, runs the call limit ended, later calls refused (400), unreadable facts and refunds;
  * `mostRefunds`: the most one reader had. `spend`: the AI spend (fish ID's and chat's) of today and yesterday, UTC days,
- * newest first, against `cap`, the day's limit.
+ * newest first, against `cap`, the day's limit. `chatBy`: today's chat questions and their calls' cost by who asked.
  */
-export type FishIdStatus = { rows: KeyRow[]; bad: number; today: number; model: string; counts: Counts; mostRefunds: number; cap: number; spend: { day: string; usd: number }[] }
+export type FishIdStatus = { rows: KeyRow[]; bad: number; today: number; model: string; counts: Counts; mostRefunds: number; chatBy?: DayView['chatBy']; cap: number; spend: { day: string; usd: number }[] }
 export async function fishIdStatus(env: FishIdEnv, now: Date): Promise<FishIdStatus | undefined> {
   const text = env.ANTHROPIC_KEYS
   if (!text || !parseKeys(text).entries.length) return undefined
@@ -488,12 +488,12 @@ export async function fishIdStatus(env: FishIdEnv, now: Date): Promise<FishIdSta
   const read = (d: string) => (env.FISHID_LEDGER ? ledgerClient(env.FISHID_LEDGER).read(d).catch(e => { console.error('fish-id ledger:', e); return undefined }) : undefined)
   const days = [dayOf(now), dayOf(new Date(now.getTime() - 86_400_000))]
   const [today, yesterday] = await Promise.all(days.map(read))
-  const day = today ?? { ...emptyDay(), mostRefunds: 0 }
+  const day = today ?? { ...emptyDay(), chatBy: {}, mostRefunds: 0 }
   const rows = await Promise.all(keys.map(async (k, i): Promise<KeyRow> => {
     const h = await store.get(k.hash).catch(() => null)
     const off = h && h.until > now.getTime() ? h : null
     return { n: i + 1, hash: k.hash, workspace: Boolean(k.workspace), state: off ? off.why : 'ok', ...(off ? { until: new Date(off.until).toISOString() } : {}), calls: day.keys[k.hash] ?? 0, answered: day.ok[k.hash] ?? 0 }
   }))
   const spend = [today, yesterday].flatMap((v, i) => (v ? [{ day: days[i]!, usd: v.usd }] : []))
-  return { rows, bad, today: day.calls, model: env.FISH_ID_MODEL || DEFAULT_MODEL, counts: day.counts, mostRefunds: day.mostRefunds, cap: usdLimit(env), spend }
+  return { rows, bad, today: day.calls, model: env.FISH_ID_MODEL || DEFAULT_MODEL, counts: day.counts, mostRefunds: day.mostRefunds, chatBy: day.chatBy ?? {}, cap: usdLimit(env), spend }
 }

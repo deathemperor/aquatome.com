@@ -71,8 +71,9 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
   never `/tmp` or `/private/tmp`: a restart empties those, and the one on 2026-11-08 took a lead's whole working folder and
   another's eval caches. A worktree goes in `~/.infinitus/worktrees/aquatome.com/`. The sweep leaves `~/.cache/aquatome`
   alone, but for its archive's copies past 30 days.
-- `scripts/machine-sweep.mjs` runs hourly and catches what's left: a session idle for 3 h, test copies with no run, and
-  nightly the worktrees whose work is merged. One with changes, or left a week with no live thread, is saved first in
+- `scripts/machine-sweep.mjs` runs hourly and catches what's left: a session idle for 3 h, test copies with no run, a
+  helper's own checkout an hour after its thread ends (saved first if it holds work no remote has), and nightly the
+  worktrees whose work is merged. One with changes, or left a week with no live thread, is saved first in
   `~/.cache/aquatome/worktree-archive/` (30 days, never pushed).
 - How the Mac is doing is `~/.cache/aquatome/machine-metrics.jsonl`: a small job's time, the jobs waiting and how long,
   and heat. Load is background only: one booted simulator reads about 65, and past about 1,000 the counter wraps.
@@ -165,6 +166,9 @@ the next run keeps the fix. A hand edit to one item needs a guard the engine res
   the page's credit line (the chief of staff, 2026-11-11).
 - A challenge page (Cloudflare, Turnstile) marks a source `needs-human`, and the owner passes it by hand in the engine's
   Chrome profile. Marketplaces (Shopee, Lazada, Tiki, Tokopedia) are reached only through their affiliate APIs.
+- Only the engine's own client asks an outside source for anything (Commons, a publisher's site, YouTube, an archive),
+  at its pace and with its rest after a refusal. A helper or a reviewer works from the repository, and one that needs
+  a source's data asks its lead (the chief of staff, 2026-11-16, after a reader fetched three Commons pages by hand).
 - Every app merge uploads to TestFlight's internal "Owner" group without asking (`testflight.yml`). Ask the owner first
   before uploads to outside testers, App Store review submissions, and production D1 migrations.
 

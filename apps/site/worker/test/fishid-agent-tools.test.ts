@@ -251,3 +251,15 @@ test('individually approved crops never supply Fish ID catalog or facts pictures
  const facts=buildFacts(catalog,pages,p=>p.url,{gallery:()=>[crop]})
  expect(JSON.stringify(facts)).not.toContain(crop.url);expect(JSON.stringify(facts)).toContain(real.url)
 })
+
+test('a non-commercial album photo never supplies Fish ID facts pictures: it stays in its album', () => {
+  const nc = { url: 'https://media.aquatome.com/inaturalist/2.webp', licence: 'CC BY-NC', sourceUrl: 'https://www.inaturalist.org/photos/2' }
+  const open = { url: 'https://media.aquatome.com/inaturalist/1.webp', licence: 'CC BY', sourceUrl: 'https://www.inaturalist.org/photos/1' }
+  const page = { id: 'fixture', scientificName: 'Fixture species', photos: [open], sections: [], t: { name: 'Fixture', altNames: [], slug: 'fixture' } }
+  const pages = { species: [page], breeds: [], plants: [] }, catalog = buildCatalog([{ lang: 'vi', pages, at: p => p }], p => p.url)
+  const facts = buildFacts(catalog, pages, p => p.url, { gallery: () => [nc] })
+  expect(facts[0]?.photos).toEqual([open.url])
+  // Nor as the page's head (the chief of staff's rule, 17 Nov: never a fish-ID reference).
+  const led = { species: [{ ...page, photos: [nc] }], breeds: [], plants: [] }
+  expect(buildFacts(buildCatalog([{ lang: 'vi', pages: led, at: p => p }], p => p.url), led, p => p.url, { gallery: () => [] })[0]?.photos ?? []).toEqual([])
+})

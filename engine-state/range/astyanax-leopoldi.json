@@ -1,14 +1,14 @@
 {
   "id": "astyanax-leopoldi",
   "native": {
-    "input": "82b1cdb2844324e5",
-    "at": "2026-11-14T05:39:06.336Z",
+    "input": "da18e397d2ccf87d",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "GF",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Leopold's tetra, Astyanax leopoldi, is a characid native to the Approuague and Oyapock river basins in French Guiana and Brazil.",
+        "quote": "Native to the Approuague and Oyapock river basins in French Guiana and northern Brazil.",
         "words": "French Guiana",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Leopold's tetra, Astyanax leopoldi, is a characid native to the Approuague and Oyapock river basins in French Guiana and Brazil.",
+        "quote": "Native to the Approuague and Oyapock river basins in French Guiana and northern Brazil.",
         "words": "Brazil",
         "ok": true
       },
@@ -31,15 +31,15 @@
     ],
     "regions": [
       {
-        "name": "Oyapock",
+        "name": "Approuague",
         "source": "seriouslyfish",
-        "quote": "Leopold's tetra, Astyanax leopoldi, is a characid native to the Approuague and Oyapock river basins in French Guiana and Brazil.",
+        "quote": "Native to the Approuague and Oyapock river basins in French Guiana and northern Brazil.",
         "ok": true
       },
       {
-        "name": "Approuague",
+        "name": "Oyapock",
         "source": "seriouslyfish",
-        "quote": "Leopold's tetra, Astyanax leopoldi, is a characid native to the Approuague and Oyapock river basins in French Guiana and Brazil.",
+        "quote": "Native to the Approuague and Oyapock river basins in French Guiana and northern Brazil.",
         "ok": true
       },
       {

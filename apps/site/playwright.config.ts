@@ -14,7 +14,10 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  workers: process.env.CI ? 4 : undefined, // GitHub's runners have 4 cores; Playwright's CI default is 1
+  // Four browsers at a time everywhere. GitHub's runners have 4 cores. On this Mac Playwright's own default is half the
+  // cores, 8 browsers, and on 18 Nov from 16:56 to 17:58 a lead's runs at 8, beside the engine,
+  // took the Mac's small job from under 2 s to 7-26 s (the chief of staff: 4 for every lead's run). --workers still wins.
+  workers: 4,
   // E2E_JSON: results as JSON too, for scripts/site-watch.mjs (production checks).
   reporter: [...(process.env.CI ? [['github'], ['list'], ['html', { open: 'never', outputFolder: process.env.E2E_REPORT ?? 'e2e-report' }]] as const : [['list']] as const), ...(process.env.E2E_JSON ? [['json', { outputFile: process.env.E2E_JSON }]] as const : [])],
   // A failed test keeps its trace (steps, screenshots, network, console), without the page's DOM copied at every step:
@@ -24,10 +27,11 @@ export default defineConfig({
   projects: [
     { name: 'phone', testIgnore: /owner-capture/, use: ourDevice(devices['Pixel 7']!) },
     { name: 'desktop', testIgnore: /owner-capture/, use: { ...ourDevice(devices['Desktop Chrome']!), viewport: { width: 1280, height: 800 } } },
-    // Only where WebKit is installed (ci.yml): the owner's picture, what can go wrong with it being WebKit's; and a fish
-    // page's photo column on a computer, which Safari has sized its own way (photo-column.spec.ts).
+    // Only where WebKit is installed (ci.yml): the owner's picture, what can go wrong with it being WebKit's; a material
+    // page's edge on an iPhone, which Safari clips its own way (material-pages.spec.ts); and a fish page's photo column on
+    // a computer, which Safari has sized its own way (photo-column.spec.ts).
     ...(process.env.E2E_WEBKIT ? [
-      { name: 'iphone', testMatch: /owner-capture/, use: ourDevice(devices['iPhone 13']!) },
+      { name: 'iphone', testMatch: /owner-capture|material-pages/, use: ourDevice(devices['iPhone 13']!) },
       { name: 'safari', testMatch: /photo-column/, use: { ...ourDevice(devices['Desktop Safari']!), viewport: { width: 1280, height: 800 } } },
     ] : []),
   ],

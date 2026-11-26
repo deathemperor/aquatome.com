@@ -13,7 +13,11 @@
     "thailand",
     "chao-phraya",
     "vietnam",
-    "dong-nai"
+    "dong-nai",
+    "china",
+    "yunnan",
+    "malaysia",
+    "malay-peninsula"
   ],
   "range": {
     "native": {
@@ -27,10 +31,12 @@
         "Mekong",
         "Chao Phraya",
         "Mae Klong",
-        "Dong Nai"
+        "Dong Nai",
+        "Malay Peninsula"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "aquariumbreeder"
       ],
       "quotes": [
         {
@@ -47,6 +53,14 @@
             "Chao Phraya",
             "Mae Klong",
             "Dong Nai"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "Despite its name, it is found in the northern Malay Peninsula, the Chao Phraya, Mae Klong and Mekong basins of Cambodia, Yunnan province in China, Laos, Thailand and Vietnam.",
+          "countries": [],
+          "regions": [
+            "Malay Peninsula"
           ]
         }
       ]
@@ -193,11 +207,25 @@
           "min": 22,
           "max": 26
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      },
+      {
+        "source": "aquariumbreeder",
         "value": {
           "min": 6,
           "max": 8
@@ -211,11 +239,22 @@
           "min": 2,
           "max": 20
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "seriouslyfish",
+        "value": 28
+      },
+      {
+        "source": "aquariumbreeder",
         "value": 28
       }
     ],
@@ -229,6 +268,19 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 10,
+          "max": 10
+        }
       }
     ]
   },
@@ -240,10 +292,28 @@
       "html": "<p>The sucking 'loach', Gyrinocheilus aymonieri, is a stream fish from the Mae Klong, Chao Phraya, Mekong and Dong Nai basins in Indochina. Often sold as a loach, or as the 'Indian' or 'Chinese' algae eater, it is neither a loach nor native to either country. It can live for more than 15 years and is largely unsuitable for the general community aquarium. It is farmed in large numbers, including albino, 'golden', 'piebald' and 'short-bodied' forms.</p><ul><li>Max size: 280 mm SL (11 in)</li><li>Aquarium size: 150 × 45 cm</li><li>Temperature: 22–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–20 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "html": "<ul><li>Other names: CAE, sucking loaches, sucking catfish, golden algae eater</li><li>Nitrate: less than 20</li><li>Diet: omnivore</li><li>Temperament: semi-aggressive</li><li>Keeping: easy to medium; breeding: hard</li><li>Life span: up to 10 years</li><li>Colour forms: olive-brown, yellow, albino, marble and leucistic</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "html": "<p>Pet stores often say that a 10 or 20-gallon tank is a good choice for this fish. This is wrong: the Chinese Algae Eater will outgrow these tanks in 4–6 months. It is a poor choice for a community tank. Adults can be aggressive and attack tankmates, and many shops forget to mention how large it gets.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gyrinocheilus-aymonieri",
       "html": "<p>Described from the mountains of Samrong Tong, Kampong Speu province, Cambodia but is widely-distributed in the Mae Klong, Chao Phraya, Middle/Lower Mekong and Dong Nai river basins in Thailand, Laos, Cambodia and Vietnam.</p><p>It's often seen on sale under the trade names 'Indian' or 'Chinese' algae eater but does not occur naturally in either country.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "html": "<p>Native to mainland Southeast Asia. Despite its name, it is found in the northern Malay Peninsula, the Chao Phraya, Mae Klong and Mekong basins of Cambodia, Yunnan province in China, Laos, Thailand and Vietnam. It was first described by Tirant in 1883 and was first exported to Germany in 1956 for the aquarium trade; before that it was used as a food fish in its native countries.</p>"
     },
     {
       "key": "habitat",
@@ -252,10 +322,22 @@
       "html": "<p>Inhabits flowing streams and tributaries with substrates of boulders, pebbles, gravel and sand, often in areas with submerged driftwood or tree roots.</p><p>The frequently clear, shallow water allows sunlight to penetrate the surface and the development of a rich biofilm covering submerged surfaces upon which the fish browse.</p><p>It's thought to undergo seasonal migrations during which it can be found in deeper, more turbid water and may enter temporarily-inundated zones.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "html": "<p>It inhabits lakes, rivers, streams and flooded fields. In the wild it is found in clear, shallow water with plenty of sunlight and dense biofilm covering the substrate, which usually consists of boulders, gravel and sand. It uses its sucker mouth to attach to solid surfaces, especially in fast-moving water. It also migrates seasonally into muddy, deeper water.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gyrinocheilus-aymonieri",
       "html": "<p>An aquarium with base dimensions of 150 × 45 cm (60 × 18 in) should be the smallest considered. Volume: approx. 304 litres (80 US gal).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "html": "<p>The minimum tank size is 120 litres. For a group, choose 200 litres or more. Larger tanks help curb the territorial aggression of adults and let them keep adequate distance from tankmates.</p>"
     },
     {
       "key": "maintenance",
@@ -264,10 +346,28 @@
       "html": "<p>Provided sufficient cover is available this species is relatively unfussy in terms of décor, and should not harm softer-leaved plants. However it will thrive in a set-up designed to resemble a flowing river with a substrate of variably-sized rocks, gravel and some larger, water-worn boulders.</p><p>This can be further furnished with driftwood roots and branches plus aquatic plants from genera such as Microsorum, Bolbitis, or Anubias which can be grown attached to the décor. Bright lighting will promote the growth of algae upon which the fish will graze.</p><p>Like many fishes that naturally inhabit running water it's quite intolerant to the accumulation of organic wastes and does best if there is a high level of dissolved oxygen and moderate water movement.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "html": "<p>This fish is easy to care for. Keep the water clean and well-oxygenated. Do a 25% water change weekly or every two weeks, or 25–50% at least once a month. It is highly sensitive to nitrate, so keep nitrate as low as possible. Use a vacuum siphon during water changes to remove leftover food and waste from the substrate.</p><p>Common problems: ich, caused by a parasite that forms tiny white spots on the body, favoured by poor water conditions and stress; and bloat, caused by overfeeding. Move unhealthy fish to a quarantine tank to prevent disease from spreading.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gyrinocheilus-aymonieri",
       "html": "<p>Temperature: active over a wide range of 16–32°C (60–90°F). Prolonged exposure to either extreme is not recommended, and this fish should be kept in a heated aquarium at 22–26°C for general care.</p><p>pH: 6.0–8.0</p><p>Hardness: 2–20 dGH</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "html": "<ul><li>Temperature: 23–27 °C (the page also gives 22–27 °C)</li><li>pH: 6.0–8.0</li><li>Hardness: 5–20 dGH</li></ul><p>It is hardy and survives well in fast-moving water and also brackish water.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "html": "<p><strong>Substrate:</strong> a fine sand and small gravel mix. Avoid coarse gravel, whose sharp edges can injure the fish.</p><p><strong>Lighting:</strong> not important for the fish; adapt it to the plants. Bright light boosts algae growth on plants and decor, which can become a problem for beginners.</p><p><strong>Water flow:</strong> strong enough to replicate the flow of its natural waters; a powerhead or canister filter can provide it.</p><p><strong>Decor:</strong> large smooth rocks, artificial caves, driftwood, PVC pipes and twisted roots give hiding places. The fish is timid, so provide plenty of hiding places and privacy.</p>"
     },
     {
       "key": "diet",
@@ -276,10 +376,22 @@
       "html": "<p>Primarily an aufwuchs grazer feeding on algae, small crustaceans, insect larvae, etc., and for it to develop its best colours and condition it should be offered regular meals of small live and frozen foods such as bloodworm, Daphnia and Artemia, along with good quality dried flakes, granules and fresh plant material.</p><p>Shelled peas, cucumber, blanched courgette, spinach, and chopped fruit all make good additions to the menu, and home-made, gel-based foods using a mixture of natural ingredients are also highly recommended.</p><p>Once settled it will often ascend into midwater to feed and in a stream-style set-up as described above will be seen browsing the biofilm that tends to form on the rockwork.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "html": "<p>An omnivore. Young fish do an excellent job of eating algae, but as they mature their diet changes until they barely eat algae at all, becoming more carnivorous.</p><p>Feed quality flake foods and algae wafers regularly, e.g. sinking catfish pellets and Hikari Shrimp Cuisine. Blanched vegetables such as lettuce, spinach, zucchini, cucumber and shelled peas can replace algae.</p><p>Adults should be supplemented with meatier food: frozen crustaceans and fry, live and frozen foods such as bloodworms and blackworms, vitamin-enriched brine shrimp and daphnia.</p><p>Because they are nocturnal, feed about 30–60 minutes after lights out. Remove uneaten food after 24 hours. Feed daily.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gyrinocheilus-aymonieri",
       "html": "<p>Though normally sold as such this species is largely unsuitable for the general community aquarium. This does not mean to say it must be kept alone, rather that tankmates must be chosen with care.</p><p>While small specimens tend to hide away much of the time they become increasingly territorial as they grow and can display particularly high levels of aggression towards similar-looking fishes such as Crossocheilus, Epalzeorhynchos, or Garra spp.</p><p>Other bottom-dwelling fishes including cichlids and most catfishes are best avoided as they may be picked on; it may even attach itself to the flanks of larger tankmates in order to feed on their body mucus.</p><p>For the upper levels choose robust, active cyprinids, characids, or similar. Ideally it should be the final addition to the tank in order to avoid it claiming ownership of the entire space.</p><p>Keeping a group is one way to reduce intraspecific aggression but at least half-a-dozen or more individuals should be purchased because they will develop a distinct pecking order and in lesser numbers weaker individuals are more easily targeted. A very large tank would be needed in order to attempt such a project.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "html": "<p>Mostly peaceful when young, but becomes territorial and aggressive as it grows older. It is known for sucking the slime coat and ripping scales off tankmates, which invites infections. Adults may also feed on smaller community fish. It is mostly nocturnal and often hides when other fish are fed, which may be one reason for slime sucking.</p><p>It is best kept with active, fast-moving, top-dwelling fish. Adding it last helps reduce territorial aggression. Some hobbyists suggest groups of 5 to reduce aggression towards other species, but only in a very large tank; small groups of 2–3 are not advisable unless the tank is huge, as the strongest can bully the others to death.</p><p>It is a good jumper and an extremely fast swimmer, which makes catching it in a planted tank hard. It has a strong personality but is also shy and skittish.</p><p><strong>Tankmates:</strong> it prefers a solitary life. Do not keep it with large, slow-moving fish such as discus and angelfish, as it may latch onto their flat bodies to eat their slime coat. Many aquarists believe this behaviour results from inappropriate feeding. Do not keep it with small fish such as guppies. Possible tankmates: swordtails, zebra danio, clown loach, cherry barbs, tiger barbs, emperor tetra, platies and mollies.</p><p>Dwarf shrimp and freshwater snails should not be kept with it, as they are likely to be attacked and the fish can suck snails out of their shells. Dwarf frogs should not be kept with it, as it may feed on their slime skin. Avoid crayfish and most freshwater crabs, which can harm it with their claws in defence.</p><p>It is similar to other shoaling fish such as some Crossocheilus (Siamese algae eater, C. atrilimes, C. langei), the Cambodian logsucker Garra cambodgiensis and the flying fox Epalzeorhynchos kalopterus. Unlike the Siamese algae eater, it has a distinct sucker mouth, no barbels, a more elongated body, and a stripe that stops at the tip of the tail with uneven edges, and its eyes are close to the top of the head.</p>"
     },
     {
       "key": "dimorphism",
@@ -288,16 +400,34 @@
       "html": "<p>Sexually mature females are noticeably thicker-bodied than males but it is impossible to accurately sex young fish. When in spawning condition adult males develop noticeable tubercules on the snout.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "html": "<p>Telling males from females is difficult. Females are plumper. Both have several small tubercles around the mouth, which are more pronounced in males in spawning condition.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gyrinocheilus-aymonieri",
       "html": "<p>As far as is known it hasn't been bred in aquaria but is farmed for the trade in large numbers with the aid of hormones.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "html": "<p>Very little is proven about breeding. In captivity spawning is probably triggered by changes in water temperature and parameters (24 °C, pH 6.8, GH 4–5), but this is not certain. Good aeration is important. A group with both males and females is needed, which is hard to achieve. They mature at 1–2 years old.</p><p>Females require hormonal injections before and immediately after spawning. The day after, the female lays around 3000–4000 eggs. Remove the parents immediately, otherwise they can eat the eggs. Incubation takes only one day, but the percentage of healthy eggs is very low because of fungal disease; remove whitened eggs at once. The fry are not aggressive to each other.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gyrinocheilus-aymonieri",
       "html": "<p>This species is among the most well-known fishes in the aquarium trade but juveniles are typically being offered for sale with little to no information regarding temperament, eventual size, and potential age which can be in excess of 15 years.</p><p>Wild examples are not currently traded, with all of those seen on sale produced on a commercial basis. There also exist several ornamental strains including albino, 'golden', 'piebald' and 'short-bodied' forms.</p><p>The golden variety is sometimes subjected to artificial dyeing, an undoubtedly painful process which involves injecting the fish repeatedly with coloured dyes and normally leads to a significant reduction in lifespan.</p><p>Despite often being sold as such this species is not a loach although it was initially considered a member of the former subfamily Homalopterinae. The results of an investigation regarding its karyotype suggest it to be most closely-related to the families Cobitidae and Homalopteridae.</p><p>There are currently three described species although neither G. pennocki (native to the Mekong basin) or G. pustulosus (Borneo) are normally available in the aquarium trade. The former is the most similar in appearance to G. aymonieri but is distinguished by the presence of dark spot-like markings in the fins.</p><p>Gyrinocheilus species exhibit some morphological peculiarities which separate them from all other genera in the order Cypriniformes. They lack pharyngeal teeth and possess a small, spiracle-like aperture at the top of each opercle.</p><p>The latter are used as secondary respiratory openings through which water enters and passes over the gills before being expelled via the principal gill opening. The mouthparts can therefore be used independently for feeding and anchoring to solid surfaces.</p><p>They also lack barbels, further distinguishing them from similar-looking fish such as Garra cambodgiensis, Epalzeorhynchos kalopterus and laterally-striped Crossocheilus spp.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "html": "<p>Gyrinocheilus aymonieri was named after the French linguist and explorer Étienne François Aymonier. The genus name comes from the Greek 'gyrinos' (tadpole) and 'cheilos' (lip). Other species in the genus, Gyrinocheilus pennocki and Gyrinocheilus pustulosis, are rarely seen in the trade.</p><p>Appearance: a large fish with a long slender body and small fins; it reaches 28 cm in the wild but rarely exceeds 15–22 cm in aquariums. It has yellow eyes with a black ball and an inferior sucker mouth. The small dorsal fin has several firm rays. The colour is yellowish or pale brown with a lighter underside and a dark horizontal stripe, sometimes broken into dots. Common forms often become muddy-brown with age; gold, albino, marble and leucistic morphs exist. Two branchial apertures let water reach the gills while the mouth is attached.</p><p>Plants: it does not eat healthy plants but eats dying or decaying ones; it may damage soft plants and uproot others. Floating plants, Anubias, Java fern and Amazon sword are good choices.</p>"
     },
     {
       "key": "references",
@@ -315,7 +445,17 @@
       "licence": "Public domain",
       "author": "Pseudogastromyzon",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chinese_algae_eater.jpg",
-      "caption": "Cá hút đá màu tự nhiên trên nền sỏi trong bể"
+      "caption": "Cá nô lệ màu tự nhiên trên nền sỏi trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/b90e65dad5b5de5a.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/b90e65dad5b5de5a-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/chinese-algae-eater-care/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [],
@@ -347,5 +487,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-17"
 }

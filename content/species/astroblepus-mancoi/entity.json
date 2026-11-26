@@ -1,0 +1,227 @@
+{
+  "id": "astroblepus-mancoi",
+  "scientificName": "Astroblepus mancoi",
+  "order": "Siluriformes",
+  "family": "Astroblepidae",
+  "genus": "Astroblepus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "madre-de-dios"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Ucayali",
+        "Madre De Dios"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper Ucayali River basin and the Madre De Dios region, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Ucayali",
+            "Madre De Dios"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342149,
+      "total": 21,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "PE",
+          21
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -14.0625,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -14.0625,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          -12.65625,
+          4,
+          4
+        ],
+        [
+          -71.71875,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -15.46875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mancoi.htm",
+      "html": "<ul><li><strong>Common name:</strong> Tiger stargazer catfish</li><li><strong>Synonyms:</strong> None</li><li><strong>IUCN Red List:</strong> Data Deficient (DD)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mancoi.htm",
+      "html": "<p>South America: Upper Ucayali River basin and the Madre De Dios region, Peru. Type locality: le haut, Peru.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mancoi.htm",
+      "html": "<p>Not an easy family of catfishes to keep, so they would have to have a large tank with rocks and some appropriate vegetation. The water would need to be fast flowing and provided with extra oxygen via an air tube fed into the powerhead flow. The tank should be set up with rocks so as to provide an area where the water current will be slower.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mancoi.htm",
+      "html": "<p>Invertebrates, insect larvae, spirulina tablets or paste, algae based foods and live bloodworm would probably be the staple diet, but you may wish to try glassworm and blackworm (although these won't tend to stay on the substrate unless the current takes them there).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mancoi.htm",
+      "html": "<p>Fishes of the family Astroblepidae (and its one valid genus Astroblepus Humboldt, 1805) are found in freshwater streams (between 200 and 13,400 feet above sea level) of the tropical Andes from Panama to Bolivia, and occur in both the western Pacific and eastern Amazonian slope drainage systems in South and Central America. Astroblepids are closely related to the Loricariids, and in fact one genus of fish (Lithogenes Eigenman, 1909) seems intermediate between the two families, having the shape and form of an Astroblepid, but some plates on the body and other morphological characters closer to Loricariids. At the time of writing, Lithogenes is currently placed in Loricariidae.</p><p><strong>Etymology:</strong> The specific name mancoi: For the Inca Ayar Manco, coloniser of Cuzco, the \"Moses of the Peruvian Indians\", who, about 1100 A.D. led the exodus from Tampu-tocco. (Eigenmann &amp; Allen, 1942).</p><p><strong>Remarks:</strong> These images were taken by the image contributor in the field at an altitude of 1471 m and a water temperature of 15.6°C. Astroblepus was found in the Madre De Dios region between 443 m and 1471 m high but never below 443 m. This species may be A. mancoi or a very close relative.</p><p><strong>IUCN Red List:</strong> This species is listed Data Deficient (DD) because there is not enough information about its distribution, ecology, population status, and the threats that may be affecting it, but needs updating (IUCN 2016).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mancoi.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Froese, R. and D. Pauly. Editors. 2017. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2017 ).</p><p>Grant, Steven, The Aquarium Gazette: Issue 1; February/March 2008; ASTROBLEPUS.</p><p>Velasquez Quispe, M., Hidalgo del Aguila, M. &amp; Chocano, L. 2016. Astroblepus mancoi. The IUCN Red List of Threatened Species 2016.</p><p>www.gowildperu.com</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/64fb2d8a1a34bd79.webp",
+      "thumb": "https://media.aquatome.com/scotcat/64fb2d8a1a34bd79-480.webp",
+      "width": 500,
+      "height": 321,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mancoi.htm",
+      "caption": "Astroblepus mancoi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3c060e689c5b18bb.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3c060e689c5b18bb-480.webp",
+      "width": 500,
+      "height": 351,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mancoi.htm",
+      "caption": "Astroblepus mancoi: The sucker like mouth allows oxygen to be passed over the gills",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/306ccdd2e42dec40.webp",
+      "thumb": "https://media.aquatome.com/scotcat/306ccdd2e42dec40-480.webp",
+      "width": 500,
+      "height": 315,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mancoi.htm",
+      "caption": "Astroblepus mancoi",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "4LuE4YXkmDA",
+      "title": "Astroblepus | Searching for Stargazers (Astroblepus spp.)",
+      "durationSec": 43,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "máy thổi khí bể cá",
+        "wave maker"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh nước bể cá",
+        "quạt làm mát bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

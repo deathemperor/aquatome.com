@@ -136,8 +136,17 @@ func boardInFlight() async throws {
   let first = Task { await board.set(lamp, on: false) }
   while !board.switching.contains(lamp) { await Task.yield() }
   await board.set(lamp, on: true)
-  await first.value
+  _ = await first.value
   #expect(c.posts == 1 && board.on(lamp) == false && board.switching.isEmpty)
+}
+
+@MainActor @Test("A switch withdrawn as it was about to go sent nothing, and notes nothing")
+func boardSwitchWithdrawn() async throws {
+  let c = Cloud()
+  let board = PlugBoard()
+  await board.refresh(c.source())
+  let outcome = await board.set(lamp, on: false, allowed: { false })
+  #expect(outcome == nil && c.posts == 0 && board.outcome(lamp) == nil && board.on(lamp) == true && board.switching.isEmpty)
 }
 
 /// A source whose switch ends cancelled after the command went.
@@ -145,11 +154,14 @@ struct CancelledAfterSending: PlugSource {
   let base: any PlugSource
   var owner: String { base.owner }
   func list() async throws -> PlugList { try await base.list() }
-  func set(provider: String, device: String, outlet code: String, on: Bool) async throws -> Switched {
-    _ = try await base.set(provider: provider, device: device, outlet: code, on: on)
+  func set(provider: String, device: String, outlet code: String, on: Bool, allowed: @escaping @Sendable () async -> Bool) async throws -> Switched {
+    _ = try await base.set(provider: provider, device: device, outlet: code, on: on, allowed: allowed)
     throw CancellationError()
   }
   func timers(provider: String, device: String) async throws -> [PlugTimer] { try await base.timers(provider: provider, device: device) }
+  func countdown(provider: String, device: String, outlet code: String, seconds: Int) async throws -> Bool {
+    try await base.countdown(provider: provider, device: device, outlet: code, seconds: seconds)
+  }
 }
 
 @MainActor @Test("A switch that ends cancelled after its command may have gone: the list read once more says what the plug did")
@@ -162,7 +174,7 @@ func boardSwitchCancelled() async throws {
   #expect(c.posts == 1 && c.lists == 2)
 }
 
-@MainActor @Test("Keys removed or changed while a switch is on its way: its answer isn't shown")
+@MainActor @Test("Keys removed or changed while a switch is on its way: its answer isn't shown, and its caller still has it")
 func boardKeysChangedMidSwitch() async throws {
   let other = Cloud([])
   for next in [nil, other.source(TuyaKeys(accessId: keys.accessId, accessSecret: keys.accessSecret, dataCenter: .india))] as [TuyaPlugs?] {
@@ -172,9 +184,11 @@ func boardKeysChangedMidSwitch() async throws {
     let first = Task { await board.set(lamp, on: false) }
     while !board.switching.contains(lamp) { await Task.yield() }
     await board.refresh(next)
-    await first.value
+    let outcome = await first.value
     #expect(c.posts == 1)
     #expect(board.on(lamp) == nil && board.outcome(lamp) == nil, "the old project's answer was shown")
+    // The chief, 17 Nov: a command that went is never taken for one that didn't (an answer lost: CommandEndTests).
+    #expect(outcome == .confirmed, "the call's own outcome was dropped with the old keys")
   }
 }
 
@@ -188,10 +202,13 @@ struct Gated: PlugSource {
     await gate.wait()
     return l
   }
-  func set(provider: String, device: String, outlet code: String, on: Bool) async throws -> Switched {
-    try await base.set(provider: provider, device: device, outlet: code, on: on)
+  func set(provider: String, device: String, outlet code: String, on: Bool, allowed: @escaping @Sendable () async -> Bool) async throws -> Switched {
+    try await base.set(provider: provider, device: device, outlet: code, on: on, allowed: allowed)
   }
   func timers(provider: String, device: String) async throws -> [PlugTimer] { try await base.timers(provider: provider, device: device) }
+  func countdown(provider: String, device: String, outlet code: String, seconds: Int) async throws -> Bool {
+    try await base.countdown(provider: provider, device: device, outlet: code, seconds: seconds)
+  }
 }
 
 @MainActor @Test("A list answer older than a switch answer doesn't put the old state back")

@@ -9,9 +9,25 @@
   "File:Charax stenopterus (ICH-039305-039308).jpg",
   "File:Charax stenopterus (ICH-039356).jpg",
   "inat:244406122",
-  "inat:130782637"
+  "inat:130782637",
+  "inat:70817766",
+  "inat:108760647",
+  "inat:257189639",
+  "inat:257189654",
+  "inat:272037155",
+  "inat:311083891",
+  "inat:312918873",
+  "inat:320673020",
+  "inat:320673746",
+  "inat:368467487",
+  "inat:550061281",
+  "inat:609220339"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/inaturalist/70817766.webp": "67ccfcd8ce878913",
+  "https://media.aquatome.com/inaturalist/312918873.webp": "9f1f0e0e9ebbfb79",
+  "https://media.aquatome.com/inaturalist/272037155.webp": "1f1f7bb75ec3796f"
+ },
  "commons": "2026-11-06",
  "inat": {
   "taxon": 610378,
@@ -24,5 +40,9 @@
  "gbif": {
   "key": 5204514,
   "next": null
+ },
+ "inatNc": {
+  "after": 335362542,
+  "done": true
  }
 }

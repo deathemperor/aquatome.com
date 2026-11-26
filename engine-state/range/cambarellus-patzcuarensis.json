@@ -1,10 +1,42 @@
 {
   "id": "cambarellus-patzcuarensis",
   "native": {
-    "input": "725e7d634b7e4c05",
-    "at": "2026-11-07T02:19:57.912Z",
-    "claims": [],
-    "regions": [],
+    "input": "3434aefe5cf89f60",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Lake Pátzcuaro in Mexico.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The Dwarf Mexican crayfish comes from Lake Pátzcuaro, a volcanic crater lake in Michoacán, southwest of the city of Morelia, Mexico.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Pátzcuaro",
+        "source": "glaser",
+        "quote": "Origin: Lake Pátzcuaro in Mexico.",
+        "country": "MX",
+        "ok": true
+      },
+      {
+        "name": "Lake Pátzcuaro",
+        "source": "aquariumbreeder",
+        "quote": "The Dwarf Mexican crayfish comes from Lake Pátzcuaro, a volcanic crater lake in Michoacán, southwest of the city of Morelia, Mexico.",
+        "country": "MX",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -38,8 +70,10 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-07T02:19:57.912Z"
+    "native": [
+      "MX"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T00:17:52.050Z"
   }
 }

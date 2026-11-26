@@ -107,6 +107,13 @@
           "min": 22,
           "max": 27
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -130,6 +137,13 @@
           "min": 6,
           "max": 8
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
       }
     ],
     "gh": [
@@ -146,6 +160,13 @@
           "min": 2,
           "max": 20
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
       }
     ],
     "sizeCm": [
@@ -159,6 +180,10 @@
       },
       {
         "source": "aquariumcoop",
+        "value": 5
+      },
+      {
+        "source": "aquariumbreeder",
         "value": 5
       }
     ],
@@ -180,6 +205,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 2
       }
     ],
     "lifeYears": [
@@ -187,6 +216,13 @@
         "source": "sprucepets",
         "value": {
           "min": 4,
+          "max": 6
+        }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
           "max": 6
         }
       }
@@ -212,6 +248,18 @@
       "html": "<p>Barbs often get a bad reputation for boisterous, fin-nipping behaviour, but cherry barbs are an exception. This 5 cm schooling fish acts like a mild-mannered tetra and mixes well with other community fish. They are commonly sold because of their vivid redness, energetic personality and ease of breeding.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Other names: Sri Lanka Cherry Barb, Red Cherry barb, Crimson Carplet</li><li>Minimum tank: 10 gallons (40 litres)</li><li>Keeping: Easy; breeding: Easy-Medium</li><li>Dwellers: middle and bottom</li><li>Nitrate: less than 60</li><li>Diet: Omnivore</li><li>Temperament: peaceful (with caution)</li><li>Life span: up to 6 years</li></ul><p>The species first became available to aquarium hobbyists in 1936.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Puntius titteya was not long ago considered threatened (from overexploitation in the aquarium trade, habitat pollution and deforestation) and was protected by laws prohibiting capture in the wild. Under the Fisheries and Aquatic Resources Act № 2 of 1996, it is classified as only restricted (not prohibited) for export. Currently the wild population is recovering and the species is categorized as vulnerable (IUCN Red List). Because it breeds relatively easily in captivity, capture from the wild has also decreased.</p><p>Breeders have developed albino and veil-tail forms.</p>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
@@ -230,6 +278,12 @@
       "html": "<p>Puntius titteya is found in the rainforests of Sri Lanka, an island country off the southern tip of India.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Puntius titteya is endemic to Sri Lanka. It occurs in both the low and mid-country wet zones, especially in the Kelani, Kalu, Gin and Nilwala river basins.</p><p>Non-native populations have also been documented in Mexico and Colombia, believed to result from the aquarium trade and intentional release.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
@@ -240,6 +294,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-barb",
       "html": "<p>In the wild they inhabit tropical streams with lots of plant life on the banks that drop leaves and sticks into the water. Because of seasonal monsoons, cherry barbs are used to a wide range of water conditions.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These fish are generally found in heavily shaded, shallow, slow-flowing streams and rivulets with thick aquatic vegetation, with plenty of fallen branches and leaf litter as the preferred substrate.</p>"
     },
     {
       "key": "aquariumSize",
@@ -254,6 +314,12 @@
       "html": "<p>A group of six can be kept in a 38-litre or larger aquarium. However, the more you get, the more outgoing they will be.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Despite their small size, a group of 6–9 Cherry barbs needs an absolute minimum of 10 gallons (40 litres). They need horizontal swimming space more than depth, because:</p><ul><li>They are very active and move around a lot.</li><li>With several males, limited space leads to aggression.</li><li>Water balance and parameters are easier to maintain in larger tanks.</li><li>A larger volume gives more stable conditions and dilutes fluctuations in water chemistry.</li></ul><p>Cherry barbs are jumpers, so use a tank cover, lower the water level and use floating plants.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
@@ -264,6 +330,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
       "html": "<p>Choice of décor is not especially critical though it tends to show better colouration in a heavily-planted set-up with a dark substrate.</p><p>The addition of some floating plants, driftwood roots or branches, and leaf litter also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong though it does seem to appreciate a degree of water movement and will also do well in a hill stream-type set-up.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cherry barbs are hardy and very adaptable, so they can be recommended even for beginners. Poor water quality can greatly affect their lifespan; key stressors include temperature, pH, oxygen levels, ammonia, nitrite and nitrate. Cycle the tank before bringing fish home and check water quality with a test kit.</p><p>Substrate: no special requirements.</p><p>Decorations and plants: all types of rocks, driftwood, PVC pipes, clay caves, bamboo caves, slate shelves, plants, fake plants, leaves and other decorations enrich the environment. The fish may retreat to these hiding places if threatened or stressed.</p>"
     },
     {
       "key": "waterConditions",
@@ -284,10 +356,22 @@
       "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 6.0–8.0</li><li>Soft to hard water</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Temperature: 22–28°C. They tolerate slightly cooler temperatures in winter if acclimated slowly.</p><p>pH: in the wild the optimum pH range was found to be 4.95–7.11. They thrive in acidic water. In aquariums keep pH at 5.5–7.5.</p><p>Hardness: soft to medium water is preferable, but anything in the 1–12 GH range is acceptable. They do not like very hard water.</p>"
+    },
+    {
       "key": "equipment",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-barb",
       "html": "<p>To bring out their crimson colour, set up a planted aquarium full of greenery with a darker substrate and background. Natural decor such as driftwood enhances the environment and gives them more places to explore and shelter.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Lighting: subdued lighting is best; it causes less stress and the fish appear more brightly coloured. In planted tanks, adapt lighting to the plants.</p><p>Water flow: in nature they inhabit shallow streams and rivers with slow to moderate current, and they like to swim in it. They can be kept without a current without significant effect.</p><p>Aeration: a powerful filtration system is needed to aerate the water and maintain high oxygenation; the fish enjoy oxygen-rich water. Air stones and other aeration decor can be added.</p>"
     },
     {
       "key": "diet",
@@ -308,6 +392,12 @@
       "html": "<p>In nature these omnivores eat small insects, micro worms, crustaceans, zooplankton and even algae. They are not picky, so provide a variety of dry, frozen and live foods. Because of their small mouths, nano pellets, daphnia and spirulina flakes work well to supply vegetable and algae content. To bring out their scarlet hues, look for foods with naturally red ingredients, like krill flakes and baby brine shrimp.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Puntius titteya is omnivorous and feeds on detritus, green algae, diatoms, dipterans and animal matter. They have a hearty appetite. They readily eat dry and freeze-dried foods such as flakes, pellets and crisps, provided these suit their mouth size. Plant-based supplements such as blanched lettuce, algae, dandelions and spinach are recommended.</p><p>Live foods: brine shrimp, Artemia nauplii, daphnia, fruit flies, moina, detritus worms, vinegar eels, mosquito larvae, cyclops, etc.</p><p>Periodically supplementing with carotenoids can enhance coloration and may even affect behaviour.</p><p>This is a diurnal species, so it is better to feed in the morning, using the five-minute rule. Feed small portions at least twice a day rather than one large meal. Have two fasting days a week to prevent overeating and obesity.</p><p>They can be kept in planted tanks and do not eat living plant material.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
@@ -324,6 +414,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-barb",
       "html": "<p>This easygoing fish is a great addition to community tanks. Like tetras, they may chase each other a little as they establish a pecking order or when males try to initiate breeding, but they do not tend to bother other fish.</p><p>They can live with similar-sized, peaceful fish such as tetras, danios, cory catfish and plecos. They swim anywhere to feed but tend to stay in the middle to bottom levels, so they can be paired with fish that swim in the upper half, like guppies, blue-eye rainbowfish and pencilfish. Dwarf shrimp seem to do okay with larger amano shrimp but cherry barbs may go after adult cherry shrimp, so add plenty of hiding spots and be prepared to remove them if necessary. They have been kept with bettas, but depending on the betta's personality they may not get along, so watch closely.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cherry barbs are often described as very peaceful, but this is only partly true. The author-independent observation is that they can harass other species, and males can be quite aggressive with each other, tearing fins; a dominant male may bully others until they jump out of the tank. Usually disputes are settled by swimming side by side and pushing each other. Even in ideal conditions males may fight and chase others, so individual temperament should be considered.</p><p>They are social and like groups, but do not school or shoal in the literal sense; they behave more comfortably in a group and enjoy chasing each other. With insufficient numbers or habitat complexity they become stressed (potentially aggressive) and inactive. Keep at least 6–9, ideally 1 male per 2 females, to stop males harassing females.</p><p>Dominance: males judge each other by body coloration, then by size. Under white light, males with more saturated red become dominant; under green light, where red is not perceived accurately, larger males dominate.</p><p>They are very active and curious, often swimming in open areas and also enjoying hiding in plants, caves and nooks. They are good jumpers, so cover the tank or lower the water level. They check the bottom and hover in midwater.</p><p>Tankmates: the best choice is a species-only tank. In a community tank, choose small fish that are not big enough to eat them: neon tetras, harlequin rasboras, clown killifish, least killifish, otocinclus, zebra danio, pygmy corydoras, kuhli loach, etc. Dwarf shrimp: they are micro-predators and will prey on shrimp, especially shrimplets, so keeping them together is not advised. Snails: compatible with any freshwater snail. Avoid large and/or aggressive or boisterous fish, long-finned fish, crayfish and most freshwater crabs.</p>"
     },
     {
       "key": "dimorphism",
@@ -344,6 +440,12 @@
       "html": "<p>Males are bright cherry red while females are more tannish-red. Both sexes have a black horizontal line along the sides, with some scales also rimmed in black. Fish farms have also developed albino and long-fin (veiltail) varieties.</p><p>Try to keep at least 1–2 females for every male, because males show their best colour when they have females to impress.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Sexual dimorphism and dichromatism have been documented. There is no difference in body size, but males have longer fins. Males show redder, more saturated body coloration; females show near-red, highly saturated coloration around the gill cover but less on the abdomen. Males are red, especially in breeding season; females are softer, pink to yellowish with a white belly.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
@@ -362,16 +464,34 @@
       "html": "<p>For an egg layer, the cherry barb is quite easy to breed, even by accident. Feed them well and they will constantly lay eggs on plants and substrate. The adults hunt their own offspring, so plant a thick forest of water sprite, Pogostemon stellatus 'octopus' and other dense plants for the babies to hide in.</p><p>To increase yield, use a separate, mature aquarium as the breeding setup so the fry can feed on microfauna and mulm. Cover the tank bottom completely with plastic craft mesh so the eggs fall through but the parents cannot reach them, and place moss, catappa leaves and/or a spawning mop beneath the mesh. Raise the temperature to 27°C, use mildly acidic to neutral pH if possible, and install a sponge filter with gentle flow.</p><p>Condition the adults with plenty of high-quality foods, then move them to the breeding tank. Once eggs or fry appear, remove the adults. Depending on temperature, eggs hatch within a couple of days and the fry are free-swimming about 1–2 days after hatching. Feed them nearly microscopic foods such as infusoria, live vinegar eels and powdered fry food until they can eat live baby brine shrimp.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Breeding is relatively easy, as with other egg scatterers. Keep 1 male to 1–2 females. They do not breed year-round.</p><p>Maturity: males reach sexual maturity at 150–210 days at 26–28°C; females at 180–210 days.</p><p>Mating: females prefer redder males, which correlated with longer semen longevity. The male swims close to the female and nudges her abdomen to induce egg release, then fertilizes externally. Pairs can spawn again in 48–60 days.</p><p>Eggs: females release 3–4 eggs at a time, serially. The eggs are adhesive and attach to plant leaves and roots. Each female can carry 200–300 eggs. The species is a batch spawner.</p><p>Incubation: eggs usually hatch after 24–48 hours.</p><p>Fry: about 1 cm long and colourless, free-swimming within 2 days. They consume the yolk within 2–3 days, then need a constant supply of live food (infusoria, microworms, vinegar eels, rotifers, etc.). Artemia nauplii and microworms give significantly higher growth than plankton alone. After 2 months juveniles reach about 1.8 cm.</p><p>Spawning tank:</p><ul><li>1–2 females per male</li><li>pH 6.0–6.8</li><li>temperature 26–28°C</li><li>dim lighting</li><li>a protective net on the bottom or a spawning mop</li><li>no substrate</li></ul><p>After spawning, remove the parents to prevent them eating the eggs. In one study, flowing water with high TDS also promoted spawning, suggesting spawning is related to the rainfall pattern of the natural habitat, which changes dissolved solids, current and water depth.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
       "html": "<p>P. titteya is an unreserved choice for beginners and is among the most ubiquitous small cyprinids in the aquarium hobby.</p><p>The vast majority of fish on sale are farmed on a commercial basis and several ornamental strains have been developed via selective breeding, including albino and 'super red' forms. Care for these is identical to that of the standard fish.</p><p>A detailed diagnosis regarding its identifying characters has not been obtained so far but the distinctive colour pattern makes it difficult to confuse with any other member of the genus.</p><p>The genus Puntius was viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid for a number of years until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia, and Pethia erected to accomodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there are no longer members.</p><p>It subsequently became clear that the name Dravidia was preoccupied by a genus of flesh fly, therefore the replacement name Haludaria was made available by Pethiyagoda (2013).</p><p>P. titteya was retained in Puntius sensu stricto (but see below), of which members are defined by the following combination of characters: adult size usually less than 120 mm SL; maxillary barbels absent or present; rostral barbels absent; 3-4 unbranched and 8 branched dorsal-fin rays; 3 unbranched and 5 branched anal-fin rays; last unbranched dorsal-fin ray weak or strong and unserrated; lateral line complete with 22-28 pored body scales; free uroneural present; gill rakers simple and acuminate (not branched or laminate); no antrorse predorsal spinous ray; post-epiphysial fontanelle usually present; 4 supraneurals; infraorbital 3 slender; 5th ceratobranchial narrow; pharyngeal teeth 5 + 3 + 2; 12-14 abdominal and 14-16 caudal vertebrae; colour pattern including a (sometimes faint) blackish spot on the caudal peduncle.</p><p>However P. titteya and P. bimaculatus differ from this definition in lacking a postepiphysial fontanelle, possession of only 7 branched dorsal-fin rays, 3½ (vs. 4½-5½) scale rows between dorsal-fin origin and lateral-line row, lateral line incomplete and in P. bimaculatus, occasionally interrupted. Both species also have a male colour pattern including a broad, reddish body stripe.</p><p>Although these two could therefore be placed in their own genus to do so would render Puntius paraphyletic, and the authors stated that analysis of a wider range of specimens is therefore required before any definitive conclusion can be drawn at the moment.</p><p>No species from Indochina, China, or Indonesia were included in the study meaning some former Puntius are currently classed as incertae sedis, i.e., of uncertain taxonomic placement. Several of these issues were resolved by Kottelat (2013) who raised new genera for a number of Southeast Asian species.</p>"
     },
     {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Etymology: the genus name Puntius comes from the Bengali word \"Pungti\", referring to small tropical freshwater cyprinids. No specific etymological source was found for \"titteya\".</p><p>Taxonomy: described in 1929 by Paul Edward Pieris Deraniyagala. Family Cyprinidae.</p><p>Description: adults grow up to 5 cm, most 3.8–4.5 cm. The body is streamlined, fairly compressed and elongated. A black lateral line runs from snout to tail, especially noticeable in females. The lateral line is complete with 22–28 pored scales. 7–8 branched dorsal-fin rays; 3 unbranched and 5 branched anal-fin rays. Small round eyes, terminal mouth and two maxillary barbels.</p><p>Lifespan: no data in the wild; in aquariums generally 4–6 years if well cared for.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
       "html": "<ul><li>Silva, A., K. Maduwage, and R. Pethiyagoda (2008). Puntius kamalika, a new species of barb from Sri Lanka (Teleostei: Cyprinidae). Zootaxa 1824, 55-64</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Deraniyagala, P. E. P. (1929). Two new freshwater fishes. Ceylon Journal of Science Section B Zoology 15(2), 73-77</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Deraniyagala, P. E. P., 1929- Ceylon Journal of Science Section B Zoology 15(2): 73-77 Two new freshwater fishes.</li><li>Fukuda, Shoko, and Kenji Karino. \"Male red coloration, female mate preference, and sperm longevity in the cyprinid fish Puntius titteya.\" Environmental biology of fishes 97 (2014): 1197-1205.</li><li>Mieno, Aki, and Kenji Karino. \"Sexual dimorphism and dichromatism in the cyprinid fish Puntius titteya.\" Ichthyological research 64, no. 2 (2017): 250-255.</li><li>Ogita, Maki, and Kenji Karino. \"Effect of Body Coloration on Male–Male Competition in a Cyprinid Fish Puntius titteya.\" Zoological science 36, no. 2 (2019): 141-146.</li></ul>"
     }
   ],
   "photos": [
@@ -381,7 +501,7 @@
       "width": 684,
       "height": 513,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Choy Heng Wah / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
       "caption": "Putative wild-collected adult male imported to Singapore among a shipment of Rasboroides vaterifloris.",
       "source": "seriouslyfish"
@@ -392,7 +512,7 @@
       "width": 720,
       "height": 480,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Barbara Nicca / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
       "caption": "Females are less colourful than males.",
       "source": "seriouslyfish"
@@ -403,21 +523,10 @@
       "width": 680,
       "height": 510,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Choy Heng Wah / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
       "caption": "Adult female.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/sprucepets/60809b2a94bcdced.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/60809b2a94bcdced-480.webp",
-      "width": 1200,
-      "height": 790,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
-      "caption": "Cherry barb in an aquarium",
-      "source": "sprucepets"
     },
     {
       "url": "https://media.aquatome.com/aquariumcoop/1c083de6c087c697.webp",
@@ -462,6 +571,16 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-barb",
       "caption": "cherry barb in planted tank",
       "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/51b57b03da6798df.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/51b57b03da6798df-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/cherry-barbs-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [
@@ -512,5 +631,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-07"
+  "updatedAt": "2026-11-23"
 }

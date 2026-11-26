@@ -1,8 +1,8 @@
 {
   "id": "polypterus-bichir",
   "native": {
-    "input": "e64de1b39669a287",
-    "at": "2026-11-12T21:02:28.514Z",
+    "input": "6f89f02ff365de95",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "EG",
@@ -115,9 +115,25 @@
         "quote": "A widespread species, it has been recorded in Egypt, Kenya, Nigeria, Cameroon, Ethiopia, Ivory Coast, Chad, Ghana, Guinea-Bissau, Burkina Faso, Mali, Senegal, Sudan and Gambia.",
         "words": "Gambia",
         "ok": true
+      },
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "After returning to France, Saint-Hilaire described a very strange fish he had collected in the Nile in Egypt under the vernacular name Polyptère bichir.",
+        "words": "Egypt",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Nile",
+        "source": "glaser",
+        "quote": "After returning to France, Saint-Hilaire described a very strange fish he had collected in the Nile in Egypt under the vernacular name Polyptère bichir.",
+        "country": "EG",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

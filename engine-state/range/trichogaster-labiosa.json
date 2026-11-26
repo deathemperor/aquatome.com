@@ -1,0 +1,72 @@
+{
+  "id": "trichogaster-labiosa",
+  "native": {
+    "input": "ff09d17a1c99cd13",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from Southern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The parents of these fish were collected during a private collecting trip in Burma, in Lake Inle.",
+        "words": "Burma",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Inle",
+        "source": "glaser",
+        "quote": "The parents of these fish were collected during a private collecting trip in Burma, in Lake Inle.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trichogaster labiosa",
+    "status": "ACCEPTED",
+    "taxonKey": 5211187,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        29
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        17
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        12
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

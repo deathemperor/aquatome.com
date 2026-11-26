@@ -1,8 +1,8 @@
 {
   "id": "hypostomus-roseopunctatus",
   "native": {
-    "input": "6663ab7b89cff866",
-    "at": "2026-11-14T05:39:06.336Z",
+    "input": "71998638ee47529e",
+    "at": "2026-11-23T01:48:47.136Z",
     "claims": [
       {
         "code": "BR",
@@ -47,6 +47,12 @@
         "source": "planetcatfish",
         "quote": "South America: La Plata system: Uruguay basin.",
         "ok": true
+      },
+      {
+        "name": "La Plata",
+        "source": "scotcat",
+        "quote": "South America: La Plata system: Uruguay basin.",
+        "ok": true
       }
     ],
     "disputed": [],
@@ -54,7 +60,8 @@
     "origin": {
       "pagesOnly": [
         "AR",
-        "UY"
+        "UY",
+        "PY"
       ],
       "sourcesOnly": []
     }

@@ -6,6 +6,69 @@
   "genus": "Xiphophorus",
   "group": "livebearers",
   "places": [],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio Axtla"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Locality: Rio Axtla.",
+          "countries": [],
+          "regions": [
+            "Rio Axtla"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350180,
+      "total": 77,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MX",
+          76
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -101.25,
+          22.5,
+          1
+        ],
+        [
+          -99.84375,
+          19.6875,
+          26
+        ],
+        [
+          -99.84375,
+          21.09375,
+          38
+        ],
+        [
+          -98.4375,
+          19.6875,
+          11
+        ],
+        [
+          -43.59375,
+          -21.09375,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
@@ -21,7 +84,18 @@
       "html": "<p>Locality: Rio Axtla. A small number was received from a German breeder.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/9bf2836f88c63fee.webp",
+      "thumb": "https://media.aquatome.com/glaser/9bf2836f88c63fee-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus_cortezi_rio_axtla_en/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "i3Fsqjqe5rc",

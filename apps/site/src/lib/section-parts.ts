@@ -1,12 +1,12 @@
 import { dropCardRepeats, dropLowCo2, dropOffItems, figuresOffCard, linkTerms, litresOffCard, tankLengthFor, type Content, type DataCardField, type PlantEntity, type Range, type Section, type SourceId, type SpeciesEntity, type SpeciesRange, type Translation } from '@aq/schema'
 import { gapMatters } from './card-rows'
-import { citeMark, withCite } from './cite'
+import { citeGroup, citeMark, withCite } from './cite'
 import type { Figure } from './figures'
 import { isRange } from './format'
 import { translator, type Lang } from './i18n'
 import { mentionIndex } from './mentions'
 import { rangeParts, type RangeParts } from './range'
-import { DISPLAY_ORDER } from './sections'
+import { CARE_SECTIONS, DISPLAY_ORDER } from './sections'
 
 /** The words before each figure in the note after a block whose figure is far from the card's (Vietnamese: the page shows them through t()). */
 export const OFF_LABELS: Partial<Record<DataCardField, string>> = { tempC: 'nhiệt độ', ph: 'pH', gh: 'độ cứng', sizeCm: 'kích thước', tankCm: 'bể tối thiểu' }
@@ -43,7 +43,7 @@ const RANGE_BEFORE = DISPLAY_ORDER.indexOf('distribution')
  * numbered sources. `card`: a species' data card, whose figures are the page's own (@aq/schema card-facts). `co2`: a plant's, for its quick facts (`dropLowCo2`). `wild`: its
  * "Phân bố tự nhiên", when it has a range, shown before group `wildAt`, its sources numbered there in the page's order.
  */
-export function sectionParts(lang: Lang, c: Content, { sections, t, self, selfNames = [], figures = [], card, co2, range, refs: researched = [] }: SectionProps) {
+export function sectionParts(lang: Lang, c: Content, { sections, t, self, selfNames = [], figures = [], card, co2, range, refs: researched = [] }: SectionProps, { figuresAfterCare = false } = {}) {
   const targets = mentionIndex(c).targets
   // Other species, plants, taxa, groups, places, glossary terms and equipment: first mention on the page, never the page's own names.
   const linked = new Set<string>(self ? [self] : [])
@@ -79,14 +79,21 @@ export function sectionParts(lang: Lang, c: Content, { sections, t, self, selfNa
       const off = card && key !== 'references' ? farFromCard([...figuresOffCard(card, x.source, html), ...(TANK_KEYS.has(key) ? litresOffCard(card, html) : [])]) : []
       const marks = x.source === 'aquatome' ? researchMarks(x) : []
       if (marks.length) fromResearch = true
-      return [{ ...x, off, vi: withCite(linkTerms(html, targets, 'ml', linked, own).html, marks.length ? marks.join(' ') : citeMark(lang, refNo(name, x.sourceUrl), name, x.sourceUrl)) }]
+      return [{ ...x, off, vi: withCite(linkTerms(html, targets, 'ml', linked, own).html, marks.length ? citeGroup(marks) : citeMark(lang, refNo(name, x.sourceUrl), name, x.sourceUrl)) }]
     }) }
   }).filter(x => x.blocks.length > 0)
   // Every page researched is listed, a figure's on the card too, after those the text cites.
   for (const r of researched) refNo(r.title, r.url)
   const wildAt = groups.filter(g => DISPLAY_ORDER.indexOf(g.key) < RANGE_BEFORE).length
-  // Extra photos go between sections, spread evenly (never after the last one).
-  const figAfter = new Map(figures.slice(0, Math.max(0, groups.length - 1)).map((f, k, all) => [Math.floor(((k + 1) * groups.length) / (all.length + 1)) - 1, f] as const))
+  // Spread extra photos between sections. On the fish web page, move any early figures past the first care answer.
+  const firstCare = figuresAfterCare ? groups.findIndex(g => CARE_SECTIONS.includes(g.key)) : -1
+  const figAfter = new Map<number, Figure[]>()
+  figures.slice(0, Math.max(0, groups.length - 1)).forEach((f, k, all) => {
+    const at = Math.max(firstCare, Math.floor(((k + 1) * groups.length) / (all.length + 1)) - 1)
+    const there = figAfter.get(at)
+    if (there) there.push(f)
+    else figAfter.set(at, [f])
+  })
   // The source list's note: translated text, or AquaTome's own written from research as well.
   const note = fromResearch ? tr('Các phần trên dịch hoặc tổng hợp từ những nguồn này. Mỗi đoạn ghi số nguồn của nó.') : tr('Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó.')
   return { groups, refs, note, figAfter, wild, wildAt }

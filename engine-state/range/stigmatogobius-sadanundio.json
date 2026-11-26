@@ -1,0 +1,185 @@
+{
+  "id": "stigmatogobius-sadanundio",
+  "native": {
+    "input": "0932ecc1e8825d94",
+    "at": "2026-11-16T05:47:36.414Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: India",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Pakistan, India, Bangladesh, Sri Lanka, Thailand, Cambodia, Malaysia, Singapore, Indonesia and Fiji.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Pakistan, India, Bangladesh, Sri Lanka, Thailand, Cambodia, Malaysia, Singapore, Indonesia and Fiji.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Pakistan, India, Bangladesh, Sri Lanka, Thailand, Cambodia, Malaysia, Singapore, Indonesia and Fiji.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Pakistan, India, Bangladesh, Sri Lanka, Thailand, Cambodia, Malaysia, Singapore, Indonesia and Fiji.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Pakistan, India, Bangladesh, Sri Lanka, Thailand, Cambodia, Malaysia, Singapore, Indonesia and Fiji.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Pakistan, India, Bangladesh, Sri Lanka, Thailand, Cambodia, Malaysia, Singapore, Indonesia and Fiji.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Pakistan, India, Bangladesh, Sri Lanka, Thailand, Cambodia, Malaysia, Singapore, Indonesia and Fiji.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Pakistan, India, Bangladesh, Sri Lanka, Thailand, Cambodia, Malaysia, Singapore, Indonesia and Fiji.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Pakistan, India, Bangladesh, Sri Lanka, Thailand, Cambodia, Malaysia, Singapore, Indonesia and Fiji.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "FJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Pakistan, India, Bangladesh, Sri Lanka, Thailand, Cambodia, Malaysia, Singapore, Indonesia and Fiji.",
+        "words": "Fiji",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Stigmatogobius sadanundio",
+    "status": "ACCEPTED",
+    "taxonKey": 2377748,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        14
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        9
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "878298f7-6182-4a72-bdf6-9dd480d89713",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "9f2af0c5-2ff7-42fe-aad6-c0b5af96535a",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "PK",
+      "BD",
+      "LK",
+      "TH",
+      "KH",
+      "MY",
+      "SG",
+      "ID",
+      "FJ"
+    ],
+    "requests": 13,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

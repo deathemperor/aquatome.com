@@ -1,8 +1,13 @@
 {
   "slug": "rio-pacaya",
-  "name": "Pacaya",
+  "name": "Sungai Pacaya",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T05:35:20.930Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

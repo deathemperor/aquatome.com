@@ -310,7 +310,7 @@
     "sizeCm": [
       {
         "source": "glaser",
-        "value": 5
+        "value": 8.5
       }
     ]
   },
@@ -318,35 +318,72 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
-      "html": "<p>Imported for the first time from Paraguay. Most probably it represents a population of Macrobrachium brasiliense. The maximum length of the animals is around 5 cm.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
-      "html": "<p>Compared with the Peruvian specimens, those from Paraguay have more slender arms, otherwise they look identical. Possibly the species will now become more widespread in aquaria than before.</p><p>Lexicon: Macrobrachium: ancient Greek, means \"with big arm\". brasiliense: means \"coming from Brazil\".</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_en/",
+      "html": "<p>Males of Macrobrachium brasiliense become around 8.5 cm, females around 5 cm long (body length only). The species prefers soft and slightly acidic water, but thrives also well in medium hard water.</p>"
     },
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
-      "html": "<p>Paraguay. The species was also imported occasionally from Peru.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_en/",
+      "html": "<p>The species has a wide distribution in South America. The animals described here were imported from Peru.</p>"
     },
     {
       "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
-      "html": "<p>Animals from the Paraguay system are not as demanding regarding water chemistry as those from the Amazon/Orinoco system and can be kept very well at a pH higher than 7.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_en/",
+      "html": "<p>It prefers soft and slightly acidic water, but thrives also well in medium hard water.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_en/",
+      "html": "<p>The very attractive species changes coloration a lot depending on mood and equipment; it can be anything from whitish to deep reddish brown. It is at least the first choice for biotope aquaria with fishes from South America.</p>"
     },
     {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
-      "html": "<p>This species can be easily bred in freshwater.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_en/",
+      "html": "<p>Most freshwater shrimps from South America are difficult to raise in aquaria because their larvae develop in marine environments. Macrobrachium brasiliense is one of the very few South American species of Macrobrachium with large eggs that can be bred quite easily in home aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_en/",
+      "html": "<p>Lexicon: Macrobrachium: ancient Greek, means \"with big arm\". brasiliense: means \"coming from Brazil\".</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/48d66d2793d3b7b7.webp",
+      "thumb": "https://media.aquatome.com/glaser/48d66d2793d3b7b7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b2b3e5faa09b0355.webp",
+      "thumb": "https://media.aquatome.com/glaser/b2b3e5faa09b0355-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b29d1ddc8623c8df.webp",
+      "thumb": "https://media.aquatome.com/glaser/b29d1ddc8623c8df-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_en/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "TJ9WP1wQAgw",
@@ -388,5 +425,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-16"
 }

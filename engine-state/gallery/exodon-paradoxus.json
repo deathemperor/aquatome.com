@@ -6,10 +6,17 @@
   "File:Exodon paradoxus2.jpg",
   "File:DSCN6064 (6260740474).jpg",
   "File:Tetra diente de gamo (Exodon paradoxus).jpg",
-  "File:Exodon paradoxus at Berlin acquarium (2522309998).jpg"
+  "File:Exodon paradoxus at Berlin acquarium (2522309998).jpg",
+  "flickr:2522309998",
+  "flickr:5807040248"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/fce97c2921ba0eb6.webp": "01228d2f1d624001"
+  "https://media.aquatome.com/commons/fce97c2921ba0eb6.webp": "01228d2f1d624001",
+  "https://media.aquatome.com/glaser/d10d87ffcc5effe5.webp": "ed9616236d1c50f2",
+  "https://media.aquatome.com/glaser/9a05ad12fa15f694.webp": "c7b23134360c635b",
+  "https://media.aquatome.com/glaser/974e13c020351d66.webp": "fc63392d1f0f9d3a",
+  "https://media.aquatome.com/flickr/2522309998.webp": "bdbd3fe6b69b9b8d",
+  "https://media.aquatome.com/flickr/5807040248.webp": "7fff66ec8cf27efc"
  },
  "inat": {
   "taxon": 520994,
@@ -23,5 +30,9 @@
  "gbif": {
   "key": 2354407,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-16"
 }

@@ -1,14 +1,14 @@
 {
   "id": "parosphromenus-opallios",
   "native": {
-    "input": "cb804a6e7ff2925b",
-    "at": "2026-11-12T13:29:05.219Z",
+    "input": "b88a406b933bf2e3",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
       {
         "code": "ID",
         "status": "native",
-        "source": "bwaquatics",
-        "quote": "The Opal Licorice Gourami is endemic to Central Kalimantan in Indonesian Borneo.",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus opallios is a liquorice gourami endemic to Central Kalimantan province in Indonesian Borneo, in the Arut and Benipah river systems.",
         "words": "Indonesian",
         "ok": true
       },
@@ -16,18 +16,12 @@
         "code": "ID",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Parosphromenus opallios is a liquorice gourami endemic to Central Kalimantan province in Indonesian Borneo, in the Arut and Benipah river systems.",
-        "words": "Indonesian",
+        "quote": "Endemic to Central Kalimantan (Kalimantan Tengah) province, Borneo, Indonesia although the full extent of its range remains somewhat unclear.",
+        "words": "Indonesia",
         "ok": true
       }
     ],
     "regions": [
-      {
-        "name": "Borneo",
-        "source": "seriouslyfish",
-        "quote": "Parosphromenus opallios is a liquorice gourami endemic to Central Kalimantan province in Indonesian Borneo, in the Arut and Benipah river systems.",
-        "ok": true
-      },
       {
         "name": "Arut",
         "source": "seriouslyfish",
@@ -42,8 +36,15 @@
       },
       {
         "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Central Kalimantan (Kalimantan Tengah) province, Borneo, Indonesia although the full extent of its range remains somewhat unclear.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Jelai Bila",
         "source": "bwaquatics",
-        "quote": "The Opal Licorice Gourami is endemic to Central Kalimantan in Indonesian Borneo.",
+        "quote": "Known sites include the Sukamara area, the Jelai Bila basin, the Arut basin near Pangkalanbuun and the Benipah river.",
         "ok": true
       }
     ],

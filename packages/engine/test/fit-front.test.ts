@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { fitKey } from '../src/fit'
-import { firstRun, frontEarly, frontHeld, frontPlan, laneFirst, offLane, orderFront, type HeldMark } from '../src/fit-front'
+import { firstRun, frontEarly, frontHeld, frontPlan, laneFirst, offLane, orderFront, readFirst, type HeldMark } from '../src/fit-front'
 import list from '../src/fit-front.json'
 import type { Page } from '../src/pages'
 
@@ -77,7 +77,8 @@ test('the lane: pages the gate held new go first, newest first, whatever the hol
 
 test('the front list file parses and names each page once', () => {
   // False, or the at of the run on file the chief of staff has read (one-shot).
-  expect(list.cleared === false || !Number.isNaN(Date.parse(String(list.cleared)))).toBe(true)
+  const cleared = list.cleared as boolean | string
+  expect(cleared === false || !Number.isNaN(Date.parse(String(cleared)))).toBe(true)
   expect(typeof list.lane).toBe('boolean')
   expect(list.about).toMatch(/lane/)
   expect(Number.isNaN(Date.parse(list.first))).toBe(false)
@@ -107,4 +108,74 @@ test("the Khám phá shelves' four guides come after them: three for keeping the
     'vi/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet',
   ])
   for (const k of list.front.slice(28)) expect(existsSync(join(ROOT, 'content/guides', k.split('/')[2]!, 'vi.json')), k).toBe(true)
+})
+
+// The chief of staff, 14 Nov 2026: the pages with a foreign product or medicine (the owner's complaint) go first, ahead of
+// every other page, sharing each run with the lane one for one; a front-list page among them waits while the list is held.
+test('the pages with a foreign product share the front with the lane, one for one, and are mended sentence by sentence', () => {
+  const l1 = page('species', 'l1'), l2 = page('guides', 'l2'), m1 = page('guides', 'm1'), m2 = page('plants', 'm2'), m3 = page('guides', 'm3'), live = page('species', 'live'), other = page('species', 'other')
+  const held = new Map([[key(l1), mark('2026-11-14')], [key(l2), mark('2026-11-13')]])
+  const product = (p: { id: string }) => p.id.startsWith('m') || p.id === 'live'
+  const ran = firstRun({ ...none, rewritten: ['vi/species/live body (0.9)'] }, '2026-11-13T02:00:00.000Z')!
+  const list = { ...front, lane: true, products: true, front: [key(live)] }
+  const ranked = [other, live, m1, l1, m2, l2, m3]
+  const shut = frontPlan(list, ran, ranked, held, product)
+  expect(shut.order.map(key)).toEqual([key(l1), key(m1), key(l2), key(m2), key(m3), key(other)])
+  expect([...shut.mend].sort()).toEqual([key(l1), key(l2), key(m1), key(m2), key(m3)].sort())
+  expect([...shut.lane].sort()).toEqual([key(l1), key(l2)].sort())
+  // Cleared: the front list's own product page joins them; the rest after.
+  const open = frontPlan({ ...list, cleared: ran.at }, ran, ranked, held, product)
+  expect(open.order.map(key)).toEqual([key(l1), key(live), key(l2), key(m1), key(m2), key(m3), key(other)])
+  // Off: as before.
+  expect(frontPlan({ ...list, products: false }, ran, ranked, held, product).order.map(key)).toEqual([key(l1), key(l2), key(other), key(m1), key(m2), key(m3)])
+  expect([...shut.products].sort()).toEqual([key(m1), key(m2), key(m3)].sort())
+  // Ahead: the pages with a foreign product before the lane until they're done (the chief of staff, 17 Nov 2026), then the
+  // lane, as one for one would have it with none left.
+  const ahead = frontPlan({ ...list, products: 'ahead' }, ran, ranked, held, product)
+  expect(ahead.order.map(key)).toEqual([key(m1), key(m2), key(m3), key(l1), key(l2), key(other)])
+  expect([...ahead.mend].sort()).toEqual([...shut.mend].sort())
+  expect(frontPlan({ ...list, products: 'ahead' }, ran, ranked, held, () => false).order.map(key)).toEqual([key(l1), key(l2), key(other), key(m1), key(m2), key(m3)])
+  // A product page the lane takes comes once, in the lane, and is a product page all the same (Codex's read of #1578).
+  const laneProduct = frontPlan({ ...list, products: 'ahead' }, ran, ranked, held, p => product(p) || p.id === 'l1')
+  expect(laneProduct.order.map(key)).toEqual([key(m1), key(m2), key(m3), key(l1), key(l2), key(other)])
+  expect([...laneProduct.products].sort()).toEqual([key(l1), key(m1), key(m2), key(m3)].sort())
+})
+
+// The chief of staff, 20 Nov 2026: open pages a person changed by hand get the checklist read first in line, and that read
+// takes no place from the rewrite. They are a list of their own (read), ahead of the front list in the read alone.
+test("the pages fixed by hand are read first, ahead of the front list, and the rewrite's list doesn't change", () => {
+  const a = page('guides', 'a'), b = page('species', 'b'), c = page('plants', 'c')
+  expect(readFirst({ read: [key(a)], front: [key(b), key(a)] }).front).toEqual([key(a), key(b)])
+  expect(readFirst({ front: [key(b)] }).front).toEqual([key(b)])
+  expect(orderFront(readFirst({ read: [key(c)], front: [key(b)] }), [a, b, c]).map(key)).toEqual([key(c), key(b), key(a)])
+  // The guides of #1705 and #1712, the crab bowl's (#1720), the cutter's five (#1721) and the held-and-dropped three
+  // (#1723); then the 12 open pages a clashed push left with no read of their text, ten fish pages and two video guides
+  // (the chief of staff, 21 Nov 2026; the thirteenth, 3jqe5KGD9lI, is among the cutter's five); then the egg scatterers'
+  // guide, its photo captions changed by hand after the gate let it out, open with no read of that text (the chief of
+  // staff, 21 Nov 2026). Each a page on the site.
+  expect(list.read).toHaveLength(33)
+  expect(new Set(list.read).size).toBe(33)
+  expect(list.read.at(-1)).toBe('vi/guides/aquariumcoop-blogs-aquarium-how-to-breed-egg-scatterers')
+  for (const k of list.read) {
+    const [, kind, id] = k.split('/')
+    expect(existsSync(join(ROOT, 'content', kind!, id!, 'vi.json')), k).toBe(true)
+  }
+  expect(list.read.filter(k => k.split('/')[1] === 'species')).toHaveLength(10)
+  expect(list.front.filter(k => list.read.includes(k))).toEqual([])
+  expect(list.front).toHaveLength(32)
+})
+
+// #1718's reader: a page on `read` with a foreign product found on it, or held, would still take a place in the rewrite.
+test('a page on the read list takes no place in the rewrite, a foreign product or a hold on it included', () => {
+  const r = page('guides', 'r'), m = page('guides', 'm'), l = page('species', 'l'), other = page('species', 'other')
+  const held = new Map([[key(r), mark('2026-11-14')], [key(l), mark('2026-11-13')]])
+  const product = (p: { id: string }) => p.id === 'r' || p.id === 'm'
+  const list = { ...front, lane: true, products: 'ahead', cleared: true, front: [key(r)], read: [key(r)] }
+  const plan = frontPlan(list, undefined, [other, r, m, l], held, product)
+  expect(plan.order.map(key)).toEqual([key(m), key(l), key(other)])
+  expect([...plan.products]).toEqual([key(m)])
+  expect([...plan.mend].sort()).toEqual([key(l), key(m)].sort())
+  expect(plan.lane.has(key(r))).toBe(false)
+  // Off the list, it takes its place in the lane.
+  expect(frontPlan({ ...list, read: [] }, undefined, [other, r, m, l], held, product).order.map(key)).toEqual([key(m), key(r), key(l), key(other)])
 })

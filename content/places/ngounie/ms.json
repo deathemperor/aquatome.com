@@ -3,6 +3,12 @@
   "name": "Ngounié",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-20T07:07:01.706Z",
+    "why": "Malay atlases usually write the region as \"Wilayah Ngounie\" (Ngounie, Gabon), so the bare name with the accent \"é\" omits the kind word \"Wilayah\" and keeps a French spelling."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

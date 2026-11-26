@@ -1,8 +1,13 @@
 {
   "slug": "min-river",
-  "name": "หมิน",
+  "name": "แม่น้ำหมิน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.82,
+    "at": "2026-11-18T18:20:53.441Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

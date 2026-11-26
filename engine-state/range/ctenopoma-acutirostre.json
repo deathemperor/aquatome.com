@@ -1,8 +1,8 @@
 {
   "id": "ctenopoma-acutirostre",
   "native": {
-    "input": "7b2888e80753698d",
-    "at": "2026-11-11T08:59:40.517Z",
+    "input": "c03bd6df3e954696",
+    "at": "2026-11-17T00:14:47.070Z",
     "claims": [
       {
         "code": "CG",
@@ -35,6 +35,13 @@
         "source": "seriouslyfish",
         "quote": "Widely distributed throughout the middle Congo River basin in Republic of the Congo, Democratic Republic of the Congo, and Central African Republic, from Malebo (Stanley) Pool upstream to Boyoma (Stanley) Falls.",
         "ok": true
+      },
+      {
+        "name": "Malebo Pool",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the middle Congo River basin in Republic of the Congo, Democratic Republic of the Congo, and Central African Republic, from Malebo (Stanley) Pool upstream to Boyoma (Stanley) Falls.",
+        "ok": false,
+        "why": "its name is not in the quote"
       },
       {
         "name": "Kasai",

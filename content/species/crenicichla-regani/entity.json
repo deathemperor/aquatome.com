@@ -8,9 +8,31 @@
   "places": [
     "south-america",
     "brazil",
-    "amazon"
+    "amazon",
+    "venezuela",
+    "orinoco",
+    "colombia"
   ],
   "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Amazonia"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species Crenicichla regani is widely distributed in Amazonia.",
+          "countries": [],
+          "regions": [
+            "Amazonia"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 2370965,
       "total": 184,
@@ -308,7 +330,22 @@
     "sizeCm": [
       {
         "source": "glaser",
-        "value": 10
+        "value": 15
+      }
+    ],
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 27,
+          "max": 32
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 3
       }
     ]
   },
@@ -316,30 +353,130 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_regani_alenquer_en/",
-      "html": "<p>The pike cichlids (Crenicichla) represent the most species-rich genus of cichlid at all. More than 130 species have been described. How many of them are valid is subject of discussions, but the number for sure increases to over 90. Some species become pretty large, more than 30 cm, but there are also real dwarf cichlids within the genus that never grow larger than 10 cm.</p><p>One of the latter is Crenicichla regani.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/crenicichla-sp-regani-orinoco-2/",
+      "html": "<p>The pike cichlids (Crenicichla) are one of the most species-rich cichlid genera with 94 valid species at present. Many species grow to well over 20 cm in length and thus belong to the large cichlids, but there are also dwarf cichlids. The latter include the beautiful, slender C. regani, which according to literature should grow 15 cm long in the male sex and 8 cm in the female sex. Wild catches are however considerably smaller. The larger of the photographed animals, which are already sexually mature, have a total length (i.e. with caudal fin) of 7 cm (males) and 5 cm (females), while the slightly smaller specimens, which do not yet show any differences in colour, are only 1-2 cm smaller.</p>"
     },
     {
-      "key": "dimorphism",
+      "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_regani_alenquer_en/",
-      "html": "<p>The females can be easily distinguished from the males by the fact that only the females' dorsal has eye-spots (ocelli).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/crenicichla-sp-regani-orinoco-2/",
+      "html": "<p>The species Crenicichla regani is widely distributed in Amazonia. Similar to the Tropheus cichlids in Lake Tanganyika, they form numerous geographical colour variants, of which it is unclear in individual cases whether they belong to the species C. regani, to the closely related species C. notophthalmus, C. wallacei or to a new species yet to be described.</p><p>In this category belong the animals imported from Venezuela and Colombia and called Crenicichla sp. “regani-Orinoco”.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/crenicichla-sp-regani-orinoco-2/",
+      "html": "<p>In nature the animals can be found in soft, very sour water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/crenicichla-sp-regani-orinoco-2/",
+      "html": "<p>You should not put them in too small aquaria, they are very quarrelsome there.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/crenicichla-sp-regani-orinoco-2/",
+      "html": "<p>In the aquarium the water chemistry is not so important, but you should keep the animals warm (27-32°C).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/crenicichla-sp-regani-orinoco-2/",
+      "html": "<p>They eat coarse frozen and live food of all kinds.</p>"
     },
     {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_regani_alenquer_en/",
-      "html": "<p>The species is a cave brooder.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/crenicichla-sp-regani-orinoco-2/",
+      "html": "<p>All Crenicichla are cave breeders with parent family.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_regani_alenquer_en/",
-      "html": "<p>They are beautiful, elegant fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/crenicichla-sp-regani-orinoco-2/",
+      "html": "<p>It is not difficult to keep these beautiful animals.</p><p>Crenicichla: ancient Greek, means “Cichla with comb”; Cichla is another genus of cichlid. regani: dedication name for Charles Tate Regan (1878 – 1943), a famous ichthyologist at the British Museum in London.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/09088ba4dc2022af.webp",
+      "thumb": "https://media.aquatome.com/glaser/09088ba4dc2022af-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_cf_regani_orinoco_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e103f5b331cf4607.webp",
+      "thumb": "https://media.aquatome.com/glaser/e103f5b331cf4607-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_cf_regani_orinoco_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fb1cc84dae475b60.webp",
+      "thumb": "https://media.aquatome.com/glaser/fb1cc84dae475b60-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/crenicichla-sp-regani-orinoco-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7721ec02055e6ae5.webp",
+      "thumb": "https://media.aquatome.com/glaser/7721ec02055e6ae5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/crenicichla-sp-regani-orinoco-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/772f62c83ef1cd65.webp",
+      "thumb": "https://media.aquatome.com/glaser/772f62c83ef1cd65-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/crenicichla-sp-regani-orinoco-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "mbwyHQ3Pzl8",
+      "title": "Crenicichla regani Tapajos with fry",
+      "durationSec": 59,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Lx4j6B7mqis",
+      "title": "Crenicichla regani (pike cichlid) - wild caught with fry",
+      "durationSec": 382,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dOGOuHqB2_w",
+      "title": "Crenichila Regani Tapajos with fry day 10",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XEE1hyTbbMU",
+      "title": "Crenicichla regani Igarape Tarumã Açu",
+      "durationSec": 92,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -355,5 +492,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-20"
 }

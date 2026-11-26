@@ -1,0 +1,322 @@
+{
+  "id": "sciades-proops",
+  "scientificName": "Sciades proops",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Sciades",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "colombia",
+    "french-guiana",
+    "guyana",
+    "north-america",
+    "puerto-rico",
+    "suriname",
+    "venezuela"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO",
+        "GF",
+        "GY",
+        "PR",
+        "SR",
+        "VE"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "North and eastern South America: Caribbean Sea and northern coast of South America, Colombia to Brazil: Brazil, Colombia, French Guiana, Guyana, Puerto Rico, Suriname and Venezuela.",
+          "countries": [
+            "BR",
+            "CO",
+            "GF",
+            "GY",
+            "PR",
+            "SR",
+            "VE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202957,
+      "total": 1334,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "CO",
+          1097
+        ],
+        [
+          "GF",
+          167
+        ],
+        [
+          "BR",
+          69
+        ],
+        [
+          "TT",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          9.84375,
+          1094,
+          1094
+        ],
+        [
+          -61.875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          5.625,
+          25,
+          25
+        ],
+        [
+          -53.4375,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          -53.4375,
+          4.21875,
+          115,
+          115
+        ],
+        [
+          -52.03125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          4.21875,
+          15,
+          15
+        ],
+        [
+          -50.625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          6,
+          6
+        ],
+        [
+          -47.8125,
+          0,
+          1,
+          1
+        ],
+        [
+          -45,
+          -23.90625,
+          9,
+          9
+        ],
+        [
+          -45,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -45,
+          -2.8125,
+          22,
+          22
+        ],
+        [
+          -42.1875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -39.375,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -36.5625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -35.15625,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -35.15625,
+          -8.4375,
+          4,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 90
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 3,
+          "max": 4
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_proops.htm",
+      "html": "<ul><li>Common name: Crucifix sea catfish</li><li>Synonyms: Bagrus proops, Sciadeichthys proops</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_proops.htm",
+      "html": "<p>North and eastern South America: Caribbean Sea and northern coast of South America, Colombia to Brazil: Brazil, Colombia, French Guiana, Guyana, Puerto Rico, Suriname and Venezuela. Type locality: Guianas.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_proops.htm",
+      "html": "<p>Inhabits mainly brackish estuaries and lagoons and also occurs in freshwaters. Found on shallow muddy bottoms.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_proops.htm",
+      "html": "<p>Feeds on fish and shrimps.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_proops.htm",
+      "html": "<p>Reproduction takes place from November to April. Sexually mature at 1.5 to 2 years of age. Two annual cycles of slower growth occur during the dry seasons (March and August to November). Life span is three to four years.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_proops.htm",
+      "html": "<p>Description: Dorsal spines (total): 1. The head is more or less flattened, the nostril nearly rounded, mouth inferior. There are three pairs of barbels: 1 pair of maxillary barbels and 2 pairs of mandibular barbels.</p><p>Etymology: The genus name Sciades: sciado-, canopy or umbrella, probably referring to the occipital process, described as a \"distinct bony helmet\" (translation). The specific name proops: pro-, before; ops, eye, referring to the eye nearer to snout than to preopercle, compared to Bagrus mesops (= S. herzbergii), in which the eye is midway between snout and preopercle.</p><p>Remarks: The skull is sold throughout the world as a crucifix. The underside of the skull covering has a bony structure which can be seen when all the flesh and soft parts are removed. It then looks like a crucifix or like a painting of Christ crucified, and is surrounded by a Weberian apparatus in the form of a halo. The upper rough part of the skull roof, which is also visible on the living fish, looks like a monk with a cowl and hood and his arms outstretched in prayer. Others see this as a Roman soldier with armour on his chest, and the dorsal fin spine is the lance with which he opened up Christ's side.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_proops.htm",
+      "html": "<ul><li>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2009).</li><li>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</li><li>ScotCat Article no. 53. The Crucifix Catfish.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/bce3fa723cbd9feb.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bce3fa723cbd9feb-480.webp",
+      "width": 500,
+      "height": 331,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_proops.htm",
+      "caption": "Sciades proops",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

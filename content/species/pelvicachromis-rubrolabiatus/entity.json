@@ -64,13 +64,41 @@
       "html": "<p>Guinea.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/finally_an_import_from_guinea__en/",
+      "html": "<p>In this pretty cichlid the females are even more attractive than the males. Male become around 10 cm long, females stay smaller.</p>",
+      "fixed": true
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_rubrolabiatus_falsade_en/",
       "html": "<p>Pelvicachromis: the Latin word pelvis means \"pelvis\"; chromis is another genus of perch; the generic name refers to the coloration of the belly. rubrolabiatus: Latin, means \"with red lips\".</p><p>Suggestion of a common name: Vinered Dwarf Cichlid.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/a6a568e1cf313f9c.webp",
+      "thumb": "https://media.aquatome.com/glaser/a6a568e1cf313f9c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/finally_an_import_from_guinea__en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c5ae6d6e34f7e08c.webp",
+      "thumb": "https://media.aquatome.com/glaser/c5ae6d6e34f7e08c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/finally_an_import_from_guinea__en/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "ux8GUb436ow",
@@ -127,5 +155,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-15"
 }

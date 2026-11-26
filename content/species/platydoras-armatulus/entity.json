@@ -11,7 +11,10 @@
     "parana",
     "bolivia",
     "paraguay",
-    "brazil"
+    "brazil",
+    "orinoco",
+    "amazon",
+    "parana-paraguay"
   ],
   "range": {
     "native": {
@@ -563,6 +566,13 @@
           "min": 24,
           "max": 30
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
       }
     ],
     "ph": [
@@ -587,6 +597,10 @@
       {
         "source": "seriouslyfish",
         "value": 24
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -610,10 +624,28 @@
       "html": "<p>The humbug catfish, Platydoras armatulus, is a doradid catfish from the Paraná and Paraguay basins in Argentina, Bolivia, Brazil and Paraguay. Most fish in the trade come from the Amazon and Orinoco, and those are now treated as P. costatus or P. hancockii, so a fish sold under this name may be one of those. Also sold as the striped dora, striped raphael or striped talking catfish, it is hardy, but its secretive nature, adult size and habit of eating smaller tankmates suit it only to communities of larger fish. It produces audible sounds by grinding its pectoral spines in their sockets or by resonating the swimbladder.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platydoras-armatulus-2/",
+      "html": "<p>Until 2008 the striped raphael catfish was called Platydoras costatus, and this name is still found on most stock lists. The maximum length is said to be up to 30 cm, usually around 20 cm. The species is extremely long-lived, with several decades possible.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platydoras-armatulus-2/",
+      "html": "<p>All spiny catfish can make distinct growling or croaking sounds when taken out of the water, vibrating their whole body. Presumably this serves as a defense against enemies. The whole body and especially the fins are covered with spines and thorns, which are even poisonous and can cause painful stings and lacerations. It is said that there have even been cases of poisoning in humans, so one should never catch these animals with bare hands. The occasional warning in the literature that these catfishes could be dangerous to their aquarium mates by secreting poison has never been observed, although thousands of these animals have been kept over the decades.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/platydoras-armatulus",
       "html": "<p>Found in the Paraná and Paraguay basins in Argentina, Bolivia, Brazil and Paraguay, and the Catalog of Fishes also lists Uruguay. Ota et al. (2018) treat it as introduced in the upper Paraná above the Itaipu dam. Piorski et al. (2008) also included fish from the lower Orinoco and the Amazon in P. armatulus, but the Catalog of Fishes now places those under P. costatus and P. hancockii. Most fish in the trade come from the Amazon and Orinoco, so a fish sold as P. armatulus may be either of those. Fish from the Parnaíba and the neighbouring coastal rivers of northeastern Brazil are P. brachylecis (Piorski et al., 2008).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platydoras-armatulus-2/",
+      "html": "<p>Platydoras armatulus originates from the lower Orinoco, Amazon, and Parana-Paraguay systems. Nowadays, almost only captive-breds from Southeast Asia are on the market. The \"real\" P. costatus is only found in coastal rivers of Surinam and French Guyana, is monochromatic brown-black and has only a thin light line along the lateral row of spines.</p>"
     },
     {
       "key": "habitat",
@@ -634,10 +666,22 @@
       "html": "<p>It's a shy, nocturnal species so it's best to keep the tank dimly lit. Provide plenty of hiding places in the form of clay flowerpots, lengths of plastic piping, tangles of driftwood etc. Plants aren't essential but are useful in cutting out the amount of light hitting the bottom of the tank and providing extra cover. If you buy one of these for your community tank you'll probably find it will head straight for an area of cover and remain there during the hours of daylight. If you want to see it more often, consider installing a red light above the tank. It can't see red lightwaves, so if you switch this on at night you should be able to observe it foraging for food. It usually becomes much bolder as it grows, and adult specimens will often cruise the tank whether the lights are on or not.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platydoras-armatulus-2/",
+      "html": "<p>The care of P. armatulus is very simple. Usually they lie around in a shady cave and are hardly disturbed.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/platydoras-armatulus",
       "html": "<ul><li>Temperature: 24–30°C (75–86°F)</li><li>pH: 5.8–7.5</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platydoras-armatulus-2/",
+      "html": "<p>The water temperature can be between 20 and 30°C. Any drinking water is suitable for care.</p>"
     },
     {
       "key": "diet",
@@ -646,10 +690,22 @@
       "html": "<p>Omnivorous and easy to feed. Use a good quality sinking pellet or tablet as the staple diet. Supplement this with live and frozen foods such as bloodworm, small earthworms and similar. It's best to add food after lights out to ensure it gets its share.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platydoras-armatulus-2/",
+      "html": "<p>They will eat any common ornamental fish food and also small fish if they fit in their mouth.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/platydoras-armatulus",
       "html": "<p>Totally unaggressive but it will eat smaller fish so isn't really suitable for the general community. It can be kept with most peaceable species that are too big too be considered food, including medium-sized characins, cyprinids, anabantoids, livebearers, cichlids and other non-territorial catfish. It's tolerant of conspecifics and a group can usually be kept without any problems. If several are present they'll often share the same refuge during the day. While some jostling for position might occur, no physical damage is usually done.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platydoras-armatulus-2/",
+      "html": "<p>They are sociable animals, which should be kept in small groups (5-7 specimens). Co-inhabitants should be adapted to the size of the catfish, as small fish that fit in their mouth may be eaten.</p>"
     },
     {
       "key": "dimorphism",
@@ -658,16 +714,34 @@
       "html": "<p>Unknown.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platydoras-armatulus-2/",
+      "html": "<p>The sexes are externally hardly distinguishable, the females are a little plumper.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/platydoras-armatulus",
       "html": "<p>There are no reports of breeding in the hobby. Apparently in nature it spawns amongst surface vegetation.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platydoras-armatulus-2/",
+      "html": "<p>These free spawners do not practice brood care.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/platydoras-armatulus",
       "html": "<p>This popular species is also sold as the striped dora, striped raphael or striped talking catfish. It's often seen as an ideal beginner's cat, being hardy and tolerant of a wide range of water conditions. However its secretive nature, adult size and tendency to snack on smaller tankmates mean it should only be considered for communities of larger fish.</p><p>The 'talking catfish' moniker is derived from the fish's ability to produce sounds when communicating with conspecifics or when threatened. It can produce these sounds in two ways. The first involves partially locking the pectoral fins into their sockets. The fish can then grind the spines on the pectorals against the socket, producing a 'buzzing' sound. The second is by rapidly contracting and relaxing a muscle that is attached to the back of the skull at one end and the front of the swim bladder at the other. This causes the swimbladder to resonate and produces a slightly deeper sound. The noises are clearly audible and can sometimes be heard through the aquarium glass, or when the fish is netted.</p><p>Do take care when netting these cats, as the spines on the body and fins can easily become entangled in the mesh of aquarium nets. The sharp pectoral spines can also cause an eye-watering wound if you happen to be impaled by them.</p><p>Carvalho et al. (2003) watched juvenile Platydoras cleaning a wolf fish, Hoplias cf. malabaricus, in a stream of the rio Araguaia drainage, picking parasites and dead scales off its body as some marine cleaner fish do. They identified the catfish as P. costatus, and the Catalog of Fishes does not include the Araguaia in the range of P. armatulus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platydoras-armatulus-2/",
+      "html": "<p>It is distinctive and contrasting black and white striped.</p>"
     },
     {
       "key": "references",
@@ -678,12 +752,34 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/f4841683bf2a24ec.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f4841683bf2a24ec-480.webp",
+      "width": 500,
+      "height": 269,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/platydoras_armatulus.htm",
+      "caption": "Platydoras armatulus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4567a3fca14f9f20.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4567a3fca14f9f20-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/platydoras_armatulus.htm",
+      "caption": "Platydoras armatulus",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/seriouslyfish/d6756c621b5e7f7c.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/d6756c621b5e7f7c-480.webp",
       "width": 664,
       "height": 318,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mike McGeoghegan / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/platydoras-armatulus",
       "caption": "Young specimen of Platydoras costatus",
       "source": "seriouslyfish"
@@ -700,17 +796,6 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/f4841683bf2a24ec.webp",
-      "thumb": "https://media.aquatome.com/scotcat/f4841683bf2a24ec-480.webp",
-      "width": 500,
-      "height": 269,
-      "licence": "dùng với sự cho phép",
-      "author": "Allan James / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/doradidae/platydoras_armatulus.htm",
-      "caption": "Platydoras armatulus",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/5afeaef71f73d489.webp",
       "thumb": "https://media.aquatome.com/scotcat/5afeaef71f73d489-480.webp",
       "width": 500,
@@ -722,18 +807,42 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/4567a3fca14f9f20.webp",
-      "thumb": "https://media.aquatome.com/scotcat/4567a3fca14f9f20-480.webp",
-      "width": 500,
-      "height": 333,
+      "url": "https://media.aquatome.com/glaser/32041d974cce1fbf.webp",
+      "thumb": "https://media.aquatome.com/glaser/32041d974cce1fbf-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Allan James / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/doradidae/platydoras_armatulus.htm",
-      "caption": "Platydoras armatulus",
-      "source": "scotcat"
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platydoras-armatulus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "dPn09rt3C-0",
+      "title": "Platydoras armatulus",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "plRoxoyUWfg",
+      "title": "Platydoras armatulus - Talking catfish",
+      "durationSec": 10,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Fd6bp3jDP2U",
+      "title": "Striped Raphael Catfish (Platydoras armatulus)",
+      "durationSec": 262,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XdVNmU5cU-I",
+      "title": "Striped Raphael catfish (Platydoras armatulus), Liniendornwels 20cm!",
+      "durationSec": 60,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -761,5 +870,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-22"
 }

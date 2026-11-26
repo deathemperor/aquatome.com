@@ -1,8 +1,13 @@
 {
   "slug": "brahamaputra",
-  "name": "Brahmaputra",
+  "name": "Sungai Brahmaputra",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-17T11:38:49.092Z"
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

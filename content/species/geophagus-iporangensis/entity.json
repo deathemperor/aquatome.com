@@ -16,7 +16,7 @@
         "BR"
       ],
       "regions": [
-        "Rio Ribeira de Iguapé"
+        "Ribeira de Iguapé"
       ],
       "sources": [
         "seriouslyfish"
@@ -29,7 +29,7 @@
             "BR"
           ],
           "regions": [
-            "Rio Ribeira de Iguapé"
+            "Ribeira de Iguapé"
           ]
         }
       ]
@@ -232,6 +232,13 @@
           "min": 20,
           "max": 26
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 10,
+          "max": 15
+        }
       }
     ],
     "ph": [
@@ -256,6 +263,11 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 25,
+        "overruled": "Glaser's 'about 25 cm'; Seriously Fish gives 90 to 100 mm SL. Seriously Fish's figure stands where two sources are twice apart and no second source agrees with the other (rule of 10 Nov 2026; chief of staff, 17 Nov)"
       }
     ],
     "tankCm": [
@@ -272,6 +284,13 @@
     ]
   },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_iporangensis_en/",
+      "html": "<p>Geophagus iporangensis is not shy at all. It is an openbrooding cichlid with biparental brood care. The group (the Geophagus brasiliensis complex) is only poorly understood scientifically.</p>",
+      "fixed": true
+    },
     {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
@@ -303,6 +322,12 @@
       "html": "<p>The most essential item of décor is a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</p><p>Coarser materials such as gravel or small pebbles can inhibit feeding, damage gill filaments and even be ingested with the potential of internal damage or blockages.</p><p>Additional furnishings are as much a case of personal taste as anything else but the most favoured set-ups tend to feature relatively dim lighting plus some chunks of driftwood and scattered roots or branches.</p><p>Leaf litter is a typical feature of the natural environment but not really recommended in aquaria because the feeding behaviour of Geophagus spp. tends to cause an excess of partially-decomposed material in suspension which not only looks unsightly but can block filter and pump mechanisms.</p><p>One or two flattish, water-worn rocks can also be included to provide potential spawning sites if you wish.</p><p>Water quality is of the utmost importance since these cichlids are extremely susceptible to deteriorating water quality and swings in chemical parameters so should never be introduced to a biologically immature aquarium.</p><p>The best way to achieve the desired stability is to over-filter the tank using a combination of external canister filters and/or a sump system and perform minimum weekly water changes of 50-70%.</p><p>If the maintenance regime is insufficient health issues such as head and lateral line erosion or stunted growth can occur.</p><p>Mechanical filtration should also be tailored to trap small particles stirred up by the fish as sand can cause blockages and wearing issues with filter mechanisms if allowed to continually run through the system.</p><p>High flow rates should be avoided so position filter returns accordingly.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_iporangensis_en/",
+      "html": "<p>As soon as the water temperature is constantly above 10°C the fish can be put in the garden pond. Depending on the weather the fish have to be put in a large indoor tank, usually from October on. This tank should stand cool (temperature between 10 and 15°C). Brazilian Pearl Cichlids are peaceful fish as long as they don't defend their brood, so over-wintering is not a problem at all.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
@@ -321,6 +346,12 @@
       "html": "<p>Males are territorial, particularly when spawning, while very small tankmates may be predated upon.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_iporangensis_en/",
+      "html": "<p>The fish is not shy at all, so it is possible to make fascinating observations on its behaviour in the pond. Peaceful as long as it doesn't defend its brood.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
@@ -333,10 +364,22 @@
       "html": "<p>Biparental substrate spawner.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_iporangensis_en/",
+      "html": "<p>G. iporangensis is an openbrooding cichlid with biparental brood care, and a pair will usually have some offspring during summertime in the pond.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
       "html": "<p>Not a common species in the aquarium hobby which is a shame since its adult size is more manageable than that of some related species.</p><p>Juvenile specimens of this species are readily confused with those of other members of the 'G.' brasiliensis species group, but adults are easily-distinguished by their relatively smaller adult size and comparative lack of reflective blue scales on the body and head.</p><p>The genus Geophagus was rediagnosed by Kullander (1986) who restricted it to include only those species with paired caudal extensions to the swimbladder lined by 6-12 epihemal 'ribs' plus a greater number of caudal than abdominal vertebrae.</p><p>Some former species were moved into the resurrected genus Satanoperca while others, such as the 'Geophagus' brasiliensis and 'G.' steindachneri groups represent distinct groupings still in need of definitive classification.</p><p>Geophagus and a number of related genera are often included in the putative subfamily Geophaginae.</p><p>Kullander (1998) conducted a morphology-based phylogenetic study in which the neotropical Cichlidae was divided into six subfamilies of which the Geophaginae contained 16 genera divided among three 'tribes':</p><ul><li>Acarichthyini - Acarichthys and Guianacara.</li><li>Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia.</li><li>Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</li></ul><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species.</p><p>However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported \"Satanoperca clade\" comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a \"big clade\" with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a \"crenicarine clade\" with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works.</p><p>The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_iporangensis_en/",
+      "html": "<p>Geophagus: from ancient Greek, means \"eartheater\". brasiliensis: means \"coming from Brazil\". iporangensis: after the place where the types were collected.</p>"
     },
     {
       "key": "references",
@@ -352,13 +395,38 @@
       "width": 677,
       "height": 679,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Hayath / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
       "caption": "Adult pair from the aquarium trade, male upper.",
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "6ZZTbowcnAc",
+      "title": "Geophagus iporangensis",
+      "durationSec": 64,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "19-gOL6vluk",
+      "title": "Geophagus iporangensis (Germany Breed)",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-GXknM8lCJo",
+      "title": "Geophagus iporangensis 40g breeder",
+      "durationSec": 120,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "okXCHHlwIHM",
+      "title": "Geophagus iporangensis tending  free-swimming fry",
+      "durationSec": 26,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -388,5 +456,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-14"
 }

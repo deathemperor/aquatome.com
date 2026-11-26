@@ -1,0 +1,468 @@
+{
+  "id": "bagre-bagre",
+  "scientificName": "Bagre bagre",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Bagre",
+  "group": "catfish",
+  "places": [
+    "south-america"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Amazon River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Caribbean and Atlantic coastal rivers of South America, from Colombia to the mouth of the Amazon River.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Amazon River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202985,
+      "total": 425,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "BR",
+          207
+        ],
+        [
+          "GF",
+          184
+        ],
+        [
+          "SR",
+          13
+        ],
+        [
+          "GY",
+          8
+        ],
+        [
+          "VE",
+          6
+        ],
+        [
+          "CO",
+          4
+        ],
+        [
+          "US",
+          2
+        ],
+        [
+          "TT",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          39.375,
+          2,
+          0
+        ],
+        [
+          -73.125,
+          11.25,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          9.84375,
+          4,
+          0
+        ],
+        [
+          -61.875,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          5,
+          0
+        ],
+        [
+          -59.0625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          5.625,
+          9,
+          0
+        ],
+        [
+          -54.84375,
+          4.21875,
+          5,
+          0
+        ],
+        [
+          -54.84375,
+          5.625,
+          23,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          8,
+          0
+        ],
+        [
+          -53.4375,
+          4.21875,
+          123,
+          0
+        ],
+        [
+          -53.4375,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -52.03125,
+          2.8125,
+          4,
+          0
+        ],
+        [
+          -52.03125,
+          4.21875,
+          28,
+          0
+        ],
+        [
+          -50.625,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -50.625,
+          -2.8125,
+          6,
+          0
+        ],
+        [
+          -50.625,
+          1.40625,
+          4,
+          0
+        ],
+        [
+          -50.625,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -49.21875,
+          -29.53125,
+          1,
+          0
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          12,
+          0
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          7,
+          0
+        ],
+        [
+          -49.21875,
+          0,
+          1,
+          0
+        ],
+        [
+          -49.21875,
+          1.40625,
+          6,
+          0
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          4,
+          0
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          14,
+          0
+        ],
+        [
+          -47.8125,
+          0,
+          1,
+          0
+        ],
+        [
+          -46.40625,
+          -25.3125,
+          5,
+          0
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          17,
+          0
+        ],
+        [
+          -45,
+          -23.90625,
+          2,
+          0
+        ],
+        [
+          -45,
+          -5.625,
+          4,
+          0
+        ],
+        [
+          -45,
+          -4.21875,
+          3,
+          0
+        ],
+        [
+          -45,
+          -2.8125,
+          22,
+          0
+        ],
+        [
+          -42.1875,
+          -22.5,
+          6,
+          0
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          -42.1875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          12,
+          0
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          24,
+          0
+        ],
+        [
+          -39.375,
+          -18.28125,
+          19,
+          0
+        ],
+        [
+          -39.375,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          -39.375,
+          -14.0625,
+          4,
+          0
+        ],
+        [
+          -39.375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -37.96875,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          -36.5625,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          -35.15625,
+          -9.84375,
+          5,
+          0
+        ],
+        [
+          -35.15625,
+          -8.4375,
+          3,
+          0
+        ],
+        [
+          -35.15625,
+          -7.03125,
+          6,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "scotcat",
+    "quote": "Chiefly marine, common around river mouths and also entering river estuaries."
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 12,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 50
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_bagre.htm",
+      "html": "<p>South America: Caribbean and Atlantic coastal rivers of South America, from Colombia to the mouth of the Amazon River.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_bagre.htm",
+      "html": "<p>Chiefly marine, common around river mouths and also entering river estuaries.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_bagre.htm",
+      "html": "<p>Feeds on small fishes and invertebrates, such as crustaceans.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_bagre.htm",
+      "html": "<p>Reproductive season in French Guiana is from May to November; male incubates the eggs in his mouth until they hatch; for a few days the newborn (30-40 mm) may hide in the mouth of the male in the presence of danger.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_bagre.htm",
+      "html": "<p><strong>Description:</strong> Two pairs of barbels on rostral region, one pair on lower jaw, one pair on posterior end of maxilla; end of maxilla barbel beyond anal fin origin; pectoral spine filament long, reaching anal fin origin.</p><p><strong>Colouration:</strong> Dorsal, pectoral, and pelvic fin membranes black; anal fin membrane black distally (some individuals white), white proximally; body silver gray or blue grey dorsally, silver white ventrally.</p><p><strong>Etymology:</strong> The genus and specific name of bagre: meaning tautonymous with Silurus bagre; according to Marcgrave (1648), a Portuguese word for catfish used in Brazil, presumably first applied to B. bagre.</p><p><strong>IUCN Red List:</strong> This species is widely distributed where it occurs in nearshore coastal habitats and estuaries over soft bottom. Its generation length is estimated as 9.6 years. In some parts of Brazil, such as Para State, there is an intense, targeted fishery for this species. In Para, there has been a decline of about 47% in landings over the last 10 years. Other areas within its range have only limited, artisanal catches. Therefore, it is listed as Least Concern with a recommendation to monitor the fisheries off Brazil, so needs updating (IUCN 2015).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_bagre.htm",
+      "html": "<ul><li>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</li><li>Marceniuk, A.P., Betancur, R., Giarrizzo, T., Fredou, F.L. &amp; Knudsen, S. 2015. Bagre bagre. The IUCN Red List of Threatened Species 2015.</li><li>Mol, H.A. Jan, The Freshwater Fishes of Suriname. BRILL, Leiden Boston, 2012. 889 p</li><li>Taylor, W.R. and N.A. Menezes, 1978. Ariidae. In W. Fischer (ed.) FAO species identification sheets for fishery purposes. West Atlantic (Fishing Area 31). volume 1. [pag. var.]. FAO, Rome.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li><li>Uyeno, T., K. Matsuura and E. Fujii (eds.), 1983. Fishes trawled off Suriname and French Guiana. Japan Marine Fishery Resource Research Center, Tokyo, Japan. 519 p.</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

@@ -1,12 +1,17 @@
 {
   "id": "microctenopoma-ansorgii",
-  "summary": "Cá ctenopoma hoa văn (Microctenopoma ansorgii) hợp người muốn dành một bể riêng cho cá mê cung nhỏ, trưởng thành 7 cm, độ khó 4/8. Cần bể dài tối thiểu 75 cm, trồng cây dày, nhiều cây nổi, nước ngả vàng nâu, nhiệt độ 20–27 °C nhưng nên giữ gần mức cao, pH 5,5–7,5, độ cứng 5–20 dGH. Khó nhất là cá hiếm khi chịu ăn đồ khô, hay bị cá khác giành mồi và có thể khó thuần lúc mới về.",
+  "summary": "Cá ctenopoma hoa văn (Microctenopoma ansorgii) hợp với người thích bể trồng cây dày và chịu nuôi bể riêng, hoặc ghép với loài nhỏ, hiền. Cá dài 7 cm, độ khó 4/8, cần bể dài tối thiểu 75 cm, nhiều cây nổi che mặt nước, nước ngả vàng nâu và có than bùn trong lọc. Nhiệt độ 20–27 °C, nên giữ gần mức cao, pH 5,5–7,5, độ cứng 5–20 dGH. Khó nhất là lúc cá mới về vì cá khó thuần. Cá cũng bơi chậm và hiếm chịu ăn đồ khô, nên dễ bị cá khác giành mồi.",
   "mistakes": [
-    "Nuôi chung với cá hiếu động thì cá bơi chậm bị giành hết mồi; nên nuôi bể riêng hoặc ghép với loài nhỏ, hiền như cá hatchet, cá lampeye, cá chuột.",
-    "Cho ăn thức ăn khô thì cá hiếm khi chịu ăn; nên dùng đồ đông lạnh hoặc mồi sống cỡ nhỏ.",
-    "Không đậy kín nắp bể thì cá nhảy ra ngoài rất dễ; nên đậy nắp thật kín."
+    "Ghép cá với loài hiếu động thì cá bị giành hết mồi. Nên ghép với loài nhỏ, hiền ở tầng mặt và tầng đáy như cá hatchet, cá lampeye, cá chuột, hoặc nuôi bể riêng.",
+    "Cho ăn thức ăn khô thì cá hiếm khi chịu ăn. Nên cho đồ đông lạnh hoặc mồi sống cỡ nhỏ.",
+    "Để bể hở nắp thì cá nhảy ra ngoài. Hãy đậy nắp thật kín."
   ],
-  "speciesUpdatedAt": "2026-11-02",
-  "generatedAt": "2026-11-10T23:00:39.554Z",
-  "review": "approved"
+  "speciesUpdatedAt": "2026-11-20",
+  "writtenFrom": "2c0cc565ebeeecb6",
+  "generatedAt": "2026-11-20T20:05:20.221Z",
+  "review": "pending",
+  "problems": [
+    "\"Khó nhất là lúc cá mới về vì cá khó thuần\": the page hedges with \"Cá có thể khó thuần lúc mới về\" (it may be hard to acclimatise). The summary states it as a certainty.",
+    "\"Ghép cá với loài hiếu động thì cá bị giành hết mồi\": the page says \"dễ bị giành hết mồi\" (easily outcompeted). The summary turns that into a sure outcome."
+  ]
 }

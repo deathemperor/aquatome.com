@@ -5,13 +5,78 @@
   "family": "Loricariidae",
   "genus": "Spectracanthicus",
   "group": "catfish",
-  "lNumber": "L354",
+  "lNumber": "L354, L20",
   "places": [
     "south-america",
     "brazil",
     "rio-iriri",
     "rio-xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Xingu",
+        "Rio Iriri"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Spectracanthicus zuanoni L 354 originates from the Rio Xingu and the Rio Iriri in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Xingu",
+            "Rio Iriri"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7658518,
+      "total": 110,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "BR",
+          110
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -5.625,
+          35,
+          35
+        ],
+        [
+          -53.4375,
+          -5.625,
+          65,
+          65
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -41,12 +106,6 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/spectracanthicus_oligancistrus_zuanoni_l_354_en/",
-      "html": "<p>The fish belongs to the same species as L 20, but with clearly larger white marks, so that the pattern resembles a black net on a bright background. The large reddish eyes form a beautiful contrast.</p><p>A characteristic of the former Oligancistrus species is the large dorsal fin, so the name Sailfin loricariids suggested by Seidel is very fitting for this group.</p>"
-    },
-    {
-      "key": "quickFacts",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm",
       "html": "<p>Family: Loricariidae. L-numbers: L020, L354. Common name: Grey-spotted sail-fin pleco. Maximum size 12 cm. Temperature 26-30°C, pH 5.5-7.0. IUCN Red List: Not Evaluated.</p>"
@@ -54,7 +113,7 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/spectracanthicus_oligancistrus_zuanoni_l_354_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/spectracanthicus-oligancistrus-zuanoni-l-354-2/",
       "html": "<p>Spectracanthicus zuanoni L 354 originates from the Rio Xingu and the Rio Iriri in Brazil. It was scientifically described only in 2014.</p>"
     },
     {
@@ -78,7 +137,7 @@
     {
       "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/spectracanthicus_oligancistrus_zuanoni_l_354_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/spectracanthicus-oligancistrus-zuanoni-l-354-2/",
       "html": "<p>Since Spectracanthicus species are found in shallow water zones with fast flowing water, they place high demands on water quality. Like many other loricariids from this region, they should be kept at higher temperatures.</p>"
     },
     {
@@ -90,7 +149,7 @@
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/spectracanthicus_oligancistrus_zuanoni_l_354_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/spectracanthicus-oligancistrus-zuanoni-l-354-2/",
       "html": "<p>Attention should be paid to their nutrition. Food that is too rich and high in protein can lead to liver damage in the long term.</p>"
     },
     {
@@ -104,6 +163,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm",
       "html": "<p>Spectracanthicus is diagnosed from all other Ancistrini, except Baryancistrus niveatus and Baryancistrus beggini, and Parancistrus by an expansion of the dorsal-fin membrane connecting the last dorsal-fin ray to the adipose-fin spine (vs. dorsal fin not expanded and not connected to the adipose). It is distinguished from Baryancistrus by having up to 25 teeth on the premaxilla (vs. more than 25), and from Parancistrus by a small gill opening reaching up to 1/3 of the cleithrum length (vs. a large gill opening reaching nearly 1/2). S. zuanoni can be diagnosed from all other congeners by its colour pattern of large white spots (vs. small yellowish dots in S. murinus, S. punctatissimus and S. tocantinensis, and dark grey lacking dots in S. immaculatus). It also differs from congeners, except S. murinus, by the larger orbital diameter (up to 29.2% of HL).</p><p>Etymology: the specific name zuanoni honours Jansen Zuanon of the Instituto Nacional de Pesquisas da Amazônia for his contribution to the knowledge of Neotropical ichthyology; he was also the first ichthyologist to collect and identify this species as new.</p><p>As of 2019, L354 is believed to be this species, and the genus Oligancistrus is now a synonym of Spectracanthicus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/spectracanthicus-oligancistrus-zuanoni-l-354-2/",
+      "html": "<p>The fish belongs to the same species as L 20, but with clearly larger white marks, so that the pattern resembles a black net on a bright background. The reddish, large eyes form a beautiful contrast.</p><p>A characteristic of the former Oligancistrus species is the large dorsal fin, so the name Sailfin loricariids suggested by Seidel appears very applicable to this group.</p>"
     },
     {
       "key": "references",
@@ -145,6 +210,36 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm",
       "caption": "Spectracanthicus zuanoni",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/de619b41fcda0b27.webp",
+      "thumb": "https://media.aquatome.com/glaser/de619b41fcda0b27-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/spectracanthicus-oligancistrus-zuanoni-l-354-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/55260038378e5645.webp",
+      "thumb": "https://media.aquatome.com/glaser/55260038378e5645-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/spectracanthicus-oligancistrus-zuanoni-l-354-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0454428c4299397d.webp",
+      "thumb": "https://media.aquatome.com/glaser/0454428c4299397d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/spectracanthicus-oligancistrus-zuanoni-l-354-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -196,5 +291,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-21"
 }

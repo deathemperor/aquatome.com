@@ -72,15 +72,6 @@
             "caption": "Bể nhỏ có đá bố cục, đàn cá rìu bơi ở tầng mặt.",
             "sharpness": 541.7,
             "person": false
-          },
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/kcoeJ-4CeHA/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn cá rìu nhỏ bơi gần mặt nước trong bể khoảng vài chục lít.",
-            "sharpness": 509.1,
-            "person": false
           }
         ]
       },
@@ -95,7 +86,26 @@
             "caption": "Đàn cá nhỏ bơi gần mặt nước trong bể không có nắp.",
             "sharpness": 509.6,
             "person": false
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Bể bao nhiêu lít là đủ",
+        "moments": [
+          {
+            "t": 160,
+            "url": "https://media.aquatome.com/video/kcoeJ-4CeHA/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá rìu nhỏ bơi gần mặt nước trong bể khoảng vài chục lít.",
+            "sharpness": 509.1,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao bể nuôi cá rìu phải có nắp",
+        "moments": [
           {
             "t": 250,
             "url": "https://media.aquatome.com/video/kcoeJ-4CeHA/at250-hd.webp",
@@ -108,7 +118,7 @@
         ]
       },
       {
-        "heading": "Bày bể ra sao",
+        "heading": "Bày bể thế nào",
         "moments": [
           {
             "t": 375,
@@ -120,20 +130,6 @@
             "person": false
           }
         ]
-      },
-      {
-        "heading": "Giá bao nhiêu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/kcoeJ-4CeHA/p7-YV8tXzkzMjYuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/kcoeJ-4CeHA/p7-YV8tXzkzMjYuanBn-480.webp",
-          "width": 960,
-          "height": 560,
-          "licence": "CC BY-SA 3.0",
-          "author": "Amada44",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gasteropelecus_sternicla_-_9326.jpg",
-          "caption": "Cá rìu bạc có đốm trong bể nuôi, thân rõ nét."
-        }
       }
     ]
   }

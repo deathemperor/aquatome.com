@@ -2,71 +2,6 @@
   "id": "costasiella-kuroshimae",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/d9dd4d8efed5dd60.webp",
-      "thumb": "https://media.aquatome.com/commons/d9dd4d8efed5dd60-480.webp",
-      "width": 1200,
-      "height": 851,
-      "licence": "CC BY-SA 2.0",
-      "author": "Alif Abdul Rahman",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costasiella_Kuroshimae_(19080120525)_(2).jpg",
-      "caption": "Sên biển cừu lá xanh nhìn chính diện, rất nét",
-      "best": true,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/752bcefe019d9eea.webp",
-      "thumb": "https://media.aquatome.com/commons/752bcefe019d9eea-480.webp",
-      "width": 1200,
-      "height": 1544,
-      "licence": "CC BY 2.0",
-      "author": "Christian Gloor",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costasiella_sp_(19797152176).jpg",
-      "caption": "Sên biển cừu lá xanh rực rỡ, nền tối",
-      "best": true,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/5dbe1ad0644a797f.webp",
-      "thumb": "https://media.aquatome.com/commons/5dbe1ad0644a797f-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Diego Delso",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Babosa_de_mar_(Costasiella_kuroshimae),_Anilao,_Filipinas,_2023-08-23,_DD_111.jpg",
-      "caption": "Sên biển cừu lá đốm vàng trên nền tảo xanh",
-      "best": true,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/cd5c09b03792be52.webp",
-      "thumb": "https://media.aquatome.com/commons/cd5c09b03792be52-480.webp",
-      "width": 1200,
-      "height": 1200,
-      "licence": "CC BY-SA 4.0",
-      "author": "Diego Delso",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Babosa_de_mar_(Costasiella_kuroshimae),_Anilao,_Filipinas,_2023-08-23,_DD_112.jpg",
-      "caption": "Sên biển cừu lá màu xanh lục đốm vàng trên tảo xanh",
-      "best": true,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/59cd46c40fb69734.webp",
-      "thumb": "https://media.aquatome.com/commons/59cd46c40fb69734-480.webp",
-      "width": 1200,
-      "height": 757,
-      "licence": "CC BY-SA 2.0",
-      "author": "alif_abdulrahman",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costasiella_kuroshimae.jpg",
-      "caption": "Hai con sên biển cừu lá cùng bò trên tảo",
-      "best": false,
-      "kind": "group",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/725042608.webp",
       "thumb": "https://media.aquatome.com/inaturalist/725042608-480.webp",
       "width": 1024,
@@ -76,47 +11,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/725042608",
       "caption": "Sên biển cừu lá trên tảo xanh trong tự nhiên",
       "best": false,
-      "kind": "habitat",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/42585668.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/42585668-480.webp",
-      "width": 681,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Dan Schofield",
-      "sourceUrl": "https://www.inaturalist.org/photos/42585668",
-      "caption": "Sên biển cừu lá màu xanh trắng trên tảo trong nước",
-      "best": false,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/430188801.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/430188801-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "Robin White",
-      "sourceUrl": "https://www.inaturalist.org/photos/430188801",
-      "caption": "Cận cảnh sên biển cừu lá xanh lục trên tảo",
-      "best": false,
-      "kind": "detail",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/725042618.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/725042618-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Gregor Bailar",
-      "sourceUrl": "https://www.inaturalist.org/photos/725042618",
-      "caption": "Sên biển cừu lá màu xanh nhạt bò trên lá tảo",
-      "best": false,
-      "kind": "habitat",
-      "unchecked": true
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/56389472.webp",
@@ -128,8 +23,19 @@
       "sourceUrl": "https://www.inaturalist.org/photos/56389472",
       "caption": "Sên biển cừu lá vàng nhạt trên lá tảo",
       "best": false,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/725042618.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/725042618-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Gregor Bailar",
+      "sourceUrl": "https://www.inaturalist.org/photos/725042618",
+      "caption": "Sên biển cừu lá màu xanh nhạt bò trên lá tảo",
+      "best": false,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/cb1807b0c9a08778.webp",
@@ -141,8 +47,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costasiella_y_puesta.jpg",
       "caption": "Sên biển cừu lá trắng xanh trên tảo",
       "best": false,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/e73db4fda6ffd879.webp",
@@ -154,8 +59,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costasiella_kuroshimae_(35635864736).jpg",
       "caption": "Sên biển cừu lá nhỏ trên mép lá tảo",
       "best": false,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/1ba9b7a473b213dd.webp",
@@ -167,8 +71,79 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costasiella_kuroshimae_(41152417280).jpg",
       "caption": "Sên biển cừu lá xanh đốm trắng bám trên tảo",
       "best": false,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/42585668.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/42585668-480.webp",
+      "width": 681,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Dan Schofield",
+      "sourceUrl": "https://www.inaturalist.org/photos/42585668",
+      "caption": "Sên biển cừu lá màu xanh trắng trên tảo trong nước",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/752bcefe019d9eea.webp",
+      "thumb": "https://media.aquatome.com/commons/752bcefe019d9eea-480.webp",
+      "width": 1200,
+      "height": 1544,
+      "licence": "CC BY 2.0",
+      "author": "Christian Gloor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costasiella_sp_(19797152176).jpg",
+      "caption": "Sên biển cừu lá xanh rực rỡ, nền tối",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d9dd4d8efed5dd60.webp",
+      "thumb": "https://media.aquatome.com/commons/d9dd4d8efed5dd60-480.webp",
+      "width": 1200,
+      "height": 851,
+      "licence": "CC BY-SA 2.0",
+      "author": "Alif Abdul Rahman",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costasiella_Kuroshimae_(19080120525)_(2).jpg",
+      "caption": "Sên biển cừu lá xanh nhìn chính diện, rất nét",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5dbe1ad0644a797f.webp",
+      "thumb": "https://media.aquatome.com/commons/5dbe1ad0644a797f-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Babosa_de_mar_(Costasiella_kuroshimae),_Anilao,_Filipinas,_2023-08-23,_DD_111.jpg",
+      "caption": "Sên biển cừu lá đốm vàng trên nền tảo xanh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/cd5c09b03792be52.webp",
+      "thumb": "https://media.aquatome.com/commons/cd5c09b03792be52-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "CC BY-SA 4.0",
+      "author": "Diego Delso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Babosa_de_mar_(Costasiella_kuroshimae),_Anilao,_Filipinas,_2023-08-23,_DD_112.jpg",
+      "caption": "Sên biển cừu lá màu xanh lục đốm vàng trên tảo xanh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/59cd46c40fb69734.webp",
+      "thumb": "https://media.aquatome.com/commons/59cd46c40fb69734-480.webp",
+      "width": 1200,
+      "height": 757,
+      "licence": "CC BY-SA 2.0",
+      "author": "alif_abdulrahman",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costasiella_kuroshimae.jpg",
+      "caption": "Hai con sên biển cừu lá cùng bò trên tảo",
+      "best": false,
+      "kind": "group"
     }
   ],
   "seen": 42,

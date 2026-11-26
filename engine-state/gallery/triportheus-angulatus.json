@@ -4,10 +4,23 @@
   "File:Triportheus angulatus.jpg",
   "File:Triportheus angulatus (white background).jpg",
   "File:Triportheus angulatus (19691).jpg",
-  "File:Triportheus angulatus (early development).png"
+  "File:Triportheus angulatus (early development).png",
+  "inat:494683817"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/39797de1e687cba2.webp": "20c91f0e1e8acb82"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 621963,
+  "pass": "done",
+  "after": {
+   "research": 275272351,
+   "agree": 169396617
+  }
+ },
+ "gbif": {
+  "key": 2353244,
+  "next": null
+ }
 }

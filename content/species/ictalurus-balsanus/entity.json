@@ -1,0 +1,44 @@
+{
+  "id": "ictalurus-balsanus",
+  "scientificName": "Ictalurus balsanus",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Ictalurus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "mexico",
+    "rio-ixtla"
+  ],
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1559",
+      "html": "<p>Central America: Rio Ixtla in Puente de Ixtla, Morelos, Mexico. The type locality is the Río Ixtla, at Puente de Ixtla, Morelos, Mexico. The species is named for the Río Balsas basin, where the type specimen was collected.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1559",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1559",
+      "html": "<p>Etymology: Ictalurus comes from the Greek ichthys, meaning fish, and ailouros, meaning cat; literally \"fish cat\" (= catfish). IUCN Red List category: Not Evaluated.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1559",
+      "html": "<p>Bulletin of the U. S. Fish Commission v. 19. 1899, pp 118, Fig. 2.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-25"
+}

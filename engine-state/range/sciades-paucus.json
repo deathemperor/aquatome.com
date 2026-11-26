@@ -1,0 +1,86 @@
+{
+  "id": "sciades-paucus",
+  "native": {
+    "input": "02b3050587ac78c8",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Roper and Flinders River systems, and other rivers draining into the Gulf of Carpentaria, Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Roper",
+        "source": "scotcat",
+        "quote": "Roper and Flinders River systems, and other rivers draining into the Gulf of Carpentaria, Australia.",
+        "country": "AU",
+        "ok": true
+      },
+      {
+        "name": "Flinders River",
+        "source": "scotcat",
+        "quote": "Roper and Flinders River systems, and other rivers draining into the Gulf of Carpentaria, Australia.",
+        "country": "AU",
+        "ok": true
+      },
+      {
+        "name": "Gulf of Carpentaria",
+        "source": "scotcat",
+        "quote": "Roper and Flinders River systems, and other rivers draining into the Gulf of Carpentaria, Australia.",
+        "country": "AU",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sciades paucus",
+    "status": "ACCEPTED",
+    "taxonKey": 5202932,
+    "datasets": [
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        26
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        20
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        13
+      ],
+      [
+        "db3b4f9d-87ca-4661-a002-c868b7417878",
+        5
+      ],
+      [
+        "358fbd61-739f-4102-afc9-9d468f571e4d",
+        4
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        2
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

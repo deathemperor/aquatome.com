@@ -3,7 +3,7 @@
   "name": "Cá nheo báo đốm",
   "altNames": [
     "Cá jaguar",
-    "Jaguar Catfish"
+    "Jaguar catfish"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá nheo báo đốm (jaguar catfish), Liosomadoras oncinus, là cá da trơn họ Auchenipteridae, sống ở lưu vực các sông Ucayali, Amazonas và Negro ở Nam Mỹ. Người ta hay nhầm nó với L. morrowi, nhưng loài này có hoa văn sáng màu hơn và lớn hơn, tới khoảng 250 mm SL. Trước đây nó từng bị xếp vào họ Doradidae vì có gai ở nắp mang. Cá hoạt động về đêm và thường hiền, nhưng tối đến sẽ ăn cá nhỏ. Điều kiện nước nó cần tùy vào nơi con cá được bắt về.</p>",
@@ -16,13 +16,21 @@
     "behaviour:seriouslyfish": "<p>Cá thường hiền và nhát, nhưng đôi khi hơi hay giành chỗ với các loài sống đáy khác. Cá nhỏ sẽ bị nó ăn vào ban đêm. Hợp nhất là nuôi trong bể biotope Nam Mỹ, chung với cá tetra, cichlid cỡ tương đương, các loài cá da trơn hiền khác và cá lau kiếng. Bể đủ rộng thì nuôi một nhóm nhỏ, vì loài này khá thích sống bầy và có vẻ thoải mái hơn khi có đồng loại.</p>",
     "dimorphism:seriouslyfish": "<p>Con đực có vây hậu môn biến đổi nhiều, dùng giống như gonopodium (vây giao phối) của cá đẻ con. Khi lớn, vây lưng và vây ngực của con đực cũng dày hơn con cái.</p>",
     "reproduction:seriouslyfish": "<p>Có lẽ chưa ai cho loài này đẻ được trong bể. Cá thụ tinh trong.</p>",
-    "notes:seriouslyfish": "<p>Cá nheo báo đốm hay bị nhầm với loài cùng chi L. morrowi. Muốn phân biệt thì nhìn hoa văn: loài này đẹp và sáng màu hơn, lúc lớn cũng to con hơn. Đây là loài sống đáy đẹp, rất hợp với bể nuôi chung cỡ lớn. Trước đây nó từng bị xếp vào họ Doradidae vì có gai ở nắp mang, nhưng nay đã được phân loại lại. Ngoài tự nhiên loài này phân bố rộng, nên trông như chịu được những điều kiện nước khác hẳn nhau. Thực ra nước nó cần tùy vào nơi con cá được bắt về. Lúc mua, tốt nhất là hỏi người bán xem họ đang nuôi cá trong nước thế nào.</p>"
+    "notes:seriouslyfish": "<p>Cá nheo báo đốm hay bị nhầm với loài cùng chi L. morrowi. Muốn phân biệt thì nhìn hoa văn: loài này đẹp và sáng màu hơn, lúc lớn cũng to con hơn. Đây là loài sống đáy đẹp, rất hợp với bể nuôi chung cỡ lớn. Trước đây nó từng bị xếp vào họ Doradidae vì có gai ở nắp mang, nhưng nay đã được phân loại lại. Ngoài tự nhiên loài này phân bố rộng, nên trông như chịu được những điều kiện nước khác hẳn nhau. Thực ra nước nó cần tùy vào nơi con cá được bắt về. Lúc mua, tốt nhất là hỏi người bán xem họ đang nuôi cá trong nước thế nào.</p>",
+    "quickFacts:glaser": "<p>Cá nheo báo đốm (Liosomadoras oncinus) rất hiếm gặp trong bể nuôi. Ngay các bộ sưu tập lớn của những bảo tàng trên thế giới cũng chỉ có vài mẫu, nên người ta biết về loài này còn ít. Nó thuộc nhóm cá nheo lũa (driftwood catfish).</p>",
+    "beforeYouBuy:glaser": "<p>Nuôi trong bể thì loài này rất nhạy cảm, chỉ người chơi có kinh nghiệm mới nên thử. Nó dễ mắc bệnh nấm và bệnh do vi khuẩn.</p>",
+    "waterConditions:glaser": "<p>Muốn chặn cả bệnh nấm lẫn bệnh vi khuẩn thì chỉ có cách giữ nước thật chuẩn. Loài này hợp với nước mềm, hơi chua (pH 5,5–6,5). Nấm và vi khuẩn gây bệnh đều không ưa môi trường như vậy.</p>",
+    "diet:glaser": "<p>Cá nheo báo đốm không kén ăn. Ngoài tự nhiên, có lẽ chúng cũng giống các loài cá nheo lũa khác, chạng vạng thì lên mặt nước bắt côn trùng.</p>",
+    "dimorphism:glaser": "<p>Con đực có một cơ quan giao phối dạng ống ở phần đầu vây hậu môn, dùng để thụ tinh trong. Nhìn vào đó là phân biệt được.</p>",
+    "notes:glaser": "<p>Cá dài tối đa khoảng 20 cm (tính cả vây đuôi), nhưng thường chỉ tới 12–15 cm. Mỗi con một kiểu hoa văn, khác nhau rất nhiều. Dưới đầu, cả con đực lẫn con cái đều có một bộ phận giống giác hút. Đến nay vẫn chưa rõ nó dùng để làm gì.</p>",
+    "distribution:glaser": "<p>Brazil.</p>"
   },
   "quality": {
     "score": 0.9,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.9
+      "seriouslyfish": 0.9,
+      "glaser": 0.93
     }
   }
 }

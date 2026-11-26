@@ -11,24 +11,24 @@
     "malaysia",
     "muar",
     "indonesia",
-    "kalimantan"
+    "kalimantan",
+    "johor",
+    "sumatra"
   ],
   "range": {
     "native": {
       "countries": [
         "TH",
-        "MY",
-        "ID"
+        "MY"
       ],
       "regions": [
         "Borneo",
         "Sumatra",
-        "Kapuas River",
-        "Muar River",
-        "Tasek Bera",
-        "Mentaya"
+        "Muar",
+        "Tasek Bera"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
@@ -46,28 +46,10 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "It was once thought restricted to southern (Indonesian) parts of the island and has been recorded from various rivers and streams within the lower Kapuas River basin and the Ketungau river in West Kalimantan (Kalimantan Barat) province as well as tributaries of the Sebangau and lower Mentaya rivers in Central Kalimantan (Kalimantan Tengah).",
-          "countries": [
-            "ID"
-          ],
-          "regions": [
-            "Kapuas River",
-            "Mentaya"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'Muar River, Tebinh Tinggi, Johore, Malaysia'.",
-          "countries": [],
-          "regions": [
-            "Muar River"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
           "quote": "In Peninsular Malaysia localities include the Selai and Muar rivers in Johor state and the blackwater swamp lake of Tasek Bera in Pahang state while in Sumatra the only report we've been able to find seems to refer to the Lalah River, Riau province in the east of the island.",
           "countries": [],
           "regions": [
+            "Muar",
             "Tasek Bera"
           ]
         }
@@ -76,7 +58,7 @@
     "records": {
       "taxonKey": 5962644,
       "total": 26,
-      "fetched": "2026-11-06",
+      "fetched": "2026-11-18",
       "countries": [
         [
           "ID",
@@ -108,7 +90,7 @@
           102.65625,
           -2.8125,
           8,
-          8
+          0
         ],
         [
           102.65625,
@@ -126,19 +108,19 @@
           109.6875,
           -2.8125,
           4,
-          4
+          0
         ],
         [
           109.6875,
           -1.40625,
           1,
-          1
+          0
         ],
         [
           111.09375,
           0,
           4,
-          4
+          0
         ],
         [
           115.3125,
@@ -152,23 +134,30 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 22,
-          "max": 26
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 20,
           "max": 25
+        }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 26
         }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "bwaquatics",
         "value": {
           "min": 5,
           "max": 7.5
@@ -188,6 +177,10 @@
       {
         "source": "seriouslyfish",
         "value": 2.3
+      },
+      {
+        "source": "bwaquatics",
+        "value": 3
       }
     ],
     "tankCm": [
@@ -207,14 +200,14 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/brevibora-dorsiocellata/",
-      "html": "<p>The Eyespot Rasbora, Brevibora dorsiocellata, is a well known, classical aquarium fish. Sadly the species became almost forgotten in the 1980ies. It was Mr. Takashi Amano from Japan who was responsible for the comeback of the species. Amano often used a large school of B. dorsiocellata for his stylish tanks – a real eyecatcher!</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/brevibora-dorsiocellata-4/",
+      "html": "<p>The Eyespot Rasbora, Brevibora dorsiocellata, is a well known, classical aquarium fish. Sadly the species became almost forgotten in the 1980s. It was Mr. Takashi Amano from Japan who was responsible for the comeback of the species. Amano often used a large school of B. dorsiocellata for his stylish tanks – a real eyecatcher!</p>"
     },
     {
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/brevibora-dorsiocellata-emerald-eye-rasbora",
-      "html": "<p>A small schooling nano fish that is perfect for those looking to add life and color into a blackwater biotope. Temperament: peaceful.</p>"
+      "html": "<ul><li>Genus: Brevibora (eyespot rasboras)</li><li>IUCN Red List: Endangered (very high risk of extinction in the wild)</li><li>Origin: tank raised</li><li>Maximum size: about 2.3 cm standard length (about 3 cm total length)</li><li>Temperament: peaceful</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -229,10 +222,22 @@
       "html": "<p>Native to southern Thailand, Peninsular Malaysia and the Greater Sunda islands of Borneo and Sumatra. Type locality is 'Muar River, Tebinh Tinggi, Johore, Malaysia'.</p><p>In Peninsular Malaysia localities include the Selai and Muar rivers in Johor state and the blackwater swamp lake of Tasek Bera in Pahang state while in Sumatra the only report we've been able to find seems to refer to the Lalah River, Riau province in the east of the island.</p><p>Records from Borneo are confusing. It was once thought restricted to southern (Indonesian) parts of the island and has been recorded from various rivers and streams within the lower Kapuas River basin and the Ketungau river in West Kalimantan (Kalimantan Barat) province as well as tributaries of the Sebangau and lower Mentaya rivers in Central Kalimantan (Kalimantan Tengah). However it appears possible that some or even all of the records from the Kapuas may actually refer to Brevibora cheeya. Until a scientific comparison between the forms of the species from the islands and mainland is conducted it is unlikely that the truth will be known.</p><p>In any case wild caught fish are quite rare in the hobby as the species is being produced commercially in several countries.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/brevibora-dorsiocellata-emerald-eye-rasbora",
+      "html": "<p>Brevibora dorsiocellata was described in 1904 from the Muar River in Johor, Malaysia. It occurs in southern Thailand, Peninsular Malaysia and Sumatra.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
       "html": "<p>Mostly inhabits gently flowing black water streams and rivers associated with ancient forest peat swamps.</p><p>The water is stained brown due to the release of tannins and other chemicals released by decomposing organic matter and the substrate scattered with fallen leaves, twigs and branches. Such environments characteristically contain very soft (negligible hardness), acidic (pH as low as 4.0) water and are often dimly-lit due to the forest canopy above.</p><p>Unfortunately these biotopes are under threat from rubber or palm oil plantations, building developments and other human activities across much of Southeast Asia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/brevibora-dorsiocellata-emerald-eye-rasbora",
+      "html": "<p>It lives in acidic blackwater streams, rivers and peat swamp lakes. It can adapt to both fast-flowing and slow-flowing water.</p>"
     },
     {
       "key": "aquariumSize",
@@ -250,7 +255,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/brevibora-dorsiocellata-emerald-eye-rasbora",
-      "html": "<p>Prefers soft, acidic water with low TDS, but can adapt to a wide range of conditions, including both fast-flowing and slow-flowing water.</p><p>Temperature: 72–78°F (about 22–26°C).</p>"
+      "html": "<ul><li>pH: 5.0 to 7.5</li><li>Temperature: 20 to 25°C in the wild range; kept at 22 to 26°C</li></ul><p>It prefers soft, acidic, low-TDS water but can adapt to a wide range of conditions.</p>"
     },
     {
       "key": "waterConditions",
@@ -262,7 +267,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/brevibora-dorsiocellata-emerald-eye-rasbora",
-      "html": "<p>Small foods such as pellets and flakes. Baby brine shrimp are perfect as live food.</p>"
+      "html": "<p>Small foods such as pellets and flakes; live baby brine shrimp are ideal.</p>"
     },
     {
       "key": "diet",
@@ -273,14 +278,14 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/brevibora-dorsiocellata/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/brevibora-dorsiocellata-4/",
       "html": "<p>Eyespot Rasboras are peaceful and undemanding fishes that can be kept even by beginners in the hobby. There is only one point that should be mentioned: the fish look best (most probably because they feel safe) when kept in larger schools, starting with 10 specimens – the more the better.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/brevibora-dorsiocellata-emerald-eye-rasbora",
-      "html": "<p>One of its best traits is its natural schooling behavior, which can give character to a blackwater biotope.</p><p>Tankmates: they are aggressive eaters and can out-compete slower fish for food, so do not keep them with slow-moving and shy fish. Likewise, do not keep them with large fish that see them as food.</p>"
+      "html": "<p>A small, peaceful schooling nano fish with natural shoaling behaviour, well suited to a blackwater biotope. They are aggressive eaters and can out-compete slower fish for food, so do not keep them with slow-moving, shy fish. Do not keep them with large fish that see them as food.</p>"
     },
     {
       "key": "behaviour",
@@ -301,10 +306,28 @@
       "html": "<p>Like many small cyprinids this species is an egg-scattering, continuous spawner that exhibits no parental care.</p><p>That is to say when the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without intervention. However if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller containers should also be set up. These should be very dimly lit with the base either left bare or covered with some kind of mesh of a large enough grade so that any eggs that fail to adhere to the plant can pass through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works very well for related species.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An internal power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank.</p><p>When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container. Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding live and frozen foods several times throughout the day. Several spawning events normally occur before a female is spent of eggs.</p><p>The adults will likely eat any eggs they find and are best removed after a couple of days at which point the power filter should be switched for a mature sponge-type unit in order to avoid fry being sucked into the mechanism.</p><p>Incubation in related Rasbora spp. is temperature-dependant to an extent but usually takes between 18 and 48 hours with the young free-swimming 24 to 48 hours later. Initial food should be Paramecium or similar introducing Artemia nauplii, microworm and suchlike once the fry are large enough to accept them.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/brevibora-dorsiocellata-emerald-eye-rasbora",
+      "html": "<p>Egg scatterer that spawns in shallow water among fine plants. Adults eat the eggs, so use a separate tank with moss or mesh. Fry need infusoria first.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
       "html": "<p>B. dorsiocellata is sometimes traded as 'green-eyed', 'emerald-eyed' or 'hi-spot' rasbora. There appear to exist several geographical forms of the species at least two of which have been seen in the trade.</p><p>The most common is the rather plain-coloured fish that is produced commercially in large numbers and has gained popularity due to the bright greenish-blue reflective patch in the lower part of the eye. The other is only available from time-to-time and in all likelihood is wild caught. It's particularly attractive because the caudal peduncle and base of the caudal fin are suffused with a russet red colouration, the extent and intensity of which can vary depending on the mood, condition and sexual maturity of the fish.</p><p>B. cheeya Liao and Tan, 2011 can be told apart from B. dorsiocellata by a combination of characters: lateral line complete (25-30 pored scales vs. 4-9); more scales in the lateral row (29-32 vs. 25-27); larger adult size (39 mm SL vs. 23 mm SL); larger head and prepectoral length (head length 28.5-30.0% SL, vs. 24.4-27.9; prepectoral length 29.6-32.9% SL, vs. 25.8-28.8).</p><p>Several years prior to its description Grant (2002) suggested that specimens of B. cheeya in the aquarium trade might represent the subspecies Rasbora dorsiocellata macrophthalma (Meinken, 1951) which was described using a specimen from the aquarium trade from the vague locality 'Malay Peninsula'. Liao and Tan (2011) argue that the type specimen of R. d. macrophthalma has been lost and that even if proved a genuine species the validity of B. cheeya would be unaffected since it possesses a complete lateral line (vs. incomplete in R. d. macrophthalma).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/brevibora-dorsiocellata-4/",
+      "html": "<p>The genus Brevibora has been separated in 2010 from Rasbora. Currently four species are known, but sadly in recent new descriptions serious mistakes have been made, so the names will change in near future again. For that reason the name that is best known in the hobby is used – Brevibora dorsiocellata.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/brevibora-dorsiocellata-emerald-eye-rasbora",
+      "html": "<p>Physical characteristics: a small, slim rasbora with a large eye. A black spot edged in white on the dorsal fin gives the species its name. The body is silvery and semi-transparent, with a bright green-blue iridescent eye.</p>"
     },
     {
       "key": "references",
@@ -320,7 +343,7 @@
       "width": 860,
       "height": 334,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Steve Grant / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
       "caption": "Adult specimen with slight caudal-fin damage.",
       "source": "seriouslyfish"
@@ -384,5 +407,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-19"
 }

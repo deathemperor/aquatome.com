@@ -1,8 +1,13 @@
 {
   "slug": "rio-santiago",
-  "name": "Santiago",
+  "name": "Sungai Santiago",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-16T00:10:44.757Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

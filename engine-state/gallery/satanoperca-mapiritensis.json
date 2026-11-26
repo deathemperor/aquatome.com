@@ -4,5 +4,20 @@
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/15235eea4c34640f.webp": "236148870f264e42"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 604953,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 5208454,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ }
 }

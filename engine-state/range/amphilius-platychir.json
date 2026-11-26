@@ -1,0 +1,193 @@
+{
+  "id": "amphilius-platychir",
+  "native": {
+    "input": "03e6d269c170bc3e",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Sierra Leone, Guinea, Côte d’Ivoire. Type locality: Sierra Leone.",
+        "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Sierra Leone, Guinea, Côte d’Ivoire. Type locality: Sierra Leone.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Sierra Leone, Guinea, Côte d’Ivoire. Type locality: Sierra Leone.",
+        "words": "Côte d’Ivoire",
+        "ok": true
+      },
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Sierra Leone",
+        "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Sierra Leone, Guinea and Côte d'Ivoire.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Sierra Leone, Guinea and Côte d'Ivoire.",
+        "words": "Côte d'Ivoire",
+        "ok": true
+      },
+      {
+        "code": "GH",
+        "status": "doubtful",
+        "source": "planetcatfish",
+        "quote": "Reports from Ghana and Tanzania need confirmation.",
+        "words": "Ghana",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "doubtful",
+        "source": "planetcatfish",
+        "quote": "Reports from Ghana and Tanzania need confirmation.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "ZM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Reported from Luongo River, Congo system, Zambia.",
+        "words": "Zambia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Senegal",
+        "source": "planetcatfish",
+        "quote": "Known from the Senegal, Niger, Gambia, Corubal, Konkouré and Little Scarcies Rivers.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Niger",
+        "source": "planetcatfish",
+        "quote": "Known from the Senegal, Niger, Gambia, Corubal, Konkouré and Little Scarcies Rivers.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Gambia",
+        "source": "planetcatfish",
+        "quote": "Known from the Senegal, Niger, Gambia, Corubal, Konkouré and Little Scarcies Rivers.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Corubal",
+        "source": "planetcatfish",
+        "quote": "Known from the Senegal, Niger, Gambia, Corubal, Konkouré and Little Scarcies Rivers.",
+        "ok": true
+      },
+      {
+        "name": "Konkouré",
+        "source": "planetcatfish",
+        "quote": "Known from the Senegal, Niger, Gambia, Corubal, Konkouré and Little Scarcies Rivers.",
+        "ok": true
+      },
+      {
+        "name": "Congo",
+        "source": "planetcatfish",
+        "quote": "Reported from Luongo River, Congo system, Zambia.",
+        "country": "ZM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "SN",
+        "NG",
+        "NE",
+        "GM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amphilius platychir",
+    "status": "ACCEPTED",
+    "taxonKey": 2340734,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        28
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        17
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        16
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        15
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "415cdd20-b2a4-45b1-8918-b6a4bf188ffe",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ]
+    ],
+    "native": [
+      "SL",
+      "GN",
+      "CI",
+      "ZM"
+    ],
+    "requests": 12,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

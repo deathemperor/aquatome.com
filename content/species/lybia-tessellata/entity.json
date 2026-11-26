@@ -1,0 +1,609 @@
+{
+  "id": "lybia-tessellata",
+  "scientificName": "Lybia tessellata",
+  "order": "Decapoda",
+  "family": "Xanthidae",
+  "genus": "Lybia",
+  "group": "other",
+  "places": [
+    "asia",
+    "papua-new-guinea",
+    "new-guinea",
+    "africa",
+    "egypt",
+    "red-sea"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "New Guinea",
+        "Red Sea"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Found in shallow waters in the tropical Indo-Pacific region from the Red Sea and East African coast all the way to New Guinea, it sits on sandy seabeds and coral reefs where its unique coloring and pattern help it blend in and camouflage itself from potential predators.",
+          "countries": [],
+          "regions": [
+            "New Guinea",
+            "Red Sea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4377870,
+      "total": 105,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "MH",
+          13
+        ],
+        [
+          "ID",
+          12
+        ],
+        [
+          "RE",
+          12
+        ],
+        [
+          "AU",
+          11
+        ],
+        [
+          "YT",
+          8
+        ],
+        [
+          "US",
+          7
+        ],
+        [
+          "SC",
+          5
+        ],
+        [
+          "MU",
+          4
+        ],
+        [
+          "YE",
+          4
+        ],
+        [
+          "KI",
+          3
+        ],
+        [
+          "PF",
+          3
+        ],
+        [
+          "CX",
+          2
+        ],
+        [
+          "FM",
+          2
+        ],
+        [
+          "MG",
+          2
+        ],
+        [
+          "NC",
+          2
+        ],
+        [
+          "PG",
+          2
+        ],
+        [
+          "TF",
+          2
+        ],
+        [
+          "AS",
+          1
+        ],
+        [
+          "CC",
+          1
+        ],
+        [
+          "FJ",
+          1
+        ],
+        [
+          "GU",
+          1
+        ],
+        [
+          "IO",
+          1
+        ],
+        [
+          "KM",
+          1
+        ],
+        [
+          "MP",
+          1
+        ],
+        [
+          "MV",
+          1
+        ],
+        [
+          "PH",
+          1
+        ],
+        [
+          "TW",
+          1
+        ],
+        [
+          "UM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -178.59375,
+          -21.09375,
+          1
+        ],
+        [
+          -172.96875,
+          25.3125,
+          1
+        ],
+        [
+          -171.5625,
+          -14.0625,
+          1
+        ],
+        [
+          -163.125,
+          5.625,
+          1
+        ],
+        [
+          -158.90625,
+          21.09375,
+          5
+        ],
+        [
+          -157.5,
+          19.6875,
+          1
+        ],
+        [
+          -143.4375,
+          -16.875,
+          1
+        ],
+        [
+          -140.625,
+          -9.84375,
+          1
+        ],
+        [
+          -139.21875,
+          -11.25,
+          1
+        ],
+        [
+          40.78125,
+          -21.09375,
+          2
+        ],
+        [
+          42.1875,
+          -12.65625,
+          1
+        ],
+        [
+          43.59375,
+          -14.0625,
+          1
+        ],
+        [
+          45,
+          -14.0625,
+          7
+        ],
+        [
+          45,
+          -9.84375,
+          2
+        ],
+        [
+          46.40625,
+          -25.3125,
+          1
+        ],
+        [
+          47.8125,
+          -14.0625,
+          1
+        ],
+        [
+          52.03125,
+          -7.03125,
+          1
+        ],
+        [
+          53.4375,
+          -5.625,
+          1
+        ],
+        [
+          53.4375,
+          12.65625,
+          4
+        ],
+        [
+          54.84375,
+          -22.5,
+          12
+        ],
+        [
+          54.84375,
+          -8.4375,
+          1
+        ],
+        [
+          56.25,
+          -21.09375,
+          1
+        ],
+        [
+          57.65625,
+          -21.09375,
+          3
+        ],
+        [
+          71.71875,
+          -5.625,
+          1
+        ],
+        [
+          73.125,
+          -1.40625,
+          1
+        ],
+        [
+          95.625,
+          -12.65625,
+          1
+        ],
+        [
+          105.46875,
+          -11.25,
+          2
+        ],
+        [
+          112.5,
+          -22.5,
+          1
+        ],
+        [
+          115.3125,
+          -8.4375,
+          5
+        ],
+        [
+          118.125,
+          -9.84375,
+          1
+        ],
+        [
+          119.53125,
+          -9.84375,
+          1
+        ],
+        [
+          119.53125,
+          21.09375,
+          1
+        ],
+        [
+          120.9375,
+          -15.46875,
+          2
+        ],
+        [
+          120.9375,
+          -14.0625,
+          2
+        ],
+        [
+          120.9375,
+          12.65625,
+          1
+        ],
+        [
+          122.34375,
+          -12.65625,
+          1
+        ],
+        [
+          125.15625,
+          1.40625,
+          2
+        ],
+        [
+          127.96875,
+          -4.21875,
+          3
+        ],
+        [
+          143.4375,
+          7.03125,
+          2
+        ],
+        [
+          143.4375,
+          12.65625,
+          1
+        ],
+        [
+          144.84375,
+          -15.46875,
+          1
+        ],
+        [
+          144.84375,
+          -5.625,
+          2
+        ],
+        [
+          144.84375,
+          14.0625,
+          1
+        ],
+        [
+          149.0625,
+          -18.28125,
+          1
+        ],
+        [
+          151.875,
+          -25.3125,
+          2
+        ],
+        [
+          151.875,
+          -22.5,
+          1
+        ],
+        [
+          161.71875,
+          11.25,
+          13
+        ],
+        [
+          163.125,
+          -21.09375,
+          1
+        ],
+        [
+          168.75,
+          -23.90625,
+          1
+        ],
+        [
+          171.5625,
+          1.40625,
+          1
+        ],
+        [
+          172.96875,
+          0,
+          1
+        ],
+        [
+          174.375,
+          -2.8125,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "aquariumbreeder",
+    "quote": "Water type: SG 1.023–1.025"
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 8.1,
+          "max": 8.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5,
+          "max": 5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/boxer-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Boxer Crab</li><li>Other names: Boxing Crab, Pom Pom Crab, Pom Pom Boxer Crab, Cheerleader Crab, Mosaic Boxer Crab, Mosaic Anemone Crab, Lybia Crab, Hawaiian Boxer Crab</li><li>Minimum tank size: 20 litres</li><li>Breeding: Difficult</li><li>Water type: SG 1.023–1.025</li><li>KH: 8–12</li><li>Nitrate: less than 20 ppm</li><li>Diet: Omnivore/Carnivore</li><li>Temperament: Peaceful</li><li>Life span: up to 5 years</li><li>Colour: yellow to orange-red spots bordered with dark brown or black</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/boxer-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Found in shallow waters in the tropical Indo-Pacific region from the Red Sea and East African coast all the way to New Guinea, it sits on sandy seabeds and coral reefs where its unique coloring and pattern help it blend in and camouflage itself from potential predators.</p><p>Note: There are some records of Lybia tesselata from the Hawaiian Islands. They are erroneous and are actually for a closely related species, Lybia edmondsoni (Hawaiian Boxer Crab).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/boxer-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In the wild, these crabs were found under basalt rocks and coral rubble of various sizes in subtidal locations.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/boxer-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The minimum recommended tank size is 20 litres. The bigger the tank, the easier it may be to maintain water parameters. The downside is that in big tanks these small crabs are lost and you will probably not see them for a long time, and it is harder to find them to spot feed. Since they are so small, it is easier to keep an eye on them and make sure they get food in a smaller tank.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/boxer-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Taking care of the Boxer crab is relatively simple. They are amazingly resilient as aquarium inhabitants. They do not need strong lighting or a high current.</p><p>Replicate their natural environment. Make sure to have plenty of little nooks, crannies and caves for them to hide. Provide live rock and rubble. They will not be happy in a bare bottom tank, but as long as it has a place to hide, it will get by.</p><p>Before putting them in your tank, acclimate them.</p><p>Molting: like all crabs, Lybia tesselata molts, which is the most dangerous process for any crab, shrimp or crayfish. It is crucial to provide plenty of hiding space. During molting they become defenseless, as they must drop the anemones from their claws to shed their shells. They try to do this very quickly, wiggling out of the shell and grabbing the anemones in both claws for defense. Until the new shell hardens they hide under rocks and other formations. During the molt (and a few hours after) they are vulnerable to creatures you would not otherwise consider a threat.</p><p>All shrimp species need adequate calcium and trace minerals for molting.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/boxer-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Temperature: 25–28°C</li><li>SG: 1.023–1.025</li><li>pH: 8.1–8.4 (7.5–9)</li><li>KH: 8–12</li><li>Nitrate: less than 20 ppm</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/boxer-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They are scavengers and do fine eating detritus in the tank. Boxer crabs use their anemone partners to help mop up food, which feeds both the crab and the anemones. If you feed other animals in the tank, you do not really have to feed them.</p><p>Lybia tesselata is an omnivore (with a meaty preference) and seems to eat everything: squid, mysis shrimp, brine shrimp, copepods, frozen foods, plankton, rotifers, sinking pellets, etc.</p><p>While peaceful, they can be quite aggressive when it comes to food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/boxer-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Until they get used to the aquarium, Boxer Crabs are very shy and easier to find at night when the lights go out. During the day many hang out on corals or under rocks. At night they patrol the dark tank and can be seen swaying the anemones side to side to collect food from the water column.</p><p>Although quite peaceful, they are not complete pushovers. When about to fight, they can even jump at the adversary, but in most cases they do not injure or kill each other. They are not true diggers, but can push out some sand (or small rock) to build caves under live rocks.</p><p>Anemone partnership: this species carries a small sea anemone, usually Bunodeopsis spp. or Triactis producta, for feeding and defense. Triactis producta is one of the most dangerous venomous sea anemones; stings cause pain and swelling, sometimes with a blistered lesion. The anemone gains new food sources and extra oxygen from the crab's movement, but may lose food to the crab: in a laboratory study crabs stole up to 100% of the food the anemone acquired, thereby controlling its growth and keeping it small. The claws are so adapted that they cannot effectively grasp other objects even without anemones; crabs without anemones gathered Artemia with their first walking legs.</p><ul><li>If they lose one anemone, crabs split a single anemone in two, inducing asexual reproduction. Seventeen of twenty-two crabs holding a single anemone split it within 6 days.</li><li>When fighting each other they hold the anemones away from opponents, so fighting is ritualized with minimal contact.</li><li>Smaller crabs without anemones are not afraid to start a fight, and in experiments always came away with an anemone fragment or a whole anemone.</li><li>Even when molting they try to get their anemones in their claws.</li><li>Larvae hatch without anemones and presumably acquire them after settling.</li><li>If they lose the anemone, they can substitute something else, such as Yuma, small polyps, zoanthids and even aiptasia.</li></ul><p>Tank mates: obvious predators will attack and eat the crab. Large dottybacks, hawkfishes, wrasses, sand perches and puffers may attack them, so they tend to hide by day and feed at night. Coral banded shrimp, pistol shrimp and sometimes hermit crabs may harass them. Sexy shrimp, bumblebee shrimp, snails, porcelain anemone crabs, emerald crabs and cleaner shrimp (peppermint, red fire, skunk cleaner) usually leave them alone.</p><p>Rarely, fully grown crabs go into \"rogue mode\" and attack and kill snails, shrimp and even other Boxer Crabs.</p><p>They are reef-safe: there are no reports of them harming corals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/boxer-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Sexing is the same as in other crabs but can be difficult because of their small size. Males have a narrow, slimmer abdominal plate while females have a broad plate on the belly. In many decapods the claws are more developed in males, but this cannot be applied here because the claws are covered. Biologists report no sexual dimorphism directly involved in anemone holding.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/boxer-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Lybia tesselata are oviparous: the female carries the eggs, which hatch completely outside. The number of eggs can reach several hundred. The eggs are a yellow-orange clump on the abdomen and remain so for 13–15 days. During this time the female eats more and is out in the open more, making her more susceptible to predators.</p><p>About three days before hatching, the female retreats under rock formations. When it is time, she climbs a rock and releases the larvae, which can take several hours. The larvae are planktonic and must undergo complete metamorphosis to become tiny copies of their parents.</p><p>There are no reports of successful breeding in captivity. The only information available:</p><ul><li>Larvae are voracious feeders and exhibit hunting behaviour (ciliates).</li><li>Larvae need constant feeding (daily).</li><li>They are attracted to light after hatching; use this to transfer them to a rearing setup.</li><li>Rotifers and phytoplankton are not enough; supplement with enriched Artemia.</li><li>Larvae start to settle on the bottom at 10–12 days old.</li><li>The rearing setup requires the same water parameters.</li><li>Do not use rocks or decorations, just a bare bottom with a heater and airstone. Frequently siphon out uneaten food and waste.</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/boxer-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The species is named for the colour pattern on its carapace, consisting of closely fitted polygons, mostly triangles, as in a mosaic. Boxer Crabs only grow to about 2.5 cm wide. The carapace is trapezoid, marked with geometric regions giving a stained-glass look. The eyes are relatively big. The legs are banded with thin black lines and spangled with small white spots. The front claws are thin and short and are too slender and feeble for defense, but the crab holds a live sea anemone in each claw. Food gathering is done by the third maxillipeds and the first pair of walking legs. A sister species, Lybia edmondsoni (Hawaiian Boxer Crab), is smaller, averaging 10–15 mm wide.</p><p>Lifespan: nobody knows for sure. In captivity it ranges from 2–5 years, and some aquarists report up to 6 years. It depends on conditions, feeding, size when acquired and how stressful the aquarium is. They live longest in aquariums with low competition and without larger animals, which is why smaller aquariums are recommended.</p>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/boxer-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>The Polydectinae Dana, 1851, of the Philippines, with description of a new genus for Lybia hatagumoana Sakai, 1961 (Crustacea: Decapoda: Brachyura: Xanthidae). Zootaxa 3052: 51–61 (2011)</li><li>Hoover, J.P. (2007).Hawaiian Sea Creatures. Mutual Publishing. Karplus, I., Fiedler, G. C., &amp; Ramcharan, P. (1998). The intraspecific fighting behavior of the Hawaiian boxer crab, Lybia edmondsoni– Fighting with dangerous weapons? Symbiosis, 24, 287–301.</li><li>Schnytzer et al. (2017), Boxer crabs induce asexual reproduction of their associated sea anemones by splitting and intraspecific theft. PeerJ 5:e2954; DOI 10.7717/peerj.2954</li><li>Bonsai anemones: Growth suppression of sea anemones by their associated kleptoparasitic boxer crab. Journal of Experimental Marine Biology and Ecology 448 (2013) 265–270</li><li>A review of the carrying behaviour in brachyuran crabs, with additional information on the symbioses with sea anemones. The Raffles Bulletin of Zoology 1995, 43(2):377-416</li><li>Noël P., 2017. La mélie damier Lybia tessellata (Latreille, in Milbert, 1812). In Muséum national d’Histoire naturelle [Ed.], 4 janvier 2017. Inventaire national du Patrimoine naturel, pp. 1-9, site web http://inpn.mnhn.fr</li><li>Report of Stingings by the Sea Anemone Triactis Producta Klunzinger. Journal Clinical Toxicology Volume 3, 1970 – Issue 4.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/ca5f785b89c859d7.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/ca5f785b89c859d7-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/boxer-crab-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "gJYO9MkDiDk",
+      "title": "Lybia tessellata Boxerkrabbe   Pompom Krabbe",
+      "durationSec": 41,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Gp6JL-UKvMA",
+      "title": "Keeping Pom Pom Crabs (and Why You Should!)",
+      "durationSec": 651,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "Qn1oIcwvIW4",
+      "title": "Boxer Crab - Lybia tessellata",
+      "durationSec": 41,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UPEgjfmJiBE",
+      "title": "Pom pom crab (Lybia tessellata)",
+      "durationSec": 141,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nano 20 lít",
+        "bể hải sản nano"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá nước mặn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "mysis đông lạnh",
+        "thức ăn cho cua cảnh biển"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước biển",
+        "khúc xạ kế đo độ mặn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

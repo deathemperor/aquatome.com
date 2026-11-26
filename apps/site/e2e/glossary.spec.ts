@@ -116,3 +116,128 @@ test('a source\'s mark uses the same card and isn\'t counted', async ({ page }, 
   await page.waitForTimeout(300)
   expect(sent).toEqual([])
 })
+
+// The list (the Design Lead's board, 14 Nov 2026): a search over the terms, an A to Z of its letters with their counts,
+// each letter's heading. Names and counts are read from the page, so it holds on the fixture and the live site alike.
+test('the list\'s search keeps only the terms that match, and says when none do; a letter takes the reader to its terms', async ({ page, errors }) => {
+  await page.goto('/thuat-ngu/')
+  const rows = page.locator('[data-find]')
+  const all = await rows.count()
+  expect(all).toBeGreaterThan(1)
+  // Each letter's count is its terms'.
+  for (const a of await page.locator('nav.az a').all()) {
+    const id = (await a.getAttribute('href'))!.slice(1)
+    await expect(page.locator(`section.letter:has(h2[id="${id}"]) [data-find]`)).toHaveCount(Number(await a.locator('small').textContent()))
+  }
+  const name = (await rows.first().locator('dt a').textContent())!.trim()
+  const find = page.locator('#tm-find')
+  // The board's magnifier sits inside the field, before its words.
+  const field = (await find.boundingBox())!
+  const glass = (await page.locator('.find:has(#tm-find) > svg').boundingBox())!
+  const pad = parseFloat(await find.evaluate(e => getComputedStyle(e).paddingLeft))
+  expect(glass.x).toBeGreaterThan(field.x)
+  expect(glass.x + glass.width).toBeLessThanOrEqual(field.x + pad)
+  expect(glass.y).toBeGreaterThan(field.y)
+  expect(glass.y + glass.height).toBeLessThan(field.y + field.height)
+  await find.fill(name)
+  await expect(rows.first()).toBeVisible()
+  expect(await page.locator('[data-find]:visible').count()).toBeLessThan(all)
+  await expect(page.locator('.none')).toBeHidden()
+  await find.fill('zzqqxx')
+  await expect(page.locator('[data-find]:visible')).toHaveCount(0)
+  await expect(page.locator('section.letter:visible')).toHaveCount(0)
+  await expect(page.locator('.none')).toBeVisible()
+  await find.fill('')
+  await expect(page.locator('[data-find]:visible')).toHaveCount(all)
+  const letter = page.locator('nav.az a').last()
+  const target = (await letter.getAttribute('href'))!
+  await letter.click()
+  await expect(page).toHaveURL(new RegExp(`${target}$`))
+  await expect(page.locator(`h2[id="${target.slice(1)}"]`)).toBeInViewport()
+  expect(errors).toEqual([])
+})
+
+// The Design Lead, 15 Nov 2026: the row's end chip, "Dùng trong N", is marked as the other chips are while its part is
+// read, and lets go in a part above. Read from the page, so it holds on aquatome.com too.
+test('a term\'s jump row marks "Dùng trong" at its end while the reader is in that part', async ({ page, errors }, info) => {
+  await page.goto('/thuat-ngu/')
+  let found = false
+  for (const href of (await page.locator('[data-find] dt a').evaluateAll(as => as.map(a => a.getAttribute('href')!))).slice(0, 30)) {
+    await page.goto(href)
+    if (await page.locator('nav.jump a.end').count()) { found = true; break }
+  }
+  test.skip(!found, 'no term with a jump row and pages that use it in this build')
+  const press = (l: ReturnType<typeof page.locator>) => (info.project.name === 'phone' ? l.tap() : l.click())
+  const end = page.locator('nav.jump a.end')
+  await press(end)
+  await expect(page.locator('#dung-trong')).toBeInViewport()
+  await expect(end).toHaveAttribute('aria-current', 'true')
+  await expect(page.locator('nav.jump a[aria-current]')).toHaveCount(1)
+  const first = page.locator('nav.jump ul a').first()
+  await press(first)
+  await expect(first).toHaveAttribute('aria-current', 'true')
+  await expect(end).not.toHaveAttribute('aria-current')
+  expect(errors).toEqual([])
+})
+
+// The Design Lead's board, 16 Nov 2026: a term's kinds as cards; a tap opens one large over the page, with its count, its
+// whole text and the kinds either side by name; the next one opens in its place; Esc or ✕ closes it, and focus is back on
+// the card. A term with kinds: the fixture's cá đàn, and on aquatome.com lũa (names and counts read off the page).
+const KINDS = process.env.E2E_BASE_URL ? '/thuat-ngu/lua/' : '/thuat-ngu/ca-dan/'
+
+test('a kind\'s card opens it large; the next kind opens in its place; Esc and ✕ close it, focus back on the card', async ({ page, errors }) => {
+  await page.goto(KINDS)
+  const cards = page.locator('section.kinds a.k-card')
+  const n = await cards.count()
+  expect(n).toBeGreaterThan(1)
+  const first = cards.first()
+  const name = (await first.locator('.k-name').textContent())!.trim()
+  await first.click()
+  const open = page.locator('dialog.k-view[open]')
+  await expect(open).toHaveCount(1)
+  await expect(open.locator('h3')).toHaveText(name)
+  await expect(open.locator('.kv-n')).toHaveText(`1 / ${n}`)
+  // Its photo is drawn as it opens, where the card has one.
+  if (await first.locator('img').count()) await expect(open.locator('.kv-pic img')).toBeVisible()
+  // On a computer it's a panel as tall as what it holds, no empty band under the text (the parity shots, 16 Nov 2026: a
+  // modal's height set to auto stretched it to the whole screen). A phone's is the whole screen by design.
+  if (page.viewportSize()!.width >= 960) {
+    const gap = await open.evaluate(d => d.querySelector('.kv-body')!.getBoundingClientRect().bottom - d.querySelector('.kv-text')!.getBoundingClientRect().bottom)
+    expect(gap).toBeLessThan(2)
+  }
+  const next = (await cards.nth(1).locator('.k-name').textContent())!.trim()
+  await open.locator('.kv-step a[rel="next"]').click()
+  await expect(open).toHaveCount(1)
+  await expect(open.locator('h3')).toHaveText(next)
+  await expect(open.locator('.kv-n')).toHaveText(`2 / ${n}`)
+  await page.keyboard.press('Escape')
+  await expect(open).toHaveCount(0)
+  await expect(first).toBeFocused()
+  await first.click()
+  await open.locator('.kv-x').click()
+  await expect(open).toHaveCount(0)
+  // ✕ drops the view's history entry: the address is the page's own again.
+  await expect.poll(() => page.url()).not.toContain('#loai-')
+  // Back closes it and the page stays where it was (the Design Lead, 16 Nov 2026: on a phone it reads as a page).
+  await first.scrollIntoViewIfNeeded()
+  const y = await page.evaluate(() => scrollY)
+  await first.click()
+  await expect(open).toHaveCount(1)
+  await page.goBack()
+  await expect(open).toHaveCount(0)
+  expect(new URL(page.url()).pathname).toBe(KINDS)
+  expect(page.url()).not.toContain('#loai-')
+  expect(await page.evaluate(() => scrollY)).toBe(y)
+  await expect(first).toBeFocused()
+  // The next kind takes the view's place in the same entry, by the keyboard too: Back then closes it, the page's own
+  // address again (the fresh reader, 16 Nov 2026: the closed kind's close event used to step back a second time).
+  await first.click()
+  await open.locator('.kv-step a[rel="next"]').press('Enter')
+  await expect(open).toHaveCount(1)
+  await expect(open.locator('h3')).toHaveText(next)
+  await page.goBack()
+  await expect(open).toHaveCount(0)
+  expect(new URL(page.url()).pathname).toBe(KINDS)
+  expect(page.url()).not.toContain('#loai-')
+  expect(errors).toEqual([])
+})

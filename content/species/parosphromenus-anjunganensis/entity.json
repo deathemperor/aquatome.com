@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "indonesia",
-    "kalimantan-barat"
+    "kalimantan-barat",
+    "kapuas"
   ],
   "range": {
     "native": {
@@ -16,9 +17,11 @@
         "ID"
       ],
       "regions": [
-        "Borneo"
+        "Borneo",
+        "Kapuas"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
@@ -30,6 +33,14 @@
           ],
           "regions": [
             "Borneo"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Parosphromenus anjunganensis was described in 1991 from Sungai Kepayang, about 7 km southeast of Anjungan in the Kapuas system of West Kalimantan, Borneo.",
+          "countries": [],
+          "regions": [
+            "Kapuas"
           ]
         }
       ]
@@ -63,14 +74,14 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
           "min": 22,
           "max": 28
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
           "min": 22,
           "max": 28
@@ -79,28 +90,21 @@
     ],
     "ph": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 3,
-          "max": 6.5
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 3,
           "max": 6.5
         }
-      }
-    ],
-    "gh": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 1,
-          "max": 4
+          "min": 3.5,
+          "max": 5.5
         }
-      },
+      }
+    ],
+    "gh": [
       {
         "source": "seriouslyfish",
         "value": {
@@ -112,6 +116,10 @@
     "sizeCm": [
       {
         "source": "seriouslyfish",
+        "value": 3.5
+      },
+      {
+        "source": "bwaquatics",
         "value": 3.5
       }
     ],
@@ -133,7 +141,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
-      "html": "<p>Conservation status: Endangered. Parosphromenus anjunganensis stands out from other Parosphromenus species with its prominent red fins outlined with a white band. It is a small freshwater fish belonging to the family Osphronemidae.</p>"
+      "html": "<p>Genus Parosphromenus (licorice gouramis). IUCN Red List: Endangered (very high risk of extinction in the wild). Origin: wild caught. Max size 3.5 cm.</p>"
     },
     {
       "key": "quickFacts",
@@ -148,16 +156,28 @@
       "html": "<p>Type locality is 'Sungei Kepayang, 7 kilometers southeast of Anjungan on road to Pontianak, 0°20'N, 109°08'E, Kalimantan Barat, Borneo', and P. anjunganensis is known only from a handful of localities in the surrounding area.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
+      "html": "<p>Parosphromenus anjunganensis was described in 1991 from Sungai Kepayang, about 7 km southeast of Anjungan in the Kapuas system of West Kalimantan, Borneo. It lives close to Parosphromenus ornaticauda, sometimes in the same waters.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-anjunganensis",
       "html": "<p>A stenotypic inhabitant of peat swamp forests and associated blackwater streams.</p><p>In unaltered habitats the dense canopy of branches above means very little light penetrates the surface of such environments, and riparian vegetation also tends to grow thickly.</p><p>The water is typically stained darkly with humic acids and other chemicals released by decaying organic materials, the dissolved mineral content generally negligible and pH as low as 3.0 or 4.0.</p><p>Unfortunately some habitats within its known range have already been cleared and drained for agriculture and the species may be highly-threatened.</p><p>At some localities it occurs alongside the congener P. ornaticauda.</p>"
     },
     {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
+      "html": "<p>Blackwater at the type locality measured pH 3.5 to 5.4, 22 µS/cm conductivity and 28°C.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
-      "html": "<p>Best kept in small groups of 3-6 in a 5 to 10 gallon (about 19-38 litre) tank with small blackwater fish such as Boraras or mouthbrooding bettas like Albimarginata and Channoides.</p>"
+      "html": "<p>Keep a pair in 20 litres, or a group of 3 to 6 in 40 litres, with plenty of caves and leaf litter.</p>"
     },
     {
       "key": "aquariumSize",
@@ -175,7 +195,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
-      "html": "<ul><li>Temperature: 22 – 28 °C</li><li>pH: 3.0 – 6.5</li><li>Hardness: 18 – 72 ppm (about 1 – 4 dGH)</li></ul>"
+      "html": "<ul><li>TDS: 0 to 50</li><li>pH: 3.5 to 5.5</li><li>Temperature: 22 to 28°C</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -187,7 +207,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
-      "html": "<p>They are omnivores, feeding on a variety of small invertebrates and insect larvae.</p>"
+      "html": "<p>Micropredator. Wild-caught fish usually take only live food, such as live baby brine shrimp, daphnia and blackworms.</p>"
     },
     {
       "key": "diet",
@@ -199,7 +219,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
-      "html": "<p>These fish are generally peaceful and shy, preferring to hide among vegetation or other structures in their environment.</p>"
+      "html": "<p>Peaceful and uncomplicated. They can share a tank with tiny, calm blackwater fish such as Boraras, or with small mouthbrooding bettas like albimarginata and channoides, but tankmates will eat any fry. Never mix different Parosphromenus species.</p>"
     },
     {
       "key": "behaviour",
@@ -214,10 +234,22 @@
       "html": "<p>In males the dorsal, anal and caudal fins are uniformly reddish-brown with a thin bluish to whitish hyaline margin, while the pelvic fins are also reddish with a whitish filamentous tip.</p><p>Nuptial males exhibit an overall more intense colour pattern.</p><p>Females are far less colourful and lack the reddish fins.</p><p>Nuptial females lose the majority of their markings and take on a pale colour pattern plus both nuptial males and females exhibit an oblique dark bar running through the eye.</p><p>Both sexes are also capable of rapidly changing colour depending on mood and become significantly darker when aggressive, for example.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
+      "html": "<p>Males have plain red-brown unpaired fins with thin white-blue lines, and similar pelvic fins with whitish to blue filaments. Females have round tails. Body is brown. Females turn pale beige during courtship and are hard to tell from other round-tailed species. It stands out from other licorice gouramis with its plain red-brown fins outlined in thin white-blue lines.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-anjunganensis",
       "html": "<p>Normally spawns in small caves or among leaf litter and forms temporary pair bonds with the male solely responsible for egg and brood-care.</p><p>Parosphromenus spp. have been grouped arbitrarily based on courtship behaviour in males which adopt a 'head-down', 'head-up', or 'horizontal' position depending on species.</p><p>P. anjunganensis belongs to the former, more speciose, assemblage in which the male assumes a near-vertical position with the head lowermost and fins splayed during nuptial displays.</p><p>Sexually-active males form small territories at the centre of which is a small cave normally formed from leaf litter in nature, although in aquaria any suitable structure may be chosen.</p><p>They then attempt to attract females in the vicinity to enter the cave via spectacular displays as described above.</p><p>Eggs and milt are released in batches during a series of embraces in which the male wraps its body around that of the female.</p><p>Some males construct a rudimentary bubble nest inside the cave while others do not, but either way both male and female attempt to attach the eggs to the ceiling after they are released.</p><p>Subsequent spawning embraces may dislodge eggs from the roof of the cave, and inexperienced adults sometimes simply eat them so a degree of patience may be required until the fish get things right.</p><p>Following a successful spawn the female leaves the cave and proceeds to defend the surrounding area while the male tends to the brood.</p><p>Incubation is normally 24-36 hours with the fry mobile around 4-6 days later.</p><p>They initially swim without direction and the male will collect and return them to the 'nest' but after 3-5 additional days are fully free-swimming and leave the cave at which point parental care ceases.</p><p>They may require Paramecium, rotifers or similar as a first food but are quickly able to accept Artemia nauplii and suchlike.</p><p>If the aquarium is well-structured they can often be raised alongside the parents but in more basic set-ups should be removed and grown on elsewhere.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-anjunganensis-1",
+      "html": "<p>Breeds well under standard licorice gourami conditions. The male builds a modest foam nest, often in caves formed by old leaves, and courts head-down. Clutches are medium-sized, up to about 60 eggs. The male guards the eggs and larvae until the fry swim free.</p>"
     },
     {
       "key": "notes",
@@ -283,5 +315,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-20"
 }

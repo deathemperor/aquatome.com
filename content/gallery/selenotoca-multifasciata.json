@@ -2,6 +2,19 @@
   "id": "selenotoca-multifasciata",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/603808018.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/603808018-480.webp",
+      "width": 1024,
+      "height": 766,
+      "licence": "CC BY",
+      "author": "TonyT",
+      "sourceUrl": "https://www.inaturalist.org/photos/603808018",
+      "caption": "Cá nâu bạc bơi cùng nhau trong bể cát trắng",
+      "best": true,
+      "kind": "group",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/730608979.webp",
       "thumb": "https://media.aquatome.com/inaturalist/730608979-480.webp",
       "width": 1200,
@@ -12,9 +25,22 @@
       "caption": "Đàn cá nâu bạc có sọc đang bơi gần mặt nước",
       "best": true,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/730608692.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/730608692-480.webp",
+      "width": 577,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Andrew Parker",
+      "sourceUrl": "https://www.inaturalist.org/photos/730608692",
+      "caption": "Nhóm cá nâu bạc sọc đứng bơi gần mặt nước",
+      "best": true,
+      "kind": "group",
+      "setup": false
     }
   ],
-  "seen": 15,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 34,
+  "updatedAt": "2026-11-15",
+  "builtAt": "2026-11-15"
 }

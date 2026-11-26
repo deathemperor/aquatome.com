@@ -1,15 +1,18 @@
 {
   "id": "hygrophila-difformis",
   "scientificName": "Hygrophila difformis",
+  "synonyms": [
+    "Ruellia difformis",
+    "Synnema triflorum"
+  ],
   "difficulty": 1,
   "light": "medium",
   "co2": "optional",
   "growth": "fast",
   "placement": [
-    "background",
     "midground",
-    "foreground",
-    "floating"
+    "background",
+    "foreground"
   ],
   "sections": [
     {
@@ -25,10 +28,40 @@
       "html": "<p>Water wisteria (Hygrophila difformis) is a very popular aquarium plant because of its lacy leaves, bright green color, and rapid growth. Its care requirements are easy, but it is very prone to melting and losing its leaves when first purchased.</p><p>This aquatic stem plant can easily grow up to 51 cm tall and 25 cm across. At greater heights, light has difficulty reaching the base and the bottom leaves may begin to thin out. It is often used as a background plant, but can be planted in the foreground or midground if cut shorter.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-wisteria-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Common name: Water wisteria (also Wild wisteria, Vaantjes plant)</li><li>Scientific name: Hygrophila difformis (Ruellia difformis, Synnema triflorum)</li><li>Difficulty: easy</li><li>Lighting: moderate</li><li>Water hardness: soft to hard</li><li>Substrate: nutrient-rich, or it can float</li><li>Growth rate: fast</li><li>Growth conditions: submersed and immersed (immersed preferable)</li><li>Placement: mid to background, or carpet</li><li>Height: up to 50 cm without trimming; width 15–20 cm</li><li>CO2: not needed to low</li><li>Propagation: cuttings</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-wisteria-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Look for long, abundant roots, upright stems and shoots, and bright colour; avoid plants with yellow or brown shoots or stems. Leaf shape may differ from the mature form and can change when submerged. Transfer from emersed to submersed growth can cause heavy leaf loss, but the plant regrows.</p>"
+    },
+    {
       "key": "distribution",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/water-wisteria",
       "html": "<p>Native to countries ranging between India and Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-wisteria-care-guide-planting-growing-and-propagation/",
+      "html": "<p>This plant is native to Southern Asia: India, Bangladesh, Bhutan and Nepal. It grows upright in marshlands and shallow water bodies.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-wisteria-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Water wisteria thrives in shallow water in its natural habitat during the rainy season, where it can be seen partially immersed or floating on the water's surface. It grows better in the rainy season than in the dry season.</p><p>It has been commonly grown as an aquarium plant in the United States since the 1970s.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-wisteria-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Water wisteria takes up a lot of space, so 40 litres is the minimum recommended tank size. More is better.</p>"
     },
     {
       "key": "maintenance",
@@ -43,6 +76,30 @@
       "html": "<h3>Planting</h3><ul><li>Carefully remove the stems from the rubber band, bundle, or rock wool inside the plastic pot, and trim any stems or leaves damaged in transport.</li><li>Using your fingers or tweezers, push the base of each stem as deeply as possible into the gravel or substrate.</li><li>Plant each stem separately about 2.5-5 cm apart so they have room to develop roots and anchor.</li><li>If fish dig in the substrate, protect newly planted stems with a ring of rocks, wood, or other decorations.</li><li>Wisteria can also be grown floating, where it rises to the surface and develops many hanging roots along the horizontal stem.</li></ul><h3>Melting after purchase</h3><p>After planting, expect it to look good for the first couple of days. Halfway through the first week, emersed leaves start turning yellow and then brown, especially near the bottom of the stems. Once the leaves are brown, you can remove them to avoid excess rotting organics in the aquarium. If the wisteria lacks light and/or nutrients, the stems may turn brown and melt away. Cut off the brown, soggy stems, replant the healthy green parts, and add more lighting or fertilizer as needed.</p><h3>Converting from emersed to submersed growth</h3><p>The conversion can take from a couple of weeks to a couple of months, depending on the tank's light, nutrient, and carbon dioxide (CO2) levels. In a low-tech tank with dim lighting and no CO2 injection, it may take about a month for the first submersed leaves to appear.</p><ul><li>Use medium to high lighting, place the wisteria directly under the light, and make sure other plants do not shade it.</li><li>Provide plenty of nutrients in the water column with an all-in-one liquid fertilizer, and add a mineral supplement if you have soft water with low GH.</li><li>CO2 injection is not required but greatly shortens the conversion time.</li><li>If planted in the substrate, try not to move it around; each time the ground is disturbed, it stops growing for a while.</li><li>Make sure the stems are not too tall and growing out of the water, or they may develop more emersed leaves instead of submersed ones.</li><li>If conversion is difficult, float some stems so they collect more light and CO2 at the surface, then replant them once they have grown a decent amount of roots.</li><li>Keep water parameters, lighting, and fertilizer stable, because wisteria easily melts when conditions fluctuate.</li></ul><h3>Propagation</h3><p>Once well-established, it can grow like a weed at 1-8 cm per day. To prevent it from blocking all the light and outcompeting other plants, cut off the top half of the stems and replant the trimmings. The bottom half can stay in the substrate and will eventually grow new leaves from the tip. If the bottom half is too leggy and lost most of its leaves, many people remove it and plant the top half in its place.</p><p>If the wisteria is floating, do not let it cover more than 50% of the water surface, or it may shade out other plants and cause stagnant, oxygen-deprived water.</p><p>When several centimeters of submersed leaves have grown, you can cut off the healthy tips and replant them to replace the old, emersed-grown sections.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-wisteria-care-guide-planting-growing-and-propagation/",
+      "html": "<p><strong>Planting:</strong> Water wisteria shoots out long roots along its stem, so some aquarists use it as a carpet: lay the stems on their side and root them firmly in the substrate; only upward-pointing leaves will form the carpet. Otherwise, plant the roots in the substrate and let the stems grow towards the light. The spacing between nodes is large and the leaves are big, so it is not an ideal ground cover.</p><p><strong>Propagation:</strong> Cut parts of the stem and plant them in a nutrient-rich substrate; they develop roots within a couple of days. Remove leaves from the base up to 5 cm of the stem so roots can emerge from the lowest nodes. Do not plant cuttings too densely.</p><p><strong>Floating:</strong> The plant can also be floated on the surface close to the light, which promotes rapid growth but needs trimming sooner. Floating plants eventually produce long roots and larger immersed-style leaves; the roots give cover and feeding surfaces for fish and shrimp.</p><p><strong>Trimming:</strong> It grows fast and takes up much space and nutrients from other plants, so trim regularly to the height you want. New shoots appear from the remaining nodes. Remove cuttings or replant them, and do not leave them to decompose in the tank.</p><p><strong>Quarantine:</strong> Quarantine new plants. They can carry parasites, pests such as snails, or predators (dragonfly and damselfly nymphs), or be treated with pesticides that are highly toxic to shrimp and invertebrates.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-wisteria-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The pH can be anywhere between 6.0 and 8.0. Soft to moderately hard water is needed (2–8 KH). A temperature of 20–27 °C is optimal.</p><p>Fertilisation guideline: CO2 10–40 mg/l, nitrate 10–50 mg/l, phosphate 0.1–3 mg/l, potassium 5–30 mg/l, iron 0.01–0.5 mg/l. Fertilisers and CO2 injection are not compulsory, but they help the plant grow healthily. Iron deficiency makes the leaves pale and yellowish.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-wisteria-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Lighting: use artificial lighting, not direct sunlight, which promotes algae. Moderate light for at least 10 hours daily; light also accelerates growth and brightens leaf colour.</p><p>Filter: provide well-filtered water with a filter that does not cause too much surface splashing, so the plants are not disturbed.</p><p>Substrate: a nutrient-rich substrate is ideal (soil is best); gravel or sand also work if properly fertilised. Fine gravel is better than coarse gravel because roots anchor and take up nutrients more easily.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-wisteria-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Water wisteria suits shrimp, snails (ramshorn, nerite, Malaysian trumpet, Japanese trapdoor, mystery) and small peaceful fish such as tetras, guppies, mollies, dwarf gouramis, swordtails, rasboras and Corydoras. Avoid goldfish, oscars and rainbowfish, which eat the leaves and uproot stems; crayfish and crabs are usually too destructive.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophiladifformis(051BDT)/4485",
@@ -53,6 +110,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/water-wisteria",
       "html": "<h3>Emersed and submersed leaves</h3><p>Wisteria is often grown on commercial farms with leaves and stems out of water and roots in the water, which makes plants grow faster, bigger, and free of algae and pests. Emersed-grown plants have thicker stems and broader leaves that absorb carbon dioxide from the air. Emersed leaves look like strawberry leaves: oval, about 4 cm long, with grooved veins and slightly jagged edges.</p><p>Once placed in the tank, the plant drops its old emersed leaves and grows new submersed leaves, which draw carbon dioxide and nutrients from the water. Submersed leaves are thinner, narrower, and more delicate: bright green, feathery fronds up to 10 cm across. They look drastically different from emersed growth, but it is the same species adapting to different environments. Its bushy appearance adds visual texture to planted tanks and is good for hiding fish fry or shrimp.</p><h3>Water wisteria vs. water sprite</h3><p>Both have delicate, lacy leaves, but water sprite (Ceratopteris thalictroides) has thinner, more needle-like leaves. Water wisteria is a stem plant that can produce long branches all along the stem, whereas water sprite is a fern that creates new shoots from a central point at the base.</p><p>As a fast-growing plant, wisteria is often used to consume nitrogen waste compounds and outcompete algae. If it gets too little light or liquid fertilizer, it melts away from starvation.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-wisteria-care-guide-planting-growing-and-propagation/",
+      "html": "<p><strong>Description:</strong> bright green, serrated, oval, lace-like leaves 1–4 cm long on short stalks; blue-violet flowers; glandular hairs; firm, slightly darker erect stem; thin white roots. Height 20–50 cm, width 15–20 cm. It shows heterophylly, changing leaf form in response to light, temperature and water availability, which is normal. It has no distinct known types.</p><p><strong>Problems:</strong> leaf loss may be caused by too little or too much light; loss of colour comes from nutrient deficiency.</p><p><strong>Benefits:</strong> cover for shrimp and fish, oxygen, aesthetic value, absorbs nitrate, cheap and easy to propagate.</p><p><strong>Water sprite vs water wisteria:</strong> wisteria has distinct stems with leaves and roots at the nodes, thicker leaves, is less bushy, flowers above water and changes leaf form; water sprite is a fern with a central growing point, thinner leaves, is very bushy and does not change leaves.</p>"
     }
   ],
   "photos": [
@@ -89,14 +152,14 @@
       "caption": "Hygrophila difformis"
     },
     {
-      "url": "https://media.aquatome.com/commons/f57d6c0f0d1f99db.webp",
-      "thumb": "https://media.aquatome.com/commons/f57d6c0f0d1f99db-480.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "Krzysztof Ziarnek, Kenraiz",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_difformis_kz03.jpg",
-      "caption": "Hygrophila difformis in the Botanischer Garten, Berlin-Dahlem"
+      "url": "https://media.aquatome.com/aquariumbreeder/3a1b2afc9ae31fe7.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/3a1b2afc9ae31fe7-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-wisteria-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
     },
     {
       "url": "https://media.aquatome.com/aquariumcoop/d5844b8750d866c6.webp",
@@ -108,6 +171,16 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/water-wisteria",
       "caption": "Water Wisteria - Aquarium Co - Op",
       "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f57d6c0f0d1f99db.webp",
+      "thumb": "https://media.aquatome.com/commons/f57d6c0f0d1f99db-480.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Krzysztof Ziarnek, Kenraiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_difformis_kz03.jpg",
+      "caption": "Hygrophila difformis in the Botanischer Garten, Berlin-Dahlem"
     },
     {
       "url": "https://media.aquatome.com/commons/43afb5813886e48a.webp",
@@ -153,5 +226,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-20"
 }

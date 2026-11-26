@@ -4,5 +4,17 @@
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/3788380ce3f34d26.webp": "180c173333333e9c"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 636295,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 5185319,
+  "next": null
+ }
 }

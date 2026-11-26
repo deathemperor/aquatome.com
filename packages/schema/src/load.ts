@@ -5,18 +5,22 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { awaitsScreen, type PhotoScreenEntry } from './photo-screen'
+import { awaitsScreen, DEAD_OWED_FILE, FACES_FILE, UNREAD_FACES_LIMIT, type PhotoScreenEntry } from './photo-screen'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
+import { HAND_BOXES } from './hand-boxes'
 import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJECT_FRAMES, subjectPixels, validCropGeometry, type SubjectFractions } from './image-geometry'
 import { judgeQuality, speciesDepth } from './depth'
-import { isAllowedLicence } from './licence'
+import { isAllowedLicence, isInatNonCommercial, isNonCommercial, ncAlone } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
-import { BreedSchema, CaptionsSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MATERIAL_SECTION_ORDER, MaterialSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import { pageFish, videosForPage, videosOnTwoFish } from './videos'
+import { BreedSchema, CaptionsSchema, VideoGeneratedSchema, VideoTitlesSchema, VideoTitlesOnSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MATERIAL_SECTION_ORDER, MaterialSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { PictureHashes } from './pictures'
-import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, MaterialEntity, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, MaterialEntity, Photo, Video, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
+/** A video not spoken in the page's language shows only with its title translated (the owner's report, 2026-11-10). */
+const REQUIRE_VIDEO_TITLE = true
 /** The market (prices, shops) each site language serves. */
 export const MARKET: Record<Lang, string> = { vi: 'vn', id: 'id', th: 'th', ms: 'my' }
 
@@ -107,12 +111,27 @@ const marked = (lang: Lang, t: Translation): Translation => lang === 'vi' ? t : 
 /** A guide's note for this language's readers goes first in its text, wherever the text is read (schemas.ts localNote). */
 export const withLocalNote = (t: Translation): Translation => t.localNote ? { ...t, body: `${t.localNote.html}${t.body ?? ''}` } : t
 
-/** A heading whose sources can't both be true shows only the source content/one-voice.json names, once this language has its text. */
+/**
+ * A heading whose sources can't both be true shows only the source content/one-voice.json names, once this language has
+ * its text; one it names no source for (`false`) isn't shown at all, and its text is left out too, so nothing that reads
+ * the page's text (the gate's checks, the summary's writer) reads what readers don't see.
+ */
 export function oneVoice<S extends { sections: Section[]; t: Translation }>(x: S, keep: z.infer<typeof OneVoiceSchema>[string] | undefined): S {
   if (!keep) return x
   const written = (key: Section['key'], source: SourceId) => x.sections.some(s => s.key === key && s.source === source) && !!x.t.sections[`${key}:${source}`]
-  return { ...x, sections: x.sections.filter(s => { const k = keep[s.key]; return !k || s.source === k || !written(s.key, k) }) }
+  const off = (key: string) => keep[key as Section['key']] === false
+  const t = { ...x.t, sections: Object.fromEntries(Object.entries(x.t.sections).filter(([k]) => !off(k.split(':')[0]!))) }
+  return { ...x, t, sections: x.sections.filter(s => { const k = keep[s.key]; return k === undefined || (k !== false && (s.source === k || !written(s.key, k))) }) }
 }
+
+/**
+ * Whether a place's name is this language's: not one judged alone and failed (the engine's place-judge.ts). A failed one
+ * leaves the place with no name here, as before it was translated, so the site shows what the source wrote: a river's
+ * or a region's name as the fish's range gives it (the site's range.ts regionNames), a country's own name in this
+ * language (countryNames), until a name passes. A name only a batch scored, low or not, shows as it is (the chief of
+ * staff, 14 Nov 2026: no blanket step back, as most of them are right).
+ */
+export const placeNamed = (t: Translation) => t.nameCheck?.ok !== false
 
 async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: S, lang: Lang, leaveOutHeld = false): Promise<Localized<z.infer<S>>[]> {
   const base = join(root, dir)
@@ -208,13 +227,37 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // album, a guide or a card, and shows by itself once judged. The engine's own reads see every photo.
   const screen = !publicBuild || opts.photoScreen === false ? undefined
     : typeof opts.photoScreen === 'object' ? opts.photoScreen : await photoScreenOf(root, opts.photoScreen === 'required')
+  // A new photo the dead-fish screen still owes a look waits the same way (photo-screen.ts DEAD_OWED_FILE). No list beside
+  // the root (the fixture build, a test's store): none waits for it.
+  const owed = screen ? await stateRecord<Record<string, string>>(root, DEAD_OWED_FILE) : undefined
+  // So does an own photo of a species, plant or guide page that the face finder has never read (photo-screen.ts
+  // FACES_FILE), wherever it shows. Every such page on disk counts, as the face finder reads every one: one with no text
+  // in this language or held back still owns its photos, which another page's album can show. The site's build of the
+  // real content needs the record.
+  const faces = screen ? await stateRecord<Record<string, number>>(root, FACES_FILE) : undefined
+  if (screen && !faces && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', FACES_FILE)}: the face finder's record is missing, so no page's own photo can be shown as read`)
+  const unread = new Set<string>()
+  if (faces) {
+    for (const kind of ['species', 'plants', 'guides']) {
+      for (const id of await readdir(join(root, kind)).catch(() => [] as string[])) {
+        const file = join(root, kind, id, 'entity.json')
+        if (!(await exists(file))) continue
+        for (const p of (JSON.parse(await readFile(file, 'utf8')) as { photos?: { url: string }[] }).photos ?? []) if (!Object.hasOwn(faces, p.url)) unread.add(p.url)
+      }
+    }
+    if (opts.photoScreen === 'required') {
+      console.log(`${lang}: ${unread.size} own photos of species, plant and guide pages wait, the face finder has never read them`)
+      if (unread.size > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${unread.size} own photos of species, plant and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
+    }
+  }
+  const waitsFor = (url: string) => awaitsScreen(url, screen![url]) || (!!owed && Object.hasOwn(owed, url)) || unread.has(url)
   // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
   // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,
   // for what names a picture by address alone (the calendar: `photoWaits`).
   const shown = new Set<string>(), waiting = new Set<string>()
   const screened = (p: { url: string; thumb?: string; large?: { url: string } }): boolean => {
     if (!screen) return true
-    const waits = awaitsScreen(p.url, screen[p.url])
+    const waits = waitsFor(p.url)
     for (const u of [p.url, p.thumb, p.large?.url]) if (u) (waits ? waiting : shown).add(u)
     return !waits
   }
@@ -225,7 +268,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (shown.has(address)) return false
     if (waiting.has(address)) return true
     const photo = address.replace(new RegExp(`-(?:${THUMB_WIDTH}|large)\\.webp$`), '.webp')
-    return awaitsScreen(photo, screen![photo])
+    return waitsFor(photo)
   }
   const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
   // Captions written in Vietnamese (galleries, breed photos) are shown in this language from content/captions/<lang>.json;
@@ -234,12 +277,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const captions = lang !== 'vi' && (await exists(captionsFile)) ? await readJson(captionsFile, CaptionsSchema) : {}
   // Where the fish is in each photo, from the engine's record and behind its switch (SUBJECT_FRAMES): with it off no photo
   // has a box. Here a photo the record doesn't know, or where it found no animal, has none; a page's and an album's take
-  // their whole area below (`wholeBoxes`).
+  // their whole area below (`wholeBoxes`). A box set by hand (HAND_BOXES) wins over the record's.
   const framed = opts.subjectFrames ?? SUBJECT_FRAMES
   const boxes = framed ? await stateRecord<Record<string, SubjectFractions | null>>(root, PHOTO_BOXES_FILE) : undefined
   const boxed = <P extends Photo>(p: P): P => {
     const { subject: _own, ...rest } = p
-    const f = boxes?.[p.url], subject = f && subjectPixels(f, p.width, p.height)
+    const f = framed ? HAND_BOXES[p.url] ?? boxes?.[p.url] : undefined, subject = f && subjectPixels(f, p.width, p.height)
     return subject ? { ...rest, subject } as P : _own ? rest as P : p
   }
   const caption = <P extends Photo>(p: P): P => {
@@ -247,10 +290,13 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     const { caption: vi, ...rest } = p
     return (captions[vi] ? { ...rest, caption: captions[vi] } : rest) as P
   }
-  /** Photos copied from a source follow that source's publish gate; others need an open licence. */
+  /**
+   * Photos copied from a source follow that source's publish gate; others need an open licence. An album's (`album`) may
+   * also be an iNaturalist photo under CC BY-NC or CC BY-NC-SA, while its switch is on (IMAGE_SWITCHES.inatNonCommercial).
+   */
   // A public build shows no photo from a host that sets third-party cookies: it waits for `pnpm engine mirror-photos`
   // (2026-10-31: 487 Commons photos put on pages straight from Wikimedia failed best practices on every live page).
-  const cleanPhotos = <P extends Photo>(xs: P[], page = '', scientificName = ''): P[] => realPhotosFirst(xs.flatMap(p => {
+  const cleanPhotos = <P extends Photo>(xs: P[], page = '', scientificName = '', album = false, head = false): P[] => realPhotosFirst(xs.flatMap(p => {
     if (isOwnerCrop(p)) {
       const valid=ownerCropApproved(p,page,scientificName,createHash('sha256').update(ownerCropCanonical(p,page,scientificName)).digest('hex'))
       const veto=p.source && sources[p.source]?.permission?.markRemoval?.allowed===false
@@ -284,8 +330,11 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
         }
       }
     }
-    return p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence)
+    return p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence) || ((album || head) && images.inatNonCommercial && isInatNonCommercial(p))
   }).map(p => caption(boxed(p))))
+  // A fish's page shows a non-commercial photo (iNaturalist's, the switch on) only as its head with no other real photo,
+  // where it's the one way to show that fish (the chief of staff's rule, 17 Nov; the engine's lead-photo.ts puts it there).
+  const pagePhotos = <P extends Photo>(xs: P[], page = '', scientificName = ''): P[] => ncAlone(cleanPhotos(xs, page, scientificName, false, true))
   /** The card's values from sources this build may show, without a tank length that is that source's tank volume (card-facts). */
   const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] => shownCard(card, sections, s => allowed(s as SourceId))
 
@@ -307,15 +356,39 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     return { ...x, t: { ...x.t, quality: judgeQuality(q, scoreOk, speciesDepth(x.sections).deep) } }
   }
 
+  // A video's title in the page's language, and the mark on a generated one. One with no title in this language isn't shown,
+  // unless it's spoken in the page's language.
+  const titlesFile = join(root, 'video-titles', `${lang}.json`)
+  const videoTitles = (await exists(titlesFile)) ? await readJson(titlesFile, VideoTitlesSchema) : {}
+  // A language's translated titles show once it's in on.json, one line each, added with the chief of staff's yes; until then
+  // only the kept ones the editors passed do, and every other video keeps its own title (the chief of staff, 15 Nov).
+  const onFile = join(root, 'video-titles', 'on.json'), keptFile = join(root, 'video-titles', 'kept.json')
+  const titlesOn = (await exists(onFile)) && (await readJson(onFile, VideoTitlesOnSchema)).includes(lang)
+  const keptTitles = (await exists(keptFile)) ? await readJson(keptFile, VideoTitlesSchema) : {}
+  // Titles the meaning check refused: the video keeps its own title, marked, even once the language is on (the chief of staff, 16 Nov).
+  const refusedFile = join(root, 'video-titles', `${lang}.refused.json`)
+  const refusedTitles = (await exists(refusedFile)) ? await readJson(refusedFile, VideoTitlesSchema) : {}
+  // The words the meaning check passed: with the language on, a stored title shows only where they are its words (the
+  // reviewers of the check, 16 Nov). No file is no title passed.
+  const passedFile = join(root, 'video-titles', `${lang}.passed.json`)
+  const passedTitles = (await exists(passedFile)) ? await readJson(passedFile, VideoTitlesSchema) : {}
+  const generatedFile = join(root, 'video-generated.json')
+  const videoGenerated = (await exists(generatedFile)) ? await readJson(generatedFile, VideoGeneratedSchema) : {}
+  // Every species and product page in this language, held ones too, as the writer counts them: a video on the pages of
+  // more than one fish keeps its own title on each, whatever the title files say (the reviewers of the check, 16 Nov).
+  const allSpecies = await loadKind(root, 'species', SpeciesSchema, lang), allProducts = await loadKind(root, 'products', ProductSchema, lang)
+  const sharedVideos = videosOnTwoFish([...allSpecies.map(s => ({ fish: pageFish('species', s.id, s), videos: s.videos })), ...allProducts.map(p => ({ fish: pageFish('products', p.id, null), videos: p.reviews?.videos ?? [] }))], lang)
+  const forPage = <V extends Video>(videos: V[], o?: { order?: boolean; requireTitle?: boolean }) => videosForPage(videos, lang, videoTitles, videoGenerated, { requireTitle: REQUIRE_VIDEO_TITLE, on: titlesOn, kept: keptTitles, refused: refusedTitles, passed: passedTitles, shared: sharedVideos, ...o })
+
   const voices = (await exists(join(root, 'one-voice.json'))) ? await readJson(join(root, 'one-voice.json'), OneVoiceSchema) : {}
   // After the depth is judged: a block set aside here still counts for the page's place in search.
   const generatedPages = new Set<string>()
   const rememberGenerated = <E extends { id: string; photos: Photo[] }>(page: E): E => { if (page.photos.some(p => p.generated)) generatedPages.add(page.id); return page }
-  const species = (await loadKind(root, 'species', SpeciesSchema, lang, leaveOutHeld)).map(rememberGenerated)
-    .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos, `species/${s.id}`, s.scientificName), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
+  const species = allSpecies.filter(s => !(leaveOutHeld && s.t.held)).map(rememberGenerated)
+    .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: pagePhotos(s.photos, `species/${s.id}`, s.scientificName), videos: forPage(s.videos), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
     .filter(s => s.sections.length > 0)
   const plants = (await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld)).map(rememberGenerated)
-    .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
+    .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: pagePhotos(p.photos) }))
     .filter(p => p.sections.length > 0)
   const guides = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld))
     .filter(g => allowed(g.source))
@@ -350,19 +423,21 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     const g = await readJson(join(root, 'gallery', f), GallerySchema)
     // A photo the photo check has not judged yet (`unchecked`) waits: no page shows it, and it counts towards no album.
     const speciesPage=species.find(p=>p.id===g.id)
-    const photos = cleanPhotos(g.photos.filter(p => !p.unchecked), speciesPage ? `species/${g.id}` : '', speciesPage?.scientificName ?? '')
+    const photos = cleanPhotos(g.photos.filter(p => !p.unchecked), speciesPage ? `species/${g.id}` : '', speciesPage?.scientificName ?? '', true)
     if (photos.length) galleries[g.id] = photos
   }
 
   // Breeds share the species' address space: a clash would silently drop one page, so it stops the build.
   // A care figure the engine hid (out of bounds, a tank too short for the fish: `hidden`) stays off the page.
   const shownCare = (care: BreedEntity['care']) => Object.fromEntries(Object.entries(care).map(([f, vs]) => [f, (vs ?? []).filter(v => !v.hidden)] as const).filter(([, vs]) => vs.length)) as BreedEntity['care']
-  const breeds = (await loadKind(root, 'breeds', BreedSchema, lang, leaveOutHeld)).map(rememberGenerated).map(b => ({ ...b, care: shownCare(b.care), photos: cleanPhotos(b.photos) }))
+  const breeds = (await loadKind(root, 'breeds', BreedSchema, lang, leaveOutHeld)).map(rememberGenerated).map(b => ({ ...b, care: shownCare(b.care), photos: pagePhotos(b.photos) }))
   // A newly passed real album photo immediately leads a formerly generated-only page, even before lead-photos runs.
   // Preserve explicitly fitted heads; add a fitted fallback only after ordinary publication admission.
   const fitsHead = (p: Photo) => p.headFit === 'contain' || photoFitsHead(p)
   for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>p.headFit==='contain'||!photoFitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && (generatedPages.has(page.id) || (galleries[page.id]??[]).some(p=>!p.generated&&photoFitsWholeHead(p))))) {
-    const all=realPhotosFirst([...new Map([...page.photos,...(galleries[page.id]??[])].map(p=>[p.url,p])).values()])
+    // A non-commercial album photo isn't put first here: the engine's lead step does that, only where it's the one way to
+    // show that fish (lead-photo.ts), and one that leads gives way to any open photo here (ncAlone).
+    const all=realPhotosFirst([...new Map([...page.photos,...(galleries[page.id]??[]).filter(p=>!isNonCommercial(p.licence))].map(p=>[p.url,p])).values()])
     const albumOnly=page.photos.filter(p=>!fitsHead(p))
     if(albumOnly.length)galleries[page.id]=realPhotosFirst([...new Map([...(galleries[page.id]??[]),...albumOnly].map(p=>[p.url,p])).values()])
     page.photos=page.photos.filter(fitsHead)
@@ -371,6 +446,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (real) page.photos = [real, ...page.photos.filter(p => p.url !== real.url)]
     else if(whole)page.photos=[{...whole,headFit:'contain'}]
     else if(all.some(p=>!p.generated))page.photos=page.photos.filter(p=>!p.generated)
+    page.photos=ncAlone(page.photos)
   }
   // A fish's or breed's photo with no box, and a plant's taller than it is wide, framed by its whole area (`wholeBoxes`):
   // no frame cuts a fish whose place in the photo isn't known, or a plant's height. A square or wide plant photo fills.
@@ -390,9 +466,11 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   }
 
   const products: Content['products'] = []
-  for (const p of await loadKind(root, 'products', ProductSchema, lang)) {
+  for (const p of allProducts) {
     const file = join(root, 'products', p.id, `${MARKET[lang]}.json`)
-    products.push(await exists(file) ? { ...p, market: await readJson(file, MarketSchema) } : p)
+    // A product's reviews keep their order and all stay: the first is the one the page embeds, and its points cite them by number.
+    const shown = p.reviews ? { ...p, reviews: { ...p.reviews, videos: forPage(p.reviews.videos, { order: false, requireTitle: false }) } } : p
+    products.push(await exists(file) ? { ...shown, market: await readJson(file, MarketSchema) } : shown)
   }
 
   // A card in this language, unless the gate holds it back there or it's an event in another reader's country
@@ -432,12 +510,17 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     materialSlugs.add(m.t.slug)
   }
 
-  const allPlaces = await loadKind(root, 'places', PlaceSchema, lang)
+  const allPlaces = (await loadKind(root, 'places', PlaceSchema, lang)).filter(p => placeNamed(p.t))
   return {
     lang, species, plants, guides, changelog, equipment, series, galleries, products, breeds, materials, cards,
     ...(screen ? { photoWaits } : {}),
     // A term's photos follow the same rules as a page's (publish gates, the watermark screen).
-    glossary: (await loadKind(root, 'glossary', GlossarySchema, lang)).map(g => (g.photos ? { ...g, photos: cleanPhotos(g.photos, g.id) } : g)),
+    // A kind's photo passes the same screen as the term's; a kind whose photo doesn't is shown without one.
+    glossary: (await loadKind(root, 'glossary', GlossarySchema, lang)).map(g => ({
+      ...g,
+      ...(g.photos ? { photos: cleanPhotos(g.photos, g.id) } : {}),
+      ...(g.kinds ? { kinds: g.kinds.flatMap(k => cleanPhotos([k.photo], g.id).map(photo => ({ ...k, photo }))) } : {}),
+    })),
     // Another language's species pages are still being made: it has the places one of its fish comes from, so no origin
     // page is empty and no link points at one it lacks. Vietnamese has every place.
     places: allPlaces.filter(p => lang === 'vi' || species.some(s => s.places.includes(p.id))),

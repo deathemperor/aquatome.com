@@ -1,9 +1,9 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {
-  "https://media.aquatome.com/scotcat/3fb08e1b175c0638.webp": "006b6ac2cab51100"
- },
+ "judged": [
+  "inat:9981907"
+ ],
+ "hashes": {},
  "commons": "2026-11-08",
  "inat": {
   "taxon": 100665,
@@ -12,5 +12,17 @@
    "research": 0,
    "agree": 0
   }
- }
+ },
+ "gbif": {
+  "key": 2344163,
+  "next": null
+ },
+ "inatNc": {
+  "after": 7632764,
+  "done": true
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-21"
 }

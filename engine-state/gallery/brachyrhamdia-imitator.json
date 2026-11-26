@@ -3,7 +3,6 @@
  "judged": [],
  "hashes": {
   "https://media.aquatome.com/scotcat/e58ed6cde9a9d755.webp": "8fe6e4eca51cd9c7",
-  "https://media.aquatome.com/scotcat/51dabc3a04c070df.webp": "1c1e96dbb9ee7c39",
   "https://media.aquatome.com/scotcat/d8144be6a0256c4b.webp": "cec6cae1993af0e3"
  },
  "inat": {
@@ -18,5 +17,9 @@
  "gbif": {
   "key": 2343646,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-15"
 }

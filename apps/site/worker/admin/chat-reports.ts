@@ -1,16 +1,19 @@
 import { recentClashes } from '../chat/clash-store'
 import type { FiledClash } from '../chat/clashes'
 import { listAll, REPORT_PREFIX } from '../chat/store'
+import type { Role } from '../fishid/ledger'
 import { failedNote, note, table, tableHtml, type Block, type Section } from './blocks'
 import { failedBox, isFailed, page, type Soft } from './shell'
 import { HOME_TZ, timeText } from './time'
 
-/** A reader's report of one chat answer as wrong (chat/past.ts), as it's kept in R2. */
-export type ChatReport = { at: string; question: string; text: string; reason?: string }
+/** A report of one chat answer as wrong (chat/past.ts), as it's kept in R2; `role`, who made it, missing on older ones. */
+export type ChatReport = { at: string; role?: Role; question: string; text: string; reason?: string }
 export type ChatReports = { total: number; rows: ChatReport[]; clashes?: FiledClash[] }
 
 const TITLE = 'Chat reports'
 const LEDE = 'Chat answers readers marked as wrong, with their question and reason. Shown only here. Each is kept until the reader deletes their account, and goes with it.'
+/** Who marked a report, shown under its time. */
+const BY: Record<Role, string> = { owner: 'by you', tester: 'by the test account', reader: 'by a reader' }
 const OFF = 'Off (R2 UPLOADS is missing).'
 const NONE = 'No reports yet.'
 const CLASHES = 'Where the handbook disagrees with itself'
@@ -26,7 +29,7 @@ export async function recentReports(bucket: R2Bucket, limit = 120): Promise<Chat
 }
 
 const reportsTable = (d: ChatReports, now: Date, tz: string) =>
-  table(['Reported', 'Question', 'Answer', 'Reason'], d.rows.map(r => [{ text: timeText(r.at, tz, now) }, { text: r.question }, { text: r.text }, { text: r.reason ?? '' }]), { empty: NONE })
+  table(['Reported', 'Question', 'Answer', 'Reason'], d.rows.map(r => [{ text: timeText(r.at, tz, now), ...(r.role && BY[r.role] ? { sub: BY[r.role] } : {}) }, { text: r.question }, { text: r.text }, { text: r.reason ?? '' }]), { empty: NONE })
 const placeText = (p: FiledClash['places'][number]) => `${p.path}\n${p.passage}`
 const clashesTable = (list: FiledClash[], now: Date, tz: string) =>
   table(['Found', 'One place', 'The other'], list.map(c => [{ text: timeText(c.at, tz, now) }, { text: placeText(c.places[0]) }, { text: placeText(c.places[1]) }]), { empty: NO_CLASHES })

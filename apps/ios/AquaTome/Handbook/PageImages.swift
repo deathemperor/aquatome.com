@@ -207,19 +207,21 @@ enum PageImages {
         c.fill(CGRect(x: 680, y: 0, width: 120, height: 300))
       }
     }
-    return UIGraphicsImageRenderer(size: CGSize(width: 600, height: 400), format: format).jpegData(withCompressionQuality: 0.9) { c in
+    // `-square-pictures`: square, as many photos are, which a 3:2 card covers with some above and below its frame.
+    let size = ProcessInfo.processInfo.arguments.contains("-square-pictures") ? CGSize(width: 400, height: 400) : CGSize(width: 600, height: 400)
+    return UIGraphicsImageRenderer(size: size, format: format).jpegData(withCompressionQuality: 0.9) { c in
       // The brightest photo there is: what stands on one has to read on it.
       if ProcessInfo.processInfo.arguments.contains("-white-pictures") {
         UIColor.white.setFill()
-        c.fill(CGRect(x: 0, y: 0, width: 600, height: 400))
+        c.fill(CGRect(origin: .zero, size: size))
         return
       }
       let colors = [UIColor(hue: hue, saturation: 0.7, brightness: 0.6, alpha: 1), UIColor(hue: hue + 0.05, saturation: 0.8, brightness: 0.2, alpha: 1)]
       let gradient = CGGradient(colorsSpace: nil, colors: colors.map(\.cgColor) as CFArray, locations: nil)!
-      c.cgContext.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: 0, y: 400), options: [])
+      c.cgContext.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: 0, y: size.height), options: [])
       UIColor(white: 1, alpha: 0.12).setFill()
       for i in 0..<6 {
-        let x = CGFloat(seed >> (i * 5) % 600), y = CGFloat(seed >> (i * 3) % 400), r = CGFloat(20 + seed >> i % 50)
+        let x = CGFloat(seed >> (i * 5) % UInt32(size.width)), y = CGFloat(seed >> (i * 3) % UInt32(size.height)), r = CGFloat(20 + seed >> i % 50)
         c.cgContext.fillEllipse(in: CGRect(x: x - r, y: y - r, width: 2 * r, height: 2 * r))
       }
     }

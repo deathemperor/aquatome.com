@@ -59,7 +59,7 @@ struct LeaveSection: View {
           .disabled(account.working)
           .accessibilityIdentifier("delete-account")
           // On the button: iOS shows the question as a popover from the view it's on.
-          .confirmationDialog(String(localized: "Xóa vĩnh viễn tài khoản và các bể trong tài khoản? Bể trên máy này vẫn còn."), isPresented: $confirmDelete, titleVisibility: .visible) {
+          .confirmationDialog(String(localized: "Xóa vĩnh viễn tài khoản và các bể trong tài khoản? Bể trên máy này vẫn còn.", bundle: .app), isPresented: $confirmDelete, titleVisibility: .visible) {
             Button("Xóa tài khoản vĩnh viễn", role: .destructive) { Task { await account.deleteAccount() } }
           }
       } footer: {
@@ -129,8 +129,8 @@ private struct Who: View {
   }
 
   private var since: String {
-    guard let made = Self.date(user.createdAt) else { return String(localized: "bằng \(account.ways)") }
-    return String(localized: "bằng \(account.ways) · từ tháng \(Self.month(made))")
+    guard let made = Self.date(user.createdAt) else { return String(localized: "bằng \(account.ways)", bundle: .app) }
+    return String(localized: "bằng \(account.ways) · từ tháng \(Self.month(made))", bundle: .app)
   }
 
   /// The month and year as each language writes them: Vietnamese "10/2026", Thai "ต.ค. 2569", Indonesian "Oktober 2026".
@@ -260,8 +260,8 @@ private struct SyncRow: View {
     // "9:38", as the spec writes it: some languages' short time is "09:38".
     if time.first == "0" { time.removeFirst() }
     if Calendar.current.isDateInToday(d) { return time }
-    if Calendar.current.isDateInYesterday(d) { return String(localized: "\(time) hôm qua") }
-    return String(localized: "\(time) ngày \(d.formatted(.dateTime.day().month(.defaultDigits).locale(.app)))")
+    if Calendar.current.isDateInYesterday(d) { return String(localized: "\(time) hôm qua", bundle: .app) }
+    return String(localized: "\(time) ngày \(d.formatted(.dateTime.day().month(.defaultDigits).locale(.app)))", bundle: .app)
   }
 
   /// The UI tests wait here for the owner's dashboard to have asked about this account; nothing in a release build.
@@ -404,9 +404,9 @@ private struct SignInCard: View {
         Ways(kinds: Self.order.filter(offered)).padding(.top, 4)
       }
       AccountMessage()
-      if account.endedWays == nil { Text.linked(String(localized: "Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, số điện thoại, và địa chỉ email chỉ lưu ở dạng mã hóa một chiều."),
-                  String(localized: "Chính sách bảo mật"),
-                  URL(string: String(localized: "https://aquatome.com/chinh-sach-bao-mat/#tai-khoan"))!)
+      if account.endedWays == nil { Text.linked(String(localized: "Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, số điện thoại, và địa chỉ email chỉ lưu ở dạng mã hóa một chiều.", bundle: .app),
+                  String(localized: "Chính sách bảo mật", bundle: .app),
+                  URL(string: String(localized: "https://aquatome.com/chinh-sach-bao-mat/#tai-khoan", bundle: .app))!)
         .font(.footnote)
         .foregroundStyle(.secondary)
         .multilineTextAlignment(.center) }

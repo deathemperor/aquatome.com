@@ -3,6 +3,12 @@
   "name": "Sakarya",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T11:37:16.127Z",
+    "why": "Sakarya is a Turkish province, and Malay atlases usually write \"Wilayah Sakarya\" or \"Provinsi Sakarya\", so the bare name leaves out the kind word and is only partly right."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

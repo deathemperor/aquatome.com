@@ -3,9 +3,36 @@
  "judged": [
   "File:Betta falx.jpg",
   "File:Betta falx 2.jpg",
-  "File:Habitatwbfalx.jpg"
+  "File:Habitatwbfalx.jpg",
+  "inat:244632704",
+  "inat:244632716",
+  "inat:265217783",
+  "inat:265217798",
+  "inat:265217806",
+  "inat:402788616",
+  "inat:386810603",
+  "inat:548450783",
+  "inat:548450831",
+  "inat:548450873",
+  "inat:600349802",
+  "inat:600349824",
+  "inat:600349845",
+  "inat:600349957",
+  "inat:600349981",
+  "inat:600350011",
+  "inat:614184545",
+  "inat:614184563",
+  "inat:614184584",
+  "inat:757095920",
+  "inat:757095690"
  ],
- "hashes": {},
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/265217798/large.jpeg": "9f962c390d078307",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/600349824/large.jpg": "69010d8f0d7f1ca1",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/600349845/large.jpg": "3b71389c8cc9901f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/600349957/large.jpg": "982866cf9ca97103",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/614184584/large.jpg": "f2d86658d8311864"
+ },
  "commons": "2026-11-06",
  "inat": {
   "taxon": 618859,
@@ -18,5 +45,13 @@
  "gbif": {
   "key": 2394000,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 411537496,
+  "done": true
+ },
+ "exhausted": "2026-11-14"
 }

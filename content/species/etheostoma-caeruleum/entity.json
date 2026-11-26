@@ -1,0 +1,796 @@
+{
+  "id": "etheostoma-caeruleum",
+  "scientificName": "Etheostoma caeruleum",
+  "order": "Perciformes",
+  "family": "Percidae",
+  "genus": "Etheostoma",
+  "group": "other",
+  "places": [
+    "north-america"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2382341,
+      "total": 12859,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "US",
+          12400
+        ],
+        [
+          "CA",
+          459
+        ]
+      ],
+      "cells": [
+        [
+          -125.15625,
+          43.59375,
+          1
+        ],
+        [
+          -98.4375,
+          30.9375,
+          1
+        ],
+        [
+          -98.4375,
+          35.15625,
+          2
+        ],
+        [
+          -97.03125,
+          33.75,
+          1
+        ],
+        [
+          -97.03125,
+          39.375,
+          1
+        ],
+        [
+          -97.03125,
+          45,
+          13
+        ],
+        [
+          -97.03125,
+          46.40625,
+          1
+        ],
+        [
+          -95.625,
+          33.75,
+          2
+        ],
+        [
+          -95.625,
+          35.15625,
+          5
+        ],
+        [
+          -95.625,
+          36.5625,
+          3
+        ],
+        [
+          -95.625,
+          40.78125,
+          2
+        ],
+        [
+          -95.625,
+          42.1875,
+          25
+        ],
+        [
+          -95.625,
+          43.59375,
+          13
+        ],
+        [
+          -95.625,
+          45,
+          6
+        ],
+        [
+          -94.21875,
+          33.75,
+          5
+        ],
+        [
+          -94.21875,
+          35.15625,
+          275
+        ],
+        [
+          -94.21875,
+          36.5625,
+          253
+        ],
+        [
+          -94.21875,
+          37.96875,
+          32
+        ],
+        [
+          -94.21875,
+          40.78125,
+          5
+        ],
+        [
+          -94.21875,
+          42.1875,
+          25
+        ],
+        [
+          -94.21875,
+          43.59375,
+          18
+        ],
+        [
+          -92.8125,
+          30.9375,
+          3
+        ],
+        [
+          -92.8125,
+          32.34375,
+          2
+        ],
+        [
+          -92.8125,
+          33.75,
+          4
+        ],
+        [
+          -92.8125,
+          35.15625,
+          682
+        ],
+        [
+          -92.8125,
+          36.5625,
+          315
+        ],
+        [
+          -92.8125,
+          37.96875,
+          145
+        ],
+        [
+          -92.8125,
+          39.375,
+          7
+        ],
+        [
+          -92.8125,
+          40.78125,
+          14
+        ],
+        [
+          -92.8125,
+          42.1875,
+          43
+        ],
+        [
+          -92.8125,
+          43.59375,
+          41
+        ],
+        [
+          -92.8125,
+          45,
+          13
+        ],
+        [
+          -91.40625,
+          29.53125,
+          32
+        ],
+        [
+          -91.40625,
+          30.9375,
+          130
+        ],
+        [
+          -91.40625,
+          32.34375,
+          22
+        ],
+        [
+          -91.40625,
+          33.75,
+          11
+        ],
+        [
+          -91.40625,
+          35.15625,
+          70
+        ],
+        [
+          -91.40625,
+          36.5625,
+          587
+        ],
+        [
+          -91.40625,
+          37.96875,
+          83
+        ],
+        [
+          -91.40625,
+          39.375,
+          2
+        ],
+        [
+          -91.40625,
+          40.78125,
+          7
+        ],
+        [
+          -91.40625,
+          42.1875,
+          9
+        ],
+        [
+          -91.40625,
+          43.59375,
+          11
+        ],
+        [
+          -91.40625,
+          45,
+          4
+        ],
+        [
+          -91.40625,
+          47.8125,
+          1
+        ],
+        [
+          -90,
+          28.125,
+          2
+        ],
+        [
+          -90,
+          29.53125,
+          3
+        ],
+        [
+          -90,
+          32.34375,
+          1
+        ],
+        [
+          -90,
+          33.75,
+          1
+        ],
+        [
+          -90,
+          36.5625,
+          116
+        ],
+        [
+          -90,
+          39.375,
+          6
+        ],
+        [
+          -90,
+          40.78125,
+          83
+        ],
+        [
+          -90,
+          42.1875,
+          46
+        ],
+        [
+          -90,
+          43.59375,
+          14
+        ],
+        [
+          -90,
+          45,
+          6
+        ],
+        [
+          -90,
+          46.40625,
+          2
+        ],
+        [
+          -88.59375,
+          32.34375,
+          1
+        ],
+        [
+          -88.59375,
+          33.75,
+          437
+        ],
+        [
+          -88.59375,
+          35.15625,
+          517
+        ],
+        [
+          -88.59375,
+          36.5625,
+          152
+        ],
+        [
+          -88.59375,
+          37.96875,
+          34
+        ],
+        [
+          -88.59375,
+          39.375,
+          246
+        ],
+        [
+          -88.59375,
+          40.78125,
+          132
+        ],
+        [
+          -88.59375,
+          42.1875,
+          15
+        ],
+        [
+          -87.1875,
+          32.34375,
+          4
+        ],
+        [
+          -87.1875,
+          33.75,
+          182
+        ],
+        [
+          -87.1875,
+          35.15625,
+          284
+        ],
+        [
+          -87.1875,
+          36.5625,
+          260
+        ],
+        [
+          -87.1875,
+          37.96875,
+          68
+        ],
+        [
+          -87.1875,
+          39.375,
+          95
+        ],
+        [
+          -87.1875,
+          40.78125,
+          105
+        ],
+        [
+          -87.1875,
+          42.1875,
+          20
+        ],
+        [
+          -85.78125,
+          33.75,
+          45
+        ],
+        [
+          -85.78125,
+          35.15625,
+          148
+        ],
+        [
+          -85.78125,
+          36.5625,
+          761
+        ],
+        [
+          -85.78125,
+          37.96875,
+          192
+        ],
+        [
+          -85.78125,
+          39.375,
+          188
+        ],
+        [
+          -85.78125,
+          40.78125,
+          102
+        ],
+        [
+          -85.78125,
+          42.1875,
+          113
+        ],
+        [
+          -85.78125,
+          43.59375,
+          46
+        ],
+        [
+          -85.78125,
+          45,
+          2
+        ],
+        [
+          -84.375,
+          35.15625,
+          29
+        ],
+        [
+          -84.375,
+          36.5625,
+          606
+        ],
+        [
+          -84.375,
+          37.96875,
+          473
+        ],
+        [
+          -84.375,
+          39.375,
+          866
+        ],
+        [
+          -84.375,
+          40.78125,
+          77
+        ],
+        [
+          -84.375,
+          42.1875,
+          145
+        ],
+        [
+          -84.375,
+          43.59375,
+          63
+        ],
+        [
+          -84.375,
+          45,
+          23
+        ],
+        [
+          -82.96875,
+          35.15625,
+          4
+        ],
+        [
+          -82.96875,
+          36.5625,
+          174
+        ],
+        [
+          -82.96875,
+          37.96875,
+          164
+        ],
+        [
+          -82.96875,
+          39.375,
+          596
+        ],
+        [
+          -82.96875,
+          40.78125,
+          130
+        ],
+        [
+          -82.96875,
+          42.1875,
+          47
+        ],
+        [
+          -82.96875,
+          43.59375,
+          29
+        ],
+        [
+          -82.96875,
+          45,
+          1
+        ],
+        [
+          -81.5625,
+          35.15625,
+          1
+        ],
+        [
+          -81.5625,
+          36.5625,
+          39
+        ],
+        [
+          -81.5625,
+          37.96875,
+          101
+        ],
+        [
+          -81.5625,
+          39.375,
+          187
+        ],
+        [
+          -81.5625,
+          40.78125,
+          226
+        ],
+        [
+          -81.5625,
+          42.1875,
+          169
+        ],
+        [
+          -81.5625,
+          43.59375,
+          69
+        ],
+        [
+          -81.5625,
+          45,
+          1
+        ],
+        [
+          -80.15625,
+          37.96875,
+          7
+        ],
+        [
+          -80.15625,
+          39.375,
+          27
+        ],
+        [
+          -80.15625,
+          40.78125,
+          217
+        ],
+        [
+          -80.15625,
+          42.1875,
+          173
+        ],
+        [
+          -80.15625,
+          43.59375,
+          92
+        ],
+        [
+          -78.75,
+          37.96875,
+          36
+        ],
+        [
+          -78.75,
+          39.375,
+          136
+        ],
+        [
+          -78.75,
+          40.78125,
+          181
+        ],
+        [
+          -78.75,
+          42.1875,
+          368
+        ],
+        [
+          -78.75,
+          43.59375,
+          11
+        ],
+        [
+          -78.75,
+          45,
+          2
+        ],
+        [
+          -77.34375,
+          37.96875,
+          2
+        ],
+        [
+          -77.34375,
+          39.375,
+          1
+        ],
+        [
+          -77.34375,
+          40.78125,
+          3
+        ],
+        [
+          -77.34375,
+          42.1875,
+          5
+        ],
+        [
+          -75.9375,
+          42.1875,
+          2
+        ],
+        [
+          -75.9375,
+          43.59375,
+          4
+        ],
+        [
+          -75.9375,
+          45,
+          3
+        ],
+        [
+          -74.53125,
+          42.1875,
+          9
+        ],
+        [
+          -74.53125,
+          43.59375,
+          1
+        ],
+        [
+          -74.53125,
+          45,
+          2
+        ],
+        [
+          -73.125,
+          45,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/only-in-the-transit/",
+      "html": "<p>The Rainbow Darter (Etheostoma caeruleum) is a pretty, small species that attains a maximum length of 7-8 cm. It has been imported since as early as 1899, but it has always stayed rare.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/only-in-the-transit/",
+      "html": "<p>There are not many species of fish in which the demand is greater than the number of offered animals. The Rainbow Darter belongs to these exceptional species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/only-in-the-transit/",
+      "html": "<p>The species comes from North America.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/only-in-the-transit/",
+      "html": "<p>In the wild the Rainbow Darter inhabits cool, fast running water.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/only-in-the-transit/",
+      "html": "<p>The species deposits the eggs in the ground.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/only-in-the-transit/",
+      "html": "<p>Although it inhabits cool, fast running water in the wild, it is all but demanding.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/c4b06927ec69f922.webp",
+      "thumb": "https://media.aquatome.com/glaser/c4b06927ec69f922-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/only-in-the-transit/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2c21e69dabb652fa.webp",
+      "thumb": "https://media.aquatome.com/glaser/2c21e69dabb652fa-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/only-in-the-transit/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2d5f10b5e4b10c4b.webp",
+      "thumb": "https://media.aquatome.com/glaser/2d5f10b5e4b10c4b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/only-in-the-transit/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8383f6898ada8e80.webp",
+      "thumb": "https://media.aquatome.com/glaser/8383f6898ada8e80-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/only-in-the-transit/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "8o_6g4hTiW4",
+      "title": "Native Fish Care: Rainbow Darter",
+      "durationSec": 333,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KdvArKk1GOs",
+      "title": "Rainbow darter Indiana native aquarium",
+      "durationSec": 174,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4AZQ-N-5YM8",
+      "title": "Feeding rainbow darters",
+      "durationSec": 50,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá nhỏ",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

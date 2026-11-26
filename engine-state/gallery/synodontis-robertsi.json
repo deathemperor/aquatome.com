@@ -2,5 +2,21 @@
  "queue": [],
  "judged": [],
  "hashes": {},
- "commons": "2026-11-13"
+ "commons": "2026-11-13",
+ "inat": {
+  "taxon": 113671,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2344319,
+  "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
+ }
 }

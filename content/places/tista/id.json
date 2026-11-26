@@ -1,8 +1,13 @@
 {
   "slug": "tista",
-  "name": "Tista",
+  "name": "Sungai Tista",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-19T07:51:06.300Z"
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

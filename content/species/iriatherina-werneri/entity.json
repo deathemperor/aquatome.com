@@ -13,7 +13,8 @@
     "fly",
     "australia",
     "cape-york-peninsula",
-    "fly-river"
+    "fly-river",
+    "cape-york"
   ],
   "range": {
     "native": {
@@ -23,14 +24,15 @@
         "AU"
       ],
       "regions": [
-        "New Guinea",
         "Fly River",
+        "New Guinea",
         "Cape York Peninsula",
         "Jardine River"
       ],
       "sources": [
         "seriouslyfish",
-        "aquariumbreeder"
+        "aquariumbreeder",
+        "bwaquatics"
       ],
       "quotes": [
         {
@@ -39,7 +41,9 @@
           "countries": [
             "ID"
           ],
-          "regions": []
+          "regions": [
+            "New Guinea"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -48,7 +52,6 @@
             "PG"
           ],
           "regions": [
-            "New Guinea",
             "Fly River"
           ]
         },
@@ -206,17 +209,24 @@
         }
       },
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 22,
-          "max": 25
-        }
-      },
-      {
         "source": "aquariumbreeder",
         "value": {
           "min": 24,
           "max": 28
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 25
         }
       }
     ],
@@ -229,14 +239,21 @@
         }
       },
       {
-        "source": "bwaquatics",
+        "source": "aquariumbreeder",
         "value": {
           "min": 6,
           "max": 7
         }
       },
       {
-        "source": "aquariumbreeder",
+        "source": "glaser",
+        "value": {
+          "min": 5.5,
+          "max": 8
+        }
+      },
+      {
+        "source": "bwaquatics",
         "value": {
           "min": 6,
           "max": 7
@@ -265,11 +282,15 @@
         "value": 4
       },
       {
-        "source": "bwaquatics",
+        "source": "aquariumbreeder",
+        "value": 4
+      },
+      {
+        "source": "glaser",
         "value": 5
       },
       {
-        "source": "aquariumbreeder",
+        "source": "bwaquatics",
         "value": 4
       }
     ],
@@ -313,6 +334,18 @@
       "html": "<ul><li>Name: Threadfin Rainbowfish (also Featherfin Rainbowfish or Forktail Rainbowfish)</li><li>Scientific name: Iriatherina werneri</li><li>Minimum tank: ~60 litres</li><li>Breeding: moderate</li><li>Dwellers: top and middle</li><li>Nitrate: less than 60</li><li>Diet: omnivore</li><li>Temperament: peaceful</li><li>Life span: up to 4 years</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/iriatherina-werneri-2/",
+      "html": "<p>The male Threadfin Rainbowfish flaps its first dorsal fin like a butterfly's wings during courtship. Males are easily recognised by the long filaments of the second dorsal and the anal fin. This delicate species reaches a maximum length of about 5 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
+      "html": "<p>The only species in the genus Iriatherina. IUCN Red List: Least Concern. Origin: tank raised.</p><p>Body shape: small, slender, slightly compressed body. Coloration: silver to gold body with black and red fin markings.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
@@ -323,6 +356,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/threadfin-rainbowfish-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Iriatherina werneri is native to tropical Australia and Papua New Guinea.</p><p>In New Guinea, this species can be found between the Merauke and the Fly Rivers (more than 500 km upstream from its mouth), from lakes Bosset and Kala.</p><p>In Australia, Threadfin Rainbowfish occur in the Jardine River swamps, and in some river systems on the western and eastern sides of Cape York Peninsula.</p><p>In 1973, two German aquarists (Erich Frech and Arthur Werner) found some miniature freshwater fish in a rice paddy field in the suburbs of the small town of Merauke in New Guinea. German ichthyologist Hermann Meinken described the species in 1974 and named it in honor of Arthur Werner. In 1978, Dr. G. Allen described a similar fish from the Jardine River as Iriatherina jardinensis, but it turned out to be the same species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
+      "html": "<p>Southern New Guinea and northern Australia (Cape York and the Northern Territory).</p>"
     },
     {
       "key": "habitat",
@@ -337,6 +376,12 @@
       "html": "<p>Threadfin Rainbowfish prefer large, sluggish tributaries, heavily vegetated lagoons, dendritic lakes, and slow-flowing rivers.</p><p>These fish prefer shallow water between 0.5 and 1.5 m deep with lots of aquatic vegetation.</p>"
     },
     {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
+      "html": "<p>Swamps, lagoons and slow, vegetated streams. Densely vegetated, slow or still water.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
@@ -347,6 +392,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/threadfin-rainbowfish-detailed-guide-care-diet-and-breeding/",
       "html": "<p>The small size of this fish should not confuse you. Threadfin Rainbowfish are not good for nano tanks.</p><p>Technically, it is possible to keep 5–6 of them even in a 40-litre tank. However, you will not see their true behavior in such a tank, which is too small for them. Another problem with small tanks is that it can be really hard to keep stable water parameters even for experienced aquarists. Smaller aquaria should be used only for breeding.</p><p>A group of 6–8 Threadfin Rainbowfish needs a long tank of at least 60 litres, or even larger. If there is a choice, long tanks are better than tall tanks.</p><p>The tank needs a lid, because Threadfin Rainbowfish are jumpers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
+      "html": "<p>Maximum size: about 4 cm standard length; 4 to 5 cm including the fins.</p>"
     },
     {
       "key": "maintenance",
@@ -364,13 +415,19 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
-      "html": "<p>Kept at around 72–77°F (22–25°C) and a pH of roughly 6–7.</p>"
+      "html": "<ul><li>pH: currently kept at 6.0 to 7.0</li><li>Temperature: currently kept at 22 to 25°C</li></ul>"
     },
     {
       "key": "waterConditions",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/threadfin-rainbowfish-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Threadfin Rainbowfish require clean water. They do not tolerate high levels of ammonia, nitrite and nitrate well, so the tank should be cycled and fully established before introducing them.</p><p>If you buy captive-bred (for several generations) fish, find out the water parameters they were bred in. If you can't, presume the breeder kept them in parameters close to natural ones.</p><p><strong>Temperature:</strong> these fish can survive in a wide range of 18–32 °C. However, at low temperatures they become slow, lethargic and barely eat. In the aquarium they thrive at 24–28 °C. This does not mean the tank temperature can fluctuate that much in short periods of time. The range of tolerance is strongly influenced by acclimation temperature: fish acclimated at lower temperatures can extend their lower tolerance further than fish acclimated to higher temperatures.</p><p><strong>pH:</strong> according to the Australia New Guinea Fishes Association, they tolerate pH 5.2–7.6. Dr. G. Allen described the habitat in calm, vegetation-rich backwaters of the Jardine River (mainly lilies) with very low pH of 5.2–5.8. They prefer slightly acidic water. In aquariums, the ideal pH is 6.0–7.0.</p><p><strong>Hardness:</strong> hardness is very important for breeding. Although the species has some preference for soft water, adults can easily adapt to hard water. This cannot be said of hatchlings, whose survival rate in soft water is extremely low. In aquariums, the ideal GH is 7–19.</p><p><strong>Water flow:</strong> in nature they inhabit shallow waters where the current is absent or very slow. Still or very slow currents are recommended.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/iriatherina-werneri-2/",
+      "html": "<p>In terms of water chemistry the Threadfin Rainbowfish is flexible. It thrives in a pH of 5.5 to around 8.0 and soft to medium-hard water. Be very careful when acclimating the fish to new conditions, as it is extremely sensitive to sudden changes. The water temperature should be slightly higher than usual, about 25–29°C.</p>"
     },
     {
       "key": "equipment",
@@ -388,13 +445,19 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
-      "html": "<p>Fed on crushed pellets, baby brine shrimp and black worms.</p>"
+      "html": "<p>They are currently fed crushed pellets, baby brine shrimp and black worms. Their small mouths need small foods.</p>"
     },
     {
       "key": "diet",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/threadfin-rainbowfish-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Because of the jaw structure and upward-directed mouth, Iriatherina werneri is a surface feeder. They are omnivores and consume both plant and animal material.</p><p>According to a study, wild-caught fish fed on large quantities of unicellular planktonic algae and some diatoms, with no crustacea. Even some mosquito larvae were too large for them.</p><p>Because of their small mouths and thin throats, they only eat tiny particles of food. In the aquarium they can be fed:</p><ul><li>brine shrimp,</li><li>brine shrimp nauplii,</li><li>cyclops,</li><li>daphnia,</li><li>fruit flies.</li></ul><p>They do not require only live foods. They also accept frozen and commercial food, such as:</p><ul><li>Fluval Bug Bites,</li><li>Hikari First Bites,</li><li>TetraMin Crisps,</li><li>any really small, crushed flake food.</li></ul><p>Large worms (grindal worms, bloodworms, blackworms, etc.) should be chopped into small pieces and flake food should be crumbled. A varied diet is always best; they may even lose color otherwise.</p><p>It can be difficult to keep them fed if there are other fish species in the tank. They are shy and quite slow, so most other fish will outcompete them for food.</p><ul><li>They are diurnal, so feed them during the day.</li><li>As surface feeders, they rarely pick anything from the substrate. Ideally use food that stays in the water column for some time.</li><li>Be prepared to cut food into pieces or grind up flakes.</li><li>Make sure the diet is mostly protein-based.</li><li>Clean up leftover food to avoid fouling the water.</li></ul><p>Adults can be fed once a day, whereas juveniles should be fed at least twice per day.</p><p>Threadfin Rainbowfish are plant safe; they do not eat live plants.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/iriatherina-werneri-2/",
+      "html": "<p>Correct feeding is the most important factor. These fish have a very small mouth, so food particles must be small too. Best is live brine shrimp nauplii, but I. werneri also takes very fine dry food, micro worms, vinegar worms, rotifers, cyclops (these can be frozen too), etc.</p>"
     },
     {
       "key": "behaviour",
@@ -406,13 +469,19 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
-      "html": "<p>A beautiful schooling rainbowfish. It has several long, flowing fins on the top and bottom that resemble threads, which gave the fish its name. Males can show beautiful colours when dominant or breeding, and are a must-see when showing off to each other.</p>"
+      "html": "<p>Peaceful and slow-swimming. Keep in groups with more females than males. Do not keep with fin-nippers, as the long fins are easy targets.</p>"
     },
     {
       "key": "behaviour",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/threadfin-rainbowfish-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Threadfin Rainbowfish are very peaceful. They are harmless and will not bother anybody in a community tank. They do not nip at all. If anything, they are more likely to receive aggression, as their small size and large fins make them a target for other fish.</p><p>Males often compete for dominance without any contact, by rapidly moving and flipping the first dorsal fin up and down, like a dance. Once the contest is won, the winner does not chase or harass the loser.</p><p>It is a social species. Although they like to be in a group, they do not stay close together all the time, so it is a shoaling rather than schooling fish. Keep at least 6 (bare minimum); larger groups make them happier.</p><p>They are shy and timid and easily scared, but recover quickly from stress. When happy they are playful and, despite their long fins, move almost constantly and very quickly. They are truly exciting to watch.</p><p>They are known jumpers, so the tank must be covered.</p><p>Iriatherina werneri is diurnal. These fish rely heavily on vision to detect predators and find food or conspecifics, and readily hide in darker areas of the tank when in danger. They cruise through the tank all the time but stay mostly in the top and middle parts.</p><h3>Tankmates</h3><p>Avoid larger, boisterous or nippy fish. They are small and timid, cannot compete with other species and might be bullied.</p><p>They can be kept with fish not big enough to eat or harass them, such as pygmy corydoras, Boraras rasboras, Panda garra, clown killifish, guppies, harlequin rasboras (cá tam giác), otocinclus, medaka, etc.</p><p>Tankmates to avoid are cichlids, goldfish, monos and scats, Jack Dempsey, Oscar, etc. Even bettas, paradise fish, Siamese algae eaters and angelfish should never be placed with them. Betta compatibility is individual and no formula guarantees success: an aggressive betta will harass them, while bettas like calm and threadfin rainbowfish enjoy movement, which may stress the betta. All in all, these species are not compatible.</p><p>They can be kept with dwarf shrimp; their mouths are too small to threaten adult or even juvenile shrimp. However, newly hatched shrimp are tiny enough to fit in their mouths, so there is always a chance they will snack on them. Shrimplets 1–2 weeks old are too big for them to eat.</p><p>They are compatible with any freshwater snail.</p><p>Keep them away from all types of crayfish and most freshwater crabs, and from large, aggressive or boisterous fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/iriatherina-werneri-2/",
+      "html": "<p>There is hardly another aquarium fish as peaceful as this one. I. werneri must never be kept with rough tankmates; it will not survive such conditions.</p>"
     },
     {
       "key": "dimorphism",
@@ -427,6 +496,12 @@
       "html": "<p>Iriatherina werneri shows sexual dimorphism.</p><ul><li>Color: males have a more beautiful and intense color than females.</li><li>Fins: males have significantly larger dorsal and anal fins; their first dorsal, second dorsal, anal and pelvic fins are greatly enlarged and elongated. In males, fins are often dark brown or darkly pigmented and the tip of the caudal fin is orange-red, while the fins of females are relatively colorless.</li></ul>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
+      "html": "<p>Males have a tall, feathery first dorsal fin, and second dorsal and anal fins with long thread-like extensions often longer than the body. The tail is lyre-shaped with red edges. Males get beautiful colours when dominant or breeding. Females are plain silver with short fins.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
@@ -439,6 +514,12 @@
       "html": "<p>Threadfin Rainbowfish are not that difficult to breed as long as conditions are good. The three main factors are stable water conditions (high temperature and hard water), proper diet (mostly live food) and a rearing tank.</p><p>Temperature affects the sex ratio (more males at high temperatures). Because of the demand for male rainbowfish, it is possible to masculinize fish by immersing embryos in purwoceng plant extract.</p><p>They mature at around 2.5 cm, at 50–60 days of age. A ratio of one male to three females is recommended. Spawning usually occurs from morning until late afternoon.</p><p>Males flare their extravagant fins during courtship and displays; the first and second dorsal, pelvic and anal fins open and close very quickly to attract a female. Females show a preference for males with longer fins. The male dances near the chosen spot on the substrate and repeatedly approaches the female, inviting her to join. Some aquarists use moss as a spawning medium, which also makes moving the eggs to the rearing tank easier.</p><p>During spawning the female and male swim forward while wagging their tails so the eggs stick to the substrate. They can spawn every day for 30 days. The potential number of eggs and larvae can increase 4 and 14 times respectively when parents are given natural food. Feed to satiation 3 times a day.</p><h3>Eggs</h3><p>Threadfin Rainbowfish are egg scatterers, not livebearers. Females lay on average 7±6 eggs each day, up to 200 eggs per month. The eggs are adhesive and attach easily to substrate or plants. They are telolecithal, clear to clear golden, 0.73–1.08 mm in diameter. Incubation lasts 5–6 days at 24–30 °C.</p><ul><li>After 24 hours: head and tail can be distinguished, eye sockets begin to form, followed by somites.</li><li>After 76 hours: the eyes are completely black, pectoral fins are present and embryonic movements are more active.</li><li>After 124 hours: hatching.</li></ul><p>The survival rate is only about 40%.</p><p>Temperature affected the sex ratio: 73.3% males at 30–32 °C, 56.7% males at 28–30 °C, and 30% males at room temperature.</p><h3>Hatching and fry</h3><p>Fry cannot survive at 32 °C and higher. They should be fed to satiation at least twice a day, morning and evening. Although the yolk begins to run out at 3 days, it is recommended to start feeding right away.</p><table><tr><th>Age (days)</th><th>Development</th><th>Size (mm)</th><th>Recommended food</th></tr><tr><td>1–14</td><td>Body is transparent and still has the yolk. The caudal fin is still fused with the dorsal and anal fins.</td><td>3.3–8.5</td><td>Infusoria and rotifers</td></tr><tr><td>15–25</td><td>Dorsal and anal fins are clearly visible, fin margins are black and the caudal fin is yellowish.</td><td>9–12</td><td>Rotifers and Artemia</td></tr><tr><td>26–60</td><td>Development of fins and body is complete. The fry becomes a juvenile at 35 days after hatching.</td><td>19–21</td><td>Artemia</td></tr></table><p>After hatching, the larvae swim vertically (jerky motion) to the water surface, then fall to the bottom. They do this to inflate their swim bladders by swallowing air at the surface.</p><p>Larvae and fry are very sensitive to soft water. Hard water (15–17 GH) improved survival by a huge margin.</p><h3>Rearing tank</h3><ul><li>Move the eggs to the rearing tank to avoid potential predation and cannibalization.</li><li>Water parameters: pH 7.0–7.5, GH 15–17, temperature 24–28 °C. Hardness is extremely important for fry survival.</li><li>Once they are big enough to eat Artemia, you can start lowering the hardness. In a week, they can be moved to the main tank.</li><li>Larvae need to be fed 3 times a day.</li><li>Water quality during this period is of paramount importance. Do water changes daily to remove toxic waste.</li></ul>"
     },
     {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish",
+      "html": "<p>Continuous spawner. Eggs are attached to fine plants, moss or spawning mops over several days. Move mops to a separate container; fry are tiny and need infusoria or green water first.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
@@ -449,6 +530,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/threadfin-rainbowfish-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Threadfin Rainbowfish are typically 3–4 cm long (tip of snout to the origin of the caudal fin); some reports say old males reach 6 cm, though none over 5 cm were seen. In captivity they can live 3–4 years if appropriately cared for. Lifespan depends on conditions, feeding and stress, and is longest in a tank with low food competition and no larger or aggressive animals. There is no data on lifespan in the wild.</p><p>Distinguishing characteristics:</p><ul><li>The upper jaw is much shorter than the lower jaw and does not protrude.</li><li>Color pattern includes several types of pigment cells (opaque, yellow, light brown, olive or drab greenish), without a silvery midlateral band. Males have 6–8 dusky vertical bars on the flanks.</li><li>The innermost ray of the pelvic fin is connected to the abdomen along its entire length by a membrane.</li><li>Males have greatly enlarged and elongated first dorsal, second dorsal, anal and pelvic fins, commonly more than twice the total body length. The first dorsal fin is oval.</li></ul><p>Depending on origin, fins and coloration may differ slightly. Fish from New Guinea are generally darker than Australian ones, the first dorsal fin of males varies from narrow to broad, and a yellow-finned variety has been reported from the Embley River in northern Queensland.</p><p>The genus name Iriatherina derives from the Greek 'Iris' (-idos), meaning 'iridescent', and 'Atherinē', the Greek name for smelt. Iriatherina werneri is the sole species of its genus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/iriatherina-werneri-2/",
+      "html": "<p>Keepers who meet the demands of this fish and add some peat, alder cones or dead leaves to the tank will be rewarded with beautiful and fascinating looks.</p>"
     },
     {
       "key": "references",
@@ -470,7 +557,7 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
       "caption": "Males spar often when in spawning condition...",
       "source": "seriouslyfish"
@@ -481,9 +568,20 @@
       "width": 900,
       "height": 675,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
       "caption": "...though physical damage is rare.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bb4473e6f0c5fc17.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bb4473e6f0c5fc17-480.webp",
+      "width": 855,
+      "height": 641,
+      "licence": "dùng với sự cho phép",
+      "author": "Peter Macguire / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
+      "caption": "Adult female post-spawning with some undeposited eggs still attached.",
       "source": "seriouslyfish"
     },
     {
@@ -495,20 +593,34 @@
       "author": "Aquarium Breeder",
       "sourceUrl": "https://aquariumbreeder.com/threadfin-rainbowfish-detailed-guide-care-diet-and-breeding/",
       "source": "aquariumbreeder"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/bb4473e6f0c5fc17.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/bb4473e6f0c5fc17-480.webp",
-      "width": 855,
-      "height": 641,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/iriatherina-werneri",
-      "caption": "Adult female post-spawning with some undeposited eggs still attached.",
-      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "HVnXJL4S6xU",
+      "title": "The Threadfin Rainbowfish: Iriatherina werneri",
+      "durationSec": 16,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "abzTk-nbKVo",
+      "title": "Threadfin Rainbowfish - Iriatherina werneri",
+      "durationSec": 168,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Cr4Nc5F_3as",
+      "title": "EPIC LAVA ROCK AQUARIUM FOR THREADFIN RAINBOW FISH! (Step by Step Aquascape Tutorial)",
+      "durationSec": 956,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5wBz7oAnz1k",
+      "title": "HUGE Threadfin Rainbowfish - Iriatherina werneri",
+      "durationSec": 17,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -539,5 +651,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-21"
 }

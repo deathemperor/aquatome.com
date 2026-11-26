@@ -1,0 +1,369 @@
+{
+  "id": "enteromius-callipterus",
+  "scientificName": "Enteromius callipterus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Enteromius",
+  "group": "barbs",
+  "places": [
+    "africa",
+    "cameroon",
+    "nigeria"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "NG"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Cameroon, Nigeria.",
+          "countries": [
+            "CM",
+            "NG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9585921,
+      "total": 161,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "NG",
+          67
+        ],
+        [
+          "CM",
+          57
+        ],
+        [
+          "BJ",
+          26
+        ],
+        [
+          "SN",
+          3
+        ],
+        [
+          "ML",
+          2
+        ],
+        [
+          "CI",
+          1
+        ],
+        [
+          "GA",
+          1
+        ],
+        [
+          "GQ",
+          1
+        ],
+        [
+          "NE",
+          1
+        ],
+        [
+          "TD",
+          1
+        ],
+        [
+          "TG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -16.875,
+          15.46875,
+          2,
+          0
+        ],
+        [
+          -15.46875,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          -5.625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -4.21875,
+          14.0625,
+          2,
+          0
+        ],
+        [
+          0,
+          5.625,
+          1,
+          0
+        ],
+        [
+          0,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          18,
+          0
+        ],
+        [
+          1.40625,
+          7.03125,
+          3,
+          0
+        ],
+        [
+          2.8125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          2.8125,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          2.8125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          2.8125,
+          11.25,
+          4,
+          0
+        ],
+        [
+          4.21875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          4.21875,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          4.21875,
+          11.25,
+          2,
+          2
+        ],
+        [
+          4.21875,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          5.625,
+          4.21875,
+          24,
+          24
+        ],
+        [
+          7.03125,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          7.03125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          7.03125,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          8.4375,
+          2.8125,
+          3,
+          2
+        ],
+        [
+          8.4375,
+          4.21875,
+          18,
+          18
+        ],
+        [
+          8.4375,
+          5.625,
+          19,
+          19
+        ],
+        [
+          8.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          11.25,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          2.8125,
+          11,
+          11
+        ],
+        [
+          11.25,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          11.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          11.25,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          11.25,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          12.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tankCm": [
+      {
+        "source": "glaser",
+        "value": 80
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_cf_callipterus_en/",
+      "html": "<p>Origin: Cameroon, Nigeria.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_cf_callipterus_en/",
+      "html": "<p>The following information refers to the general keeping conditions of larger barb species. They prefer well-planted tanks (&gt; 80 cm) with open water for swimming.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_cf_callipterus_en/",
+      "html": "<p>Barbs usually have no excessive requirements regarding food, but like other fish they enjoy an occasional addition of frozen or live food to a base diet of commercial flake food. One is then often surprised at the energy in a shoal of barbs if, for example, live water fleas are offered to them.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_cf_callipterus_en/",
+      "html": "<p>They are social shoaling fish, which are best kept in groups of at least 7 individuals. Other peaceful, active fish are suitable tank mates.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/407738314.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/407738314-480.webp",
+      "width": 1024,
+      "height": 695,
+      "licence": "CC BY-NC-SA",
+      "author": "jeanlouisamiet",
+      "sourceUrl": "https://www.inaturalist.org/photos/407738314",
+      "caption": "Cá barb callipterus đực bơi giữa cây thủy sinh trong bể",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/407738314-large.webp",
+        "width": 1769,
+        "height": 1200
+      }
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá dạng vảy",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

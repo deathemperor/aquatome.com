@@ -3,7 +3,13 @@
  "judged": [
   "File:Hyphessobrycon dorsalis (31473).png"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/e6a7bb33c1cd1830.webp": "7353070103370e0e",
+  "https://media.aquatome.com/glaser/42a199045be726e0.webp": "43470b033f5b2240",
+  "https://media.aquatome.com/glaser/53e31da26d10c04f.webp": "6d0732e0c2c3c309",
+  "https://media.aquatome.com/glaser/d5f65a8c15b19d79.webp": "9f8f8f970f3c3139",
+  "https://media.aquatome.com/glaser/9b2d70ddd301de2e.webp": "b2a3c78783e76dec"
+ },
  "commons": "2026-11-08",
  "inat": {
   "taxon": 610645,
@@ -12,5 +18,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 8180826,
+  "next": null
  }
 }

@@ -12,6 +12,142 @@
     "japan",
     "ryukyu-islands"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PH",
+        "JP"
+      ],
+      "regions": [
+        "Okinawa",
+        "Yaku",
+        "Ryukyu Islands",
+        "Leyte"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Lagu Lagu creek, southern margin of Visayan State Coll. of Agric., about 7 kilometers north of Baybay, about 2 kilometers from sea, Leyte, Philippines', and initially the species was known only from that location.",
+          "countries": [
+            "PH"
+          ],
+          "regions": [
+            "Leyte"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "More recent records suggest it to be more well-distributed, having been reported on the Japanese islands of Okinawa (Ryukyu Islands) and Yaku (aka Yakushima) much further north.",
+          "countries": [
+            "JP"
+          ],
+          "regions": [
+            "Okinawa",
+            "Yaku",
+            "Ryukyu Islands"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2376112,
+      "total": 16,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          9
+        ],
+        [
+          "PG",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          127.96875,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          129.375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          132.1875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          133.59375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          135,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          139.21875,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          149.0625,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          150.46875,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          150.46875,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          151.875,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          151.875,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          151.875,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          153.28125,
+          -12.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -146,7 +282,7 @@
       "width": 800,
       "height": 488,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Odyssey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-surrufus",
       "caption": "Nuptial male in nature at an undisclosed locality in the Philippines.",
       "source": "seriouslyfish"
@@ -157,7 +293,7 @@
       "width": 800,
       "height": 510,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Odyssey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-surrufus",
       "caption": "Two non-nuptial males in nature; the Philippines.",
       "source": "seriouslyfish"
@@ -168,7 +304,7 @@
       "width": 736,
       "height": 540,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-surrufus",
       "caption": "This fish was imported into the UK in 2010 and appears to be a male individual of S. surrufus.",
       "source": "seriouslyfish"

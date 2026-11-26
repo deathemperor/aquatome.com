@@ -1,8 +1,13 @@
 {
   "slug": "ayeyarwady",
-  "name": "Ayeyarwady",
+  "name": "Wilayah Ayeyarwady",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-16T05:38:10.080Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

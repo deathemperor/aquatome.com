@@ -28,17 +28,11 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The ornate ctenopoma, Microctenopoma ansorgii, is an anabantoid from the Congo basin in the Republic of Congo and Democratic Republic of Congo.",
+          "quote": "Native to the River Congo basin in parts of both the Republic of Congo and Democratic Republic of Congo.",
           "countries": [
             "CG",
             "CD"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Native to the River Congo basin in parts of both the Republic of Congo and Democratic Republic of Congo.",
-          "countries": [],
           "regions": [
             "Congo"
           ]
@@ -198,12 +192,12 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 8
-      },
-      {
         "source": "seriouslyfish",
         "value": 7
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tempC": [
@@ -212,6 +206,13 @@
         "value": {
           "min": 20,
           "max": 27
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 24
         }
       }
     ],
@@ -250,8 +251,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_ansorgii_en/",
-      "html": "<p>Wild-caught red dwarf bushfish from the Congo. The species belongs to the bubble-nest builders and grows to about 6-8 cm long. The fish are currently 3-4 cm long.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-ansorgii-2/",
+      "html": "<p>Orange Bushfish, wild catches from the Congo. A bubblenest-building species that grows to about 6-8 cm.</p>"
     },
     {
       "key": "quickFacts",
@@ -284,6 +285,12 @@
       "html": "<p>Prefers a densely planted tank with lots of floating cover and stained water. Peat filtration is beneficial. The tank should be well-covered as these fish are great escape artists.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-ansorgii-2/",
+      "html": "<p>The fish are kept in tanks with a rich structure at temperatures between 20 and 24°C.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
@@ -296,10 +303,22 @@
       "html": "<p>Provide a diet consisting mainly of small frozen or live food. Rarely accepts dried foods.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-ansorgii-2/",
+      "html": "<p>These fish have a high feed requirement. They are not particularly demanding, but frozen and live food is preferred.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
       "html": "<p>This is quite a slow-moving fish and will easily be out-competed by more boisterous species at feeding time, so is best kept with small, peaceful species that inhabit the upper and lower parts of the tank such as hatchetfish, lampeyes, corydoras and small loricariids. It is stunning enough to deserve a species tank, in which it will do best. Males may be aggressive to one another, particularly if spawning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-ansorgii-2/",
+      "html": "<p>The Orange Bushfish is a very interesting species. It becomes half grown and sexually mature early. With increasing age the fish becomes more highbacked.</p><p>The colour change ability is phenomenal. Neutrally mooded animals are reddish-brown with a greenish shimmer, and dark vertical bands run over the body. Sometimes the fish show a light longitudinal band along the entire body. With increasing excitement, the basic body colouring becomes brighter and brighter, and the vertical bands appear intensively. The light red in the vertical fins is not affected by this colour change and can be seen well in every mood.</p>"
     },
     {
       "key": "dimorphism",
@@ -308,16 +327,22 @@
       "html": "<p>Males are the larger sex and are much more colourful. They also have white edges to the anal and dorsal fins.</p>"
     },
     {
-      "key": "reproduction",
+      "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_ansorgii_en/",
-      "html": "<p>The species belongs to the bubble-nest builders.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-ansorgii-2/",
+      "html": "<p>Males and females are best distinguished by the shape of their ventral fins. The ventral fins of the females are considerably shorter. Other fin development is also lower in females, but males of lower social rank can reduce dorsal and anal fin development, which makes them look similar to females and reduce their exposure to attacks by dominant males. However, the ventral fins always betray them.</p>"
     },
     {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
       "html": "<p>Possible but tricky. Bubblenester. A dimly-lit, well-planted aquarium with lots of floating plants and soft, acidic water is required to spawn these fish. Condition them with live food. The male will build a very small, loose bubblenest of large bubbles amongst floating vegetation or under a broad leaf. Spawning occurs under the nest in a typical anabantoid embrace. Up to 600 eggs may be laid, which hatch in around 24 hours and become free-swimming in 2-3 days. It is best to remove the parents after hatching. The fry are tiny and should be fed infusoria for the first week, after which they will accept brine shrimp nauplii.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-ansorgii-2/",
+      "html": "<p>Only for breeding should the temperature be increased by 2-3°C; the water should then be soft and slightly acidic. Microctenopoma ansorgii is a bubblenest builder, and reproduction is similar to that of paradise fish.</p>"
     },
     {
       "key": "notes",
@@ -332,18 +357,73 @@
       "thumb": "https://media.aquatome.com/commons/abefbf6f22274ae4-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "CC BY 3.0",
-      "author": "Juan Carlos Palau Díaz",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microctenopoma_ansorgii_2.jpg",
-      "caption": "Microctenopoma ansorgii",
       "large": {
         "url": "https://media.aquatome.com/commons/abefbf6f22274ae4-large.webp",
         "width": 1401,
         "height": 934
-      }
+      },
+      "licence": "CC BY 3.0",
+      "author": "Juan Carlos Palau Díaz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microctenopoma_ansorgii_2.jpg",
+      "caption": "Microctenopoma ansorgii"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a9c96f3574a2c671.webp",
+      "thumb": "https://media.aquatome.com/glaser/a9c96f3574a2c671-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-ansorgii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/edcae3645ad723e7.webp",
+      "thumb": "https://media.aquatome.com/glaser/edcae3645ad723e7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-ansorgii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3dedaf4f05c14319.webp",
+      "thumb": "https://media.aquatome.com/glaser/3dedaf4f05c14319-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/microctenopoma-ansorgii-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "8owNy4JZkFI",
+      "title": "Microctenopoma ansorgii (Orange Bushfish/Red Stripe Bushfish) - male, adult, normal coloration",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0R920L_wKx0",
+      "title": "SPECIES SPOTLIGHT | Ornate Ctenopoma",
+      "durationSec": 317,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jlrGYmCtBPM",
+      "title": "Microctenopoma ansorgii (Orange Bushfish) - Fry",
+      "durationSec": 3,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nCBAIeySK58",
+      "title": "Microctenopoma ansorgii biotope",
+      "durationSec": 44,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -365,5 +445,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-20"
 }

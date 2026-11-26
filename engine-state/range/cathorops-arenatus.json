@@ -1,0 +1,115 @@
+{
+  "id": "cathorops-arenatus",
+  "native": {
+    "input": "cf10c5579eadf533",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Southwestern Atlantic: Atlantic coastal rivers from Guyana to northeastern Brazil: Brazil, French Guiana, Guyana and Suriname.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Southwestern Atlantic: Atlantic coastal rivers from Guyana to northeastern Brazil: Brazil, French Guiana, Guyana and Suriname.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Southwestern Atlantic: Atlantic coastal rivers from Guyana to northeastern Brazil: Brazil, French Guiana, Guyana and Suriname.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Southwestern Atlantic: Atlantic coastal rivers from Guyana to northeastern Brazil: Brazil, French Guiana, Guyana and Suriname.",
+        "words": "Suriname",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cathorops arenatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2345181,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        19
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        18
+      ],
+      [
+        "cd31232e-57a9-4777-ab9d-406333c42769",
+        13
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        7
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        6
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        3
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GF",
+      "GY",
+      "SR"
+    ],
+    "requests": 12,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

@@ -23,10 +23,12 @@
       ],
       "regions": [
         "Ganges",
-        "Brahmaputra"
+        "Brahmaputra",
+        "Himalayas"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -40,6 +42,14 @@
           "regions": [
             "Ganges",
             "Brahmaputra"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "In India and adjacent countries the species is common in the system of the upper Brahmaputra, i.e. at the foot of the Himalayas.",
+          "countries": [],
+          "regions": [
+            "Himalayas"
           ]
         }
       ]
@@ -176,6 +186,13 @@
           "min": 23,
           "max": 26
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -200,6 +217,10 @@
       {
         "source": "seriouslyfish",
         "value": 13
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -223,6 +244,12 @@
       "html": "<ul><li>Max size: 130 mm SL (standard length)</li><li>Aquarium size: 120 × 45 cm</li><li>Temperature: 23–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li><li>Difficulty: moderate; needs a well-established tank and stable water.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/botia-dario-2/",
+      "html": "<p>Botia dario is a very beautiful and relatively small loach from India. Usually the species grows to a length of 6-8 cm; 15 cm is given in literature as a record size, but it is not clear whether this is a case of confusion.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-dario",
@@ -233,6 +260,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-dario",
       "html": "<p>Found throughout much of the middle to lower Ganges and Brahmaputra river drainages in northern India, Bangladesh and Bhutan.</p><p>In India it's been recorded in the states of Uttar Pradesh, Bihar, West Bengal, Meghalaya, Assam and Arunachal Pradesh, in southern Bhutan from the Gaylegphug River and in Bangladesh from the Divisions of Dhaka (Mymensingh district), Sylhet, Rajshahi and Rangpur in the north plus the Hill Tracts of Chittagong Division in the south of the country.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/botia-dario-2/",
+      "html": "<p>In India and adjacent countries the species is common in the system of the upper Brahmaputra, i.e. at the foot of the Himalayas.</p>"
     },
     {
       "key": "habitat",
@@ -259,10 +292,22 @@
       "html": "<ul><li>Temperature: 23–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/botia-dario-2/",
+      "html": "<p>In its habitat it can occasionally get quite cool; Botia dario is therefore an energy-saving fish, which, if the aquarium is located in a living space, does not require additional aquarium heating. Water temperatures between 16 and 28°C represent the comfort zone of this lively schooling fish. However, it is important that the water temperatures rise or fall slowly – over a period of days. Botia dario does not tolerate rapid temperature changes any more than any other fish.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-dario",
       "html": "<p>While Botia spp. appear to be chiefly carnivorous they will also eat vegetative matter if available, often including soft-leaved aquatic plants. The natural diet comprises aquatic molluscs, insects, worms, and other invertebrates.</p><p>They're largely unfussy feeders but must be offered a varied diet comprising quality dried products, live or frozen bloodworm, Tubifex, Artemia, etc., plus fresh fruit and vegetables such as cucumber, melon, blanched spinach, or courgette.</p><p>Home-made foods using a mixture of natural ingredients and bound with gelatin are also highly recommended.</p><p>Chopped earthworm can also provide a useful source of protein but should be used sparingly, and while most botiids also prey on aquatic snails though should never be considered the answer to an infestation since they're not obligate molluscivores.</p><p>Once settled into an aquarium they're bold feeders and often rise into midwater at meal times.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/botia-dario-2/",
+      "html": "<p>It is an eager snail exterminator.</p>"
     },
     {
       "key": "behaviour",
@@ -302,20 +347,20 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Choy Heng Wah / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-dario",
       "caption": "Juvenile of a particularly yellow form of B. dario - Botia species are often found on sale at a small size.",
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/5a9117828f3869fd.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/5a9117828f3869fd-480.webp",
-      "width": 800,
-      "height": 383,
+      "url": "https://media.aquatome.com/seriouslyfish/a2afb66f0d50592b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a2afb66f0d50592b-480.webp",
+      "width": 799,
+      "height": 449,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-dario",
-      "caption": "Large adult specimen of Botia dario.",
+      "caption": "Another subadult...",
       "source": "seriouslyfish"
     },
     {
@@ -324,10 +369,40 @@
       "width": 800,
       "height": 532,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/botia-dario",
       "caption": "A subadult.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/028bc2648156f7bc.webp",
+      "thumb": "https://media.aquatome.com/glaser/028bc2648156f7bc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/botia-dario-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/53adf737d2e1377a.webp",
+      "thumb": "https://media.aquatome.com/glaser/53adf737d2e1377a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/botia-dario-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ae3d47dd657f4a8a.webp",
+      "thumb": "https://media.aquatome.com/glaser/ae3d47dd657f4a8a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/general/botia-dario-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -361,5 +436,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-22"
 }

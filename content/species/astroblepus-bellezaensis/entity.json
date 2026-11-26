@@ -1,0 +1,143 @@
+{
+  "id": "astroblepus-bellezaensis",
+  "scientificName": "Astroblepus bellezaensis",
+  "order": "Siluriformes",
+  "family": "Astroblepidae",
+  "genus": "Astroblepus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "santander"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 9.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_bellezaensis.htm",
+      "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_bellezaensis.htm",
+      "html": "<p>South America: Colombia, Department of Santander. Broken Quitaz, Vereda Cachipayal.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_bellezaensis.htm",
+      "html": "<p>Fishes of the family Astroblepidae are found in freshwaters streams (between 200 to 13,400 feet above sea level) of the tropical Andes from Panama to Bolivia, and occur in both the western Pacific and eastern Amazonian slope drainage systems in South and Central America.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_bellezaensis.htm",
+      "html": "<p>Not an easy family of catfishes to keep so they would have to have a large tank with rocks and some appropriate vegetation.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_bellezaensis.htm",
+      "html": "<p>The water would need to be fast flowing and provided with extra oxygen via an air tube fed into the powerhead flow. The tank should be set up with rocks so as to provide an area where the water current will be slower.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_bellezaensis.htm",
+      "html": "<p>Invertebrates, insect larvae, spirulina tablets or paste, algae based foods and live bloodworm would probably be the staple diet but you may wish to try glassworm and blackworm (although these won’t tend to stay on the substrate unless the current takes them there).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_bellezaensis.htm",
+      "html": "<p>Astroblepids are closely related to the Loricariids, and in fact one genus of fish (Lithogenes Eigenman, 1909) seems intermediate between the two families, having the shape and form of an Astroblepid, but some plates on the body and other morphological characters closer to Loricariids. At the time of writing, Lithogenes is currently placed in Loricariidae.</p><p><strong>Description:</strong> Astroblepus bellezaensis is recognised among the other species of the genus Astroblepus by its adipose fin, which is a well-developed membrane that extends from the beginning of the last dorsal to the flow, without traces of a thorn. Vertebrae: 26, 6 branched soft radii associated to third radial, premaxillary with 1-3 bicuspid teeth and 8-12 conic teeth in external row, and 26 vertebrae.</p><p><strong>Colouration:</strong> The region of the head is Brown, their side edges have a yellow background with Brown irregular spots, black eyes. Large oral disk (16.7 (-20.5 mm). Lateral region of the body and adipose fin yellow background with Brown irregular blotches. Caudal fin with a wide vertical band of Brown dark at the base and spokes with irregular streaks of Brown; the first simple spokes are the same and a little long, abdomen pale brown.</p><p><strong>Etymology:</strong> –ensis, suffix denoting place: Municipio La Belleza, Santander, Colombia, only known area of occurrence.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_bellezaensis.htm",
+      "html": "<p>Ardila Rodríguez, Carlos A.; Five New Species of Astroblepus Fish for Colombian Andes. Universidad Metropolitana, Barranquilla, Colombia. Vol. 1, Núm. 27 (2015).</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2019 ).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "bơm dòng cho bể cá",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh nước bể cá",
+        "chiller bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina cho cá",
+        "viên tảo cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 120cm",
+        "bể cá thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20",
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Colombia, Department of Santander.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9542702,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  }
+}

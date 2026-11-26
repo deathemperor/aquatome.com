@@ -1,0 +1,13 @@
+---
+url: https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-carapo-4/
+title: Gymnotus carapo - Aquarium Glaser GmbH
+fetchedAt: 2026-11-21T07:38:03.279Z
+hash: 4225c344a507a2a5600e0792e0b53fe3f70b20fbeefc454426abeb8bb4188119
+---
+
+The number of scientifically described species in the genus Gymnotus increases rapidly recently. Since the last complete revision of the New World Knifefishes by Francisco Mago-Leccia in 1994 34 new species and 7 subspecies have been described, raising the total number of known species to 43. Members of the genus Gymnotus are cylindrical shaped and most often they have a quite attractive pattern. The maximum size that can be reached depends on the particular species. The smallest ones are said to reach only 10 cm, the largest up to 40 cm.
+The Banded Knifefish (Gymnotus carapo) is the first species that became known to science and been described already back in 1758. The species has an enormous distribution in South America; however, one should keep in mind that many mis-identification probaly have appeared in elder literature. Gymnotus carapo belongs to the larger species of the genus. In 2017, 7 new subspecies of G. carapo have been described. The specimens from Venezuela, which we have currently , belong to the subspecies Gymnotus carapo septentrionalis. In some specimens the banded pattern becomes a spotted pattern when they grow larger than about 20 cm. Smaller specimens are all banded. Maybe the pattern shows the sex in larger specimens?
+Principically speaking Gymnotus carapo would make excellent aquarium fishes – despite the size they can grow. They species inhabits often swamp areas, has an accessory breathing organ and is very undemanding, has a very attractive pattern and swims – like all knifefishes – in a fascinating way. But sadly all Gymnotus are extremely aggressive against conspecifics. This makes it most often impossible even to keep a pair together. External differences between the sexes are unknown for Gymnotus. That is really a pity, because breeding Gymnotus would make a great project. Gymnotus are paternal broodcarer. From the wild, nest-building males have been described, in captivity they proofed to be mouthbrooders. Most probably sibling, but different speces were involved in the two studies.
+Currently we have very nice specimens from Venezuela . The fish are between 12 and 15 cm long and all banded, with one exception, a large spotted specimen, 25-30 cm long. Doesn´t that make a good opportunity to try the species?
+For our customers: the fish have code 255204 on our stocklist. Please note that we exclusively supply the wholesale trade.
+Text & photos: Frank Schäfer

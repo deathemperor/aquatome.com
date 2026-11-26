@@ -1,0 +1,261 @@
+{
+  "id": "sciades-couma",
+  "scientificName": "Sciades couma",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Sciades",
+  "group": "catfish",
+  "places": [
+    "south-america"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR",
+        "VE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Surinam, probably neighbourhood of Paramaribo.",
+          "countries": [
+            "SR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "The range extends from Venezuela to northern Brazil, restricted to turbid waters in estuaries and the lower reaches of rivers.",
+          "countries": [
+            "VE",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Atlantic draining rivers of South America, from the Gulf of Paria to the mouth of the Amazon.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202961,
+      "total": 320,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "GF",
+          275
+        ],
+        [
+          "BR",
+          43
+        ],
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          7,
+          7
+        ],
+        [
+          -54.84375,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          -54.84375,
+          5.625,
+          23,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          31,
+          0
+        ],
+        [
+          -53.4375,
+          4.21875,
+          195,
+          0
+        ],
+        [
+          -52.03125,
+          2.8125,
+          4,
+          3
+        ],
+        [
+          -52.03125,
+          4.21875,
+          21,
+          0
+        ],
+        [
+          -50.625,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -50.625,
+          0,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          1.40625,
+          6,
+          6
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          0,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -45,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -43.59375,
+          -5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "scotcat",
+    "quote": "Brackish, marine."
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 97
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<ul><li>Common name: Couma sea catfish</li></ul><p>The head is rounded and flattened on the upper part. The mouth is slightly inferior. It has 3 pairs of barbels (1 pair of maxillary barbels and 2 pairs of mandibular barbels). The cephalic surface is very rough. Dorsal spines (total): 1.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<p>South America: Atlantic draining rivers of South America, from the Gulf of Paria to the mouth of the Amazon. Type locality: Surinam, probably neighbourhood of Paramaribo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<p>Brackish, marine. Confined chiefly to turbid waters in estuaries and the lower parts of rivers. Two annual cycles of slower growth are known during the two dry seasons (March and August to November). Probably has a short life span.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<p>Grows too large for the home aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<p>Feeds mainly on crustaceans.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<p>At the beginning of reproduction, the male's mouth changes to function as an egg repository (buccal incubation). The female lays her eggs in a sandy depression, then after fertilization, the male puts the eggs into its mouth, which is provided with ventilation until hatching. Egg diameter is about 2 mm and the number varies from 100 to 165 per female.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<p>Its delicate flesh is highly valued. IUCN Red List: assessed as Least Concern. The range extends from Venezuela to northern Brazil, restricted to turbid waters in estuaries and the lower reaches of rivers. The species is harvested as a food source, but this is not thought to be a major threat to the global population; it is common where it occurs and appears to be coping with current fishing pressures. More information on harvest levels and population trends is needed to be certain.</p><p>Etymology: The genus name Sciades: sciado-, canopy or umbrella, probably referring to the occipital process, described as a \"distinct bony helmet\". The specific name couma: from couma-couma, local name for this catfish in French Guiana, onomatopoeic for the sound it makes when pulled from the water.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

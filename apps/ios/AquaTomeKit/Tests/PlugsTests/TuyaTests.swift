@@ -73,12 +73,12 @@ func dataCenters() {
   ])
 }
 
-@MainActor @Test("The project's plugs: outlets only (not the indicator light or a countdown), their Smart Life names, other devices counted")
+@MainActor @Test("The project's plugs: outlets only (not the indicator light or a countdown), their Smart Life names, which has a countdown, other devices counted")
 func listsThePlugs() async throws {
   let c = Cloud([strip(), sensor])
   let l = try await c.source().list()
   #expect(l == PlugList(plugs: [LivePlug(provider: "tuya", id: "fake-strip-1", name: "Ổ cắm bể 60", online: true, outlets: [
-    LiveOutlet(code: "switch_1", name: "Đèn", on: true), LiveOutlet(code: "switch_2", name: "CO2", on: false), LiveOutlet(code: "switch_usb1", name: nil, on: true),
+    LiveOutlet(code: "switch_1", name: "Đèn", on: true, countdown: true), LiveOutlet(code: "switch_2", name: "CO2", on: false), LiveOutlet(code: "switch_usb1", name: nil, on: true),
   ])], others: 1))
   #expect(c.posts == 0, "listing switches nothing")
   // The list carries the status: no device is asked for it.
@@ -95,7 +95,7 @@ func listsEveryPage() async throws {
   let bare = Cloud([{ var d = strip(); d.names = nil; return d }()])
   bare.fake.listsStatus = false
   let l = try await bare.source().list()
-  #expect(l.plugs.first?.outlets == [LiveOutlet(code: "switch_1", name: nil, on: true), LiveOutlet(code: "switch_2", name: nil, on: false), LiveOutlet(code: "switch_usb1", name: nil, on: true)])
+  #expect(l.plugs.first?.outlets == [LiveOutlet(code: "switch_1", name: nil, on: true, countdown: true), LiveOutlet(code: "switch_2", name: nil, on: false), LiveOutlet(code: "switch_usb1", name: nil, on: true)])
   #expect(bare.reads == 1)
 }
 
@@ -133,6 +133,83 @@ func staleTokenOnACommand() async throws {
   let (reads, tokens) = (c.reads, c.tokens)
   await #expect(throws: PlugError.maker(1011)) { try await s.set(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", on: false) }
   #expect(c.posts == 3 && c.tokens == tokens + 1 && c.reads == reads)
+}
+
+@MainActor @Test("A command goes only if `allowed` still says yes once its token is in hand, and again before it goes once more for a stale one")
+func allowedAsItLeaves() async throws {
+  let c = Cloud()
+  let fake = c.fake
+  let clock = c.clock
+  let hold = Hold()
+  // Each token request held until the test lets it go: what `allowed` answers can change meanwhile, as an outlet's role
+  // or the owner's session can while the phone asks Tuya for a token.
+  let s = TuyaPlugs(keys: keys, send: { r in
+    if r.url?.path == "/v1.0/token" { await hold.pass() }
+    return try await fake.send(r)
+  }, now: { clock.now }, wait: { _ in })
+  _ = try await s.list()
+  let permission = Permission()
+  // No from the start: nothing sent.
+  await #expect(throws: Withdrawn.self) { try await s.set(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", on: true, allowed: { false }) }
+  #expect(c.posts == 0)
+  // The token run out: a new one is asked for before the command, and the permission withdrawn while it is. Asked
+  // before the token, it would have said yes and the command gone (Codex, 17 Nov).
+  clock.advance(7200)
+  await hold.arm()
+  let first = Task { try await s.set(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", on: true, allowed: { await permission.yes }) }
+  await hold.reached()
+  await permission.set(false)
+  await hold.release()
+  await #expect(throws: Withdrawn.self) { try await first.value }
+  #expect(c.posts == 0)
+  // A stale token: the command goes, refused before Tuya acts (1010); the new token is asked for, and the permission
+  // withdrawn while it is: it doesn't go again.
+  await permission.set(true)
+  fake.revoke()
+  await hold.arm()
+  let second = Task { try await s.set(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", on: true, allowed: { await permission.yes }) }
+  await hold.reached()
+  await permission.set(false)
+  await hold.release()
+  await #expect(throws: Withdrawn.self) { try await second.value }
+  #expect(c.posts == 1)
+  #expect(fake.device("fake-strip-1")?.status.first { $0.code == "switch_2" }?.value == .bool(false))
+}
+
+actor Permission {
+  private(set) var yes = true
+  func set(_ v: Bool) { yes = v }
+}
+
+/// Token requests held, once armed, until released.
+actor Hold {
+  private var armed = false
+  private var held: [CheckedContinuation<Void, Never>] = []
+  private var watchers: [CheckedContinuation<Void, Never>] = []
+
+  func arm() { armed = true }
+
+  /// A request: held while armed.
+  func pass() async {
+    guard armed else { return }
+    await withCheckedContinuation { c in
+      held.append(c)
+      watchers.forEach { $0.resume() }
+      watchers = []
+    }
+  }
+
+  /// Returns once a request is held.
+  func reached() async {
+    guard held.isEmpty else { return }
+    await withCheckedContinuation { watchers.append($0) }
+  }
+
+  func release() {
+    armed = false
+    held.forEach { $0.resume() }
+    held = []
+  }
 }
 
 @MainActor @Test("Every request: signed with the project's keys, to its data center, the switch's command as Tuya's docs give it")
@@ -253,6 +330,50 @@ func problems() async throws {
   await #expect(throws: PlugError.badReply) { try await c.source().list() }
   c.fake.offline = true
   await #expect(throws: PlugError.offline) { try await c.source().list() }
+}
+
+@MainActor @Test("An outlet's own countdown: one command to its countdown, read back once; 0 ends it; none for an outlet without one")
+func countdowns() async throws {
+  let c = Cloud()
+  let s = c.source()
+  _ = try await s.list()
+  #expect(try await s.countdown(provider: "tuya", device: "fake-strip-1", outlet: "switch_1", seconds: 7200))
+  #expect(c.fake.commands.last == JSON.object(["commands": .array([.object(["code": .string("countdown_1"), "value": .number(7200)])])]))
+  #expect(c.fake.device("fake-strip-1")?.status.first { $0.code == "switch_1" }?.value == .bool(true), "the outlet itself is left as it is")
+  // At 0 the plug switches the outlet the other way by itself.
+  c.fake.countdownsEnd()
+  #expect(c.fake.device("fake-strip-1")?.status.first { $0.code == "switch_1" }?.value == .bool(false))
+  #expect(try await s.countdown(provider: "tuya", device: "fake-strip-1", outlet: "switch_1", seconds: 0))
+  let posts = c.posts
+  await #expect(throws: PlugError.noSuchPlug) { try await s.countdown(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", seconds: 60) }
+  #expect(c.posts == posts, "nothing sent for an outlet without a countdown")
+  // A plug that takes the command and doesn't run it: not reported.
+  let deaf = Cloud([{ var d = strip(); d.ignores = true; return d }()])
+  let t = deaf.source()
+  _ = try await t.list()
+  #expect(try await t.countdown(provider: "tuya", device: "fake-strip-1", outlet: "switch_1", seconds: 60) == false)
+  #expect(TuyaPlugs.countdownCode("switch_2") == "countdown_2" && TuyaPlugs.countdownCode("switch_usb1") == "countdown_usb1" && TuyaPlugs.countdownCode("switch") == "countdown")
+}
+
+@MainActor @Test("The stand-in's countdowns reach 0 on its clock, at the next request; one that only switches off leaves an outlet off")
+func standInCountdowns() async throws {
+  let c = Cloud([strip("fake-a"), { var d = strip("fake-b"); d.countdownOnlyOff = true; return d }()])
+  var t = Date(timeIntervalSince1970: 1_800_000_000)
+  c.fake.now = { t }
+  let s = c.source()
+  _ = try await s.list()
+  for id in ["fake-a", "fake-b"] {
+    _ = try await s.set(provider: "tuya", device: id, outlet: "switch_1", on: false)
+    #expect(try await s.countdown(provider: "tuya", device: id, outlet: "switch_1", seconds: 60))
+  }
+  let on = { (id: String) in c.fake.device(id)?.status.first { $0.code == "switch_1" }?.value }
+  t = t.addingTimeInterval(59)
+  _ = try await s.list()
+  #expect(on("fake-a") == .bool(false) && on("fake-b") == .bool(false))
+  t = t.addingTimeInterval(2)
+  _ = try await s.list()
+  #expect(on("fake-a") == .bool(true), "back on at 0")
+  #expect(on("fake-b") == .bool(false), "a countdown that only switches off")
 }
 
 @Test("Tuya's error codes as the app tells them apart (https://developer.tuya.com/en/docs/iot/error-code)")

@@ -26,6 +26,29 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(ix.items[5].contentId == nil)
 }
 
+// The site's material pages (#1240: driftwood, rocks, /vi/vat-lieu/): read, found by search, and opened on the web, since
+// the site sends them no shards of pages; before, the decoder left each one out.
+@Test func aMaterialIsReadFoundAndOpenedOnTheWeb() throws {
+  let index = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
+  {"version":1,"lang":"vi","items":[
+   {"kind":"material","name":"Lũa","aka":["Gỗ lũa","Driftwood"],"path":"/vi/vat-lieu/lua/","img":"https://media.aquatome.com/a/lua.webp"},
+   {"kind":"equipment","name":"Lọc","path":"/vi/thiet-bi/loc/"}
+  ],
+   "shards":{"equipment":{"n":1,"level":2}}}
+  """#.utf8))
+  let lua = try #require(index.items.first)
+  #expect(lua.kind == .material && lua.aka == ["Gỗ lũa", "Driftwood"] && lua.path == "/vi/vat-lieu/lua/")
+  // No pages of its kind: the app draws none, so it opens on the web (HandbookModel.drawsItself).
+  #expect(index.pages[HandbookIndex.Kind.material.rawValue] == nil && index.pages[HandbookIndex.Kind.equipment.rawValue] != nil)
+  let s = HandbookSearch(index.items)
+  #expect(names(s.find("lua")) == ["Lũa"] && names(s.find("driftwood")) == ["Lũa"])
+  #expect(s.findAndCount("lua").counts == [nil: 1, .material: 1])
+  #expect(names(s.find("go lua", kind: .material)) == ["Lũa"] && s.find("lua", kind: .equipment).isEmpty)
+  // Its page at the root, where the site sends "/vi/vat-lieu/…", is the same page: its kept copy and a link to it find it.
+  #expect(PathForm.underVi.path("/vat-lieu/lua/") == "/vi/vat-lieu/lua/")
+  #expect(PathForm.atRoot.path("/vi/vat-lieu/lua/") == "/vat-lieu/lua/")
+}
+
 @Test func aKindANewerSiteAddsIsLeftOutNotTheWholeIndex() throws {
   let newer = Data(#"""
   {"version":1,"lang":"vi","items":[
@@ -431,4 +454,20 @@ func siteLinksForTheBrowserAreMarked() {
   let late = Date(timeIntervalSince1970: 1_794_587_400)
   #expect(HandbookIndex.Home.Day.key(late, in: TimeZone(identifier: "Asia/Ho_Chi_Minh")!) == "2026-11-13")
   #expect(HandbookIndex.Home.Day.key(late, in: TimeZone(identifier: "Asia/Tokyo")!) == "2026-11-14")
+}
+
+/// A tank's fish and plants find their own pages by id, never a guide's, a term's or kit's of the same id: ids are unique
+/// within a kind only, and other kinds carry them too.
+@Test func aTanksIdFindsAFishOrPlantNeverAnotherKindOfTheSameId() {
+  let items: [HandbookIndex.Item] = [
+    .init(kind: .glossary, contentId: "lua", name: "Lũa", path: "/vi/thuat-ngu/lua/"),
+    .init(kind: .plant, contentId: "lua", name: "Lũa (cây)", path: "/vi/cay/lua/"),
+    .init(kind: .equipment, contentId: "co2", name: "CO2", path: "/vi/thiet-bi/co2/"),
+    .init(kind: .guide, contentId: "nuoi-ca-neon", name: "Nuôi cá neon", path: "/vi/huong-dan/nuoi-ca-neon/"),
+    .init(kind: .fish, contentId: "paracheirodon-innesi", name: "Cá neon", path: "/vi/ca/ca-neon/"),
+  ]
+  let pages = HandbookIndex.tankPages(items)
+  #expect(pages["lua"]?.path == "/vi/cay/lua/")
+  #expect(pages["paracheirodon-innesi"]?.name == "Cá neon")
+  #expect(pages["co2"] == nil && pages["nuoi-ca-neon"] == nil)
 }

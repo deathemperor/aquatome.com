@@ -3,6 +3,12 @@
   "name": "Komoro",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-20T17:37:11.081Z",
+    "why": "Indonesian atlases and the government write the country as \"Komoro\" in some older usage, but the standard modern Indonesian name is \"Komoro\" per Kemlu? Actually Kemlu uses \"Uni Komoro\", and common usage is \"Komoro\" or \"Komores\"; \"Komoro\" is acceptable but not the most standard."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

@@ -5,7 +5,8 @@
   "inat:345469884"
  ],
  "hashes": {
-  "https://media.aquatome.com/processed/c8db88cb4bd24d28582277362591ec08.webp": "6360cf0987f7776e"
+  "https://media.aquatome.com/processed/c8db88cb4bd24d28582277362591ec08.webp": "6360cf0987f7776e",
+  "https://media.aquatome.com/glaser/9cd3cc29cc5cd45d.webp": "414b8eb3c3871633"
  },
  "commons": "2026-11-02",
  "inat": {
@@ -18,6 +19,9 @@
  },
  "gbif": {
   "key": 5205417,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

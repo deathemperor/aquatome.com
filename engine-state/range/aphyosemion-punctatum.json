@@ -1,0 +1,40 @@
+{
+  "id": "aphyosemion-punctatum",
+  "native": {
+    "input": "0d1148e37600ba1a",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This gorgeous killi originates from Gabon.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion punctatum",
+    "status": "ACCEPTED",
+    "taxonKey": 2348371,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        12
+      ]
+    ],
+    "native": [
+      "GA"
+    ],
+    "requests": 12,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

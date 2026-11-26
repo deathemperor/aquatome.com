@@ -1,8 +1,8 @@
 {
   "id": "catoprion-mento",
   "native": {
-    "input": "8b9e15204300b2b3",
-    "at": "2026-11-07T02:19:57.912Z",
+    "input": "60f15e3688772676",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "CO",
@@ -42,6 +42,46 @@
         "source": "seriouslyfish",
         "quote": "Colombia, Venezuela, Guyana, Brazil and Bolivia.",
         "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species has a very wide distribution: Bolivia, Brazil, the Guyana countries, Colombia and Venezuela.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species has a very wide distribution: Bolivia, Brazil, the Guyana countries, Colombia and Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species has a very wide distribution: Bolivia, Brazil, the Guyana countries, Colombia and Venezuela.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species has a very wide distribution: Bolivia, Brazil, the Guyana countries, Colombia and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species has a very wide distribution: Bolivia, Brazil, the Guyana countries, Colombia and Venezuela.",
+        "words": "Venezuela",
         "ok": true
       }
     ],

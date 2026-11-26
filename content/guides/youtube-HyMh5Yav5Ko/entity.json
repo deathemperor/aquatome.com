@@ -1,0 +1,91 @@
+{
+  "id": "youtube-HyMh5Yav5Ko",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=HyMh5Yav5Ko",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "riccia-fluitans",
+    "poecilia-wingei"
+  ],
+  "updatedAt": "2026-11-19",
+  "video": {
+    "youtubeId": "HyMh5Yav5Ko",
+    "title": "Stylish 3.5 Gallon - Nano Curve Aquarium Setup",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 853,
+    "publishedAt": "2019-11-19",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWsvAuSeoTZs0H8AjLevau2G",
+      "position": 3
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/HyMh5Yav5Ko/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Riccia fluitans",
+      "Poecilia wingei"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "brand": "All Pond Solutions",
+        "model": "Nano Aquarium Curve 13.5L",
+        "t": 31
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "reu",
+        "t": 287
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Tropica",
+        "model": "Aquasoil"
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Substrate Powder"
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Ferts Premium"
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Ferts Specialised"
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Nutrition Capsules"
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Trồng gì khi đèn yếu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/HyMh5Yav5Ko/p3-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/HyMh5Yav5Ko/p3-J1LUluZGlhLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Riccia_fluitans-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Rêu xanh mọc thành tảng dày trên đá trong bể nano dưới đèn LED."
+        }
+      }
+    ]
+  }
+}

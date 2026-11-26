@@ -17,11 +17,15 @@
   "inat:63960540",
   "inat:624811229",
   "inat:624811265",
-  "inat:624811287"
+  "inat:624811287",
+  "gbif:1321991235:6e0345cc260cd2bd"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/edaf6bc976106780.webp": "85e2626201111919",
-  "https://media.aquatome.com/commons/f1823bc3314db469.webp": "a4171f329613070f"
+  "https://media.aquatome.com/commons/f1823bc3314db469.webp": "a4171f329613070f",
+  "https://media.aquatome.com/glaser/70aadb00150840ac.webp": "38f0c281d3a74a80",
+  "https://media.aquatome.com/glaser/db2de07115c77aba.webp": "f9e38c0803cea669",
+  "https://media.aquatome.com/glaser/2fc296a595068e38.webp": "432727276781020e"
  },
  "commons": "2026-11-08",
  "inat": {
@@ -31,5 +35,9 @@
    "research": 343048034,
    "agree": 96267355
   }
+ },
+ "gbif": {
+  "key": 2402039,
+  "next": null
  }
 }

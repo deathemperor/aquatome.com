@@ -1,9 +1,25 @@
 {
   "id": "hemigrammus-pulcher",
   "native": {
-    "input": "b1025d4a12c13fff",
-    "at": "2026-11-08T13:58:00.601Z",
+    "input": "b4a766faeedf5b43",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The pretty tetra, Holopristis pulchra, is a small characin endemic to the Upper Amazon in Peru, found in slow-moving tributaries under forest cover.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The garnet tetra comes from the upper Amazon in Peru and grows 3-4 cm long.",
+        "words": "Peru",
+        "ok": true
+      },
       {
         "code": "PE",
         "status": "native",
@@ -18,6 +34,13 @@
         "name": "Upper Amazon",
         "source": "seriouslyfish",
         "quote": "Endemic to the Upper Amazon in Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Upper Amazon",
+        "source": "glaser",
+        "quote": "The garnet tetra comes from the upper Amazon in Peru and grows 3-4 cm long.",
         "country": "PE",
         "ok": true
       }

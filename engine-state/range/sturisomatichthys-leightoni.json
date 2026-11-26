@@ -1,0 +1,141 @@
+{
+  "id": "sturisomatichthys-leightoni",
+  "native": {
+    "input": "2d3127df2b0761d6",
+    "at": "2026-11-21T01:22:16.258Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Magdalena and Cauca River basins, Colombia Caribbean Rivers.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Magdalena and Cauca River basins, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Magdalena",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Magdalena and Cauca River basins, Colombia Caribbean Rivers.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Cauca",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Magdalena and Cauca River basins, Colombia Caribbean Rivers.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Magdalena",
+        "source": "scotcat",
+        "quote": "South America: Upper Magdalena and Cauca River basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Cauca",
+        "source": "scotcat",
+        "quote": "South America: Upper Magdalena and Cauca River basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sturisomatichthys leightoni",
+    "status": "ACCEPTED",
+    "taxonKey": 2339319,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        226
+      ],
+      [
+        "9cc67633-537a-4acc-8d37-92feeaddb2cd",
+        53
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        48
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        42
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        30
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        4
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        3
+      ],
+      [
+        "28965184-3e9f-432f-8898-780e9183d526",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "a42f9427-5b5e-4531-90e2-1a1f30cdb813",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "54c9a743-6c30-4b1f-9a42-f704d5261714",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "e760ba8b-f487-46ae-91a2-526fe72bbe1c",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

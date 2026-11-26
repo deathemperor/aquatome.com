@@ -105,6 +105,10 @@
       {
         "source": "seriouslyfish",
         "value": 20
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
@@ -128,10 +132,22 @@
       "html": "<p>The electric blue hap, Sciaenochromis fryeri, is a non-mbuna cichlid endemic to Lake Malawi, found along rocky shorelines and the sandy zones beyond. It was previously imported and classified as Sciaenochromis ahli, and is still named as such in much of the literature. Males of every morph are blue and differ only in the fins, and the morphs should not be mixed because they will hybridise. Highly piscivorous in nature, it should not be kept with mbuna.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/sciaenochromis-fryeri-2/",
+      "html": "<p>Grows to about 15 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sciaenochromis-fryeri",
       "html": "<p>Endemic to Lake Malawi. It has a widespread distribution in the lake but is not a particularly common species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/sciaenochromis-fryeri-2/",
+      "html": "<p>Many rock dwelling cichlids (mbunas) of Lake Malawi live isolated on certain rocky shores. These are often miles away from other rocky biotopes, so geographic isolation leads relatively quickly to local color variations.</p><p>Other cichlids of the lake, such as Sciaenochromis fryeri, are not bound to specific biotopes and occur accordingly throughout the lake. Although there are tendencies for them to look slightly different in certain regions – for example, in S. fryeri the anal fins of males from the south of the lake are reddish, while those from the north are more yellowish – on the whole these differences are rather marginal.</p>"
     },
     {
       "key": "habitat",
@@ -164,10 +180,22 @@
       "html": "<p>A predatory species in nature, S. fryeri will accept most foods offered in the aquarium. Feed a varied diet of live, frozen and dried foods. Vegetable matter is not required by this species. Do not feed animal meat of any kind.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/sciaenochromis-fryeri-2/",
+      "html": "<p>In the wild S. fryeri is a small predator that follows large cichlids, which dig for food in the substrate, scaring up small fish and shrimp that S. fryeri grabs. Mbunas, in contrast, feed mainly on aufwuchs, i.e. algae and microorganisms found in it, a very high-bulk diet.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sciaenochromis-fryeri",
       "html": "<p>Not especially aggressive although it is quite robust. It should not be kept with mbuna but does well with species such as Nimbochromis venustus, Cyrtocara moorii, Protomelas and Copadichromis. It can also be kept with Aulonocara, but with some reservations (see below). Avoid keeping it with any similarly coloured fish. Several females should be kept per male in order to reduce harassment by the male, and only one male should be kept unless the tank is very large.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/sciaenochromis-fryeri-2/",
+      "html": "<p>One should not keep these cichlids together with the fast and aggressive mbunas of Lake Malawi. These species interfere with each other and also have completely different food requirements. In the aquarium, Sciaenochromis get shortchanged compared to fast Mbunas, resulting in fatty Mbunas and malnourished Sciaenochromis.</p>"
     },
     {
       "key": "dimorphism",
@@ -176,41 +204,119 @@
       "html": "<p>Clear sexual dichromatism. Mature male fish are a stunning \"electric blue\" colour, though this can vary in intensity depending on mood. Females are much plainer. Juvenile fish are much more difficult to sex as they are all the same colour.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/sciaenochromis-fryeri-2/",
+      "html": "<p>Males and females differ clearly in coloration.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sciaenochromis-fryeri",
       "html": "<p>Not particularly difficult. Maternal mouthbrooder. Ideally, it should be spawned in a species tank in a harem of one male and at least 3 females. However, it will often spawn in the community aquarium. A 150 cm aquarium is a good size (although larger is preferable) and this should be furnished as suggested above, along with some flat, sloping rocks and areas of open substrate to act as potential spawning sites. The pH should be around 8.2-8.5 and the temperature 25 – 26.5 °C. Condition the fish with a high quality diet composed mainly of vegetable matter.</p><p>Spawning in the aquarium tends to follow a slightly different pattern than in nature. In the wild male fish construct large conical structures around rocks, spawning occuring in the \"crater\" formed at the summit of these. However in aquaria, this behaviour is rarely reported. Instead, males tend to select territories based on the presence of sloping rocks, the face of which face into the flow of water. He may or may not build layers of substrate up around this. The male will then dance around this area, showing his best colours, and attempting to entice a female to spawn with him. He can be fairly vigorous in his pursuit of females, hence the reason it is better to spawn this species in a harem.</p><p>When a female is willing she approaches the rock and proceeds to lay eggs one at a time at the top of it. The egg will then roll down the rock surface to the male, who is waiting at the base. He uses his anal fin to catch the egg and releases his milt, thus fertilising it, after which the female takes it into her mouth. This process is repeated until the female is holding 50-70 eggs, and is interspersed with bursts of dancing and displaying by the male.</p><p>The female will carry the eggs for around 3 weeks before releasing the free swimming fry. She will not eat during this period and can be easily spotted by her distended mouth. If a female is overly stressed, she may spit out the brood prematurely or eat them, so care must be taken if you decide to move the fish in order to avoid fry predation or harassment by the males. It is also worth noting, that if a female is away from the colony for too long she may lose her position in the pecking order of the group. However, if the fish are breeding in a community situation and you wish to raise the fry, you may be left with little choice.</p><p>Some breeders artificially strip the fry from the mother's mouth at the 2 week stage and raise them from that point as this usually results in a larger number of fry, but this is for the expert only. The fry are large enough to take brine shrimp nauplii, sieved daphnia, microworm and powdered dried foods from birth.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/sciaenochromis-fryeri-2/",
+      "html": "<p>Sciaenochromis fryeri is a typical mouthbrooder in the female gender.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sciaenochromis-fryeri",
       "html": "<p>This popular species was previously imported and classified as Sciaenochromis ahli, and is still named as such in much of the available literature. Many morphs exist, although males of all these exhibit the characteristic blue colouration, differing only in fin colouration and patterning. These should not be mixed in aquaria as they will hybridise. Extra care must be taken regarding tankmates, too, as male S. fryeri have been known to spawn with females of other genera, particularly Aulonocara. In nature it is highly piscivorous, feeding particularly on the young of other species such as Copadichromis. Provided you have a spacious aquarium and are selective with your choice of tankmates, S. fryeri ranks among the best looking of all Rift Lake cichlids and makes a worthy addition to the non-mbuna Malawian community.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/sciaenochromis-fryeri-2/",
+      "html": "<p>Of Sciaenochromis fryeri the “Iceberg” variety is especially popular, but also the wild colored animals are beautiful fish with their brilliant azure blue.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/8a1305ff8d0f14dd.webp",
+      "thumb": "https://media.aquatome.com/commons/8a1305ff8d0f14dd-480.webp",
       "width": 960,
       "height": 720,
+      "large": {
+        "url": "https://media.aquatome.com/commons/8a1305ff8d0f14dd-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "CC BY-SA 2.0",
       "author": "Ed Schipul",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nimbochromis_Fuscotaeniatus_male.jpg",
-      "caption": "Nimbochromis fuscotaeniatus, Houston Aquarium Electric Blue (no photoshop!)",
-      "thumb": "https://media.aquatome.com/commons/8a1305ff8d0f14dd-480.webp"
+      "caption": "Nimbochromis fuscotaeniatus, Houston Aquarium Electric Blue (no photoshop!)"
     },
     {
       "url": "https://media.aquatome.com/commons/9c9efdbeb006a9ae.webp",
+      "thumb": "https://media.aquatome.com/commons/9c9efdbeb006a9ae-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "NasserHalaweh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_Sciaenochromis_fryeri_1.jpg",
-      "caption": "Sciaenochromis fryeri. Sea Life Bangkok Ocean World.",
-      "thumb": "https://media.aquatome.com/commons/9c9efdbeb006a9ae-480.webp"
+      "caption": "Sciaenochromis fryeri. Sea Life Bangkok Ocean World."
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d5475e0f90890b2c.webp",
+      "thumb": "https://media.aquatome.com/glaser/d5475e0f90890b2c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/sciaenochromis-fryeri-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8f612dc5107bc39e.webp",
+      "thumb": "https://media.aquatome.com/glaser/8f612dc5107bc39e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/sciaenochromis-fryeri-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e728d2a92935c151.webp",
+      "thumb": "https://media.aquatome.com/glaser/e728d2a92935c151-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/sciaenochromis-fryeri-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "UIJjgGC0kGE",
+      "title": "Electric Blue Fryeri (Sciaenochromis Fryeri)",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hKD72-iC5H8",
+      "title": "Sciaenochromis Fryeri- The Electric Blue Hap  1080 HD",
+      "durationSec": 121,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HZxFgdKE7xY",
+      "title": "Sciaenochromis Fryeri Spawning 14-03-2010",
+      "durationSec": 166,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PGMd8I45A3Y",
+      "title": "Aquarium Fish Fight: Sciaenochromis fryeri Iceberg",
+      "durationSec": 179,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -240,5 +346,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-21"
 }

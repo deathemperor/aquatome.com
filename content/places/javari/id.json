@@ -3,6 +3,12 @@
   "name": "Javari",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:08:27.689Z",
+    "why": "Javari is a region (Vale do Javari) and also a river; Indonesian atlases would write \"Lembah Javari\" or \"Sungai Javari\" with a kind word, and a bare \"Javari\" is ambiguous but acceptable as a spelling."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

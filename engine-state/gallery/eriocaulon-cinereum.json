@@ -47,7 +47,6 @@
   "https://media.aquatome.com/aquariumbreeder/f60bbce5dac44a44.webp": "4f2f0f0f0d4d7154",
   "https://media.aquatome.com/commons/f0abbe8601a44710.webp": "31424c29470526cf",
   "https://media.aquatome.com/commons/42b4b07f7b30b8f5.webp": "41c38c8c9070e787",
-  "https://media.aquatome.com/commons/8670dab53cbe3bf0.webp": "0c0d0d0d6d2dad8f",
   "https://media.aquatome.com/inaturalist/641837899.webp": "0e8787c5c58aba72",
   "https://media.aquatome.com/inaturalist/85817583.webp": "61c9b0f070703023",
   "https://media.aquatome.com/inaturalist/89647820.webp": "313352b0d9b13132",
@@ -61,7 +60,6 @@
   "https://media.aquatome.com/inaturalist/85817618.webp": "06a529d2d20d2c32",
   "https://media.aquatome.com/inaturalist/164678456.webp": "0503c7cec8902000",
   "https://media.aquatome.com/inaturalist/23403563.webp": "0e9aaba9e979fbbb",
-  "https://media.aquatome.com/inaturalist/564558200.webp": "e89c925ab5e4aaa1",
   "https://media.aquatome.com/inaturalist/89647825.webp": "636c266cd3325b1e",
   "https://media.aquatome.com/inaturalist/564558232.webp": "2d5dd56752d9ab5d",
   "https://media.aquatome.com/inaturalist/22989882.webp": "25230f2f262b1e2e",
@@ -84,6 +82,9 @@
  "commons": "2026-10-31",
  "gbif": {
   "key": 2691022,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

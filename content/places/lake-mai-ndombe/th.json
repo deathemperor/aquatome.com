@@ -3,6 +3,12 @@
   "name": "ทะเลสาบไมเอ็นดมเบ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:27:22.345Z",
+    "why": "ทะเลสาบ is the right kind word, but the transliteration \"ไมเอ็นดมเบ\" is unusual and drops the \"ไม-นดอมเบ\" sound, so it is not the usual Thai rendering of Mai-Ndombe."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

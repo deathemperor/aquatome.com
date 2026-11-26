@@ -3,6 +3,12 @@
   "name": "มอนด์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T18:21:10.335Z",
+    "why": "มอนด์ is a plausible transliteration of Mond, but the place is a region (Mond in Bushehr, Iran), and Thai atlases would likely write มนด์ or เขตมอนด์ with a kind word, and the unverified rendering lacks one."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -3,6 +3,12 @@
   "name": "Sucio",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T01:50:29.584Z",
+    "why": "\"Sucio\" is Spanish for \"dirty\" and an unclear Colombian region; Indonesian atlases would likely give a recognized name (e.g., Río Sucio/Kota), and without a source the bare name is doubtful."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

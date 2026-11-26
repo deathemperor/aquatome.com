@@ -81,43 +81,6 @@
         ]
       },
       {
-        "heading": "Nước đá, chỗ đặt bể và thay nước",
-        "moments": [
-          {
-            "t": 235,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at235-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai nước đá nhỏ nổi trong bể thủy sinh có đá và rêu.",
-            "sharpness": 998.2,
-            "person": false
-          }
-        ]
-      },
-      {
-        "heading": "Chạy sủi oxy thế nào",
-        "moments": [
-          {
-            "t": 385,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at385-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cục sủi nhả bọt khí trong bể thủy sinh đầy cây.",
-            "sharpness": 1030.1,
-            "person": false
-          },
-          {
-            "t": 395,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at395-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dòng bọt oxy từ cục sủi làm mặt nước gợn sóng.",
-            "sharpness": 2020,
-            "person": false
-          }
-        ]
-      },
-      {
         "heading": "Chọn cây chịu nóng",
         "moments": [
           {
@@ -138,17 +101,7 @@
             "sharpness": 1392,
             "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/pY7e33xGcyQ/p4-ydS1JbmRpYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/pY7e33xGcyQ/p4-ydS1JbmRpYS5qcGc-480.webp",
-          "width": 960,
-          "height": 918,
-          "licence": "CC BY-SA 3.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nymphaea_zenkeri-3-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Lá súng đỏ nổi trên mặt nước trong bể thủy sinh."
-        }
+        ]
       },
       {
         "heading": "Cho cá ăn ít lại",
@@ -163,6 +116,43 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_-_dried_food2.jpg",
           "caption": "Các loại thức ăn cho cá: vảy, viên nén và trùn khô."
         }
+      },
+      {
+        "heading": "Dùng đá lạnh sao cho đúng",
+        "moments": [
+          {
+            "t": 235,
+            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at235-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai nước đá nhỏ nổi trong bể thủy sinh có đá và rêu.",
+            "sharpness": 998.2,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao cá ngoi lên mặt nước khi trời nóng",
+        "moments": [
+          {
+            "t": 385,
+            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at385-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cục sủi nhả bọt khí trong bể thủy sinh đầy cây.",
+            "sharpness": 1030.1,
+            "person": false
+          },
+          {
+            "t": 395,
+            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at395-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dòng bọt oxy từ cục sủi làm mặt nước gợn sóng.",
+            "sharpness": 2020,
+            "person": false
+          }
+        ]
       }
     ]
   }

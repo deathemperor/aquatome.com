@@ -1,7 +1,16 @@
 {
  "queue": [],
  "judged": [
-  "File:Cosmetocleithrum bifurcum (10.3897-zoologia.35.e23917) Figures 23–29.jpg"
+  "File:Cosmetocleithrum bifurcum (10.3897-zoologia.35.e23917) Figures 23–29.jpg",
+  "inat:629598141",
+  "inat:629598149",
+  "inat:629598152",
+  "inat:638544768",
+  "inat:638544770",
+  "inat:668390010",
+  "inat:668390022",
+  "inat:684824633",
+  "inat:684824634"
  ],
  "hashes": {},
  "commons": "2026-11-08",
@@ -12,5 +21,13 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2343924,
+  "next": null
+ },
+ "inatNc": {
+  "after": 374659907,
+  "done": true
  }
 }

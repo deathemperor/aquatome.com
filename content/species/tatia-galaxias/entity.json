@@ -12,12 +12,206 @@
     "colombia",
     "meta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO"
+      ],
+      "regions": [
+        "Orinoco",
+        "Apure",
+        "Cinaruco",
+        "Atabapo",
+        "Meta",
+        "Guarapiche"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Orinoco basin in Venezuela and Colombia.",
+          "countries": [
+            "VE",
+            "CO"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Venezuela it's recorded from the Apure and Cinaruco rivers in Apure state, from tributaries of the middle Orinoco near Caicara del Orinoco in Bolívar state, and in Amazonas state from the Atabapo, Sipapo and Mavaca rivers.",
+          "countries": [],
+          "regions": [
+            "Apure",
+            "Cinaruco",
+            "Atabapo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Colombia it's known from the Meta drainage, where it has been collected from a small stream thought to belong to the Mozambique lake complex and from the El Viento stream south of Matazul (Sarmento-Soares and Martins-Pinheiro, 2008).",
+          "countries": [],
+          "regions": [
+            "Meta"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Mees (1988) also recorded it from the Guarapiche river in Monagas state.",
+          "countries": [],
+          "regions": [
+            "Guarapiche"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344641,
+      "total": 56,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "VE",
+          47
+        ],
+        [
+          "BR",
+          5
+        ],
+        [
+          "CO",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          7.03125,
+          16,
+          16
+        ],
+        [
+          -66.09375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -9.84375,
+          3,
+          0
+        ],
+        [
+          -61.875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 22,
+          "max": 30
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
           "max": 30
         }
       }
@@ -35,6 +229,10 @@
       {
         "source": "seriouslyfish",
         "value": 12.6
+      },
+      {
+        "source": "glaser",
+        "value": 12
       }
     ],
     "tankCm": [
@@ -58,10 +256,22 @@
       "html": "<p>Tatia galaxias is a wood catfish from the Orinoco river basin in Venezuela and Colombia, dark with small, round white spots like stars. It is sometimes confused with Tatia intermedia, in which the spots are longer and oval.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tatia-galaxias-2/",
+      "html": "<p>The cute Tatia catfishes are quite popular in the hobby. Keepers put up with the fact that you can hardly see them outside feeding times, because they are extremely addicted to hiding. But they make up for it with their pretty coloration and good breedability.</p><p>The maximum size of T. galaxias is 12 cm, and sexual maturity occurs at a length of about 5-6 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
       "html": "<p>Known only from the Orinoco basin in Venezuela and Colombia.</p><p>In Venezuela it's recorded from the Apure and Cinaruco rivers in Apure state, from tributaries of the middle Orinoco near Caicara del Orinoco in Bolívar state, and in Amazonas state from the Atabapo, Sipapo and Mavaca rivers. Mees (1988) also recorded it from the Guarapiche river in Monagas state. In Colombia it's known from the Meta drainage, where it has been collected from a small stream thought to belong to the Mozambique lake complex and from the El Viento stream south of Matazul (Sarmento-Soares and Martins-Pinheiro, 2008).</p><p>Type locality is 'Caño de Quiribana into Rio Orinoco, Venezuela'.</p><p>Older records of Tatia intermedia and T. aulopygia from the Orinoco basin belong to this species (see 'Notes').</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tatia-galaxias-2/",
+      "html": "<p>Tatia galaxias comes from the Orinoco river basin in Colombia (including the Rio Meta) and Venezuela.</p>"
     },
     {
       "key": "habitat",
@@ -88,10 +298,22 @@
       "html": "<ul><li>Temperature: 22–30°C</li><li>pH: 6.0–7.0</li><li>Hardness: not recorded</li></ul><p>No water measurements have been published from the places where this species was collected. It's known from both clear and acidic black water rivers. Planet Catfish lists 22–26 °C and pH 6.0–7.0, without giving a source.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tatia-galaxias-2/",
+      "html": "<p>The water values are negligible for the care, if extreme values are avoided. The water temperature should be 24-30°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
       "html": "<p>In the wild, Tatia species feed on small fruits and invertebrates, including insects taken from the surface at night (Sarmento-Soares and Martins-Pinheiro, 2008).</p><p>No account of feeding this species in an aquarium has been found. Going by the diet of the genus, small live and frozen invertebrates such as bloodworm are the obvious place to start, offered after the lights go out.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tatia-galaxias-2/",
+      "html": "<p>Every usual ornamental fish food is eaten.</p>"
     },
     {
       "key": "behaviour",
@@ -118,14 +340,86 @@
       "html": "<p>Known in the hobby as the Milky Way woodcat or starry woodcat.</p><p>Etymology: Tatia was named by Miranda Ribeiro in 1911 for the ichthyologist Charles Tate Regan of the British Museum (Natural History), London, for his many contributions to the knowledge of South American freshwater fishes. The name galaxias comes from the Greek galaxías, meaning 'Milky Way'. Mees did not explain the name, but it probably refers to the small white dots spread evenly over the dark brown body, which look like stars.</p><p>It's easily confused with Tatia intermedia, and Planet Catfish notes that fish sold as T. galaxias are often T. intermedia. Mees (1974) separated the two by colour: T. galaxias has a darker body with smaller white spots, and its tail is dark with white spots, while T. intermedia has a pale tail with dark spots and bars. The spots of T. galaxias are usually round, while those of T. intermedia tend to be oval.</p><p>The colour pattern varies, and different forms can be found together at the same locality. Some fish are light brown, some are uniformly dark, and a few have oval white spots. Small juveniles under about 4 cm SL usually have roundish spots over the body and caudal fin.</p><p>Measurements separate the two species more reliably. T. galaxias has a much larger eye (37.0–42.9% of head length, against 21.4–26.3% in T. intermedia), a shorter snout (23.1–28.9% of head length, against 38.8–44.3%), seven ribs against ten, and 32–33 vertebrae against 35–36 (Sarmento-Soares and Martins-Pinheiro, 2008).</p><p>Older works recorded fish from the Orinoco basin as Centromochlus aulopygius, Tatia aulopygia or T. intermedia. Sarmento-Soares and Martins-Pinheiro (2008) treat those records as this species.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tatia-galaxias-2/",
+      "html": "<p>The coloration is unique. On a dark background there are numerous bright spots, like stars in the galaxy – hence the species name. There is a possibility of confusion with some individuals of Tatia intermedia, but the spots are longitudinal oval in the latter species, round in T. galaxias.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
       "html": "<ul><li>Sarmento-Soares, Luisa Maria; Martins-Pinheiro, Ronaldo Fernando (2008). A systematic revision of Tatia (Siluriformes: Auchenipteridae: Centromochlinae) FapUNIFESP (SciELO) doi.org/10.1590/s1679-62252008000300022</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/10aea60e2546e23d.webp",
+      "thumb": "https://media.aquatome.com/glaser/10aea60e2546e23d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tatia-galaxias-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/198c1761e1cda559.webp",
+      "thumb": "https://media.aquatome.com/glaser/198c1761e1cda559-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tatia-galaxias-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ae628d02fe8fbc14.webp",
+      "thumb": "https://media.aquatome.com/glaser/ae628d02fe8fbc14-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tatia-galaxias-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/69fb95672e7f3ae3.webp",
+      "thumb": "https://media.aquatome.com/glaser/69fb95672e7f3ae3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tatia-galaxias-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "D3dR9mykwjI",
+      "title": "The Milky Way Woodcat, Tatia galaxias #fish #catfish #rarefish #prestigeaquatics #fishroom",
+      "durationSec": 10,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qM-7lw8Wu1M",
+      "title": "tatia galaxias.wmv",
+      "durationSec": 76,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "w_lzjuFYqUc",
+      "title": "PEZ GATO ESTRELLADO | Cuidados y Alimentación | Tatia sp. galaxias | AcuariosLP",
+      "durationSec": 306,
+      "lang": "es"
+    },
+    {
+      "youtubeId": "PFUeerbpBj4",
+      "title": "Tatia galaxias",
+      "durationSec": 27,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -155,5 +449,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-22"
 }

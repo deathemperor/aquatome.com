@@ -1,0 +1,229 @@
+{
+  "id": "pterygoplichthys-parnaibae",
+  "scientificName": "Pterygoplichthys parnaibae",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pterygoplichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-parnaiba",
+    "parnaiba"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 50
+      },
+      {
+        "source": "scotcat",
+        "value": 29
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 90,
+        "hidden": "shorter than twice the fish (50 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-parnaibae-2/",
+      "html": "<p>Glyptoperichthys parnaibae grows to 40-50 cm in length and is probably the most beautiful of all Glyptoperichthys species.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_parnaibae.htm",
+      "html": "<p>Family: Loricariidae. Size: 29 cm. Temperature: 25–30°C. pH: 6.0–7.5. Pterygoplichthys species can be told from Hypostomus by the many more rays in the dorsal fin, which can be 10 or more. They also have nasal flutes on the nose.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-parnaibae-2/",
+      "html": "<p>So far known exclusively from the Rio Parnaiba in Brazil. The Rio Parnaiba is located in the northeast of Brazil and has a high proportion of endemic fish species, i.e. species occurring only there, because there is no connection to other river systems. In its distribution area the species is very common and serves as cheap food for poorer population groups.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_parnaibae.htm",
+      "html": "<p>South America: Parnaíba River basin, Brazil. Type locality: Lac de Parnaguá, Rio Paraim, bassin de Parnaíba, sys. côtier brésilien; Maranhão, Brésil.</p><p>It is endemic to the Parnaíba River basin in the states of Piauí and Maranhão, northeastern Brazil. It is a naturally uncommon and scarce species, but no significant threats to its population have been identified. It is categorised as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-parnaibae-2/",
+      "html": "<p>Large aquariums are needed to keep these large fish, but otherwise Glyptoperichthys parnaibae are very easy to care for.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_parnaibae.htm",
+      "html": "<p>A large species that needs a good-sized aquarium, starting with a 3 footer (90 cm) when small and progressing to a larger tank with good external filtration to give a good oxygen content, as it excretes copious amounts of waste if fed properly on vegetable matter.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_parnaibae.htm",
+      "html": "<p>If water quality is not maintained, small holes can appear in the fin membranes. You will notice when water quality is not up to the mark as the fish \"hang\" in the water just off their fins, from the substrate, which means a water change is needed. It is kind to plants, the only problem being that when it gets bigger it can uproot them as it moves around the tank. A very hardy species which does well at normal aquarium temperatures.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-parnaibae-2/",
+      "html": "<p>Investigation of the stomach content showed that this species eats not only aufwuchs, but also insect larvae.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_parnaibae.htm",
+      "html": "<p>Mostly vegetarian, with algae the main source of food, but it is impossible to keep a large fish fed on algae alone, so you can also feed spinach, blanched lettuce, cucumber, courgette (zucchini) and also non-vegetable food such as tablets and prawns.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_parnaibae.htm",
+      "html": "<p>Reasonably peaceful, though a large species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-parnaibae-2/",
+      "html": "<p>The juveniles are, like all sailfin plecs, quite delightful fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_parnaibae.htm",
+      "html": "<p>Etymology: the specific name parnaibae refers to the Rio Parnaíba basin, Brazil, where it is endemic.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_parnaibae.htm",
+      "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Pterygoplichthys parnaibae. The IUCN Red List of Threatened Species 2022. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2018. FishBase. www.fishbase.org, (06/2018). Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/8ef7b0d7fb41bba8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8ef7b0d7fb41bba8-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "Hudson Crizanto Gonçalves / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_parnaibae.htm",
+      "caption": "Pterygoplichthys parnaibae - dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d16b671a136d8cf1.webp",
+      "thumb": "https://media.aquatome.com/glaser/d16b671a136d8cf1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-parnaibae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2d86fec3c567df4a.webp",
+      "thumb": "https://media.aquatome.com/glaser/2d86fec3c567df4a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-parnaibae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/035f0890b1cb23d5.webp",
+      "thumb": "https://media.aquatome.com/glaser/035f0890b1cb23d5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-parnaibae-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "pz2W7vYa20o",
+      "title": "Cresceu. Cascudo parnaibae. #cascudo #aquarium",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "omO72D1bwzM",
+      "title": "Pterygoplichthys parnaibae #aquariumfish #aquariumhobby #plecos #cichlid #acuariofilia",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Gjb22TZv1kI",
+      "title": "Meu Pterygoplichthys parnaibae e hypostomus plecostomus!",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XL1PD52dQyo",
+      "title": "cascudo parnaibae",
+      "durationSec": 62,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 400 lít",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

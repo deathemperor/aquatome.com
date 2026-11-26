@@ -1,0 +1,232 @@
+{
+  "id": "cetopsis-oliveirai",
+  "scientificName": "Cetopsis oliveirai",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Cetopsis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "peru"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.6
+      },
+      {
+        "source": "scotcat",
+        "value": 3.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1436",
+      "html": "<ul><li>Scientific name: Cetopsis oliveirai (Lundberg &amp; Rapp Py-Daniel, 1994)</li><li>Common name: Whale Cat</li><li>Synonym: Bathycetopsis oliveirai</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_oliveirai.htm",
+      "html": "<p>Family: Cetopsidae. Size: 3.5 cm. Temperature: 22–28°C. pH: 6.0–7.0. Common name: none. IUCN Red List: Least Concern (IUCN 2023); little information is available on this species, but it has a wide range and no direct threats.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1436",
+      "html": "<p>South America: middle and upper Amazon River basin. Type locality: Rio Solimões north of Ilha da Marchantaria, about 15 km from the mouth of Rio Negro at Manaus, Amazonas, Brazil, elevation about 15 m.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_oliveirai.htm",
+      "html": "<p>South America: The middle and upper portions of the Amazon basin in Brazil and Peru. Type locality: Brazil, Amazonas State, Rio Solimões north of Ilha da Marchantaria, approximately 15 km upstream of the mouth of Rio Negro at Manaus, approximately 15 m depth, 3º15'S, 60º00'W.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1436",
+      "html": "<p>In nature it feeds on spiders and insects.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_oliveirai.htm",
+      "html": "<p>Cetopsis oliveirai does not demonstrate the sexual dimorphism in the degree of development of the dramatically-developed filaments on the dorsal and pectoral fins and in the form of the margin of anal-fin that is present in many other species of the Cetopsinae.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1436",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1436",
+      "html": "<p>Etymology: Cetopsis comes from the Greek cetos, meaning whale, and -opsis, meaning likeness, in reference to the whale-like appearance.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_oliveirai.htm",
+      "html": "<p>The combination of the absence of a spinelet associated with the dorsal fin, the absence of spines on the dorsal and pectoral fins, and the possession of a single row of teeth on the vomer distinguishes Cetopsis from the other genera in the Cetopsinae. This species can be readily distinguished from all other members of the Cetopsinae by its complete absence of eyes (versus the presence of those organs to some degree in all other species of the Cetopsinae) and the presence of extremely-elongate distal filaments on the first ray of the dorsal fin (length of fin longer than one-half of the SL) and pectoral fin (filament extending posteriorly to beyond the vertical through the middle of the base of the anal fin). It is further distinguished among the species of Cetopsis by the number of total anal-fin rays (17 to 19 versus 22 or above in all congeners) and caudal vertebrae (25 or 26 versus 28 or above, respectively).</p><p>Etymology: The specific name oliveirai is in honour of Claudio de Oliveira, from the Universidade Estadual Paulista “Júlio de Mesquita Filho”, campus Botucatu (SP), in recognition of his extensive contribution to the knowledge of Neotropical fish evolution.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1436",
+      "html": "<p>Copeia 1994 (no. 2), pp 383, Figs. 1, 3-4.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_oliveirai.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Frederico, R.G. 2023. Cetopsis oliveirai. The IUCN Red List of Threatened Species 2023.</li><li>Vari, R.P., C.J. Ferraris, Jr. and M.C.C. de Pinna 2005 The neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotrop. Ichthyol. 3(2):127-238.</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23",
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon River basin",
+        "Rio Solimões"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: middle and upper Amazon River basin. Type locality: Rio Solimões north of Ilha da Marchantaria, about 15 km from the mouth of Rio Negro at Manaus, Amazonas, Brazil, elevation about 15 m.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Amazon River basin",
+            "Rio Solimões"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338025,
+      "total": 43,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "BR",
+          42
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          15,
+          15
+        ],
+        [
+          -67.5,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -32.34375,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  }
+}

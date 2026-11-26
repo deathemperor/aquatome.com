@@ -1,0 +1,197 @@
+{
+  "id": "corydoras-colossus",
+  "scientificName": "Corydoras colossus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "jutai"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 24,
+          "max": 30
+        },
+        "ref": 2
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        },
+        "ref": 3
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 5.5,
+          "max": 6
+        },
+        "ref": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Aquarium Glaser là nơi đầu tiên nhập loài này từ sông Jutaí, vào năm 2009, dưới tên <em>Corydoras</em> sp. aff. <em>armatus</em>. Tới nay nó có bán dưới mã CW045, kèm hai tên thương mại: \"Lessex\" cho cá pha sáng và \"Resex\" cho cá pha tối. Cá có mặt khá thường xuyên trên thị trường nhưng mỗi đợt về không nhiều. Với người chơi, nó vẫn là loài ít gặp và giá khá cao.</p><p>Loài này không hợp với người mới chơi vì giá cao và nó dễ yếu khi nước bẩn.</p><p>Một phần sông Jutaí nằm trong hai khu bảo tồn.</p>",
+      "refs": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này mới chỉ biết từ nơi lấy mẫu chuẩn là sông Jutaí, một nhánh sông thuộc lưu vực Amazon ở bang Amazonas, Brazil. Nó cũng được nói là chỉ có ở sông Amazon và các nhánh sông quanh Jutaí.</p>",
+      "refs": [
+        0,
+        1
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Sông Jutaí là sông nước đen, nhưng thành phần nước ở mức chuyển tiếp, pH trung bình khoảng 5,96 và độ dẫn điện rất thấp. Đáy sông chủ yếu là cát trắng, phủ lá mục và gỗ, cây thủy sinh thì ít.</p><p>Ngoài tự nhiên, nó sống cùng chỗ với hai loài cá chuột mang mã <em>Corydoras</em> sp. CW116 và CW117.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Nên nuôi theo đàn ít nhất 6 con. Nuôi ít hơn thì cá có thể nhút nhát, hay trốn và bị stress.</p><p>Cát mịn là nền tốt nhất, sỏi tròn nhẵn cũng dùng được. Thêm chỗ trốn bằng lũa, đá, cây cao hoặc cây thả nổi. Chiều dài bể tối thiểu cho loài này hiện chưa có nguồn nào công bố.</p>",
+      "refs": [
+        1
+      ]
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này thích nước mềm nhưng khá dễ tính, miễn là thông số nước không đổi đột ngột. Nó quen nước khá dễ, nhưng phải ở điều kiện gần với ngoài tự nhiên thì màu mới đẹp nhất.</p><p>Nhiệt độ nuôi là 24–30 °C, pH 6–7,2. Độ cứng (dGH) hợp với nó thì chưa có nguồn nào công bố.</p>",
+      "refs": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Đây là loài ăn tạp, kiếm ăn ở đáy. Nó ăn các loại thức ăn chìm như viên dẹt, viên nén, thức ăn hạt, cùng đồ tươi sống, đông lạnh và sấy khô cỡ nhỏ như trùng huyết, bo bo. Thức ăn hạt, viên nén và trùng huyết đông lạnh thì nó nhận ngay.</p><p>Đừng mong nó sống được chỉ nhờ thức ăn thừa trong bể.</p>",
+      "refs": [
+        1,
+        3
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này hiền và thích sống theo đàn. Nó hiền với cả đồng loại lẫn các loài cá khác, nên luôn nuôi theo nhóm. Có thể thả chung với cá nhỏ hiền, tép và ốc. Tránh nuôi chung với cá lớn hơn nó nhiều hoặc cá dữ.</p>",
+      "refs": [
+        1,
+        2
+      ]
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá cái lớn hơn cá đực. Khi đủ lớn, cá cái tròn mình và thân rộng hơn. Cá đực dài khoảng 5,5 cm, cá cái khoảng 6 cm. Cá đực có gai sinh dục hơi dạng ống.</p><p>Ở một số cá lớn, cả đực lẫn cái, tia vây lưng thứ nhất (đôi khi cả tia thứ hai) dài vọt ra rất nhiều.</p>",
+      "refs": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Hans-Georg Evers đã cho loài này đẻ trong bể và theo dõi cá con lớn từ 9 mm lên 28 mm.</p><p>Muốn cho đẻ thì nên nuôi riêng một loài trong bể. Có thể thử cách quen thuộc với cá chuột: tách cá sang bể riêng, vỗ béo bằng đồ tươi sống và đông lạnh, rồi thay nước mát hơn để kích cá đẻ. Theo dự đoán, trứng sẽ được dán lên lá hoặc kính, cá bố mẹ không chăm trứng, trứng nở sau 2–4 ngày. Cá con có thể cho ăn infusoria hoặc giun vi sinh (microworm).</p>",
+      "refs": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Corydoras colossus</em> là một loài cá chuột thuộc họ Callichthyidae, bộ cá da trơn Siluriformes. Luiz F. C. Tencatt, Steven Grant và Rebecca F. Bentley mô tả loài này năm 2023, giới thiệu nó là một loài <em>Corydoras</em> mới có khả năng đổi màu. Hiện nay nó đã được xếp sang chi <em>Hoplisoma</em>, với tên <em>Hoplisoma colossus</em>.</p><p>Tên loài lấy từ chữ Hy Lạp cổ <em>kolossós</em>, nghĩa là một bức tượng lớn, khổng lồ. Cái tên nói về thân hình to, chắc và bọc giáp của nó. Mẫu chuẩn dài 44,5 mm, tính đến gốc đuôi, và được bắt năm 2022 ở sông Jutaí, gần chỗ sông này đổ vào sông Solimões. Trước khi có tên khoa học, người chơi biết nó qua mã CW045. Sau khi được mô tả năm 2023, nó có thêm tên tiếng Anh là Colossus Corydoras.</p><p>Loài này thân cao, màu xám sẫm, vây lưng dài hơn đa số cá chuột khác. Trên đỉnh đầu có một mảng cam. Một mảng sẫm lớn, cong hình vòng cung, màu nâu sẫm tới đen, chạy ngang qua mắt từ xương nắp mang dưới (interopercle) lên tới đỉnh đầu, trông như chiếc mặt nạ. Phía trước vây lưng có một đốm sẫm rất dễ thấy. Vây đuôi không có vệt sẫm nằm ngang, hai bên thân cũng không có hàng đốm sẫm nào. Khác với <em>Corydoras armatus</em>, nó có một đốm vàng cam sáng ở gáy và nắp mang.</p><p>Điểm giúp các nhà khoa học tách nó thành loài riêng nằm ở mặt bụng: gần hết phần dưới thân được phủ bởi những tấm xương nhỏ liền vào nhau như khảm.</p><p>Điều đáng chú ý nhất là màu cá thay đổi được. Có lúc nó ở pha sáng, thân vàng nâu tới nâu nhạt, vây trong. Có lúc nó chuyển sang pha tối, đen một phần hay đen toàn thân. Nền, ánh sáng và màu nước có thể ảnh hưởng tới việc đổi màu này. Các tác giả mô tả cho rằng pha đen có thể là tín hiệu cảnh báo kẻ săn mồi, nhưng chuyện này chưa ai kiểm chứng.</p><p>Gai vây lưng và gai vây ngực của nó nối với tuyến độc. Bị gai đâm có thể rất đau.</p><p>Các tác giả mô tả đánh giá loài này ở mức Ít quan ngại (Least Concern) theo tiêu chí IUCN. Độ khó nuôi và tuổi thọ của loài này hiện chưa có nguồn nào công bố.</p>",
+      "refs": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Uk506lYGh-g",
+      "title": "False Armatus/Colossus Corydoras - CW045 - Rare Catfish Freshwater Fish Profile & Care Guide",
+      "durationSec": 301,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pe-e6IKhNGo",
+      "title": "CW045 false armatus cory",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OTIUADFYP0o",
+      "title": "Corydoras CW045 - A.k.a Colossus",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KbEVWJ294eE",
+      "title": "Corydoras CW045",
+      "durationSec": 46,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-23",
+  "refs": [
+    {
+      "url": "https://www.ni.bio.br/1982-0224-2023-0105/",
+      "title": "A new color-changing species of Corydoras (Siluriformes: Callichthyidae) from the rio Jutaí, Brazilian Amazon"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Uk506lYGh-g",
+      "title": "False Armatus/Colossus Corydoras - CW045 - Rare Catfish Freshwater Fish Profile & Care Guide"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/fisharchive/hoplisoma-colossus-cw45-corydoras-sp-lessex-2/",
+      "title": "Hoplisoma colossus ( = CW45, Corydoras sp. „Lessex“)"
+    },
+    {
+      "url": "https://www.scotcat.com/callichthyidae/hoplisoma_colossus.htm",
+      "title": "Hoplisoma colossus (Tencatt, Grant, Bentley, 2023)"
+    }
+  ]
+}

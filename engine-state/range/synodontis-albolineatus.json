@@ -1,0 +1,66 @@
+{
+  "id": "synodontis-albolineatus",
+  "native": {
+    "input": "4d9c139c771bc6f2",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The mustard synodontis, Synodontis albolineatus, is a small squeaker catfish endemic to the Majinga river system in Gabon.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Gabon, specifically the Majinga river system.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Majinga",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Gabon, specifically the Majinga river system.",
+        "country": "GA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis albolineatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344471,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        7
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        3
+      ]
+    ],
+    "native": [
+      "GA"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T05:39:34.625Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-24T23:11:38.206Z",
+    "error": "claude failed (1): other"
+  }
+}

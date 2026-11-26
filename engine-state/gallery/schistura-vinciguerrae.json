@@ -5,5 +5,17 @@
   "https://media.aquatome.com/seriouslyfish/f707c93db1bc6a80.webp": "c3cc0c33212cabb3",
   "https://media.aquatome.com/panitvong/Scvin_u0.webp": "c3cc0c33212cabb3"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 112269,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 5205021,
+  "next": null
+ }
 }

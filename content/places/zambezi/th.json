@@ -3,6 +3,12 @@
   "name": "แซมเบซี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:45:04.174Z",
+    "why": "แซมเบซี is the standard Thai spelling of the Zambezi, but the source sentences describe the river basin while the place is a Mozambique region (Zambezia province), so the bare name lacks the kind word and doesn't match the region name."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

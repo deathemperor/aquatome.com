@@ -13,7 +13,10 @@
   "https://media.aquatome.com/commons/328eb67c58d5f9bd.webp": "90200e17152ce0d2",
   "https://media.aquatome.com/commons/07dbe08c519c1ad0.webp": "5220192c175263e3",
   "https://media.aquatome.com/commons/310a08f9d4a7e0f3.webp": "13090c1e0da73b3d",
-  "https://media.aquatome.com/commons/73c5aabdb0e98f78.webp": "2f5b06070706a5d5"
+  "https://media.aquatome.com/commons/73c5aabdb0e98f78.webp": "2f5b06070706a5d5",
+  "https://media.aquatome.com/glaser/e094e39c28b19cad.webp": "ce9e928dd16f4c39",
+  "https://media.aquatome.com/glaser/d1400c7fd28de5fc.webp": "cc381307cbd6ce3f",
+  "https://media.aquatome.com/glaser/aa64534c666f92c8.webp": "6f6f7dc79d4c2623"
  },
  "commons": "2026-11-04",
  "inat": {
@@ -27,5 +30,13 @@
  "gbif": {
   "key": 2371246,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
+ },
+ "exhausted": "2026-11-25"
 }

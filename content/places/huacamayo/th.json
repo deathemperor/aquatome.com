@@ -3,6 +3,12 @@
   "name": "วากามาโย",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:54:36.516Z",
+    "why": "Spanish \"Huacamayo\" is \"ua-ca-ma-yo\", so Thai transliteration would be วากามาโย or อัวกามาโย; the Thai form is plausible, but \"Hua\" is usually rendered \"อัว\" or \"วา\", and no kind word (e.g. แคว้น/เขต) is given."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

@@ -1,6 +1,25 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
- "commons": "2026-11-09"
+ "judged": [
+  "inat:608859711",
+  "inat:608859734",
+  "inat:608859754"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/inaturalist/608859734.webp": "e2f2f2fc70f8c8f9",
+  "https://media.aquatome.com/inaturalist/608859754.webp": "dedf8c4e6dbd9e6e"
+ },
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 188334,
+  "pass": "done",
+  "after": {
+   "research": 335183398,
+   "agree": 378785089
+  }
+ },
+ "gbif": {
+  "key": 5205071,
+  "next": null
+ }
 }

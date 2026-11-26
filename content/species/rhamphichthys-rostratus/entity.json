@@ -1,0 +1,579 @@
+{
+  "id": "rhamphichthys-rostratus",
+  "scientificName": "Rhamphichthys rostratus",
+  "order": "Gymnotiformes",
+  "family": "Rhamphichthyidae",
+  "genus": "Rhamphichthys",
+  "group": "other",
+  "places": [
+    "south-america",
+    "argentina",
+    "bolivia",
+    "brazil",
+    "colombia",
+    "uruguay",
+    "guyana"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "AR",
+        "BO",
+        "BR",
+        "CO",
+        "UY"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This species has a wide distribution in South America: Argentina, Bolivia, Brazil, the Guyana countries, Colombia and Uruguay.",
+          "countries": [
+            "AR",
+            "BO",
+            "BR",
+            "CO",
+            "UY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2401929,
+      "total": 145,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "BR",
+          63
+        ],
+        [
+          "PE",
+          29
+        ],
+        [
+          "VE",
+          18
+        ],
+        [
+          "GF",
+          15
+        ],
+        [
+          "GY",
+          7
+        ],
+        [
+          "SR",
+          5
+        ],
+        [
+          "BO",
+          3
+        ],
+        [
+          "PY",
+          3
+        ],
+        [
+          "CO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -78.75,
+          -4.21875,
+          5,
+          0
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          15,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          7,
+          0
+        ],
+        [
+          -71.71875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          0,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          8.4375,
+          7,
+          0
+        ],
+        [
+          -61.875,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          -61.875,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -60.46875,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -59.0625,
+          -21.09375,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          2.8125,
+          5,
+          0
+        ],
+        [
+          -54.84375,
+          4.21875,
+          6,
+          0
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          2.8125,
+          5,
+          0
+        ],
+        [
+          -53.4375,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -49.21875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -45,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 50
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/rhamphichthys-rostratus-2/",
+      "html": "<p>Rhamphichthys are attractive knifefish that rest lying on their side and look dead at first sight, but they are simply sleeping. They are twilight and nocturnal animals that rest during the day.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/rhamphichthys-rostratus-2/",
+      "html": "<p>There are 8 currently recognized Rhamphichthys species, which look extraordinarily similar. Since the original origin of the bred animals is not known, the name Rhamphichthys rostratus is kept for the time being. The animals offered are offspring from Indonesia and are currently 15-20 cm long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/rhamphichthys-rostratus-2/",
+      "html": "<p>This species has a wide distribution in South America: Argentina, Bolivia, Brazil, the Guyana countries, Colombia and Uruguay.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/rhamphichthys-rostratus-2/",
+      "html": "<p>It grows to a maximum length of 100 cm, although such dimensions are probably very rare. Realistically, about 50 cm can be expected in the aquarium. A very big aquarium is needed in any case on a long-term basis.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/rhamphichthys-rostratus-2/",
+      "html": "<p>Hardness and pH do not play a significant role for this species. The water temperature can be in the range of 22-28°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/rhamphichthys-rostratus-2/",
+      "html": "<p>Soft sandy ground, in which the animals can dig in, is highly recommended.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/rhamphichthys-rostratus-2/",
+      "html": "<p>They eat live Tubifex and frozen mosquito larvae.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/rhamphichthys-rostratus-2/",
+      "html": "<p>In contrast to many other weakly electric fish, which are usually quite quarrelsome with each other, Rhamphichthys like to cuddle and look for the physical closeness of conspecifics. With their small, tubular mouth they are hardly dangerous for other fish.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/31d0c54fc81d3aca.webp",
+      "thumb": "https://media.aquatome.com/glaser/31d0c54fc81d3aca-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/rhamphichthys-rostratus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/09db7a4ea1bb3aa3.webp",
+      "thumb": "https://media.aquatome.com/glaser/09db7a4ea1bb3aa3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/rhamphichthys-rostratus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9edafc3c3238f5ab.webp",
+      "thumb": "https://media.aquatome.com/glaser/9edafc3c3238f5ab-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/rhamphichthys-rostratus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d0d7dfba94bb7f96.webp",
+      "thumb": "https://media.aquatome.com/glaser/d0d7dfba94bb7f96-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/rhamphichthys-rostratus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho bể cá",
+        "nền cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng chỉ đông lạnh",
+        "ấu trùng muỗi đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 300 lít",
+        "bể cá dài 150cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

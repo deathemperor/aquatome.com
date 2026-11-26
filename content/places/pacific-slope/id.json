@@ -3,6 +3,12 @@
   "name": "Lereng Pasifik",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T12:51:17.327Z",
+    "why": "\"Lereng Pasifik\" is a word-by-word translation of a descriptive name; Indonesian atlases would likely write \"Lereng Pasifik\" only descriptively, and the usual form for this Costa Rican region is \"Vertiente del Pacífico\" or \"Lereng Pasifik\" is not an established name."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

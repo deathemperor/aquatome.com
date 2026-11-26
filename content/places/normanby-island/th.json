@@ -3,6 +3,12 @@
   "name": "เกาะนอร์แมนบี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:49:12.644Z",
+    "why": "The transliteration นอร์แมนบี is fine, but it lacks the Thai kind word \"เกาะ\" duplication issue is absent; actually \"เกาะ\" is present, yet Thai atlases usually write the island as เกาะนอร์มานบี, so this spelling is only moderately certain."
+  },
   "quality": {
     "score": 0.74,
     "indexable": false

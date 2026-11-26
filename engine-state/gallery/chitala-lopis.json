@@ -3,7 +3,12 @@
  "judged": [
   "File:Chitala chitala Thomas.jpg",
   "File:Chitala chitala porte dorée.jpg",
-  "File:Chitala cf. lopis (10.3897-BDJ.11.e100337) Figure 2.jpg"
+  "File:Chitala cf. lopis (10.3897-BDJ.11.e100337) Figure 2.jpg",
+  "inat:410902971",
+  "inat:444792860",
+  "inat:444792881",
+  "inat:528643142",
+  "inat:672492256"
  ],
  "hashes": {},
  "commons": "2026-11-06",
@@ -18,5 +23,9 @@
  "gbif": {
   "key": 2402271,
   "next": null
+ },
+ "inatNc": {
+  "after": 368206286,
+  "done": true
  }
 }

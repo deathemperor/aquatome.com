@@ -1,0 +1,181 @@
+{
+  "id": "sciades-herzbergii",
+  "native": {
+    "input": "b6a1b1b61a3fb7de",
+    "at": "2026-11-19T12:55:32.239Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Caribbean and Atlantic draining rivers and estuaries from Colombia to Brazil: Brazil, Colombia, French Guiana, Guyana, Suriname and Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Caribbean and Atlantic draining rivers and estuaries from Colombia to Brazil: Brazil, Colombia, French Guiana, Guyana, Suriname and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Caribbean and Atlantic draining rivers and estuaries from Colombia to Brazil: Brazil, Colombia, French Guiana, Guyana, Suriname and Venezuela.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Caribbean and Atlantic draining rivers and estuaries from Colombia to Brazil: Brazil, Colombia, French Guiana, Guyana, Suriname and Venezuela.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Caribbean and Atlantic draining rivers and estuaries from Colombia to Brazil: Brazil, Colombia, French Guiana, Guyana, Suriname and Venezuela.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Caribbean and Atlantic draining rivers and estuaries from Colombia to Brazil: Brazil, Colombia, French Guiana, Guyana, Suriname and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sciades herzbergii",
+    "status": "ACCEPTED",
+    "taxonKey": 5202938,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        104
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        75
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        70
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        11
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        5
+      ],
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        4
+      ],
+      [
+        "cd31232e-57a9-4777-ab9d-406333c42769",
+        4
+      ],
+      [
+        "7ffd267e-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        2
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "CO",
+      "GF",
+      "GY",
+      "SR",
+      "VE"
+    ],
+    "requests": 13,
+    "at": "2026-11-19T12:55:32.239Z"
+  }
+}

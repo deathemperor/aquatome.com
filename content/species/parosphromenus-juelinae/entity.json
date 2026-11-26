@@ -5,12 +5,39 @@
   "family": "Osphronemidae",
   "genus": "Parosphromenus",
   "group": "labyrinth",
-  "places": [],
+  "places": [
+    "asia",
+    "indonesia",
+    "bangka"
+  ],
   "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Bangka Island"
+      ],
+      "sources": [
+        "bwaquatics"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "It is known only from a few forest streams and swamps in a single river system on Bangka Island, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Bangka Island"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 11372239,
       "total": 0,
-      "fetched": "2026-11-12",
+      "fetched": "2026-11-21",
       "countries": [],
       "cells": []
     }
@@ -29,18 +56,15 @@
       {
         "source": "bwaquatics",
         "value": {
-          "min": 3,
-          "max": 6.5
+          "min": 4,
+          "max": 6
         }
       }
     ],
-    "gh": [
+    "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": {
-          "min": 1,
-          "max": 4
-        }
+        "value": 3.6
       }
     ]
   },
@@ -49,37 +73,49 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
-      "html": "<p>Parosphromenus juelinae is a small freshwater fish species belonging to the family Osphronemidae.</p>"
+      "html": "<ul><li>Genus: Parosphromenus (licorice gouramis).</li><li>IUCN Red List: not evaluated (described in 2021); the Parosphromenus Project has proposed Critically Endangered.</li><li>Origin: wild caught.</li><li>Body shape: small and slender.</li><li>Fins: rounded caudal fin. The base of the unpaired fins is black, and the inner iridescent band is broken into an arc of irregular blotches. The pelvic filament is light blue.</li><li>Coloration: dark brown stripes along the body, with intense red blotches covering the rest of the body up to the base of the fins. The red flanks set it apart from P. bintan and P. deissneri.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
+      "html": "<p>Parosphromenus juelinae was described in 2021, although it was first collected in 1993 and mistaken for Parosphromenus bintan. It is known only from a few forest streams and swamps in a single river system on Bangka Island, Indonesia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
+      "html": "<p>Shaded forest streams and peat swamps with clear, tea-colored water and dense Cryptocoryne and Utricularia. Mining, oil palm and settlement have degraded much of the lowland habitat on Bangka.</p>"
     },
     {
       "key": "aquariumSize",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
-      "html": "<p>Best kept in small groups of 3-6 in a 5 to 10 gallon tank, with small blackwater fish such as Boraras or mouthbrooding bettas like Albimarginata and Channoides.</p>"
+      "html": "<p>Keep a pair in 5 gal, or a group of 3 to 6 in 10 gal, with plenty of caves and leaf litter.</p>"
     },
     {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
-      "html": "<ul><li>Temperature: 22 – 28 °C</li><li>pH: 3.0 – 6.5</li><li>Hardness: 18 – 72 ppm</li></ul>"
-    },
-    {
-      "key": "diet",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
-      "html": "<p>They are omnivores, feeding on a variety of small invertebrates and insect larvae.</p>"
+      "html": "<ul><li>TDS: 0 to 50</li><li>pH: 4.0 to 6.0</li><li>Temperature: 72 to 82°F</li></ul>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
-      "html": "<p>These fish are generally peaceful and shy, preferring to hide among the vegetation or other structures in their environment.</p>"
+      "html": "<p>Peaceful and shy. They can share a tank with tiny, calm blackwater fish such as Boraras, or with small mouthbrooding bettas like albimarginata and channoides. Never mix different Parosphromenus species, since they can hybridize.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
+      "html": "<p>Cave spawner with a horizontal to head-down courtship. Care follows the usual licorice gourami standard, though early reports suggest it may be a little harder to breed than most. The male guards the eggs and larvae until the fry swim free.</p>"
     },
     {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-juelinae",
-      "html": "<p>Conservation status: Parosphromenus juelinae is not listed by the International Union for Conservation of Nature (IUCN), but due to habitat loss and degradation caused by deforestation, land use change and pollution, it is suspected to be in a similar situation to other Parosphromenus that are listed as Endangered or Critically Endangered.</p>"
+      "html": "<p>Maximum size: about 3.6 cm (not yet published; estimated from close relatives).</p>"
     }
   ],
   "photos": [],
@@ -121,5 +157,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-20"
 }

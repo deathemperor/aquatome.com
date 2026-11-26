@@ -1,7 +1,12 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "flickr:5806478241",
+  "inat:667562742"
+ ],
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/667562742/large.jpg": "cc9319143b330b95"
+ },
  "inat": {
   "taxon": 611495,
   "pass": "done",
@@ -14,5 +19,13 @@
  "gbif": {
   "key": 5208251,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 365625159,
+  "done": true
+ },
+ "exhausted": "2026-11-16"
 }

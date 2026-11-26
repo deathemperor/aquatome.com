@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
+import { phraseRun, type Phrase } from '../src/phrases'
 import { readReviews } from '../src/review-log'
 import { rewriteExisting } from '../src/vi-backfill'
 import { rewriteVi } from '../src/vi-rewrite'
@@ -47,6 +48,18 @@ test('rewrites guides, species (per source, references untouched) and glossary o
   expect(calls.filter(c => c === 'rewrite')).toHaveLength(4)
   const again = await rewriteExisting(root, state, { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 10 })
   expect(again.done).toEqual([])
+})
+
+// A stand-in read, 15 Nov 2026: 42 guides off the site for good were still due here, each a write and a review.
+test('a guide off the site for good is never rewritten, by the queue or by a match', async () => {
+  const root = await setup()
+  for (const id of ['2hraquarist-blogs-aquascaping-ideas-x', 'glaser-en-32-all-the-rest-drought-in-singapore-and-malaysia']) {
+    await put(root, `guides/${id}/entity.json`, { id, source: id.split('-')[0], html: '' })
+    await put(root, `guides/${id}/vi.json`, { slug: id, name: 'X', body: '<p>cũ</p>' })
+  }
+  const ids = async (o: { match?: RegExp }) => (await rewriteExisting(root, join(root, 's.json'), { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 10, dry: true, ...o })).done.map(x => x.split(' ')[0])
+  expect(await ids({})).toEqual(['guides/g', 'species/x', 'glossary/t'])
+  expect(await ids({ match: /cũ/ })).toEqual(['guides/g', 'species/x', 'glossary/t'])
 })
 
 test('a rewrite the reviewer fails is not kept, unless it beats a low old score', async () => {
@@ -217,6 +230,57 @@ test('--match re-edits only the pages containing it, video guides and their summ
   expect(vi.faq).toEqual([{ q: 'Bao lâu thay nước?', a: 'mới faq:0:a' }])
   expect(prompts.some(p => p.includes('### faq:0:q'))).toBe(false)
   expect(vi.quality).toMatchObject({ bySource: { youtube: 0.6 }, chat: false })
+})
+
+// 16 Nov 2026: of 758 pages the style rewrite had done, 544 still carried a listed phrase, and --phrases took them all
+// up again at every run, each a write and a review. A page is taken up once for each listed word it has, as the list
+// matches it (phrases.ts phraseRun, as `rewrite-vi --phrases` passes it).
+test('--phrases takes a page up once for each listed word: not again for one it was taken up for, again for a new one', async () => {
+  const root = await setup()
+  // The page has three listed words from the start, one capitalised; the list has one of them.
+  const body = '<p>Theo tác giả, Dù vậy cá ăn được, tuy nhiên ít.</p>'
+  await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body, quality: { score: 0.85, indexable: true } })
+  const state = join(root, 'state.json')
+  const list: Phrase[] = [{ say: 'tác giả', instead: 'người viết' }]
+  const ids = (r: { done: string[]; kept: string[] }) => [...r.done, ...r.kept].map(x => x.split(' ')[0])
+  const marks = async () => (await read(root, 'state.json'))['guides/g'].phrases
+  // The reviewer fails the rewrite, so the page keeps its words.
+  const run = (phrases = true) => rewriteExisting(root, state, { llm: fake({ en: 0.6, vi: 0.6 }), opts: { mode: 'fix' }, now }, { limit: 10, ...(phrases ? phraseRun('vi', list) : {}) })
+  expect(ids(await run())).toEqual(['guides/g'])
+  expect((await read(root, 'guides/g/vi.json')).body).toBe(body)
+  expect(ids(await run())).toEqual([])
+  // The queue's own pass keeps the mark: a newer rewrite version makes the page due again.
+  await put(root, 'state.json', { 'guides/g': { ...(await read(root, 'state.json'))['guides/g'], v: 1 } })
+  expect(ids(await run(false))).toContain('guides/g')
+  expect(await marks()).toEqual(['tác giả'])
+  expect(ids(await run())).toEqual([])
+  // A row added to the list for words the page had all along, the page unchanged: taken up again, once.
+  list.push({ say: 'dù vậy', instead: 'nhưng' })
+  expect(ids(await run())).toEqual(['guides/g'])
+  expect(ids(await run())).toEqual([])
+  // A word added to a row's pattern: taken up again, once. The row's label changed alone: not.
+  list[1] = { say: 'dù vậy', find: 'dù vậy|tuy nhiên', instead: 'nhưng' }
+  expect(ids(await run())).toEqual(['guides/g'])
+  list[1] = { say: 'dù vậy, tuy nhiên', find: 'dù vậy|tuy nhiên', instead: 'nhưng' }
+  expect(ids(await run())).toEqual([])
+  expect(await marks()).toEqual(['tác giả', 'dù vậy', 'tuy nhiên'])
+})
+
+// Codex's read of the change, 20 Nov 2026: a page whose rewrite failed wasn't done, and must not lose its words.
+test('--phrases: a page whose rewrite failed keeps its old marks, adds none, and is taken up again at the next run', async () => {
+  const root = await setup()
+  await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body: '<p>Theo tác giả, cá ăn được.</p>', quality: { score: 0.85, indexable: true } })
+  const state = join(root, 'state.json')
+  await put(root, 'state.json', { 'guides/g': { at: '2026-10-01', rewritten: 1, of: 1, scores: [0.9], v: 2, phrases: ['dù vậy'] } })
+  const o = { limit: 10, ...phraseRun('vi', [{ say: 'tác giả', instead: 'người viết' }]) }
+  // The writer leaves the part out: the page fails, nothing written.
+  const broken: Llm = async <T,>() => ({ parts: [] }) as T
+  const failed = await rewriteExisting(root, state, { llm: broken, opts: { mode: 'fix' }, now }, o)
+  expect(failed.failed.map(x => x.split(':')[0])).toEqual(['guides/g'])
+  expect((await read(root, 'state.json'))['guides/g'].phrases).toEqual(['dù vậy'])
+  const next = await rewriteExisting(root, state, { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, o)
+  expect(next.done.map(x => x.split(' ')[0])).toEqual(['guides/g'])
+  expect((await read(root, 'state.json'))['guides/g'].phrases).toEqual(['dù vậy', 'tác giả'])
 })
 
 test("a translated guide's rewrite is checked against its kept English article, and scores as a translation", async () => {

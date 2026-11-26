@@ -1,25 +1,9 @@
 {
   "id": "ariopsis-seemanni",
   "native": {
-    "input": "03961208d912f8cc",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "da57a87950de6ddf",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
-      {
-        "code": "MX",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The Colombian shark catfish, Ariopsis seemanni, is an ariid catfish from river mouths along the Pacific coast of the Americas, from Mexico to Peru.",
-        "words": "Mexico",
-        "ok": true
-      },
-      {
-        "code": "PE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The Colombian shark catfish, Ariopsis seemanni, is an ariid catfish from river mouths along the Pacific coast of the Americas, from Mexico to Peru.",
-        "words": "Peru",
-        "ok": true
-      },
       {
         "code": "MX",
         "status": "native",
@@ -89,6 +73,78 @@
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Populations exist in Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western America: Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western America: Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "SV",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western America: Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru.",
+        "words": "El Salvador",
+        "ok": true
+      },
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western America: Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru.",
+        "words": "Nicaragua",
+        "ok": true
+      },
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western America: Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru.",
+        "words": "Costa Rica",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western America: Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western America: Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western America: Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western America: Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru.",
         "words": "Peru",
         "ok": true
       }

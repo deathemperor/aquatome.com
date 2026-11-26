@@ -11,13 +11,20 @@
     "quickFacts:planetcatfish": "<ul><li>ชื่อวิทยาศาสตร์: Cryptarius truncatus (Valenciennes, 1840)</li><li>สถานที่พบตัวอย่างต้นแบบ: เกาะชวา ประเทศอินโดนีเซีย</li><li>ขนาด: 420 มม. SL</li><li>สถานภาพในบัญชีแดงของ IUCN: ยังไม่ได้รับการประเมิน (Not Evaluated)</li></ul>",
     "distribution:planetcatfish": "<p>มหาสมุทรแปซิฟิกตะวันตกตอนกลาง: พบในบริเวณปากแม่น้ำและแม่น้ำช่วงล่าง ตั้งแต่แม่น้ำเจ้าพระยาลงไปถึงเกาะสุมาตราและเกาะชวา รวมถึงแม่น้ำโขงตอนล่าง</p>",
     "reproduction:planetcatfish": "<p>ยังไม่มีข้อมูล ไม่มีรายงานการเพาะพันธุ์</p>",
-    "references:planetcatfish": "<p>Histoire naturelle des poissons v. 15, pp 64.</p>"
+    "references:planetcatfish": "<p>Histoire naturelle des poissons v. 15, pp 64.</p>",
+    "quickFacts:scotcat": "<ul><li>ชื่อสามัญ: ปลากดจมูกช้อน (Spoonsnouted catfish)</li><li>สถานภาพในบัญชีแดงของ IUCN: ยังไม่ได้รับการประเมิน (Not Evaluated)</li></ul>",
+    "distribution:scotcat": "<p>เอเชียใต้และเอเชียตะวันออกเฉียงใต้: ประเทศไทย กัมพูชา อินโดนีเซีย และมาเลเซีย สถานที่พบตัวอย่างต้นแบบ: เกาะชวา ประเทศอินโดนีเซีย</p>",
+    "habitat:scotcat": "<p>พบในบริเวณปากแม่น้ำและแม่น้ำช่วงล่าง ตั้งแต่แม่น้ำเจ้าพระยาลงไปถึงเกาะสุมาตราและเกาะชวา รวมถึงแม่น้ำโขงตอนล่าง บางช่วงอาจพบได้ค่อนข้างชุกชุม จับได้ด้วยอวนลาก อวนล้อม ลอบดัก และเบ็ด จำหน่ายเป็นปลาสด</p>",
+    "diet:scotcat": "<p>กินปลาและสัตว์จำพวกกุ้งกั้งปูเป็นอาหาร</p>",
+    "notes:scotcat": "<p>สกุล Cryptarius แยกได้จากลักษณะเฉพาะต่อไปนี้: (1) กระดูกโวเมอร์ (vomer) เป็นรูปหัวลูกศร (2) ส่วนยื่นด้านหลังของกระดูกเอพิออกซิพิทัล (epioccipital) จรดกับสันกลางที่ต่อกับหนามประสาท (neural spine) ของกระดูกสันหลังข้อที่สี่ (3) ส่วนหน้าของกระดูกแก้มล่าง (interopercle) ยาวมากและปลายแหลม (4) ส่วนหน้าของกระดูกเมทาเทอริกอยด์ (metapterygoid) ต่อกับกระดูกควอเดรต (quadrate) ด้วยข้อต่อที่มีรอยบุ๋ม ส่วนที่เหลือของกระดูกชิ้นนี้เกือบทั้งหมดเพียงแค่แนบชิดกับกระดูกควอเดรต (5) ส่วนท้ายของกระดูกฐานเหงือก (basibranchial) ชิ้นที่สองกว้างมาก (6) กระดูกมีเซทมอยด์ (mesethmoid) หนาปานกลางที่ช่วงกลาง</p><p>ที่มาของชื่อ: ชื่อสกุล Cryptarius มาจาก kryptos ที่แปลว่าซ่อนเร้นหรือลับ หมายถึง Arius ที่แยกแยะได้ยาก (cryptic) เนื่องจากชุดลักษณะเฉพาะตัวของมันถูกมองข้ามมาเป็นเวลานาน ส่วนชื่อชนิด truncatus หมายถึงจะงอยปากที่ตัดตรง (หรือเป็นรูปช้อน)</p>",
+    "references:scotcat": "<p>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126. Rainboth, W.J. 1996 Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 265 p. The ETYFish Project Fish Name Etymology Database.</p>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.6
+      "planetcatfish": 0.85,
+      "scotcat": 0.85
     }
   }
 }

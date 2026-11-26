@@ -1,0 +1,161 @@
+{
+  "id": "mugilogobius-rexi",
+  "scientificName": "Mugilogobius rexi",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Mugilogobius",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "indonesia",
+    "lake-towuti",
+    "lake-mahalona"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Sulawesi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is restricted to Sulawesi and even on that island it occurs only in two lakes, namely Towuti and Mahalona.",
+          "countries": [],
+          "regions": [
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2376848,
+      "total": 1,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          0,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/mugilogobius_rexi_en/",
+      "html": "<p>This small, yellow goby is a free swimming species, in contrast to most of the other gobies. Maximum length is about 4-5 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/mugilogobius_rexi_en/",
+      "html": "<p>The species is restricted to Sulawesi and even on that island it occurs only in two lakes, namely Towuti and Mahalona.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/mugilogobius_rexi_en/",
+      "html": "<p>The water in these lakes is very warm (29°C and more), very clean, slightly alkaline (pH 7.5) and the conductivity is about 225 µS/cm.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/mugilogobius_rexi_en/",
+      "html": "<p>Territorial males become bright yellow and also develop larger fins with dark bands. Females are much paler in coloration and have translucent fins.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/mugilogobius_rexi_en/",
+      "html": "<p>Mugilogobius: Latin, means \"mullet-goby\". rexi: dedication name.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/692357027.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/692357027-480.webp",
+      "width": 1024,
+      "height": 578,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/692357027",
+      "caption": "Cá bống vàng Towuti bơi giữa cành cây chìm trong tự nhiên",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/692357027-large.webp",
+        "width": 2048,
+        "height": 1155
+      }
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "IyUn8Ek9pxc",
+      "title": "Mugilogobius rexi THE FIT GOLDEN MALILI GOBY. (Leopard Aquatic K026A)",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2Tcmx6BnYIc",
+      "title": "Mugilogobius rexi - Gobie jaune 3-4 cm (réf 7020)",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7pJHJRb_Ot0",
+      "title": "Beautiful dwarf goby from Sulawesi - Mugilogobius rexi #goby #sulwesi #rarefish",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NohQS6snXP0",
+      "title": "Zitronengrundel - Mugilogobius rexi",
+      "durationSec": 29,
+      "lang": "de-DE"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh 100w"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ",
+        "lọc treo bể 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

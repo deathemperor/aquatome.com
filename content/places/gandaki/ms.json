@@ -3,6 +3,12 @@
   "name": "Gandaki",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:05:19.072Z",
+    "why": "Gandaki is a province (region) of Nepal, and Malay atlases would typically write \"Wilayah Gandaki\" or \"Provinsi Gandaki\", while the bare \"Gandaki\" omits the kind word used in Malay."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

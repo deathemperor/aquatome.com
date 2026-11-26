@@ -25,7 +25,7 @@ test('research never reads a source the engine reads only through the Archive, o
     expect(off(u), u).toBe(true)
   // Every other copy of a page (the Writing Lead, 14 Nov 2026): archive.today's names, Google's cache and its Translate
   // proxy, whose host is made from any site's, and a reader proxy.
-  for (const u of ['https://wayback.archive.org/web/x', 'https://archive.ph/abc', 'https://archive.is/abc', 'https://archive.today/abc', 'https://archive.li/abc', 'https://archive.md/abc', 'https://archive.vn/abc', 'https://webcache.googleusercontent.com/search?q=cache:x', 'https://r.jina.ai/https://www.thesprucepets.com/', 'https://www-thesprucepets-com.translate.goog/x', 'https://forum-planetcatfish-com.translate.goog/x'])
+  for (const u of ['https://wayback.archive.org/web/x', 'https://archive.ph/abc', 'https://archive.is/abc', 'https://archive.today/abc', 'https://archive.li/abc', 'https://archive.md/abc', 'https://archive.vn/abc', 'https://webcache.googleusercontent.com/search?q=cache:x', 'https://archive.fo/abc', 'https://translate.goog/x', 'https://sub.r.jina.ai/x', 'https://x.webcache.googleusercontent.com/x', 'https://r.jina.ai/https://www.thesprucepets.com/', 'https://www-thesprucepets-com.translate.goog/x', 'https://forum-planetcatfish-com.translate.goog/x'])
     expect(off(u), u).toBe(true)
   // Matched as WebFetch matches: any case, a trailing dot.
   expect(off('https://WWW.TheSprucePets.com./x')).toBe(true)
@@ -58,6 +58,22 @@ test('research never opens the magazine read for ideas, nor a site read for idea
   expect(refused(marked, 'https://aquazonefish.vn/blogs/kien-thuc/x')).toBe(true)
   expect(refused(marked, 'https://www.aquazonefish.vn/x')).toBe(true)
   expect(refused(marked, 'https://aquahouse.vn/x')).toBe(false)
+})
+
+// The chief of staff, 16 Nov 2026: a site that gave us clinics no page named and a fish bag filled the wrong way round is
+// refused as a source for anything new, the whole site; a site with a near name is another shop's, and stays open.
+test('research never reads a refused site, nor does the engine fetch one, and a near name stays open', async () => {
+  const root = await checkout('{}')
+  const bare = await cycleOnlyHosts(root)
+  for (const u of ['https://cabaymau.vn/ca-bi-loi-mat/', 'https://www.cabaymau.vn/x', 'https://CABAYMAU.VN./x'])
+    expect(refused(bare, u), u).toBe(true)
+  expect(researchDeny(bare)).toEqual(expect.arrayContaining(['WebFetch(domain:cabaymau.vn)', 'WebFetch(domain:*.cabaymau.vn)']))
+  expect(refused(bare, 'https://cabaymau.net/x')).toBe(false)
+  const asked: string[] = []
+  const get = researchedPage(root, (async (url: string) => { asked.push(url); return new Response('<p>150.000đ</p>') }) as typeof fetch)
+  await expect(get('https://cabaymau.vn/san-pham/x')).rejects.toThrow(/refused as a source/)
+  expect(await get('https://cabaymau.net/x')).toBe('<p>150.000đ</p>')
+  expect(asked).toEqual(['https://cabaymau.net/x'])
 })
 
 test('with no record of the sources, or one not of its shape, there is no list to keep to, and research has none (Astra\'s read)', async () => {

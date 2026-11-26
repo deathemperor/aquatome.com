@@ -86,21 +86,27 @@ public final class PlugBoard {
   }
 
   /// Sets one outlet, on the reader's tap. Not sent while it's being switched already, or unless its plug is listed
-  /// online.
-  public func set(_ o: Outlet, on: Bool) async {
-    guard let source, !switching.contains(o), online(provider: o.provider, device: o.device) == true else { return }
+  /// online. `allowed` is asked right before the command goes (PlugSource.set): no, and nothing is sent, and no outcome
+  /// is noted (`outcome` stays nil). This call's own outcome, for its caller; nil when nothing was sent. Keys changed
+  /// while it was on its way: its outcome is still this call's (a command that went is never taken for one that
+  /// didn't, the chief, 17 Nov), and nothing of it is shown or noted (the board now shows the new keys' plugs).
+  @discardableResult
+  public func set(_ o: Outlet, on: Bool, allowed: @escaping @Sendable () async -> Bool = { true }) async -> Outcome? {
+    guard let source, !switching.contains(o), online(provider: o.provider, device: o.device) == true else { return nil }
     let owner = source.owner
     switching.insert(o)
     defer { switching.remove(o) }
     outcomes[o] = nil
     do {
-      let r = try await source.set(provider: o.provider, device: o.device, outlet: o.code, on: on)
-      guard owner == self.source?.owner else { return }
+      let r = try await source.set(provider: o.provider, device: o.device, outlet: o.code, on: on, allowed: allowed)
+      guard owner == self.source?.owner else { return r.confirmed ? .confirmed : .unknown }
       tick += 1
       reported[o] = (r.on, tick)
       if r.confirmed { return note(o, .confirmed) }
+    } catch is Withdrawn {
+      return nil
     } catch let e as PlugError where e.nothingSent {
-      guard owner == self.source?.owner else { return }
+      guard owner == self.source?.owner else { return .refused(e) }
       if e == .plugOffline {
         tick += 1
         foundOffline[o.provider + "|" + o.device] = tick
@@ -108,15 +114,15 @@ public final class PlugBoard {
       return note(o, .refused(e))
     } catch {
       // The maker's error, no network, or an answer this app can't read: the command may have reached the plug.
-      guard owner == self.source?.owner else { return }
+      guard owner == self.source?.owner else { return .unknown }
       tick += 1
       reported[o] = (nil, tick)
     }
     // Not confirmed: the list once more (never the switch), then what the plug reports.
     _ = await read(source)
-    guard owner == self.source?.owner else { return }
+    guard owner == self.source?.owner else { return .unknown }
     let now = self.on(o)
-    note(o, now == on ? .confirmed : now == nil ? .unknown : .unconfirmed)
+    return note(o, now == on ? .confirmed : now == nil ? .unknown : .unconfirmed)
   }
 
   /// One list read; when it's the newest answer, it replaces what switch answers reported before it started. Its start,
@@ -143,10 +149,12 @@ public final class PlugBoard {
     }
   }
 
-  private func note(_ o: Outlet, _ outcome: Outcome) {
+  @discardableResult
+  private func note(_ o: Outlet, _ outcome: Outcome) -> Outcome {
     tick += 1
     outcomes[o] = (outcome, tick)
     switched?(outcome)
+    return outcome
   }
 
   private func forget() {

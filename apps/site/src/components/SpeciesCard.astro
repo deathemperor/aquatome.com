@@ -7,7 +7,8 @@ import { fmt, isRange, WATER_WORDS } from '../lib/format'
 import { smallSrc, tileFrame, tilePhoto } from '../lib/img'
 import { tilePhotos } from '../lib/pictures'
 import { i18n } from '../lib/i18n'
-import { BREED_KIND, careCard, type Breed } from '../lib/breeds'
+import { breedIsFish, breedKind, careCard, type Breed } from '../lib/breeds'
+import { getContent } from '../lib/content'
 import { asNum, asRange } from '../lib/species-index'
 /**
  * `template`: every part, with stand-in figures and no picture, for the fish list's script to fill in (scripts/species-card.ts).
@@ -24,6 +25,8 @@ const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
 const p = tilePhoto(photo !== undefined ? photo : tilePhotos(breed ? breed.photos : s.photos)[0])
 const card = breed ? careCard(breed).card : s.dataCard
+// A line of a shrimp, a crab or a snail isn't called a fish (lib/breeds.ts).
+const kind = breed && breedKind(breed.kind, breedIsFish(await getContent(lang), breed))
 // Where the 4:3 tile would cut the fish: the crop moved onto it, or the photo whole on itself blurred, or on the tile's mat
 // where the strips are too thin for the blur (tileFrame). The template holds the whole tile's two pictures, which the fish
 // list's script keeps or folds to one (scripts/species-card.ts).
@@ -43,7 +46,7 @@ const fig = breed ? { tempC: asRange(temp?.value), ph: asRange(ph?.value), tankC
       : p ? (frame.whole ? <span class="whole">{!frame.mat && <img class="ground" src={smallSrc(p)} width={p.width} height={p.height} alt="" aria-hidden="true" loading={load} />}<img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={load} /></span>
         : <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={load} style={frame.pos && `object-position: ${frame.pos}`} />)
       : <span class="ph"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M6 16c8-11 26-13 40-3l12-8v22l-12-8C32 29 14 27 6 16Z" /><circle cx="17" cy="14" r="1.6" /></svg>{tr('Chưa có ảnh')}</span>}</div>
-    {breed ? <><h3 class="n">{breed.t.name}</h3><p class="kind">{tr(BREED_KIND[breed.kind])}</p></> : <><h3>{s.t.name}</h3>{(template || sciBeside(s.t.name, s.scientificName)) && <p class="sci">{s.scientificName}</p>}{(template || water) && <p class="water">{water}</p>}</>}
+    {breed ? <><h3 class="n">{breed.t.name}</h3><p class="kind">{tr(kind!)}</p></> : <><h3>{s.t.name}</h3>{(template || sciBeside(s.t.name, s.scientificName)) && <p class="sci">{s.scientificName}</p>}{(template || water) && <p class="water">{water}</p>}</>}
   </a>
   {t || h || diff ? (
     <dl class="label">

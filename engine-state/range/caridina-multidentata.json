@@ -1,8 +1,8 @@
 {
   "id": "caridina-multidentata",
   "native": {
-    "input": "4282d9112babfcb0",
-    "at": "2026-11-09T05:57:45.266Z",
+    "input": "b1ed9acee92d653b",
+    "at": "2026-11-23T01:48:47.136Z",
     "claims": [
       {
         "code": "JP",
@@ -35,15 +35,45 @@
         "quote": "They come from East Asia, in countries like Japan, Taiwan and Korea, and can thrive in both freshwater and low brackish waters.",
         "words": "Taiwan",
         "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "They come from East Asia, in countries like Japan, Taiwan and Korea, and can thrive in both freshwater and low brackish waters.",
+        "words": "Korea",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The species was found in Japan and parts of Korea and Taiwan.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The species was found in Japan and parts of Korea and Taiwan.",
+        "words": "Korea",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The species was found in Japan and parts of Korea and Taiwan.",
+        "words": "Taiwan",
+        "ok": true
       }
     ],
     "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "KR"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -91,9 +121,10 @@
     ],
     "native": [
       "JP",
-      "TW"
+      "TW",
+      "KR"
     ],
     "requests": 13,
-    "at": "2026-11-09T05:57:45.266Z"
+    "at": "2026-11-19T07:58:14.453Z"
   }
 }

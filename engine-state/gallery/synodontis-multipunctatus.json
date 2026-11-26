@@ -2,7 +2,8 @@
  "queue": [],
  "judged": [
   "File:Aquarium de la Porte Dorée - Poisson 90.jpg",
-  "File:Synodontis multipunctatus.001 - Aquarium Finisterrae.jpg"
+  "File:Synodontis multipunctatus.001 - Aquarium Finisterrae.jpg",
+  "inat:548607951"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/a523573da8a717cf.webp": "9b9b0b0b8fc5bc36",
@@ -11,5 +12,17 @@
   "https://media.aquatome.com/commons/54d047cc38973c2d.webp": "0703958f4c181c06",
   "https://media.aquatome.com/commons/f17f14f7a9f1755a.webp": "9242639904484741"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 188522,
+  "pass": "done",
+  "after": {
+   "research": 304328783,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2344375,
+  "next": null
+ }
 }

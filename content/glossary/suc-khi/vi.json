@@ -2,13 +2,16 @@
   "slug": "suc-khi",
   "name": "Sục khí",
   "altNames": [
-    "máy sục khí",
     "sủi khí"
   ],
   "sections": {},
-  "definition": "Thổi bọt khí vào nước để khuấy mặt nước, giúp oxy hòa tan vào và CO2 thoát ra. Sục khí đặc biệt quan trọng khi nước nóng (nước ấm giữ ít oxy hơn), bể nuôi dày hoặc khi chữa bệnh; với cá suối ưa nước giàu oxy, nên kết hợp sục khí với dòng chảy.",
+  "linkNames": [
+    "máy sục khí"
+  ],
+  "body": "<h3>Trong bể của bạn</h3><p>Mặt nước gợn mạnh cho trao đổi khí tốt nhất. Mức oxy cần giữ trong bể: xem mục Oxy hòa tan.</p><p>Dấu hiệu thiếu oxy gồm cá thở mang nhanh và đớp khí ở mặt nước.</p><p>Một tiệm ghi:</p><ul><li>Trao đổi khí diễn ra ở mặt nước: CO2 thoát ra và oxy từ không khí hòa vào.</li><li>Một số thuốc hoặc cách xử lý bằng hóa chất là nguyên nhân hay gặp làm tụt oxy.</li><li>Dấu hiệu thiếu oxy còn có cá nằm đáy và kém ăn.</li></ul><p>Một nguồn người nuôi ghi:</p><ul><li>Mặt nước phẳng lặng chỉ cho khoảng 5% mức sục khí của mặt nước gợn sóng cùng diện tích.</li><li>Bọt khí nổi lên làm mặt nước gợn mạnh, và đó là cách chúng sục khí.</li><li>Đá sủi khí chỉ sục khí tốt khi máy sủi đủ mạnh để đẩy ra hàng trăm bọt mỗi giây. Máy sủi nhỏ bán kèm bộ bể hay bán ở tiệm sục được ít khí.</li><li>Đầu ra lọc, thổi luồng và bơm powerhead làm mặt nước gợn mạnh thì sục khí rất tốt.</li><li>Bể low-tech ít cá có thể bỏ sục khí, còn bể nuôi vừa phải thì cần.</li><li>Ở bể có dòng mạnh, cá bơi há miệng là dấu hiệu sục khí kém.</li><li>Sục khí mạnh kéo CO2 xuống còn khoảng 2–3 ppm, còn cây mọc tốt nhất khi CO2 trên 10 ppm, nên sục khí đi ngược với bể thủy sinh có châm CO2.</li></ul><p>Về CO2 trong bể thủy sinh: xem mục CO2.</p><h3>Nên làm gì</h3><p>Tiệm thứ nhất còn ghi rằng lúc cá thiếu oxy gấp, thay nhiều nước một lần là cấp oxy ngay.</p><p>Một tiệm khác ở Việt Nam ghi cách đặt máy:</p><ol><li>Đặt máy sủi ở chỗ khô, cao hơn mặt nước bể, để khi mất điện nước không chảy ngược vào máy.</li><li>Nếu phải đặt máy thấp hơn mặt nước, gắn van một chiều (check valve) trên dây dẫn khí để bảo vệ máy.</li><li>Thay đá sủi khí khi bọt ra không đều hoặc đá bị nghẹt.</li></ol><p>Chuẩn bị khi cúp điện: xem mục Dòng chảy.</p><h3>Sai lầm hay gặp</h3><p>Tiệm thứ nhất cũng ghi: để cây nổi phủ kín mặt nước thì hạn chế trao đổi khí; trong một lần thử, cây nổi phủ mặt một bể 210 lít làm oxy thấp hơn đáng kể.</p><p>Nguồn người nuôi này lưu ý:</p><ul><li>Máy sủi hút không khí trong phòng vào bể, nên bình xịt, hóa chất tẩy sàn và thuốc xịt côn trùng có thể làm chết cá. Mùi thơm thì không sao.</li><li>Trước khi trùm bạt xông thuốc cả nhà, phải đưa cá ra khỏi nhà. Khí thuốc vẫn lọt vào bể dù bể đã bọc nilon hay giấy bạc và máy sủi đã tắt.</li></ul>",
+  "definition": "Sục khí là đưa không khí vào bể bằng máy sủi, dây dẫn khí và một đầu ra khí như đá sủi khí hoặc lọc mút.",
   "quality": {
-    "score": 0.9,
+    "score": 1,
     "indexable": true
   }
 }

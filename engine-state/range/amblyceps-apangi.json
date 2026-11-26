@@ -1,0 +1,88 @@
+{
+  "id": "amblyceps-apangi",
+  "native": {
+    "input": "0ed47efbae54de03",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Amblyceps apangi Nath & Dey, 1989. Type locality: Dikrong River, Arunachal Pradesh, India. IUCN Red List category: Least Concern (last assessed 2009).",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Brahmaputra drainage in India (North Eastern India, Padma, Jamuna, Brahmaputra, Subansiri, Dikrong).",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "planetcatfish",
+        "quote": "Asia: Brahmaputra drainage in India (North Eastern India, Padma, Jamuna, Brahmaputra, Subansiri, Dikrong).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Padma",
+        "source": "planetcatfish",
+        "quote": "Asia: Brahmaputra drainage in India (North Eastern India, Padma, Jamuna, Brahmaputra, Subansiri, Dikrong).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Jamuna",
+        "source": "planetcatfish",
+        "quote": "Asia: Brahmaputra drainage in India (North Eastern India, Padma, Jamuna, Brahmaputra, Subansiri, Dikrong).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Subansiri",
+        "source": "planetcatfish",
+        "quote": "Asia: Brahmaputra drainage in India (North Eastern India, Padma, Jamuna, Brahmaputra, Subansiri, Dikrong).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Dikrong",
+        "source": "planetcatfish",
+        "quote": "Asia: Brahmaputra drainage in India (North Eastern India, Padma, Jamuna, Brahmaputra, Subansiri, Dikrong).",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amblyceps apangi",
+    "status": "ACCEPTED",
+    "taxonKey": 2342856,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

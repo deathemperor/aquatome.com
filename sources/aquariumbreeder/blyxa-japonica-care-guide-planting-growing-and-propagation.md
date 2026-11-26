@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/blyxa-japonica-care-guide-planting-growing-and-propagation/
 title: Blyxa Japonica Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-30T11:53:18.468Z
-hash: 5735f11e174c55bb266d0bcb83266d0ce754d868a75e90d0e6ad6b2f9416304a
+hash: be00339ddba92298673bd0b2b6eeb5f11f0dc9f87d1e5954f447345a27a489fe
 ---
 
 Blyxa Japonica is an attractive aquatic stem plant that is famous for its use in Dutch and Iwagumi aquascaping. It grows bushy and has a lovely green texture. Nonetheless, despite its popularity in aquascaping, this plant is not for beginners.
@@ -148,4 +148,3 @@ Therefore, it is more suitable for experienced aquarists due to the high demands
 - Mandal, Sujit Kumar. “Blyxa Japonica (Miquel) Maximovicz Ex Ascherson Et Gurke Var. Japonica (Hydrocharitaceae) and Najas Malesiana De Wilde (Najadaceae)-New Records for West Bengal.” Field notes 5, no. 11 (2016).
 - Pagag, K., and S. K. Borthakur. “Rediscovery of Blyxa japonica (Miquel) Maximowicz ex Ascherson et Gürke-a hydrophyte from Lakhimpur district of Assam, India.”
 - Verbatim text: Cook, C. D. K., and R. Lüönd. 1983. A revision of the genus Blyxa (Hydrocharitaceae). Aquatic Bot. 15: 1-52.
-### Leave a Reply Cancel reply

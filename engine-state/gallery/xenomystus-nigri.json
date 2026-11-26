@@ -14,12 +14,15 @@
   "inat:53146309"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/f994a48481d1a32f.webp": "8f2f4d92e4c68683",
   "https://media.aquatome.com/commons/4070688370479769.webp": "81c1e2cc3838c0a0",
   "https://media.aquatome.com/commons/f2103c4501d844ec.webp": "a5a71c1e3b994149",
   "https://media.aquatome.com/commons/06cd27e1a3623d60.webp": "839383d3a2c24bc9",
   "https://media.aquatome.com/commons/fb81c0cd83876cf0.webp": "b436336742420705",
-  "https://media.aquatome.com/commons/b3a01edda5e66604.webp": "680707031785a9a0"
+  "https://media.aquatome.com/commons/b3a01edda5e66604.webp": "680707031785a9a0",
+  "https://media.aquatome.com/glaser/2955408f878508da.webp": "42612606873706f3",
+  "https://media.aquatome.com/glaser/a71270fb578e3426.webp": "9fc92fa3e1999018",
+  "https://media.aquatome.com/glaser/efba0cafdde300a5.webp": "7c7c0ea3c8ace143",
+  "https://media.aquatome.com/glaser/1b9c130cdabf1a9b.webp": "474e4e9686c298c8"
  },
  "commons": "2026-11-04",
  "inat": {
@@ -32,6 +35,9 @@
  },
  "gbif": {
   "key": 5212872,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

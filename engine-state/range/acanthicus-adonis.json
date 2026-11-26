@@ -1,8 +1,8 @@
 {
   "id": "acanthicus-adonis",
   "native": {
-    "input": "98ef335c24caeb08",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "f065897a343dc438",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "BR",
@@ -15,17 +15,9 @@
       {
         "code": "BR",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Described from the lower rio Tocantins near the city of Cametá, Pará state, northern Brazil and occurs throughout the lower part of that system.",
+        "source": "glaser",
+        "quote": "Acanthicus adonis was described from the Rio Tocantins in Brazil.",
         "words": "Brazil",
-        "ok": true
-      },
-      {
-        "code": "PE",
-        "status": "doubtful",
-        "source": "seriouslyfish",
-        "quote": "Although definitive details are lacking, it's also thought to range throughout much of the Amazon basin with similar-looking fishes being exported from as far afield as Peru.",
-        "words": "Peru",
         "ok": true
       }
     ],
@@ -41,6 +33,13 @@
         "name": "Amazon",
         "source": "seriouslyfish",
         "quote": "Although definitive details are lacking, it's also thought to range throughout much of the Amazon basin with similar-looking fishes being exported from as far afield as Peru.",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
+        "source": "glaser",
+        "quote": "Acanthicus adonis was described from the Rio Tocantins in Brazil.",
+        "country": "BR",
         "ok": true
       }
     ],

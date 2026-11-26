@@ -48,7 +48,7 @@ public enum PathForm: String, Sendable {
   /// isn't a page to move.
   static let sections: Set<Substring> = [
     "ca", "cay", "chinh-sach-bao-mat", "cong-cu", "dang-nhap", "gioi-thieu", "huong-dan", "kham-pha", "lien-he", "moi-cap-nhat",
-    "nguon-goc", "nhom", "phan-loai", "san-pham", "thiet-bi", "thuat-ngu", "tim-kiem", "video",
+    "nguon-goc", "nhom", "phan-loai", "san-pham", "thiet-bi", "thuat-ngu", "tim-kiem", "vat-lieu", "video",
   ]
 
   /// A Vietnamese page's path without its "/vi" ("/ca/ca-neon/"; "/" for the home); nil for any other path.

@@ -1,12 +1,13 @@
 import { linkTerms, type Content } from '@aq/schema'
 import { slugify } from '@aq/schema/slug'
 import { basedOn, breedsOf, careCard, type Breed } from './breeds'
-import { GALLERY_STRIP } from './gallery'
-import { albumOf, hasPhotoPage } from './photo-page'
+import { APP_GALLERY_MIN, GALLERY_STRIP } from './gallery'
+import { albumOf, hasAlbum } from './photo-page'
 import { isVietnamese, type Lang } from './i18n'
 import { guideImages, guidesMentioning, mentionIndex } from './mentions'
 import { pagePictures, takeEach } from './pictures'
 import { sciBeside } from './sci'
+import { withToc } from './toc'
 
 /**
  * A hybrid's parent as its page names it: the species page when there is one, else the name the sources give. `vi`: that
@@ -43,19 +44,22 @@ export function breedParts(lang: Lang, c: Content, b: Breed) {
   const pics = pagePictures(c)
   pics.add(b.photos[0]?.url)
   const gallery = albumOf(c, 'breeds', b)
-  const strip = gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null)
+  const strip = hasAlbum(gallery) ? gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null) : []
   const lines = breedsOf(lang, c, b.id)
   const linePhotos = takeEach(pics, lines, x => x.photos)
   // Its own text links the species, glossary terms and other pages it names, never itself. The list is the one
-  // mentionIndex keeps for this content: building it walks every species, plant and breed name.
-  const body = b.t.body ? linkTerms(b.t.body, mentionIndex(c).targets.filter(t => t.key !== key), 'ml').html : ''
+  // mentionIndex keeps for this content: building it walks every species, plant and breed name. Its headings get ids as a
+  // guide's do (toc.ts), the web page's and the app copy's alike, so a link or the chat opens one (16 Nov: none had one,
+  // and the chat couldn't open a ranchu's care section).
+  const body = b.t.body ? withToc(linkTerms(b.t.body, mentionIndex(c).targets.filter(t => t.key !== key), 'ml').html, b.t.body).html : ''
   const mentioning = guidesMentioning(c, key)
   // The video guides' cards last, as on the page: two of one channel can carry the same photo.
   const videoGuides = mentioning.filter(g => g.video)
   return {
     key, parent: basedOn(c, b), parents, ...careCard(b), gallery, strip,
-    // Its gallery page, once there are enough photos for one.
-    galleryPath: hasPhotoPage(gallery) ? `/vi/ca/${b.t.slug}/anh/` : undefined,
+    // The app's link to its album, once there are enough photos for one: the album's old address, which forwards to this
+    // page (the app doesn't open it; protocols/page-vectors.json holds it until the protocols next change).
+    galleryPath: gallery.length >= APP_GALLERY_MIN ? `/vi/ca/${b.t.slug}/anh/` : undefined,
     lines, linePhotos, body, guides: mentioning.filter(g => !g.video), videoGuides, videoPhotos: takeEach(pics, videoGuides, g => guideImages(c, g)),
   }
 }

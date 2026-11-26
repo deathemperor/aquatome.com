@@ -3,8 +3,9 @@
 public struct ReadingList: Codable, Equatable, Sendable {
   public private(set) var saved: [String] = []
   public private(set) var recent: [String] = []
-  /// The pages read last that are kept.
-  public static let recentMax = 20
+  /// The pages read last that are kept: far more than Khám phá shows (the owner, 15 Nov: "Recording of recently viewed
+  /// need to be big too"). Paths only, about 30 KB at most per language.
+  public static let recentMax = 500
 
   public init() {}
 
@@ -30,7 +31,7 @@ public struct ReadingList: Codable, Equatable, Sendable {
   }
 
   /// The pages at `paths` that the index has now (`byPath`), of `kind` (any for nil), in order: the first `limit`.
-  public static func items(_ paths: [String], in byPath: [String: HandbookIndex.Item], kind: HandbookIndex.Kind?, limit: Int = .max) -> [HandbookIndex.Item] {
+  public static func items(_ paths: [String], in byPath: ItemsByKey, kind: HandbookIndex.Kind?, limit: Int = .max) -> [HandbookIndex.Item] {
     var out: [HandbookIndex.Item] = []
     for p in paths where out.count < limit {
       if let i = byPath[p], kind.map(i.is) ?? true { out.append(i) }

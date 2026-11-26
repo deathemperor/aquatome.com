@@ -10,7 +10,8 @@
     "bolivia",
     "mamore",
     "brazil",
-    "guapore"
+    "guapore",
+    "rio-san-martin"
   ],
   "range": {
     "native": {
@@ -20,11 +21,12 @@
       ],
       "regions": [
         "Madeira",
-        "Río Guaporé",
+        "Rio Guaporé",
         "Río Mamoré"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -44,7 +46,7 @@
             "BO"
           ],
           "regions": [
-            "Río Guaporé",
+            "Rio Guaporé",
             "Río Mamoré"
           ]
         }
@@ -190,6 +192,13 @@
           "min": 22,
           "max": 30
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -207,6 +216,13 @@
         "value": {
           "min": 1,
           "max": 15
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 0,
+          "max": 20
         }
       }
     ],
@@ -243,6 +259,12 @@
       "html": "<p>Needs a very large tank. Needs a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</p><p>Geophagus megasema is a cichlid from the upper rio Madeira basin, recorded from the Mamoré and Guaporé drainages in Bolivia and Brazil. Very rare in the aquarium hobby, it has been collected, bred and distributed by some private collectors. It has no dark preopercular or infraorbital markings, no bars on the flanks and a relatively large, roundish midlateral marking.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_megasema_en/",
+      "html": "<p>There is almost no chance that commercial importations of wild collected Geophagus megasema will ever appear. So it is very welcome that travelling aquarium enthusiasts collect such species in areas that are ignored by professional fish collectors and bring them home alive, which makes it possible to develop a captive bred stock.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-megasema",
@@ -273,10 +295,22 @@
       "html": "<ul><li>Temperature: 22–30°C (72–86°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_megasema_en/",
+      "html": "<p>Geophagus megasema is a quite hardy species and can be kept even in harder water up to 20° dGH; however, it will not be as colorful as it could be under these conditions. If the fish are kept in soft and slightly acidic water they are real eyeburners! Breeding is also easier under these conditions, but the fish can also be bred in harder water.</p><p>This species of eartheater from Bolivia can be kept and bred at relatively low temperatures of 25 to 28°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-megasema",
       "html": "<p>Geophagus spp. are benthophagous by nature, employing a method of feeding whereby mouthfuls of substrate are taken and sifted for edible items with the remaining material expelled via the gill openings and mouth.</p><p>For this reason they're commonly termed 'eartheaters' and the provision of a suitable substrate is essential to their long-term well-being.</p><p>Once settled they readily rise into the water column when food is introduced but continue to browse normally at other times.</p><p>The stomach contents of wild specimens mostly comprise small aquatic and terrestrial invertebrates, plant material in the form of seeds, organic detritus and sediment.</p><p>Even as adults these cichlids seem unable to properly ingest larger food items meaning the diet should contain a variety of high quality, fine-grade prepared foods plus small live or frozen bloodworm, Tubifex, Artemia, mosquito larvae, etc.</p><p>At least some of the dried products should contain a high proportion of vegetable matter such as Spirulina or similar.</p><p>Home-made, gelatine-bound recipes containing a mixture of dried fish food, puréed shellfish, fresh fruit and vegetables, for example, are proven to work well and can be cut into bite-sized discs using the end of a sharp pipette or small knife.</p><p>Rather than a single large meal offer 3-4 smaller portions daily to allow natural browsing behaviour as this seems to result in the best growth rate and condition.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_megasema_en/",
+      "html": "<p>Food should not be too rough for this species: flakes, different types of frozen bloodworm, mosquito larvae, and artemia are perfect for it.</p>"
     },
     {
       "key": "behaviour",
@@ -297,10 +331,22 @@
       "html": "<p>Substrate-spawning, ovophilous, biparental mouthbrooder that has been bred in aquaria.</p><p>There doesn't appear to be any particular trigger for the spawning process with the main requirements being good diet and stringent maintenance regime involving relatively large weekly water changes.</p><p>Since accurate sexing is essentially impossible it's best to begin with a group of young fish and allow pairs to form naturally.</p><p>A degree of patience is also required since it can be at least a year until they become sexually mature.</p><p>Courtship is relatively unobtrusive consisting of fin flaring, circling, gaping and head jerking displays, and when ready to spawn a pair will select a suitable site.</p><p>This is normally a piece of décor such as a flat rock or section of driftwood although it's not unknown for the base of the aquarium to be used and once chosen the area is cleaned and defended against intruders.</p><p>Spawning occurs in typical substrate-spawning fashion with the female laying one or more rows of eggs before the male moves in to fertilise them, the process being repeated numerous times over a period of several hours.</p><p>Maximum brood size is around 200 eggs which are normally taken up by the female though on rare occasions both adults may be involved from the start.</p><p>Some males may become aggressive post-spawning and drive the female away to care for the eggs alone, but the most common scenario involves her holding the fry while he defends the surrounding territory.</p><p>Once the fry are swimming freely brood care is shared although this also varies depending on the male with some individuals becoming involved earlier and others not at all.</p><p>The parents may participate in mouthbrooding duties simultaneously or by exchanging the entire brood on a more-or-less daily basis, the transfer normally taking place in a sheltered location such as a depression in the substrate.</p><p>When not brooding the adults will normally feed, and may even take some small morsels while holding fry.</p><p>The fry become free swimming at 7-14 days of age and the parents begin to release them to feed, initially with caution but for increasingly longer periods.</p><p>If danger is sensed the fry are shepherded back into the adults' mouths, with rapid movement of the ventral fins appearing to act as a signal.</p><p>As time elapses and the fry grow they may only return to their parents' mouths at night while the size of the territory becomes correspondingly larger.</p><p>They're easily-fed, accepting good quality powdered dry foods, Artemia nauplii, microworm, etc. as soon as the free-swimming stage is reached.</p><p>If maintaining the adults in a community situation it's recommended to remove brooding females as the fry become easy prey for other fishes, including conspecifics, once released.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_megasema_en/",
+      "html": "<p>Geophagus megasema is a larvophilous mouthbrooder. The larvae are taken in the mouth by both parents as soon as they leave the eggs. Parental care is taken by both sexes in an equal way.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-megasema",
       "html": "<p>This species is very rare in the aquarium hobby and may never have been available on a commercial basis although it has been collected, bred and distributed by some private collectors.</p><p>It's a member of the putative G. surinamensis 'group' of closely-related species within the genus and can be identified by a combination of characters including: no dark preopercular or infraorbital markings; no vertical bars on the flanks; relatively large, roundish dark midlateral marking.</p><p>Representatives of the G. surinamensis assemblage are diagnosed by their relatively deep head and body shape, possession of a variably-sized dark spot on each flank and presence or absence of a small, dark preopercular marking.</p><p>There are currently thirteen described members but diversity is predicted to eventually prove much greater with a number of undescribed forms known some of which, such as G. sp. 'orange head' and G. sp. 'Pindare', are regularly available in the aquarium trade.</p><p>The described members of the group are G. abalios, G. altifrons, G. brachybranchus, G. brokopondo, G. camopiensis, G. dicrozoster, G. megasema, G. neambi, G. parnaibae, G. proximus, G. surinamensis, G. sveni and G. winemilleri.</p><p>Only five Geophagus species aren't included, namely G. argyrostictus, G. gottwaldi, G. grammepareius, G. harreri and G. taeniopareius.</p><p>These are most easily separated on the basis that they all possess a complete infraorbital stripe but oddly have not had their own group name assigned, usually being referred to simply as 'non-G. surinamensis group' species.</p><p>Accurate identification of G. surinamensis group members has been problematic for a number of reasons, not least that prior to Kullander (1986) G. surinamensis itself was thought to range throughout the Orinoco, Amazon and Guianas river systems but is now considered endemic to the Rio Suriname and Rio Maroni (aka Marowijne) watersheds in eastern Suriname.</p><p>Several former 'populations' have thus been described as species in their own right since the turn of the century, meaning older literature can be somewhat unreliable.</p><p>Further, the majority of Geophagus species in the hobby are sold as G. surinamensis regardless of origin - a situation which continues to cause confusion and exacerbated by the fact that juveniles of most are virtually identical.</p><p>G. surinamensis is in fact almost never traded and very few privately-owned specimens exist.</p><p>The number of species awaiting description is unconfirmed but it seems feasible that certain rivers within the Río Orinoco, rio Amazonas, rio Tocantins and rio Parnaíba basins, plus coastal drainages of the Guianas, contain one or two endemic forms.</p><p>Of those known in the aquarium hobby some are traded as G. sp. aff. altifrons which can be misleading as they don't always resemble that species.</p><p>More preferable is to label with locality data when available.</p><p>The genus Geophagus was rediagnosed by Kullander (1986) who restricted it to include only those species with paired caudal extensions to the swimbladder lined by 6-12 epihemal 'ribs' plus a greater number of caudal than abdominal vertebrae.</p><p>Some former species were moved into the resurrected genus Satanoperca while others, such as the 'Geophagus' brasiliensis and 'G.' steindachneri groups represent distinct groupings still in need of definitive classification.</p><p>Geophagus and a number of related genera are often included in the putative subfamily Geophaginae.</p><p>Kullander (1998) conducted a morphology-based phylogenetic study in which the neotropical Cichlidae was divided into six subfamilies of which the Geophaginae contained 16 genera divided among three 'tribes':</p><ul><li>Acarichthyini - Acarichthys and Guianacara.</li><li>Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia.</li><li>Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</li></ul><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species.</p><p>However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported 'Satanoperca clade' comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a 'big clade' with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a 'crenicarine clade' with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works.</p><p>The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_megasema_en/",
+      "html": "<p>Geophagus megasema was described scientifically by Heckels as early as 1840. However, only very few specimens reached Europe from Bolivia since then. Moreover, the fish were quite often mis-identified as other Geophagus species. It was only in 2006 that a group of travelling aquarists from Austria, Germany and Switzerland were able to import a good number of specimens of this cichlid from the Rio San Martin in Bolivia. Soon after they were able to breed them and the species was spread in the hobby.</p><p>Lexicon: Geophagus: ancient Greek, means \"eartheater\". megasema: ancient Greek, means \"with a big sign\". This is referring to the large lateral spot.</p>"
     },
     {
       "key": "references",
@@ -309,8 +355,62 @@
       "html": "<ul><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (1999). Mitochondrial DNA phylogeny of the family Cichlidae: monophyly and fast molecular evolution of the Neotropical assemblage. Journal of Molecular Evolution 48(6), 703-711</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (2001). The cytochrome b gene as a phylogenetic marker: the limits of resolution for analyzing relationships among cichlid fishes. Journal of Molecular Evolution 53(2), 89-103</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>López-Fernández, H. and D. C. Taphorn (2004). Geophagus abalios, G. dicrozoster and G. winemilleri (Perciformes: Cichlidae), three new species from Venezuela. Zootaxa 439, 1-27</li><li>López-Fernández, H., R. L. Honeycutt, M. L. J. Stiassny and K. O. Winemiller (2005). Morphology, molecules, and character congruence in the phylogeny of South American geophagine cichlids (Perciformes, Labroidei). Zoologica Scripta 34(6), 627-651</li><li>Lucinda, P. H. F., C. A. S. de Lucena and N. C. Assis (2010). Two new species of cichlid fish genus Geophagus Heckel from the Rio Tocantins drainage (Perciformes: Cichlidae). Zootaxa 2429, 29-42</li><li>Staeck, W. and I. Schindler (2006). Geophagus parnaibae sp. n. -- a new species of cichlid fish (Teleostei: Perciformes: Cichlidae) from the rio Parnaíba basin, Brazil. Zoologische Abhandlungen (Dresden) 55, 69-75</li><li>Heckel, J. J. (1840). Johann Natterer's neue Flussfische Brasilien's nach den Beobachtungen und Mittheilungen des Entdeckers beschrieben (Erste Abtheilung, Die Labroiden). Annalen des Wiener Museums der Naturgeschichte v. 2, 325-471</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/f94babe3f193d0ba.webp",
+      "thumb": "https://media.aquatome.com/glaser/f94babe3f193d0ba-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Thomas Weidner / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_megasema_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d7583249f16d5777.webp",
+      "thumb": "https://media.aquatome.com/glaser/d7583249f16d5777-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Thomas Weidner / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_megasema_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3096cb1b91630493.webp",
+      "thumb": "https://media.aquatome.com/glaser/3096cb1b91630493-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Thomas Weidner / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_megasema_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fce621e0404a3c4b.webp",
+      "thumb": "https://media.aquatome.com/glaser/fce621e0404a3c4b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Thomas Weidner / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_megasema_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "KuQ4X-OAERY",
+      "title": "MEGASEMA #geophagus #ciclideos #peixes #tilapia #aquário #aquarismo #peixe #aquarismobrasil #aqua",
+      "durationSec": 10,
+      "lang": "pt-BR"
+    },
+    {
+      "youtubeId": "CRljbO3qVlE",
+      "title": "Geophagus megasema#music #aquarium",
+      "durationSec": 10,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -340,5 +440,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-16"
 }

@@ -1,5 +1,6 @@
 import { pageShard, shardCount } from '@aq/schema/app-page'
 import { isGenerated, isOwnerCrop } from '@aq/schema/image-policy'
+import { isNonCommercial } from '@aq/schema/licence'
 import type { Catalog, CatalogEntry } from './catalog'
 import { lookOf, plainText } from './look'
 
@@ -61,7 +62,7 @@ export const factShardOf = (id: string, shards: number) => pageShard(id, shards)
 
 /**
  * Each catalog page's facts. `photos`: the page's photos then its gallery's (`gallery`), as `thumb` makes them, `count`
- * at most. A species' and a plant's text is its sources' dimorphism, then their notes (first source first); a breed
+ * at most; never a non-commercial photo, a page's head or not (the owner's yes, 10 Nov; the chief of staff's rule, 17 Nov: never a fish-ID reference). A species' and a plant's text is its sources' dimorphism, then their notes (first source first); a breed
  * has no sections, so its text is its own summary (Vietnamese, as the page writes it).
  */
 export function buildFacts<P>(catalog: Catalog, pages: FactPages<P>, thumb: (p: P) => string, opts: { gallery?: (id: string) => P[]; count?: number } = {}): Facts[] {
@@ -85,7 +86,7 @@ export function buildFacts<P>(catalog: Catalog, pages: FactPages<P>, thumb: (p: 
     const look = e.kind === 'breed' ? undefined : lookOf(sections, undefined, e.kind === 'plant')
     if (look) f.look = look
     if (text) f.text = cut(text, TEXT_MAX)
-    f.photos = [...new Set([...p.photos, ...(opts.gallery?.(e.id) ?? [])].filter(p => !isGenerated(p) && !isOwnerCrop(p)).map(thumb))].slice(0, count)
+    f.photos = [...new Set([...p.photos, ...(opts.gallery?.(e.id) ?? [])].filter(p => !isGenerated(p) && !isOwnerCrop(p) && !isNonCommercial(String((p as { licence?: unknown }).licence ?? ''))).map(thumb))].slice(0, count)
     return f
   })
 }

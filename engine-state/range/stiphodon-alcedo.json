@@ -1,0 +1,62 @@
+{
+  "id": "stiphodon-alcedo",
+  "native": {
+    "input": "d99bad669f08f434",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Ryukyu Islands, Japan, and thus far recorded from just 4 streams on Okinawa island and two on Iriomote island.",
+        "words": "Japan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ryukyu Islands",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Ryukyu Islands, Japan, and thus far recorded from just 4 streams on Okinawa island and two on Iriomote island.",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Okinawa",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Ryukyu Islands, Japan, and thus far recorded from just 4 streams on Okinawa island and two on Iriomote island.",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Iriomote",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Ryukyu Islands, Japan, and thus far recorded from just 4 streams on Okinawa island and two on Iriomote island.",
+        "country": "JP",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Stiphodon alcedo",
+    "status": "ACCEPTED",
+    "taxonKey": 7193136,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "JP"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

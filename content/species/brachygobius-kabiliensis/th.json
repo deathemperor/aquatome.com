@@ -20,10 +20,10 @@
     "references:seriouslyfish": "<ul><li>Miller, P. J. (1989). The classification of bumble-bee gobies (Brachygobius and associated genera) (Teleostei: Gobiidae). Cybium 13(4), 375-383</li><li>Inger, R. F. (1958). Notes on the fishes of the genus Brachygobius. Fieldiana Zoology 39(14), 107-117</li><li>Randall, J. E. and K. K. P. Lim (2000). A checklist of the fishes of the South China Sea. The Raffles Bulletin of Zoology Supplement 8, 569-667</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.7
+      "seriouslyfish": 0.85
     }
   }
 }

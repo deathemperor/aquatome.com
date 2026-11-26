@@ -1,8 +1,13 @@
 {
   "slug": "kepayang",
-  "name": "Kepayang",
+  "name": "Sungai Kepayang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.85,
+    "at": "2026-11-16T11:27:35.178Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

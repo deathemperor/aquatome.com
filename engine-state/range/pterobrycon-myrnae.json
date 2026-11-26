@@ -1,0 +1,52 @@
+{
+  "id": "pterobrycon-myrnae",
+  "native": {
+    "input": "79983b2d0a8a0ea6",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This fish is restricted to fast running brooks in Costa Rica.",
+        "words": "Costa Rica",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pterobrycon myrnae",
+    "status": "ACCEPTED",
+    "taxonKey": 2352637,
+    "datasets": [
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "CR"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T11:42:48.614Z"
+  }
+}

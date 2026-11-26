@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { CELL_DEG, countryName, type Cell, type SourceId, type SpeciesRange } from '@aq/schema'
+import { CELL_DEG, countryName, LANGS, type Cell, type SourceId, type SpeciesRange } from '@aq/schema'
 import { isVietnamese } from '@aq/schema/text'
 import { getContent } from '../src/lib/content'
 import { frameOf, mapSvg, MAP_W, rangeMap } from '../src/lib/range-map'
@@ -53,8 +53,11 @@ test('each sentence with what it names and its source\'s mark; only from a sourc
   expect(p.said?.title).toBe('Nguồn ghi gì')
   expect(plain(p.said?.html)).toBe('Peru, Amazon · Seriously Fish1: “Native to the upper Amazon basin in Peru.”Brazil · The Spruce Pets2: “Found in western Brazil.”')
   expect(p.said?.html).toContain('<span lang="en">')
-  // The countries' line ends with both sources' marks, the regions' with the one its sentence is from.
-  expect(plain(p.words)).toBe('Sống tự nhiên ở: Peru, Brazil12Sông, hồ, vùng: Amazon1')
+  // The countries' line ends with both sources' marks, the regions' with the one its sentence is from. Two marks side by
+  // side are one group (lib/cite.ts citeGroup), so each one's 44 px reaches away from the other (global.css): ungrouped,
+  // each was centred and the second's lay over the first, so a tap on 1 opened 2 (Fable's read, 15 Nov 2026).
+  expect(plain(p.words)).toBe('Sống tự nhiên ở: Peru, Brazil1 2Sông, hồ, vùng: Amazon1')
+  expect(p.words).toContain('<span class="marks"><a class="cite" href="https://example.org/seriouslyfish">1</a> <a class="cite" href="https://example.org/sprucepets">2</a></span>')
   // A source the page has no text of: its sentence and its mark are left out, not its country.
   const only = parts(r, ['seriouslyfish'])!
   expect(plain(only.said?.html)).toBe('Peru, Amazon · Seriously Fish1: “Native to the upper Amazon basin in Peru.”')
@@ -162,4 +165,40 @@ test("a source's sentence keeps its own words, and the Vietnamese names in it ar
   // Outside the marked names, no letter only Vietnamese has (what the live check looks for, e2e/fixtures.ts).
   expect(html.replace(/<span lang="vi">[^<]*<\/span>/g, '')).not.toMatch(/[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]/i)
   expect(plain(html)).toContain(quote)
+})
+
+// The live check found Vietnamese on the Indonesian spiny eel page (/id/ikan/tilan/, 21 Nov 2026): its range quoted
+// AquaTome's own text, written from web research in Vietnamese, as a source's words in English, on every language's page.
+test("AquaTome's own sentences are never listed as a source's words, and still mark the lines they back", () => {
+  const quotes = [
+    { source: 'aquatome' as const, quote: 'Loài này có ở phía tây bán đảo Malaysia.', countries: ['MY'], regions: [] },
+    { source: 'seriouslyfish' as const, quote: 'Found in Sumatra.', countries: ['ID'], regions: ['Sumatra'] },
+  ]
+  const r = { native: native({ countries: ['MY', 'ID'], regions: ['Sumatra'], sources: ['aquatome', 'seriouslyfish'], quotes }) }
+  for (const lang of ['vi', 'id'] as const) {
+    const p = rangeParts(lang, c, { id: 'x', name: 'x', range: r }, marks(['aquatome', 'seriouslyfish']))!
+    expect(plain(p.said?.html), lang).toBe('Indonesia, Sumatra · Seriously Fish2: “Found in Sumatra.”'.replace('Indonesia', countryName('ID', 'vi')))
+    expect(plain(p.words), lang).toContain('1 2')
+  }
+  // Only AquaTome's: no list at all.
+  const own = { native: native({ countries: ['MY'], regions: [], sources: ['aquatome'], quotes: [quotes[0]!] }) }
+  expect(rangeParts('id', c, { id: 'x', name: 'x', range: own }, marks(['aquatome']))!.said).toBeUndefined()
+})
+
+test("every fish page in every language: a sentence shown as a source's English has no Vietnamese but its marked names", async () => {
+  const cite = (s: SourceId) => `<a class="cite">${s}</a>`
+  let quoted = 0
+  for (const lang of LANGS) {
+    const content = await getContent(lang)
+    for (const s of content.species) {
+      if (!s.range?.native?.quotes?.length) continue
+      const html = rangeParts(lang, content, { id: s.id, name: s.id, range: s.range }, cite)?.said?.html ?? ''
+      for (const [, quote] of html.matchAll(/<span lang="en">“([\s\S]*?)”<\/span>/g)) {
+        quoted++
+        const left = plain(quote!.replace(/<span lang="vi">[^<]*<\/span>/g, ''))
+        expect(left.match(/.{0,30}[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư].{0,30}/i)?.[0], `${lang} ${s.id}`).toBeUndefined()
+      }
+    }
+  }
+  expect(quoted).toBeGreaterThan(0)
 })

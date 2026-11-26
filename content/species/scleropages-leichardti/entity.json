@@ -311,10 +311,24 @@
       "html": "<p>Will eat smaller fish but is suitable for some communities of larger species, although some individuals won't tolerate any tankmates whatsoever. Possible choices include large catfish, characins and cyprinids, knifefish, Datnioides sp., and cichlids such as Geophagus or Uaru sp. Add the aro last and keep a watchful eye on proceedings as it grows.</p><p>Most specimens are very territorial and belligerent towards other arowana, unless you have enough space to comfortably house 6-10 individuals. Under these conditions any fighting may be dispersed amongst the group, but even then there are no guarantees. The vast majority of fishkeepers do not have these kind of resources available, and so as a general rule this species should be kept singly.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/scleropages_jardinii_and_s_leichardti_en/",
+      "html": "<p>Agains conspecifics they can be quarrelsome, although they show a schooling behaviour as long as they are very small.</p>",
+      "fixed": true
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-leichardti",
       "html": "<p>Infrequently bred in captivity, but is being bred on some Australian fish farms. The reasons for this are fairly obvious; a truly enormous aquarium would be needed to obtain a successful spawn, whereas the fish farmers have the luxury of spawning the fish in outdoor ponds dug directly into the earth, which they apparently prefer. Not only this, but the cost associated with captive breeding of any species of arowana is considerable.</p><p>This is a mouthbrooding species, but unlike with the Asian species it is the female who cares for the brood. The fry remain with the female once they have hatched, leaving her mouth to forage. If danger approaches she will signal for the fry to return. Slowly the fry begin to spend more and more time away from the adult fish, until they are large enough to fend for themselves.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/scleropages_jardinii_and_s_leichardti_en/",
+      "html": "<p>Obviously they keep their quite seasonal breeding time even in the great breeding facilities of South East Asia.</p>",
+      "fixed": true
     },
     {
       "key": "notes",
@@ -385,5 +399,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-15"
 }

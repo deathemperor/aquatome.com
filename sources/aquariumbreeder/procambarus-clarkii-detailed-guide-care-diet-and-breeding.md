@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/procambarus-clarkii-detailed-guide-care-diet-and-breeding/
 title: Procambarus clarkii – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-30T19:13:03.198Z
-hash: 05872b3d5799cb3eb4567a49e29a3d8efaa45a99e2797a71a19a303be40bd2b2
+hash: 1bbc49708467b353985892605aa4c8a05cf841540beab1ddaa0880caa2457323
 ---
 
 In this guide, I have done extensive research on Procarambus Clarkii, commonly known as Red swamp crayfish, Louisiana red swamp, Red crayfish or Mudbug, to describe care, diet, and breeding in all possible details. As always on my blog, you will find here not a vague description but facts.
@@ -156,7 +156,3 @@ References:
 - Inducing Molting by Eyestalk Ablation in the Red Swamp Crayfish, Procambarus clarkii from the Egyptian Freshwaters. American Journal of Life Sciences. Special Issue: New Horizons in Basic and Applied Zoological Research. Vol. 3, No. 6-1, 2015, pp. 69-75. doi: 10.11648/j.ajls.s.2015030601.20
 - Heavy metals effects on life traits of juveniles of Procambarus clarkii. AIMS Environmental Science, 6(3): 147–166. DOI: 10.3934/environsci.2019.3.147 Received: 28 January 2019
 - Courtship in the crayfish Procambarus clarkii (Girard) (Decapoda, Astacidea). Crustaceana. 1981
-## 4 thoughts on “Procambarus clarkii – Detailed Guide: Care, Diet, and Breeding”
-- Pretty! This has been an incredibly wonderful article. Thanks for supplying these details. ReplyHi Scott, You are welcome Best regards, Michael Reply
-- Some of the chart is not visible. ReplyHi Marcus Hampton, Everything appears to be fine on my end. Could you please clarify which specific parts of the chart are not visible for you? This will help me address the issue more effectively. Best regards, Michael Reply
-### Leave a Reply Cancel reply

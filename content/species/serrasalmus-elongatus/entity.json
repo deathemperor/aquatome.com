@@ -13,8 +13,539 @@
     "peru",
     "bolivia",
     "brazil",
-    "amazon"
+    "amazon",
+    "rio-guapore",
+    "rio-apure"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "EC",
+        "PE",
+        "BO",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Rio Guaporé",
+        "Rio Apure"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The pike piranha, Serrasalmus elongatus, is a streamlined piranha from the Amazon and Orinoco basins in Venezuela, Ecuador, Peru, Bolivia and Brazil.",
+          "countries": [
+            "VE",
+            "EC",
+            "PE",
+            "BO",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's been recorded from Venezuela, Ecuador, Peru, Bolivia and Brazil, where it occurs in both the Amazon and Rio Orinoco river basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The type locality is the Rio Guaporé, Mato Grosso, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Guaporé"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Serrasalmus pingke from Venezuela was described from the Rio Apure.",
+          "countries": [],
+          "regions": [
+            "Rio Apure"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354160,
+      "total": 312,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "BR",
+          191
+        ],
+        [
+          "VE",
+          56
+        ],
+        [
+          "BO",
+          40
+        ],
+        [
+          "PE",
+          21
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "EC",
+          1
+        ],
+        [
+          "PY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -73.125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          5.625,
+          2,
+          1
+        ],
+        [
+          -70.3125,
+          7.03125,
+          26,
+          26
+        ],
+        [
+          -70.3125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          5.625,
+          3,
+          2
+        ],
+        [
+          -68.90625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          7.03125,
+          12,
+          12
+        ],
+        [
+          -66.09375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -15.46875,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          -14.0625,
+          7,
+          7
+        ],
+        [
+          -66.09375,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -11.25,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -14.0625,
+          10,
+          10
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          7,
+          7
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -14.0625,
+          5,
+          5
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          0,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          0,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          74,
+          74
+        ],
+        [
+          -60.46875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          15,
+          15
+        ],
+        [
+          -56.25,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          16,
+          16
+        ],
+        [
+          -52.03125,
+          0,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -37,6 +568,10 @@
     "sizeCm": [
       {
         "source": "seriouslyfish",
+        "value": 30
+      },
+      {
+        "source": "glaser",
         "value": 30
       }
     ],
@@ -61,10 +596,28 @@
       "html": "<p>The pike piranha, Serrasalmus elongatus, is a streamlined piranha from the Amazon and Orinoco basins in Venezuela, Ecuador, Peru, Bolivia and Brazil. Its elongate shape is unique among serrasalmids and makes it possibly the easiest Serrasalmus to identify, although large adults fill out into a more diamond-shaped figure. Known as 'caribe pinche' in its native countries, it is a rare find in the trade and suits only the enthusiast as a specimen fish.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-elongatus-2/",
+      "html": "<p>This very elongated piranha can hardly be confused with other species because of its characteristic body shape. With a maximum length of about 30 cm, S. elongatus is one of the largest piranha species.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-elongatus-2/",
+      "html": "<p>Aquaristic imports are mostly from Peru.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-elongatus",
       "html": "<p>Fairly widespread. It's been recorded from Venezuela, Ecuador, Peru, Bolivia and Brazil, where it occurs in both the Amazon and Rio Orinoco river basins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-elongatus-2/",
+      "html": "<p>The type locality is the Rio Guaporé, Mato Grosso, Brazil. The distribution area of Serrasalmus elongatus covers the entire entry of Orinoco and Amazon. Serrasalmus pingke from Venezuela was described from the Rio Apure.</p>"
     },
     {
       "key": "habitat",
@@ -103,10 +656,22 @@
       "html": "<p>Should only be considered as a specimen fish for the enthusiast. This species doesn't make a good tankmate for anything else. Scattered reports of it coexisting with other species should be considered tenuous at best given its natural diet. Similarly there is little point attempting to keep two or more of these together. It is not a gregarious animal by nature and conspecifics are liable to fight until only one remains.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-elongatus-2/",
+      "html": "<p>The species is considered to be very aggressive, is a notorious fin biter and should be cared for individually if possible to avoid losses.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-elongatus",
       "html": "<p>Unknown. There has been speculation that variations in the shape of the anal fin or caudal peduncle patterning may be an indicator of gender, but to date neither of these theories have been confirmed by science.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-elongatus-2/",
+      "html": "<p>Sexually mature males seem to get a red belly and gill cover area.</p>"
     },
     {
       "key": "reproduction",
@@ -119,41 +684,76 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-elongatus",
       "html": "<p>S. elongatus is known as \"Caribe Pinche\" in its native countries and is a rare find in the trade, tending to be quite expensive as a result. Individuals seem to vary in personality. While some are particularly fearless and will actively chase and attempt to bite hands or fingers placed in or up against the aquarium, others will always appear to be shy and nervous.</p><p>The streamlined body form that gives rise to the species name is unique among serrasalmids, and has probably developed as an adaptation to the fast-flowing waters that this fish calls home. Interestingly much of this shape is lost as the fish mature, with really big adults filling out into a more diamond-shaped figure. The extent to which this occurs appears to be based at least in part on the locality of the fish.</p><p>There are currently 24 described species of Serrasalmus, many of which look superficially similar. Due to its shape S. elongatus is possibly the easiest of these to identify correctly. It is usually placed into the so-called \"humeralis group\" by experts. This grouping of morphologically similar species was first proposed by Géry in 1976 and also contains S. humeralis and S. gibbus. It was originally included in the group as S. pingke, a name now known to be a junior synonym of elongatus. It's possible that S. gibbus may also prove invalid in the future, with some evidence suggesting it might be a geographical form of S. rhombeus.</p><p>S. elongatus itself exists in at least two different forms, one (known as the \"black mask\" variant in hobbyist circles) develops an impressive thick black stripe that runs through the eye of the fish, extending to the operculum. It also possesses a dark humeral spot and has an overall silvery body colour. The other form exhibits bright orange/red pigmentation in the pectoral fins, throat and lower portion of the operculum, and usually has a darker head and fins than the black mask variant. Apparently there are also some small differences in body girth between the forms.</p><p>Most experts agree that a detailed revision of Serrasalmus is necessary, as historically the genus has been viewed as something of a \"catch-all\" for similar-looking fin-biting/predatory characins. The juvenile forms of numerous species look broadly similar, characteristically developing the more distinctive adult patterning as they mature. This has resulted in new species being erected erroneously and there have been several attempts to reorganise the group. The most recent major revision was undertaken by Géry in the late 1970s, but a handful of new species have been described since then.</p><p>It's worth noting that in South America only Pygocentrus species such as the infamous red-bellied P. nattereri are known as piranha, with Serrasalmus and other related genera being referred to by other names such as Pirambeba. Serrasalmus species are therefore not considered to be \"true\" piranhas, the name being applied to them by the English-speaking world and aquatic hobby. The relationship between these genera is too complex to address here, although when observing mature fish clear morphological differences are apparent. In his 1991 revision of Pygocentrus Fink stated the following: \"Relative to other serrasalmin, Pygocentrus is diagnosable by several features, including prepelvic serrae number, morphology of the gas bladder and skull, and head width.\"</p><p>It should also be said that serrasalmids are not the fearsome \"monster fish\" as often depicted by the media. Obvious care must be taken when performing tank maintenance but these fish will usually only bite when threatened, and they can be quite skittish in an aquarium setting unless their rather specialist needs are catered for. Most also live in excess of ten years and become less active as they mature, so think carefully before buying one.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-elongatus-2/",
+      "html": "<p>From about 8 cm length on, S. elongatus develops a color pattern of vertical lines in the front part of the back and dots on the flanks. But some specimens are evenly dotted all over the body. A relatively small, roundish humeral spot is often present, but sometimes indistinct; the whole caudal fin is blackish up to the outermost edge, which is transparent. From about 10-12 cm length the iris is red, before that silver. Striking and typical for S. elongatus is a dark eye mask.</p><p>S. pingke (holotype 54 mm long, with a black spot on the tail base) is a synonym of S. elongatus. This has been repeatedly contradicted and S. pingke is sometimes seen as a good species. The assumption that S. pingke is a different species was based on a confusion: a young specimen of S. manueli was called S. elongatus by Fernández-Yépez. S. pingke is surely a synonym of S. elongatus.</p><p>Possibilities of confusion exist actually only with Serrasalmus irritans, which is however more high-backed and has a dark band at the base of the caudal fin.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/7397e45de54f27ff.webp",
-      "width": 960,
-      "height": 511,
-      "licence": "Public domain",
-      "author": "Johann Natterer",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Johann_Natterer_-_pirambeba_(Serrasalmus_elongatus).jpg",
-      "caption": "Desenho de uma Pirambeba - (Serrasalmus elongatus), por Johann Natterer, parte da missão ao Brasil de naturalistas do imperador austríaco Francisco I, de 1817 a 1835 (no Rio São Francisco existe a Ser",
-      "thumb": "https://media.aquatome.com/commons/7397e45de54f27ff-480.webp"
+      "url": "https://media.aquatome.com/glaser/dde4d9204a90a0f8.webp",
+      "thumb": "https://media.aquatome.com/glaser/dde4d9204a90a0f8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-elongatus-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/commons/65714a26ce820db0.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "CC BY 2.0",
-      "author": "Clinton & Charles Robertson",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Serrasalmus_elongatus.jpg",
-      "caption": "Serrasalmus elongatus",
-      "thumb": "https://media.aquatome.com/commons/65714a26ce820db0-480.webp"
+      "url": "https://media.aquatome.com/glaser/ee37c501da0fe3c7.webp",
+      "thumb": "https://media.aquatome.com/glaser/ee37c501da0fe3c7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-elongatus-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/commons/da443bca103aca8d.webp",
-      "width": 960,
-      "height": 643,
-      "licence": "CC0",
-      "author": "w_endo",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Serrasalmus_elongatus_205539269.jpg",
-      "caption": "Slender Piranha (Serrasalmus elongatus) in Brazil",
-      "thumb": "https://media.aquatome.com/commons/da443bca103aca8d-480.webp"
+      "url": "https://media.aquatome.com/glaser/669721f13f0ec957.webp",
+      "thumb": "https://media.aquatome.com/glaser/669721f13f0ec957-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-elongatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6b9b8821bda2e58a.webp",
+      "thumb": "https://media.aquatome.com/glaser/6b9b8821bda2e58a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-elongatus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "JoRLHLvNLuk",
+      "title": "Serrasalmus Elongatus agresivo!",
+      "durationSec": 52,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "60Tla7UxDFQ",
+      "title": "Elongatus piranha || feeding on fish",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Q4uE86hwuzU",
+      "title": "Elongatus piranha 10 inch in action",
+      "durationSec": 35,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -184,5 +784,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-21"
 }

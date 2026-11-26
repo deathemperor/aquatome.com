@@ -5,14 +5,45 @@
   "File:Rotalaindica.jpg",
   "File:Rotala indica var uliginosa flower01.jpg",
   "File:Rotala indica var uliginosa flower02.jpg",
-  "File:R.indica above water leaf and under water leaf.jpg"
+  "File:R.indica above water leaf and under water leaf.jpg",
+  "inat:240928329",
+  "inat:240928353",
+  "inat:246529483",
+  "inat:317671829",
+  "inat:324085199",
+  "inat:344049007",
+  "inat:359007293",
+  "inat:359007294",
+  "inat:601933410",
+  "inat:601933414",
+  "inat:601933427",
+  "inat:617669724",
+  "inat:736971280",
+  "inat:736993189"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/bed2b07d6a29813d.webp": "8e7242294dad982d",
   "https://media.aquatome.com/commons/2e2b5814b82428be.webp": "bb724c51e3e38e4d",
   "https://media.aquatome.com/commons/06ac6935e35f403f.webp": "f43539390f0f1393",
   "https://media.aquatome.com/commons/cbc8dedac4ecc32e.webp": "0f0f0f0e5ae3a361",
-  "https://media.aquatome.com/commons/2381c670a7c61b9f.webp": "e4cc6756b43151c3"
+  "https://media.aquatome.com/commons/2381c670a7c61b9f.webp": "e4cc6756b43151c3",
+  "https://media.aquatome.com/inaturalist/736971280.webp": "d6a68d99b1b89d93",
+  "https://media.aquatome.com/inaturalist/317671829.webp": "96948e4a3d3d299b",
+  "https://media.aquatome.com/inaturalist/344049007.webp": "87716866360acc4f",
+  "https://media.aquatome.com/inaturalist/240928329.webp": "d3d3139492bbb0b1",
+  "https://media.aquatome.com/inaturalist/359007293.webp": "ba289366b8ec4387"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 78888,
+  "pass": "done",
+  "after": {
+   "research": 401533479,
+   "agree": 263126766
+  }
+ },
+ "gbif": {
+  "key": 3188674,
+  "next": null
+ }
 }

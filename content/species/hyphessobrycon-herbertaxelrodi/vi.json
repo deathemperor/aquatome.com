@@ -25,14 +25,16 @@
     "equipment:aquariumcoop": "<p>Thả trong bể thủy sinh nền tối màu là đẹp nhất, vì giữa đám cây xanh, tròng mắt đỏ của cá nổi hẳn lên.</p>",
     "behaviour:aquariumcoop": "<p>Cũng như các loài cá đàn khác, neon đen nuôi càng đông càng vui. Thả thành đàn lớn thì cả đàn bơi đồng loạt, nhìn rất đã mắt. Ít nhất phải nuôi 6 con trong bể 38 lít, còn nuôi 10–15 con trong bể từ 75 lít trở lên thì tốt hơn.</p><p>Cá nuôi chung được với các loài hiền cỡ trung như cá ông tiên, cá ăn đất Geophagus và cá sặc. Với các loài nhỏ, hiền như cá rasbora, các loài tetra khác và cá chuột, nó cũng sống hòa thuận. Neon đen thường để yên cho tép cảnh lớn, nhưng gặp tép con thì nó sẽ tranh thủ ăn. Loài này sống tốt trong bể thủy sinh thả chung với các loài hiền khác.</p>",
     "diet:aquariumcoop": "<p>Ngoài tự nhiên, cá ăn tạp, gồm động vật phù du, giun nhỏ, giáp xác và cả thực vật. Neon đen thích kiếm ăn ở tầng mặt và tầng giữa. Nó không kén ăn, thả gì vào bể nó cũng ăn gần hết. Nên cho ăn đủ loại thức ăn cỡ nhỏ, chẳng hạn cám mảnh krill, cám viên nano, cyclops đông lạnh, bo bo và artemia mới nở.</p>",
-    "reproduction:aquariumcoop": "<p>Cũng như các loài đẻ trứng khác, cá tetra này dễ cho đẻ. Cái khó là ương cá bột, vì bột rất nhỏ.</p><p>Chuẩn bị một bể 38 lít không nuôi con gì khác, rồi thả vào vài lá bàng. Để lá mục dần trong vài tuần cho pH hạ xuống và nước ngả màu sẫm. Lá mục cũng sinh ra mùn và lớp màng vi sinh cho cá bột ăn. Dưới đáy đặt một cụm rêu java, cỏ nhựa lót giỏ Phục Sinh (Easter basket grass) hoặc búi sợi cho đẻ (spawning mop). Sau đó phủ kín cả chỗ cho đẻ bằng một tấm lưới nhựa thủ công (craft mesh). Lỗ lưới đủ lớn cho trứng lọt xuống, nhưng đủ nhỏ để cá bố mẹ không ăn được trứng.</p><p>Nên nuôi một nhóm ít nhất 6 con để dễ có ít nhất một đực một cái. Vỗ cá bố mẹ bằng thật nhiều thức ăn tốt, chẳng hạn artemia mới nở còn sống và vi trùn (microworm). Cá đẻ xong thì vớt bố mẹ ra.</p><p>Cá mới nở cần thức ăn thật nhỏ như infusoria (vi sinh vật li ti), giun giấm (vinegar eel) và thức ăn bột cho cá bột. Khoảng hai tuần sau, cá con thường đã đủ lớn để chuyển sang artemia mới nở còn sống, loại thức ăn tốt nhất cho cá bột. Lá bàng làm nước chua dần và ngả màu, nên neon đen thấy thoải mái hơn khi đẻ.</p>"
+    "reproduction:aquariumcoop": "<p>Cũng như các loài đẻ trứng khác, cá tetra này dễ cho đẻ. Cái khó là ương cá bột, vì bột rất nhỏ.</p><p>Chuẩn bị một bể 38 lít không nuôi con gì khác, rồi thả vào vài lá bàng. Để lá mục dần trong vài tuần cho pH hạ xuống và nước ngả màu sẫm. Lá mục cũng sinh ra mùn và lớp màng vi sinh cho cá bột ăn. Dưới đáy đặt một cụm rêu java, cỏ nhựa lót giỏ Phục Sinh (Easter basket grass) hoặc búi sợi cho đẻ (spawning mop). Sau đó phủ kín cả chỗ cho đẻ bằng một tấm lưới nhựa thủ công (craft mesh). Lỗ lưới đủ lớn cho trứng lọt xuống, nhưng đủ nhỏ để cá bố mẹ không ăn được trứng.</p><p>Nên nuôi một nhóm ít nhất 6 con để dễ có ít nhất một đực một cái. Vỗ cá bố mẹ bằng thật nhiều thức ăn tốt, chẳng hạn artemia mới nở còn sống và vi trùn (microworm). Cá đẻ xong thì vớt bố mẹ ra.</p><p>Cá mới nở cần thức ăn thật nhỏ như infusoria (vi sinh vật li ti), giun giấm (vinegar eel) và thức ăn bột cho cá bột. Khoảng hai tuần sau, cá con thường đã đủ lớn để chuyển sang artemia mới nở còn sống, loại thức ăn tốt nhất cho cá bột. Lá bàng làm nước chua dần và ngả màu, nên neon đen thấy thoải mái hơn khi đẻ.</p>",
+    "distribution:glaser": "<p>Loài này sống ở lưu vực sông Paraguay, thuộc Brazil và Bolivia.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.75,
     "indexable": true,
     "bySource": {
       "seriouslyfish": 0.9,
-      "aquariumcoop": 0.9
+      "aquariumcoop": 0.9,
+      "glaser": 0.75
     }
   }
 }

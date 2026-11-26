@@ -1,8 +1,8 @@
 {
   "id": "ctenopoma-kingsleyae",
   "native": {
-    "input": "08f1d7947a4e19ef",
-    "at": "2026-11-07T13:20:47.766Z",
+    "input": "80ffdd6a30db82a7",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "MR",
@@ -125,15 +125,7 @@
         "ok": true
       }
     ],
-    "regions": [
-      {
-        "name": "Niger",
-        "source": "glaser",
-        "quote": "The first specimens from the lower Niger region arrived in Germany as early as 1912.",
-        "ok": false,
-        "why": "a country"
-      }
-    ],
+    "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {

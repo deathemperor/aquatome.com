@@ -1,8 +1,8 @@
 {
   "id": "ageneiosus-inermis",
   "native": {
-    "input": "76cd1a1c908cdb25",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "7487b1c2a5130fc4",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "AR",
@@ -91,6 +91,14 @@
         "quote": "The type locality is given simply as 'Surinami' (Suriname), but the species appears widely distributed throughout much of South America east of the Andes mountains with records existing from Argentina, Bolivia, Brazil, Colombia, Ecuador, French Guiana, Guyana, Paraguay, Suriname, Venezuela and possibly Uruguay.",
         "words": "Uruguay",
         "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Surínam.",
+        "words": "Surínam",
+        "ok": true
       }
     ],
     "regions": [
@@ -107,13 +115,19 @@
         "ok": true
       },
       {
+        "name": "Paraná",
+        "source": "seriouslyfish",
+        "quote": "It therefore occurs in a number of major river systems including the Amazon and many of its tributaries (rios Negro, Madeira, Xingu, Tapajós, etc.) plus the ríos Tocantins, Orinoco, Parnaíba, Uruguay, Paraná and de la Plata.",
+        "ok": true
+      },
+      {
         "name": "Tocantins",
         "source": "seriouslyfish",
         "quote": "It therefore occurs in a number of major river systems including the Amazon and many of its tributaries (rios Negro, Madeira, Xingu, Tapajós, etc.) plus the ríos Tocantins, Orinoco, Parnaíba, Uruguay, Paraná and de la Plata.",
         "ok": true
       },
       {
-        "name": "Paraná",
+        "name": "Parnaíba",
         "source": "seriouslyfish",
         "quote": "It therefore occurs in a number of major river systems including the Amazon and many of its tributaries (rios Negro, Madeira, Xingu, Tapajós, etc.) plus the ríos Tocantins, Orinoco, Parnaíba, Uruguay, Paraná and de la Plata.",
         "ok": true
@@ -124,12 +138,6 @@
         "quote": "It therefore occurs in a number of major river systems including the Amazon and many of its tributaries (rios Negro, Madeira, Xingu, Tapajós, etc.) plus the ríos Tocantins, Orinoco, Parnaíba, Uruguay, Paraná and de la Plata.",
         "ok": false,
         "why": "a country"
-      },
-      {
-        "name": "Parnaíba",
-        "source": "seriouslyfish",
-        "quote": "It therefore occurs in a number of major river systems including the Amazon and many of its tributaries (rios Negro, Madeira, Xingu, Tapajós, etc.) plus the ríos Tocantins, Orinoco, Parnaíba, Uruguay, Paraná and de la Plata.",
-        "ok": true
       }
     ],
     "disputed": [],

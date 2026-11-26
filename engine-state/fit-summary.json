@@ -1,5 +1,5 @@
 {
- "day": "2026-11-15",
+ "day": "2026-11-25",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4250,
-   "read": 3699,
-   "wrong": 1625,
-   "pct": 44,
-   "held": 454
+   "pages": 5476,
+   "read": 5454,
+   "wrong": 1993,
+   "pct": 37,
+   "held": 730
   },
   "id": {
-   "pages": 1400,
-   "read": 1239,
-   "wrong": 355,
-   "pct": 29,
-   "held": 95
+   "pages": 1709,
+   "read": 1709,
+   "wrong": 463,
+   "pct": 27,
+   "held": 176
   },
   "th": {
-   "pages": 1384,
-   "read": 1201,
-   "wrong": 330,
-   "pct": 28,
-   "held": 90
+   "pages": 1707,
+   "read": 1707,
+   "wrong": 447,
+   "pct": 26,
+   "held": 161
   },
   "ms": {
-   "pages": 291,
-   "read": 250,
-   "wrong": 78,
-   "pct": 31,
-   "held": 38
+   "pages": 589,
+   "read": 589,
+   "wrong": 163,
+   "pct": 28,
+   "held": 103
   }
  },
  "labels": {
@@ -59,18 +59,10 @@
  "sample": [
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-hemibagrus-microphthalmus/",
-   "url": "https://aquatome.com/ca/ca-hemibagrus-microphthalmus/",
-   "title": "Cá Hemibagrus microphthalmus",
+   "path": "/vi/ca/ca-bangana-devdevi/",
+   "url": "https://aquatome.com/ca/ca-bangana-devdevi/",
+   "title": "Cá Bangana devdevi",
    "wrong": [
-    {
-     "check": "words",
-     "quote": "Nhiều khả năng"
-    },
-    {
-     "check": "words",
-     "quote": "giữ lãnh thổ"
-    },
     {
      "check": "words",
      "quote": "ghi nhận"
@@ -79,30 +71,30 @@
   },
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-mystacoleucus-greenwayi/",
-   "url": "https://aquatome.com/ca/ca-mystacoleucus-greenwayi/",
-   "title": "Cá Mystacoleucus greenwayi",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "bạn cần"
-    },
-    {
-     "check": "words",
-     "quote": "Dù vậy"
-    },
-    {
-     "check": "words",
-     "quote": "Nhiều khả năng"
-    }
-   ]
+   "path": "/vi/ca/ca-tropheus-moorii/",
+   "url": "https://aquatome.com/ca/ca-tropheus-moorii/",
+   "title": "Cá Tropheus moorii",
+   "wrong": []
   },
   {
-   "lang": "id",
-   "path": "/id/ikan/cory-habrosus/",
-   "url": "https://aquatome.com/id/ikan/cory-habrosus/",
-   "title": "Cory habrosus",
-   "wrong": []
+   "lang": "vi",
+   "path": "/vi/huong-dan/tu-lam-tran-pvc-cho-be-ca-khong-can-khoan-kinh/",
+   "url": "https://aquatome.com/huong-dan/tu-lam-tran-pvc-cho-be-ca-khong-can-khoan-kinh/",
+   "title": "Tự làm tràn PVC cho bể cá, không cần khoan kính",
+   "wrong": [
+    {
+     "check": "price",
+     "quote": "10 USD"
+    },
+    {
+     "check": "price",
+     "quote": "15 USD"
+    },
+    {
+     "check": "price",
+     "quote": "chỉ tốn khoảng 10 USD vật tư"
+    }
+   ]
   }
  ]
 }

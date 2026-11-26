@@ -1,0 +1,494 @@
+{
+  "found": true,
+  "species": [
+    "Otocinclus",
+    "Audouinella",
+    "Oedogonium",
+    "Compsopogon",
+    "Choleochaete orbicularis",
+    "Euglena",
+    "Cladophora"
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/aquarium-algae",
+      "title": "Aquarium Algae",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gwapa.org/wordpress/articles/algae-in-the-planted-aquarium/",
+      "title": "Algae in the Planted Aquarium",
+      "kind": "society"
+    },
+    {
+      "url": "https://aquasetup.com/10-loai-reu-hai-thuy-sinh-nguyen-nhan-va-cach-tri-dut-diem/",
+      "title": "10 loại rêu hại thủy sinh: nguyên nhân và cách trị dứt điểm",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh24h.com/reu-toc-reu-chi/",
+      "title": "6 Loại Rêu Hại Phổ Biến & Cách Xử Lý Tận Gốc Trong Hồ Thủy Sinh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://therium.vn/reu-hai-va-cach-xu-ly",
+      "title": "RÊU HẠI VÀ CÁCH XỬ LÝ",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cacanhtailoc.com/blogs/tin-tuc/reu-hai-ho-ca-va-ho-thuy-sinh",
+      "title": "Rêu hại hồ cá và hồ thủy sinh: Nguyên nhân và cách xử lý hiệu quả",
+      "kind": "shop"
+    }
+  ],
+  "facts": [
+    {
+      "section": "other",
+      "fact": "Name for the term: \"rêu hại\"",
+      "source": 2,
+      "also": [
+        5
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"tảo\"",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Algae photosynthesise, turning light and nutrients such as fish waste into growth.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Algae give off oxygen by day and use oxygen at night.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Algae are not harmful in themselves and can act as a kind of filtration and as food for fish and invertebrates; most keepers dislike them for how they look.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "A tank completely free of algae is unlikely.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Each kind of algae has its own causes, so identifying the kind comes before treating it.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Algae grow when light and nutrients are out of balance; sometimes the fix is more light or more nutrients rather than less.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Common causes listed are light that is too strong or on more than 8–10 hours a day, excess nutrients from overfeeding and waste, low CO2, an immature biofilter, infrequent water changes and weak flow.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "Excess nutrients, low CO2, old bulbs and poor circulation are the main triggers named across algae kinds.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Target nutrient levels for planted tanks: N 10–20 ppm, P 0.5–2 ppm, K 10–20 ppm, Ca 10–30 ppm, Mg 2–5 ppm, Fe 0.1 ppm.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep CO2 at 20–30 ppm, as far as the fish and invertebrates allow.",
+      "source": 1,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "prevention",
+      "fact": "Run lights 6–8 hours a day and never 24/7; cut light intensity by 30–40% when algae is heavy.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Light 8–10 hours a day, or 4–6 hours in a new tank; indirect sunlight counts toward this limit.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "In a new tank, start with 5–6 hours of light a day and add 30 minutes weekly up to 8 hours.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Put the light on a timer so it stays constant, then adjust nutrients gradually, one change at a time, waiting at least 2–3 weeks to judge each change.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Change 30% of the water weekly, rising to twice weekly when algae appears.",
+      "source": 3,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed only what fish finish in 1–2 minutes.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Turn CO2 on 1 hour before the lights.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese shop warns that daylight in a bright room plus the tank light causes algae blooms, so do not run the light when the room is already very bright.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese shop notes that outdoor tanks in sunlight are prone to \"rêu nước xanh\".",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese shop notes that silicate can already be present in tap water (\"Silicat có thể có sẵn trong nước máy\"), which feeds brown diatom algae.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese shop says \"Rêu nhớt xanh\" (cyanobacteria) is very common in Vietnam and most keepers meet it at least once.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops name liquid carbon by the brands Excel and Cidex.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Copper algaecides will likely kill plants too.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Removing all nitrate from the water can trigger blue-green algae.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Treating only the visible algae without fixing the cause lets it come back.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Overusing hydrogen peroxide, running lights 24/7, overfeeding and changing 100% of the water are listed as common mistakes.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Strong chemicals can shock plants or set off another kind of algae.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not rinse filter media in tap water (\"Không rửa vật liệu lọc bằng nước máy\").",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Algaecides harm plants and animals and should not be used casually.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Hydrogen peroxide: 1–2 ml per 10 liters, with the filter off for 15–20 minutes, applied directly on the algae; the algae turns white within 24 hours.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Bleach dip for algae-covered items: 1:20 bleach to water, then rinse until no bleach smell remains.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Excel or hydrogen peroxide can be spot-applied with a syringe onto algae.",
+      "source": 1,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "treatment",
+      "fact": "Before spot-dosing liquid carbon or hydrogen peroxide, turn off the filter and stop the flow.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Otocinclus eat diatom algae.",
+      "source": 1,
+      "also": [
+        0
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu tóc (genus Oedogonium): fine green hair-like threads on leaves, rocks, wood, substrate and glass.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Rêu tóc: caused by no CO2, excess nutrients, too much or too strong light and weak flow.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Hair/Thread Algae: caused by iron above 0.15 ppm.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Rêu tóc, rêu chỉ: caused by iron above 0.15 ppm.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Rêu Tóc, Rêu Chỉ: clears quickly once CO2 is right; remove by hand or tweezers and avoid iron-rich dosing early on.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Rêu tóc, rêu chỉ: the easiest algae to treat; some keepers grow it to feed fish.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Hair Algae: shorten the lighting period, increase fertilisation or reduce iron, and remove clumps with a toothbrush.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu sừng hươu: dense clumps on leaf edges and veins, branching like antlers; harder to treat than rêu tóc.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Staghorn (Compsopogon sp.): caused by nutrient imbalance or low CO2; most fish and invertebrates will not eat it.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Tảo nâu (diatom, \"tảo cát\"): a brown slimy film on glass, rocks and wood, weakly attached.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Tảo nâu: low light plus high silicate, phosphate or nitrate.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Tảo nâu: in a new tank, wait 4–6 weeks for it to settle, or scrub it off.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Brown Diatom Algae: a dusty, flour-like brown coating on walls, substrate and surfaces, most often in newly planted tanks.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Brown Diatom Algae: caused by high phosphates and silicates.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Tảo Nâu: moderately raise light intensity or duration and change water regularly.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu chùm đen (Audouinella, a red algae): black, dark green or dark red tufts on leaf edges, wood and rocks; it likes strong flow.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Rêu chùm đen: inject 3% hydrogen peroxide directly with a syringe at \"1ml cho mỗi 2 lít nước\".",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Rêu Chùm Đen: low CO2 or weak flow is called the most common cause; also excess organics, excess iron, low pH and old leaves.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Rêu Chùm Đen: during treatment clean the filter and change 30% of the water every other day; it turns white or pink and disappears once CO2 is right.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Black Beard Algae: spray affected items out of the water with 3% hydrogen peroxide, leave 5 minutes, rinse and return; dying algae turns red or clear.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Black Beard Algae: can take six to eight months to establish, so removal takes a similarly long time.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Black Brush/Beard (Rhodophyta): caused by excess N, P or Fe, or by low pH.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "GWAPA says the idea that BBA thrives in acidic water is only believed, not proven, and that African Rift tanks never get BBA is an anecdote from Neil Frank.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu nước xanh: suspended algae, also called \"tảo lam\", that turn the water green and cloudy.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Rêu nước xanh: too much light is the main cause.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Green Water: cloudy pea-soup water from free-floating single-celled phytoplankton.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Green Water: too much light including direct sun, excess nutrients such as double-dosed fertiliser, or an ammonia spike.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Green Water: black out the tank for at least one week, or use a UV sterilizer, which kills it in about 2 to 3 days; large water changes do not work.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Green Water (Euglena): 5–10% water changes daily until clear, or 5 days without light.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Tảo Nước Xanh: lights off for 5–7 days with the tank fully covered, plus a UV sterilizer and more sponge filtration.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Tảo nước xanh: turn the light off and cover the tank for 5 days, called the best method.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Tảo nước xanh: does not harm plants or fish but spoils the look.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu đốm xanh: small, hard green spots on glass, stone, wood and hard, large leaves.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Green Spot (Choleochaete orbicularis): caused by depleted phosphate.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Green Spot: dose phosphate up to 0.5–2.0 ppm.",
+      "source": 1,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "treatment",
+      "fact": "Green Spot Algae: scrape with a razor blade on glass tanks or a gift card on acrylic tanks.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu bụi xanh: a dusty green film on glass, loosely attached, that spreads to substrate, rocks and leaves.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Green Dust Algae (GDA): GDA has no confirmed cause; GWAPA gives a lifecycle of about 21 days.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu nhớt xanh (Cyanobacteria): a thick carpet-like mat with bubbles underneath, dark green in freshwater; it is a bacterium, not an alga.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Blue-Green Algae: a slimy blanket over substrate, plants and decor with a distinctive smell; technically cyanobacteria.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Blue Green/Cyanobacteria: triggered by low nitrates, high organics, old bulbs or poor circulation.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Blue-Green Algae: improve circulation, remove it by hand, change water while vacuuming, then dose one packet of Maracyn (erythromycin) per 10 gallons and wait one week before a water change; repeat once if needed.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Blue Green: raise nitrate to about 5 ppm; Maracyn (erythromycin) at half dosage kills it.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Rêu nhớt xanh: raise nitrates to 5 ppm, add fast-growing plants and turn off the light.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Rêu Nhớt Xanh: siphon off the slime, turn lights off for 3–5 days and increase aeration.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Blue-Green Algae: a week-long blackout is hard on plants, and algae eaters typically will not eat it.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Cladophora: tough green wool-like mats, possibly brought in on Marimo balls.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu chùm (Cladophora): looks like hair algae but is a different species; moss balls can carry it, and it is hard to treat.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu xoăn (Fuzz Algae): curly tufted growth on leaf edges, from nutrient imbalance or low CO2.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Rêu trắng: white growth that is fungus on leftover food or new driftwood, or a bacterial film on substrate; it does not photosynthesise, so reducing light does not help.",
+      "source": 2
+    }
+  ]
+}

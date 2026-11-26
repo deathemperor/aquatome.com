@@ -1,0 +1,81 @@
+{
+  "id": "trichomycterus-albinotatus",
+  "native": {
+    "input": "feffc44572f56eec",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Visconde de Maua, 1 kilometer west of Maromba, Rio Preto, Rio Paraiba basin, Rio de Janeiro State, Brazil, elevation above 1,100 meters.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper course of the Rio Preto, Ribeirão Santa Clara and Córrego das Cruzes drainages, Paraíba do Sul River basin (Rio de Janeiro state, Brazil).",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraíba do Sul",
+        "source": "scotcat",
+        "quote": "Trichomycterus albinotatus is endemic to the Paraíba do Sul basin.",
+        "ok": true
+      },
+      {
+        "name": "Rio Preto",
+        "source": "scotcat",
+        "quote": "South America: Upper course of the Rio Preto, Ribeirão Santa Clara and Córrego das Cruzes drainages, Paraíba do Sul River basin (Rio de Janeiro state, Brazil).",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Paraíba do Sul",
+        "source": "planetcatfish",
+        "quote": "South America: Preto River, tributary of Paraíba do Sul River in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trichomycterus albinotatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342974,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        8
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

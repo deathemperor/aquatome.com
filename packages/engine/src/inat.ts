@@ -5,10 +5,17 @@ const API = 'https://api.inaturalist.org/v1'
 
 /**
  * iNaturalist's photo licence codes that a commercial site may use (it shows ads and affiliate links), as the site writes
- * them. Anything else (CC BY-NC, the default most observers keep, ND, all rights reserved, none) is left out.
+ * them. Anything else (CC BY-NC, the default most observers keep, ND, all rights reserved, none) is left out here; CC
+ * BY-NC and CC BY-NC-SA come in only through their own pass (INAT_NC_LICENCE, inatNcPage), behind their switch.
  */
 export const INAT_LICENCE: Record<string, string> = { cc0: 'CC0', 'cc-by': 'CC BY', 'cc-by-sa': 'CC BY-SA' }
 export const inatLicence = (code: string | null | undefined): string | undefined => INAT_LICENCE[code ?? '']
+/**
+ * The non-commercial codes the owner said yes to (10 Nov), as the site writes them, so the credit names the licence:
+ * read only while IMAGE_SWITCHES.inatNonCommercial is on, research grade only. Never ND (no derivatives), all rights
+ * reserved or none. The code carries no version, so the licence names none.
+ */
+export const INAT_NC_LICENCE: Record<string, string> = { 'cc-by-nc': 'CC BY-NC', 'cc-by-nc-sa': 'CC BY-NC-SA' }
 
 type Taxa = { results: { id: number; name: string; rank: string; matched_term?: string }[] }
 /** Ranks that can be a page's taxon (not a genus or family that merely contains the name). */
@@ -47,6 +54,23 @@ const PAGE = 200
 /** Photos taken from one observation: its first few (later ones are often the same fish from another angle). */
 const PER_OBS = 3
 
+/** An observation's first few photos ≥ 800 px under a licence `licenceOf` names, as candidates. */
+function photosOf(o: Obs, licenceOf: (code: string | null) => string | undefined): Candidate[] {
+  const cands: Candidate[] = []
+  for (const ph of (o.photos ?? []).slice(0, PER_OBS)) {
+    const licence = licenceOf(ph.license_code)
+    const dim = ph.original_dimensions
+    if (!licence || !dim || Math.max(dim.width, dim.height) < 800) continue
+    const k = Math.min(1, 1024 / Math.max(dim.width, dim.height)) // the "large" size
+    cands.push({
+      key: `inat:${ph.id}`, url: ph.url.replace('/square.', '/large.'), thumb: ph.url.replace('/square.', '/medium.'),
+      width: Math.round(dim.width * k), height: Math.round(dim.height * k), licence,
+      author: o.user?.name || o.user?.login || 'iNaturalist', sourceUrl: `https://www.inaturalist.org/photos/${ph.id}`,
+    })
+  }
+  return cands
+}
+
 /**
  * Does the community agree on the species? Research grade says so; otherwise (an aquarium or garden photo is "casual",
  * a new one "needs ID") the community taxon must be the observation's taxon, with at least one identification agreeing.
@@ -63,23 +87,29 @@ export async function inatPage(c: InatCursor, http: Http): Promise<{ cands: Cand
   const pass = c.pass
   const grade = pass === 'research' ? 'research' : 'needs_id,casual'
   const r = (await http(`${API}/observations?taxon_id=${c.taxon}&photo_license=cc-by,cc-by-sa,cc0&quality_grade=${grade}&order_by=id&order=asc&id_above=${c.after[pass]}&per_page=${PAGE}`)) as { results: Obs[] }
-  const cands: Candidate[] = []
-  for (const o of r.results) {
-    if (!agreed(o)) continue
-    for (const ph of (o.photos ?? []).slice(0, PER_OBS)) {
-      const licence = inatLicence(ph.license_code)
-      const dim = ph.original_dimensions
-      if (!licence || !dim || Math.max(dim.width, dim.height) < 800) continue
-      const k = Math.min(1, 1024 / Math.max(dim.width, dim.height)) // the "large" size
-      cands.push({
-        key: `inat:${ph.id}`, url: ph.url.replace('/square.', '/large.'), thumb: ph.url.replace('/square.', '/medium.'),
-        width: Math.round(dim.width * k), height: Math.round(dim.height * k), licence,
-        author: o.user?.name || o.user?.login || 'iNaturalist', sourceUrl: `https://www.inaturalist.org/photos/${ph.id}`,
-      })
-    }
-  }
+  const cands = r.results.filter(agreed).flatMap(o => photosOf(o, inatLicence))
   const last = r.results.at(-1)?.id ?? c.after[pass]
   const after = { ...c.after, [pass]: last }
   const next = r.results.length < PAGE ? (pass === 'research' ? 'agree' : 'done') : pass
   return { cands, cursor: { ...c, pass: next, after } }
+}
+
+/**
+ * Where a taxon's non-commercial photos were read up to: research-grade observations, oldest first, from the last id read
+ * (`after`); `done` once a page came back short. Its own place from 0: the open passes asked only for open licences, so
+ * their cursor is already past observations whose photos are all non-commercial.
+ */
+export type InatNcCursor = { after: number; done?: true }
+
+/**
+ * One page of the taxon's research-grade observations with a CC BY-NC or CC BY-NC-SA photo: those photos ≥ 800 px as
+ * candidates (an open one there is the open passes' to find), credited with their licence. Each observation's grade is
+ * checked here too, not taken on the query's word. One request, at the caller's pace.
+ */
+export async function inatNcPage(taxon: number | null, c: InatNcCursor, http: Http): Promise<{ cands: Candidate[]; cursor: InatNcCursor }> {
+  if (c.done || !taxon) return { cands: [], cursor: { ...c, done: true } }
+  const r = (await http(`${API}/observations?taxon_id=${taxon}&photo_license=${Object.keys(INAT_NC_LICENCE).join(',')}&quality_grade=research&order_by=id&order=asc&id_above=${c.after}&per_page=${PAGE}`)) as { results: Obs[] }
+  const cands = r.results.filter(o => o.quality_grade === 'research').flatMap(o => photosOf(o, code => INAT_NC_LICENCE[code ?? '']))
+  const after = r.results.at(-1)?.id ?? c.after
+  return { cands, cursor: r.results.length < PAGE ? { after, done: true } : { after } }
 }

@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { denoise, htmlToOutline, isChallenge } from '../src/outline'
+import { denoise, dropEmails, htmlToOutline, isChallenge } from '../src/outline'
 
 const fx = (n: string) => readFileSync(new URL(`./fixtures/pages/${n}`, import.meta.url), 'utf8')
 
@@ -57,4 +57,78 @@ test('ads inside the article (a video player, display ads) leave no text or imag
   expect(drawn.outline).not.toMatch(/Now Playing|Up Next|Fish'n Canada|report this ad/)
   expect(drawn.images.map(i => i.src)).toEqual(['/images/2012/03/opsarius-bendelisis.jpg'])
   expect(drawn).toEqual(clean)
+})
+
+// WordPress's comments sit inside `main`, after the article: a heading with their count, each commenter's name, picture and
+// words, then the reply box. Aquarium Breeder's were read as its text until 16 Nov. Every word here is made up.
+test("a page's comments leave no text or images: the page reads as it does without them", () => {
+  const page = (comments: string) => `<html><head><title>Cherry shrimp</title></head><body><main><article>
+    <h1>Cherry shrimp</h1><p>A hardy dwarf shrimp for planted tanks.</p>
+    <img src="/wp-content/uploads/2020/01/cherry-shrimp.jpg" alt="Cherry shrimp on moss" width="1000" height="700"><p>Keep them in soft water.</p>
+  </article>${comments}</main></body></html>`
+  const comments = `<div id="comments" class="comments-area"><h2 class="comments-title">3 thoughts on “Cherry shrimp”</h2>
+    <ol class="comment-list"><li class="comment"><footer><img alt="" src="https://secure.gravatar.com/avatar/0123456789abcdef0123456789abcdef?s=800&d=mm" class="avatar avatar-800 photo" width="800" height="800">
+    <b class="fn">Sample Reader</b> says:</footer><p>Mine bred within a month at 24 degrees.</p></li></ol>
+    <div id="respond" class="comment-respond"><h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a href="#respond">Cancel reply</a></small></h3>
+    <p class="comment-notes">Your email address will not be published.</p></div></div>`
+  const clean = htmlToOutline(page(''))
+  const drawn = htmlToOutline(page(comments))
+  expect(drawn.outline).not.toMatch(/Sample Reader|bred within|thoughts on|Leave a Reply|email address/)
+  expect(drawn.images.map(i => i.src)).toEqual(['/wp-content/uploads/2020/01/cherry-shrimp.jpg'])
+  expect(drawn).toEqual(clean)
+})
+
+test("a theme's own comment headings end the article: a count of thoughts, comments or replies on the page, and the reply box", () => {
+  const article = '# Cherry shrimp\nKeep them in soft water.'
+  for (const heading of ['## 3 thoughts on “Cherry shrimp”', '## One thought on "Cherry shrimp"', '### 12 Responses to ‘Cherry shrimp’', '### Leave a Reply Cancel reply', '## Leave a comment'])
+    expect(denoise(`${article}\n${heading}\nMine bred within a month.`)).toBe(article)
+  // An article's own heading that only starts with a count stays.
+  expect(denoise(`${article}\n## 5 thoughts on feeding\nFeed twice a day.`)).toBe(`${article}\n## 5 thoughts on feeding\nFeed twice a day.`)
+})
+
+// A forum post's header names its writer's email address, and an article may ask readers to write to one: a person's,
+// never the article's, and never stored (six stored files held one on 17 Nov). Made-up addresses only.
+// Codex's read, 17 Nov: an "@" in an address's path cut the address short; a quoted name before the "@" was kept; and a
+// credit read from markup before decoding held the "@" as a character reference.
+test('an "@" inside a web address stays; a quoted name before the "@" goes; an "@" written as a character reference counts', () => {
+  expect(dropEmails('See https://example.com/photos/fish@archive.example.com for more')).toBe('See https://example.com/photos/fish@archive.example.com for more')
+  expect(dropEmails('https://user@example.com/fish/')).toBe('https://user@example.com/fish/')
+  expect(dropEmails('Write to "fish keeper"@example.com today')).toBe('Write to  today')
+  expect(dropEmails('Photo: A Writer (writer&#64;example.com)')).toBe('Photo: A Writer')
+  expect(dropEmails('writer&#x40;example.com or writer&commat;example.org')).toBe(' or ')
+  // No address: the text comes back as it was, its references too.
+  expect(dropEmails('Smith &amp; Jones &#64;fishroom')).toBe('Smith &amp; Jones &#64;fishroom')
+  // Codex's re-read: letters of any language, a quoted name written as references, a web address with an address in
+  // brackets in its path, and a ".heif" picture.
+  expect(dropEmails('Viết cho é@example.com hoặc người-nuôi@ví-dụ.example.vn nhé')).toBe('Viết cho  hoặc  nhé')
+  expect(dropEmails('Photo: &quot;fish keeper&quot;&#64;example.com')).toBe('Photo: ')
+  expect(dropEmails('https://example.com/photos/(fish@example.org).jpg')).toBe('https://example.com/photos/(fish@example.org).jpg')
+  expect(dropEmails('www.example.com/u/fish@example.org and fish@example.org')).toBe('www.example.com/u/fish@example.org and ')
+  expect(dropEmails('loach@2x.heif')).toBe('loach@2x.heif')
+})
+
+test('an email address is never kept: in a post header its brackets go too; a picture named "@2x" stays', () => {
+  const html = `<html><head><title>Loaches (someone@example.com)</title></head><body><main>
+    <h1>Botia rostrata</h1>
+    <p>From: A Writer (a.writer@mail.example.org) Date: May 17th, 2002</p>
+    <p>From: A Writer (one@example.net) / Another (two@example.co.uk) Date: August 4th, 2002</p>
+    <p>If anyone knows, please e-mail me at someone+fish@example.com Also, ask away.</p>
+    <p><a href="mailto:someone@example.com">someone@example.com</a> / Getty Images</p>
+    <p>The file loach@2x.png is the larger picture, loach@2x.heic the phone's.</p>
+    <p>From: A Writer <a.writer@example.org> [two@example.net]</p>
+    <figure><img src="https://x.test/loach.jpg" alt="Loach, photo: someone@example.com"><figcaption><span class="credit">Photo: A Writer (someone@example.com)</span></figcaption></figure>
+  </main></body></html>`
+  const o = htmlToOutline(html)
+  expect(`${o.title}\n${o.outline}`).not.toMatch(/example\.(com|org|net|co\.uk)|mailto/)
+  expect(o.title).toBe('Loaches')
+  expect(o.outline).toContain('From: A Writer Date: May 17th, 2002')
+  expect(o.outline).toContain('From: A Writer / Another Date: August 4th, 2002')
+  expect(o.outline).toContain('please e-mail me at Also, ask away.')
+  expect(o.outline).toContain('loach@2x.png')
+  expect(o.outline).toContain('loach@2x.heic')
+  expect(o.outline).toContain('From: A Writer\n')
+  // A picture's alt text and its credit, which become a stored photo's caption and credit line.
+  expect(o.images).toMatchObject([{ alt: 'Loach, photo:', credit: 'Photo: A Writer' }])
+  // A stored copy cleaned by the same rule reads as a fresh read would: a second pass changes nothing.
+  expect(denoise(o.outline)).toBe(o.outline)
 })

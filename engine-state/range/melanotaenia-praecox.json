@@ -1,8 +1,8 @@
 {
   "id": "melanotaenia-praecox",
   "native": {
-    "input": "a05acfc3be900e52",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "87f0eb03becb7f0e",
+    "at": "2026-11-22T00:38:58.151Z",
     "claims": [
       {
         "code": "ID",
@@ -26,6 +26,12 @@
         "source": "seriouslyfish",
         "quote": "The neon dwarf rainbowfish, Melanotaenia praecox, is a small rainbowfish endemic to the Mamberamo river system in New Guinea, Indonesia.",
         "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "New Guinea",
+        "source": "glaser",
+        "quote": "Melanotaenia praecox is only found on the island of New Guinea and there only in a small area in the western half of the island called Irian Jaya.",
         "ok": true
       },
       {

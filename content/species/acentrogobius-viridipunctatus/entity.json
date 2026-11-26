@@ -502,7 +502,8 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/acentrogobius_viridipunctatus_en/",
-      "html": "<p>Acentrogobius viridipunctatus has now been successfully imported from India for the first time in greater numbers. The species attains a maximum length of 15 cm.</p>"
+      "html": "<p>The species attains a maximum length of 15 cm.</p>",
+      "fixed": true
     },
     {
       "key": "distribution",
@@ -556,7 +557,12 @@
       "author": "Priyankar Chakraborty",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acentrogobius_viridipunctatus.JPG",
       "caption": "Spotted Green Goby",
-      "thumb": "https://media.aquatome.com/commons/7ea8fcd7e12ba322-480.webp"
+      "thumb": "https://media.aquatome.com/commons/7ea8fcd7e12ba322-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/7ea8fcd7e12ba322-large.webp",
+        "width": 2216,
+        "height": 961
+      }
     }
   ],
   "videos": [],
@@ -577,5 +583,10 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-14"
+  "updatedAt": "2026-11-14",
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "In nature, this fish lives in the lower parts of rivers and therefore likes some salt addition."
+  }
 }

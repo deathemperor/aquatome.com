@@ -1,0 +1,20 @@
+{
+  "slug": "freshwater-anchovy",
+  "name": "Freshwater Anchovy",
+  "altNames": [
+    "Amazon Freshwater Anchovy",
+    "Teri air tawar",
+    "Teri Amazon"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Anchoviella alleni adalah salah satu dari sangat sedikit anggota famili ikan teri (Engraulididae) yang hidup sepenuhnya di air tawar. Spesies ini bisa mencapai panjang maksimal sekitar 10 cm.</p>",
+    "dimorphism:glaser": "<p>Ikan yang diduga jantan tubuhnya lebih ramping, sedikit lebih besar, dan bentuk gelembung renangnya berbeda dibandingkan dengan ikan yang diduga betina.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  }
+}

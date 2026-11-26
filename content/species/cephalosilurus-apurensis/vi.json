@@ -1,18 +1,33 @@
 {
   "slug": "ca-tre-san-moi-apure",
   "name": "Cá trê săn mồi Apure",
-  "altNames": [],
+  "altNames": [
+    "Cá nheo cam",
+    "Apure Jelly Catfish",
+    "Orange Catfish"
+  ],
   "sections": {
     "quickFacts:glaser": "<p>Cephalosilurus apurensis dài tối đa khoảng 30 cm. Đây là một loài cá da trơn săn mồi cỡ lớn. Dân chơi mê dòng cá này rất săn đón nó.</p>",
     "distribution:glaser": "<p>Loài này có vẻ là cá đặc hữu của Venezuela. Nói cách khác, ngoài tự nhiên chúng chỉ sống ở nước này.</p>",
-    "beforeYouBuy:glaser": "<p>Loài cá hiếm này lại vừa có thêm vài con nhập về. Cá dài 20–25 cm và gần như đã lớn hết cỡ. Số lượng về rất ít.</p>"
+    "beforeYouBuy:glaser": "<p>Loài cá hiếm này lại vừa có thêm vài con nhập về. Cá dài 20–25 cm và gần như đã lớn hết cỡ. Số lượng về rất ít.</p>",
+    "quickFacts:planetcatfish": "<p>Tên khoa học: Lophiosilurus apurensis (Mees, 1978). Tên thường gọi: Apure Jelly Catfish, Orange Catfish. Tên đồng nghĩa: Cephalosilurus apurensis, Pseudopimelodus apurensis. Kích thước: 480 mm SL (khoảng 48 cm). Nhận dạng: nền thân màu vàng xỉn, khác với nền thân màu cam của C. fowleri.</p>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: sông Arichuna, Apure, Venezuela. Orinoco, trung lưu Orinoco, Apurito, Matiyure, Arichuna. Nơi thu mẫu chuẩn: Río Arichuna, gần San Pedro, Rincón hondo, Apure, Venezuela.</p>",
+    "habitat:planetcatfish": "<p>Theo bản mô tả loài đầu tiên, mẫu cá được thu ở vùng nước \"nâu\", rất đục, dòng chảy chậm, đáy là bùn và lá. Nước ở đó 26,5 °C, pH 5,5.</p>",
+    "waterConditions:planetcatfish": "<p>pH 6,4 - 7,8.</p>",
+    "equipment:planetcatfish": "<p>Hang, lũa, cát, cây nổi.</p>",
+    "diet:planetcatfish": "<p>Loài này ăn mọi loại thức ăn có thịt, chỉ cần đổi món chút ít: cá (tươi hoặc đông lạnh rã ra), krill, tôm, giun đất, chuột nhắt, chuột cống, thức ăn viên chìm, viên tôm. Ngoài tự nhiên nó ăn cá sống khá to, nhưng nuôi trong bể thì không cần cho ăn cá sống. Cho ăn cá sống vừa gây tranh cãi về chuyện đạo đức, vừa có nguy cơ mang ký sinh trùng và các bệnh khác vào bể.</p>",
+    "behaviour:planetcatfish": "<p>Loài này rất dữ và không hề nhát. Một người nuôi kể con cái lớn của mình từng tìm cách ăn mấy con cichlid dài 25 cm, và con cichlid chết vì ngạt. Nó không nuốt nổi, nhưng ngoạm trọn cả phần đầu tới tận nắp mang và giữ chặt cho tới khi con mồi chết. Kể cả lúc con cichlid bị giật ra, nó vẫn không chịu nhả. Tốt nhất là nuôi riêng, hoặc chỉ nuôi chung với những con to hơn hẳn và lì đòn nhất.</p>",
+    "dimorphism:planetcatfish": "<p>Con cái to hơn và dữ hơn nhiều. Xem lỗ huyệt thì phân biệt đực cái rất dễ, nhất là ở cá lớn.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có thông tin. Chưa có báo cáo nào về việc loài này sinh sản.</p>",
+    "notes:planetcatfish": "<p>Đây là con cá cảnh rất đáng nuôi. Nó quấn người và chịu ăn ngay từ tay. Cẩn thận giữ tay cho an toàn, vì có thể bị cắn.</p>",
+    "references:planetcatfish": "<p>Zoologische Mededelingen (Leiden) v. 53 (no. 23), pp 253, Pl. 1.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "planetcatfish": 0.88
+    }
   }
 }

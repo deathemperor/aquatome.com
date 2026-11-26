@@ -22,10 +22,12 @@
       "regions": [
         "Borneo",
         "Sebuku River",
-        "Kinabatangan"
+        "Kinabatangan",
+        "Kalimantan"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "bwaquatics"
       ],
       "quotes": [
         {
@@ -35,14 +37,15 @@
             "MY",
             "ID"
           ],
-          "regions": []
+          "regions": [
+            "Borneo"
+          ]
         },
         {
           "source": "seriouslyfish",
-          "quote": "Betta ocellata is a large paternal mouthbrooding labyrinth fish from Sabah, northeastern Borneo, and the Sebuku River basin in East Kalimantan.",
+          "quote": "In Sabah it's been recorded at various localities including Bettotan, Sandokan, Kinabatangan, Lahad Datu, Tawau, Kudat, and Bongon, while in Kalimantan Timur it's known only from the Sebuku River basin.",
           "countries": [],
           "regions": [
-            "Borneo",
             "Sebuku River"
           ]
         },
@@ -52,6 +55,14 @@
           "countries": [],
           "regions": [
             "Kinabatangan"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Betta ocellata was described in 1933 and is native to Sabah in northeastern Borneo and the far north of Kalimantan, where published records come from the Sebuku River basin.",
+          "countries": [],
+          "regions": [
+            "Kalimantan"
           ]
         }
       ]
@@ -97,53 +108,53 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 22,
-          "max": 28
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 21,
           "max": 25
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 5,
-          "max": 7
+          "min": 22,
+          "max": 28
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 5.5,
           "max": 7.5
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 7.6
-      },
-      {
         "source": "seriouslyfish",
         "value": 9
+      },
+      {
+        "source": "bwaquatics",
+        "value": 10
       }
     ],
     "difficulty": [
       {
-        "source": "bwaquatics",
-        "value": 5
+        "source": "seriouslyfish",
+        "value": 4
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": 4
       }
     ],
@@ -166,12 +177,6 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
-      "html": "<ul><li>From the Betta unimaculata complex.</li><li>IUCN Red List: N/A</li><li>Wild-caught Betta ocellata from Malinau.</li><li>Maximum size: 3+ inches (about 7.6 cm).</li><li>Breeding: Mouthbrooder.</li></ul>"
-    },
-    {
-      "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
       "html": "<p>Betta ocellata is a large paternal mouthbrooding labyrinth fish from Sabah, northeastern Borneo, and the Sebuku River basin in East Kalimantan. A member of the B. unimaculata complex, it grows to 90 mm SL and has a pointed, slightly conical head. It has been collected from clear flowing streams, elevated headwater pools, turbid forest streams, ox-bow lakes and ponds in oil palm plantations.</p>"
@@ -183,16 +188,34 @@
       "html": "<p>Native to the Malaysian state of Sabah in northeastern Borneo plus the northern tip of Kalimantan Timur (East Kalimantan), one of the four Indonesian provinces on the island.</p><p>In Sabah it's been recorded at various localities including Bettotan, Sandokan, Kinabatangan, Lahad Datu, Tawau, Kudat, and Bongon, while in Kalimantan Timur it's known only from the Sebuku River basin. Populations from such localities are often labelled with collection details by collectors/enthusiasts to maintain accuracy and preserve pure bloodlines.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
+      "html": "<p>Betta ocellata was described in 1933 and is native to Sabah in northeastern Borneo and the far north of Kalimantan, where published records come from the Sebuku River basin. This group was supplied as coming from Malinau, a little south of the published range.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
       "html": "<p>Has been collected from numerous habitat-types including clear, flowing streams and isolated, elevated pools around headwaters (Sabah) as well as more turbid forested streams, ox-bow lakes (Kinabatangan) and quiet ponds in oil palm plantations (Tawau).</p><p>In flowing headwaters and streams the fish tend to lurk in slow-moving or stagnant pools (e.g. at Lahad Datu) whereas in the forest streams and ox-bow lakes it was caught among marginal vegetation or among leaf litter and submerged tree roots.</p><p>Tan and Ng (2005)[1] suggest that the specimens collected from the elevated pools may have got there by jumping as often only a single adult and numerous juveniles would be found in the leaf litter of each pool. In addition, the fish collected from the clearwater environments possess a marked blue/green colouration whereas those found in murkier waters are more of a yellow/brown colour.</p><p>In the Kinabatangan drainage basin B. ocellata was collected from ox-bow lakes and lowland streams with turbid water. In ox-bows it was found in shallow water among flooded grasses, and in the streams among submerged leaf litter and tree roots.</p><p>Sympatric species in the latter included Rasbora sumatrana, 'Puntius' sealei, 'P.' banksi, Pangio mariarum, Lepidocephalichthys sandakanensis, Nemacheilus olivaceus, Ompok sabanus and Trichopodus trichopterus.</p><p>In the Lahad Datu valley the species inhabits stagnant or slowly-moving pools of headwater streams containing clear water. Other fishes at these locations included Garra borneensis, Homaloptera stephensoni, Gastromyzon danumensis, G. lepidogaster, G. cf. punctulatus, Protomyzon griswoldi, P. whiteheadi, and Nemacheilus olivaceus.</p><p>At Tawau it was the most abundant fish species in quiet, murky pools among oil palm plantations.</p>"
     },
     {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
+      "html": "<p>Slow-flowing parts of forest streams, ox-bow lakes and isolated pools, among leaf litter, roots and floating leaves. They are excellent jumpers.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
       "html": "<p>An aquarium with base measurements of 80 × 30 cm (31 × 12 in) or equivalent, about 72 litres (19 US gal), is sufficient for a pair.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
+      "html": "<p>Recommended 1 pair per 40 litres, or 80 litres for breeding.</p>"
     },
     {
       "key": "maintenance",
@@ -204,7 +227,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
-      "html": "<ul><li>TDS: ~60–100</li><li>pH: ~5.0–7.0</li><li>Temperature: 72–82°F (prefer cooler temperatures, but higher temperatures induce coloration and breeding behaviours)</li></ul>"
+      "html": "<ul><li>Temperature: 22–28°C (they prefer cooler water, but warmer water brings out colour and breeding behaviour)</li><li>pH: 5.0–7.0</li><li>TDS: 60–100</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -216,7 +239,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
-      "html": "<p>Carnivorous. Currently fed live, frozen and dried foods, including blackworms, frozen bloodworms and pellets.</p>"
+      "html": "<p>Carnivorous. Fed on live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -228,7 +251,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
-      "html": "<p>Like many of the species in this complex, with the largest bettas, they can be aggressive. It is recommended to keep them in a species-only tank as they can eat anything that fits in their big mouth.</p>"
+      "html": "<p>Aggressive. Best kept in a species-only tank, since they will eat any fish that fits in their mouth. Give a pair plenty of caves and cover to break line of sight, and keep a tight lid.</p>"
     },
     {
       "key": "behaviour",
@@ -240,7 +263,7 @@
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
-      "html": "<p>Light brown to tan base body with light blue iridescence on the opercular cheeks and lower jaws, body and tails; females are less iridescent. Fully grown adult males have longer ventral fins and larger bodies.</p>"
+      "html": "<p>Fully grown males have larger bodies and longer pelvic fins. Females have less iridescence and often show two dark lateral bands.</p>"
     },
     {
       "key": "dimorphism",
@@ -252,7 +275,7 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
-      "html": "<p>Mouthbrooder.</p>"
+      "html": "<p>Paternal mouthbrooder. The female collects the eggs during spawning and passes them to the male, who holds them in his mouth for about 2 to 3 weeks. Keep the tank quiet and leave a holding male alone, since a disturbed male may swallow or spit out the brood. He releases fully formed fry that can eat baby brine shrimp right away.</p>"
     },
     {
       "key": "reproduction",
@@ -265,6 +288,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
       "html": "<p>This species is included in the Betta unimaculata complex of closely-related species within the genus, of which members share the following set of characters: body long and slender with depth at dorsal fin origin 18-25 % SL; head large and blunt with width 19-24 % SL; long maxilla and lower lip with distance from tip of lower jaw to posterior end of maxilla 27-54 % HL; caudal-fin rounded in shape, occasionally with elongated median rays; pelvic-fin short and filamentous; dorsal and anal fins relatively pointed.</p><p>The unique combination of characters distinguishing it from others in the group is as follows: head pointed, slightly conical; 30-31 anal-fin rays; 32-34 lateral scales; length of anal-fin base 52.2-54.5 % SL; length of dorsal-fin base 10.5-11.3 % SL; head width 21.0-24.0 % SL.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological/behavioural characters. Molecular phylogenetic work is thus required and would undoubtedly prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth. So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ocellata-wild-type-bettas",
+      "html": "<p>Fish in this complex are very prone to ich and velvet during the first few weeks after import, so watch new arrivals closely. It is told apart from other unimaculata-complex species by a distinct black spot near the base of the tail and a blue gill plate. Body: long, slender, almost worm-like with a large, blunt head; light brown to tan with light blue iridescence on the cheeks, lower jaw, body and fins; evenly coloured caudal fin without bars.</p>"
     },
     {
       "key": "references",
@@ -280,13 +309,38 @@
       "width": 640,
       "height": 427,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Haji Badaruddin / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-ocellata",
       "caption": "Female of Betta ocellata from Kudat, Sabah, Borneo.",
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "j8k-qifydoU",
+      "title": "[NEW] Aquarium Biotope - Betta ocellata \"Tarakan\"",
+      "durationSec": 321,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "4fC6nG44lY4",
+      "title": "Betta ocellatas #wildbettas #wildtype #fish #aquarium #rosystem",
+      "durationSec": 58,
+      "lang": "en-CA"
+    },
+    {
+      "youtubeId": "5xWgq6DebdY",
+      "title": "Aquarium Biotope Betta ocellata \"Tarakan\"",
+      "durationSec": 222,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "43vyExiiUnw",
+      "title": "Betta ocellata in natural aquarium setup🍂🌿",
+      "durationSec": 32,
+      "lang": "it"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -315,5 +369,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-19"
 }

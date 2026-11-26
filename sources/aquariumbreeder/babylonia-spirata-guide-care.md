@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/babylonia-spirata-guide-care/
 title: Leopard Snail - Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T22:42:50.198Z
-hash: 71174833ccbd2f4f434de0273975dc8b77c41639deae2c1f808824b378caac47
+hash: 76427137b26ede8f494ebe62ced542b6c688153eb71e18f15f92f7bf1596daa0
 ---
 
 Babylonia spirata (also known as the Babylonian snail, Tiger nassarius snail, Leopard nassarius snail, Lion snail, Ivory whelk snail, etc.) is probably one of the most beautiful snail species in the aquarium hobby. These absolutely gorgeous snails are sure to attract attention in any marine tank. Since I like these little guys, I figured that it might be helpful to make a detailed guide on them.
@@ -162,6 +162,3 @@ Caring for them is not difficult and can be recommended even for beginners. Just
 - Sreejaya, R., Anjana Mohan, P. Laxmilatha, and K. K. Appukuttan. “Larval development and seed production in the’whelk’Babylonia spirata.” Journal of the Marine Biological Association of India46, no. 1 (2004): 64-72.
 - Patterson, Jamila, T. Shanmugaraj, and K. Ayyakkannu. “Salinity tolerance of Babylonia spirata (Neogastropoda: Buccinidae).” Mar. Biol. Cent. Spec. Publ24 (1994): 104-106.
 - Edward, J. K., C. Raghunathan, and K. Ayyakkannu. “Food preference, consumption and feeding behavior of scavenging gastropod Babylonina spirata (Neogastropoda, Buccinidae).” (1995).
-## 2 thoughts on “Leopard Snail – Detailed Guide: Care, Diet, and Breeding”
-- Well, no wonder the one I tried when I started reefing died if they prefer 28°C and struggle with being shipped; like most people my reef is kept at 26°C and the poor snail had to endure overnight shippinh. Their cousins, nassarius snails, though? Absolutely bulletproof (and surprisingly fast.) ReplyHi PurrlingReef,Yep, you’ve nailed it. 79°F (26°C) is right at the lower edge of their comfort zone, and combined with shipping stress, it’s often too much for this species. Nassarius snails are indeed much hardier and more forgiving of typical reef conditions, which is why they’re such a popular choice. Thanks for sharing your experience! It’s a helpful note for others considering these beauties!Best regards, Michael Reply
-### Leave a Reply Cancel reply

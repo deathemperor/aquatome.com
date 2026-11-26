@@ -1,13 +1,13 @@
 import type { Change } from '../daily/github'
 import type { ReportMeta } from '../daily/log'
 import { chart, deltaJson, type Block, type Figure, type TextTone } from './blocks'
-import { barWords, chipOf, dayChart, deltaOf, dayLabel, dayName, esc, fmt, lastDays, spark, usd, weekdayOf, type DayChart, type Readout, type Series } from './chart'
+import { barWords, chipOf, deltaOf, dayLabel, esc, fmt, lastDays, SHORT_DAY, usd, weekdayOf, type DayChart, type Readout, type Series } from './chart'
 import { HIDDEN_BY_OWNER, SHOWN_BY_OWNER } from './comments'
 import { langOfPath, pageIndex, pagesByRef } from './content'
 import { LANG_NAME, MAIN } from './content-page'
 import { fishSpan, periodTotals } from './fishid'
 import { ago, alignDaily, didntLoad, placeOf, todos, type Overview } from './pages'
-import { publishingOf, type PublishingJson } from './publishing'
+import { publishingOf, type Bars as PublishingBars, type PublishingJson } from './publishing'
 import { weekByDay, type BeaconRow, type WeekByDay } from './scoreboard'
 import { ICON, isFailed, NAV, page, type Soft } from './shell'
 import { clock, HOME_TZ, hourMinute, localDay } from './time'
@@ -73,6 +73,15 @@ const failedText = (what: string) => `Couldn’t load ${what}`
 const badNote = (text: string): NoteBlock => ({ kind: 'note', text, tone: 'bad' })
 /** "+18%" against the 7 days before: as the old overview's chips, coloured past 5%. */
 const chipText = (now: number, before: number) => chipOf(now, before, 'the 7 days before', 'up')
+
+/**
+ * The first screen's pages card, as the board names its rows and in its order (the Design Lead, 20 Nov): "Species", as the
+ * count holds shrimp, crabs and snails too, then "Video guides", "Guides", "Plants". Every page written is in the figure,
+ * held ones too, so the card says "written" until the board's "pages a reader can open" replaces it (Fri 27).
+ */
+const BOARD_ROW: Partial<Record<string, string>> = { fish: 'Species', videoGuide: 'Video guides', guide: 'Guides', plant: 'Plants' }
+const BOARD_ORDER = ['fish', 'videoGuide', 'guide', 'plant']
+const byBoard = <K extends { key: string }>(kinds: K[]) => [...kinds].sort((a, b) => (BOARD_ORDER.indexOf(a.key) + 1 || 99) - (BOARD_ORDER.indexOf(b.key) + 1 || 99))
 
 /** The pages' groups, their names, and the sections they open: the rail's order (shell.ts NAV). */
 export const PAGE_GROUPS: readonly (readonly [string, readonly (readonly [string, string])[]])[] = [...new Set(NAV.map(([, , g]) => g).filter(Boolean))]
@@ -324,7 +333,7 @@ export function todayJson(t: Today): TodayJson {
   }
 }
 
-// ——— The web's overview: the same parts as the app's, drawn as docs/design/img/dash-web.png ———
+// ——— The web's overview: the app's first screen (Design's board2, 14 Nov; the cards' parts, 15 Nov), in the web's frame ———
 
 const placeHref = (p: { section?: string; anchor?: string; url?: string }) => p.url ?? `/_ab/${p.section}/${p.anchor ? `#${p.anchor}` : ''}`
 /** A change's figure and what it's against: "−12%" and "vs the same point last week" (none for a change from nothing). */
@@ -332,61 +341,114 @@ const changeOf = (text: string) => {
   const m = /^([+−±]\S+) (vs .+)$/.exec(text)
   return m ? { change: m[1]!, vs: m[2]! } : undefined
 }
-const deltaSpan = (d: NonNullable<Figure['delta']>) => `<span class="delta${d.tone === 'good' || d.tone === 'bad' ? ` ${d.tone}` : ''}">${esc(d.text)}</span>`
-/** The answers card's figures as drawn: "169", then "readers +2%" under it; what it's against, for a screen reader. */
-const cardFigHtml = (f: Figure) => {
-  const d = f.delta && changeOf(f.delta.text)
-  const change = f.delta ? (d ? ` ${deltaSpan({ ...f.delta, text: d.change })}<span class="vh"> ${esc(d.vs)}</span>` : ` ${deltaSpan(f.delta)}`) : ''
-  return `<div class="kpi"><dt>${esc(f.label.toLowerCase())}${change}</dt><dd class="v">${esc(f.value)}</dd></div>`
-}
-const figHtml = (f: Figure) => `<div class="kpi"><dt>${esc(f.label)}</dt><dd class="v">${esc(f.value)}</dd>${f.delta ? `<dd>${deltaSpan(f.delta)}</dd>` : ''}${f.sub ? `<dd class="sub">${esc(f.sub)}</dd>` : ''}</div>`
-const noteHtml = (n: NoteBlock) => `<p class="${n.tone === 'bad' ? 'failed' : 'note'}">${esc(n.text)}</p>`
-/** Where each tile leads on the page. */
-const TILE_TO: Record<TileJson['key'], string> = { needs: 'needs', answers: 'answers', shipped: 'shipped', cost: 'costs' }
+/** The rows of what needs the owner the card shows; the rest open under "N more" (the app's `needsShown`, which opens a page of them). */
+export const NEEDS_SHOWN = 3
+const FULL_DAY = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const signed = (n: number) => (n > 0 ? `+${fmt(n)}` : fmt(n))
+/** A count as the server writes a total ("2,503"); undefined for anything else. */
+const countOf = (s: string) => (/^\d[\d,]*$/.test(s) ? Number(s.replace(/,/g, '')) : undefined)
+/** The last seven days of a kind's bars, up to today (or the last). */
+const weekOf = (b: PublishingBars) => { const end = (b.today ?? b.values.length - 1) + 1; return [Math.max(0, end - 7), end] as const }
+/** What a kind has added today so far; undefined when today isn't among its bars, or wasn't counted. */
+const addedToday = (b: PublishingBars) => (b.today === undefined ? undefined : b.values[b.today] ?? undefined)
+/** A bar's day, "2026-11-08", as "Sun 8". */
+const barDay = (d: string) => `${SHORT_DAY[weekdayOf(d)]} ${+d.slice(8, 10)}`
 
-/** A need's icon: the warning triangle only for what's broken; else its kind's. */
-const needIcon = (x: Need): keyof typeof ICON => (x.tone === 'bad' ? 'alert' : ({ comments: 'comment', photos: 'photo', key: 'key', spend: 'coin' } as const)[x.kind as 'comments'] ?? 'alert')
+/**
+ * A card's seven days as small bars (pages-spec "Small bars"): the latest in the chart green, the others grey; a zero a
+ * 2-high tick, red on a day that's over, grey on the day still open; a day not counted a dotted line, never a zero. No
+ * readout: the card opens its page.
+ */
+export function smallBars(values: (number | null)[], open?: number): string {
+  const high = Math.max(1, ...values.filter((v): v is number => v !== null))
+  const bar = (v: number | null, i: number) => {
+    if (v === null) return '<i class="none"></i>'
+    if (v <= 0) return `<i class="zero${i === open ? ' open' : ''}"></i>`
+    return `<i${i === values.length - 1 ? ' class="on"' : ''} style="--h:${Math.max(8, Math.round((v / high) * 100))}%"></i>`
+  }
+  return `<span class="sb" aria-hidden="true">${values.map(bar).join('')}</span>`
+}
+
+/**
+ * A card: its name, a link to its page that covers the whole card, and a chevron, then what it shows. Its words are
+ * read in order; the drawn bars aren't.
+ */
+const card = (id: string, name: string, href: string | undefined, body: string, cls = '') =>
+  `<section class="card${cls ? ` ${cls}` : ''}" aria-labelledby="${id}"><h2 id="${id}">${href ? `<a href="${esc(href)}">${name}</a>${ICON.chevron}` : name}</h2>${body}</section>`
+
+/** A change's figure ("+12%", its first word) in its tone, the rest muted; what it's against stays for a screen reader. */
+const changeHtml = (d: NonNullable<Figure['delta']>) => {
+  const [first, ...rest] = d.text.split(' ')
+  return `<span class="chg${d.tone === 'good' || d.tone === 'bad' ? ` ${d.tone}` : ''}">${esc(first!)}</span>${rest.length ? ` ${esc(rest.join(' '))}` : ''}`
+}
 
 export function todayPage(t: Today): string {
   const j = todayJson(t)
   const tz = t.tz ?? HOME_TZ
-  // A tile's small columns: the week's seven days, today lighter, the days to come empty; the caption one line, its change.
-  const tile = (x: TileJson) => {
-    const bars = x.bars ? spark(x.bars.values, 7, { labels: x.bars.days.map(d => dayLabel(d)), ...(x.bars.today !== undefined ? { today: x.bars.today } : {}) }) : ''
-    return `<div class="kpi${x.tone === 'wait' || x.tone === 'bad' ? ` ${x.tone}` : ''}"><dt><a href="#${TILE_TO[x.key]}">${esc(x.label)}</a></dt><dd class="v">${esc(x.value)}</dd>${bars ? `<dd>${bars}</dd>` : ''}${x.delta ? `<dd>${deltaSpan(x.delta)}</dd>` : ''}${bars && x.delta ? '' : `<dd class="sub">${esc(x.sub)}</dd>`}</div>`
-  }
-  // One list in one card (docs/design/img/dash-web.png): each row its kind's icon, the thing, the pages it's on, and the
-  // button that acts, filled for a review and outlined for a fault; on a phone the whole row is the link, with a chevron.
-  const needs = j.needs.length
-    ? `<ul class="todo">${j.needs.map(x => `<li class="${x.tone}"><a href="${esc(placeHref(x))}"><span class="ic" data-i="${needIcon(x)}">${ICON[needIcon(x)]}</span><span class="tx"><b>${esc(x.text)}</b>${x.sub ? `<span class="sub">${esc(x.sub)}</span>` : ''}${x.photos?.length ? `<span class="ph">${x.photos.map(id => `<img src="/_ab/anh/${esc(id)}" alt="" width="36" height="36" loading="lazy">`).join('')}</span>` : ''}</span><span class="act">${esc(x.label)}</span>${ICON.chevron}</a></li>`).join('')}</ul>`
-    : `<p class="clear panel">${ICON.check}${esc(j.needsEmpty)}</p>${j.lastAction ? `<p class="note last"><a href="/_ab/${j.lastAction.section}/">${esc(j.lastAction.text)}</a> · <time datetime="${j.lastAction.at}">${esc(j.lastAction.when)}</time></p>` : ''}`
-  // Readers who found an answer, one card: the week's figure and its change, the week by day (found an answer only;
-  // readers and shop clicks said on a tap), then readers, sessions and shop clicks.
-  const a = j.answers
+  const tile = (k: TileJson['key']) => j.tiles.find(x => x.key === k)
+  // What needs the owner, faults first, each a dot in its tone, its line, and the pages it's on; the whole row is its
+  // link. Three, then the rest under "N more" in the same card: the web has no page of them, as the app has.
+  const row = (x: Need) => `<li class="${x.tone}"><a href="${esc(placeHref(x))}"><span class="dot" aria-hidden="true"></span><span class="tx"><b>${esc(x.text)}</b>${x.sub ? `<span class="sub">${esc(x.sub)}</span>` : ''}</span>${ICON.chevron}</a></li>`
+  // A source behind a browser check waits on the owner's hand, not a fault: rust, as what waits (the Design Lead, 20 Nov,
+  // on her ruling of 9 Nov), and faults first, then what waits. The web's first screen only: the app follows in its own
+  // change, so what the app gets (needsOf) is as it was.
+  const checks = new Set(todos(t).filter(x => x.kind === 'engine').map(x => x.title))
+  const toned = j.needs.map(x => (x.kind === 'engine' && checks.has(x.text) ? { ...x, tone: 'wait' as const } : x))
+  const shown = [...toned.filter(x => x.tone === 'bad'), ...toned.filter(x => x.tone !== 'bad')]
+  const tileTone = tile('needs')?.tone ?? 'plain'
+  const needsTone = !shown.length ? 'good' : shown.some(x => x.tone === 'bad') ? 'bad' : tileTone === 'bad' ? 'wait' : tileTone
+  const more = shown.length - NEEDS_SHOWN
+  const needs = card('needs', `${needsTone === 'good' ? ICON.check : needsTone === 'plain' ? '' : ICON.alert}<span>${esc(tile('needs')?.label ?? 'Needs you')}</span>${j.needs.length ? ` <span class="count">· ${fmt(j.needs.length)}</span>` : ''}`, undefined,
+    j.needs.length
+      ? `<ul class="nrows">${shown.slice(0, NEEDS_SHOWN).map(row).join('')}</ul>${more > 0 ? `<details class="more"><summary>${fmt(more)} more${ICON.chevron}</summary><ul class="nrows">${shown.slice(NEEDS_SHOWN).map(row).join('')}</ul></details>` : ''}`
+      : `<p class="clear">${esc(j.needsEmpty)}</p>${j.lastAction ? `<p class="last"><a href="/_ab/${j.lastAction.section}/">${esc(j.lastAction.text)}</a> · <time datetime="${j.lastAction.at}">${esc(j.lastAction.when)}</time></p>` : ''}`,
+    `needs ${needsTone}`)
+  // New pages by kind: the kinds' totals added up and what today has added so far, then a line a kind: its name, its last
+  // seven days, its total and today's.
+  const p = j.publishing
+  const pages = (() => {
+    if (!p) return ''
+    const totals = p.kinds.map(k => countOf(k.total))
+    const total = totals.every(x => x !== undefined) ? totals.reduce((a, b) => a! + b!, 0)! : undefined
+    const todays = p.kinds.map(k => addedToday(k.bars)).filter((x): x is number => x !== undefined && x !== null)
+    const today = todays.length ? todays.reduce((a, b) => a + b, 0) : undefined
+    const plus = (n: number | undefined) => (n === undefined ? '<span class="t"></span>' : `<span class="t${n > 0 ? ' good' : ''}">${esc(signed(n))}</span>`)
+    const first = p.kinds[0]?.bars
+    const [from, to] = first ? weekOf(first) : [0, 0]
+    const rows = byBoard(p.kinds).map(k => {
+      const [a, b] = weekOf(k.bars)
+      const open = k.bars.today !== undefined && k.bars.today >= a && k.bars.today < b ? k.bars.today - a : undefined
+      return `<span class="k">${esc(BOARD_ROW[k.key] ?? k.label)}</span>${smallBars(k.bars.values.slice(a, b), open)}<b class="n">${esc(k.total)}</b>${plus(addedToday(k.bars) ?? undefined)}`
+    }).join('')
+    const axis = first ? `<span class="k cap" aria-hidden="true">written a day</span><span class="days" aria-hidden="true"><span>${esc(barDay(first.days[from]!))}</span><span>${esc(barDay(first.days[to - 1]!))}</span></span>` : ''
+    return card('content', 'Content · pages written', '/_ab/noi-dung/', `<p class="top">${total === undefined ? '' : `<b class="fig">${esc(fmt(total))}</b> written`}${today === undefined ? '' : ` <span class="today">${plus(today)} today</span>`}</p><div class="kinds">${rows}${axis}</div>`)
+  })()
+  // Readers this week against the same point last week, in the board's words (the Design Lead, 20 Nov): "+100% vs 7 by
+  // now last week". The app's JSON keeps its own. With none by now last week, the plain change; without them, why not.
+  const rf = j.answers.figures?.find(f => f.label === 'Readers')
+  const at = tile('answers')
   const w = isFailed(t.beacon) ? undefined : weekByDay(t.now, t.beacon, t.countingFrom)
-  const ac = w ? answersChart(w) : undefined
-  const answers = a.figure && ac
-    ? `<div class="acard panel"><p class="top"><b>${esc(a.figure.value)}</b> this week${a.figure.delta ? ` ${deltaSpan(a.figure.delta)}` : ''}</p>${dayChart({ ...ac.chart, also: ac.also, bare: true })}<dl class="kpis">${(a.figures ?? []).map(cardFigHtml).join('')}</dl></div><p class="note">${ANSWERS_NOTE}</p>`
-    : a.note ? noteHtml(a.note) : ''
-  const sh = j.shipped
-  const shipped = `${sh.lines.length ? `<ul class="ship">${sh.lines.map(l => `<li><span class="chip">${esc(l.label)}</span><span>${esc(l.text)}</span></li>`).join('')}</ul>` : sh.note ? noteHtml(sh.note) : `<p class="muted">${esc(sh.empty ?? '')}</p>`}<p><a href="/_ab/${sh.section}/">${esc(sh.link)} →</a></p>`
-  const c = j.costs
-  const costs = `<ul class="lines">${c.lines.map(l => `<li><span>${esc(l.label)}${l.sub ? `<small>${esc(l.sub)}</small>` : ''}</span><span class="fig">${esc(l.value)}</span></li>`).join('')}<li><a href="${esc(placeHref(c.keys))}">${esc(c.keys.label)}</a><span class="fig${c.keys.tone === 'bad' ? ' bad' : ''}">${esc(c.keys.text)}</span></li>${c.fixed.map(f => `<li><span class="muted">${esc(f)}</span></li>`).join('')}</ul><p class="note">${esc(c.note)}</p>`
-  const days = `<ul class="lines">${j.days.map(d => `<li><span><b>${esc(d.title)}</b><small>${esc(d.text)}</small></span>${d.section ? `<a class="fig" href="/_ab/${d.section}/">${esc(d.figure)}</a>` : `<span class="fig">${esc(d.figure)}</span>`}</li>`).join('')}</ul>`
-  const pages = `<div class="groups">${j.pages.map(g => `<section><h3>${esc(g.name)}</h3><ul>${g.pages.map(p => `<li><a href="/_ab/${p.key}/"><span>${esc(p.name)}</span><span class="fig${p.figure.tone === 'wait' || p.figure.tone === 'bad' ? ` ${p.figure.tone}` : ''}">${esc(p.figure.text)}</span></a></li>`).join('')}</ul></section>`).join('')}</div>`
-  // The tile's count: the items to review and to fix, not the rows they're grouped in.
-  const badge = j.needs.length ? ` <span class="badge">${esc(j.tiles[0]!.value)}</span>` : ''
-  const body = `<h1>Today</h1><p class="lede">${esc(dayName(localDay(t.now, tz)))} · figures as of ${hourMinute(t.now, tz)}</p>
-<dl class="kpis tiles4">${j.tiles.map(tile).join('')}</dl>
-<div class="home-grid"><div>
-<section aria-labelledby="needs"><h2 id="needs">Needs you${badge}</h2>${needs}</section>
-<section aria-labelledby="answers"><h2 id="answers">${esc(a.title)}</h2>${answers}</section>
-</div><div class="side">
-<section aria-labelledby="shipped"><h2 id="shipped">${esc(sh.title)}</h2>${shipped}</section>
-<section aria-labelledby="costs"><h2 id="costs">${esc(c.title)}</h2>${costs}</section>
-<section aria-labelledby="days"><h2 id="days">The last three days</h2>${days}</section>
-</div></div>
-<section aria-labelledby="pages"><h2 id="pages">Every page</h2>${pages}</section>`
+  const before = w?.lastSoFar?.readers
+  const rd = rf?.delta && w && before ? deltaJson({ now: w.now.readers, before, vs: `${fmt(before)} by now last week`, good: 'up' }) : rf?.delta
+  // Its page is Readers; with the beacon failed, the scoreboard, whose page has the error, as Needs you's row says (#1689's
+  // reader, 21 Nov: Readers runs other queries and can load while the beacon doesn't).
+  const readers = card('readers', esc(rf?.label ?? 'Readers'), isFailed(t.beacon) ? '/_ab/thanh-cong/' : '/_ab/doc-gia/', `<p class="fig">${esc(rf?.value ?? at?.value ?? '—')}</p>${rf
+    ? `<p class="line">this week${rd ? ` · ${changeHtml(rd)}` : ''}</p>${rf.sub ? `<p class="line">${esc(rf.sub)}</p>` : ''}`
+    : at ? `<p class="line${at.tone === 'bad' || at.tone === 'wait' ? ` ${at.tone}` : ''}">${esc(at.sub)}</p>` : ''}`)
+  // Changes shipped in the last 24 hours, by where, and the newest in its words. The board's name and split (the Design
+  // Lead, 20 Nov): "Shipped, 24 h", "site 32 · app 9 · engine 38". The app's tile keeps its own.
+  const st = tile('shipped')
+  const newest = j.shipped.lines[0]?.text
+  const areas = (['site', 'app', 'engine'] as const).map(x => [x, j.shipped.lines.filter(l => l.area === x).length] as const).filter(([, k]) => k)
+  const split = st && st.tone !== 'bad' && areas.length ? areas.map(([x, k]) => `${x} ${fmt(k)}`).join(' · ') : st?.sub
+  const shipped = card('shipped', 'Shipped, 24 h', `/_ab/${j.shipped.section}/`, `${st ? `<p class="fig">${esc(st.value)}</p><p class="line${st.tone === 'bad' ? ' bad' : ''}">${esc(split ?? '')}</p>` : ''}${newest ? `<p class="newest">${esc(newest)}</p>` : ''}`)
+  // What the server counts of the cost, on one row: its figure and what it's made of. Opens the keys' page.
+  const ct = tile('cost')
+  const cost = ct ? `<section class="card cost" aria-labelledby="cost"><h2 id="cost"><a href="/_ab/${j.costs.keys.section}/"><span>${esc(ct.label)}</span> <b class="${ct.tone === 'bad' ? 'bad' : ''}">${esc(ct.value)}</b> <span class="line">${esc(ct.sub)}</span></a>${ICON.chevron}</h2></section>` : ''
+  const groups = `<div class="groups">${j.pages.map(g => `<section><h3>${esc(g.name)}</h3><ul>${g.pages.map(x => `<li><a href="/_ab/${x.key}/"><span>${esc(x.name)}</span><span class="fig${x.figure.tone === 'wait' || x.figure.tone === 'bad' ? ` ${x.figure.tone}` : ''}">${esc(x.figure.text)}</span></a></li>`).join('')}</ul></section>`).join('')}</div>`
+  const day = localDay(t.now, tz)
+  const body = `<h1>Today</h1><p class="lede">${FULL_DAY[weekdayOf(day)]} ${dayLabel(day)} · figures as of ${hourMinute(t.now, tz)}</p>
+<div class="first-screen"><div>${needs}${pages}</div><div><div class="pair">${readers}${shipped}</div>${cost}</div></div>
+<section aria-labelledby="pages"><h2 id="pages">Every page</h2>${groups}</section>`
   return page('/_ab/', 'Today', body, t.now, tz)
 }
-const ANSWERS_NOTE = 'From search, then stayed 30 s or read half the page. Weeks run Monday to Sunday. Hover or tap a day for its figures.'

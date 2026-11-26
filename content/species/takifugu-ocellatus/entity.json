@@ -9,6 +9,106 @@
     "asia",
     "china"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "One of the most beautiful freshwater puffers from China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2407554,
+      "total": 16,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "CN",
+          10
+        ],
+        [
+          "PH",
+          3
+        ],
+        [
+          "HK",
+          2
+        ],
+        [
+          "KR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          115.3125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          14.0625,
+          3,
+          0
+        ],
+        [
+          119.53125,
+          29.53125,
+          4,
+          4
+        ],
+        [
+          119.53125,
+          35.15625,
+          1,
+          1
+        ],
+        [
+          126.5625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -55,7 +155,24 @@
       "html": "<p>Lexicon: Takifugu: composed from two Japanese words: Taki meaning “waterfall” and Fugu, which is the name of the puffer which causes deadly poisoning when prepared for food in a wrong way; the term has multiple meanings, one can read it in a way that the fish should be cooked in liquid for example. ocellatus: Latin for “with an eyespot”.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/165748029.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/165748029-480.webp",
+      "width": 1024,
+      "height": 854,
+      "licence": "CC BY-NC",
+      "author": "Lynette",
+      "sourceUrl": "https://www.inaturalist.org/photos/165748029",
+      "caption": "Cá nóc màu vàng nhạt bơi ở vùng nước nông trên nền đá",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/165748029-large.webp",
+        "width": 1439,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

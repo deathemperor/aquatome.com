@@ -3,6 +3,12 @@
   "name": "ตอร์ตูเกโร",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:59:01.295Z",
+    "why": "ตอร์ตูเกโร is a plausible transliteration of Tortuguero, but Thai usage typically writes \"ตอร์ตูเกโร\" for the town, and as a region it would normally carry a kind word such as \"เขต\" or refer to the national park (\"อุทยานแห่งชาติตอร์ตูเกโร\"), so the bare name is only moderately fitting."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

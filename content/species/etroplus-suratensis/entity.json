@@ -19,15 +19,16 @@
         "LK"
       ],
       "regions": [
-        "Tapti River"
+        "Tapti"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The green chromide, Etroplus suratensis, is a euryhaline cichlid from peninsular India and Sri Lanka, growing to 350 mm SL.",
+          "quote": "Generally considered native to peninsular India and Sri Lanka although some sources state that it is only native to Sri Lanka and was introduced to India for aquaculture purposes in 1950.",
           "countries": [
             "IN",
             "LK"
@@ -39,7 +40,7 @@
           "quote": "Type locality is 'Suratte, India, 21°12'N, 72°55'E', referring to modern-day Surat which lies on the lower Tapti River in Gujarat state, western India.",
           "countries": [],
           "regions": [
-            "Tapti River"
+            "Tapti"
           ]
         }
       ]
@@ -330,6 +331,11 @@
       ]
     }
   },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "It is often found in pure fresh water, but likes to live in a brackish environment and also tolerates pure sea water."
+  },
   "dataCard": {
     "tempC": [
       {
@@ -362,6 +368,10 @@
       {
         "source": "seriouslyfish",
         "value": 35
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "difficulty": [
@@ -379,10 +389,22 @@
       "html": "<p>The green chromide, Etroplus suratensis, is a euryhaline cichlid from peninsular India and Sri Lanka, growing to 350 mm SL. It mostly inhabits brackish estuaries, coastal lagoons and lower river reaches. Not especially popular in the hobby, it is an important food fish, and some populations have crashed through over-exploitation.</p><ul><li>Max size: 350 mm SL (14 in)</li><li>Temperature: 20–30°C</li><li>pH: 7.0–8.5</li><li>Hardness: 10–20 dGH</li><li>Needs a very large tank</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-suratensis-2/",
+      "html": "<p>Of the three species of Indian cichlids this one is the largest. Record dimensions of up to 40 cm were reported. But normally this fish becomes only about 15 cm long, it is sexually mature from about 8 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-suratensis",
       "html": "<p>Generally considered native to peninsular India and Sri Lanka although some sources state that it is only native to Sri Lanka and was introduced to India for aquaculture purposes in 1950.</p><p>Given that it was described from India in 1790 this would seem unlikely, however, and one of the publications often quoted (Welcomme, 1988) refers only to 'aquaculture and stocking lakes' in 1950, suggesting it was simply introduced to land-locked freshwater environments at that time. In addition Day (1877) wrote \"I have taken it inland in the Wynaad\", i.e., Wayanad District in northeastern Kerala.</p><p>In India its range stretches southwards down the western coast from the state of Gujarat through Maharashtra, Goa, Karnataka, and Kerala states as far as the southern part of the peninsula in Tamil Nadu state. There also exist records from Andhra Pradesh, Odisha and West Bengal states on the eastern coast with these populations also thought to have been introduced for aquaculture.</p><p>Occurrences in Sri Lanka are mostly limited to the western coast and pertain to North, North Western, North Central, Western and Southern provinces but there is at least one record from Batticaloa in Eastern province suggesting it might be distributed around much of the island.</p><p>E. suratensis has also been introduced to Peninsular Malaysia and Singapore where feral populations appear to be thriving.</p><p>Type locality is 'Suratte, India, 21°12'N, 72°55'E', referring to modern-day Surat which lies on the lower Tapti River in Gujarat state, western India.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-suratensis-2/",
+      "html": "<p>Etroplus suratensis occurs in nature along the south coast of India and in Sri Lanka.</p>"
     },
     {
       "key": "habitat",
@@ -409,16 +431,34 @@
       "html": "<ul><li>Temperature: 20–30°C (68–86°F)</li><li>pH: 7.0–8.5, although in Sri Lanka it has been recorded in brackish lagoons where the salinity ranges from 0.02 to 28.00 with pH values of 5.0 to 9.6.</li><li>Hardness: 10–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-suratensis-2/",
+      "html": "<p>It is often found in pure fresh water, but likes to live in a brackish environment and also tolerates pure sea water. A slight addition of salt is recommended in the aquarium, but much more important is the pH value, which should not fall below 8 if possible.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-suratensis",
       "html": "<p>Observations of wild fish suggest it to be something of a generalist with a tendency to graze aufwuchs and filamentous algae from solid surfaces.</p><p>The stomachs of feral specimens in Singapore were found to contain detritus, most of the algae groups, crustacean larvae and appendages, animal and plant organic matter, and sand, for example, while the fish themselves were seen biting at floating twigs, grazing submerged plant roots, the bottom of sluice gates and the sides of submerged pillars.</p><p>In the aquarium it can be offered high quality prepared foods but displays a preference for small live or frozen items such as chironomid larvae (bloodworm), Tubifex, Artemia, mosquito larvae, etc.</p><p>At least some of the dried products should contain a significant proportion of vegetable matter such as Spirulina or similar, while chopped peas and suchlike are also useful supplements.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-suratensis-2/",
+      "html": "<p>Plants are part of the diet of this species and planting the aquarium is therefore usually doomed to failure.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-suratensis",
       "html": "<p>Relatively peaceful unless breeding and will not predate on any but the smallest fishes.</p><p>In a community setting the addition of a group or two of gregarious, pelagic species to act as 'dithers' is recommended.</p><p>In freshwater cyprinids such as certain Dawkinsia, Devario or Rasbora spp. are ideal for this purpose while in the brackish aquarium salt-tolerant poeciliid livebearers, e.g., Poecilia sphenops, can be used.</p><p>Best avoided are territorial or otherwise aggressive species, including other cichlids unless the aquarium is very large, and those that require soft, acidic water.</p><p>Etroplus species are loosely gregarious and tends to form groups unless spawning with juveniles in particular displaying a strong social response when threatened.</p><p>A group of 8+ individuals should therefore be the minimum purchase and these will form a noticeable dominance hierarchy once sexual maturity is reached.</p><p>When maintained in smaller numbers weaker specimens can become the target of excessive abuse by dominant individuals or the group may fail to settle and behave nervously.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-suratensis-2/",
+      "html": "<p>The Indian Pearl Spot is a sociable animal that is best cared for in the company of some specimens. With its smaller cousin, the Indian cichlid (Pseudetroplus maculatus), it is associated with a cleaning community that can also be observed in the aquarium. If E. suratensis wants to be cleaned, he stands very conspicuously with his head up on the caudal fin. P. maculatus understands this instinctively and cleans his larger cousin. This behaviour is inherent and can also be observed in animals that were born in the aquarium and never had the opportunity to observe this behaviour.</p>"
     },
     {
       "key": "dimorphism",
@@ -439,6 +479,12 @@
       "html": "<p>This species is not especially popular in the aquarium hobby but is an important food fish across the majority of its range with some populations having crashed since the turn of the 21st century due to over-exploitation.</p><p>It's sometimes referred to using alternative vernacular names, most commonly 'pearl spot', 'banded pearl spot', 'banded chromide', or 'karimeen'.</p><p>It exhibits a widespread sympatry with P. maculatus throughout its natural range and observations of wild fish provide evidence of a symbiotic relationship between the two in the tidal Negombo Lagoon, southwestern Sri Lanka.</p><p>P. maculatus acted as a cleaner for the larger E. suratensis, removing parasites and suchlike by grazing the body and fins but the nutrition these provide is considered debatable and therefore not the benefit gained from the task.</p><p>More remarkably, the advantage to P. maculatus is hypothesised to be overall health, and therefore reproductive success, of E. suratensis because it is an active predator of its relative's offspring.</p><p>Groups of P. maculatus were seen consuming entire batches of E. suratensis eggs and fry while the latter displayed an apparently altruistic behaviour in which adult individuals unrelated to the parents would help defend the territory.</p><p>Etroplus and Pseudetroplus are the only cichlid genera native to the Indian subcontinent and Sri Lanka. Etroplus comprises two species: E. canarensis is limited to freshwater and restricted in range, while E. suratensis is euryhaline and relatively widespread, as is P. maculatus.</p><p>P. maculatus can easily be told apart from both Etroplus species since dark markings on the body are reduced to 1-3 dark blotches just above midbody (unless stressed when short bars may appear in the upper portion of the body with a solid dark posteroventral patch) and is much paler overall, with the majority of body scales having an orange-red centre.</p><p>The remaining species both possess a series of normally 6 dark vertical bars on the body (excluding those on the head and caudal peduncle) but in E. canarensis the anterior 3 bars tend to bifurcate as the fish mature, base body colour is buff-grey, and some body scales have a yellowish central patch, whereas in E. suratensis the bars remain solid throughout life, base body colour is greenish-brown, and numerous body scales have a pearly-white central spot.</p><p>E. suratensis is also much the larger fish and capable of exceeding 300 mm (12 in) SL.</p><p>Its closest relative among other cichlids is the Malagasy endemic genus Paretroplus and these two are sometimes grouped together under the putative subfamily Etroplinae.</p><p>They are an ancient, morphologically distinct lineage and represent the evolutionary sister group to all other cichlids (Sparks and Smith, 2004) with several unique specialised characters (Sparks, 2001; Stiassny et al., 2001).</p><p>These include complex paired anterior swim bladder chambers that are located within enlarged exoccipital recesses forming a direct otophysic (mechanical) connection between the gas bladder and inner ear, highly modified supraoccipital and exocippital bones of the neurocranium, and specialized ligaments associated with the suspensorium and oral jaws.</p><p>Etroplus can be told apart from Paretroplus by a number of characters including: possession of tricuspid (vs. unicuspid in Paretroplus) teeth; teeth present in multiple rows in both upper and lower jaws (vs. a single row of teeth in upper and lower jaws; teeth numerous in both upper and lower jaws (vs. teeth few in number (&lt; 18 in upper jaw, &lt; 14 in lower); paired anterior gas bladder extensions rather typical and tubelike (vs. paired anterior gas bladder extensions highly-modified with multiple anterior polyplike chambers possessing a tough and thickened tunica externa, and extremely narrow connections (diverticula) to the main gas bladder chamber); an elevated number of anal-fin spines; configuration of the anal-fin pterygiophore/hemal spine complex (Sparks, 2001; Stiassny et al., 2001).</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-suratensis-2/",
+      "html": "<p>Youngsters 4-5 cm long are already very nice to look at in their stripe pattern; adult animals look quite splendid, as if they are covered with diamond splinters.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-suratensis",
@@ -452,7 +498,7 @@
       "width": 600,
       "height": 395,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Hayath / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-suratensis",
       "caption": "Subadult individual.",
       "source": "seriouslyfish"
@@ -463,10 +509,40 @@
       "width": 800,
       "height": 614,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Hayath / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-suratensis",
       "caption": "Subadult with slightly damaged caudal-fin.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0d2a72f38ccdeb61.webp",
+      "thumb": "https://media.aquatome.com/glaser/0d2a72f38ccdeb61-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-suratensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/47f63a73f9ae6397.webp",
+      "thumb": "https://media.aquatome.com/glaser/47f63a73f9ae6397-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-suratensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0766295c8eaa1e29.webp",
+      "thumb": "https://media.aquatome.com/glaser/0766295c8eaa1e29-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-suratensis-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -525,5 +601,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-20"
 }

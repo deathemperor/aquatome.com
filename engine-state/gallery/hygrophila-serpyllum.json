@@ -15,10 +15,37 @@
   "File:Hygrophila serpyllum (5086564078).jpg",
   "File:Hygrophila serpyllum (5085627093).jpg",
   "File:Hygrophila serpyllum (Nees) T.Anderson (33904759828).jpg",
-  "File:Hygrophila serpyllum (Nees) T.Anderson (47729567052).jpg"
+  "File:Hygrophila serpyllum (Nees) T.Anderson (47729567052).jpg",
+  "inat:50601764",
+  "inat:60179976",
+  "inat:60180006",
+  "inat:120599533",
+  "inat:120599535",
+  "inat:120599541",
+  "inat:122531314",
+  "inat:124521539",
+  "inat:124521554",
+  "inat:124521562",
+  "inat:127392125",
+  "inat:132067809",
+  "inat:132067812",
+  "inat:132173025",
+  "inat:132173030",
+  "inat:133289146",
+  "inat:133289150",
+  "inat:232837311",
+  "inat:232837318",
+  "inat:274985500",
+  "inat:274985559",
+  "inat:274985603",
+  "inat:343871054",
+  "inat:343871070",
+  "inat:343871085",
+  "inat:459407106",
+  "inat:459407318",
+  "inat:459407227"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/c3e7c473cc533053.webp": "1d190b091b1f271b",
   "https://media.aquatome.com/commons/12393799686b489a.webp": "67b32747d7d6f3b2",
   "https://media.aquatome.com/commons/93aa0b4c657a174d.webp": "6a362c29e5d4da7c",
   "https://media.aquatome.com/commons/c0ae9a8d0b56c453.webp": "722333f36c4e4938",
@@ -35,7 +62,25 @@
   "https://media.aquatome.com/tropica/92dde682a018227c.webp": "70f8fca4e4d0b0b0",
   "https://media.aquatome.com/commons/4259f61f59c96e47.webp": "a3530d1ea7b65432",
   "https://media.aquatome.com/commons/1f2e125a61a32b69.webp": "d0b9697c393e4686",
-  "https://media.aquatome.com/commons/053f55788d17267c.webp": "83fae96146ce0d09"
+  "https://media.aquatome.com/commons/053f55788d17267c.webp": "83fae96146ce0d09",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/50601764/large.jpeg": "edf3b3ac2c6962b6",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/60179976/large.jpeg": "b8c95959cbcbcb0e",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/60180006/large.jpeg": "c4c4d00ccc0eaeca",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/132173025/large.jpg": "e153090eb7b454ba",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/274985500/large.jpeg": "595d496c4e4b1c56",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/274985559/large.jpeg": "5d594d6cce193c1a",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/343871054/large.jpeg": "93616adaa349dcd2",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/343871070/large.jpeg": "d8d4cecc4326b8b1",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/343871085/large.jpeg": "526a128c4ac66564",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/459407227/large.jpg": "93a9d0d048c4c008"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 602288,
+  "pass": "done",
+  "after": {
+   "research": 256260944,
+   "agree": 192897841
+  }
+ }
 }

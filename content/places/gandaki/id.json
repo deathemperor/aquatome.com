@@ -1,8 +1,13 @@
 {
   "slug": "gandaki",
-  "name": "Gandaki",
+  "name": "Provinsi Gandaki",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-23T01:45:24.674Z"
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

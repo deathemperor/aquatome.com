@@ -4,7 +4,25 @@
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/9932ece6cf9b952e.webp": "7f474f470f1d791a",
   "https://media.aquatome.com/seriouslyfish/1706e62f49833c17.webp": "ff733e9f4f3f0e1c",
-  "https://media.aquatome.com/seriouslyfish/dd913c39c14cb5e9.webp": "060e07529e3233ab"
+  "https://media.aquatome.com/seriouslyfish/dd913c39c14cb5e9.webp": "060e07529e3233ab",
+  "https://media.aquatome.com/glaser/30a5db9b800da45a.webp": "4561eddd1e3d9419",
+  "https://media.aquatome.com/glaser/4e713ea5e66b5e83.webp": "64575d678f1d7ea6",
+  "https://media.aquatome.com/glaser/4127a229f1e9fa1d.webp": "484013321e3e96bd"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 115209,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2367785,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ }
 }

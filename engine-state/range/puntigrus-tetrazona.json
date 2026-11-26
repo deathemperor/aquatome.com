@@ -1,22 +1,14 @@
 {
   "id": "puntigrus-tetrazona",
   "native": {
-    "input": "2836ddf885738c03",
-    "at": "2026-11-05T06:42:12.410Z",
+    "input": "5ff377dc0785b72c",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "ID",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "The tiger barb, Puntigrus tetrazona, is a small cyprinid probably endemic to central and southern Sumatra, Indonesia.",
-        "words": "Indonesia",
-        "ok": true
-      },
-      {
-        "code": "ID",
-        "status": "native",
-        "source": "aquariumcoop",
-        "quote": "Puntigrus tetrazona is a 6-8 cm barb that originally comes from Indonesia and surrounding areas in Southeast Asia.",
         "words": "Indonesia",
         "ok": true
       },
@@ -41,7 +33,7 @@
         "status": "introduced",
         "source": "seriouslyfish",
         "quote": "Feral populations derived from aquarium stock also exist in a number of other territories including Singapore, Australia, the United States, Colombia, and Suriname.",
-        "words": "the United States",
+        "words": "United States",
         "ok": true
       },
       {
@@ -59,6 +51,14 @@
         "quote": "Feral populations derived from aquarium stock also exist in a number of other territories including Singapore, Australia, the United States, Colombia, and Suriname.",
         "words": "Suriname",
         "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Puntigrus tetrazona is a 6-8 cm barb that originally comes from Indonesia and surrounding areas in Southeast Asia.",
+        "words": "Indonesia",
+        "ok": true
       }
     ],
     "regions": [
@@ -70,6 +70,12 @@
         "ok": true
       },
       {
+        "name": "Musi",
+        "source": "glaser",
+        "quote": "P. tetrazona is the only Puntigrus species from Sumatra; the animals used for the species description came from Palembang Province near Lahat, in the Musi River system.",
+        "ok": true
+      },
+      {
         "name": "Indragiri",
         "source": "seriouslyfish",
         "quote": "Additional records exist from the Indragiri, Batang Hari, and Musi river systems in Riau, Jambi, and South Sumatra provinces, respectively.",
@@ -77,12 +83,6 @@
       },
       {
         "name": "Batang Hari",
-        "source": "seriouslyfish",
-        "quote": "Additional records exist from the Indragiri, Batang Hari, and Musi river systems in Riau, Jambi, and South Sumatra provinces, respectively.",
-        "ok": true
-      },
-      {
-        "name": "Musi",
         "source": "seriouslyfish",
         "quote": "Additional records exist from the Indragiri, Batang Hari, and Musi river systems in Riau, Jambi, and South Sumatra provinces, respectively.",
         "ok": true

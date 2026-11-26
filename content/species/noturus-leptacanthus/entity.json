@@ -396,26 +396,19 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/e4e6e9c757d53479.webp",
-      "thumb": "https://media.aquatome.com/scotcat/e4e6e9c757d53479-480.webp",
-      "width": 500,
-      "height": 332,
-      "licence": "dùng với sự cho phép",
-      "author": "Tim Aldridge / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
-      "caption": "Noturus leptacanthus",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/77d3abce046040da.webp",
-      "thumb": "https://media.aquatome.com/scotcat/77d3abce046040da-480.webp",
-      "width": 500,
-      "height": 334,
-      "licence": "dùng với sự cho phép",
-      "author": "nv_multispeciesfishing / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
-      "caption": "Noturus leptacanthus: US-1, Ridge Spring, SC 29129, USA",
-      "source": "scotcat"
+      "url": "https://media.aquatome.com/inaturalist/604423661.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/604423661-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Steven Wang",
+      "sourceUrl": "https://www.inaturalist.org/photos/604423661",
+      "caption": "Cá Noturus leptacanthus vàng cam, vây lưng rõ, chụp trong hộp trong suốt",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/604423661-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [

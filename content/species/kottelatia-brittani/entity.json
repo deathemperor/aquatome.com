@@ -10,20 +10,23 @@
     "indonesia",
     "batang-hari",
     "malaysia",
-    "johor"
+    "johor",
+    "singapore"
   ],
   "range": {
     "native": {
       "countries": [
-        "MY"
+        "MY",
+        "SG"
       ],
       "regions": [
         "Johore River",
-        "Sumatra",
-        "Batang Hari"
+        "Batang Hari",
+        "Sumatra"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -37,12 +40,20 @@
           ]
         },
         {
+          "source": "glaser",
+          "quote": "Origin: Singapore.",
+          "countries": [
+            "SG"
+          ],
+          "regions": []
+        },
+        {
           "source": "seriouslyfish",
           "quote": "There appears to be a possibility that it is endemic to Sumatra, since a record from the Batang Hari river, in Jambi province (Tan & Kottelat, 2009) appears to represent the first official record since the description was published.",
           "countries": [],
           "regions": [
-            "Sumatra",
-            "Batang Hari"
+            "Batang Hari",
+            "Sumatra"
           ]
         }
       ]
@@ -50,7 +61,7 @@
     "records": {
       "taxonKey": 5962766,
       "total": 5,
-      "fetched": "2026-11-09",
+      "fetched": "2026-11-16",
       "countries": [
         [
           "ID",
@@ -128,6 +139,12 @@
       "html": "<ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 75 × 30 cm (30 × 12 in)</li><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–8 dGH</li><li>Difficulty: moderate (4 of 8), because it needs a well-established tank and stable water.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_brittani_en/",
+      "html": "<p>At the first glimpse this pretty Rasbora may look a bit colorless; however, if the fish is kept in the perfect milieu (blackwater conditions and dimmed light) it looks really beautiful.</p><p>Suggestion of a common name: Taillight rasbora</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/kottelatia-brittani",
@@ -138,6 +155,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/kottelatia-brittani",
       "html": "<p>This species's distribution is unclear. It was described from Segamat District within the Johor River watershed, Johor state, southern Peninsular Malaysia, but the type specimens were obtained via a Singapore wholesaler so it's possible that a mistake was made as there exist no other records of the species in Peninsular Malaysia.</p><p>Type locality is 'Johore River, Segamat, Malaysia'.</p><p>Specimens collected from the Kapuas drainage in Kalimantan Barat (West Kalimantan) province, Indonesia (Borneo) and initially identified as this species were subsequently described as Rasbora kalbarensis (Kottelat, 1991). There appears to be a possibility that it is endemic to Sumatra, since a record from the Batang Hari river, in Jambi province (Tan &amp; Kottelat, 2009) appears to represent the first official record since the description was published.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_brittani_en/",
+      "html": "<p>Origin: Singapore.</p>"
     },
     {
       "key": "habitat",
@@ -194,6 +217,12 @@
       "html": "<p>This species is a rare find but may be seen on sale with the trade name 'head and tail light rasbora' when it is available. It has been confused with the similar-looking Rasbora kalbarensis on occasion but can be identified by its larger adult size, more pointed head profile and intense orange to red blotches on the caudal peduncle.</p><p>The body of R. kalbarensis is also suffused with a pinkish hue, while K. brittani lacks a symphyseal knob on the lower jaw, the small projection which is present in all Rasbora species.</p><p>The genus Kottelatia is told apart from other rasborins by the following characters: palatine process slender with a narrow base, and very long in length without projection; coronoid process enlarged; plate-like expansion anteroventrally on dentary absent.</p><p>Rainboth (1996) characterised members of Rasbora by possession of an unbranched, non-spiny first dorsal fin ray and seven soft dorsal rays, origin of the dorsal fin in the middle of the body, five branched anal fin rays, a small mouth not extending below the eye and a lack of barbels. It has long been recognised as a polyphyletic lineage, and Liao et al. (2010) proposed a number of taxonomical changes based on the results of their phylogenetic analysis.</p><p>The authors found species of rasborin genera to represent a monophyletic grouping existing in six clades, and erected four new genera (all containing former members of Rasbora) in order to preserve monophyly of the existing groups; Boraras, Horadandia, Rasbora, Rasboroides and Trigonostigma.</p><p>The first clade is monotypic, comprising only Kottelatia brittani (formerly Rasbora brittani) while the second contains the genus Brevibora. The third clade comprises Boraras, Horadandia, Rasboroides, Trigonostigma and three species previously included in Rasbora but moved into new genera; Trigonopoma gracile, T. pauciperforatum and Rasbosoma spilocerca. The results for Boraras and Trigonostigma were found to be inconclusive in some respects and further work regarding their phylogenetic position was recommended.</p><p>The fourth clade includes Rasbora semilineata, R. borapetensis, R. rubrodorsalis and an undescribed fish similar to R. beauforti. Clade five consists of R. daniconius, R. hubbsi, R. paucisqualis, R. wilpita, R. kobonensis, R. ornata and R. cf. daniconius. Clade six, meanwhile, is subdivided into two groupings.</p><p>The first contains R. einthovenii, R. elegans and R. cephalotaenia and the second R. lateristriata, R. argyrotaenia, R. volzii, R. paviana, R. rasbora (plus an undescribed, similar fish), R. caudimaculata and R. trilineata. As this final clade contains the type species (see below) its members retain the generic name Rasbora as do clade five species because they don't differ sufficiently to warrant the erection of a new genus/genera.</p><p>Unfortunately many species weren't included in the analysis, meaning inevitable questions are raised regarding the correct placement of the 40 or so other Rasbora spp., in particular. As the genus had previously been split into various 'species groups' (groups of closely-related species) dating back to Brittan (1972, who referred to them as 'species complexes') Liao et al. proposed the following arrangement whilst noting it may be subject to change with further phylogenetic studies:</p><p>R. semilineata species group: R. semilineata, R. borapetensis, R. rubrodorsalis. R. trifasciata species group: R. trifasciata, R. amplistriga, R. bankanensis, R. dies, R. ennealepis, R. hubbsi, R. johannae, R. meinkeni, R. paucisqualis, R. rutteni, R. sarawakensis, R. taytayensis, R. tobana, R. tuberculata. R. daniconius species group: R. daniconius, R. caverii, R. kobonensis, R. labiosa, R. ornata, R. wilpita. R. einthovenii species group: R. einthovenii, R. cephalotaenia, R. elegans, R. jacobsoni, R. kalochroma, R. kottelati, R. nematotaenia, R. tubbi. R. argyrotaenia species group: R. argyrotaenia, R. aprotaenia, R. aurotaenia, R. baliensis, R. borneensis, R. bunguranensis, R. dusonensis, R. evereti, R. hobelmani, R. hossi, R. lateristriata, R. laticlavia, R. leptosoma, R. philippina, R. septentrionalis, R. spilotaenia, R. steineri, R. tawarensis, R. tornieri, R. volzii. R. sumatrana species group: R. sumatrana, R. atridorsalis, R. calliura, R. caudimaculata, R. dorsinotata, R. notura, R. paviana, R. rasbora, R. subtilis, R. trilineata, R. vulgaris.</p><p>Not classified: R. beauforti, R. chrysotaenia, R. gerlachi (validity in question), R. kalbarensis, R. reticulata, R. vulcanus (possibly not Rasboras) and R. zanzibarensis (identity in question).</p><p>Shortly afterwards a paper investigating systematics of the subfamily Danioninae was published (Tang et al. 2010) with significantly different results. The four new genera proposed by Liao et al., plus Boraras and Trigonostigma, were synonymised with Rasbora based on an incomplete knowledge of relationships within the group, an approach described as 'more conservative'. Though perhaps neither conclusion is satisfactory, the system of Liao et al. was adopted pending future studies, if only because Boraras and Trigonostigma are well-known genera in the aquarium hobby.</p><p>The identity of the type species, often given as R. rasbora in the past, is no longer in question; when Bleeker first referred to the name Rasbora in 1859 only four nominal members were included of which R. cephalotaenia (known as Leuciscus cephalotaenia at the time) should be considered the type. Howes (1980) suggested the separation of a number of species into the new genus Parluciosoma with type species P. (Rasbora) argyrotaenia but the monophyly of that grouping was not recovered in phylogenetic analyses.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_brittani_en/",
+      "html": "<p>Due to a number of anatomical specializations, the species has been recently placed in a new genus, namely Kottelatia; so the most actual scientific name is Kottelatia brittani.</p><p>Obviously K. brittani has been often confused with another small cyprinid, Pectenocypris korthausae. The latter has an identical coloration, but is much more slender and has a more prolonged snout.</p><p><strong>Lexicon:</strong> brittani: dedication name for M. R. Brittan, who revised the genus Rasbora in 1954. Kottelatia: dedication name for Maurice Kottelat, one of the most experienced ichthyologists specialized in the freshwater fish of Southeast Asia. Pectenocypris: from ancient Greek, means something about “Comb-Carp”. korthausae: dedication name for Edith Korthaus, who was editor of the German aquarium magazine “Das Aquarium” and discovered the species.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/kottelatia-brittani",
@@ -207,7 +236,7 @@
       "width": 664,
       "height": 428,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/kottelatia-brittani",
       "caption": "This species does best in conspecific groups.",
       "source": "seriouslyfish"
@@ -218,7 +247,7 @@
       "width": 742,
       "height": 302,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mick Wright / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/kottelatia-brittani",
       "caption": "Superbly-conditioned adult.",
       "source": "seriouslyfish"
@@ -255,5 +284,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-14"
 }

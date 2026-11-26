@@ -1,7 +1,9 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/eada63185529ef70.webp": "3b73634f3b7b139f"
+ },
  "commons": "2026-11-09",
  "gbif": {
   "key": 2394184,
@@ -14,5 +16,8 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "openverse": {
+  "next": null
  }
 }

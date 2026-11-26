@@ -2,10 +2,16 @@
  "queue": [],
  "judged": [
   "File:Melanotaenia lacustris.jpg",
-  "File:Lake Kutubu rainbowfish in the Leningrad zoo.jpg"
+  "File:Lake Kutubu rainbowfish in the Leningrad zoo.jpg",
+  "inat:310937589",
+  "inat:310937602"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/081a51142aff8a04.webp": "050d0f1d47478d27"
+  "https://media.aquatome.com/commons/081a51142aff8a04.webp": "050d0f1d47478d27",
+  "https://media.aquatome.com/glaser/bfc9842e30661e39.webp": "79f98e8f0b8fcee8",
+  "https://media.aquatome.com/glaser/d21ddd85e25e6f36.webp": "8d0d8d870f87f9e8",
+  "https://media.aquatome.com/glaser/c5a49139541d5491.webp": "4db88d870b0eccb9",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/310937589/large.jpg": "0f0f17271d0f1f0f"
  },
  "inat": {
   "taxon": 105543,
@@ -22,6 +28,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 178666500,
+  "done": true
  },
  "exhausted": "2026-11-07"
 }

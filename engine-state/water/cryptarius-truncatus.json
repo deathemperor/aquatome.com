@@ -2,5 +2,9 @@
   "id": "cryptarius-truncatus",
   "input": "6987e4e07e8ad066",
   "at": "2026-11-14T05:49:41.575Z",
-  "claims": []
+  "claims": [],
+  "failed": {
+    "at": "2026-11-24T05:14:27.829Z",
+    "error": "claude failed (1): other"
+  }
 }

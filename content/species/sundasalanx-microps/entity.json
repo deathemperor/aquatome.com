@@ -12,6 +12,74 @@
     "malaysia",
     "rajang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Kapuas",
+        "Kinabatangan",
+        "Rajang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Sundasalanx microps is a miniature clupeiform from Borneo, in Indonesia and Malaysia, described from the Kapuas River.",
+          "countries": [
+            "ID",
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs in Indonesia and Malaysia on Borneo, including the Kapuas, Kinabatangan and Rajang basins.",
+          "countries": [],
+          "regions": [
+            "Borneo",
+            "Kapuas",
+            "Kinabatangan",
+            "Rajang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2413683,
+      "total": 4,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          3
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          0,
+          3,
+          3
+        ],
+        [
+          112.5,
+          1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -3,6 +3,12 @@
   "name": "Tiquié",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-20T17:39:48.775Z",
+    "why": "\"Tiquié\" keeps the source spelling, which is fine, but the name is really the Tiquié River on the Colombia–Brazil border, and an Indonesian atlas would write \"Sungai Tiquié\" with the kind word."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/janalychas-tricarinatus-detailed-guide-care-diet-and-breeding/
 title: Janalychas Tricarinatus – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T04:15:44.920Z
-hash: c0343a41014afee3c2640b52625f6cef20b9682b500f67a4ee7670c5e1698a6c
+hash: 366ecc02129598513bb13d1a44c4136f3133e7ff2cf2f53f3f6371b7512c945f
 ---
 
 If you’re considering getting your first scorpion, I would recommend taking a look at Janalychas tricarinatus.
@@ -163,4 +163,3 @@ Moreover, it is very adaptable, easy to care for, and even easier to breed since
 - Mathew, A. P. “Reproductive biology of Lychas tricarinatus (Simon).” The Biological Bulletin123, no. 2 (1962): 344-350.
 - Kovařík, František. “Revision of the genera Lychas and Hemilychas, with descriptions of six new species (Scorpiones: Buthidae).” Acta Societatis Zoologicae Bohemicae61 (1997): 311-371.
 - Kovařík, František. “Taxonomic reassessment of the genera Lychas, Mesobuthus, and Olivierus, with descriptions of four new genera (Scorpiones: Buthidae).” Euscorpius2019, no. 288 (2019): 1-27.
-### Leave a Reply Cancel reply

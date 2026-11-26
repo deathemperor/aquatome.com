@@ -9,13 +9,17 @@
   "File:Botia dario 105981363.jpg",
   "inat:105981363",
   "inat:219876983",
-  "inat:240221657"
+  "inat:240221657",
+  "flickr:52890056391"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/4e3cfdf7fe2a9d9e.webp": "0183539020c07cc9",
-  "https://media.aquatome.com/seriouslyfish/5a9117828f3869fd.webp": "0cad6dcd068383c2",
   "https://media.aquatome.com/seriouslyfish/52264a56fcdf51f3.webp": "747c5859ddccc963",
-  "https://media.aquatome.com/commons/1fa0d035424c21a1.webp": "00001e0e07030100"
+  "https://media.aquatome.com/commons/1fa0d035424c21a1.webp": "00001e0e07030100",
+  "https://media.aquatome.com/seriouslyfish/a2afb66f0d50592b.webp": "32ce623442de9649",
+  "https://media.aquatome.com/glaser/028bc2648156f7bc.webp": "5b766939236c491c",
+  "https://media.aquatome.com/glaser/53adf737d2e1377a.webp": "71134bc795818991",
+  "https://media.aquatome.com/glaser/ae3d47dd657f4a8a.webp": "0636467170d068f8"
  },
  "commons": "2026-11-06",
  "inat": {
@@ -28,6 +32,9 @@
  },
  "gbif": {
   "key": 2368034,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

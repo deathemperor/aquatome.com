@@ -10,17 +10,184 @@
     "venezuela",
     "brazil",
     "rio-negro",
-    "orinoco"
+    "orinoco",
+    "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Negro River",
+        "Orinoco"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon basin: upper Negro River system in Brazil and Venezuela and upper Orinoco River basin in southern Venezuela.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Amazon",
+            "Negro River",
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344589,
+      "total": 35,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          28
+        ],
+        [
+          "CO",
+          3
+        ],
+        [
+          "VE",
+          3
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          0,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          0,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          1.40625,
+          6,
+          6
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 20
-      },
-      {
         "source": "scotcat",
         "value": 20.5
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tempC": [
@@ -46,8 +213,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tetranematichthys_wallacei_en/",
-      "html": "<p>Maximum total length about 20 cm. Carnivorous. Origin: Venezuela.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "html": "<p>At present three species of the genus Tetranematichthys are distinguished. They reach about 20 cm total length. They feed predatorily, the preferred food being small fish.</p>"
     },
     {
       "key": "quickFacts",
@@ -58,8 +225,8 @@
     {
       "key": "beforeYouBuy",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tetranematichthys_wallacei_en/",
-      "html": "<p>Three different species of the genus Tetranematichthys are currently distinguished by scientists. None of them is often imported, because their secretive way of life between dead driftwood makes catching them a pure matter of luck. This is the first importation ever of Tetranematichthys wallacei, from Venezuela. Three specimens were obtained: one male and two females.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "html": "<p>None of the Tetranematichthys species comes frequently or even regularly into the trade, because their hidden way of life makes their catch a pure matter of luck. T. wallacei was imported from Colombia, and the import included sexually mature males and females.</p><p>T. wallacei differs from the identically colored species T. quadrifilis by the profile of the underside of the head. The cheeks of T. wallacei run almost parallel on the left and right side, while in T. quadrifilis the distance between left and right head edge increases clearly recognizable towards the abdomen.</p>"
     },
     {
       "key": "distribution",
@@ -68,10 +235,10 @@
       "html": "<p>South America: Amazon basin: upper Negro River system in Brazil and Venezuela and upper Orinoco River basin in southern Venezuela.</p>"
     },
     {
-      "key": "aquariumSize",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tetranematichthys_wallacei_en/",
-      "html": "<p>A tank for Tetranematichthys should contain fine sand on the bottom, be softly lit and be equipped with a great number of pieces of driftwood.</p>"
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tetranematichthys_wallacei.htm",
+      "html": "<p>A tank for Tetranematichthys should contain fine sand on the bottom, should be softly lit and should be equipped with a great number of driftwood. During daytime the fish often sleep lying on the side. This behaviour is absolutely normal and no reason for the aquarist to become anxious.</p>"
     },
     {
       "key": "equipment",
@@ -80,10 +247,16 @@
       "html": "<p>A tank for Tetranematichthys should contain fine sand on the bottom, should be softly lit and should be equipped with a great number of driftwood.</p>"
     },
     {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "html": "<p>An aquarium for Tetranematichthys should contain a fine sandy bottom, be dimly lit and contain plenty of root wood for hiding.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tetranematichthys_wallacei_en/",
-      "html": "<p>It is carnivorous and prefers to feed on small fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "html": "<p>They feed predatorily, preferred food being small fish.</p>"
     },
     {
       "key": "diet",
@@ -94,8 +267,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tetranematichthys_wallacei_en/",
-      "html": "<p>During the daytime the fish often sleep lying on their side. This behaviour is absolutely normal and no reason for concern. Towards conspecifics Tetranematichthys are completely peaceful.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "html": "<p>During the day the animals often lie on their sides sleeping; this is quite normal and need not worry the keeper. Among themselves Tetranematichthys are completely peaceful.</p>"
     },
     {
       "key": "behaviour",
@@ -110,16 +283,22 @@
       "html": "<p>The males develop an extended dorsal fin and is thorny.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "html": "<p>As in the closely related genus Ageinosus, male Tetranematichthys develop a huge dorsal fin at breeding time. After the reproductive period, both sexual characteristics are said to regress and then become almost indistinguishable from that of the female.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tetranematichthys_wallacei_en/",
-      "html": "<p>As in the closely related genus Ageinosus, males of Tetranematichthys develop enormous dorsal fins during the breeding season. The spine of that fin is very thorny. During mating the males attach to the female with this thorny spine. Fertilisation is internal, by a penis-like organ formed from modified rays of the anal fin. It is said that after the breeding season the male's dorsal fin reduces to the size of the female's.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "html": "<p>The male uses the heavily spined dorsal fin spine to clamp the female during mating. Fertilization occurs internally with a penis-like structure formed from the anteriormost rays of the anal fin.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tetranematichthys_wallacei_en/",
-      "html": "<p>Tetranematichthys means \"fish with four threads\", referring to the barbels. wallacei is a dedication name for Alfred Russel Wallace (1823-1913).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "html": "<p>Lexicon: Tetranematichthys means \"fish with four filaments\", referring to the barbels. wallacei: dedication name for Alfred Russel Wallace (1823-1913).</p>"
     },
     {
       "key": "notes",
@@ -132,12 +311,6 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/auchenipteridae/tetranematichthys_wallacei.htm",
       "html": "<p>Frederico, R.G. 2023. Tetranematichthys wallacei. The IUCN Red List of Threatened Species 2023. Vari, R.P. and C. Ferraris, Jr. 2006 The catfish genus Tetranematichthys (Aucheniptridae). Copeia 2006(2):168-180.</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tetranematichthys_wallacei.htm",
-      "html": "<p>A tank for Tetranematichthys should contain fine sand on the bottom, should be softly lit and should be equipped with a great number of driftwood. During daytime the fish often sleep lying on the side. This behaviour is absolutely normal and no reason for the aquarist to become anxious.</p>"
     }
   ],
   "photos": [
@@ -173,6 +346,36 @@
       "sourceUrl": "https://www.scotcat.com/auchenipteridae/tetranematichthys_wallacei.htm",
       "caption": "Tetranematichthys wallacei",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/46db75d4bb79acd5.webp",
+      "thumb": "https://media.aquatome.com/glaser/46db75d4bb79acd5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e080f6007ae866c7.webp",
+      "thumb": "https://media.aquatome.com/glaser/e080f6007ae866c7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e977fca5cb67de27.webp",
+      "thumb": "https://media.aquatome.com/glaser/e977fca5cb67de27-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tetranematichthys-wallacei-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -223,5 +426,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-23"
 }

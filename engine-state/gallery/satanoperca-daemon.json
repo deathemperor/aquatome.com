@@ -12,5 +12,17 @@
   "https://media.aquatome.com/commons/3de7eaa3c1e635d4.webp": "c78f83140c48b870",
   "https://media.aquatome.com/commons/d3db5028b9c24a3a.webp": "4d4d0d8999d97171"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 604922,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 264016335
+  }
+ },
+ "gbif": {
+  "key": 5208460,
+  "next": null
+ }
 }

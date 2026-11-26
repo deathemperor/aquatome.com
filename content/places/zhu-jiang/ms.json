@@ -3,6 +3,12 @@
   "name": "Zhu Jiang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T00:40:52.420Z",
+    "why": "\"Zhu Jiang\" is the Chinese pinyin name left as it is, with no Malay kind word, whereas Malay atlases write \"Sungai Mutiara\" (Pearl River) or \"Sungai Zhujiang\"."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

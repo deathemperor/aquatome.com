@@ -14,7 +14,10 @@
   "File:Bucephalandra oblanceolata - Brunei - 600500634.jpg",
   "File:Bucephalandra oblanceolata - Brunei - 600500658.jpg",
   "File:Bucephalandra oblanceolata - Brunei - 600500646.jpg",
-  "File:Bucephalandra oblanceolata - Brunei - 600500618.jpg"
+  "File:Bucephalandra oblanceolata - Brunei - 600500618.jpg",
+  "gbif:1318505230:7c77b6a3072e7c0c",
+  "flickr:32066096664",
+  "flickr:32908956615"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumcoop/8ae57ebc477a4a19.webp": "2e37ab4bfef6fcd8",
@@ -32,5 +35,20 @@
   "https://media.aquatome.com/commons/9b0044c312d3596a.webp": "ca773ee6f6e6ccc9",
   "https://media.aquatome.com/commons/95cf85eb09105b52.webp": "aee2a5ed49848085"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": null,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2869473,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ }
 }

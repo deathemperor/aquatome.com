@@ -24,7 +24,7 @@ vi.mock('node:child_process', () => ({
     return child
   },
 }))
-const { LlmError, claudeCli, claudeResearch, claudeVision, researchFor } = await import('../src/claude')
+const { LlmError, claudeCli, claudeResearch, claudeTools, claudeVision, researchFor } = await import('../src/claude')
 const { accountReport, resetAccounts, tokenHash } = await import('../src/claude-accounts')
 const { errorKind } = await import('../src/state')
 const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {}, model: 'opus' })
@@ -73,6 +73,23 @@ test('a character the pipe cuts in two between chunks of the answer is read whol
   const thai = bytes.indexOf(Buffer.from('เ')) + 1, viet = bytes.indexOf(Buffer.from('ả')) + 1
   printed.chunks = [bytes.subarray(0, thai), bytes.subarray(thai, viet), bytes.subarray(viet)]
   expect(await claudeCli<{ text: string }>({ system: 's', prompt: 'p', schema: {} })).toEqual({ text })
+})
+
+test('a call with MCP tools fails when the CLI says their server didn\'t start, or lists none: the answer would have had no tools', async () => {
+  const lines = (servers?: { name: string; status: string }[]) => [
+    ...(servers ? [{ type: 'system', subtype: 'init', mcp_servers: servers }] : []),
+    { type: 'result', structured_output: { text: 'ok' }, total_cost_usd: 0, usage: {} },
+  ].map(l => Buffer.from(`${JSON.stringify(l)}\n`))
+  const call = () => claudeTools<{ text: string }>({ system: 's', prompt: 'p', schema: {}, mcp: '/x/mcp.json', allow: 'mcp__chat__read_page', onEvent: () => {} })
+  printed.chunks = lines([{ name: 'chat', status: 'connected' }])
+  expect(await call()).toEqual({ text: 'ok' })
+  printed.chunks = lines([{ name: 'chat', status: 'failed' }])
+  await expect(call()).rejects.toThrow("the tools' server didn't start (chat)")
+  printed.chunks = lines()
+  await expect(call()).rejects.toThrow('none listed')
+  printed.chunks = lines([{ name: 'chat', status: 'connected' }])
+  await call()
+  expect(spawned.at(-1)!.args).toEqual(expect.arrayContaining(['--mcp-config', '/x/mcp.json', '--allowedTools', 'mcp__chat__read_page', '--output-format', 'stream-json']))
 })
 
 test('ENGINE_COST_LOG gets a line a call; a log it cannot write never fails the gate\'s call', async () => {
@@ -224,6 +241,16 @@ test('image judgments use the native ephemeral flag; ordinary text calls keep th
  await claudeVision({system:'s',prompt:'p',schema:{},file:join(tmpdir(),'fixture.png')})
  expect(spawned.at(-1)?.args).toContain('--no-session-persistence')
  await call();expect(spawned.at(-1)?.args).not.toContain('--no-session-persistence')
+})
+
+// Codex's read of 21 Nov 2026: the magazine's post is in research's prompt, and a call's session is kept on disk.
+test("a call given a page no one may keep (`unkept`) keeps no session of it, research and plain calls alike; the others are as they were", async () => {
+  await claudeResearch<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {}, unkept: true })
+  expect(spawned.at(-1)?.args).toContain('--no-session-persistence')
+  await claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {}, unkept: true })
+  expect(spawned.at(-1)?.args).toContain('--no-session-persistence')
+  await claudeResearch<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
+  expect(spawned.at(-1)?.args).not.toContain('--no-session-persistence')
 })
 
 // The chief of staff, 14 Nov 2026, on the owner's rule that nothing goes round a challenge: every step's web research keeps

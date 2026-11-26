@@ -5,7 +5,7 @@
   "family": "Loricariidae",
   "genus": "Pterygoplichthys",
   "group": "catfish",
-  "lNumber": "L165",
+  "lNumber": "L165, L83",
   "places": [
     "south-america",
     "bolivia",
@@ -360,6 +360,10 @@
       {
         "source": "scotcat",
         "value": 50
+      },
+      {
+        "source": "planetcatfish",
+        "value": 50
       }
     ],
     "tempC": [
@@ -369,6 +373,13 @@
           "min": 25,
           "max": 30
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
       }
     ],
     "ph": [
@@ -377,6 +388,13 @@
         "value": {
           "min": 5,
           "max": 7
+        }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.8
         }
       }
     ],
@@ -402,6 +420,12 @@
       "html": "<ul><li>Common names: Gibby, Sail fin Pleco, L083, L165</li><li>IUCN Red List: Least Concern (IUCN 2023). Despite the little information available on this species, it has a wide range and no apparent threats.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=148",
+      "html": "<ul><li>Scientific name: Pterygoplichthys gibbiceps (Kner, 1854)</li><li>Also known as: L165, Sail Fin Pleco Gibby</li><li>Type locality: Upper Rio Negro near Marabitanos, Amazonas State, Brazil.</li><li>IUCN Red List: Least Concern (last assessed 2020)</li></ul><p>Pterygoplichthys can be identified by the number of rays in the dorsal fin. Ten or more dorsal rays (usually more than 10) indicates that it is a Pterygoplichthys. Most other plecos have 8 or fewer rays (in particular the larger Hypostomus species that are most likely to be confused with Pterygoplichthys). The trademark spotted sailfin makes this a distinctive species.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-gibbiceps-2/",
@@ -420,6 +444,12 @@
       "html": "<p>South America: Middle and upper Amazon and Orinoco basins.</p>"
     },
     {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=148",
+      "html": "<p>South America: Middle and upper Amazon and Orinoco basins.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-gibbiceps-2/",
@@ -432,10 +462,46 @@
       "html": "<p>To keep this fine looking animal in mint condition you will need a reasonably sized aquarium, starting off with a 3 footer when small, with good external filtration to facilitate a good oxygen content, as it excretes copious amounts of waste if fed properly on vegetable matter. If the water quality is not adhered to, small holes can appear in the fin membranes. You will notice when your water quality is not up to the mark as they \"hang\" in the water just off their fins, from the substrate, which means 'get that water change done'.</p><p>It is kind to plants in the aquarium, the only problem is when it gets bigger and can uproot them in its conquest around the tank.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=148",
+      "html": "<ul><li>pH: 6.5–7.8</li><li>Temperature: 23–27°C</li></ul><p>Larger fish require heavy filtration, not because they are fussy about water quality, but because of the high volumes of waste they produce.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=148",
+      "html": "<p>An appropriately sized shady retreat is all this fish requires. It will not eat plants, but any individual larger than about 100 mm may inadvertently pull up plants that are not entirely established. Larger fish require heavy filtration because of the high volumes of waste they produce.</p>"
+    },
+    {
       "key": "diet",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_gibbiceps.htm",
       "html": "<p>They are mostly vegetarian with algae being their number one source of food but to keep a large fish fed on algae alone is impossible so you can feed also spinach, blanched lettuce, cucumber, courgette (zucchini) and also non veg food such as tablets and prawns.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=148",
+      "html": "<p>Lettuce, peas, frozen spinach and any prepared food that reaches the bottom. Larger fish enjoy prawns or pieces of freshwater trout. Algae (especially soft brown) will be eaten immediately.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=148",
+      "html": "<p>Larger individuals are territorial towards conspecifics, however they are not predatory and are able to look after themselves with all but the most violent tank mates.</p><p>Hardy and stoic, a good companion fish for most larger fishes. Not a good pleco to keep with other similarly sized, less gregarious plecos, as P. gibbiceps will usually win any competition for food.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=148",
+      "html": "<p>Comparison of the genital papilla in mature fish shows the differences between the sexes to the trained eye. In males this is a small yet thick stump which noticeably protrudes from the fish's undercarriage. In females it is less obvious and is recessed or lies flat with the body.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=148",
+      "html": "<p>Although commercially farmed, spawning in a home aquarium would be very difficult to achieve, as a large wall of mud (i.e. a river bank) is tunnelled into and used for the incubation and hatching process. Large tunnels and fish would be required in a super-size aquarium. There is no breeding report.</p>"
     },
     {
       "key": "notes",
@@ -448,6 +514,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_gibbiceps.htm",
       "html": "<p>Rainer Stawikowski, André Werner &amp; Ingo Seidel. DATZ Special L-Numbers 2004. All L-numbers: Habitat, Care &amp; Diet.</p><p>Salvador, G.N. 2023. Pterygoplichthys gibbiceps. The IUCN Red List of Threatened Species 2023.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=148",
+      "html": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe. v. 7, pp 284 [34], Pl. 5 (fig. 2)</p>"
     }
   ],
   "photos": [
@@ -545,5 +617,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-23"
 }

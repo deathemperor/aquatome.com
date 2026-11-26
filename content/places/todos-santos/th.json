@@ -3,6 +3,12 @@
   "name": "โตโดสซานโตส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:49:31.704Z",
+    "why": "Thai transliteration of Spanish \"Todos Santos\" would be โตโดสซานโตส, which is acceptable, but a Thai atlas would typically use a kind word and a spelling like \"โตโดส ซานโตส\"; as a region/locality the name lacks a kind word."
+  },
   "quality": {
     "score": 0.74,
     "indexable": false

@@ -11,11 +11,23 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cynopscyanurus.jpg",
       "caption": "Sa giông bụng lửa trưởng thành bò trên đá trong bể thủy sinh",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/707255331.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/707255331-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "xiangrongyan",
+      "sourceUrl": "https://www.inaturalist.org/photos/707255331",
+      "caption": "Sa giông bụng lửa với bụng cam trên đá ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 1,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-10"
+  "seen": 14,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }

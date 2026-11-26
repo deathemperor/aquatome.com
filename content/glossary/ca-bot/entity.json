@@ -1,4 +1,47 @@
 {
   "id": "ca-bot",
-  "en": "Fry"
+  "en": "Fry",
+  "refs": [
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/raise-baby-fish",
+      "title": "How to Raise Baby Fish Fry in Your Aquarium"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/fry-food",
+      "title": "Top 5 Tiny Foods to Feed Your Aquarium Fish Fry for Healthy Growth – Aquarium Co-Op"
+    },
+    {
+      "url": "https://www.petmart.vn/cach-nuoi-au-trung-artemia-lam-thuc-an-cho-ca-bot",
+      "title": "Cách Nuôi Ấu Trùng Artemia Làm Thức ăn Cho Cá Bột | Pet Mart Cửa Hàng Thú Cưng"
+    },
+    {
+      "url": "https://khainhat.vn/cach-nuoi-artemia-cho-ca-bot-tai-nha-giup-ca-lon-khoe/",
+      "title": "Cách nuôi Artemia cho cá bột tại nhà giúp cá lớn khỏe - Khai Nhật"
+    },
+    {
+      "url": "https://www.aquaticcommunity.com/breeding/raisingfry.php",
+      "title": "Raising Fry"
+    }
+  ],
+  "related": [
+    "artemia",
+    "trung-co",
+    "de-con",
+    "de-trung-rai-rac",
+    "thay-nuoc",
+    "dong-chay"
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/747294f049f339b2.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/747294f049f339b2-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/discus-care-guide",
+      "caption": "Đàn cá bột của cá đĩa bơi quanh thân một con cá đĩa trưởng thành.",
+      "source": "aquariumcoop"
+    }
+  ]
 }

@@ -1,6 +1,20 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {},
- "commons": "2026-11-09"
+ "hashes": {
+  "https://media.aquatome.com/glaser/a70f7407d2331762.webp": "d9cd8f73b16123a1"
+ },
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 620758,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2354158,
+  "next": null
+ }
 }

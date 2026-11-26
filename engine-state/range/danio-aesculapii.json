@@ -1,14 +1,30 @@
 {
   "id": "danio-aesculapii",
   "native": {
-    "input": "5be701865a74f939",
-    "at": "2026-11-07T16:21:07.852Z",
+    "input": "c25407e73a5a7f7d",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "These minnows originate from Burma, do not grow over 4 cm and are therefore the smallest representative of the Danio genus.",
+        "words": "Burma",
+        "ok": true
+      },
       {
         "code": "MM",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Endemic to the Rakhine Yoma/Arakan mountains in Rakhine state, western Myanmar; this range forms a natural barrier which cuts the state off from the remainder of the country.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Myanmar.",
         "words": "Myanmar",
         "ok": true
       }

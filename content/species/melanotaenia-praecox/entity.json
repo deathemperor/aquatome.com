@@ -9,7 +9,8 @@
     "oceania",
     "indonesia",
     "mamberamo",
-    "new-guinea"
+    "new-guinea",
+    "irian-jaya"
   ],
   "range": {
     "native": {
@@ -98,6 +99,10 @@
         "value": 8
       },
       {
+        "source": "glaser",
+        "value": 7
+      },
+      {
         "source": "aquariumcoop",
         "value": 8
       }
@@ -106,6 +111,10 @@
       {
         "source": "seriouslyfish",
         "value": 60
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 75
       }
     ],
     "difficulty": [
@@ -130,7 +139,19 @@
       "key": "quickFacts",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
-      "html": "<p>The neon dwarf rainbowfish is an almond-shaped fish with an iridescent blue sheen. It is a hardy, active species with a mild disposition that suits many peaceful and semi-aggressive tank mates. It is beginner-friendly and one of the smallest Melanotaenia species.</p><p>Males have a shiny blue body with red-orange fins, whereas females have a silvery body with yellow fins.</p>"
+      "html": "<p>Melanotaenia praecox is a 8 cm rainbowfish with an iridescent blue sheen. It is hardy, active and mild-tempered, and suits beginners.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
+      "html": "<p>The Diamond Rainbowfish – Melanotaenia praecox – is one of the smallest species of the actual rainbowfishes and grows only 6-7 cm long. It shows already from 3 cm length its splendid iridescent body coloration. That is why it is one of the most popular species in the trade. With age the males become high-backed and then the red in the vertical fins develops even more intensively.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
+      "html": "<p>All Diamond Rainbowfishes in the trade are descended from a few animals. Carelessly raised animals are susceptible to disease, well raised ones are not.</p>"
     },
     {
       "key": "distribution",
@@ -142,19 +163,19 @@
       "key": "distribution",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
-      "html": "<p>Melanotaenia praecox is found in streams and tributaries of the New Guinea rainforest.</p>"
+      "html": "<p>Found in streams and tributaries of the New Guinea rainforest.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
+      "html": "<p>Melanotaenia praecox is only found on the island of New Guinea and there only in a small area in the western half of the island called Irian Jaya.</p>"
     },
     {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-praecox",
       "html": "<p>Tends to inhabit swiftly flowing tributaries off the main river, as well as surrounding swamps and marshes. The fish congregate around areas of aquatic vegetation, or submerged roots and logs.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "aquariumcoop",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
-      "html": "<p>The species comes from tropical habitats: streams and tributaries in the rainforest.</p>"
     },
     {
       "key": "aquariumSize",
@@ -166,7 +187,7 @@
       "key": "aquariumSize",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
-      "html": "<p>Because they are fast swimmers, a longer aquarium is recommended, such as a long tank of about 76 litres or a tank of about 110 litres at the minimum.</p><p>They look good in planted aquariums, and taller plants can help block line of sight when the males are tussling with each other. The foliage should not get too overgrown, because rainbowfish like open areas to swim freely.</p>"
+      "html": "<p>Since they are fast swimmers, a longer aquarium is recommended, such as a 80-litre long or 120-litre tank at the minimum.</p>"
     },
     {
       "key": "maintenance",
@@ -184,7 +205,14 @@
       "key": "waterConditions",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
-      "html": "<p>Temperature: 23–27°C.</p><p>They can handle a wide range of pH and GH, but prefer harder, alkaline water. Where tap water is relatively soft, crushed coral can be used to buffer the pH, and mineral supplements (e.g., Wonder Shell and Seachem Equilibrium) can be used to increase the GH.</p>"
+      "html": "<p>Temperature: 23–27°C.</p><p>They can handle a wide range of pH and GH, but prefer harder, alkaline water. Where tap water is relatively soft, crushed coral can be used to buffer the pH, and mineral supplements (e.g., Wonder Shell and Seachem Equilibrium) can be used to increase the GH.</p>",
+      "fixed": true
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
+      "html": "<p>They look great in planted aquariums, and taller plants can block line of sight when males tussle. Do not let the foliage get overgrown, because rainbowfish like open areas to swim freely.</p>"
     },
     {
       "key": "diet",
@@ -196,7 +224,7 @@
       "key": "diet",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
-      "html": "<p>These omnivorous fish are very easy to feed and will eagerly eat anything dropped in the tank. Smaller foods that float or slowly sink suit them, such as frozen cyclops, brine shrimp and nano pellets. They also enjoy bloodworms, flakes and live foods.</p><p>The key is to offer a variety of foods so they receive a well-rounded diet with all the necessary nutrients.</p>"
+      "html": "<p>Omnivorous and very easy to feed. Offer smaller foods that float or sink slowly, such as frozen cyclops, brine shrimp and nano pellets. They also enjoy bloodworms, flakes and live foods. Provide a variety of foods for a well-rounded diet.</p>"
     },
     {
       "key": "behaviour",
@@ -208,7 +236,7 @@
       "key": "behaviour",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
-      "html": "<p>Rainbowfish are schooling fish that need at least 6 or more of the same species. Males are more brightly coloured than females; keep at least 1–2 females for every male to minimise squabbling. Males display their best colours and get a shiny stripe on the head when showing off in front of females.</p><p>With their deeper-bodied profile and quick speed, they go well with many similar-sized tank mates, from peaceful to semi-aggressive temperaments. They have been kept with angelfish, pearl gouramis, tetras, corydoras catfish and smaller cichlids. They will eat cherry shrimp, but seem to leave larger amano shrimp and filter shrimp alone.</p>"
+      "html": "<p>Active with a mild disposition, they suit peaceful to semi-aggressive tank mates of similar size, such as angelfish, pearl gouramis, tetras, corydoras and smaller cichlids. They will eat cherry shrimp but seem to leave larger amano and filter shrimp alone. They are shoaling fish and should be kept in groups of at least 6 of the same species, with 1–2 females for every male to minimise squabbling.</p>"
     },
     {
       "key": "dimorphism",
@@ -220,7 +248,7 @@
       "key": "dimorphism",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
-      "html": "<p>Males have a shiny blue body with red-orange fins; females have a silvery body with yellow fins.</p>"
+      "html": "<p>Males have a shiny blue body with red-orange fins; females have a silvery body with yellow fins. Males show their best colours and get a shiny stripe on the head when displaying to females.</p>"
     },
     {
       "key": "reproduction",
@@ -232,7 +260,7 @@
       "key": "reproduction",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
-      "html": "<p>Rainbowfish are egg scatterers and show no parental care. With fish of both sexes and good feeding, they can spawn every day, but the 1 mm eggs produce very tiny fry that can be hard to raise.</p><p>A floating spawning mop placed in the tank lets the adults lay eggs in the yarn strands. After a few days, fill a catch cup with water from the breeding tank and hang it on the inside of the tank to keep the water warm. Place the spawning mop full of eggs inside the catch cup and add an air stone to keep the water well oxygenated. To prevent fungal growth, some breeders add a couple of drops of methylene blue or a few cherry shrimp to help clean the eggs.</p><p>The eggs hatch in about a week. The fry must be fed 3–5 times a day with very tiny foods such as infusoria, vinegar eels, microworms and powdered fry food. Frequent water changes are also necessary to keep water quality high.</p><p>After two weeks, the fry should be large enough to eat live baby brine shrimp, the best food for healthy and fast growth.</p>"
+      "html": "<p>Egg scatterers with no parental care. With both sexes and good feeding they can spawn daily, but the 1 mm eggs produce very tiny fry that can be hard to raise. Place a floating spawning mop for the eggs. After a few days, move the mop to a catch cup filled with water from the breeding tank, hung inside the tank to stay warm, with an air stone. To prevent fungus, some breeders add a few drops of methylene blue or a few cherry shrimp. Eggs hatch in about a week. Feed the fry 3–5 times a day with tiny foods such as infusoria, vinegar eels, microworms and powdered fry food, with frequent water changes. After two weeks they can eat live baby brine shrimp.</p>"
     }
   ],
   "photos": [
@@ -241,60 +269,26 @@
       "thumb": "https://media.aquatome.com/commons/c815fb8a7fdb6337-480.webp",
       "width": 960,
       "height": 611,
-      "licence": "CC BY-SA 3.0",
-      "author": "Anandarajkumar at en.wikipedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_neon_rainbows.jpg",
-      "caption": "A pair of male dwarf neon rainbows in a home aquarium.",
       "large": {
         "url": "https://media.aquatome.com/commons/c815fb8a7fdb6337-large.webp",
         "width": 1885,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Anandarajkumar at en.wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_neon_rainbows.jpg",
+      "caption": "A pair of male dwarf neon rainbows in a home aquarium."
     },
     {
-      "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17.webp",
-      "thumb": "https://media.aquatome.com/commons/17a5d013a3d9aa17-480.webp",
-      "width": 960,
-      "height": 745,
-      "licence": "CC BY-SA 4.0",
-      "author": "Raimond Spekking",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamant_Regenbogenfisch_(Melanotaenia_praecox).jpg",
-      "caption": "Dwarf rainbowfish (Melanotaenia praecox) at Zoo Duisburg",
-      "large": {
-        "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17-large.webp",
-        "width": 1024,
-        "height": 795
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/0d0275362610aa62.webp",
-      "thumb": "https://media.aquatome.com/commons/0d0275362610aa62-480.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "Public domain",
-      "author": "MELANOTAENIA_PRAECOX.JPG: Leo-nie-weh-oh derivative work: Der Regenbogenfisch",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MELANOTAENIA_PRAECOX_cropped.JPG",
-      "caption": "Melanotaenia praecox",
-      "large": {
-        "url": "https://media.aquatome.com/commons/0d0275362610aa62-large.webp",
-        "width": 1000,
-        "height": 667
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/22dbf5e2ea7aa017.webp",
-      "thumb": "https://media.aquatome.com/commons/22dbf5e2ea7aa017-480.webp",
-      "width": 960,
-      "height": 638,
-      "licence": "CC BY-SA 4.0",
-      "author": "7TP (Krzysztof Bartosik)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_praecox.jpg",
-      "caption": "Tęczanka neonowa (Melanotaenia praecox)",
-      "large": {
-        "url": "https://media.aquatome.com/commons/22dbf5e2ea7aa017-large.webp",
-        "width": 1805,
-        "height": 1200
-      }
+      "url": "https://media.aquatome.com/aquariumcoop/c61a37ab4bcae461.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/c61a37ab4bcae461-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
+      "caption": "dwarf neon rainbowfish in community tank",
+      "source": "aquariumcoop"
     },
     {
       "url": "https://media.aquatome.com/aquariumcoop/d14a75aafd9844d5.webp",
@@ -308,18 +302,97 @@
       "source": "aquariumcoop"
     },
     {
-      "url": "https://media.aquatome.com/aquariumcoop/c61a37ab4bcae461.webp",
-      "thumb": "https://media.aquatome.com/aquariumcoop/c61a37ab4bcae461-480.webp",
-      "width": 1000,
-      "height": 667,
+      "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17.webp",
+      "thumb": "https://media.aquatome.com/commons/17a5d013a3d9aa17-480.webp",
+      "width": 960,
+      "height": 745,
+      "large": {
+        "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17-large.webp",
+        "width": 1024,
+        "height": 795
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Raimond Spekking",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamant_Regenbogenfisch_(Melanotaenia_praecox).jpg",
+      "caption": "Dwarf rainbowfish (Melanotaenia praecox) at Zoo Duisburg"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0d0275362610aa62.webp",
+      "thumb": "https://media.aquatome.com/commons/0d0275362610aa62-480.webp",
+      "width": 960,
+      "height": 640,
+      "large": {
+        "url": "https://media.aquatome.com/commons/0d0275362610aa62-large.webp",
+        "width": 1000,
+        "height": 667
+      },
+      "licence": "Public domain",
+      "author": "MELANOTAENIA_PRAECOX.JPG: Leo-nie-weh-oh derivative work: Der Regenbogenfisch",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MELANOTAENIA_PRAECOX_cropped.JPG",
+      "caption": "Melanotaenia praecox"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/22dbf5e2ea7aa017.webp",
+      "thumb": "https://media.aquatome.com/commons/22dbf5e2ea7aa017-480.webp",
+      "width": 960,
+      "height": 638,
+      "large": {
+        "url": "https://media.aquatome.com/commons/22dbf5e2ea7aa017-large.webp",
+        "width": 1805,
+        "height": 1200
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "7TP (Krzysztof Bartosik)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_praecox.jpg",
+      "caption": "Tęczanka neonowa (Melanotaenia praecox)"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d64c0ea30909dac8.webp",
+      "thumb": "https://media.aquatome.com/glaser/d64c0ea30909dac8-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Co-op",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
-      "caption": "dwarf neon rainbowfish in community tank",
-      "source": "aquariumcoop"
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/068143de9ce89474.webp",
+      "thumb": "https://media.aquatome.com/glaser/068143de9ce89474-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "ckJfaRfNlSg",
+      "title": " Dwarf Neon Rainbowfish (Melanotaenia praecox) Schooling in the Community Planted Aquarium",
+      "durationSec": 309,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eZMO0NYgEFg",
+      "title": "Dwarf Neon Rainbowfish (Melanotaenia praecox) Freshwater Aquarium Fish Species Profile & Care Guide",
+      "durationSec": 244,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "t23qMirFecs",
+      "title": "Neon Dwarf Rainbow Care Guide - Aquarium Co-Op",
+      "durationSec": 185,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "D6ozUIceTcU",
+      "title": "Poisson arc en ciel nain (Melanotaenia Praecox), Corydoras, Tetra Amande, Cardinalis, crevettes...",
+      "durationSec": 181,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -348,5 +421,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-25"
 }

@@ -1,0 +1,72 @@
+{
+  "id": "centromochlus-existimatus",
+  "scientificName": "Centromochlus existimatus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Centromochlus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1544",
+      "html": "<p>Centromochlus existimatus Mees, 1974. Type locality: Harbor of Manos, Amazon River, Brazil. Size: 66 mm SL. IUCN Red List: Least Concern (last assessed 2020).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1544",
+      "html": "<p>South America: Amazon River basin.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1544",
+      "html": "<p>As the common name for this family, woodcat, implies, these fish like pieces of wood with crevices and gaps to squeeze into. Larger specimens will gregariously take refuge in pipes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1544",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1544",
+      "html": "<p>Zoologische Verhandelingen (Leiden) No. 132, pp 50, Fig. 8 (right).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-25"
+}

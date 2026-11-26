@@ -1,0 +1,67 @@
+{
+  "id": "neoarius-midgleyi",
+  "native": {
+    "input": "7c69edcdf674287a",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Oceania: Northern Australia. Victoria River, Northern Territory.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Victoria River",
+        "source": "scotcat",
+        "quote": "Oceania: Northern Australia. Victoria River, Northern Territory.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neoarius midgleyi",
+    "status": "ACCEPTED",
+    "taxonKey": 2345447,
+    "datasets": [
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        28
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        12
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        1
+      ],
+      [
+        "c1fc2df7-223b-4472-8998-70afb3b749ab",
+        1
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

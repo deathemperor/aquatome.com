@@ -426,6 +426,10 @@
       {
         "source": "scotcat",
         "value": 22.5
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "ph": [
@@ -446,10 +450,22 @@
       "html": "<ul><li>Scientific name: Farlowella amazonum (Günther, 1864)</li><li>Common name: Twig Catfish</li><li>Breeding: unreported</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/farlowella-amazonum-2/",
+      "html": "<p>The needle catfishes (Farlowella) are one of the most species-rich genera within the whiptail catfish relationship, with currently 30 recognized species. The species look very similar to each other. Farlowella amazonum grows over 20 cm long.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_amazonum.htm",
       "html": "<p>As with most of this genus, identification of the many Farlowella can be a problem.</p><p>Not an easy catfish to keep, as there have been many unexplained deaths attributed to this species (and other Farlowella). It needs dedicated care from an experienced catfish keeper who has worked with this species or its close cousins from the easier-kept Sturisoma genus.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/farlowella-amazonum-2/",
+      "html": "<p>The needle catfishes look very similar to each other. Distinguishing features are mainly the arrangement of the bony shields along the flanks and on the abdomen, which is naturally hard to recognize on the living animal. From an aquaristic point of view, the shape and coloration of the snout process, also called rostrum, is more useful, but uncertainties in identification always remain with these animals.</p>"
     },
     {
       "key": "distribution",
@@ -512,6 +528,12 @@
       "html": "<p>Etymology: the specific name amazonum (-anum, L., belonging to) refers to the Amazon River at Santarém, Pará State, Brazil, the type locality.</p><p>Remarks: In Eschmeyer's Catalog of Fishes, Farlowella platorynchus is now stated as a synonym of F. amazonum.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. It is therefore assessed as Least Concern (IUCN 2023).</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/farlowella-amazonum-2/",
+      "html": "<p>That this species is very variable is shown by the high number of synonyms: no less than six double descriptions are listed by Retzer &amp; Page in their 1996 revision of the genus. There is a great similarity to F. platorhynchus, which is also put into the synonymy of F. amazonum by newer authors.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1271",
@@ -524,8 +546,74 @@
       "html": "<p>Covain, R., S. Fisch-Muller, C. Oliveira, J. H. A. Mol, J. I. Montoya-Burgos and S. Dray 2015. Molecular phylogeny of the highly diversified catfish subfamily Loricariinae (Siluriformes, Loricariidae) reveals incongruences with morphological classification. Molecular Phylogenetics and Evolution v. 94 (Pt. B): 492-517.</p><p>Evers, H.-G. &amp; I. Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp. 944.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Salvador, G.N. 2023. Farlowella amazonum. The IUCN Red List of Threatened Species 2023.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/8357011c1163f603.webp",
+      "thumb": "https://media.aquatome.com/glaser/8357011c1163f603-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/farlowella-amazonum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e3e3dd9713ccca21.webp",
+      "thumb": "https://media.aquatome.com/glaser/e3e3dd9713ccca21-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/farlowella-amazonum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a225d101a0a46a7d.webp",
+      "thumb": "https://media.aquatome.com/glaser/a225d101a0a46a7d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/farlowella-amazonum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e77ea57740740b6f.webp",
+      "thumb": "https://media.aquatome.com/glaser/e77ea57740740b6f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/farlowella-amazonum-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ff9IjPLZi3A",
+      "title": "Farlowella new",
+      "durationSec": 245,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pjZJWVL-QF8",
+      "title": "Farlowella amazonum 533.mp4",
+      "durationSec": 245,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jQSMRbnG9AA",
+      "title": "Farlowellas. Estos bichos me generan fascinación.  Ustedes que opinan???#farlowella #aquariumhobby",
+      "durationSec": 53,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Ad-foQZenEI",
+      "title": "aquarium update august.",
+      "durationSec": 307,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -556,5 +644,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-07"
+  "updatedAt": "2026-11-21"
 }

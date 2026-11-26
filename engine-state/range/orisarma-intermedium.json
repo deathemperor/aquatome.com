@@ -1,0 +1,76 @@
+{
+  "id": "orisarma-intermedium",
+  "native": {
+    "input": "451027b9f45aeade",
+    "at": "2026-11-16T05:47:36.414Z",
+    "claims": [
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Taiwan.",
+        "words": "Taiwan",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Orisarma intermedium",
+    "status": "ACCEPTED",
+    "taxonKey": 11156458,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        97
+      ],
+      [
+        "db09684b-0fd1-431e-b5fa-4c1532fbdb14",
+        14
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        12
+      ],
+      [
+        "795b935c-8b88-4ed3-b30c-3473bfc3548f",
+        3
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        2
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "ad8f3107-590d-4570-aac7-84241e9a20b4",
+        1
+      ],
+      [
+        "bbbebe9f-6dd5-41b3-a314-3877920d26f2",
+        1
+      ],
+      [
+        "d4c72009-363d-40bf-bbad-3db52d5fb48d",
+        1
+      ]
+    ],
+    "native": [
+      "TW"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T05:47:36.414Z"
+  }
+}

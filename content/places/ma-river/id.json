@@ -3,6 +3,12 @@
   "name": "Mã",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-16T17:14:56.163Z",
+    "why": "\"Mã\" is the bare Vietnamese name without the Indonesian kind word \"Sungai\", so it is cut short; an Indonesian atlas writes \"Sungai Ma\" (or \"Sungai Mã\")."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

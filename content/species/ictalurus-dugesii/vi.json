@@ -1,0 +1,21 @@
+{
+  "slug": "ca-da-tron-lerma",
+  "name": "Cá da trơn Lerma",
+  "altNames": [
+    "Lerma Catfish"
+  ],
+  "sections": {
+    "distribution:planetcatfish": "<p>Trung Mỹ: sông Turbio và sông Ayuquila ở Mexico. Mẫu dùng để mô tả loài được thu ở Río Turbio, tỉnh Guanajuato, Mexico.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có thông tin. Đến nay chưa có ghi chép nào về việc loài này sinh sản.</p>",
+    "notes:planetcatfish": "<p>Nguồn gốc tên: Ictalurus ghép từ hai chữ Hy Lạp, ichthys là cá và ailouros là mèo. Nghĩa đen của nó là \"cá mèo\", tức cá da trơn (catfish). Tên loài đặt để tưởng nhớ nhà tự nhiên học Alfredo Dugès.</p><p>Danh sách Đỏ IUCN: chưa đánh giá.</p>",
+    "references:planetcatfish": "<p>Proceedings of the United States National Museum v. 2 (no. 95), pp 304.</p>"
+  },
+  "quality": {
+    "score": 0.95,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.95
+    },
+    "reason": "thin"
+  }
+}

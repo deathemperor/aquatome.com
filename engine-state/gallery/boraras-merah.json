@@ -14,7 +14,9 @@
   "https://media.aquatome.com/bwaquatics/a27bcea776e7fe65.webp": "8b9b8fa78cc4d8de",
   "https://media.aquatome.com/commons/0100ace42ee6de22.webp": "7f6f2f0f47a79e7f",
   "https://media.aquatome.com/commons/4e16c3be6be70077.webp": "ff3f3f1f93fbffff",
-  "https://media.aquatome.com/commons/7f7a3aff59bcaf04.webp": "1f2f0a1d1b1d1c17"
+  "https://media.aquatome.com/commons/7f7a3aff59bcaf04.webp": "1f2f0a1d1b1d1c17",
+  "https://media.aquatome.com/glaser/e6c449c31243d9f9.webp": "cded8b071f3e3e26",
+  "https://media.aquatome.com/glaser/67cdf153c93c555b.webp": "f1f3c3876fbffff7"
  },
  "inat": {
   "taxon": 612616,
@@ -31,6 +33,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
  },
  "exhausted": "2026-11-10"
 }

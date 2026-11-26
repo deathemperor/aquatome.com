@@ -106,6 +106,18 @@ test('all committed engine-state JSON and the generated photo review contain no 
  await assertPhotoPrivacy(fileURLToPath(new URL('../../../',import.meta.url)))
 })
 
+test('the whole-state guard passes over only a file no check could flag: a key written escaped is still read, in any folder',async()=>{
+ const r=await root(),file=join(r,'engine-state/water/deep/x.json')
+ await mkdir(join(r,'engine-state/water/deep'),{recursive:true})
+ await writeFile(file,`{"x":{"\\u006fcr":[{"t":"${trip}","c":1}]}}`)
+ await expect(assertPhotoPrivacy(r)).rejects.toThrow('unsafe observation fields')
+ await writeFile(file,JSON.stringify({x:{ok:'yes',typical:true,note:trip}}))
+ await expect(assertPhotoPrivacy(r)).rejects.toThrow('unsafe observation fields')
+ // No key any check reads: passed over unparsed, as some 7,600 of the real files are, so a malformed one goes by here.
+ await writeFile(file,'{"temperature":[24,28],"not json')
+ await expect(assertPhotoPrivacy(r)).resolves.toBeUndefined()
+})
+
 test('the whole-state guard rejects free still diagnostics even when a writer bypasses the sanitizer',async()=>{
  const r=await root(),file='engine-state/_video-stills.json'
  for(const entry of [{failed:trip},{kept:{1:trip}}]){

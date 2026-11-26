@@ -1,8 +1,8 @@
 {
   "id": "pao-suvattii",
   "native": {
-    "input": "920dd0f0271db2e2",
-    "at": "2026-11-11T02:57:45.598Z",
+    "input": "61ef24c6d48e1503",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "TH",
@@ -23,17 +23,9 @@
       {
         "code": "TH",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Thailand, Laos.",
+        "source": "glaser",
+        "quote": "This freshwater pufferfish originates from the rivers of Thailand.",
         "words": "Thailand",
-        "ok": true
-      },
-      {
-        "code": "LA",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Thailand, Laos.",
-        "words": "Laos",
         "ok": true
       }
     ],

@@ -23,7 +23,9 @@ group written together, their colour, daily timer and clock, and, since they rep
 them kept on their records, known by their address (`bleAddress`), as docs/my-tanks-sync.md describes. The profile button at the top right of each tab opens **Tài khoản**, a sheet
 (as the App Store's), laid out as iOS's settings: the aquatome.com account (below: who is signed in and since when, the
 sync's state with the one button that helps, a passkey), the owner's dashboard for the owner's account (with its to-dos
-counted), the app's icon and the pages kept to read offline (opening their shelf on Tìm), the anonymous statistics'
+counted), the app's icon, its language (shown at once, every tab back at its first screen in it and the sheet staying open
+in its words; kept as iOS's Settings → AquaTome → Language keeps it) and the pages kept to read offline (opening their
+shelf on Tìm), the anonymous statistics'
 switch and the posters blocked on this phone (their own page), the site's about, contact and privacy pages (in the
 browser), then signing out, deleting the account and the app's version. It says so when the server offers no accounts or
 can't be reached (the account signed in on the phone shows as last seen, with its last sync), and the button carries a
@@ -147,7 +149,9 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
   public project never holds the team ID.
 
 A new string in the code: add its Indonesian, Malay and Thai to `Localizable.xcstrings` (Xcode adds the key when it
-builds); `check-strings.py` fails CI otherwise. Reuse the site's translation when the Vietnamese is the same
+builds); `check-strings.py` fails CI otherwise. A `String(localized:)` or `AttributedString(localized:)` passes
+`bundle: .app`, the language the reader picked while the app runs (without it, the lookup stays in the language the app
+opened in); `check-strings.py` fails one without it, naming its file and line (`scripts/localized_calls.py`). Reuse the site's translation when the Vietnamese is the same
 (`apps/site/src/i18n/{id,ms,th}.json`). `pnpm --filter @aq/engine exec tsx scripts/translate-app.ts ms` fills a
 language's missing strings in both catalogs: the site's first, then Opus.
 
@@ -303,16 +307,18 @@ Debug builds, so they don't see it.
   notice. Label the pull request `ios-full` to run them on it, as on a change to a model many flows share
   (LightsModel, HandbookModel's fixture, AccountModel). `ios.yml`, `flows-to-run.py`, the scripts the flow jobs run
   and the flows' shared code (a file in `AquaTomeUITests` that isn't a class's own) run every flow. The lists
-  `flows-to-run.py` reads (`flow_lists.py`: which job runs a class, and what each path reaches) run none, as they
-  change only what a run picks: its `--test` checks them on every run, and fails when a flow they name is renamed. A
-  pull request's flows go into as few jobs as hold them in 25 minutes of tests each (a class's time is
-  `CLASS_SECONDS` in `flow_lists.py`), as each job builds the app and waits for one of GitHub's five Macs; the run's
-  notice "Flows by job" names what each ran. Job `perf` (with the kit's tests and the translations) runs on every ready
+  `flows-to-run.py` reads (`flow_lists.py`: what a test of each class takes, and what each path reaches) run none, as
+  they change only what a run picks: its `--test` checks them on every run, and fails when a flow they name is renamed.
+  A pull request's flows go into as few jobs as hold them in 25 minutes of tests each (a class's time is its tests'
+  count times its `TEST_SECONDS` in `flow_lists.py`; a class past 25 minutes goes by test), as each job builds the app
+  and waits for one of GitHub's five Macs; the run's notice "Flows by job" names what each ran. Job `perf` (with the kit's tests and the translations) runs on every ready
   pull request; job `kit` runs the kit's tests nightly, when `perf` doesn't. Until 2026-11-05 a pull request also ran
   every flow its change could reach, one to two and a half hours of GitHub's Macs: the owner chose this instead.
 - **Every flow** runs on main after merges, every night at 02:30 Vietnam time on main (without `perf`: each change was
   measured by its pull request's run), by hand (Actions → "iOS app: build and tests" → Run workflow), and on a pull
-  request labelled `ios-full`. Adding a label runs the pull request again, in place of its run in progress: `ios-full`
+  request labelled `ios-full`: in nine jobs, packed by their time, and `flows-to-run.py --test` fails when one would hold
+  more than 75 minutes of flows (about 85 with its build; GitHub stops a job at 120). Job `app (2)` runs every flow the
+  others don't name, so a test or a class the script's reading of the files misses still runs. Adding a label runs the pull request again, in place of its run in progress: `ios-full`
   with every flow, any other label as a push would. A main run that started is never cancelled; of those waiting for
   it, only the newest is kept (a merge, the nightly run or one by hand), and it covers every merge since the last run
   (a full run for each merge held the own Mac for hours when several merged at once). So a run by hand on main that is

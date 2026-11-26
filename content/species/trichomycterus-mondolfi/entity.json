@@ -1,0 +1,127 @@
+{
+  "id": "trichomycterus-mondolfi",
+  "scientificName": "Trichomycterus mondolfi",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Trichomycterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "tuy"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.6,
+          "max": 7.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1549",
+      "html": "<p>Trichomycterus mondolfi (Schultz, 1945). Size: 61 mm SL. Viewed from the side, there are two broken bands running the length of the body.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1549",
+      "html": "<p>South America: Tuy River basin in Venezuela. Type locality: Quebrada Chacaito near Caracas, Estado de Miranda, Río Tuy system.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1549",
+      "html": "<p>Found in nature alongside tetras, Chaetostoma spp., and small Rhamdia.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1549",
+      "html": "<ul><li>pH: 6.6–7.4</li><li>Temperature: 23–25°C</li><li>Water should be well oxygenated.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1549",
+      "html": "<p>A substrate of gravel and sand decorated with medium and large well-rounded stones.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1549",
+      "html": "<p>Live, frozen and dry foods are readily accepted.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1549",
+      "html": "<p>Peaceful with smaller tankmates. This species is not a parasite.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1549",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1549",
+      "html": "<p>This catfish is only known from a handful of streams around Caracas. Pollution and development are destroying the last few natural habitats of this fish. It will likely be extinct by 2020 or sooner.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1549",
+      "html": "<p>Journal of the Washington Academy of Sciences v. 35 (no. 1), pp 29, Fig. 1.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thủy sinh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát thủy sinh",
+        "sỏi nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-25"
+}

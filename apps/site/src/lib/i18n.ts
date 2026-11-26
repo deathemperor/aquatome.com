@@ -3,6 +3,7 @@ import id from '../i18n/id.json' with { type: 'json' }
 import th from '../i18n/th.json' with { type: 'json' }
 import ms from '../i18n/ms.json' with { type: 'json' }
 import { withoutVi } from '../../worker/paths.ts'
+import { isVietnamese as viLetters } from '@aq/schema/text'
 
 /**
  * Site languages. Pages are written once, in Vietnamese, with the UI text wrapped in t(): Vietnamese pages are at the
@@ -157,7 +158,7 @@ export const i18n = (url: URL) => {
 }
 
 /** Page files (under src/pages/) each other language has: a section joins once its pages are translated. */
-const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'ca/[breed].astro', 'ca/[slug]/anh.astro', 'thiet-bi/index.astro', 'thiet-bi/[category].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'cong-cu/den-chihiros.astro', 'cong-cu/be-cua-toi.astro', 'cong-cu/nuoi-chung.astro', 'cong-cu/nhan-dien-ca.astro', 'cong-cu/du-toan-be.astro', 'gioi-thieu/index.astro', 'gioi-thieu/bang-du-lieu.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'huong-dan/trang/[n].astro', 'cay/index.astro', 'cay/[slug].astro', 'cay/[slug]/anh.astro', 'cay/trang/[n].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'nhom/[group]/trang/[n].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro', 'ung-dung/[...path].astro']
+const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'ca/[breed].astro', 'thiet-bi/index.astro', 'thiet-bi/[category].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'cong-cu/den-chihiros.astro', 'cong-cu/be-cua-toi.astro', 'cong-cu/nuoi-chung.astro', 'cong-cu/nhan-dien-ca.astro', 'cong-cu/du-toan-be.astro', 'gioi-thieu/index.astro', 'gioi-thieu/bang-du-lieu.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'huong-dan/trang/[n].astro', 'cay/index.astro', 'cay/[slug].astro', 'cay/trang/[n].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'nhom/[group]/trang/[n].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro', 'ung-dung/[...path].astro']
 // Malay has no setup budget (cong-cu/du-toan-be) until Malaysia's electricity tariff is researched (scripts/budget.ts TARIFFS).
 export const PAGES: Record<OtherLang, string[]> = { id: PILOT, th: PILOT, ms: PILOT.filter(f => f !== 'cong-cu/du-toan-be.astro') }
 const segments = (file: string) => file.replace(/\.astro$/, '').replace(/(^|\/)index$/, '').split('/').filter(Boolean)
@@ -192,6 +193,20 @@ export function switchTo(lang: Lang, viPath: string, here: string | undefined, h
 
 /** Text written in Vietnamese (letters only Vietnamese uses): a cited page's title, marked as such on the other languages' pages. */
 export { isVietnamese } from '@aq/schema/text'
+/**
+ * A source's title or name written in Vietnamese, not an English one that names a Vietnamese place: a letter only
+ * Vietnamese uses, unless its words read as English (one of its small words, with under two in five of its words marked).
+ * "Sóc Trăng farmers reap bumper crop of brine shrimp eggs" is English (the reader's find on #1681), and of the 366
+ * source titles and names on 19 Nov with such a letter it's the only one; a shop's "Cá Betta Dạ Quang GloFish – Betta's
+ * House" stays Vietnamese.
+ */
+const ENGLISH = new Set(['a', 'an', 'and', 'are', 'at', 'by', 'for', 'from', 'how', 'in', 'is', 'of', 'on', 'the', 'to', 'what', 'why', 'with', 'you', 'your'])
+export const isVietnameseTitle = (s: string) => {
+  if (!viLetters(s)) return false
+  const words = s.split(/[^\p{L}]+/u).filter(Boolean)
+  const marked = words.filter(w => /[^\x00-\x7f]/.test(w) || /^(cá|tép)$/i.test(w)).length
+  return !(words.some(w => ENGLISH.has(w.toLowerCase())) && marked * 5 < words.length * 2)
+}
 
 /** A photo's licence as shown: its name (CC BY…), none for a photo a source let us use (stored as its permission note). */
 export const licenceLabel = (licence: string) => (licence === 'dùng với sự cho phép' ? '' : licence)

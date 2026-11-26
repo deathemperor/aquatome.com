@@ -22,8 +22,7 @@
       "author": "Tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Micranthemumcallitrichoides'Cuba'(048BTC)/4478",
       "source": "tropica",
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/flickr/41944603661.webp",
@@ -72,9 +71,87 @@
       "caption": "Cận cảnh lá và hoa trắng nhỏ của Micranthemum callitrichoides 'Cuba'",
       "best": false,
       "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/336351341.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/336351341-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Octavio Rivera Hernández",
+      "sourceUrl": "https://www.inaturalist.org/photos/336351341",
+      "caption": "Mảng Cây Micranthemum callitrichoides 'Cuba' mọc bên bờ sỏi ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/328268266.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/328268266-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Octavio Rivera Hernández",
+      "sourceUrl": "https://www.inaturalist.org/photos/328268266",
+      "caption": "Cận cảnh thảm Cây Micranthemum callitrichoides 'Cuba' dày, xanh mướt",
+      "best": true,
+      "kind": "emersed",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/336351377.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/336351377-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Octavio Rivera Hernández",
+      "sourceUrl": "https://www.inaturalist.org/photos/336351377",
+      "caption": "Mảng Cây Micranthemum callitrichoides 'Cuba' mọc trên đá ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/336351352.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/336351352-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Octavio Rivera Hernández",
+      "sourceUrl": "https://www.inaturalist.org/photos/336351352",
+      "caption": "Cụm Cây Micranthemum callitrichoides 'Cuba' mọc ngoài tự nhiên giữa cỏ khô",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/328268204.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/328268204-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Octavio Rivera Hernández",
+      "sourceUrl": "https://www.inaturalist.org/photos/328268204",
+      "caption": "Thảm Cây Micranthemum callitrichoides 'Cuba' mọc trên cạn, lá xanh tươi",
+      "best": false,
+      "kind": "emersed",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/328268239.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/328268239-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Octavio Rivera Hernández",
+      "sourceUrl": "https://www.inaturalist.org/photos/328268239",
+      "caption": "Thảm Cây Micranthemum callitrichoides 'Cuba' mọc sát đất ẩm",
+      "best": false,
+      "kind": "emersed",
+      "setup": false
     }
   ],
-  "seen": 8,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-08"
+  "seen": 14,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

@@ -1,8 +1,22 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "gbif:1321009093:351d90bfa474a002"
+ ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/0b564415437c80f1.webp": "f1f3b71f4fced373"
  },
- "commons": "2026-11-11"
+ "commons": "2026-11-11",
+ "inat": {
+  "taxon": 165371,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 3172192,
+  "next": null
+ }
 }

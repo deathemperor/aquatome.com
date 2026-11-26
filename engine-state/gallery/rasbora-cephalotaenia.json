@@ -14,7 +14,10 @@
   "https://media.aquatome.com/commons/5a9067fd629a726f.webp": "0c2220b226b8e013",
   "https://media.aquatome.com/commons/397dba6ef0b45c85.webp": "3d7f3d7e78c08123",
   "https://media.aquatome.com/inaturalist/250548446.webp": "048ccc5ccc45e9f1",
-  "https://media.aquatome.com/inaturalist/457829945.webp": "3e3c3cd46cccbfdb"
+  "https://media.aquatome.com/inaturalist/457829945.webp": "3e3c3cd46cccbfdb",
+  "https://media.aquatome.com/glaser/414f7a205b38ed11.webp": "d9d31f871e38302e",
+  "https://media.aquatome.com/glaser/2eb95fe03adbb208.webp": "5f4602370fc3cfcf",
+  "https://media.aquatome.com/glaser/af3024b399ee38ad.webp": "d7e3b1238fc8d0d9"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -24,5 +27,12 @@
    "research": 255478874,
    "agree": 260797792
   }
+ },
+ "gbif": {
+  "key": 2359632,
+  "next": null
+ },
+ "openverse": {
+  "next": null
  }
 }

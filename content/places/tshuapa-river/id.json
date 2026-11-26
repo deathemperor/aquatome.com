@@ -1,8 +1,13 @@
 {
   "slug": "tshuapa-river",
-  "name": "Tshuapa",
+  "name": "Sungai Tshuapa",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-17T05:14:59.222Z"
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

@@ -10,19 +10,106 @@
     "indonesia",
     "kalimantan",
     "malaysia",
-    "sarawak"
+    "sarawak",
+    "borneo",
+    "bintan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Riau Archipelago",
+        "Bangka"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "It occurs in the ancient peat swamp forests of Borneo, Bangka and Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It exists in several colour forms depending on locality; fish from the south and east of Sarawak state in Malaysian Borneo are green/blue in colour while those found in the west are red/orange, for example.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations.",
+          "countries": [],
+          "regions": [
+            "Riau Archipelago",
+            "Bangka"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2360276,
+      "total": 8,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          0,
+          2,
+          2
+        ],
+        [
+          108.28125,
+          0,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
-          "min": 22,
-          "max": 28
+          "min": 23,
+          "max": 26
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
           "min": 23,
           "max": 26
@@ -31,6 +118,13 @@
     ],
     "ph": [
       {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 6.5
+        }
+      },
+      {
         "source": "bwaquatics",
         "value": {
           "min": 4,
@@ -38,21 +132,14 @@
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": {
-          "min": 4,
-          "max": 6.5
+          "min": 4.5,
+          "max": 4.5
         }
       }
     ],
     "gh": [
-      {
-        "source": "bwaquatics",
-        "value": {
-          "min": 0,
-          "max": 5
-        }
-      },
       {
         "source": "seriouslyfish",
         "value": {
@@ -65,6 +152,14 @@
       {
         "source": "seriouslyfish",
         "value": 2.2
+      },
+      {
+        "source": "bwaquatics",
+        "value": 2
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ],
     "tankCm": [
@@ -85,7 +180,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
-      "html": "<p>Sundadanio axelrodi, also known as the Blue Axelrodi Rasbora or Neon Blue Danio, is a stunning little freshwater fish that is a perfect addition to a nano tank.</p>"
+      "html": "<p>Sundadanio axelrodi, formerly Rasbora axelrodi, belongs to the Sundadanio genus (tiny danios). IUCN Red List: Vulnerable (high risk of extinction in the wild). It is also known as the Blue Axelrodi Rasbora or Neon Blue Rasbora, and is a tiny fish that is a perfect addition to a nano tank. It was named for Herbert Axelrod, who found it in the tanks of a Singapore exporter.</p>"
     },
     {
       "key": "quickFacts",
@@ -94,10 +189,25 @@
       "html": "<p>Sundadanio axelrodi is a miniature cyprinid from Borneo, where it inhabits black water streams and pools associated with forest peat swamps. Originally described as Rasbora axelrodi, it is the only member of its genus. Several colour forms exist depending on locality, normally labelled 'red', 'green' or 'blue', and they are best not mixed. Very peaceful but timid, it does best alone or with similarly sized species, in a group of at least 20-30.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>The tiny dwarfs of the genus Sundadanio were listed in the genus Rasbora until 1999. At that time only one species was known, namely S. axelrodi. Later other species were imported. They were still nameless, but clearly differed in color. Thus, there were blue, green and red Sundadanio. In 2011 the genus was revised and now it includes 8 species.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này rất hiếm gặp ở tiệm cá hay hội chợ cá cảnh. Một người nuôi loài này lâu năm thấy cá tìm được thì thường đã yếu. Theo người này, nhiều nơi nhập sỉ thả cá vừa về vào nước thường, rồi khi cá phải chống chọi với các loại vi khuẩn thì đa số không qua khỏi. Một người bán sỉ quen của người này thì thả cá từ Indonesia về ngay vào xô nước đen ngâm lá bàng, pH chừng 5, và lứa cá người này lấy từ đó lên tốt.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
-      "html": "<p>They are native to the blackwater peat swamps of Borneo and Sumatra in Southeast Asia.</p>"
+      "html": "<p>It occurs in the ancient peat swamp forests of Borneo, Bangka and Sumatra, Indonesia. Since 2011 several similar species have been split off, so fish from different locations can vary in color.</p>"
     },
     {
       "key": "distribution",
@@ -106,10 +216,16 @@
       "html": "<p>Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations. Numerous records also exist from the Indonesian provinces of West Kalimantan (Kalimantan Barat), Central Kalimantan (Kalimantan Tengah) and South Kalimantan (Kalimantan Selatan), but the species appears not to occur in the north of the island. It exists in several colour forms depending on locality; fish from the south and east of Sarawak state in Malaysian Borneo are green/blue in colour while those found in the west are red/orange, for example. It would be useful if these variants were labelled with the collection details by hobbyists and scientists alike in order to preserve bloodlines and maintain greater accuracy, although normally they are just labelled with the distinguishing colour, e.g. 'red', 'green' or 'blue'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>Two blue-colored species can be distinguished only microscopically: S. axelrodi from Bintan and S. gargula from Bangka. Bangka is located off the west coast of Sumatra, Bintan off the coast of Singapore.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
-      "html": "<p>These fish thrive in dim, acidic water (pH around 4.0) stained brown with tannins from decomposing leaves and vegetation.</p>"
+      "html": "<p>It lives in blackwater pools and streams in peat swamp forests, with leaf litter, in dim, acidic water stained brown with tannins from decaying leaves.</p>"
     },
     {
       "key": "habitat",
@@ -118,10 +234,25 @@
       "html": "<p>Inhabits black water streams and pools associated with ancient forest peat swamps. The water is stained brown due to the release of tannins and other chemicals released by decomposing organic matter and the substrate is scattered with fallen leaves, twigs and branches. Such environments characteristically contain very soft (negligible hardness), acidic (pH as low as 4.0) water and are often dimly-lit due to the forest canopy above and dense marginal vegetation. Across much of Southeast Asia these precious biotopes are under threat from rubber/palm oil plantations, building developments and other human activities.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ở những khu rừng đầm lầy nơi chi này sống, nắng thường không chiếu được tới đáy. Nhìn xuống nước có lẽ chỉ thấy được chừng nửa mét, sâu hơn là tối đen.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>In nature they live in very soft, dark colored black water with a very acidic pH (pH around 4.5, no hardness detectable).</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
-      "html": "<p>While a small tank as low as 12.5 liters (3 gallons) can house a group, a 29.5 liter (8 gallons) tank is recommended for easier water parameter maintenance.</p>"
+      "html": "<p>Max size: about 2 cm. A group can live in as little as 11 litres, but 30 litres or more makes water parameters easier to keep stable.</p>"
     },
     {
       "key": "aquariumSize",
@@ -130,16 +261,34 @@
       "html": "<p>A group can be housed and will breed in a tank with dimensions of only 30 × 20 × 20 cm (12.5 litres), although water quality may become an issue unless strictly monitored. Something measuring around 45 × 20 × 20 cm (29.5 litres) or more is preferable for long-term care.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này lâu năm giữ đàn 16–17 con trong bể nano khoảng 30 lít, ít hơn đàn 20–30 con vẫn hay được khuyên. Người này chọn bể nhỏ để ngày nào cũng soi kỹ được vây cá, xem có đốm trắng hay dấu hiệu bệnh gì không. Ở bể lớn thì khó theo dõi sát như vậy.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
       "html": "<p>Best kept in a densely-planted tank and is an excellent choice for the carefully-aquascaped set-up. The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel. Filtration does not need to be particularly strong as it mostly hails from sluggish waters and may struggle if there is a fast current. To see it at its best a biotope-style set-up can also make an interesting project. A soft, sandy substrate is probably the best choice, to which can be added a few driftwood roots and branches, placed in such a way that plenty of shady spots are formed. If driftwood of the desired shape cannot be found, common beech or oak is safe to use if thoroughly dried and stripped of bark.</p><p>The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and, as well as offering even more cover for the fish, brings with it the growth of microbe colonies as decomposition occurs. These tiny creatures can provide a valuable secondary food source for fry whilst the tannins and other chemicals released by the decaying leaves are thought to be beneficial for blackwater fish species such as this. Leaves can be left in the tank to break down fully or removed and replaced every few weeks. Allow the wood and leaves to stain the water.</p><p>A small net bag filled with aquarium-safe peat can also be added to the filter or hung over the edge of the tank to aid in the simulation of black water conditions. Alternatively obtain some genuine peat fibre and simply drop a few handfuls into the tank. This will become completely saturated with water after a few days and sink to the bottom where it can look really effective. Provided a good routine of water maintenance is practiced no adverse effects should occur using either peat or leaves in an aquarium.</p><p>Fairly dim lighting should be used to simulate the conditions the fish would encounter in nature. Aquatic plants that can survive under such conditions can be added, such as Microsorum pteropus, Taxiphyllum barbieri or Cryptocorynes, and a few patches of floating vegetation would be really useful to diffuse the light entering the tank too.</p><p>Note that this fish should not be added to a biologically immature tank as it can be susceptible to swings in water chemistry, and a regime of regular, small (10% or less of tank volume) water changes is recommended in order to minimise stress.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này lâu năm thấy cá khó nhất là lúc mới về, còn khi đã quen bể thì khá khỏe. Đây là kinh nghiệm của người này:</p><ul><li>Lứa đầu 15–20 con bị thối vây mà người này không để ý, chỉ hai ngày là mất cả đàn.</li><li>Với lứa thứ hai, người này chuẩn bị từ vài tuần trước, ngâm một nắm lớn lá bàng trong xô to cho nước sậm màu. Cá về trong túi nước đen, khoảng 20 lít nước đó được đổ vào bể 30 lít, phần còn lại là nước trong.</li><li>Sau đó người này thay nước từ từ trong khoảng 10–15 ngày, chừng hai tuần thì nước bể mới trong hẳn. Lúc cá chưa quen bể, thay nước dày quá sẽ hại cá.</li><li>Khoảng ba bốn tuần sau khi về, vài con có đốm trắng trên vây và vây bị khuyết. Người này cho thuốc trị vào bể, nước ngả xanh rồi khoảng một ngày sau trong lại. Cá chịu thuốc tốt và vây mọc lại sau ba đến bốn tuần.</li><li>Khi cá đã ổn định, người này thay khoảng 50% nước mỗi tuần, và thấy nhiệt độ lên xuống trong một khoảng nhất định cũng không ảnh hưởng gì. Để bể không nhiễm thêm vi khuẩn, người này cũng không thả thêm cá hay tép mới vào.</li></ul>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
-      "html": "<p><strong>WARNING!</strong> These fish do not appreciate changes in water condition.</p><ul><li>Temperature: 22-28°C (72-82°F)</li><li>pH: 4.0-6.0</li></ul>"
+      "html": "<ul><li>TDS: around 60 ppm (ideally below 5 dGH)</li><li>pH: 4.0 to 6.0</li><li>Temperature: 23 to 26°C</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -151,7 +300,7 @@
       "key": "equipment",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
-      "html": "<p>Filtration: A gentle sponge filter is ideal for these small fish. Avoid power filters that create a strong current.</p>"
+      "html": "<p>Use a gentle sponge filter and avoid strong current.</p>"
     },
     {
       "key": "diet",
@@ -160,10 +309,25 @@
       "html": "<p>Presumably feeds on small aquatic crustaceans, worms, insect larvae and other zooplankton in nature. It can be a little picky in the aquarium and may not accept dried foods, although in some cases they will learn to take them over time. At any rate they should always be offered regular meals of small live or frozen fare such as Artemia nauplii, Daphnia, grindal, micro and chopped bloodworm in order to develop ideal colour and conditioning.</p><p>Newly-imported specimens are often in poor condition and can be difficult to acclimatise to aquarium life. Small live foods are therefore recommended as an initial diet, with dry and frozen products being introduced as the fish become settled.</p>"
     },
     {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
+      "html": "<p>Omnivore with a carnivorous tendency; eats small insects and crustaceans in the wild. Offer small live or frozen foods such as baby brine shrimp, daphnia or chopped bloodworms. Pellets are also fed.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này lâu năm cho cá mới về ăn toàn artemia mới nở, rồi trong vài ngày chuyển dần sang cám viên nhỏ. Người này thấy cá không ăn thức ăn nổi trên mặt nước mà chỉ đớp thức ăn đang trôi ngang qua. Chúng cũng chê đồ cứng, cám phải thật mềm và nhỏ thì mới chịu ăn.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
-      "html": "<p>Tank mates: Sundadanio axelrodi are peaceful fish and can be good tank mates for other peaceful nano fish such as Celestial Danios, Harlequin Rasboras, or Corydoras catfish. Avoid housing them with large or aggressive fish that could prey on them.</p>"
+      "html": "<p>Peaceful. Good tankmates are other peaceful nano fish such as Celestial Pearl Danios, Harlequin Rasboras or corydoras. Avoid large or aggressive fish that could prey on them.</p>"
     },
     {
       "key": "behaviour",
@@ -172,16 +336,37 @@
       "html": "<p>It is very peaceful but does not make an ideal community fish due to its small size and rather timid nature. It will do best when maintained alone or with similarly-sized species that enjoy comparable water conditions such as Boraras, Eirmotus, Trigonostigma. If geography is not an issue it will probably also thrive alongside small South American characins such as Nannostomus anduzei, N. mortenthaleri, Paracheirodon simulans, Hyphessobrycon amandae or perhaps Lepidarchus adonis from western Africa.</p><p>It's a schooling species by nature and really should be kept in a group of at least 20-30 specimens. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours and some interesting behaviour as they compete with one another for female attention.</p><p>Mixing the different colour forms is not advised, as unnecessary hybridisation might occur.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này lâu năm thả chung với tép mà tép vẫn sinh sản được trong bể, vì cá không săn tép con. Người này cũng ít khi thấy cá ngoi lên mặt nước kiếm ăn.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
       "html": "<p>Externally, mature males are more colourful and noticeably slimmer than females. In some colour forms they also exhibit dark colouration in the anterior portion of the anal fin whereas in others the same area is red, while females have a colourless anal fin.</p><p>This species also exhibits unique dimorphism in musculature and structure of the pectoral girdle, skeleton and Weberian apparatus, allowing males to produce audible croaking/chirruping sounds when stressed (Conway and Britz, 2007). These can be heard when the fish is removed from the water (highly unrecommended; see 'notes' section) or in the aquarium during dominance battles between rival males. The authors hypothesised that the sounds are produced either by grinding the modified 5th pectoral fin ray against the cleithrum or using the \"bulbous\" muscle tissue like a drum. Such adaptations are thought to be unique among the Teleostei group of ray-finned fishes and may be involved in both sexual and hierarchical display behaviour.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
+      "html": "<p>Males have a neon blue to blue-green sheen along the upper body with red-orange highlights, and show red-orange in the fins. Females are plainer. Fins are clear to reddish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>Sundadanio males are clearly distinguished from females by their intense black zone in the anal fin.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
-      "html": "<p>Breeding Sundadanio axelrodi in a home aquarium can be challenging. However, it can be done in a separate breeding tank with very soft, acidic water (pH around 5.0) and spawning mops.</p>"
+      "html": "<p>Challenging in a home aquarium, but possible in a separate tank with very soft, acidic water (around pH 5.0) and spawning mops.</p>"
     },
     {
       "key": "reproduction",
@@ -190,10 +375,37 @@
       "html": "<p>This species has not been bred often in the hobby, which is probably down to the fact it does not appreciate fluctuating water conditions, making it difficult to arrange separate spawning/rearing tanks. Reports do exist, however, and the greatest successes have been when the adult fish are maintained alone as a good-sized group in heavily-planted, mature aquaria.</p><p>The pH should ideally be below 6.0 with other parameters within the ranges suggested here, the most important factor being that they remain stable. The simulation of blackwater conditions using leaves and real peat fibre is thought to be highly beneficial due to the microorganisms which proliferate in such set-ups. Bright lighting is best avoided. Feed the fish with plenty of live and frozen foods and they should come into spawning condition, and if the tank contains the requisite balance between cover, water conditions and microfauna, fry should start to appear without further intervention.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>Breeding in normal tap water is not successful; it requires near-natural conditions.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
       "html": "<p>This species was initially described as Rasbora axelrodi and is referred to as such in older literature, but in 1999 was moved into the new genus Sundadanio where it remains the monotype. Its wider placement within the family Cyprinidae is still not fully resolved. Following Rüber et al. (2007) it is most closely-related to the miniature species of the genus Paedocypris, the two genera characteristically lacking bones in the roof of the skull as well as exhibiting genetic similarities. However in some tests conducted during phylogenetic studies by Mayden et al. (2007) and Fang et al. (2009) it was unexpectedly recovered as the sister group to the subfamily Cyprininae, which includes such genera as Puntius, Garra, Epalzeorhynchos, Labeo, Carassius and Sawbwa. In others it occupied a position within the Danioninae, being recovered variously as sister to Danionella (by Mayden et al.) or Paedocypris (by Fang et al./Rüber et al.). Based on current knowledge the latter placement seems the more likely, and there are some shared morphological aspects of the lower jaw between Sundadanio and other danionins which further imply their relatedness.</p><p>Its small adult size evolved via a process known as miniaturisation, characterised by sexually mature adults with a significantly reduced size of less than 20 mm SL. Among bony fishes cyprinids are one of the few groups in which this phenomenon occurs repeatedly, with all Barboides, Danionella, Microdevario, Microrasbora, Horadandia, Boraras, Paedocypris, Sawbwa and Sundadanio species representing miniaturised taxa along with a few members of Danio, Laubuca and Rasbora. All show a preference for still or slow-moving waters, often in nutrient-poor habitats such as forest peat swamps. The anatomical structure of miniaturised cyprinids can vary greatly; there are two principal 'groupings' with some species possessing intermediate features to some degree. The first contains those fishes which though small are essentially proportionally dwarfed versions of their larger relatives, e.g. Barboides, Microdevario, Microrasbora, Horadandia, Boraras, Sawbwa, Sundadanio, Danio, Laubuca and Rasbora. The other includes those in which anatomical development stops at a point where adults still resemble a larval form of their larger ancestor, i.e. Danionella and Paedocypris. The latter are usually referred to as 'developmentally truncated' or 'paedomorphic' and are thought to have evolved via a process known as 'progenetic paedomorphosis', i.e. paedomorphosis brought about by accelerated maturation. They typically exhibit a simplified skeletal structure along with species-specific morphological peculiarities such as the tooth-like projections in male Danionella dracula. Britz et al. (2009) consider that developmental truncation may have facilitated the development of such novelties \"by freeing large parts of the skeleton from developmental constraints, dissociating developmentally linked pathways and creating a greater potential for more dramatic changes\".</p><p>Take note that S. axelrodi does not react well upon being exposed to the air. When transporting the fish try to transfer it to the bag or container underwater if possible, and any net used should be of the softest, finest grade available. Acclimatisation is best done slowly using a drip-method or similar. It is not really a good choice for newcomers to the hobby as it requires rather stringent water conditions but is not difficult to keep provided these needs can be met.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
+      "html": "<p>These fish do not like changes in water conditions. Make changes slowly.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này được mô tả vào những năm 1970, có lẽ là năm 1976 hoặc 1977. Một người nuôi loài này lâu năm cho rằng chi Sundadanio hiện có khoảng tám loài đã được mô tả, chứ không chỉ có một loài, và các loài này đều sống ở rừng đầm lầy nước đen.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>These miniature fish grow to only about 1.5-2 cm in length.</p>"
     },
     {
       "key": "references",
@@ -209,7 +421,7 @@
       "width": 857,
       "height": 408,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Joseph Hoetzl / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
       "caption": "Male of Sundadanio axelrodi 'blue'.",
       "source": "seriouslyfish"
@@ -220,7 +432,7 @@
       "width": 640,
       "height": 260,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Ola Åhlander / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
       "caption": "Male of S. axelrodi 'red'; origin unknown.",
       "source": "seriouslyfish"
@@ -234,9 +446,45 @@
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
       "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9d950d9c7c3f3ac6.webp",
+      "thumb": "https://media.aquatome.com/glaser/9d950d9c7c3f3ac6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7c7845071fba671c.webp",
+      "thumb": "https://media.aquatome.com/glaser/7c7845071fba671c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0aaa986a60f91943.webp",
+      "thumb": "https://media.aquatome.com/glaser/0aaa986a60f91943-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
+    {
+      "youtubeId": "qW6vuki1OM8",
+      "title": "Sundadanio axelrodi",
+      "durationSec": 619,
+      "lang": "de"
+    },
     {
       "youtubeId": "nnXoxeVVMbc",
       "title": "Neon Blue Rasbora: What I Learned",
@@ -291,5 +539,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-23",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=qW6vuki1OM8",
+      "title": "Sundadanio axelrodi"
+    }
+  ]
 }

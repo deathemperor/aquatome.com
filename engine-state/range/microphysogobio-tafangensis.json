@@ -1,0 +1,48 @@
+{
+  "id": "microphysogobio-tafangensis",
+  "native": {
+    "input": "a9ba1ae89cb71162",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This species originates from the southern Chinese province of Zhejiang, where it is endemic (i.e., seen worldwide, only there) in the system of the most important river of this province, the Qiantang.",
+        "words": "Chinese",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Qiantang",
+        "source": "glaser",
+        "quote": "This species originates from the southern Chinese province of Zhejiang, where it is endemic (i.e., seen worldwide, only there) in the system of the most important river of this province, the Qiantang.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Microphysogobio tafangensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2367343,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T07:12:58.512Z"
+  }
+}

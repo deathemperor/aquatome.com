@@ -1,8 +1,8 @@
 {
   "id": "oryzias-latipes",
   "native": {
-    "input": "9586d19c871408fa",
-    "at": "2026-11-11T08:59:40.517Z",
+    "input": "b20b5d1f093c09b2",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "JP",
@@ -119,17 +119,17 @@
     ],
     "regions": [
       {
-        "name": "Hainan",
-        "source": "seriouslyfish",
-        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
-        "country": "CN",
-        "ok": true
-      },
-      {
         "name": "Honshu",
         "source": "seriouslyfish",
         "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
         "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Hainan",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+        "country": "CN",
         "ok": true
       },
       {
@@ -325,5 +325,9 @@
     ],
     "requests": 12,
     "at": "2026-11-09T20:43:02.940Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-24T17:11:15.551Z",
+    "error": "claude failed (1): other"
   }
 }

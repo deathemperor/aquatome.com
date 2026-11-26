@@ -1,7 +1,7 @@
 import { dropCardRepeats, PLACE_ALIASES, SECTION_ORDER, nameKey, slugify, type GuideEntity, type PlaceEntity, type PlantEntity, type Section, type SourceId, type SpeciesEntity, type Translation } from '@aq/schema'
 import { cleanAltNames, tidyName } from './alt-names'
 import { kindWord, plainName } from './kind-words'
-import { pageGroup, type Taxon } from './gbif'
+import { newPageGroup, type Taxon } from './gbif'
 import { fixFirst } from './guide-sections'
 import type { ProcessedPage } from './process'
 import { isShop, withoutShopTalk } from './species-sources'
@@ -50,10 +50,14 @@ function mergeSections(prev: Section[], prevVi: Record<string, string>, page: Pr
     const p = parts.get(s.key)
     parts.set(s.key, p ? { ...p, en: `${p.en}\n${s.en}`, vi: `${p.vi}\n${s.vi}` } : s)
   }
-  // A shop's own talk ("we pick the best fish for our customers", "before purchase") stays off the page (species-sources.ts).
+  // A shop's own talk ("we pick the best fish for our customers", "before purchase") stays off the page (species-sources.ts),
+  // each part it cut from listed (`dropped`), as the sweep lists its own, so no cut is silent.
+  const dropped: string[] = []
   if (isShop(ctx.source)) {
     for (const [k, p] of parts) {
       const { en, tr } = withoutShopTalk(p.en, { vi: p.vi })
+      // A part a person fixed keeps its text whatever the source says (below): it isn't listed as cut.
+      if (en !== p.en && !fixed.has(k)) dropped.push(`${k}:${ctx.source} (${en ? 'blocks' : 'the section'})`)
       if (en) parts.set(k, { ...p, en, vi: tr.vi })
       else parts.delete(k)
     }
@@ -77,7 +81,7 @@ function mergeSections(prev: Section[], prevVi: Record<string, string>, page: Pr
   const sections = [...kept, ...added].map((s, i) => [s, at(s, i)] as const).sort((a, b) => order(a[0].key) - order(b[0].key) || a[1] - b[1]).map(([s]) => s)
   const vi = Object.fromEntries(Object.entries(prevVi).filter(([k]) => !k.endsWith(`:${ctx.source}`) || fixed.has(k.slice(0, -ctx.source.length - 1))))
   for (const s of parts.values()) vi[`${s.key}:${ctx.source}`] = s.vi
-  return { sections, vi }
+  return { sections, vi, dropped }
 }
 
 function translation(prev: Translation | undefined, page: ProcessedPage, ctx: Ctx, fallbackName: string, suffix: string, sections: Record<string, string>, kind: 'species' | 'plants', wrongKind: (name: string) => boolean = () => false): Translation {
@@ -99,14 +103,14 @@ function translation(prev: Translation | undefined, page: ProcessedPage, ctx: Ct
   }
 }
 
-export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translation }, page: ProcessedPage, ctx: Ctx & { taxon: Taxon }): Item<SpeciesEntity> & { fellBack?: FellBack } {
+export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translation }, page: ProcessedPage, ctx: Ctx & { taxon: Taxon }): Item<SpeciesEntity> & { fellBack?: FellBack; dropped?: string[] } {
   const { taxon } = ctx
   const prev = existing.entity
   const genus = taxon.genus ?? taxon.canonicalName.split(' ')[0] ?? ''
   // The record on file first, written as keepers write it (l-numbers.ts).
   const record = prev?.lNumber ?? page.lNumber
   const lNumber = record ? cleanLRecord(record) : undefined
-  const { sections, vi } = mergeSections(prev?.sections ?? [], existing.vi?.sections ?? {}, page, ctx)
+  const { sections, vi, dropped } = mergeSections(prev?.sections ?? [], existing.vi?.sections ?? {}, page, ctx)
   const dataCard: SpeciesEntity['dataCard'] = {}
   const fields = uniq([...Object.keys(prev?.dataCard ?? {}), ...Object.keys(page.dataCard)]) as (keyof SpeciesEntity['dataCard'])[]
   for (const f of fields) {
@@ -119,7 +123,7 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
   }
   const entity: SpeciesEntity = {
     id: slugify(taxon.canonicalName), scientificName: taxon.canonicalName, order: taxon.order ?? '', family: taxon.family ?? '', genus,
-    group: prev?.group ?? pageGroup(page.group ?? 'other', taxon.order), ...(lNumber ? { lNumber } : {}),
+    group: prev?.group ?? newPageGroup(page.group ?? 'other', taxon.order), ...(lNumber ? { lNumber } : {}),
     places: uniq([...(prev?.places ?? []), ...page.places.flatMap(p => [p.continent, p.country, usableRegion(p.region) ? p.region : undefined].filter((x): x is string => !!x).map(placeId))]),
     // The range step's (range.ts): read again there when this source's text changes it.
     ...(prev?.range ? { range: prev.range } : {}),
@@ -136,19 +140,19 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
   const word = page.viName ? kindWord(page.viName, kin) : undefined
   const t = translation(existing.vi, page, ctx, plainName(taxon.canonicalName, kin), genus, vi, 'species', n => kindWord(n, kin)?.fits === false)
   const fellBack = word && !word.fits ? { name: page.viName!, word: word.word } : undefined
-  return { entity, vi: { ...t, altNames: cleanAltNames({ name: t.name, sci: taxon.canonicalName, altNames: t.altNames }).altNames }, ...(fellBack ? { fellBack } : {}) }
+  return { entity, vi: { ...t, altNames: cleanAltNames({ name: t.name, sci: taxon.canonicalName, altNames: t.altNames }).altNames }, ...(fellBack ? { fellBack } : {}), ...(dropped.length ? { dropped } : {}) }
 }
 
-export function mergePlant(existing: { entity?: PlantEntity; vi?: Translation }, page: ProcessedPage, ctx: Ctx): Item<PlantEntity> | null {
+export function mergePlant(existing: { entity?: PlantEntity; vi?: Translation }, page: ProcessedPage, ctx: Ctx): (Item<PlantEntity> & { dropped?: string[] }) | null {
   if (!page.plant || !page.scientificName) return null
   const prev = existing.entity
-  const { sections, vi } = mergeSections(prev?.sections ?? [], existing.vi?.sections ?? {}, page, ctx)
+  const { sections, vi, dropped } = mergeSections(prev?.sections ?? [], existing.vi?.sections ?? {}, page, ctx)
   const entity: PlantEntity = {
     id: slugify(page.scientificName), scientificName: page.scientificName, ...(prev?.synonyms?.length ? { synonyms: prev.synonyms } : {}), ...page.plant,
     sections, photos: prev?.photos ?? [], productSlots: prev?.productSlots.length ? prev.productSlots : page.productSlots, updatedAt: ctx.now,
     ...(prev?.refs?.length ? { refs: prev.refs } : {}),
   }
-  return { entity, vi: translation(existing.vi, page, ctx, page.scientificName, page.scientificName.split(' ')[0] ?? '', vi, 'plants') }
+  return { entity, vi: translation(existing.vi, page, ctx, page.scientificName, page.scientificName.split(' ')[0] ?? '', vi, 'plants'), ...(dropped.length ? { dropped } : {}) }
 }
 
 /** Guides are single-source: the English text stays in the sources/ snapshot; the entity carries provenance. */

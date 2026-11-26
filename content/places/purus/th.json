@@ -1,8 +1,13 @@
 {
   "slug": "purus",
-  "name": "ปูรุส",
+  "name": "แม่น้ำปูรุส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-18T18:25:51.502Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

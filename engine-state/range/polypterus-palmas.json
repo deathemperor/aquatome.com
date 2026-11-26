@@ -1,8 +1,8 @@
 {
   "id": "polypterus-palmas",
   "native": {
-    "input": "8ca853c19d7c3825",
-    "at": "2026-11-13T05:31:31.275Z",
+    "input": "b541889b9872a4ec",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "GH",
@@ -58,6 +58,14 @@
         "source": "seriouslyfish",
         "quote": "Ghana, Democratic Republic of Congo, Cameroon, Liberia, Guinea, Ivory Coast, Sierra Leone.",
         "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Two former subspecies have been recorded from Guinea, namely P. p. palmas and P. p. buettikoferi.",
+        "words": "Guinea",
         "ok": true
       }
     ],

@@ -24,7 +24,13 @@ export async function steadyRead<T extends { score: number }>(read: () => Promis
   const reads = [first, ...await Promise.all([read(), read()])]
   return { ...[...reads].sort((a, b) => a.score - b.score)[1]!, reads: reads.map(r => r.score) }
 }
-const TEMPLATE = withTanks(readFileSync(new URL('./prompts/review.md', import.meta.url), 'utf8'))
+/**
+ * What "invertebrates" becomes, as every Vietnamese writer is told (phrases.ts, "không xương sống"), so the reviewers don't
+ * ask the writer for the word the list asks it to leave (the Writing Lead, 22 Nov 2026: 421 of the translation review's
+ * notes asked for "động vật không xương sống").
+ */
+export const INVERTEBRATES = 'naming the animals behind "invertebrates" in a tank (tankmates, a medicine\'s or copper\'s caution, foods made for them) as Vietnamese keepers do, "tép, ốc" (with "cua", "tôm hùm đất" where the original names them), not "động vật không xương sống"; in the wild (what it eats in nature, what its stomach holds), the animals the original names, and "động vật không xương sống" only where it names none'
+const TEMPLATE = withTanks(readFileSync(new URL('./prompts/review.md', import.meta.url), 'utf8')).replace('{{INVERTEBRATES}}', INVERTEBRATES)
 const SCHEMA = { type: 'object', properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } }, required: ['score', 'notes'] }
 /** `hedges`: the reviewer also pairs each hedged sentence with its new one (hedges.ts), and `lost` has those said more surely. */
 /** `figures`: what the editor was told to do to a page's figures, so the reviewer holds it right (fit-rewrite.ts, a breed page's units). */
@@ -45,7 +51,7 @@ export async function reviewTranslation(llm: Llm, sections: { en: string; vi: st
 
 const SAME = `Two Vietnamese versions of the same aquarium-handbook text: BEFORE, and AFTER (a rewrite for natural style, with no English source to check against).
 Score 0–1 how faithfully AFTER keeps BEFORE's content: 1.0 = every fact, number, name, example, caution and the strength of praise or criticism kept, nothing added; 0.75 = small nuance lost; below 0.75 = a fact, number, warning or caveat dropped, changed or added, or a hedge turned into a certainty.
-The editor is told to do these, so they are correct, not errors: converting US/imperial units to metric with sensible rounding, keeping the original only when it adds precision (inches → mm/cm, gallons → litres, °F → °C); writing the source's "I"/"we" as attribution to the source by name ("Theo Aquarium Breeder…") or neutrally; plainer everyday wording for the same thing; established Vietnamese hobby terms. Judge a converted number by whether the conversion is right; a tank's litres that are a US gallon size's exact conversion become the size keepers say (${TANK_RULE.en}).
+The editor is told to do these, so they are correct, not errors: converting US/imperial units to metric with sensible rounding, keeping the original only when it adds precision (inches → mm/cm, gallons → litres, °F → °C); writing the source's "I"/"we" as attribution to the source by name ("Theo Aquarium Breeder…") or neutrally; plainer everyday wording for the same thing; established Vietnamese hobby terms; ${INVERTEBRATES}. Judge a converted number by whether the conversion is right; a tank's litres that are a US gallon size's exact conversion become the size keepers say (${TANK_RULE.en}).
 notes: up to 10 short, concrete problems (in English), quoting the phrase. Empty if none.`
 
 /** For text with no English source: does a style rewrite keep the old Vietnamese's meaning? (0–1, like reviewTranslation.) */

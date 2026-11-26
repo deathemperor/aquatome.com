@@ -14,7 +14,10 @@
   "https://media.aquatome.com/seriouslyfish/a6bf70a7235908e6.webp": "2631b486acb0f034",
   "https://media.aquatome.com/seriouslyfish/31bbb29def82301b.webp": "2c2c2c2c1781a76c",
   "https://media.aquatome.com/seriouslyfish/51fe869b87e8b23f.webp": "851d0f0707073ae0",
-  "https://media.aquatome.com/commons/f481cb96022ab136.webp": "38781c0f8f0d4fb9"
+  "https://media.aquatome.com/commons/f481cb96022ab136.webp": "38781c0f8f0d4fb9",
+  "https://media.aquatome.com/glaser/53bfa55cd4291092.webp": "87cb8b879e1c7871",
+  "https://media.aquatome.com/glaser/f274937c52a57e47.webp": "9d8f1f1d5d502026",
+  "https://media.aquatome.com/glaser/0b54bef9f9edaafc.webp": "e5a75c3cb242cbd3"
  },
  "commons": "2026-11-08",
  "inat": {
@@ -24,5 +27,12 @@
    "research": 195685048,
    "agree": 369135492
   }
+ },
+ "gbif": {
+  "key": 2354671,
+  "next": null
+ },
+ "openverse": {
+  "next": null
  }
 }

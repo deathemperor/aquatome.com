@@ -3,6 +3,12 @@
   "name": "Tasik Bera",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-18T05:56:55.754Z",
+    "why": "\"Tasik\" is Malay for \"lake\", so \"Tasik Bera\" keeps a Malay kind word; Indonesian atlases write \"Danau Bera\" (the Malay name is also used as is in Malaysia, but Indonesian uses \"Danau\")."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

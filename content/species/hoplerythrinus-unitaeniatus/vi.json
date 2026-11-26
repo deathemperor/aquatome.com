@@ -4,7 +4,8 @@
   "altNames": [
     "Cá trahira vàng",
     "Gold Wolf Fish",
-    "Golden trahira"
+    "Golden trahira",
+    "Striped wolf tetra"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Cần bể rất lớn</li></ul>",
@@ -18,13 +19,18 @@
     "behaviour:seriouslyfish": "<p>Trông dữ tợn vậy chứ nó vẫn nuôi chung được với cá cùng cỡ trong bể lớn. Nhưng muốn thấy nó sống đúng tập tính thì nuôi riêng một con tốt hơn nhiều. Cá nhỏ hơn nó sẽ bị ăn. Với con cùng loài thì nó rất không chịu được, hay đánh nhau đến chết.</p>",
     "dimorphism:seriouslyfish": "<p>Chưa xác định được. Cá cái đủ lớn chắc là bụng tròn hơn cá đực.</p>",
     "reproduction:seriouslyfish": "<p>Chưa ai cho loài này đẻ được trong bể.</p>",
-    "notes:seriouslyfish": "<p>H. unitaeniatus còn có tên golden trahira. Giống này hiện có ba loài được công nhận, và chỉ có nó là thấy bán khá đều ở tiệm cá. Đây thật sự là cá chỉ hợp với người chơi có nghề. Cũng như mọi loài săn mồi khác, lúc làm vệ sinh bể phải cẩn thận. Loài này thuộc một nhóm cá rất cổ. Bóng bơi của nó đã biến đổi, có nhiều mạch máu và dùng làm cơ quan thở phụ, nên cá sống được ở chỗ nước tù, thiếu oxy. Trong bể, hay thấy nó nổi lên mặt nước đớp khí. Người ta cũng từng thấy nó bò trên cạn một quãng ngắn để sang chỗ ở mới, khi vùng nước ngập theo mùa bắt đầu cạn. Ở vài nước nơi nó sinh sống, người ta bắt nó làm cá ăn.</p>"
+    "notes:seriouslyfish": "<p>H. unitaeniatus còn có tên golden trahira. Giống này hiện có ba loài được công nhận, và chỉ có nó là thấy bán khá đều ở tiệm cá. Đây thật sự là cá chỉ hợp với người chơi có nghề. Cũng như mọi loài săn mồi khác, lúc làm vệ sinh bể phải cẩn thận. Loài này thuộc một nhóm cá rất cổ. Bóng bơi của nó đã biến đổi, có nhiều mạch máu và dùng làm cơ quan thở phụ, nên cá sống được ở chỗ nước tù, thiếu oxy. Trong bể, hay thấy nó nổi lên mặt nước đớp khí. Người ta cũng từng thấy nó bò trên cạn một quãng ngắn để sang chỗ ở mới, khi vùng nước ngập theo mùa bắt đầu cạn. Ở vài nước nơi nó sinh sống, người ta bắt nó làm cá ăn.</p>",
+    "quickFacts:glaser": "<p>Đây là dạng màu Orinoco của cá hổ sói sọc (Hoplerythrinus unitaeniatus), nhập về từ Colombia. Cá lớn hết cỡ dài 20-25 cm.</p>",
+    "notes:glaser": "<p>Nhóm cá này sống gần như khắp Nam Mỹ, và cách phân loại chúng đến giờ vẫn còn mù mờ. Người ta thường chỉ công nhận một loài là H. unitaeniatus, nhưng loài này có rất nhiều tên đồng nghĩa. Trong số đó có H. cinereus (Trinidad và Tobago) và H. gronovii (Guyane thuộc Pháp), hai tên thỉnh thoảng vẫn được tách thành loài riêng dù không có cơ sở. Trên Internet, dạng màu Orinoco hay bị gọi là H. cinereus hoặc \"Golden Trahira\".</p>",
+    "behaviour:glaser": "<p>Đây là cá săn mồi rất dữ, và các con cùng loài không sống chung được với nhau. Đừng tin vào mấy tấm ảnh chụp chúng ở yên bên nhau, cảnh đó chỉ giữ được một thời gian ngắn. Như mọi loài trahira hay cá hổ sói khác, chúng có cơ quan thở phụ nên phải thường xuyên ngoi lên mặt nước đớp không khí.</p>",
+    "dimorphism:glaser": "<p>Con đực có vây màu cam đậm hơn con cái, vây hậu môn cũng lớn hơn.</p>"
   },
   "quality": {
     "score": 0.75,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.75
+      "seriouslyfish": 0.75,
+      "glaser": 0.8
     }
   }
 }

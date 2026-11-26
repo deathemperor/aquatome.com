@@ -1,8 +1,8 @@
 {
   "id": "brachygobius-sabanus",
   "native": {
-    "input": "ded77c66bdcf69e8",
-    "at": "2026-11-10T04:57:39.069Z",
+    "input": "156cf9f5819e280f",
+    "at": "2026-11-17T18:05:08.130Z",
     "claims": [
       {
         "code": "MY",
@@ -35,6 +35,14 @@
         "quote": "The full extent of its range is unclear but similar-looking fish have been recorded in Indonesian (Kalimantan, Borneo), Singapore, Peninsular Malaysia (Muar), and Thailand (Bangkok).",
         "words": "Thailand",
         "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Brachygobius sabanus was initially described from Borneo (Sabah); the fish featured here were collected in Thailand.",
+        "words": "Thailand",
+        "ok": true
       }
     ],
     "regions": [
@@ -44,9 +52,17 @@
         "quote": "Type locality is given as 'Lamag, Kinabatangan District, East Coast Residency, Malaysia', which corresponds to Kinabatangan district in modern-day Sandakan Division, Sabah state, Malaysia (northeastern Borneo).",
         "country": "MY",
         "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "Brachygobius sabanus was initially described from Borneo (Sabah); the fish featured here were collected in Thailand.",
+        "ok": true
       }
     ],
-    "disputed": [],
+    "disputed": [
+      "TH"
+    ],
     "outranked": [],
     "origin": {
       "pagesOnly": [

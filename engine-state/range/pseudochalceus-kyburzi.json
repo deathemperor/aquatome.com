@@ -1,0 +1,35 @@
+{
+  "id": "pseudochalceus-kyburzi",
+  "native": {
+    "input": "b6dd7f894bba6e15",
+    "at": "2026-11-21T01:22:16.258Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudochalceus kyburzi",
+    "status": "ACCEPTED",
+    "taxonKey": 2353673,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

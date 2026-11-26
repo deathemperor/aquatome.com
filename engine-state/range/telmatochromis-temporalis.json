@@ -1,0 +1,60 @@
+{
+  "id": "telmatochromis-temporalis",
+  "native": {
+    "input": "6d0df2fbf733ba9b",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "glaser",
+        "quote": "The species settles along the whole of Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Telmatochromis temporalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2372971,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        94
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        18
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        9
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        7
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

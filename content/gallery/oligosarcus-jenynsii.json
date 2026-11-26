@@ -1,7 +1,47 @@
 {
   "id": "oligosarcus-jenynsii",
-  "photos": [],
-  "seen": 10,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-10"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/170650546.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/170650546-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Guille Ivan Spajic",
+      "sourceUrl": "https://www.inaturalist.org/photos/170650546",
+      "caption": "Cá tetra pike sống bơi trong thùng nước cùng cá khác",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/170650620.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/170650620-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Guille Ivan Spajic",
+      "sourceUrl": "https://www.inaturalist.org/photos/170650620",
+      "caption": "Cá tetra pike sống bơi trong thùng nước trong",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/463401267.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/463401267-480.webp",
+      "width": 885,
+      "height": 562,
+      "licence": "CC BY-NC",
+      "author": "Santiago Mailhos",
+      "sourceUrl": "https://www.inaturalist.org/photos/463401267",
+      "caption": "Cá tetra pike vây cam bơi trong bể nhỏ, nhìn nghiêng",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    }
+  ],
+  "seen": 49,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

@@ -3,7 +3,9 @@
  "judged": [
   "File:Danio aesculapii.png"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/8d297d9dada1fe61.webp": "7cdffb3f1f3d3cd8"
+ },
  "commons": "2026-11-07",
  "inat": {
   "taxon": 99073,
@@ -12,5 +14,13 @@
    "research": 0,
    "agree": 0
   }
- }
+ },
+ "gbif": {
+  "key": 2362722,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-16"
 }

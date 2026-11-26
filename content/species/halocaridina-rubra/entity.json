@@ -1,0 +1,262 @@
+{
+  "id": "halocaridina-rubra",
+  "scientificName": "Halocaridina rubra",
+  "order": "Decapoda",
+  "family": "Atyidae",
+  "genus": "Halocaridina",
+  "group": "shrimp",
+  "places": [
+    "oceania",
+    "united-states",
+    "hawaii"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Hawaiian Islands"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Opae Ula Shrimp are indigenous to the Hawaiian Islands and are found in tidal and anchialine pools there.",
+          "countries": [],
+          "regions": [
+            "Hawaiian Islands"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2223082,
+      "total": 20,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "US",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          -157.5,
+          19.6875,
+          2
+        ],
+        [
+          -156.09375,
+          18.28125,
+          7
+        ],
+        [
+          -156.09375,
+          19.6875,
+          3
+        ],
+        [
+          -97.03125,
+          37.96875,
+          8
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "aquariumbreeder",
+    "quote": "The water should be brackish, with a specific gravity of 1.008–1.018 as measured with a refractometer."
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 8,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 1.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 20,
+          "max": 20
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Halocaridina rubra, known as Opae Ula Shrimp (lit. 'tiny red shrimp'), Volcano shrimp, Hawaiian red shrimp, Supershrimp and Anchialine shrimp, is bright, beautiful and easy to care for. It was previously identified as Caridina brevirostris Stimpson and was redescribed as a new genus and species by Holthuis in 1963.</p><ul><li>Tank size (optimal): 5 gallons (~20 litres)</li><li>Breeding: Easy-Medium</li><li>Water type: SG 1.008–1.018 (10 to 23 ppt)</li><li>Optimal KH: 0–12</li><li>Nitrate: less than 20 ppm</li><li>Diet: Omnivore</li><li>Temperament: Peaceful</li><li>Colour: varies in redness and opaqueness</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Opae Ula Shrimp are indigenous to the Hawaiian Islands and are found in tidal and anchialine pools there. Anchialine waters are found inland but are linked below the surface with the ocean, and are thus brackish and subject to tidal flux.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Anchialine pools have salinity that varies from pool to pool and from the surface to the depths (from less than 2 ‰ to 33.5 ‰ or more). This makes Opae Ula Shrimp extremely hardy and able to withstand a wide range of salinity and temperature.</p><p>These shrimp occupy two physically different habitats: well-lit shallow pools and dark crevices in the water table below the pools. They are found primarily near the surface in water warmed by the sun, and live mostly in darkness in lava tubes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Opae Ula Shrimp can be kept in containers as small as half a gallon (~2 litres), but these are hard to keep balanced and the shrimp reproduce better in larger containers. Plan on a tank of at least 20 litres.</p><p>They do not need much space and do not seem to overpopulate: in a 40-litre tank you can keep 100–200 shrimp, about 5–10 shrimp per 4 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Opae Ula Shrimp are hardy, low-maintenance and survive in a wide range of conditions.</p><p><strong>Water changes:</strong> unlike most aquatic organisms, this species does not require partial water changes if maintained properly. To compensate for evaporation, top off with distilled or RO water. Do not add salt when topping off, because salt does not evaporate.</p><p><strong>Acclimation:</strong> the shrimp may arrive very pale from stress, which is normal; they should darken later. Acclimate them first rather than putting them straight into the tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The water should be brackish, with a specific gravity of 1.008–1.018 as measured with a refractometer. A simple way to set the initial salinity is to ask the breeder and match it. In the laboratory, the shrimp tolerated salinities of 0–50%; they do well at around 50% seawater and do not breed well if the salinity is too high or too low.</p><p>Keep pH around 8.0. A source of calcium carbonate, such as aragonite or coral, is essential. Use only marine salt, not aquarium salt or table salt.</p><p>Distilled or reverse osmosis water is your choice; RO water is foolproof and marine salt mix remineralises it well. Tap water contains chlorine and chloramine, which are not wanted.</p><p>Temperature should be kept between 20–27°C. They need no heater unless the room gets below about 15°C.</p><p>Cycle the tank before adding shrimp. Most tanks need 6 to 8 weeks or longer so that the ammonia and nitrates from waste do not kill the inhabitants. Snails can be added to boost cycling.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p><strong>Filter:</strong> not strictly necessary; the natural biological filtration of a properly set-up aquarium is enough.</p><p><strong>Aeration:</strong> no additional aeration is needed. They thrive in low-oxygen environments and aeration stresses them.</p><p><strong>Light:</strong> if ambient light allows algae to grow, it is usually enough. Do not choose a light that is too bright, as they live mostly in darkness and strong light encourages excess algae.</p><p><strong>Substrate:</strong> any substrate from rocks to gravel to sand, but ideally one providing calcium carbonate, such as aragonite sand. 1.5–2.5 cm is enough. Rinse it first. Black sand helps bring out their red colour.</p><p><strong>Decorations:</strong> provide coral, limestone, lava rocks etc. for shelter and surface for grazing. Do not use live rock from marine tanks, as most organisms on it die off in low salinity.</p><p><strong>Plants:</strong> live plants cannot be kept long-term. Anubias, Java fern and Lava moss may stay green for a long time in brackish water but eventually die. The only plant that can be kept is Chaetomorpha macro algae, which is fully adapted to salinity.</p><p><strong>Ecospheres:</strong> sealed ecospheres are sold as self-sustaining but cannot produce enough algae to feed the shrimp for their natural lifetime. They have an average lifespan of 2–3 years, versus 10–20 years naturally, and are not recommended.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In nature they feed in two ways: scraping (grasping) with both pairs of chelipeds, which is the most common, and filter feeding with the setal fans, observed only in pools with dense phytoplankton blooms. They are primarily grazers, feeding on algae, bacteria, diatoms, protozoans and so on.</p><p>In the aquarium they mainly eat algae and biofilm, but can be fed blanched vegetables, fish food and shrimp flakes. Spirulina is an excellent supplement. In a tank in indirect sunlight they need feeding only every few weeks or even months. Laboratory and field studies show they are also attracted to floating insects and carrion, and shrimp have been kept in aquaria for over 3 years without additional food. Colour-enhancing shrimp pellets can be given once a week or a month.</p><p>Do not feed for a month or two after introducing them to the tank. If there is algae in the tank, there is enough food.</p><p>They need very little food: a single tiny pellet is sufficient for a 20–40 litre tank housing hundreds of shrimp. Underfeeding is far better than overfeeding. Use a feeding dish and remove uneaten food the next day.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Opae Ula shrimp are peaceful; they are not predaceous and do not use their chelae in defence. When disturbed they turn pale or lose the red colour over part or most of the body, then return to full intensity after minutes or hours.</p><p><strong>Fish:</strong> they are very small and become prey for most fish, and brackish water limits the options. Predators make them less active during the day or night. They do not like to be kept with fish.</p><p><strong>Snails:</strong> few snails live in these conditions, and feeding the snails enough means overfeeding the shrimp. Snails also add bioload, requiring filtration. Some keepers manage Malaysian trumpet snails, which stay small and barely reproduce in brackish water without food. Hawaiian endemic pipipi snails (black nerite snails) are sometimes neighbours; they need enough algae.</p><p><strong>Hermit crabs:</strong> the Hawaii dwarf hermit crab (Calcinus laevimanus) can be kept safely with them, but needs more food, leading to overfeeding.</p><p>Overall, they do better in a species-only tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In most caridean shrimp the structures on the first and second pleopods distinguish mature males from females. Because of the small size, this is almost microscopic in Opae Ula shrimp; the differences can be seen on shed exoskeletons as well as on live shrimp.</p><p>Aquarists usually use other ways: mature females have broader abdomens where they carry the eggs, while males are slimmer with straighter undersides. Females usually have a more vibrant red colour. The saddle and clutch of eggs are the easiest way to tell the sex.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Opae Ula shrimp reach maturity about one year after hatching; as most are sold as juveniles, this may be 3 to 8 months after they are added to a tank. They breed only if water conditions are stable and appropriate: pH 8.0–8.4, nitrate, nitrite and ammonia at or near zero, enough space (unlikely to breed in a 2-litre jar), warm and stable temperature of 21–24°C and salinity of 1.010–1.013 SG. When mature females molt, they release pheromones that attract males, so dark hidden places are needed.</p><p>They do not breed often, unlike Neocaridina or Caridina, and females produce only a few times per year. The female carries eggs on her belly (berried). Adult females (12 mm) carry about 14–18 large (1 mm) eggs for about 27–38 days, releasing larvae over 1 to 5 days.</p><p>The larvae float and develop in the water column, eating their yolk sacs for about 25–30 days through 4 zoeal stages and 1 mysis stage before metamorphosis. The larvae do not need feeding. The final larval stage, megalopa, lasts just over a week, after which juveniles differ from adults only in size and pale colour.</p><p>Larval survival differs significantly among salinities: 88% and 72% metamorphosed at 15‰ and 32‰, but only 12% at 2‰. Larvae at 15‰ were also twice as likely to survive to settlement as those at 32‰.</p><ul><li>Larvae are phototactic.</li><li>They can hang almost motionless head-down in the water.</li><li>Adults do not attack larvae.</li></ul><table><tr><th>Stage</th><th>Size</th><th>Duration</th></tr><tr><td>First zoeal</td><td>Total length 2.58–2.61 mm, carapace 0.83 mm</td><td>3–4 days</td></tr><tr><td>Second zoeal</td><td>Total length 2.55 mm, carapace 0.80 mm</td><td>4–5 days</td></tr><tr><td>Third zoeal</td><td>Total length 2.70 mm, carapace 0.82 mm</td><td>5–6 days</td></tr><tr><td>Fourth zoeal</td><td>Total length 2.73 mm, carapace 0.84 mm</td><td>5–6 days</td></tr><tr><td>Megalopal</td><td>Total length 2.68 mm, carapace 0.82 mm</td><td>10–11 days</td></tr><tr><td>First juvenile</td><td>Total length 2.75 mm, carapace 0.88 mm</td><td>7–8 days</td></tr><tr><td>Second juvenile</td><td>Body length 2.82 mm, carapace 0.92 mm</td><td>7–8 days</td></tr></table>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>According to Hawaiian legend, a princess named Popoalaea hid in the Waianapanapa caves, fleeing her cruel husband, chief Kakae. He found her hiding place and killed her. At certain times of year tiny red shrimp appear in the pool and turn the water red, said by some to be a reminder of the slain princess's blood.</p><p>Very few cases of molting have been documented in this species, and because of their small size and slow metabolism there is no data about molt frequency.</p>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Reproduction and Development in Halocaridina rubra Holthuis, 1963 (Crustacea: Atyidae) Clarifies Larval Ecology in the Hawaiian Anchialine Ecosystem. Biological Bulletin. 229, No. 2, October 2015. DOI: 10.1086/BBLv229n2p134.</li><li>Feeding, Reproduction, and Sense Organs of the Hawaiian Anchialine Shrimp Halocaridina rubra (Atyidae). Pacific Science (1993), vol. 47, no. 4: 338-355.</li><li>Behavioral Responses of the Endemic Shrimp Halocaridina rubra (Malacostraca: Atyidae) to an Introduced Fish, Gambusia affinis (Actinopterygii: Poeciliidae) and Implications for the Trophic Structure of Hawaiian Anchialine Ponds. Pacific Science (2009), vol. 63, no. 1:27–37.</li><li>Intrusion of Anchialine Species in the Marine Environment: The Appearance of an Endemic Hawaiian Shrimp, Halocaridina rubra, on the South Shore of O'ahu (Hawaiian Islands). Pacific Science. October 1999.</li><li>Islands under islands: The phylogeography and evolution of Halocaridina rubra Holthuis, 1963 (Crustacean: Decapoda: Atyidae) in the Hawaiian archipelago. Oceanogr., 53 (2), 2008, 675–689.</li><li>Osmoregulation in the Hawaiian anchialine shrimp Halocaridina rubra (Crustacea: Atyidae): Expression of ion transporters, mitochondria-rich cell proliferation and hemolymph osmola. Journal of Experimental Biology. April 2014. DOI: 10.1242/jeb.103051</li><li>Predator-dependent diel migration by Halocaridina rubra shrimp (Malacostraca: Atyidae) in Hawaiian anchialine pools. Aquatic Ecology. March 2011. DOI: 10.1007/s10452-010-9321-0.</li><li>Larval development of Halocaridina rubra Holthuis (Decapoda, Atyidae). Crustaceana 34 (3) 1978, E.J. Brill, Leiden.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/9ff6681de900e825.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/9ff6681de900e825-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/opae-ula-shrimp-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "s4sOGPp70BA",
+      "title": "# 1819 Breeding Halocaridina Rubra Carls Aquarium",
+      "durationSec": 303,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "A-uHkTlmV-8",
+      "title": "I found Opae ula in the wild and then built a @ZooMed rimless aquarium for them! #aquascape",
+      "durationSec": 149,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IivIXyq-hn0",
+      "title": "2.5gal Brackish Water Aquarium Halocaridina rubra - ‘Ōpae’ula or Hawaiian Red Shrimp",
+      "durationSec": 48,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "v6MjMAMw7cg",
+      "title": "Opae Ula Shrimp Brackish Tank Full Build",
+      "durationSec": 1026,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát aragonite",
+        "nền san hô nuôi tép"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tép",
+        "viên tăng màu cho tép"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể thủy tinh 20 lít",
+        "hũ thủy tinh nuôi tép"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "khúc xạ kế đo độ mặn",
+        "muối biển pha nước lợ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

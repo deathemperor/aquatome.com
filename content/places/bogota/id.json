@@ -3,6 +3,12 @@
   "name": "Bogota",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-18T00:46:54.824Z",
+    "why": "The source names the Bogota river basin, so a bare \"Bogota\" cuts the river's name down to the city's name and leaves out the kind word."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

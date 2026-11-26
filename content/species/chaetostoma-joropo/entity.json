@@ -1,0 +1,294 @@
+{
+  "id": "chaetostoma-joropo",
+  "scientificName": "Chaetostoma joropo",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Chaetostoma",
+  "group": "catfish",
+  "lNumber": "L445",
+  "places": [
+    "south-america",
+    "colombia",
+    "rio-meta",
+    "orinoco"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Rio Meta",
+        "Orinoco",
+        "Río Guaviare"
+      ],
+      "sources": [
+        "scotcat",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It originates from creeks in the catchment area of the Rio Meta in Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Rio Meta"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Chaetostoma joropo is described from the piedmont of the Orinoco River drainage in Colombia.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Colombia: Río Güejar (upper Río Guaviare drainage), Río Cusiana, Río Caja, Río Tocoragu, Río Casanare, Río Meta drainage (Meta, Arauca).",
+          "countries": [],
+          "regions": [
+            "Río Guaviare"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8671505,
+      "total": 29,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CO",
+          29
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          4.21875,
+          14,
+          14
+        ],
+        [
+          -73.125,
+          4.21875,
+          11,
+          11
+        ],
+        [
+          -73.125,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 12.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_joropo.htm",
+      "html": "<ul><li>Also known as: L445, Chaetostoma sp. \"Río Meta\", Chaetostoma sp. \"Villavicencio I\"</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/chaetostoma-joropo-l445-2/",
+      "html": "<p>It originates from creeks in the catchment area of the Rio Meta in Colombia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_joropo.htm",
+      "html": "<p>Colombia: Río Güejar (upper Río Guaviare drainage), Río Cusiana, Río Caja, Río Tocoragu, Río Casanare, Río Meta drainage (Meta, Arauca).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_joropo.htm",
+      "html": "<p>Chaetostoma joropo is described from the piedmont of the Orinoco River drainage in Colombia.</p><p>IUCN Red List: Chaetostoma joropo is assessed as Vulnerable. The species is restricted to piedmont and mountain rivers and the Meta and Guaviare drainages. Some of these rivers are well-preserved, however, the threats exist in many drainages associated with the expansion of the agricultural and urban frontiers, including deforestation, land-use change, sedimentation and urban effluents. There is continuing decline in habitat based on these threats. The area of occupancy (AOO) is best estimated at 1,580 km². There are 2–4 threat-based locations (IUCN 2021).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_joropo.htm",
+      "html": "<p>As C. joropo is a more warm loving species it will need a good water flow in the aquarium with a sand substrate and plenty of hiding places. The Chaetostoma species are not the easiest to maintain as the mountain stream species will need a water current to provide oxygen-rich water. The species that are exported usually originate from warmer waters so are a bit easier to keep than the mountain stream variety.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/chaetostoma-joropo-l445-2/",
+      "html": "<p>It does not need to be kept as warm as many other L-numbers, 23-27°C are just right.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_joropo.htm",
+      "html": "<p>Great algae eater, but you will have to subsidise this food with algae wafers and vegetable foods such as cucumber, zucchini and lettuce. Will also accept tablet and worm foods.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_joropo.htm",
+      "html": "<p>Males have better colour, a broader head and lips and adult males possess longer ventral fins than the females.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/chaetostoma-joropo-l445-2/",
+      "html": "<p>Juveniles may arrive with such a strong metallic-green shimmer that the species-typical spots are not visible. This phenomenon is also known from Corydoras catfish. In the aquarium this green shimmer disappears after a while.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_joropo.htm",
+      "html": "<p>The new species has been long confused with Chaetostoma milesi, a species with similar overall morphology and colour pattern that is restricted to the Magdalena-Cauca River Basin. It is also easily distinguished from C. formosae, the most similar species, and other species inhabiting the Orinoco River drainage in Colombia.</p><p>Etymology: The specific name joropo refers to a collection of musical styles in the Llanos, the Orinoco-basin - because Chaetostoma joropo lives there.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_joropo.htm",
+      "html": "<p>Ballen, Gustavo A.; Urbano-Bonilla, Alexander; Maldonado-Ocampo, Javier A.; Description of a new species of the genus Chaetostoma from the Orinoco River drainage with comments on Chaetostoma milesi Fowler, 1941 (Siluriformes: Loricariidae). Villa-Navarro, F., DoNascimiento, CD, Mojica, J.I., Rodríguez-Olarte, D., Usma, S. &amp; Herrera-Collazos, E.E. 2021. Chaetostoma joropo. The IUCN Red List of Threatened Species 2021.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/6586d7683b8e01e6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6586d7683b8e01e6-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_joropo.htm",
+      "caption": "Chaetostoma joropo",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fbd55c79727cb080.webp",
+      "thumb": "https://media.aquatome.com/glaser/fbd55c79727cb080-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/chaetostoma-joropo-l445-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ad6c99ecd9ba9d34.webp",
+      "thumb": "https://media.aquatome.com/glaser/ad6c99ecd9ba9d34-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/chaetostoma-joropo-l445-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a2cc2bc1e9bb2e3a.webp",
+      "thumb": "https://media.aquatome.com/glaser/a2cc2bc1e9bb2e3a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/chaetostoma-joropo-l445-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "3DaG-Yr6UjU",
+      "title": "Punktierter Gebirgsharnischwels (L445 Chaetostoma joropo)",
+      "durationSec": 68,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZgyGIHNBKC4",
+      "title": "Pleco Bulldog | Chaetostoma joropo (L 445)",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jgndd7wi6u4",
+      "title": "CHAETOSTOMA und SALMINUS im Biotop, Kolumbien (Deutsche Version)",
+      "durationSec": 249,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "9Nc7GLmygIQ",
+      "title": "El pleco bulldog de puntos L445 (Chaetostoma joropo) Ficha Técnica",
+      "durationSec": 393,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rong chìm cho cá dọn bể"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

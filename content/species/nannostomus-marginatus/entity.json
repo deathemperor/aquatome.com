@@ -33,8 +33,8 @@
         "Essequibo",
         "Courantyne",
         "Ucayali",
-        "Napo",
-        "Rio Negro"
+        "Negro",
+        "Napo"
       ],
       "sources": [
         "glaser",
@@ -51,14 +51,16 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "The dwarf pencilfish, Nannostomus marginatus, is a lebiasinid of Guyana, Suriname and the middle-to-lower Amazon in Peru, Colombia and Brazil.",
+          "quote": "Type locality is 'Maduni Creek, Guyana', and this species is widely-distributed throughout Guyana and Suriname, plus the middle-to-lower Amazon basin east of the Andes mountains in Peru, Colombia, and Brazil.",
           "countries": [
             "GY",
             "SR",
             "PE",
             "CO"
           ],
-          "regions": []
+          "regions": [
+            "Amazon"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -70,23 +72,8 @@
             "Essequibo",
             "Courantyne",
             "Ucayali",
+            "Negro",
             "Napo"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'Maduni Creek, Guyana', and this species is widely-distributed throughout Guyana and Suriname, plus the middle-to-lower Amazon basin east of the Andes mountains in Peru, Colombia, and Brazil.",
-          "countries": [],
-          "regions": [
-            "Amazon"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Rio Negro forms have a similar red stripe but overlapping the central dark stripe and extending along most of the flank, while a form from Colombia has an elongate red stripe which is broken in two beneath the dorsal-fin.",
-          "countries": [],
-          "regions": [
-            "Rio Negro"
           ]
         }
       ]
@@ -579,7 +566,7 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus_marginatus_en/",
-      "html": "<ul><li>Common name: Dwarf pencil tetra</li><li>Origin: Brazil</li><li>Available size: 3-4 cm</li></ul>"
+      "html": "<ul><li>Common name: Dwarf pencil tetra</li><li>Origin: Brazil</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -667,7 +654,7 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Choy Heng Wah / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marginatus",
       "caption": "Forms from Guyana and Suriname have a short red stripe on each flank, above the central dark stripe.",
       "source": "seriouslyfish"
@@ -678,7 +665,7 @@
       "width": 639,
       "height": 479,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Steven Chester / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marginatus",
       "caption": "Adult pair pre-spawning, male on left.",
       "source": "seriouslyfish"
@@ -689,7 +676,7 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Choy Heng Wah / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marginatus",
       "caption": "Detail of head and anterior portion of body.",
       "source": "seriouslyfish"

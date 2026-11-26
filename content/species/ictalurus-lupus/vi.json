@@ -1,0 +1,23 @@
+{
+  "slug": "ca-ictalurus-lupus",
+  "name": "Cá Ictalurus lupus",
+  "altNames": [
+    "Headwater catfish",
+    "Kildespringsmalle"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Ictalurus lupus (Girard, 1858)</li><li>Nơi thu mẫu chuẩn: thượng nguồn sông Rio Pecos, Texas, Hoa Kỳ</li><li>Tên đồng nghĩa: Pimelodus lupus</li><li>Nhận dạng: Loài này trông rất giống một con cá nheo Mỹ nhỏ, nhưng thân không có đốm và vây đuôi không chẻ sâu. Gốc vây hậu môn của nó dài hơn chiều dài đầu.</li><li>Danh sách đỏ IUCN: Thiếu dữ liệu (đánh giá lần cuối năm 2019).</li></ul>",
+    "distribution:planetcatfish": "<p>Bắc Mỹ: từ Hoa Kỳ xuống lưu vực Rio Grande, gồm hệ sông Pecos ở đông nam New Mexico và sông Devils ở nam Texas. Loài này cũng có ở đông bắc Mexico.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: Chưa có báo cáo nào về việc loài này sinh sản.</p>",
+    "notes:planetcatfish": "<p>Từ nguyên: Ictalurus ghép từ hai chữ Hy Lạp, ichthys là cá và ailouros là mèo. Nghĩa đen của nó là \"cá mèo\", tức cá da trơn (catfish). Tên loài lupus nghĩa là chó sói. Không rõ vì sao loài này mang tên đó, vì bề ngoài nó chẳng có nét nào giống sói. Có lẽ cái tên ám chỉ cách nó kiếm ăn, hoặc kiểu sống theo bầy như sói.</p><p>FishBase ghi chiều dài 480 mm TL.</p>",
+    "references:planetcatfish": "<p>General report upon zoology of the several Pacific railroad routes, 1857, pp 211.</p>"
+  },
+  "quality": {
+    "score": 0.95,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.95
+    },
+    "reason": "thin"
+  }
+}

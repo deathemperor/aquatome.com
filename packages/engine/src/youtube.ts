@@ -20,10 +20,11 @@ import type { Finder } from './video-discovery'
 import type { Storyboard, Stream, VideoFrames } from './video-images'
 import { extractVideoItems, readKit, resolveTaxa, type Kit } from './video-items'
 import { setHold } from './video-hold'
-import { readVideoRejected } from './videos'
+import { readVideoRejected, readVideoGenerated } from './videos'
 import { byRank } from './video-order'
-import { seconds } from './videos'
+import { seconds, videoTitle } from './videos'
 import { VI_STYLE as STYLE } from './phrases'
+import { checklistLines } from './fit'
 
 /** YouTube is rate-limiting or bot-checking this machine: stop everything and try again next cycle; no video is at fault. */
 export const throttled = (e: unknown) => /HTTP Error 429|Too Many Requests|confirm you.re not a bot/i.test((e as Error)?.message ?? '')
@@ -59,7 +60,6 @@ const WRITE = withTanks(readFileSync(new URL('./prompts/video-guide.md', import.
 const REVIEW = withTanks(readFileSync(new URL('./prompts/video-review.md', import.meta.url), 'utf8'))
 const EDIT = readFileSync(new URL('./prompts/video-edit.md', import.meta.url), 'utf8')
 const FIX = readFileSync(new URL('./prompts/video-fix.md', import.meta.url), 'utf8')
-const MEND = readFileSync(new URL('./prompts/video-mend.md', import.meta.url), 'utf8')
 const str = { type: 'string' }
 const DRAFT_SCHEMA = {
   type: 'object', required: ['relevant', 'kind', 'viTitle', 'summary', 'body', 'faq', 'chapters'],
@@ -137,13 +137,13 @@ async function cached(file: string, make: () => Promise<string | null>): Promise
 export const ytDlp: YouTube = {
   async playlist(id) {
     const d = JSON.parse(await run(['--flat-playlist', '-J', `https://www.youtube.com/playlist?list=${id}`]))
-    return { id, title: d.title, channel: d.channel ?? d.uploader ?? '', channelUrl: d.channel_url ?? d.uploader_url ?? '', videos: ((d.entries ?? []) as { id?: string; title?: string }[]).flatMap(e => (e.id ? [{ id: e.id, title: e.title ?? '' }] : [])) }
+    return { id, title: videoTitle(d.title), channel: d.channel ?? d.uploader ?? '', channelUrl: d.channel_url ?? d.uploader_url ?? '', videos: ((d.entries ?? []) as { id?: string; title?: string }[]).flatMap(e => (e.id ? [{ id: e.id, title: videoTitle(e.title ?? '') }] : [])) }
   },
   async video(id) {
     const d = JSON.parse(await run(['-J', watch(id)]))
     const date = typeof d.upload_date === 'string' && /^\d{8}$/.test(d.upload_date) ? `${d.upload_date.slice(0, 4)}-${d.upload_date.slice(4, 6)}-${d.upload_date.slice(6)}` : undefined
     return {
-      id, title: d.title, channel: d.channel ?? d.uploader ?? '', channelUrl: d.uploader_url ?? d.channel_url ?? '', durationSec: Number(d.duration) || 0,
+      id, title: videoTitle(d.title), channel: d.channel ?? d.uploader ?? '', channelUrl: d.uploader_url ?? d.channel_url ?? '', durationSec: Number(d.duration) || 0,
       ...(date ? { publishedAt: date } : {}), description: d.description ?? '',
       chapters: ((d.chapters ?? []) as { start_time: number; title: string }[]).map(c => ({ start: Math.round(c.start_time), title: c.title })),
       embeddable: d.playable_in_embed !== false && (d.availability === 'public' || d.availability === 'unlisted'),
@@ -210,10 +210,10 @@ export function ytApi(key: string, get: (url: string) => Promise<unknown> = asyn
       let pageToken = ''
       do {
         const r = await api<{ snippet: { title: string; resourceId?: { videoId?: string } } }>('playlistItems', { part: 'snippet', playlistId: id, maxResults: '50', ...(pageToken ? { pageToken } : {}) })
-        for (const it of r.items ?? []) if (it.snippet.resourceId?.videoId && !/^(Private|Deleted) video$/.test(it.snippet.title)) videos.push({ id: it.snippet.resourceId.videoId, title: it.snippet.title })
+        for (const it of r.items ?? []) if (it.snippet.resourceId?.videoId && !/^(Private|Deleted) video$/.test(it.snippet.title)) videos.push({ id: it.snippet.resourceId.videoId, title: videoTitle(it.snippet.title) })
         pageToken = r.nextPageToken ?? ''
       } while (pageToken)
-      return { id, title: p.snippet.title, channel: p.snippet.channelTitle, channelUrl: `https://www.youtube.com/channel/${p.snippet.channelId}`, videos }
+      return { id, title: videoTitle(p.snippet.title), channel: p.snippet.channelTitle, channelUrl: `https://www.youtube.com/channel/${p.snippet.channelId}`, videos }
     },
     async video(id) {
       const v = (await api<ApiVideo>('videos', { part: 'snippet,contentDetails,status', id })).items?.[0]
@@ -221,7 +221,7 @@ export function ytApi(key: string, get: (url: string) => Promise<unknown> = asyn
       const t = v.snippet.thumbnails ?? {}
       const thumb = t.maxres ?? t.standard ?? t.high ?? t.medium ?? { url: `https://i.ytimg.com/vi/${id}/mqdefault.jpg`, width: 320, height: 180 }
       return {
-        id, title: v.snippet.title, channel: v.snippet.channelTitle, channelUrl: `https://www.youtube.com/channel/${v.snippet.channelId}`,
+        id, title: videoTitle(v.snippet.title), channel: v.snippet.channelTitle, channelUrl: `https://www.youtube.com/channel/${v.snippet.channelId}`,
         durationSec: seconds(v.contentDetails.duration), ...(v.snippet.publishedAt ? { publishedAt: v.snippet.publishedAt.slice(0, 10) } : {}),
         description: v.snippet.description ?? '', chapters: chaptersFrom(v.snippet.description ?? ''),
         embeddable: v.status.embeddable !== false && (v.status.privacyStatus === 'public' || v.status.privacyStatus === 'unlisted'),
@@ -262,6 +262,7 @@ export async function ytFrames(id: string): Promise<VideoFrames> {
   return {
     storyboard: sb ? { fps: sb.fps, interval: storyboardInterval(sb.fps, Number(d.duration)), rows: sb.rows, columns: sb.columns, width: sb.width, height: sb.height, fragments: sb.fragments.map(f => ({ url: f.url })) } : null,
     stream: v ? { url: v.url!, ...(ua ? { userAgent: ua } : {}) } : null,
+    ...(Number(d.duration) > 0 ? { duration: Number(d.duration) } : {}),
   }
 }
 
@@ -284,11 +285,10 @@ const grabOnce = (s: Stream, sec: number) => new Promise<Uint8Array>((resolve, r
     else resolve(new Uint8Array(out))
   }))
 
-const flat = async (url: string, end = 30) => {
-  const d = JSON.parse(await run(['--flat-playlist', '--playlist-end', String(end), '-J', url]))
-  return ((d.entries ?? []) as { id?: string; title?: string; channel?: string; uploader?: string }[])
-    .flatMap(e => (e.id ? [{ id: e.id, title: e.title ?? '', channel: e.channel ?? e.uploader ?? d.channel ?? '' }] : []))
-}
+/** yt-dlp's flat list (`--flat-playlist -J`) as found videos or playlists, each title with no email address. */
+export const flatEntries = (d: { channel?: string; entries?: { id?: string; title?: string; channel?: string; uploader?: string }[] }) =>
+  (d.entries ?? []).flatMap(e => (e.id ? [{ id: e.id, title: videoTitle(e.title ?? ''), channel: e.channel ?? e.uploader ?? d.channel ?? '' }] : []))
+const flat = async (url: string, end = 30) => flatEntries(JSON.parse(await run(['--flat-playlist', '--playlist-end', String(end), '-J', url])))
 
 /** Playlist search (YouTube's playlist filter) and a channel's playlists, via yt-dlp: no API key. */
 export const ytFinder: Finder & { searchReviews(query: string): Promise<{ id: string; title: string; channel: string }[]> } = {
@@ -325,8 +325,20 @@ export async function readPlaylists(root: string): Promise<string[]> {
 /** How a guide is written: the style guide in the writer's prompt, a separate editor pass for phrasing, the model. */
 export type WriteOpts = { style?: boolean; edit?: boolean; model?: string }
 
+/**
+ * What the reader-fit check holds a new video guide for most, in the check's own words (fit.ts checklistLines), so the
+ * writer's rule and the check's can't drift apart: of the 58 guides first written from Tue 17 to Thu 19 Nov 2026 and
+ * held, 48 were held for talking about the video's source and 14 for advice for somewhere else (the chief of staff,
+ * 19 Nov 2026). The first draft and the reviewer's fix get them; the mend has its findings.
+ */
+let rulesCut: string | undefined
+// Cut when a prompt is first made, not when the module loads: a heading renamed in fit.md stops the writer and its fix
+// with the error, never the mend or another engine command.
+export const checkRules = () => (rulesCut ??= `Sau khi viết, bài được đọc lại theo danh sách kiểm tra cho người đọc ở Việt Nam (tiếng Anh, nguyên văn bên dưới). Một câu vướng một trong hai mục này thì cả bài bị giữ lại, không lên trang:\n${checklistLines(['source', 'elsewhere'], 'vi', 'guides', true)}`)
+
 const videoPrompt = (m: VideoMeta, transcript: string, notes?: string[], style?: boolean) => [
   WRITE,
+  checkRules(),
   ...(style ? [STYLE] : []),
   `Tiêu đề video: ${m.title}`,
   `Chương (${m.chapters.length}):\n${m.chapters.map(c => `- [${clock(c.start)}] ${c.title}`).join('\n') || '(không có)'}`,
@@ -354,9 +366,9 @@ export async function editDraft(llm: Llm, d: Draft, model?: string): Promise<Dra
  * The reviewer's notes applied to the draft they are about, checked against the transcript: what the video doesn't say goes,
  * nothing new comes in. A fresh draft fixed the old notes and brought new inventions. null: the edit came back broken.
  */
-export async function fixDraft(llm: Llm, transcript: string, d: Draft, notes: string[], o: WriteOpts & { lang?: string; /** The notes are the reader-fit check's (video-mend.ts): what the video says but a reader here can't use. */ reader?: boolean } = {}): Promise<Draft | null> {
+export async function fixDraft(llm: Llm, transcript: string, d: Draft, notes: string[], o: WriteOpts & { lang?: string } = {}): Promise<Draft | null> {
   const own = o.lang === 'vi' ? ['Video bằng tiếng Việt: không chép lại câu nói trong bản ghi; chỗ nào sửa thì viết bằng lời của bạn.'] : []
-  const e = await llm<Draft>({ system: SYSTEM, prompt: [FIX, ...(o.reader ? [MEND] : []), ...(o.style ? [STYLE] : []), ...own, `Bản ghi:\n${transcript.slice(0, 120_000)}`, `Bài cần sửa (JSON):\n${JSON.stringify(d)}`, `${o.reader ? 'Ghi chú về người đọc' : 'Ghi chú của người duyệt'}:\n${notes.map(n => `- ${n}`).join('\n')}`].join('\n\n'), schema: DRAFT_SCHEMA, model: o.model })
+  const e = await llm<Draft>({ system: SYSTEM, prompt: [FIX, checkRules(), ...(o.style ? [STYLE] : []), ...own, `Bản ghi:\n${transcript.slice(0, 120_000)}`, `Bài cần sửa (JSON):\n${JSON.stringify(d)}`, `Ghi chú của người duyệt:\n${notes.map(n => `- ${n}`).join('\n')}`].join('\n\n'), schema: DRAFT_SCHEMA, model: o.model })
   if (!e.relevant || !usable(e)) return null
   return { ...e, kind: d.kind, relevant: d.relevant, chapters: e.chapters.length === d.chapters.length ? e.chapters : d.chapters }
 }
@@ -505,9 +517,10 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
   // A video on the rejected list (engine-state/_video-rejected.json) is never a guide, nor written again by a redo: a guide
   // that taught catching fish by raising CO₂ until they gasp was taken down by hand (2026-11-08).
   const rejected = await readVideoRejected(root)
+  const generated = await readVideoGenerated(root)
   /** New, or failed fewer than 3 times and waited 6 h × attempts (so an outage doesn't use up every video's tries in one day). */
   const due = (id: string, playlist?: string) => {
-    if (rejected[id] || (only && !only.includes(id))) return false
+    if (rejected[id] || generated[id] || (only && !only.includes(id))) return false
     if (opts.redo) return written.has(id) && !redone.has(id) && written.get(id) === playlist
     const s = state[id]
     return !s || (s.status === 'error' && s.attempts < 3 && deps.now().getTime() - Date.parse(s.updatedAt) > s.attempts * 6 * 3_600_000)

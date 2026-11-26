@@ -1,9 +1,9 @@
-import { copyFile, cp, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { copyFile, cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { expect, test } from 'vitest'
-import { cardShownIn, loadAll, type Section, type Translation } from '../src/index'
+import { expect, test, vi } from 'vitest'
+import { cardShownIn, loadAll, UNREAD_FACES_LIMIT, type Section, type Translation } from '../src/index'
 import { oneVoice, withLocalNote } from '../src/load'
 
 const root = fileURLToPath(new URL('./fixtures/store', import.meta.url))
@@ -154,6 +154,32 @@ test('another language has only the places one of its fish comes from; Vietnames
   expect(id.placeNames).toEqual({ asia: 'asia', europe: 'europe' })
 })
 
+// The chief of staff, 14 Nov 2026: a place's name that fails when judged alone shows the source's name until it passes;
+// one a batch scored low but no one judged alone shows as it is (no blanket step back: most of them are right). "Hue"
+// for the Hue River on an Indonesian fish page is the case.
+test("a place name judged alone and failed is no name in that language; one a batch scored low and no one judged alone stays", async () => {
+  const { cp, mkdir, readFile, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-place-judged-'))
+  await cp(root, dir, { recursive: true })
+  const alpha = JSON.parse(await readFile(join(dir, 'species/alpha/entity.json'), 'utf8'))
+  await writeFile(join(dir, 'species/alpha/entity.json'), JSON.stringify({ ...alpha, places: ['hue-river', 'kayan-river', 'borneo'] }))
+  await writeFile(join(dir, 'species/alpha/id.json'), await readFile(join(dir, 'species/alpha/vi.json'), 'utf8'))
+  const names: Record<string, [string, object]> = {
+    'hue-river': ['Hue', { nameCheck: { ok: false, score: 0.1, at: '2026-11-16T05:00:00Z', why: 'a river cut to its city' } }],
+    'kayan-river': ['Kayan', {}],
+    borneo: ['Kalimantan', { nameCheck: { ok: true, score: 0.95, at: '2026-11-16T05:00:00Z' } }],
+  }
+  for (const [id, [name, more]] of Object.entries(names)) {
+    await mkdir(join(dir, 'places', id), { recursive: true })
+    await writeFile(join(dir, 'places', id, 'entity.json'), JSON.stringify({ id, kind: id === 'borneo' ? 'region' : 'river' }))
+    await writeFile(join(dir, 'places', id, 'vi.json'), JSON.stringify({ slug: id, name: id, altNames: [], sections: {}, quality: { score: 1, indexable: true } }))
+    await writeFile(join(dir, 'places', id, 'id.json'), JSON.stringify({ slug: id, name, altNames: [], sections: {}, quality: { score: 0.05, indexable: false }, ...more }))
+  }
+  const id = await loadAll({ root: dir, lang: 'id', publicBuild: false })
+  expect(id.placeNames).toEqual({ 'kayan-river': 'Kayan', borneo: 'Kalimantan' })
+  expect(id.places.map(p => p.id).sort()).toEqual(['borneo', 'kayan-river'])
+})
+
 test('a page the reader-fit gate holds back in a language is no page there where the site asks, and the engine still reads it', async () => {
   const { cp, mkdir, readFile, writeFile } = await import('node:fs/promises')
   const dir = await mkdtemp(join(tmpdir(), 'aq-held-'))
@@ -233,6 +259,148 @@ test('a public build shows no photo from a host that sets third-party cookies; a
   const urls = async (publicBuild: boolean) => (await loadAll({ root: store, lang: 'vi', publicBuild })).species.find(s => s.id === 'alpha')!.photos.map(p => p.url)
   expect(await urls(true)).not.toContain('https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/A.jpg/960px-A.jpg')
   expect(await urls(false)).toContain('https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/A.jpg/960px-A.jpg')
+})
+
+test("a public build shows no new photo the dead-fish screen still owes a look: it waits on a page, in an album and by address, and shows by itself once off the list", async () => {
+  const { mkdir } = await import('node:fs/promises')
+  const site = await mkdtemp(join(tmpdir(), 'aq-dead-owed-'))
+  const store = join(site, 'content')
+  await cp(root, store, { recursive: true })
+  const photo = (name: string) => ({ url: `https://media.test/${name}.webp`, width: 960, height: 640, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${name}` })
+  const file = join(store, 'species', 'alpha', 'entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  e.photos = [photo('commons/judged'), photo('commons/owed')]
+  await writeFile(file, JSON.stringify(e))
+  await mkdir(join(store, 'gallery'))
+  await writeFile(join(store, 'gallery/alpha.json'), JSON.stringify({ id: 'alpha', seen: 2, updatedAt: '2026-11-21', photos: [photo('commons/album-owed'), photo('commons/album')] }))
+  // The watermark screen has read every one, with no text on any: only the dead-fish screen's list holds them.
+  await mkdir(join(site, 'engine-state'))
+  const all = ['commons/judged', 'commons/owed', 'commons/album-owed', 'commons/album']
+  await writeFile(join(site, 'engine-state', '_photo-watermarks.json'), JSON.stringify(Object.fromEntries(all.map(n => [`https://media.test/${n}.webp`, { ocr: [] }]))))
+  const owedFile = join(site, 'engine-state', '_photo-dead-owed.json')
+  await writeFile(owedFile, JSON.stringify({ 'https://media.test/commons/owed.webp': '2026-11-21', 'https://media.test/commons/album-owed.webp': '2026-11-21' }))
+  const shown = async (publicBuild: boolean) => {
+    const c = await loadAll({ root: store, lang: 'vi', publicBuild })
+    const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')
+    return { own: c.species.find(s => s.id === 'alpha')!.photos.map(p => short(p.url)), album: (c.galleries.alpha ?? []).map(p => short(p.url)) }
+  }
+  expect(await shown(true)).toEqual({ own: ['commons/judged'], album: ['commons/album'] })
+  // The engine's own reads see every photo: it is in content, waiting, not refused.
+  expect(await shown(false)).toEqual({ own: ['commons/judged', 'commons/owed'], album: ['commons/album-owed', 'commons/album'] })
+  // By address too (the calendar), a thumb's and a larger copy's.
+  const c = await loadAll({ root: store, lang: 'vi', publicBuild: true })
+  expect(['commons/owed', 'commons/owed-480', 'commons/owed-large', 'commons/judged'].filter(n => c.photoWaits!(`https://media.test/${n}.webp`)))
+    .toEqual(['commons/owed', 'commons/owed-480', 'commons/owed-large'])
+  // Off the list (a faces step found it judged by the screen or the check): each shows by itself in the next build.
+  await writeFile(owedFile, '{}')
+  expect(await shown(true)).toEqual({ own: ['commons/judged', 'commons/owed'], album: ['commons/album-owed', 'commons/album'] })
+})
+
+test("a public build shows no own photo of a species, plant or guide page the face finder has never read: it waits there, in an album and by address, shows once read, and the site's build counts them and fails past the limit", async () => {
+  const { mkdir } = await import('node:fs/promises')
+  const site = await mkdtemp(join(tmpdir(), 'aq-unread-'))
+  const store = join(site, 'content')
+  await cp(root, store, { recursive: true })
+  const photo = (name: string) => ({ url: `https://media.test/${name}.webp`, width: 960, height: 640, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${name}` })
+  const write = (file: string, x: unknown) => writeFile(join(store, file), JSON.stringify(x))
+  const alphaFile = join(store, 'species', 'alpha', 'entity.json')
+  const alpha = JSON.parse(await readFile(alphaFile, 'utf8'))
+  const alphaVi = JSON.parse(await readFile(join(store, 'species', 'alpha', 'vi.json'), 'utf8'))
+  await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread')] })
+  await mkdir(join(store, 'gallery'))
+  // An album's own photos aren't the face finder's (they wait for the photo check): only a page's own copy makes one wait.
+  await write('gallery/alpha.json', { id: 'alpha', seen: 2, updatedAt: '2026-11-21', photos: [photo('fish-unread'), photo('album')] })
+  for (const [kind, id, e] of [
+    ['plants', 'moss', { id: 'moss', scientificName: 'Mossus testus', difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['foreground'], sections: alpha.sections, photos: [photo('plant-unread')], productSlots: [], updatedAt: '2026-11-21' }],
+    ['guides', 'g', { id: 'g', kind: 'care', source: alpha.sections[0].source, sourceUrl: 'https://x/g', html: '<p>x</p>', photos: [photo('guide-read'), photo('guide-unread')], mentions: [], updatedAt: '2026-11-21' }],
+    // The face finder doesn't read a breed's photos: they don't wait for it.
+    ['breeds', 'b', { id: 'b', kind: 'hybrid', parents: [], care: {}, photos: [photo('breed')], sources: [], updatedAt: '2026-11-21' }],
+  ] as const) {
+    await mkdir(join(store, kind, id), { recursive: true })
+    await write(`${kind}/${id}/entity.json`, e)
+    await write(`${kind}/${id}/vi.json`, { ...alphaVi, slug: `trang-${id}` })
+  }
+  // The watermark screen has read every one, with no text: only the face finder's record holds them. A record of no
+  // face is a read.
+  const all = ['fish-read', 'fish-unread', 'album', 'plant-unread', 'guide-read', 'guide-unread', 'breed']
+  await mkdir(join(site, 'engine-state'))
+  await writeFile(join(site, 'engine-state', '_photo-watermarks.json'), JSON.stringify(Object.fromEntries(all.map(n => [`https://media.test/${n}.webp`, { ocr: [] }]))))
+  const facesFile = join(site, 'engine-state', '_photo-faces.json')
+  await writeFile(facesFile, JSON.stringify({ 'https://media.test/fish-read.webp': 0, 'https://media.test/guide-read.webp': 0 }))
+  const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')
+  const shown = async (publicBuild: boolean) => {
+    const c = await loadAll({ root: store, lang: 'vi', publicBuild })
+    const own = (xs: { id: string; photos: { url: string }[] }[], id: string) => xs.find(x => x.id === id)!.photos.map(p => short(p.url))
+    return { fish: own(c.species, 'alpha'), album: (c.galleries.alpha ?? []).map(p => short(p.url)), plant: own(c.plants, 'moss'), guide: own(c.guides, 'g'), breed: own(c.breeds, 'b') }
+  }
+  expect(await shown(true)).toEqual({ fish: ['fish-read'], album: ['album'], plant: [], guide: ['guide-read'], breed: ['breed'] })
+  // The engine's own reads see every photo.
+  expect(await shown(false)).toEqual({ fish: ['fish-read', 'fish-unread'], album: ['fish-unread', 'album'], plant: ['plant-unread'], guide: ['guide-read', 'guide-unread'], breed: ['breed'] })
+  // By address too (the calendar), a thumb's and a larger copy's.
+  const c = await loadAll({ root: store, lang: 'vi', publicBuild: true })
+  expect(['fish-unread', 'fish-unread-480', 'fish-unread-large', 'fish-read', 'breed'].filter(n => c.photoWaits!(`https://media.test/${n}.webp`)))
+    .toEqual(['fish-unread', 'fish-unread-480', 'fish-unread-large'])
+  // The site's build (the real content) says how many wait.
+  const said = vi.spyOn(console, 'log').mockImplementation(() => {})
+  try {
+    await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
+    expect(said.mock.calls.map(a => String(a[0])).filter(l => l.includes('face finder'))).toEqual(['vi: 3 own photos of species, plant and guide pages wait, the face finder has never read them'])
+    // Past the limit it is a lost or damaged record: the site's build fails. An engine step's public read still hides them.
+    const many = Array.from({ length: UNREAD_FACES_LIMIT - 2 }, (_, i) => photo(`many-${i}`))
+    await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread'), ...many] })
+    await writeFile(join(site, 'engine-state', '_photo-watermarks.json'), JSON.stringify(Object.fromEntries([...all, ...many.map(p => short(p.url))].map(n => [`https://media.test/${n}.webp`, { ocr: [] }]))))
+    await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(`vi: ${UNREAD_FACES_LIMIT + 1} own photos of species, plant and guide pages the face finder has never read`)
+    expect((await shown(true)).fish).toEqual(['fish-read'])
+    // At the limit it builds.
+    await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread'), ...many.slice(1)] })
+    await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
+  } finally {
+    said.mockRestore()
+  }
+  // Read (a faces step has run): each shows by itself in the next build.
+  await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread')] })
+  await writeFile(facesFile, JSON.stringify(Object.fromEntries(['fish-read', 'fish-unread', 'plant-unread', 'guide-read', 'guide-unread'].map(n => [`https://media.test/${n}.webp`, n === 'fish-unread' ? 2 : 0]))))
+  expect(await shown(true)).toEqual({ fish: ['fish-read', 'fish-unread'], album: ['fish-unread', 'album'], plant: ['plant-unread'], guide: ['guide-read', 'guide-unread'], breed: ['breed'] })
+  // With no record beside the real content, the site's build fails: it can't tell a read photo from one never read.
+  const { rm } = await import('node:fs/promises')
+  await rm(facesFile)
+  await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow("the face finder's record is missing")
+})
+
+test("an own photo the face finder has never read waits wherever it shows, whatever its page's translations say: in an album in a language its page has no text in, and its page held back", async () => {
+  const { mkdir } = await import('node:fs/promises')
+  const site = await mkdtemp(join(tmpdir(), 'aq-unread-owner-'))
+  const store = join(site, 'content')
+  await cp(root, store, { recursive: true })
+  const photo = (name: string) => ({ url: `https://media.test/${name}.webp`, width: 960, height: 640, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${name}` })
+  const write = (file: string, x: unknown) => writeFile(join(store, file), JSON.stringify(x))
+  const alpha = JSON.parse(await readFile(join(store, 'species', 'alpha', 'entity.json'), 'utf8'))
+  const alphaVi = JSON.parse(await readFile(join(store, 'species', 'alpha', 'vi.json'), 'utf8'))
+  // alpha has Vietnamese and Indonesian text. Its album shows a photo each of two other pages' own and one of its own.
+  await write('species/alpha/id.json', { ...alphaVi, slug: 'ikan-alpha' })
+  await mkdir(join(store, 'gallery'))
+  await write('gallery/alpha.json', { id: 'alpha', seen: 3, updatedAt: '2026-11-22', photos: [photo('vi-only'), photo('held'), photo('album')] })
+  // vionly has Vietnamese text only; heldback is held back in Vietnamese, its only language.
+  for (const [id, own, t] of [['vionly', 'vi-only', alphaVi], ['heldback', 'held', { ...alphaVi, held: { checks: ['harm'], at: '2026-11-20' } }]] as const) {
+    await mkdir(join(store, 'species', id), { recursive: true })
+    await write(`species/${id}/entity.json`, { ...alpha, id, scientificName: `Testus ${id}`, photos: [photo(own)] })
+    await write(`species/${id}/vi.json`, { ...t, slug: `ca-${id}` })
+  }
+  const names = ['vi-only', 'held', 'album']
+  await mkdir(join(site, 'engine-state'))
+  await writeFile(join(site, 'engine-state', '_photo-watermarks.json'), JSON.stringify(Object.fromEntries(names.map(n => [`https://media.test/${n}.webp`, { ocr: [] }]))))
+  const facesFile = join(site, 'engine-state', '_photo-faces.json')
+  await writeFile(facesFile, '{}')
+  const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')
+  const shown = async (lang: 'vi' | 'id') => {
+    const c = await loadAll({ root: store, lang, publicBuild: true, leaveOutHeld: true })
+    return { album: (c.galleries.alpha ?? []).map(p => short(p.url)), waits: names.filter(n => c.photoWaits!(`https://media.test/${n}.webp`)) }
+  }
+  expect(await shown('id')).toEqual({ album: ['album'], waits: ['vi-only', 'held'] })
+  expect(await shown('vi')).toEqual({ album: ['album'], waits: ['vi-only', 'held'] })
+  // Read: each shows.
+  await writeFile(facesFile, JSON.stringify({ 'https://media.test/vi-only.webp': 0, 'https://media.test/held.webp': 0 }))
+  expect(await shown('id')).toEqual({ album: names, waits: [] })
 })
 
 test('a public build shows no photo the watermark screen still owes a look: it waits, and shows by itself once judged', async () => {
@@ -418,4 +586,28 @@ test('a heading with one voice shows that source alone, and only once this langu
   expect(shown({ 'waterConditions:glaser': 'a', 'waterConditions:seriouslyfish': 'b', 'diet:glaser': 'c' })).toEqual(['waterConditions:seriouslyfish', 'diet:glaser'])
   expect(shown({ 'waterConditions:glaser': 'a', 'diet:glaser': 'c' })).toEqual(['waterConditions:glaser', 'waterConditions:seriouslyfish', 'diet:glaser'])
   expect(oneVoice({ sections, t: { sections: {} } as unknown as Translation }, undefined).sections).toEqual(sections)
+  // No voice: the heading is off, whichever sources wrote under it, and the others stay.
+  const none = oneVoice({ sections, t: { sections: { 'waterConditions:glaser': 'a', 'waterConditions:seriouslyfish': 'b', 'diet:glaser': 'c' } } as unknown as Translation }, { waterConditions: false })
+  expect(none.sections.map(s => `${s.key}:${s.source}`)).toEqual(['diet:glaser'])
+  // Its text goes too, so nothing that reads the page's text (the gate's checks, the summary) reads what readers don't see.
+  expect(Object.keys(none.t.sections)).toEqual(['diet:glaser'])
+})
+
+// The owner, 15 Nov 2026: "what does each look like?". A kind's photo passes the screen the term's own photos pass: one
+// the build may not show leaves its kind without a photo, never a photo it may not show.
+test('a glossary kind\'s photo passes the same screen as the term\'s photos', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aq-glossary-kinds-'))
+  await cp(root, dir, { recursive: true })
+  const photos = JSON.parse(await readFile(join(dir, 'species/alpha/entity.json'), 'utf8')).photos as { url: string }[]
+  const ids = ['ok', 'nc', 'seriouslyfish', 'glaser']
+  await mkdir(join(dir, 'glossary/lua'), { recursive: true })
+  await writeFile(join(dir, 'glossary/lua/entity.json'), JSON.stringify({ id: 'lua', en: 'Driftwood', photos, kinds: photos.map((photo, i) => ({ id: ids[i], photo })) }))
+  await writeFile(join(dir, 'glossary/lua/vi.json'), JSON.stringify({ slug: 'lua', name: 'Lũa', altNames: [], sections: {}, definition: 'Gỗ.', quality: { score: 0.9, indexable: true } }))
+  const kinds = async (publicBuild: boolean) => {
+    const g = (await loadAll({ root: dir, lang: 'vi', publicBuild })).glossary.find(x => x.id === 'lua')!
+    for (const k of g.kinds!) expect(k.photo.url).toBe(photos[ids.indexOf(k.id)]!.url)
+    return g.kinds!.map(k => k.id)
+  }
+  expect(await kinds(false)).toEqual(['ok', 'seriouslyfish', 'glaser'])
+  expect(await kinds(true)).toEqual(['ok', 'seriouslyfish'])
 })

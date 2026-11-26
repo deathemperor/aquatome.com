@@ -1,0 +1,72 @@
+{
+  "id": "yunnanilus-brevis",
+  "native": {
+    "input": "d7848a084057c77f",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Petruichthys brevis is a species of loach that originates from Burma.",
+        "words": "Burma",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from isolated Lake Inlé and surrounding watershed in Shan state, eastern Myanmar, and the nearby He-Ho plain.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Inlé",
+        "source": "seriouslyfish",
+        "quote": "Known only from isolated Lake Inlé and surrounding watershed in Shan state, eastern Myanmar, and the nearby He-Ho plain.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Yunnanilus brevis",
+    "status": "ACCEPTED",
+    "taxonKey": 2358258,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        17
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

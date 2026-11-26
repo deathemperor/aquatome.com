@@ -1,4 +1,5 @@
 ---
+import { TOOL_DESCRIPTIONS } from '../../lib/tools'
 import Browse from '../../layouts/Browse.astro'
 import SaveToTank from '../../components/SaveToTank.astro'
 import { GALLON_L, SHAPES, glassKg, glassThickness, shapeVolume, type ShapeId } from '../../scripts/volume'
@@ -41,7 +42,7 @@ const faq = [
 ]
 const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]
 ---
-<Browse title={t('Tính thể tích bể cá: lít, gallon, độ dày kính')} heading={t('Bể bao nhiêu lít?')} intro={t('Chọn kiểu bể, nhập kích thước lòng bể. Có 12 kiểu: chữ nhật, lục giác, bát giác, trụ, góc, chữ L…')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Tính thể tích bể cá 12 kiểu (chữ nhật, lục giác, trụ tròn, bể góc, chữ L) ra lít và gallon, kèm lượng nước thực tế, cân nặng và độ dày kính nên dùng.')} jsonld={jsonld}>
+<Browse title={t('Tính thể tích bể cá: lít, gallon, độ dày kính')} heading={t('Bể bao nhiêu lít?')} intro={t('Chọn kiểu bể, nhập kích thước lòng bể. Có 12 kiểu: chữ nhật, lục giác, bát giác, trụ, góc, chữ L…')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t(TOOL_DESCRIPTIONS['/vi/cong-cu/the-tich-be/'])} jsonld={jsonld}>
   <form id="vf" class="calc">
     <fieldset class="shapes">
       <legend>{t('Kiểu bể (nhìn từ trên xuống, mặt áp tường ở trên)')}</legend>

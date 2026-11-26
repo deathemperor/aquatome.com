@@ -3,6 +3,12 @@
   "name": "Balkan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-19T12:49:46.334Z",
+    "why": "Indonesian atlases write the region as \"Semenanjung Balkan\" (or \"Kawasan Balkan\"), so bare \"Balkan\" is acceptable in usage but omits the usual kind word."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

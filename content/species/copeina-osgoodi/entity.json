@@ -1,0 +1,183 @@
+{
+  "id": "copeina-osgoodi",
+  "scientificName": "Copeina osgoodi",
+  "order": "Characiformes",
+  "family": "Lebiasinidae",
+  "genus": "Copeina",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "peru",
+    "upper-amazon"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Peru",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "There are only two accepted species in Copeina, namely C. gutta and C. osgoodi. Both can be distinguished from each other only by internal features of the dentition and the collecting site: C. guttata is known from the central Amazon basin in Brazil, and C. osgoodi from the upper Amazon in Peru (following Géry, 1978).",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355687,
+      "total": 13,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "PE",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copeina_cf_osgoodi_en/",
+      "html": "<ul><li>Origin: Peru</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copeina_cf_osgoodi_en/",
+      "html": "<p>At least in Germany members of the genus Copeina are pretty well known, which is reflected by the fact that an accepted common name exists: Forellensalmler, which means \"trout tetra\". However, this knowledge is rather outdated and nowadays the fish can be regarded as real rarities in the hobby.</p><p>The specimens were received from Peru. Depending on the light they look quite different. Lateral illumination makes them shining bright blue, light from the top highlights the red spots on the scales and the orange red finnage.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copeina_cf_osgoodi_en/",
+      "html": "<p>There are only two accepted species in Copeina, namely C. gutta and C. osgoodi. Both can be distinguished from each other only by internal features of the dentition and the collecting site: C. guttata is known from the central Amazon basin in Brazil, and C. osgoodi from the upper Amazon in Peru (following Géry, 1978).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copeina_cf_osgoodi_en/",
+      "html": "<p>Keeping Copeina is very interesting due to their broodcare. They spawn on roots, stones, leaves, etc. and even in holes in the sand. The male defends the breeding territory against all other fishes, including the female. This ends when the brood swims free.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copeina_cf_osgoodi_en/",
+      "html": "<p>According to the scientific literature C. osgoodi becomes 5.1 cm long (standard length, eg without caudal fin) and C. guttata 7.6 cm. Aquarium literature gives even 15 cm for C. guttata (of course with caudal fin).</p><p>Lexicon: Copeina: Dedicated to E. D. Cope, an ichthylogist with worldwide reputation. osgoodi: dedication name. guttata: Latin, means \"speckled\".</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copeina_cf_osgoodi_en/",
+      "html": "<p>Géry, J. (1977): Characoids of the World. Neptune City.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/9d9602f5a15b119c.webp",
+      "thumb": "https://media.aquatome.com/glaser/9d9602f5a15b119c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copeina_cf_osgoodi_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/48b64b5da4d3042e.webp",
+      "thumb": "https://media.aquatome.com/glaser/48b64b5da4d3042e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copeina_cf_osgoodi_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5ef84cce6eec60fa.webp",
+      "thumb": "https://media.aquatome.com/glaser/5ef84cce6eec60fa-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copeina_cf_osgoodi_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn viên nhỏ cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

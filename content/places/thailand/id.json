@@ -3,6 +3,12 @@
   "name": "Thailand",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:39:46.257Z",
+    "why": "Indonesian atlases and the standard Indonesian usage write the country's name as \"Thailand\" (KBBI: Thailand; also \"Muangthai\" in older usage), so this is the accepted form, though some sources use \"Thailand\" and others \"Muangthai\"."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

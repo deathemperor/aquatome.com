@@ -1,9 +1,25 @@
 {
   "id": "betta-brownorum",
   "native": {
-    "input": "e1125f710911e2be",
-    "at": "2026-11-14T17:19:02.525Z",
+    "input": "5fad5fea37568091",
+    "at": "2026-11-17T00:14:47.070Z",
     "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Most of its range is in southern and western Sarawak, Malaysia, and this group comes from the handful of populations across the border in West Kalimantan, Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Most of its range is in southern and western Sarawak, Malaysia, and this group comes from the handful of populations across the border in West Kalimantan, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
       {
         "code": "MY",
         "status": "native",
@@ -19,14 +35,6 @@
         "quote": "Endemic to the island of Borneo where it's restricted to southern and western parts of the state of Sarawak, Malaysia with a handful of populations across the border in Kalimantan Barat (West Kalimantan) province, Indonesia.",
         "words": "Indonesia",
         "ok": true
-      },
-      {
-        "code": "MY",
-        "status": "native",
-        "source": "bwaquatics",
-        "quote": "Origin of the fish offered: wild caught (Sibu, Sarawak, Malaysia).",
-        "words": "Malaysia",
-        "ok": true
       }
     ],
     "regions": [
@@ -39,7 +47,7 @@
       {
         "name": "Borneo",
         "source": "bwaquatics",
-        "quote": "Betta brownorum is endemic to Borneo, found in southern and western Sarawak from Sibu southwest to Kuching and Matang, plus a few sites across the border in West Kalimantan.",
+        "quote": "Betta brownorum is endemic to Borneo.",
         "ok": true
       }
     ],

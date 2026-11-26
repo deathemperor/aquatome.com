@@ -4,10 +4,20 @@
   "File:Lates angustifrons (juvénile).jpg",
   "inat:53193496",
   "inat:53193535",
-  "inat:520854600"
+  "inat:520854600",
+  "inat:171202546",
+  "inat:171202717",
+  "inat:341483926",
+  "inat:343451713",
+  "inat:343451720",
+  "inat:343451722",
+  "inat:449830355"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/88abb60aaa2416bf.webp": "41313278f270e484"
+  "https://media.aquatome.com/commons/88abb60aaa2416bf.webp": "41313278f270e484",
+  "https://media.aquatome.com/inaturalist/341483926.webp": "0f0f1e0646c2a0f2",
+  "https://media.aquatome.com/inaturalist/171202717.webp": "5b5b6a9b1ec69816",
+  "https://media.aquatome.com/inaturalist/171202546.webp": "0f0c86074741073e"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -17,5 +27,13 @@
    "research": 289581373,
    "agree": 342646494
   }
+ },
+ "gbif": {
+  "key": 2393183,
+  "next": null
+ },
+ "inatNc": {
+  "after": 251402455,
+  "done": true
  }
 }

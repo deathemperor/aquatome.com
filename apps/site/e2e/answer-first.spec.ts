@@ -1,6 +1,7 @@
 import type { Page } from '@playwright/test'
 import { expect, openCard, test } from './fixtures'
 import { LIVE, sourcePages } from './pages'
+import { CARE_SECTIONS } from '../src/lib/sections'
 
 // Answer first on a phone (PRODUCT.md). The design critique of 2026-11-06 measured, at 390 × 844, a fish page's summary
 // 2.7–2.9 screens down and its first care question at 5.3–6.1: before them the key facts, the photo, the whole data card
@@ -11,7 +12,9 @@ import { LIVE, sourcePages } from './pages'
 // Fish both builds have, with a summary: Cá neon vua on the fixture; Cá neon xanh and Cá betta on aquatome.com (betta's
 // first care question was 2.9 screens down on 2026-11-06).
 const FISH = LIVE ? ['/ca/ca-neon-xanh/', '/ca/ca-betta/'] : ['/ca/ca-neon-vua/', '/ca/ca-neon-xanh/']
-const CARE = ['aquariumSize', 'waterConditions', 'maintenance', 'equipment', 'diet', 'behaviour'].map(k => `#muc-${k}`).join(', ')
+// The guppy has long buying advice in all four languages. Keep the two named fixture fish and measure the longer live pages too.
+const CARE_PAGES = LIVE ? [...FISH, '/ca/ca-bay-mau/', '/id/ikan/guppy/', '/th/fish/poecilia-reticulata/', '/ms/ikan/guppy/'] : FISH
+const CARE = CARE_SECTIONS.map(k => `#muc-${k}`).join(', ')
 
 /** Where an element starts, in screens from the top of the page. */
 const screens = (page: Page, sel: string) => page.locator(sel).first().evaluate(e => (e.getBoundingClientRect().top + scrollY) / innerHeight)
@@ -19,14 +22,21 @@ const screens = (page: Page, sel: string) => page.locator(sel).first().evaluate(
 test('a fish page on a phone: the summary within 1.5 screens, the first care question within 3', async ({ page, errors }, info) => {
   test.skip(info.project.name !== 'phone', 'the phone layout')
   await page.setViewportSize({ width: 390, height: 844 })
-  for (const path of FISH) {
+  for (const path of CARE_PAGES) {
     await page.goto(path)
     if (await page.locator('.qs').count()) expect(await screens(page, '.qs'), `${path}: the summary`).toBeLessThanOrEqual(1.5)
-    if (await page.locator(CARE).count()) expect(await screens(page, CARE), `${path}: the first care question`).toBeLessThanOrEqual(3)
+    await expect(page.locator(CARE).first(), `${path}: has a care question`).toBeVisible()
+    expect(await screens(page, CARE), `${path}: the first care question`).toBeLessThanOrEqual(3)
     if (await page.locator('main section.strip').count()) expect(await screens(page, 'main section.strip'), `${path}: the gallery, before the care text`).toBeLessThan(await screens(page, CARE))
     // "Thông tin nhanh", which the key facts and summary mostly repeat, is a row to open.
     const quick = page.locator('#muc-quickFacts details.fold')
     if (await quick.count()) await expect(quick).not.toHaveAttribute('open')
+    const buying = page.locator('#muc-beforeYouBuy')
+    if (await buying.count()) {
+      const advice = buying.locator('details.fold')
+      await expect(advice).toHaveCount(1)
+      await expect(advice).not.toHaveAttribute('open')
+    }
     // The full card is one tap away, under the key facts; the facts themselves are on the first screen.
     await expect(page.locator('.facts details.full')).not.toHaveAttribute('open')
     await expect(page.locator('.facts details.full > summary')).toBeInViewport()
@@ -149,9 +159,15 @@ test('a video guide: its chapters one tap away, without the video\'s own list of
   // found by their HTML, 20 pages at a time, then opened.
   const guides = sourcePages().filter(p => /^\/huong-dan\/[^/]+\/$/.test(p))
   const withChapters: string[] = []
+  // A guide that didn't load is counted, so a scan that finds none says whether the pages answered (16 Nov's live runs
+  // came back empty twice on dropped connections, read as "no guides with chapters").
+  const unread: string[] = []
+  let scanned = 0
+  const read = (p: string) => page.request.get(p).then(r => (r.ok() ? r.text() : (unread.push(`${p} ${r.status()}`), '')), (e: Error) => (unread.push(`${p} ${e.message.split('\n')[0]}`), ''))
   for (let i = 0; i < guides.length && withChapters.length < 2; i += 20) {
     const batch = guides.slice(i, i + 20)
-    const html = await Promise.all(batch.map(p => page.request.get(p).then(r => r.text(), () => '')))
+    scanned += batch.length
+    const html = await Promise.all(batch.map(read))
     withChapters.push(...batch.filter((_, k) => html[k]!.includes('class="chapters"')))
   }
   for (const path of withChapters.slice(0, 2)) {
@@ -165,7 +181,7 @@ test('a video guide: its chapters one tap away, without the video\'s own list of
     if (info.project.name === 'phone') await list.locator('summary').tap(); else await list.locator('summary').click()
     await expect(list.locator('button[data-t]').first()).toBeVisible()
   }
-  expect(checked, 'video guides with chapters').toBeGreaterThan(0)
+  expect(checked, `video guides with chapters (of ${scanned} guides scanned, ${unread.length} didn't load${unread.length ? `: ${unread.slice(0, 3).join('; ')}` : ''})`).toBeGreaterThan(0)
   expect(errors).toEqual([])
 })
 

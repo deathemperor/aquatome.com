@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/red-moss-care-guide-planting-growing-and-propagation/
 title: Red Moss Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:16:14.747Z
-hash: 8dcf24f51ac5664e2afa40a4de941c4a392e6255b7846b31d98c88951f050493
+hash: 6f733bd9614ac6ea944c2284b89302f25c596e2faf40c26ea32c2e57b3691b36
 ---
 
 Caloglossa beccarii is an exceptionally beautiful red algae that aquarium enthusiasts begin to use as a decorative plant. Due to its resemblance to moss, it is often referred to as Red moss.
@@ -102,6 +102,3 @@ Unlike Marimo moss balls (Aegagropila Linnaei), which grow incredibly slowly, th
 - Taxonomy and ecology of freshwater algae. Department of Botany St.Albert’s College. February 2014
 - Sato, H. & Akiyama, H. 2002. Caloglossa beccarii (Ceramiales, Rhodophyta) from Thailand on the Malay Peninsula and its distribution in Southeast Asia. Nat. Hum. Act. 6:101-104.
 - Sheath, R. G. 1984. The biology of freshwater red algae. Prog. Phycol. Res. 3:89-157
-## 2 thoughts on “Red Moss Care Guide – Planting, Growing, and Propagation”
-- “The article sounds intriguing and fascinating. And actually it seems like a really successful thing, both an easy plant to grow and also beautiful.” “So is it basically like a kind of algae, just like the green algae that everyone hates, but red in color? I’d also love to know how I can buy this stuff? I’m trying to get a base going, but nowhere sells it. Everywhere I ask for something like that, they laugh at me because they’re fighting algae.” ReplyHi YAKOV, That’s indeed a quite beautiful algae, but it’s not commonly sold in stores. You need to monitor online shops; that way, you’ll have a better chance of finding it. As for the sellers who laughed, on one hand, yes – it’s algae, and under certain conditions, it can also become a problem in the aquarium, which I deliberately pointed out. On the other hand, this algae can also serve as an ornament for the aquarium, unlike other types. Best regards, Michael Reply
-### Leave a Reply Cancel reply

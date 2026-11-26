@@ -2,26 +2,14 @@
   "id": "gambusia-affinis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/c87b1353897a7513.webp",
-      "thumb": "https://media.aquatome.com/commons/c87b1353897a7513-480.webp",
-      "width": 1200,
-      "height": 841,
-      "licence": "CC BY-SA 3.0",
-      "author": "NOZO",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gambusia_affinis.jpg",
-      "caption": "Cá muỗi cái bơi trong bể, thân vàng ánh xanh",
-      "best": true,
-      "kind": "female"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/2001711.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/2001711-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/3059738.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/3059738-480.webp",
       "width": 1024,
       "height": 768,
-      "licence": "CC0",
-      "author": "Diana Foreman",
-      "sourceUrl": "https://www.inaturalist.org/photos/2001711",
-      "caption": "Hai cá muỗi bơi trong vùng nước có rong ở ngoài tự nhiên",
+      "licence": "CC BY",
+      "author": "Sam Kieschnick",
+      "sourceUrl": "https://www.inaturalist.org/photos/3059738",
+      "caption": "Cá muỗi bơi trên đáy cát ở vùng nước nông tự nhiên",
       "best": true,
       "kind": "habitat"
     },
@@ -38,6 +26,90 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/6518690.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/6518690-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "avocat",
+      "sourceUrl": "https://www.inaturalist.org/photos/6518690",
+      "caption": "Cá muỗi phương Tây bơi trên nền đáy trong tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4f3e1d9ef9cb1771.webp",
+      "thumb": "https://media.aquatome.com/commons/4f3e1d9ef9cb1771-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY 4.0",
+      "author": "Dominic",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gambusia_affinis_-_Dominic_-_601674468.jpeg",
+      "caption": "Cá muỗi bơi trên nền sỏi đá trong bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/7400450.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/7400450-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "CK2AZ",
+      "sourceUrl": "https://www.inaturalist.org/photos/7400450",
+      "caption": "Hai cá muỗi phương Tây gần mặt nước tối",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/6027255.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/6027255-480.webp",
+      "width": 944,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Jesse Rorabaugh",
+      "sourceUrl": "https://www.inaturalist.org/photos/6027255",
+      "caption": "Hai cá muỗi trong vũng nước nông có lá rụng",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c87b1353897a7513.webp",
+      "thumb": "https://media.aquatome.com/commons/c87b1353897a7513-480.webp",
+      "width": 1200,
+      "height": 841,
+      "licence": "CC BY-SA 3.0",
+      "author": "NOZO",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gambusia_affinis.jpg",
+      "caption": "Cá muỗi cái bơi trong bể, thân vàng ánh xanh",
+      "best": true,
+      "kind": "female"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/5172573.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/5172573-480.webp",
+      "width": 925,
+      "height": 909,
+      "licence": "CC0",
+      "author": "Jesse Rorabaugh",
+      "sourceUrl": "https://www.inaturalist.org/photos/5172573",
+      "caption": "Hai cá muỗi trong nước nông trên nền cát",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/2001711.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/2001711-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Diana Foreman",
+      "sourceUrl": "https://www.inaturalist.org/photos/2001711",
+      "caption": "Hai cá muỗi bơi trong vùng nước có rong ở ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/ad84263bf110f76c.webp",
       "thumb": "https://media.aquatome.com/commons/ad84263bf110f76c-480.webp",
       "width": 1044,
@@ -46,30 +118,6 @@
       "author": "NOZO",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gambusia_affinis_male.jpg",
       "caption": "Cá muỗi cái nhìn nghiêng, thân xám xanh, mắt vàng",
-      "best": true,
-      "kind": "female"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/3059738.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/3059738-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Sam Kieschnick",
-      "sourceUrl": "https://www.inaturalist.org/photos/3059738",
-      "caption": "Cá muỗi bơi trên đáy cát ở vùng nước nông tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/87fb103bec39357c.webp",
-      "thumb": "https://media.aquatome.com/commons/87fb103bec39357c-480.webp",
-      "width": 1200,
-      "height": 682,
-      "licence": "CC BY-SA 4.0",
-      "author": "Fredlyfish4",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Female_Gambusia_affinis_UMFS_2015.jpg",
-      "caption": "Cá muỗi cái có đốm đen ở bụng, nền xanh",
       "best": true,
       "kind": "female"
     },
@@ -84,6 +132,18 @@
       "caption": "Cá muỗi bơi giữa thảm rêu tảo trong tự nhiên",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/87fb103bec39357c.webp",
+      "thumb": "https://media.aquatome.com/commons/87fb103bec39357c-480.webp",
+      "width": 1200,
+      "height": 682,
+      "licence": "CC BY-SA 4.0",
+      "author": "Fredlyfish4",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Female_Gambusia_affinis_UMFS_2015.jpg",
+      "caption": "Cá muỗi cái có đốm đen ở bụng, nền xanh",
+      "best": true,
+      "kind": "female"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/7452207.webp",
@@ -122,30 +182,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/6518690.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/6518690-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "avocat",
-      "sourceUrl": "https://www.inaturalist.org/photos/6518690",
-      "caption": "Cá muỗi phương Tây bơi trên nền đáy trong tự nhiên",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/4f3e1d9ef9cb1771.webp",
-      "thumb": "https://media.aquatome.com/commons/4f3e1d9ef9cb1771-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY 4.0",
-      "author": "Dominic",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gambusia_affinis_-_Dominic_-_601674468.jpeg",
-      "caption": "Cá muỗi bơi trên nền sỏi đá trong bể",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/7400461.webp",
       "thumb": "https://media.aquatome.com/inaturalist/7400461-480.webp",
       "width": 1024,
@@ -168,42 +204,6 @@
       "caption": "Nhóm cá muỗi phương Tây gần mặt nước",
       "best": false,
       "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/7400450.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/7400450-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "CK2AZ",
-      "sourceUrl": "https://www.inaturalist.org/photos/7400450",
-      "caption": "Hai cá muỗi phương Tây gần mặt nước tối",
-      "best": true,
-      "kind": "pair"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/5172573.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/5172573-480.webp",
-      "width": 925,
-      "height": 909,
-      "licence": "CC0",
-      "author": "Jesse Rorabaugh",
-      "sourceUrl": "https://www.inaturalist.org/photos/5172573",
-      "caption": "Hai cá muỗi trong nước nông trên nền cát",
-      "best": true,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/6027255.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/6027255-480.webp",
-      "width": 944,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Jesse Rorabaugh",
-      "sourceUrl": "https://www.inaturalist.org/photos/6027255",
-      "caption": "Hai cá muỗi trong vũng nước nông có lá rụng",
-      "best": true,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/329624.webp",

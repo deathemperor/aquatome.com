@@ -144,19 +144,48 @@ jobs:
       - name: List the sitemap's pages
         run: node scripts/site-watch.mjs prepare https://aquatome.com apps/site
       - name: Lighthouse, one page at a time
+        id: lighthouse
         working-directory: apps/site
+        # A page that misses here is measured again below, and that measure is the job's result. Each round has its own
+        # time limit, so both fit in the job's 45 minutes with room to hand the results on: a round cut off fails.
+        continue-on-error: true
+        timeout-minutes: 20
         run: pnpm e2e --grep @lighthouse --workers=1
         env:
           E2E_LIGHTHOUSE: '1'
           E2E_BASE_URL: https://aquatome.com
           E2E_PAGES: e2e-pages.json
           E2E_JSON: lighthouse-results.json
+      # The link between GitHub's runner and Cloudflare slows for a few minutes at a time, and a page measured in it misses
+      # its load-time budget, then measures well under it minutes later (runs 44156973782 and 44169287926 on 17 Nov,
+      # 44222512607 on 18 Nov). The retries above come straight after a miss, on the same slow link. So the pages that
+      # missed are measured again once, five minutes after the first round, against the same budgets: a page that is
+      # really slower misses again and fails the job.
+      - name: Lighthouse again on the pages that missed, five minutes later
+        if: steps.lighthouse.outcome == 'failure'
+        working-directory: apps/site
+        timeout-minutes: 15
+        # Only after a first round that finished, with its results and its list of the pages that missed: without the
+        # list, --last-failed would measure every page again, and the first round's failure would go unseen.
+        run: |
+          if [ ! -s lighthouse-results.json ] || ! node -e 'const r = JSON.parse(require("fs").readFileSync("test-results/.last-run.json", "utf8")); process.exit(r.status === "failed" && r.failedTests?.length ? 0 : 1)'; then
+            echo "::error::Lighthouse's first round ended without its results or its list of the pages that missed: nothing to measure again"
+            exit 1
+          fi
+          sleep 300 && pnpm e2e --grep @lighthouse --workers=1 --last-failed
+        env:
+          E2E_LIGHTHOUSE: '1'
+          E2E_BASE_URL: https://aquatome.com
+          E2E_PAGES: e2e-pages.json
+          E2E_JSON: lighthouse-again.json
       - name: Hand the results to the report
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: results-lighthouse
-          path: apps/site/lighthouse-results.json
+          path: |
+            apps/site/lighthouse-results.json
+            apps/site/lighthouse-again.json
           if-no-files-found: ignore
       - name: Keep Lighthouse's report
         if: failure()
@@ -191,4 +220,10 @@ jobs:
           merge-multiple: true
           path: apps/site
       - name: Turn the results into issues
-        run: node scripts/site-watch.mjs report apps/site/e2e-results.json,apps/site/lighthouse-results.json "$RUN_URL"
+        # Lighthouse's second measure, when there was one, decides the pages it measured again (site-watch.mjs merged).
+        # The script is the deployed version's: one from before merged() would read the second file after the first,
+        # opening an issue for a page and closing it again, so it gets the first round's results alone, as it always has.
+        run: |
+          again=""
+          if [ -f apps/site/lighthouse-again.json ] && grep -q '^export function merged' scripts/site-watch.mjs; then again=",apps/site/lighthouse-again.json"; fi
+          node scripts/site-watch.mjs report "apps/site/e2e-results.json,apps/site/lighthouse-results.json$again" "$RUN_URL"

@@ -33,6 +33,18 @@ public struct HandbookShelves: Sendable {
   public let browsePlants: [HandbookIndex.Item]
   public let browseGuides: [HandbookIndex.Item]
 
+  /// One of Khám phá's chips with its pages found in this index (`HandbookIndex.Home.Chip`): its fish and breeds by
+  /// content id, its guides and video guides by path, each in the chip's order. One this index lacks is left out.
+  public struct ChipShelf: Hashable, Sendable, Identifiable {
+    public let chip: HandbookIndex.Home.Chip
+    public let pages: [HandbookIndex.Item]
+    public let guides: [HandbookIndex.Item]
+    public let videos: [HandbookIndex.Item]
+    public var id: String { chip.id }
+  }
+  /// Khám phá's chips row, in its order: none from a site before it, and a chip with no page found here left out.
+  public let chips: [ChipShelf]
+
   /// How many of its list each of Khám phá's shelves shows, after the pages shown above it: seven columns at most, as the
   /// App Store's shelves (the owner, 11 Nov: "Appstore gives up to 7 columns in total"); fish and plants three to a
   /// column, guides and video series one.
@@ -44,6 +56,9 @@ public struct HandbookShelves: Sendable {
     public static let videos = columns
     /// "Đã lưu để đọc sau": the first 21 saved, then "Xem tất cả" to them all.
     public static let saved = columns * 3
+    /// "Đọc gần đây": the 30 pages read last, ten columns, then "Xem tất cả" to all that are kept. The owner's word for this
+    /// row alone (15 Nov: "Increase display of recently view to 30"), past the seven columns the others keep.
+    public static let recent = 30
   }
 
   /// A shelf of `list`: the first `count` of it not among `shown` (the pages on a shelf above). Never more than the list
@@ -128,6 +143,11 @@ public struct HandbookShelves: Sendable {
     browseFish = home.browse?.fish.map { $0.compactMap { byPath[$0] } } ?? featuredFish
     browsePlants = home.browse?.plants.map { $0.compactMap { byPath[$0] } } ?? easyPlants
     browseGuides = home.browse?.guides.map { $0.compactMap { byPath[$0] } } ?? firstGuides
+    let byId = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
+    chips = home.chips.compactMap { c in
+      let pages = c.members.compactMap { byId[$0] }
+      return pages.isEmpty ? nil : ChipShelf(chip: c, pages: pages, guides: c.guides.compactMap { byPath[$0] }, videos: c.videos.compactMap { byPath[$0] })
+    }
     plan = Dictionary(home.days.map { d in
       let fish = d.fish.flatMap { byPath[$0] }, guide = d.guide.flatMap { byPath[$0] }, story = d.story.flatMap { byPath[$0.path] }
       return (d.date, Planned(fish: fish, img: fish == nil ? nil : d.img, imgBox: fish == nil ? nil : d.imgBox, guide: guide,

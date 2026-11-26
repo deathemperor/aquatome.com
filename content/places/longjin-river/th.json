@@ -3,6 +3,12 @@
   "name": "หลงจิน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:53:06.519Z",
+    "why": "หลงจิน is a correct Thai transliteration of Longjin, but it omits the word for river (แม่น้ำ), so it reads as a bare proper name and not as the river."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

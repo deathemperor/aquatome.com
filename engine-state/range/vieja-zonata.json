@@ -1,0 +1,80 @@
+{
+  "id": "vieja-zonata",
+  "native": {
+    "input": "ae555c6967b3ef45",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to the River Tehuantepec drainage in Mexico.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "River Tehuantepec",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to the River Tehuantepec drainage in Mexico.",
+        "country": "MX",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Vieja zonata",
+    "status": "ACCEPTED",
+    "taxonKey": 2372078,
+    "datasets": [
+      [
+        "bcd192c2-18bf-44a8-a9df-80f92a1cb76d",
+        56
+      ],
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        16
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "4e328d6a-62e2-4b5a-b2f2-e8362c4ff0b7",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T11:42:48.614Z"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "ca-dao-steatogenys-duidae",
+  "name": "Cá dao Steatogenys duidae",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Theo hiểu biết hiện nay, giống Steatogenys có ba loài, loài nào cũng có sọc vằn như ngựa vằn. Chúng dài tối đa khoảng 20 cm, tức là khá nhỏ. Riêng S. ocellatus lớn hơn hẳn, tới 30 cm. Màu sắc ba loài rất giống nhau, nên dễ phân biệt nhất là nhìn màu vây hậu môn. Ở S. elegans, vây này gần như trong suốt. S. duidae có vây hậu môn vân hoặc sọc đậm, còn S. ocellatus thì vây sẫm màu, có các đốm sáng chạy dọc phía bụng.</p>",
+    "distribution:glaser": "<p>Ngoài tự nhiên, các loài cá dao này sống trong rừng terra firme (rừng đất cao, không bị ngập theo mùa) khắp lưu vực sông Amazon và Orinoco. Những con mô tả ở đây có nguồn gốc từ Peru.</p>",
+    "habitat:glaser": "<p>Chúng sống ở các suối, lạch nhỏ có nước chảy trong rừng terra firme.</p>",
+    "diet:glaser": "<p>Thức ăn của chúng chủ yếu là các con mồi nhỏ như lăng quăng, giáp xác hoặc giun.</p>",
+    "behaviour:glaser": "<p>Steatogenys khá hiền, cả với đồng loại lẫn với các loài cá khác.</p>",
+    "notes:glaser": "<p>Quanh miệng chúng có những hố cảm giác rất rõ. Nhờ các hố này, chúng bắt được cả tín hiệu điện từ cơ của một con giun đang ngoe nguẩy. Mắt của chúng bị một lớp da mỏng che phủ và nhìn rất kém. Điều đó cho thấy rõ các loài cá dao này không dùng mắt để tìm mồi mà dựa vào các giác quan khác.</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.75
+    },
+    "reason": "thin"
+  }
+}

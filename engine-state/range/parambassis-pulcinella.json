@@ -1,23 +1,31 @@
 {
   "id": "parambassis-pulcinella",
   "native": {
-    "input": "8955c1d2012d85d5",
-    "at": "2026-11-11T08:59:40.517Z",
+    "input": "082fd2ecf9ab6e6f",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
-      {
-        "code": "MM",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The humphead perchlet, Chanda pulcinella, is a freshwater ambassid endemic to Myanmar, where it inhabits large, fast-flowing, clear streams.",
-        "words": "Myanmar",
-        "ok": true
-      },
       {
         "code": "MM",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Endemic to Myanmar.",
         "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This freshwater fish originates from clear streams in the border region between Thailand and Burma.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This freshwater fish originates from clear streams in the border region between Thailand and Burma.",
+        "words": "Burma",
         "ok": true
       }
     ],
@@ -48,9 +56,10 @@
       ]
     ],
     "native": [
-      "MM"
+      "MM",
+      "TH"
     ],
     "requests": 11,
-    "at": "2026-11-11T08:59:40.517Z"
+    "at": "2026-11-21T01:22:16.258Z"
   }
 }

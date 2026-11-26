@@ -3,6 +3,12 @@
   "name": "ที่ราบสูงบอละเวน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:48:50.962Z",
+    "why": "Thai atlases and the Royal Institute write the Bolaven Plateau as \"ที่ราบสูงโบลาเวน\" (or \"บोलาเวน\"), so \"บอละเวน\" is a non-standard spelling of the proper name, though the kind word \"ที่ราบสูง\" is correct."
+  },
   "quality": {
     "score": 0.74,
     "indexable": false

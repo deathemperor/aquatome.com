@@ -1,8 +1,13 @@
 {
   "slug": "sipaliwini",
-  "name": "ซีปาลีวีนี",
+  "name": "ซิปาลีวีนี (เขตซิปาลีวีนี for the district, แม่น้ำซิปาลีวีนี for the river)",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.86,
+    "at": "2026-11-19T07:52:34.158Z"
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

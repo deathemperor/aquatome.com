@@ -1,8 +1,12 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:545281022",
+  "inat:545286892",
+  "inat:569405786"
+ ],
  "hashes": {
-  "https://media.aquatome.com/scotcat/261ce2a86725c3f6.webp": "4b1bee9d86263c13"
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/569405786/large.jpg": "c020c27c1e0b6271"
  },
  "commons": "2026-11-08",
  "inat": {
@@ -12,5 +16,17 @@
    "research": 0,
    "agree": 0
   }
- }
+ },
+ "gbif": {
+  "key": 2341568,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 315210066,
+  "done": true
+ },
+ "exhausted": "2026-11-21"
 }

@@ -3,6 +3,12 @@
   "name": "ออสเตรีย",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-21T01:17:03.771Z",
+    "why": "The Thai name for Austria is ออสเตรีย (Royal Institute spelling), but the given form \"ออสเตรีย\" is a misspelling; the standard is ออสเตรีย written as ออสเตรีย... correct standard is \"ออสเตรีย\" with ร เรือ and ย, so check: standard Thai is ออสเตรีย."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

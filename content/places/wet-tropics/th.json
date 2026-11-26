@@ -1,0 +1,16 @@
+{
+  "slug": "wet-tropics",
+  "name": "เว็ตทรอปิกส์",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-23T01:44:15.042Z",
+    "why": "The Thai is a phonetic transliteration of \"Wet Tropics\" and is written in Thai, but a Thai atlas would more likely render it as a region with a kind word (e.g. \"เขตป่าฝนเขตร้อนเว็ตทรอปิกส์\") or use the translated form \"เขตร้อนชื้น\", so the bare transliteration is incomplete."
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false
+  }
+}

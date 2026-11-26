@@ -24,10 +24,10 @@
         "SG"
       ],
       "regions": [
-        "Sumatra",
-        "Borneo"
+        "Sumatra"
       ],
       "sources": [
+        "sprucepets",
         "seriouslyfish",
         "aquariumbreeder"
       ],
@@ -40,9 +40,14 @@
             "TH",
             "SG"
           ],
+          "regions": []
+        },
+        {
+          "source": "sprucepets",
+          "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
+          "countries": [],
           "regions": [
-            "Sumatra",
-            "Borneo"
+            "Sumatra"
           ]
         }
       ]
@@ -290,6 +295,15 @@
       "html": "<ul><li>Name: Harlequin Rasbora (also Harlequin fish)</li><li>Scientific name: Trigonostigma heteromorpha</li><li>Minimum tank: 40 litres</li><li>Keeping: Easy; breeding: Difficult</li><li>GH: 2–15; KH: 1–12</li><li>Dwellers: top and middle</li><li>Nitrate: less than 40</li><li>Diet: carnivore / omnivore</li><li>Temperament: peaceful</li><li>Colour: reddish, pinkish or orange body with a wedge-shaped marking</li></ul>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ở tiệm, cá tam giác thường trông nhợt nhạt nên người ta hay đi lướt qua. Đó chủ yếu là do cá còn non, chưa lên hết màu, lại đang bị nhốt trong bể tiệm xấu. Về bể thủy sinh và lớn dần lên, chúng mới ra màu đồng ánh kim, mắt sáng tới mức đứng cuối phòng vẫn thấy. Cá ngoài tiệm kém màu không có nghĩa là nuôi lâu vẫn kém màu.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
@@ -362,6 +376,15 @@
       "html": "<p>The Harlequin Rasbora is relatively hardy and resilient and does not get sick often. However, if not cared for properly, it can contract white spots (ich), fluid build-up (dropsy) and fin rot. These infections thrive in tanks with dirty water and unstable conditions.</p><p>Cycle the tank before bringing fish home, then check water quality with a test kit. Keeping the tank clean is a simple preventive measure.</p><p>Test the water parameters and regularly replace about 25% of the volume to keep the fish healthy and unstressed.</p><p>Acclimation: temperature-acclimate the fish carefully before releasing them into the tank. Do it very slowly to avoid unnecessary stress.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Bể thủy sinh dùng đèn ánh ấm, loại ngả hồng, thì cá tam giác nổi màu hẳn lên. Một người nuôi loài này lâu năm chưa từng thấy con nào bị nấm, dù nước có hơi bẩn chúng vẫn sống khỏe. Nhưng khỏe không có nghĩa là chịu được nước tồi, nitrit và nitrat vẫn phải giữ ở mức vừa phải.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "waterConditions",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
@@ -422,6 +445,15 @@
       "html": "<p>Harlequin Rasboras are gentle fish that will not trouble tank mates. If anything they are more likely to be bullied by larger fish.</p><p>They spend time with their mates and their strength lies in numbers. They live peacefully with other fish but quickly become stressed without a large shoal of their own species. They generally stay in a tight group, though once used to a tank they may swim individually from time to time. Keep them only with smaller species. A group of 6–8 is a good number.</p><p>They are jumpers, so use a tight lid and/or keep the water level a few centimetres below the rim. They are always on the move but do not dash from one end of the tank to the other.</p><p>They are active and outgoing under conditions: there must be cover to dash into if threatened (in a heavily planted tank you will see them schooling in the open), they must be kept in numbers, and there should be no big or aggressive fish.</p><p>They wander through the middle and top of the tank while staying together.</p><p>Suitable tankmates: Harlequin Rasboras are generally peaceful and should be kept in groups of 8–10 with ample swimming space; the larger the group, the more impressive the display. They suit almost any fish not big enough to eat or harass them, such as pygmy cory, chili rasboras, panda garra, albino bristlenose pleco, neon tetras, brilliant rummynose tetras, zebra danio, ruby tetras, dwarf ember barbs, clown killifish, dwarf cichlids (Apistogramma agassizii), guppies, Endlers, medaka ricefish, ghost glass catfish, southern platyfish and Yunnanilus cruciatus. Monitor their interaction.</p><p>Cichlids, common pleco, monos and scats, Jack Dempsey and other boisterous fish can be unfriendly to them.</p><p>Dwarf shrimp can be added and will clean up after them, but if you plan to breed shrimp it is a poor choice: the rasboras will not harm adult shrimp but will feed on shrimplets. They are compatible with any freshwater snail.</p><p>Avoid large, aggressive or boisterous fish (cichlids, arowanas, tiger fish, etc.) and keep them away from all crayfish and most freshwater crabs.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này lâu năm thấy cá tam giác bơi đàn sát hơn hẳn cá neon và cá hồng nhung (cherry barb) thả chung bể. Neon chỉ túm lại khi hoảng, quen bể rồi thì tản ra. Còn cá tam giác hiếm khi rời nhau quá vài giây, kể cả lúc đã yên tâm. Thế nên thả 20 con vào bể 450 lít dài gần 1,8 m vẫn thấy rõ cả đàn bơi cùng nhau.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
@@ -438,6 +470,15 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/harlequin-rasboras-detailed-guide-care/",
       "html": "<p>Males and females differ in appearance, though it can be hard to see.</p><ul><li>Size: males are a little smaller and slimmer; females are bigger.</li><li>Shape of the triangle: females have a rounded extension at the lower edge of the black wedge, while males have a straight wedge.</li></ul>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này lâu năm lại không nhìn ra khác biệt nào giữa con đực và con cái. Theo người này, cá vừa nhỏ vừa bơi nhanh, nên chuyện con cái tròn bụng hơn rất khó thấy được bằng mắt.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "reproduction",
@@ -458,6 +499,15 @@
       "html": "<p>Although Harlequin Rasboras are very easy to care for, breeding them requires a certain level of expertise. The species is still heavily traded mainly from wild-caught stock, though some selectively bred fish are available.</p><p>Breeding conditions:</p><ul><li>Set up a separate breeding tank. They can breed in the main tank, but the adults may eat eggs and fry.</li><li>Temperature of 25–28 °C.</li><li>Low pH: unless pH is around 6.0–6.5 you will not see eggs. If pH is higher, lower it, for example by filtering over peat or adding more dry leaves, cones and driftwood to imitate the humic acid concentrations of their native waters.</li><li>Soft water: GH around 1–5.</li><li>Include broadleaf plants, which the females use to lay eggs.</li><li>Feed protein-rich foods (tubifex worms, blackworms, daphnia, brine shrimp, etc.).</li><li>In the evening, move a group (2 males and 3–4 females) to the breeding tank and leave them for 1–2 days. Spawning usually occurs early in the morning.</li></ul><p>Mating: one female per male increases the chances of breeding. Some aquarists recommend adding several pairs at once, but they do not mate at the same time and idle fish may go after the eggs. Males display in front of the female and nudge her, leading her to the spawning site. When ready, the female turns upside down and strokes her belly against the underside of the leaf, beckoning the male. He wraps around her and fertilizes the eggs as she releases them.</p><p>Eggs: Harlequin Rasboras are egg layers, but unlike other Rasbora they are not egg scatterers. The eggs are laid on the underside of large submerged leaves or similar structures. They are very adhesive and generally do not fall to the bottom. Eggs lose their adhesiveness in hard water, so if they fall, check this. About 6 to 12 eggs are released at once, and about 100–300 eggs are spawned in an hour or two. Once spawning is finished, remove the adults, as they can eat the offspring. If the water is too hard the eggs may dissolve completely. They may also turn whitish when overripe or if the male is not fast enough to fertilize them.</p><p>Hatching: after 24 hours the fry emerge. They are rather large and yellowish. The next day they do not move much and stay on leaves or lie on the bottom, then begin swimming freely. Feed fine infusoria, moina and brine shrimp for 14 days, then transition to powdered fish food. After two weeks dark specks appear on their sides and a black rim at the base of the caudal fin. After another 10 days the fry can eat daphnia. Once big enough not to be eaten, they can be added to the community tank. They reach full maturity in about 6–9 months.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này lâu năm cho rằng muốn cá tam giác đẻ thì phải chuyển sang nước đen: hạ pH thật sâu và lọc gần hết khoáng, đưa nước về mức gần như nước nuôi cá đĩa. Cá vẫn sống vui trong nước pH cao có khoáng, nhưng với nước đó thì khó mà cho đẻ.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "notes",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
@@ -474,6 +524,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/harlequin-rasboras-detailed-guide-care/",
       "html": "<p>The Harlequin Rasbora was introduced to the hobby in the 1900s and has been very popular since thanks to its small size, easy-going nature and lovely colouration. It was first placed in the genus Rasbora; the name heteromorpha comes from Greek roots meaning \"differently shaped\", as its body shape differs from other members of the genus. The name \"Harlequin\" comes from the black triangular patch resembling a clown's costume.</p><p>Classification: Kingdom Animalia, Phylum Chordata, Class Actinopterygii, Order Cypriniformes, Family Cyprinidae, Subfamily Danioninae, Genus Trigonostigma.</p><p>Description: at 3.5–5 cm they fit most tanks. The body is reddish, pinkish or orange with a whitish belly, a forked caudal fin, no barbels, and a wedge-shaped black marking starting at the dorsal fin and tapering to a point at the base of the tail. Fin colour varies from dark to light orange, affected by conditions and stress. Stressed fish have transparent pale orange fins that darken as they settle.</p><p>Lifespan: typically 3–5 years; some live to 6–7 years, with good care and genetics playing a big role. They are strongly affected by water conditions.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma-heteromorpha-2/",
+      "html": "<p>What can be said about the harlequin barb (Trigonostigma heteromorpha) that hasn't been said 1,000 times already? It is simply one of the most beautiful and proven aquarium fish of all. And even when looking at it for the 1,001st time it is a pleasure to see. If they didn't exist, they would have to be invented! There are especially pretty German-bred offspring right now.</p>"
     },
     {
       "key": "references",
@@ -505,7 +561,7 @@
       "width": 800,
       "height": 529,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Ricardo Kobe / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
       "caption": "T. heteromorpha is one of the 'classic' aquarium fishes.",
       "source": "seriouslyfish"
@@ -541,6 +597,36 @@
       "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
       "caption": "Harlequin rasbora fish with yellow and black scales swimming closeup",
       "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/cfbfc539b0811976.webp",
+      "thumb": "https://media.aquatome.com/glaser/cfbfc539b0811976-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma-heteromorpha-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/94772d99c6a043c0.webp",
+      "thumb": "https://media.aquatome.com/glaser/94772d99c6a043c0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma-heteromorpha-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/18e3919ffc6b3abd.webp",
+      "thumb": "https://media.aquatome.com/glaser/18e3919ffc6b3abd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma-heteromorpha-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -591,5 +677,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-20",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=M7rh2d9l3oQ",
+      "title": "Harlequin rasbora ( Trigonostigma heteromorpha ) Species Profile"
+    }
+  ]
 }

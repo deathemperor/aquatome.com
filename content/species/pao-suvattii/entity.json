@@ -18,7 +18,8 @@
       ],
       "regions": [],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -124,6 +125,10 @@
       {
         "source": "seriouslyfish",
         "value": 15
+      },
+      {
+        "source": "glaser",
+        "value": 13.5
       }
     ],
     "tankCm": [
@@ -147,6 +152,12 @@
       "html": "<p>The arrowhead puffer, Pao suvattii, is a predatory puffer from Thailand and Laos, found over rocky or muddy substrates in main river channels. A true ambush predator, it spends most of its time buried in the substrate and will mimic rocks if it cannot dig in. It will eat any fish that fits in its mouth and takes chunks from larger ones, so it is best kept on its own.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-suvattii-tetraodon-suvattii-2/",
+      "html": "<p>This freshwater pufferfish originates from the rivers of Thailand. The fish becomes around 12-15 cm long and looks very much alike the African cousin Tetraodon miurus. However, the always visible V on the back makes Pao (formerly placed in Tetraodon) suvattii unmistakable.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
@@ -157,6 +168,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
       "html": "<p>Occurs over rocky, or more commonly muddy, substrates in main river channels.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-suvattii-tetraodon-suvattii-2/",
+      "html": "<p>Here it imitates stones and lurks for clueless feeder fish.</p>"
     },
     {
       "key": "aquariumSize",
@@ -183,6 +200,12 @@
       "html": "<p>An ambush predator in nature, P. suvattii requires a meaty diet. Offer prawns, earthworms, sand lance, mussel etc. Some specimens may only take live foods initially, but most will accept dead alternatives. Due to its inactive nature, it doesn't need daily feeding. Every other day is fine for juvenile fish, while adults require only one or two feeds a week.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-suvattii-tetraodon-suvattii-2/",
+      "html": "<p>In the aquarium it can be easily fed by large pieces of frozen food given by a forceps.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
@@ -207,8 +230,74 @@
       "html": "<p>Puffer fish are so called as they have the ability to inflate their elastic stomachs with water or air. This is usually a response to some kind of threat, although in the aquarium many specimens appear to inflate themselves for no apparent reason. The fish becomes 2 or 3 times its normal size, big enough to scare away many potential predators, or difficult to swallow. Puffers also have several other interesting adaptations. They are one of the few fish that can actually blink or close their eyes, which only serves to add further charm to what is already a fish with bags of character. They also have beak-like mouthparts, which are formed by a fusing of 2 teeth from each jaw (hence the family name, Tetraodontidae). These are used to crush shelled invertebrates, the favourite food of most puffers. Many parts of the body of puffers contain the deadly neurotoxin tetrodotoxin. This is the same poison found in the notorious blue-ringed octopus. When ingested in sufficient quantities, it can cause paralysis and death. As yet, there is no known antitoxin and to humans it is over 1000 times deadlier than cyanide. Grotesquely, the victim usually remains conscious as he or she becomes paralysed. It's a famous delicacy in Japan, but is prepared only by highly-trained chefs, and even then many people have died from eating it. This need not worry you, but if you need to get rid of your puffer, sell it on: getting the barbecue out is not recommended!</p><p>P. suvattii is a real oddball and is not recommended to the general aquarist due to its nasty disposition. In a species tank however, it will show some interesting behaviour. It is a true ambush predator, spending most of its time buried in the substrate, lying in wait for potential food. It can also make itself resemble an algae-covered rock if the substrate is not soft or deep enough to dig into. Its eyes are located on the top of its head, and its mouth is upturned to assist in attacking prey items from below. It can also change colour depending on its mood or surroundings.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/c59e3567e62134c7.webp",
+      "thumb": "https://media.aquatome.com/glaser/c59e3567e62134c7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-suvattii-tetraodon-suvattii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c6e0b3a84c7f4e26.webp",
+      "thumb": "https://media.aquatome.com/glaser/c6e0b3a84c7f4e26-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-suvattii-tetraodon-suvattii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6ccbded0c81c2d66.webp",
+      "thumb": "https://media.aquatome.com/glaser/6ccbded0c81c2d66-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-suvattii-tetraodon-suvattii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8fcc9aaceb3cd98f.webp",
+      "thumb": "https://media.aquatome.com/glaser/8fcc9aaceb3cd98f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-suvattii-tetraodon-suvattii-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "t0zQH3ByhUA",
+      "title": "Pao suvattii / arrowhead puffer /pignose puffer disappearing act.",
+      "durationSec": 7,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "rv18x1slq40",
+      "title": "Captive bred Pao suvattii 1 day after hatching (second batch) #pufferfish #aquarium",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KFdDG_tfhBY",
+      "title": "Sneaky Pao suvattii 👀👀👀👀👀",
+      "durationSec": 8,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "U0Z7Y2XD3rU",
+      "title": "Shredder’s snow globe. Pao suvattii feeding.",
+      "durationSec": 26,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -237,5 +326,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-19"
 }

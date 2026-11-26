@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import type { FitCheck } from '../src/fit'
-import { addedWords, asked, mendPart, type Dropped } from '../src/mend'
+import { addedWords, asked, batchHalf, cutWhole, mendPart, type Dropped } from '../src/mend'
 import { sentences } from '../src/sentences'
 
 /**
@@ -297,6 +297,73 @@ test('a sentence a finding on where it applies names goes whole: a cut of it is 
   }
 })
 
+// The chief of staff, 15 Nov 2026: "Cá Leporinus đôi khi hay gây gổ với cá cùng loài" went whole with its batch half,
+// "nhưng những con này tới giờ vẫn khá hiền". A source finding on the second clause of "X, nhưng Y" is the writer's to cut
+// to X, and its reviewer reads what's left as any cut. (Three stand-in reads found a cut by code alone, with nothing to
+// read it, could leave half a sentence or one the next sentence leaned on.)
+test('a source finding on the "nhưng" clause of its sentence lets the writer cut only that clause; any other cut is read as before', async () => {
+  const LEP = '<p>Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng những con này tới giờ vẫn khá hiền.</p>'
+  const src = (quote: string) => ({ check: 'source' as FitCheck, quote })
+  for (const q of ['nhưng những con này tới giờ vẫn khá hiền', 'những con này tới giờ vẫn khá hiền.']) expect(batchHalf(LEP, src(q)), q).toBe(true)
+  // Not the clause: part of it, another check, "còn", a clause before the last.
+  expect(batchHalf(LEP, src('những con này tới giờ'))).toBe(false)
+  expect(batchHalf(LEP, { check: 'shop', quote: 'nhưng những con này tới giờ vẫn khá hiền' })).toBe(false)
+  expect(batchHalf('<p>Loài này ăn tạp, còn lô này thì rất nhát.</p>', src('còn lô này thì rất nhát'))).toBe(false)
+  expect(batchHalf('<p>Loài này hiền, nhưng lô này nhát, song vẫn ăn tốt.</p>', src('nhưng lô này nhát'))).toBe(false)
+  const half = [{ ...src('nhưng những con này tới giờ vẫn khá hiền'), note: 'n', whole: false as const }]
+  const kept = await mendPart(said(1, 'Cá Leporinus đôi khi hay gây gổ với cá cùng loài.'), LEP, half)
+  if (typeof kept === 'string') throw new Error(kept)
+  expect([kept.whole, kept.added, kept.unasked]).toEqual([[], [], []])
+  expect(kept.html).toBe('<p>Cá Leporinus đôi khi hay gây gổ với cá cùng loài.</p>')
+  // The writer may take it whole, when what's left isn't true of every such fish.
+  const gone = await mendPart(said(1, ''), LEP, half)
+  if (typeof gone === 'string') throw new Error(gone)
+  expect([gone.whole, gone.unasked]).toEqual([[], []])
+  // A word of the first half lost, or the clause said another way, is caught as any cut is.
+  const more = await mendPart(said(1, 'Cá Leporinus hay gây gổ với cá cùng loài.'), LEP, half)
+  if (typeof more === 'string') throw new Error(more)
+  expect(more.unasked.length).toBeGreaterThan(0)
+  const other = await mendPart(said(1, 'Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng thường khá hiền.'), LEP, half)
+  if (typeof other === 'string') throw new Error(other)
+  expect(other.added.length).toBeGreaterThan(0)
+  // Without the flag, the same cut is refused: a source finding takes its sentence whole.
+  const plainSource = await mendPart(said(1, 'Cá Leporinus đôi khi hay gây gổ với cá cùng loài.'), LEP, [{ ...src('nhưng những con này tới giờ vẫn khá hiền'), note: 'n' }])
+  if (typeof plainSource === 'string') throw new Error(plainSource)
+  expect(plainSource.whole.length).toBe(1)
+})
+
+// A stand-in read of 15 Nov 2026: a batch half's sentence kept with part of its clause ("…, nhưng khá hiền") passed every
+// check, saying of every Leporinus what was said of one batch; and a sentence after the cut, which may lean on the half
+// that went, was never shown to the reviewer.
+test('a batch half\'s sentence kept holds nothing of its clause, and the cut is offered only in a part\'s last sentence', async () => {
+  const LEP = '<p>Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng những con này tới giờ vẫn khá hiền.</p>'
+  const src = (quote: string) => ({ check: 'source' as FitCheck, quote })
+  const half = [{ ...src('nhưng những con này tới giờ vẫn khá hiền'), note: 'n', whole: false as const }]
+  for (const vi of [
+    'Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng tới giờ vẫn khá hiền.',
+    'Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng khá hiền.',
+    'Cá Leporinus đôi khi hay gây gổ với cá cùng loài và khá hiền.',
+    'Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng những con này tới giờ vẫn khá hiền.',
+  ]) {
+    const r = await mendPart(said(1, vi), LEP, half)
+    if (typeof r === 'string') throw new Error(r)
+    expect(r.whole, vi).toHaveLength(1)
+  }
+  // A quote without its joining word: the clause goes with it, and the cut is kept.
+  const bare = await mendPart(said(1, 'Cá Leporinus đôi khi hay gây gổ với cá cùng loài.'), LEP, [{ ...src('những con này tới giờ vẫn khá hiền.'), note: 'n', whole: false }])
+  if (typeof bare === 'string') throw new Error(bare)
+  expect([bare.whole, bare.unasked, bare.added]).toEqual([[], [], []])
+  // A sentence after it, in its paragraph or the next: not a batch half. One before it is.
+  const q = src('nhưng những con này tới giờ vẫn khá hiền')
+  expect(batchHalf(LEP.replace('</p>', ' Vì vậy có thể nuôi chung vài con.</p>'), q)).toBe(false)
+  expect(batchHalf(`${LEP}<p>Vì vậy có thể nuôi chung vài con.</p>`, q)).toBe(false)
+  expect(batchHalf(LEP.replace('<p>', '<p>Loài này sống ở suối. '), q)).toBe(true)
+  // After "Mặc dù" or "Tuy" what comes before the clause is half a sentence; after "Tuy nhiên" it is whole.
+  expect(batchHalf('<p>Mặc dù loài này ăn tạp, nhưng lô này kén ăn.</p>', src('nhưng lô này kén ăn'))).toBe(false)
+  expect(batchHalf('<p>Tuy loài này ăn tạp, nhưng lô này kén ăn.</p>', src('nhưng lô này kén ăn'))).toBe(false)
+  expect(batchHalf('<p>Tuy nhiên loài này ăn tạp, nhưng lô này kén ăn.</p>', src('nhưng lô này kén ăn'))).toBe(true)
+})
+
 // The chief of staff, 14 Nov 2026: a sentence left pointing at one that went whole may go with it, when it is the one
 // right after, in the same paragraph, its writer returns it empty and says why, and its reviewer agrees. Anything further,
 // the part isn't kept.
@@ -416,4 +483,57 @@ test('the writer is told to cut, join with a listed word only, and add nothing e
   const llm = (async ({ prompt, schema }: { prompt: string; schema: { required: string[] } }) => { prompts.push(prompt); return schema.required.includes('sentences') ? { sentences: [{ n: 1, vi: 'Cây mọc nhanh.' }] } : { score: 1, notes: [], dropped: [], hedges: [] } }) as Llm
   await mendPart(llm, '<p>Cây mọc nhanh, giá 5 đô la.</p>', [{ check: 'price', quote: 'giá 5 đô la', note: 'Bỏ giá.' }])
   expect(prompts[0]).toContain('Changing a sentence means cutting it: take out what the note names, and if what\'s left needs joining, join it with one of these words: và, thì, là, mà, nhưng, của. Add no other word the sentence didn\'t have, except the words a wording note gives ("Nên viết"), and never say it another way.')
+})
+
+// The chief of staff, 14 Nov 2026: a flagged sentence "is deleted or its foreign detail is deleted"; by code, whole.
+test('a plain cut takes out whole each sentence a product, shop or price finding quotes, and nothing a read may have misread', () => {
+  const html = '<p>Cây lớn nhanh. Phân nước Easy Green được khuyên dùng. Nền dùng cát sông.</p><ul><li>Giá dưới 10 đô la.</li><li>Ánh sáng vừa.</li></ul>'
+  expect(cutWhole(html, [{ check: 'product', quote: 'Easy Green' }, { check: 'price', quote: '10 đô la' }])).toEqual({
+    html: '<p>Cây lớn nhanh. Nền dùng cát sông.</p><ul><li>Ánh sáng vừa.</li></ul>',
+    gone: ['sentence 2 went whole: "Phân nước Easy Green được khuyên dùng."', 'sentence 4 went whole: "Giá dưới 10 đô la."'],
+  })
+  // Advice for elsewhere, the source talking, a wording: the writer's to cut, never the code's.
+  expect(cutWhole(html, [{ check: 'elsewhere', quote: 'cát sông' }, { check: 'source', quote: 'Cây lớn nhanh' }, { check: 'words', quote: 'Ánh sáng' }])).toBeUndefined()
+  // Every sentence would go: the dealer check's.
+  expect(cutWhole('<p>Mua ở Petco, giá 5 đô la.</p>', [{ check: 'shop', quote: 'Petco' }])).toBeUndefined()
+  // Whole words only, and every sentence that names it (Astra's read: "ADA" in "Canada").
+  expect(cutWhole('<p>Cá được nuôi ở Canada. Dùng phân ADA. Cá cần ánh sáng vừa. Thêm ADA mỗi tuần.</p>', [{ check: 'product', quote: 'ADA' }])?.html).toBe('<p>Cá được nuôi ở Canada. Cá cần ánh sáng vừa.</p>')
+  // The table's name in the singular finds its English plural on the page, the last word only and a whole word still.
+  expect(cutWhole('<p>Nước mềm thì thêm Wonder Shells hoặc san hô vụn. Ốc cần canxi. Wonder Shellsy là tên khác.</p>', [{ check: 'product', quote: 'Wonder Shell' }])?.html).toBe('<p>Ốc cần canxi. Wonder Shellsy là tên khác.</p>')
+  expect(cutWhole('<p>Thêm Wonders Shell vào. Ốc cần canxi.</p>', [{ check: 'product', quote: 'Wonder Shell' }])).toBeUndefined()
+})
+
+// The readers of #1578, 17 Nov 2026: "<h3>3. Easy-Life EasyCarbo</h3>" was cut to "<h3>3.</h3>" with its section left under
+// it; "<li>1. Maracyn trị nấm.</li>" to "<li>1.</li>"; a list's "2." stood between a product and its dose; and "Thuốc này chứa
+// metronidazole" was left after the ParaCleanse sentence it points back at.
+test('a plain cut leaves a heading, a block that would keep only its number, and a sentence the next line points back at', () => {
+  const Q = (quote: string) => [{ check: 'product' as const, quote }]
+  // A heading stays; the product's sentence in the text goes.
+  expect.soft(cutWhole('<h3>3. Easy-Life EasyCarbo</h3><p>Cá sống theo đàn.</p><p>Thêm EasyCarbo mỗi tuần.</p>', Q('EasyCarbo'))?.html).toBe('<h3>3. Easy-Life EasyCarbo</h3><p>Cá sống theo đàn.</p>')
+  // A list item would keep only its number.
+  expect.soft(cutWhole('<ul><li>1. Maracyn trị nấm.</li><li>2. Cá sống theo đàn.</li></ul><p>Câu khác.</p>', Q('Maracyn'))).toBeUndefined()
+  // A list's number between the product and a dose: the dose is still the next line.
+  expect.soft(cutWhole('<p>Dùng Maracyn trị nấm.</p><p>2. Liều 1 gói cho 38 lít.</p><p>Câu khác.</p>', Q('Maracyn'), { near: [{ quote: 'Liều 1 gói cho 38 lít' }] })).toBeUndefined()
+  // The next line points back: both stay. One that doesn't: the product's sentence goes.
+  expect.soft(cutWhole('<p>Trị ký sinh bằng ParaCleanse. Thuốc này chứa metronidazole. Cá sống theo đàn.</p>', Q('ParaCleanse'))).toBeUndefined()
+  expect.soft(cutWhole('<p>Easy Root Tabs là một ví dụ.</p><p>Loại đó làm từ đất mặt.</p><p>Cây cần ánh sáng.</p>', Q('Easy Root Tabs'))).toBeUndefined()
+  expect.soft(cutWhole('<p>Trị ký sinh bằng ParaCleanse. Chúng phản ứng yếu hơn. Cá sống theo đàn.</p>', Q('ParaCleanse'))).toBeUndefined()
+  expect.soft(cutWhole('<p>Trị ký sinh bằng ParaCleanse. Cá sống theo đàn. Bể cần nắp.</p>', Q('ParaCleanse'))?.html).toBe('<p>Cá sống theo đàn. Bể cần nắp.</p>')
+  // A pointing line that goes too takes nothing with it.
+  expect.soft(cutWhole('<p>Trị ký sinh bằng ParaCleanse. ParaCleanse này bán ở Mỹ. Cá sống theo đàn.</p>', Q('ParaCleanse'))?.html).toBe('<p>Cá sống theo đàn.</p>')
+})
+
+// Codex's read of #1578, 17 Nov 2026, on today's guides: "Hai sản phẩm này…", "Cả ba…" and "Với loại đèn này…" were left
+// pointing at a cut sentence; "$12" took "12 cm" with it; "Dr. Tim’s" with a curly apostrophe wasn't found; and a section
+// lost its only line, leaving its heading over nothing.
+test('a plain cut keeps a sentence any pointing line follows, finds a price with its sign and a name with either apostrophe, and empties no section', () => {
+  const Q = (quote: string) => [{ check: 'product' as const, quote }]
+  expect.soft(cutWhole('<p>Để giữ pH cao, trộn san hô vụn vào nền. Sau đó bổ sung khoáng bằng Wonder Shells hoặc Seachem Equilibrium. Hai sản phẩm này cung cấp canxi và magiê.</p>', Q('Wonder Shell'))).toBeUndefined()
+  expect.soft(cutWhole('<p>Dùng Maracyn, Melafix và Pimafix. Cả ba dùng chung với nhau đều an toàn. Cá sống theo đàn.</p>', Q('Maracyn'))).toBeUndefined()
+  expect.soft(cutWhole('<p>Đèn chỉnh được độ sáng như Finnex là tốt nhất. Với loại đèn này, cây ít bị tảo. Cá sống theo đàn.</p>', Q('Finnex'))).toBeUndefined()
+  expect.soft(cutWhole('<p>Dùng Easy Green giá $12. Cá dài tối đa 12 cm. Cá sống theo đàn. Bể cần nắp.</p>', [{ check: 'product', quote: 'Easy Green' }, { check: 'price', quote: '$12' }])?.html).toBe('<p>Cá dài tối đa 12 cm. Cá sống theo đàn. Bể cần nắp.</p>')
+  expect.soft(cutWhole('<p>Đây là loài one and only của vùng. Dùng Dr. Tim’s One &amp; Only. Cá sống theo đàn. Bể cần nắp.</p>', Q('Dr. Tim\'s One & Only'))?.html).toBe('<p>Đây là loài one and only của vùng. Cá sống theo đàn. Bể cần nắp.</p>')
+  expect.soft(cutWhole('<h3>Trị nấm</h3><p>Dùng Maracyn.</p><h3>Chăm sóc</h3><p>Cá sống theo đàn. Bể cần nắp.</p>', Q('Maracyn'))).toBeUndefined()
+  // A section with a line left keeps its heading over it.
+  expect.soft(cutWhole('<h3>Trị nấm</h3><p>Dùng Maracyn. Cách ly cá bệnh.</p><h3>Chăm sóc</h3><p>Cá sống theo đàn.</p>', Q('Maracyn'))?.html).toBe('<h3>Trị nấm</h3><p>Cách ly cá bệnh.</p><h3>Chăm sóc</h3><p>Cá sống theo đàn.</p>')
 })

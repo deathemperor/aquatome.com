@@ -2,18 +2,6 @@
   "id": "pseudacanthicus-leopardus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/cb0e6612bb9f42d0.webp",
-      "thumb": "https://media.aquatome.com/commons/cb0e6612bb9f42d0-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "Sesamehoneytart",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudacanthicus_leopardus.JPG",
-      "caption": "Cá lau kiếng leopard cactus trong bể, nền sỏi và rêu",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/3aa7b9ac945ec973.webp",
       "thumb": "https://media.aquatome.com/commons/3aa7b9ac945ec973-480.webp",
       "width": 1200,
@@ -35,8 +23,19 @@
       "sourceUrl": "https://www.inaturalist.org/photos/575252970",
       "caption": "Cá lau kiếng leopard cactus vây lưng cam trong bể cảnh",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/cb0e6612bb9f42d0.webp",
+      "thumb": "https://media.aquatome.com/commons/cb0e6612bb9f42d0-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 3.0",
+      "author": "Sesamehoneytart",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudacanthicus_leopardus.JPG",
+      "caption": "Cá lau kiếng leopard cactus trong bể, nền sỏi và rêu",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 3,

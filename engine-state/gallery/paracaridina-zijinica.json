@@ -1,7 +1,9 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/5d1859ac9c1787f9.webp": "c7cd1b0f1703361c"
+ },
  "commons": "2026-11-10",
  "inat": {
   "taxon": 435214,
@@ -10,5 +12,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 4309708,
+  "next": null
  }
 }

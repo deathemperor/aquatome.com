@@ -3,6 +3,12 @@
   "name": "Kızıl",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-23T01:46:39.921Z",
+    "why": "The source's \"middle and lower Kızıl\" refers to a river (Kızılırmak), so the bare \"Kızıl\" drops the word \"Sungai\" that Indonesian atlases use and is a shortened form of the river's name."
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

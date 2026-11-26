@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/how-to-cool-down-tanks/
 title: How to Cool Down Tanks - Shrimp and Snail Breeder
 fetchedAt: 2026-11-11T03:01:20.335Z
-hash: 0a17be046818329bb55ac0f622a78ebb5b4309b97212afccecb8f85a99852221
+hash: 4e6ab3dbd30635fa307adc0fe58a4bea9838aa2896b4be6fd78a0142e879328f
 ---
 
 There’s no denying that the temperature in aquariums can rise to very high levels during the summer and your aquarium fish and shrimp will definitely struggle to cope with the situation.
@@ -88,4 +88,3 @@ Don’t panic when you witness raised temperature in your aquarium, the worst th
 While cooling down your tank, be sure to lower the temperature gradually till it returns to the normal level. The safety of your aquarium fauna is a top priority, so do not misuse any of the aforementioned cooling methods.
 Related articles:
 - How to Do and How Often to Do Water Change in Shrimp Aquarium
-### Leave a Reply Cancel reply

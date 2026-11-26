@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/orange-crayfish-detailed-guide-care-diet-and-breeding/
 title: Orange Crayfish – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T22:27:22.014Z
-hash: cd74152cf7f7238aa3754c72fef6d6d6e7fd780a6731f2c3b08f0641b22b92aa
+hash: 07e6c64a747b9c3e98c89ef27161a9563d808385023c28ee90bafeb75db0d439
 ---
 
 Cherax holthuisi, commonly known as Apricot crayfish or Orange crayfish, is a colorful and highly sought-after crayfish in the freshwater aquarium hobby owing to its distinct appearance, bright pigmentation, and ease of care.
@@ -206,4 +206,3 @@ Provide enough hiding places and avoid combining them with tank mates that do no
 - Patoka, J., L. Kalous, and O. Kopecký. “Imports of ornamental crayfish: the first decade from the Czech Republic’s perspective.” Knowledge and Management of Aquatic Ecosystems 416 (2015): 04.
 - Austin C.M., 2010a. Cherax holthuisi. The IUCN Red List of Threatened Species, http://www.iucnredlist.org/details/153651/0.
 - Patoka, Jiří. “Crayfish of New Guinea: Current status, exploitation and threats.” Evolution, Habitat and Conservation Strategies. Nova (2020): 43-70.
-### Leave a Reply Cancel reply

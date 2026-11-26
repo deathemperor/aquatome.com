@@ -110,6 +110,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -133,10 +137,22 @@
       "html": "<p>The green-gold cory, Osteogaster melanotaenia, long known as Corydoras melanotaenia, is an armoured catfish from the Rio Meta basin in Colombia. It lives in small tributaries, creeks, flooded forest and sand banks. Also known as the 'elongate bronze cory', it resembles C. aeneus at first glance, but is more elongate and has a golden-yellow tinge to the fins.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-melanotaenia-2/",
+      "html": "<p>Because of its bright yellow fins Corydoras melanotaenia surely belongs to the most beautiful armored catfishes at all. It is, so to speak, the long snout to the bronze cory type, which can be found throughout South America. In contrast to its ubiquitous cousin, C. melanotaenia is an endemic of Colombia, i.e. it occurs exclusively there.</p><p>This Corydoras grows to about 5 cm and has all the positive characteristics that make Corydoras so popular in the aquarium: a lively and completely peaceful nature and uncomplicated keeping.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-melanotaenia",
       "html": "<p>Rio Meta basin, Colombia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-melanotaenia-2/",
+      "html": "<p>The origin of C. melanotaenia, which was already scientifically described in 1912, was unclear for a long time. It is said that the animals on which the first description was based were caught in the Rio Magdalena basin, where later expeditions searched for them in vain. Already in 1922 it was assumed that the type specimens were sent to London via Honda (this place is located at the Rio Magdalena), but in reality they came from the Rio Meta basin. In fact, to date, not a single species of Corydoras has been reported from the Rio Magdalena and it is generally agreed that C. melanotaenia comes from the Rio Meta basin.</p>"
     },
     {
       "key": "habitat",
@@ -195,19 +211,59 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/58af77449302d28e.webp",
+      "thumb": "https://media.aquatome.com/commons/58af77449302d28e-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Karsten Schönherr",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_melanotaenia.JPG",
+      "caption": "Cá chuột xanh vàng bơi trên nền cát trắng trong bể"
+    },
+    {
       "url": "https://media.aquatome.com/commons/4b08960b366e6a26.webp",
       "thumb": "https://media.aquatome.com/commons/4b08960b366e6a26-480.webp",
       "width": 1200,
       "height": 900,
-      "licence": "CC BY 2.5",
-      "author": "User:Soulkeeper",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_sp._CW010.jpg",
-      "caption": "Nhóm cá chuột xanh vàng bơi trên nền sỏi trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/4b08960b366e6a26-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 2.5",
+      "author": "User:Soulkeeper",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_sp._CW010.jpg",
+      "caption": "Nhóm cá chuột xanh vàng bơi trên nền sỏi trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/35f7a46497af09e8.webp",
+      "thumb": "https://media.aquatome.com/glaser/35f7a46497af09e8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-melanotaenia-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e6f9f810bdff2c7c.webp",
+      "thumb": "https://media.aquatome.com/glaser/e6f9f810bdff2c7c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-melanotaenia-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7db63f5b90502d91.webp",
+      "thumb": "https://media.aquatome.com/glaser/7db63f5b90502d91-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-melanotaenia-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -265,5 +321,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-23"
 }

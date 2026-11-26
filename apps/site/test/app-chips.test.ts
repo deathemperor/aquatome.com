@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { CurationSchema, LANGS, type Content, type Photo } from '@aq/schema'
 import { appBreeds, appIndex, appSpecies, cardSrc, chipsFor, photoBox } from '../src/lib/app-index'
+import { featuredSpecies, groupTiles, nativeCards } from '../src/lib/home'
 import { getContent } from '../src/lib/content'
 import type { Lang } from '../src/lib/i18n'
 
@@ -10,9 +11,9 @@ import type { Lang } from '../src/lib/i18n'
 // the order the chief of staff's (14 Nov), kept in the curation file as a plain list the owner may change.
 const chips = (xs: unknown[]) => CurationSchema.parse({ version: 1, weeks: [], days: [], chips: xs }).chips
 const AMERICAS = ['south-america', 'central-america', 'north-america']
-async function row(lang: Lang, xs: unknown[], edit: (c: Content) => Content = c => c) {
+async function row(lang: Lang, xs: unknown[], edit: (c: Content) => Content = c => c, avoid: Record<string, string> = {}) {
   const vi = await getContent('vi'), c = edit({ ...(await getContent(lang)) })
-  return chipsFor(lang, c, vi.species, chips(xs), { species: appSpecies(lang, c), breeds: appBreeds(lang, c) })
+  return chipsFor(lang, c, vi.species, chips(xs), { species: appSpecies(lang, c), breeds: appBreeds(lang, c) }, avoid)
 }
 
 test("a chip holds the species its rule names, the breeds that are forms or crosses of them, and the breeds it names", async () => {
@@ -98,6 +99,56 @@ test("a chip's picture is a member's head where one qualifies, wider first, else
   expect(tien!.img).toBe(cardSrc(narrowHead))
   // The wider chip, with the others' photos taken: a head first (the cockatoo cichlid's), before the angelfish's other photo.
   expect(am!.img).toBe(cardSrc(wideHead))
+  // Each names the member whose photo it is, a head or not (the Lab, 16 Nov: Cá chuột's was a photo from a page's text, no
+  // head matched it, and the app couldn't credit the fish).
+  expect([dia!.imgOf, tien!.imgOf, am!.imgOf]).toEqual(['symphysodon-aequifasciatus', 'pterophyllum-scalare', 'apistogramma-cacatuoides'])
+})
+
+test("a chip's picture is never a non-commercial photo, though it leads its fish's page (the chief of staff's rule, 17 Nov: a chip stands for many fish)", async () => {
+  const shot = (licence: string) => photo('discus', 960, 640, { licence, sourceUrl: 'https://www.inaturalist.org/photos/1', subject: { x0: 300, y0: 200, x1: 660, y1: 440 } })
+  const dia = async (head: Photo) => (await row('vi', [{ id: 'dia', names: { vi: 'Dĩa' }, match: { genus: ['Symphysodon'] } }], c => ({ ...c, species: c.species.map(s => ({ ...s, photos: s.id === 'symphysodon-aequifasciatus' ? [head] : [] })), breeds: c.breeds.map(b => ({ ...b, photos: [] })) })))[0]!
+  expect((await dia(shot('CC BY 4.0'))).img).toBe(cardSrc(shot('CC BY 4.0')))
+  expect((await dia(shot('CC BY-NC 4.0'))).img).toBeUndefined()
+})
+
+// The non-commercial heads' reader, 20 Nov 2026: the chips picked a member's photo with no look at the calendar's avoid list.
+test("a chip's picture is never a photo the calendar keeps off cards, though it leads its fish's page", async () => {
+  const shot = photo('discus', 960, 640, { licence: 'CC BY 4.0', sourceUrl: 'https://www.inaturalist.org/photos/1', subject: { x0: 300, y0: 200, x1: 660, y1: 440 } })
+  const dia = async (avoid: Record<string, string>) => (await row('vi', [{ id: 'dia', names: { vi: 'Dĩa' }, match: { genus: ['Symphysodon'] } }], c => ({ ...c, species: c.species.map(s => ({ ...s, photos: s.id === 'symphysodon-aequifasciatus' ? [shot] : [] })), breeds: c.breeds.map(b => ({ ...b, photos: [] })) }), avoid))[0]!
+  expect((await dia({})).img).toBe(cardSrc(shot))
+  expect((await dia({ [shot.url]: 'the head falls outside the card' })).img).toBeUndefined()
+})
+
+// Every place that picks a face for many fish, on the fixture with every photo kept off cards: the home page's featured
+// fish, its native fish and its group tiles, and the app's featured fish, group tiles and chips. None shows one.
+test('with every photo kept off cards, no face for many fish shows one: featured, native, groups, chips', async () => {
+  const file = CurationSchema.parse(JSON.parse(readFileSync(new URL('../../../content/curation.json', import.meta.url), 'utf8')))
+  for (const lang of LANGS) {
+    const c = await getContent(lang), vi = await getContent('vi')
+    const avoid = Object.fromEntries([...c.species, ...c.breeds, ...c.plants].flatMap(x => x.photos.map(p => [p.url, 'every photo'] as const)))
+    const calendar = CurationSchema.parse({ version: 1, weeks: [], days: [], chips: file.chips })
+    expect(featuredSpecies(lang, c, 30, avoid), lang).toEqual([])
+    expect(nativeCards(lang, c, [], 4, avoid), lang).toEqual([])
+    expect(groupTiles(lang, c, undefined, avoid).filter(t => t.photo), lang).toEqual([])
+    const before = appIndex(lang, c, new Map(), vi.species, { calendar, today: '2026-11-14' })
+    const ix = appIndex(lang, c, new Map(), vi.species, { calendar: { ...calendar, avoid }, today: '2026-11-14' })
+    if (lang === 'vi') expect((before.home.chips ?? []).some(ch => ch.img), 'the fixture has chips with pictures').toBe(true)
+    expect(ix.home.fish, lang).toEqual([])
+    expect(ix.home.groups.filter(g => g.img), lang).toEqual([])
+    expect((ix.home.chips ?? []).filter(ch => ch.img), lang).toEqual([])
+  }
+})
+
+test("Khám phá's shelves leave out a fish or plant led by a non-commercial photo: a shelf features them (the chief of staff's rule, 17 Nov; a reader's point)", async () => {
+  const vi = await getContent('vi')
+  const before = appIndex('vi', vi)
+  const idOf = (path: string) => before.items.find(i => i.path === path)!.id!
+  // A shelf fish that the featured row doesn't hold (so the avoid list isn't what takes it off), and a shelf plant.
+  const fish = idOf(before.home.browse!.fish.find(p => !before.home.fish.includes(p))!), plant = idOf(before.home.browse!.plants[0]!)
+  const led = <X extends { id: string; photos: Photo[] }>(x: X): X => ([fish, plant].includes(x.id) ? { ...x, photos: [{ ...x.photos[0]!, licence: 'CC BY-NC 4.0' }] } : x)
+  const after = appIndex('vi', { ...vi, species: vi.species.map(led), breeds: vi.breeds.map(led), plants: vi.plants.map(led) })
+  expect(after.home.browse!.fish).not.toContain(before.home.browse!.fish.find(p => !before.home.fish.includes(p)))
+  expect(after.home.browse!.plants).not.toContain(before.home.browse!.plants[0])
 })
 
 // The chips as the curation file holds them, in every language's index on the fixture: whole and consistent.
@@ -111,7 +162,10 @@ test("every language's index carries the file's chips whole: its fish are its it
   for (const lang of LANGS) {
     const c = await getContent(lang), ix = appIndex(lang, c, new Map(), vi.species, { calendar, today: '2026-11-14' })
     const ids = new Set(ix.items.map(i => i.id)), row = ix.home.chips ?? []
+    const photosOf = new Map([...c.species, ...c.breeds].map(x => [x.id, x.photos]))
     expect(row.map(ch => ch.order)).toEqual(row.map((_, i) => i + 1))
+    // The app draws the row keyed by id (the v2 Lab, 16 Nov): no id twice in a language's row.
+    expect(new Set(row.map(ch => ch.id)).size, lang).toBe(row.length)
     // In the file's order.
     const at = new Map(file.chips.map((ch, i) => [ch.id, i]))
     expect(row.map(ch => at.get(ch.id)!)).toEqual([...row.map(ch => at.get(ch.id)!)].sort((a, b) => a - b))
@@ -121,6 +175,9 @@ test("every language's index carries the file's chips whole: its fish are its it
       for (const m of ch.members) expect(ids.has(m), `${lang} ${ch.id}: ${m}`).toBe(true)
       expect(ch.name, `${lang} ${ch.id}`).toBe(file.chips.find(x => x.id === ch.id)!.names[lang])
       if (ch.img) expect(ch.imgBox, `${lang} ${ch.id}`).toBeDefined()
+      // Its photo is its `imgOf` member's own, so the chip credits the right fish.
+      if (ch.img) expect(photosOf.get(ch.imgOf!)?.some(p => cardSrc(p) === ch.img), `${lang} ${ch.id}: ${ch.imgOf}`).toBe(true)
+      if (ch.img) expect(ch.members, `${lang} ${ch.id}`).toContain(ch.imgOf)
     }
     const imgs = row.flatMap(ch => ch.img ?? [])
     expect(new Set(imgs).size).toBe(imgs.length)

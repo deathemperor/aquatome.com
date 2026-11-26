@@ -1,8 +1,8 @@
 {
   "id": "campylomormyrus-tamandua",
   "native": {
-    "input": "eec917791d28c381",
-    "at": "2026-11-07T02:19:57.912Z",
+    "input": "6d76998b414c7e12",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "CM",
@@ -77,7 +77,39 @@
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Volta",
+        "source": "glaser",
+        "quote": "The species is widespread in western Africa (drainages of the rivers Volta, Niger, Shari (including Lake Chad) and Congo).",
+        "ok": true
+      },
+      {
+        "name": "Niger",
+        "source": "glaser",
+        "quote": "The species is widespread in western Africa (drainages of the rivers Volta, Niger, Shari (including Lake Chad) and Congo).",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Shari",
+        "source": "glaser",
+        "quote": "The species is widespread in western Africa (drainages of the rivers Volta, Niger, Shari (including Lake Chad) and Congo).",
+        "ok": true
+      },
+      {
+        "name": "Lake Chad",
+        "source": "glaser",
+        "quote": "The species is widespread in western Africa (drainages of the rivers Volta, Niger, Shari (including Lake Chad) and Congo).",
+        "ok": true
+      },
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "The species is widespread in western Africa (drainages of the rivers Volta, Niger, Shari (including Lake Chad) and Congo).",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

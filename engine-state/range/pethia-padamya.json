@@ -1,8 +1,8 @@
 {
   "id": "pethia-padamya",
   "native": {
-    "input": "5085c0cf254d4015",
-    "at": "2026-11-12T21:02:28.514Z",
+    "input": "9a3ed83ec2af1318",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
       {
         "code": "MM",
@@ -11,17 +11,25 @@
         "quote": "Known only from central Myanmar where the type specimens were collected from a man-made pond fed by a small stream in a village called Toe Gyi which lies in the administrative division of Mandalay.",
         "words": "Myanmar",
         "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Now it was clear that this fish is a wild species originating from Burma.",
+        "words": "Burma",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Ayeyarwady",
+        "name": "Chindwin",
         "source": "seriouslyfish",
         "quote": "It's also been recorded from lower stretches of the river Chindwin, a tributary of the Ayeyarwady, and a 'small pond' 500m away from the main river channel.",
         "ok": true
       },
       {
-        "name": "Chindwin",
+        "name": "Ayeyarwady",
         "source": "seriouslyfish",
         "quote": "It's also been recorded from lower stretches of the river Chindwin, a tributary of the Ayeyarwady, and a 'small pond' 500m away from the main river channel.",
         "ok": true

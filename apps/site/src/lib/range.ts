@@ -1,8 +1,10 @@
 import { createHash } from 'node:crypto'
 import { CELL_DEG, countryName, markVietnameseNames, PLACE_ALIASES, placeCountry, recordsInside, recordsOutside, slugify, type Content, type SourceId, type SpeciesRange } from '@aq/schema'
+import { citeGroup } from './cite'
 import { fmt } from './format'
 import { served, translator, type Lang } from './i18n'
 import { mapSvg, rangeMap, type RangeMap, type SquareKind } from './range-map'
+import { isFish } from './taxa-places'
 
 /**
  * A species' range as the app index gives it (AppItem.range; content `range`, protocols/range-vectors.json): what a page
@@ -129,6 +131,9 @@ export function rangeParts(lang: Lang, c: Content, s: { id: string; name: string
   const shown = records?.total ? records : undefined
   if (!native && !shown) return undefined
   const t = translator(lang)
+  // A crab's, a shrimp's or a snail's records aren't fish someone let go.
+  const species = c.species.find(x => x.id === s.id)
+  const fish = !species || isFish(species)
   const { num } = fmt(lang)
   const origins = originPages(lang, c)
   const nameOf = countryNames(lang, c.places, new Set(origins.map(p => p.id)))
@@ -141,16 +146,19 @@ export function rangeParts(lang: Lang, c: Content, s: { id: string; name: string
   const quotes = native?.quotes?.filter(q => mark(q.source))
   // A line's marks: the sources of its sentences, else (a range read before quotes) every source the range names.
   const marks = (has: (q: NonNullable<typeof quotes>[number]) => boolean) =>
-    [...new Set(quotes && native?.quotes ? quotes.filter(has).map(q => q.source) : native?.sources ?? [])].map(mark).join('')
+    citeGroup([...new Set(quotes && native?.quotes ? quotes.filter(has).map(q => q.source) : native?.sources ?? [])].map(mark).filter(Boolean))
   const words = [
     native?.countries.length ? `<p><strong>${esc(t('Sống tự nhiên ở:'))}</strong> ${native.countries.map(country).join(', ')}${marks(q => q.countries.length > 0)}</p>` : '',
     native?.regions.length ? `<p><strong>${esc(t('Sông, hồ, vùng:'))}</strong> ${native.regions.map(r => esc(regionName(r))).join(', ')}${marks(q => q.regions.length > 0)}</p>` : '',
   ].join('')
   // A source's sentence as it wrote it, in English; the Vietnamese names in it ("the Thái Bình, Sông Kỳ Cùng, Mã and
-  // Lam rivers") marked Vietnamese, as in a translated page's text.
-  const said = quotes?.length ? {
+  // Lam rivers") marked Vietnamese, as in a translated page's text. Never AquaTome's own (source 'aquatome', written from
+  // web research): its sentences are the page's text in Vietnamese, not a source's words, and showed on every language's
+  // page marked English (the live check on /id/ikan/tilan/, 21 Nov 2026). They still mark the lines they back.
+  const sentences = quotes?.filter(q => q.source !== 'aquatome')
+  const said = sentences?.length ? {
     title: t('Nguồn ghi gì'),
-    html: `<ul>${quotes.map(q => `<li><strong>${capitalized([...q.countries.map(code => esc(nameOf(code).name)), ...q.regions.map(r => esc(regionName(r)))].join(', '))}</strong> · ${esc(c.sources[q.source]?.name ?? q.source)}${mark(q.source)}: <span lang="en">“${markVietnameseNames(esc(q.quote))}”</span></li>`).join('')}</ul>`,
+    html: `<ul>${sentences.map(q => `<li><strong>${capitalized([...q.countries.map(code => esc(nameOf(code).name)), ...q.regions.map(r => esc(regionName(r)))].join(', '))}</strong> · ${esc(c.sources[q.source]?.name ?? q.source)}${mark(q.source)}: <span lang="en">“${markVietnameseNames(esc(q.quote))}”</span></li>`).join('')}</ul>`,
   } : undefined
 
   const inside = shown && native?.countries.length ? recordsInside(s.range!) : undefined
@@ -160,7 +168,7 @@ export function rangeParts(lang: Lang, c: Content, s: { id: string; name: string
     ? `${t('GBIF có {n} ghi nhận ngoài tự nhiên.', { n: num(shown.total) })} ${t('Nguồn không ghi loài này sống tự nhiên ở nước nào, nên không tách được ghi nhận trong hay ngoài vùng bản địa.')}`
     : !outside
       ? t('GBIF có {n} ghi nhận ngoài tự nhiên, tất cả trong các nước trên.', { n: num(shown.total) })
-      : `${t('GBIF có {n} ghi nhận ngoài tự nhiên: {inside} trong các nước trên, {outside} ở nơi khác', { n: num(shown.total), inside: num(inside), outside: num(outside) })}${most.length ? ` (${t('nhiều nhất: {places}', { places: most.map(([code, n]) => `${esc(nameOf(code).name)} ${num(n)}`).join(', ') })})` : ''}. ${t('Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.')}`
+      : `${t('GBIF có {n} ghi nhận ngoài tự nhiên: {inside} trong các nước trên, {outside} ở nơi khác', { n: num(shown.total), inside: num(inside), outside: num(outside) })}${most.length ? ` (${t('nhiều nhất: {places}', { places: most.map(([code, n]) => `${esc(nameOf(code).name)} ${num(n)}`).join(', ') })})` : ''}. ${t(fish ? 'Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.' : 'Ghi nhận ở nơi khác có thể là con do người thả ra, hoặc nhận nhầm loài.')}`
 
   const pic = shown ? rangePicture(s.id, s.range) : undefined
   let map: RangeParts['map']

@@ -714,35 +714,31 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "glaser",
-        "value": {
-          "min": 20,
-          "max": 30
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 25,
+          "max": 28
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
           "max": 28
         }
       }
     ],
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 20
-      },
-      {
         "source": "seriouslyfish",
         "value": 18.2
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "difficulty": [
-      {
-        "source": "glaser",
-        "value": 2
-      },
       {
         "source": "seriouslyfish",
         "value": 4
@@ -777,8 +773,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
-      "html": "<p>The tailspot bushfish (Ctenopoma kingsleyae) originates from wooded areas in western Africa. It was one of the first labyrinth fish exported from Africa for aquariums. The first specimens from the lower Niger region arrived in Germany as early as 1912. This calm, peaceful species was described at the time as very aggressive and incompatible, an observation that was never made again later on. With a maximum length of almost 20 cm (usually 12-15 cm), C. kingsleyae is one of the largest labyrinth fish in Africa.</p><p>The tail root spot, which gives the common name, is found in several species. Depending on its mood, it can fade significantly or even appear white – normally it is black. In young fish up to about 5 cm in length, the tail root spot has a golden border. Typical of C. kingsleyae is the large silver spot directly below the eye, which is absent in all other similar species.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/ctenopoma-breviventrale-2/",
+      "html": "<p>The \"Grey Ocellatum\" belongs to the smaller bushfish species that do not care for their spawn. The largest specimen seen so far was less than 10 cm long. The water temperature should be 24-28°C.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -791,6 +787,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
       "html": "<p>Has an enormous natural range throughout much of western and central Africa. It's been recorded in Mauritania, Senegal, Gambia, Guinea-Bissau, Guinea, Sierra Leone, Liberia, Ivory Coast, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon and Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/ctenopoma-breviventrale-2/",
+      "html": "<p>The species was described in 1938 using a single specimen from the Congo under the name Anabas breviventralis. C. kingsleyae has never been imported alive from the Congo, and all animals sent from there as C. kingsleyae have always been \"Grey Ocellatum\". The \"Grey Ocellatum\" occurs together with the \"real\" Ctenopoma ocellatum.</p>"
     },
     {
       "key": "habitat",
@@ -813,20 +815,14 @@
     {
       "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
-      "html": "<p>The chemical composition of the water is irrelevant; any drinking water is suitable for care and breeding. The temperature can range between 20 and 30°C.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/ctenopoma-breviventrale-2/",
+      "html": "<p>The chemical water composition is irrelevant for the care. The water temperature should be 24-28°C.</p>"
     },
     {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
       "html": "<ul><li>Temperature: 25–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 5–20 dGH</li></ul>"
-    },
-    {
-      "key": "diet",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
-      "html": "<p>They will eat any standard ornamental fish food of a suitable size, whether dry, frozen, or live. The animals can be particularly pleased by throwing land insects (fat flies, grasshoppers, etc.) onto the water surface. This is the bushfish's absolute favorite food.</p>"
     },
     {
       "key": "diet",
@@ -837,8 +833,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
-      "html": "<p>Although Ctenopoma kingsleyae may seem unattractive at first glance, these calmly swimming fish with their silvery-white fin edges are a wonderful contrast to colorful tetras, barbs, or cichlids. Very small fish (2-3 cm) and shrimp are regarded as food, but otherwise tank mates, whether animal or plant, are usually completely ignored. The fish are also very peaceful among themselves, regardless of gender.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/ctenopoma-breviventrale-2/",
+      "html": "<p>C. breviventrale is peaceful towards conspecifics and fish that do not serve as food. Plants are not bothered.</p>"
     },
     {
       "key": "behaviour",
@@ -849,20 +845,14 @@
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
-      "html": "<p>The sexes differ only slightly in appearance. Sexually mature C. kingsleyae (from approx. 8 cm total length) have spiny fields behind the eye and on the caudal peduncle, which help the male to wrap himself around the female in a U-shape during mating and turn her onto her back into the spawning position. The spiny field behind the eye is often difficult to see, while the spiny field on the caudal peduncle immediately in front of the caudal root spot appears faintly reddish and therefore often allows gender identification with the naked eye.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/ctenopoma-breviventrale-2/",
+      "html": "<p>The fish matures at a length of about 5-6 cm, as can easily be seen from the spiny field behind the eye, which the males develop when they reach sexual maturity.</p>"
     },
     {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
       "html": "<p>The male is noticeably spinier around the gill covers and under the eyes.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
-      "html": "<p>In terms of reproductive behavior, Ctenopoma kingsleyae is one of the primitive labyrinth fish. This species does not care for its young. The eggs drift on the water surface due to oil deposits and are left to fend for themselves after spawning. To stimulate breeding, which is best attempted in winter, a dry period must be simulated.</p>"
     },
     {
       "key": "reproduction",
@@ -875,46 +865,77 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
       "html": "<p>This species can be exceptionally long-lived and there are reports of specimens surviving in aquaria for over 30 years. It is named after the explorer Mary Kingsley, and often goes by the common name of Kingsley's climbing perch. While Ctenopoma are closely related to the Asian climbing perch (Anabas sp.), they are not known to have the ability to cross areas of land like this species. Like others in the suborder Anabantoidei, the species possesses an accessory breathing organ known as the labyrinth organ. So-called due to its maze-like structure, this organ allows the fish to breathe atmospheric air to a certain extent. It is formed by a modification of the first gill arch, and consists of many highly vascularised, folded flaps of skin. The structure of the organ varies in complexity between species, tending to be more well-developed in those inhabiting particularly oxygen-deprived conditions.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/ctenopoma-breviventrale-2/",
+      "html": "<p>The \"Grey Ocellatum\", as labyrinth fish lovers call this species, is a good example of knowledge gained through aquaristics. With regard to body proportions, fin ray numbers, scale formula, etc., many bushfish species cannot be reliably distinguished from each other, so old, discoloured specimens preserved in alcohol are of little use in this regard. Ctenopoma breviventrale is today considered synonymous with C. kingsleyae, the Tailspot bushfish (cá bụi đốm đuôi), by many scientists who have never seen the living animals. The species name breviventralis is an adjective and must agree in gender with the genus name: Anabas is masculine, hence breviventralis; Ctenopoma is neuter, hence breviventrale. The \"Grey Ocellatum\" differs from C. kingsleyae in that only C. kingsleyae has a conspicuously enlarged silver scale below the eye. It differs from the \"real\" Ctenopoma ocellatum by the complete absence of vertical bands. Following a study of the type specimen of Anabas breviventralis in the Natural History Museum of Paris, there are currently no serious doubts that the \"Grey Ocellatum\" from the Congo is the species Ctenopoma breviventrale.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/31401fa53aa84d69.webp",
+      "thumb": "https://media.aquatome.com/commons/31401fa53aa84d69-480.webp",
       "width": 960,
       "height": 540,
-      "licence": "CC BY-SA 4.0",
-      "author": "Tylwyth Eldar",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_76_2.jpg",
-      "caption": "Ctenopoma de kingsley (Ctenopoma kingsleyae) à l'Aquarium du palais de la Porte Dorée.",
-      "thumb": "https://media.aquatome.com/commons/31401fa53aa84d69-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/31401fa53aa84d69-large.webp",
         "width": 2134,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Tylwyth Eldar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_76_2.jpg",
+      "caption": "Ctenopoma de kingsley (Ctenopoma kingsleyae) à l'Aquarium du palais de la Porte Dorée."
     },
     {
       "url": "https://media.aquatome.com/commons/70a54177599dce86.webp",
+      "thumb": "https://media.aquatome.com/commons/70a54177599dce86-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Tylwyth Eldar",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_76.jpg",
-      "caption": "Ctenopoma de kingsley (Ctenopoma kingsleyae) à l'Aquarium du palais de la Porte Dorée.",
-      "thumb": "https://media.aquatome.com/commons/70a54177599dce86-480.webp"
+      "caption": "Ctenopoma de kingsley (Ctenopoma kingsleyae) à l'Aquarium du palais de la Porte Dorée."
     },
     {
       "url": "https://media.aquatome.com/commons/9cbed193f0b20d26.webp",
+      "thumb": "https://media.aquatome.com/commons/9cbed193f0b20d26-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Tylwyth Eldar",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_77.jpg",
-      "caption": "Ctenopoma de kingsley (Ctenopoma kingsleyae) à l'Aquarium du palais de la Porte Dorée.",
-      "thumb": "https://media.aquatome.com/commons/9cbed193f0b20d26-480.webp"
+      "caption": "Ctenopoma de kingsley (Ctenopoma kingsleyae) à l'Aquarium du palais de la Porte Dorée."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "7Vq0-3meDVM",
+      "title": "クテノポマキングスレイ水中撮影　Ctenopoma kingsleyae",
+      "durationSec": 79,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TXxg5gr1ONI",
+      "title": "【No.590 クテノポマ キングスレイ】Ctenopoma kingsleyae #aquarium #水槽",
+      "durationSec": 8,
+      "lang": "ja"
+    },
+    {
+      "youtubeId": "6loMnr-zgQg",
+      "title": "Grey is beautiful: Ctenopoma kingsleyae - Close-Up | 4K",
+      "durationSec": 44,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1eUPVnSyW10",
+      "title": "Aquarium de la Porte Dorée - Ctenopoma kingsleyae - http://aqualoury.fr.gd/ -",
+      "durationSec": 91,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -936,5 +957,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-19"
 }

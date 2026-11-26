@@ -10,6 +10,52 @@
     "indonesia",
     "lake-towuti"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Malili Lake System",
+        "Sulawesi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Malili Lake System on Sulawesi (formerly Celebes) consists of five lakes, three large and two small: Matano, Towuti, Mahalona, Lontoa and Masapi.",
+          "countries": [],
+          "regions": [
+            "Malili Lake System",
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2412061,
+      "total": 72,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "ID",
+          72
+        ]
+      ],
+      "cells": [
+        [
+          120.9375,
+          -2.8125,
+          27
+        ],
+        [
+          120.9375,
+          1.40625,
+          45
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -86,7 +132,38 @@
       "html": "<p>Lexicon: Telmatherina comes from the ancient Greek \"telma\", meaning \"swamp\"; Atherina is another genus of silverside. bonti is named after the local name of the species, \"bonti-bonti\", at Lake Towuti.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/bd6376012d6a3259.webp",
+      "thumb": "https://media.aquatome.com/glaser/bd6376012d6a3259-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/telmatherina-bonti-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3e2cdd751f8bf2c1.webp",
+      "thumb": "https://media.aquatome.com/glaser/3e2cdd751f8bf2c1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/telmatherina-bonti-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/43d2d3dd6d32be06.webp",
+      "thumb": "https://media.aquatome.com/glaser/43d2d3dd6d32be06-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/telmatherina-bonti-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

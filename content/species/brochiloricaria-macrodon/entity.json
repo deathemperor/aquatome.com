@@ -1,0 +1,186 @@
+{
+  "id": "brochiloricaria-macrodon",
+  "scientificName": "Brochiloricaria macrodon",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Brochiloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "paraguay",
+    "brazil",
+    "rio-cuiaba",
+    "paraguay-river"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2339229,
+      "total": 11,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "BR",
+          6
+        ],
+        [
+          "PE",
+          3
+        ],
+        [
+          "AR",
+          1
+        ],
+        [
+          "PY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -9.84375,
+          2
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          1
+        ],
+        [
+          -59.0625,
+          -32.34375,
+          1
+        ],
+        [
+          -59.0625,
+          -16.875,
+          1
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          1
+        ],
+        [
+          -56.25,
+          -15.46875,
+          4
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      },
+      {
+        "source": "planetcatfish",
+        "value": 26.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1464",
+      "html": "<p>Brochiloricaria macrodon (Kner, 1853), family Loricariidae. Synonym: Loricaria macrodon. Size: 26.8 cm SL. IUCN Red List: Least Concern (last assessed 2018). Type locality: Rio Cuiabá, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1464",
+      "html": "<p>South America: Paraguay River basin. La Plata, Paraná, Paraguay.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochiloricaria-macrodon/",
+      "html": "<p>Brochiloricaria have a completely different mouth structure and feeding habit from Lamontichthys. Like most mouthbrooding whiptail catfish, they are more interested in meaty food than in Aufwuchs.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1464",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1464",
+      "html": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe. v. 6, pp 79 [15], Pls. 1 (fig. 3a-d), 2 (fig. 1-3).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/4b4a458e32d3dd5e.webp",
+      "thumb": "https://media.aquatome.com/glaser/4b4a458e32d3dd5e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochiloricaria-macrodon/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/db3419985628817c.webp",
+      "thumb": "https://media.aquatome.com/glaser/db3419985628817c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochiloricaria-macrodon/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b1241026832748e4.webp",
+      "thumb": "https://media.aquatome.com/glaser/b1241026832748e4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochiloricaria-macrodon/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/46b47aee077ebd0b.webp",
+      "thumb": "https://media.aquatome.com/glaser/46b47aee077ebd0b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochiloricaria-macrodon/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

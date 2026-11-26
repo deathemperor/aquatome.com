@@ -16,10 +16,10 @@
         "IN"
       ],
       "regions": [
-        "Western Ghats",
         "Chalakkudy",
         "Muvattupuzha",
-        "Periyar"
+        "Periyar",
+        "Western Ghats"
       ],
       "sources": [
         "seriouslyfish"
@@ -27,15 +27,28 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.",
+          "quote": "The brown spike-tailed paradise fish, Pseudosphromenus dayi, is a small labyrinth fish from coastal drainages of the Western Ghats in Kerala, India.",
           "countries": [
             "IN"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is known only from the Chalakkudy, Muvattupuzha and Periyar rivers, though it may be more widely distributed.",
+          "countries": [],
           "regions": [
-            "Western Ghats",
             "Chalakkudy",
             "Muvattupuzha",
             "Periyar"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.",
+          "countries": [],
+          "regions": [
+            "Western Ghats"
           ]
         }
       ]
@@ -98,6 +111,10 @@
       {
         "source": "seriouslyfish",
         "value": 6.5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -121,10 +138,28 @@
       "html": "<p>The brown spike-tailed paradise fish, Pseudosphromenus dayi, is a small labyrinth fish from coastal drainages of the Western Ghats in Kerala, India. It is known only from the Chalakkudy, Muvattupuzha and Periyar rivers, though it may be more widely distributed. Two dark, irregular lateral stripes on the head and body, and a more extended caudal fin in males, separate it from its only congener, P. cupanus. A secretive bubble nester, it is peaceful but small and timid.</p><ul><li>Max size: 65 mm SL (2.6 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/pseudosphromenus-dayi-2/",
+      "html": "<p>Small (4-5 cm), absolutely peaceful labyrinth fish that likes to build its foam nest in caves or under plant leaves. Offered as a wild catch from Kerala in South India.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/pseudosphromenus-dayi-2/",
+      "html": "<p>The red spike-tail is a classic among the aquarium fish and is not missing in any manual of ornamental fish science before the Second World War. But its origin was always mysterious, the original description from the year 1909 was based on aquarium imports. Today it has become quiet around him and his close relatives from Sri Lanka, Malpulutta kretseri, since the initially often shy animals in the pet shop are obviously difficult to present attractively. That's why red spike-tails are currently almost completely extinct in the hobby.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudosphromenus-dayi",
       "html": "<p>Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.</p><p>Engmann (1909) gives type locality as 'Malakka' but this is considered an error which probably should have read 'Kerala'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/pseudosphromenus-dayi-2/",
+      "html": "<p>Kerala in South India.</p>"
     },
     {
       "key": "habitat",
@@ -175,6 +210,12 @@
       "html": "<p>Secretive bubble nester. Males prefer to construct nests under an overhang or in a cavity if available, although if not surface vegetation, leaves or roots may be chosen.</p><p>In the aquarium half-coconut shells, upturned flowerpots or clay pipes provide ideal artificial spawning sites. Eggs and milt are released in small batches during a series of embraces in which the male wraps its body around that of the female.</p><p>Some males construct a rudimentary bubble nest while others do not, but either way both male and female attempt to attach the eggs to the ceiling of the site after they are released.</p><p>Post-spawning the female is normally ejected and the male solely responsible for guarding and tending the eggs.</p><p>Incubation is approximately 24-48 hours with the fry free-swimming after 2-3 additional days after which they are able to accept Artemia nauplii, microworm, etc.</p><p>Once the fry are swimming freely they may be consumed by other fish in the aquarium, including their parents, so are best separated and grown on elsewhere.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/pseudosphromenus-dayi-2/",
+      "html": "<p>Likes to build its foam nest in caves or under plant leaves.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudosphromenus-dayi",
@@ -194,13 +235,68 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Enrico Richter / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudosphromenus-dayi",
       "caption": "Adult male.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5aa2de36c1101d0f.webp",
+      "thumb": "https://media.aquatome.com/glaser/5aa2de36c1101d0f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/pseudosphromenus-dayi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/24e57efa54837669.webp",
+      "thumb": "https://media.aquatome.com/glaser/24e57efa54837669-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/pseudosphromenus-dayi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2777b586d9719314.webp",
+      "thumb": "https://media.aquatome.com/glaser/2777b586d9719314-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/pseudosphromenus-dayi-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "uUjeNmQPw1c",
+      "title": "pseudosphromenus dayi",
+      "durationSec": 5,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7VSzzPFNsi8",
+      "title": "Pseudosphromenus dayi",
+      "durationSec": 181,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tXgz1Zy7DSM",
+      "title": "Pseudosphromenus dayi - red spike-tailed gourami.",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SddoyDOOd4A",
+      "title": "Pseudosphromenus dayi",
+      "durationSec": 28,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -231,5 +327,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-19"
 }

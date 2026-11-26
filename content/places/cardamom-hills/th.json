@@ -3,6 +3,12 @@
   "name": "เทือกเขาคาร์ดามอม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.72,
+    "at": "2026-11-19T07:53:22.165Z",
+    "why": "The Thai is written in Thai script and refers to the right place, but \"คาร์ดามอม\" is a less standard transliteration than the usual \"คาร์ดามัม\" (cardamom is \"กระวาน\" in Thai), and \"เทือกเขา\" is a reasonable kind word for hills in this range."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

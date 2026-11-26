@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { headWord, KIND_FALLBACKS, kindWord, plainName, recordKindFallback, wrongKind } from '../src/kind-words'
+import { headWord, KIND_FALLBACKS, kindWord, plainName, recordKindFallback, tilapiaUnnamed, wrongKind } from '../src/kind-words'
 
 const cichlid = { family: 'Cichlidae', order: 'Cichliformes' }
 
@@ -18,6 +18,23 @@ test('"rô phi" is the tilapias\' alone, read before "rô"', () => {
   expect(kindWord('Cá rô phi lùn đốm đỏ', { ...cichlid, genus: 'Apistogramma' })).toEqual({ word: 'rô phi', fits: false })
   expect(kindWord('Cá rô đồng', { family: 'Anabantidae', genus: 'Anabas', order: 'Anabantiformes' })).toEqual({ word: 'rô', fits: true })
   expect(kindWord('Cá rô sông Nile', { family: 'Latidae', genus: 'Lates', order: 'Perciformes' })).toEqual({ word: 'rô', fits: false })
+})
+
+test('a text says "rô phi" only where its English names a tilapia, by the word or by a tilapia genus', () => {
+  // Curation & Media, 15 Nov 2026: "A brand-new dwarf cichlid" written "Một loài cá rô phi lùn hoàn toàn mới".
+  expect(tilapiaUnnamed('Một loài cá rô phi lùn hoàn toàn mới: Apistogramma sp. Cristal', 'A brand-new dwarf cichlid: Apistogramma sp. Cristal')).toBe(true)
+  expect(tilapiaUnnamed('Những thay đổi lớn trong phân loại cá rô phi Tân Thế Giới', 'Major changes in New World cichlid taxonomy')).toBe(true)
+  expect(tilapiaUnnamed('Cá Rô Phi'.normalize('NFD'), 'cichlids')).toBe(true)
+  // Xenotilapia and Paratilapia are other cichlids: their names hold "tilapia" but name none.
+  expect(tilapiaUnnamed('Cá rô phi cát vàng Xenotilapia', 'Xenotilapia flavipinnis, a sand-sifting cichlid')).toBe(true)
+  expect(tilapiaUnnamed('Cá rô phi', 'Paratilapia polleni')).toBe(true)
+  expect(tilapiaUnnamed('Thức ăn từ tim bò, tôm, cá rô phi và rau', 'beef heart, shrimp, tilapia fillet and greens')).toBe(false)
+  expect(tilapiaUnnamed('Cá rô phi Mozambique', 'Oreochromis mossambicus')).toBe(false)
+  expect(tilapiaUnnamed('Cá rô phi', 'TILAPIAS are hardy')).toBe(false)
+  expect(tilapiaUnnamed('Cá rô phi', 'Tilapia mariae, the spotted tilapia')).toBe(false)
+  // "Rô" alone is another fish, and a word holding it isn't the word.
+  expect(tilapiaUnnamed('Cá rô đồng', 'climbing perch')).toBe(false)
+  expect(tilapiaUnnamed('Cá rô phiên', 'cichlid')).toBe(false)
 })
 
 test('read the same whatever the case, the spaces or the Unicode form', () => {

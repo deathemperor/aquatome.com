@@ -1,8 +1,13 @@
 {
   "slug": "rio-poranga",
-  "name": "Poranga",
+  "name": "Sungai Poranga",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T05:35:40.471Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

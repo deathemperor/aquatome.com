@@ -6,6 +6,26 @@
   "genus": "Xiphophorus",
   "group": "livebearers",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2350163,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MX",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -99.84375,
+          21.09375,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -52,7 +72,28 @@
       "html": "<p>Every common fish food is eaten when it is small enough. Without live food (2-3 times a week) the dwarf swordtails will wither; Artemia nauplii have proven to be very useful as supplementary food.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/f643b44c570ce1b5.webp",
+      "thumb": "https://media.aquatome.com/glaser/f643b44c570ce1b5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-continens-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/309cbafef45ac0fe.webp",
+      "thumb": "https://media.aquatome.com/glaser/309cbafef45ac0fe-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-continens-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

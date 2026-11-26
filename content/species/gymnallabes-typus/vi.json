@@ -4,7 +4,9 @@
   "altNames": [
     "Cá trê lươn đầu dẹt",
     "Flat Head Eel Catfish",
-    "Fathead Eel Catfish"
+    "Fathead Eel Catfish",
+    "Cá da trơn Gymnallabes typus",
+    "Eel catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<p>Gymnallabes typus Günther, 1867. Kích thước: 23 cm SL. Loài này dễ nhận ra nhờ thân rất dài, mai đầu tiêu giảm, các vây giữa liền nhau, mắt nhỏ và có vây bụng. Các vây đơn nối liền thành một dải. Các vây đôi tiêu giảm hoặc không có.</p>",
@@ -15,13 +17,20 @@
     "behaviour:planetcatfish": "<p>Đây là loài cá hiền, hợp nhất với bể biotope Tây Phi. Những bạn cùng bể lý tưởng là các loài barb, tetra và cichlid châu Phi cỡ trung.</p>",
     "dimorphism:planetcatfish": "<p>Nhìn từ dưới bụng lên thì dễ thấy nhất: cá cái có thân rộng hơn hẳn cá đực cùng tuổi, nuôi trong cùng điều kiện.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận. Hiện chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Annals and Magazine of Natural History (Series 3) v. 20 (no. 116) (art. 15), pp 111 [3], Pl. 2 (fig. A).</p>"
+    "references:planetcatfish": "<p>Annals and Magazine of Natural History (Series 3) v. 20 (no. 116) (art. 15), pp 111 [3], Pl. 2 (fig. A).</p>",
+    "quickFacts:glaser": "<p>Gymnallabes typus là một loài cá da trơn rất lạ, thường xuyên được nhập về từ Nigeria. Nó có thân dài như lươn, lớn tới 20–30 cm, bộ râu rất ấn tượng và đôi mắt nhỏ xíu.</p>",
+    "beforeYouBuy:glaser": "<p>Tiếc là ngoài tiệm, loài này lại bị gọi thành Channalabes apus. Thật ra Channalabes apus là một loài khác, sống ở Congo.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên, loài này sống trong lớp lá mục ẩm ướt. Nơi nó sống thường trông chẳng giống vùng nước chút nào, vậy mà Gymnallabes apus lại thích nghi hoàn toàn với chỗ đó. Đây là một trong số rất ít loài cá có thể rời khỏi nước và săn mồi trên cạn. Ngoài mang, nó còn có thêm một cơ quan hô hấp phụ để thở không khí.</p>",
+    "diet:glaser": "<p>Ngoài tự nhiên, cá chủ yếu ăn côn trùng. Trong bể thì thứ gì là thịt mà vừa miệng nó cũng ăn, kể cả cá rất nhỏ.</p>",
+    "behaviour:glaser": "<p>Loài cá da trơn này rất hiền.</p>",
+    "maintenance:glaser": "<p>Thứ duy nhất loài này cần phải có là chỗ trốn tối. Ngoài chuyện đó ra, Gymnallabes typus nuôi trong bể hoàn toàn không kén chọn gì.</p>"
   },
   "quality": {
     "score": 0.82,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.82
+      "planetcatfish": 0.82,
+      "glaser": 0.85
     }
   }
 }

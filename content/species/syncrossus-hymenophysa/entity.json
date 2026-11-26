@@ -12,6 +12,218 @@
     "malaysia",
     "sarawak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY"
+      ],
+      "regions": [
+        "Musi River",
+        "Kapuas",
+        "Pahang",
+        "Perak",
+        "Sumatra",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from close to the city of Palembang, therefore presumably the Musi River basin, South Sumatra province, Sumatra, Indonesia, and since recorded from elsewhere on Sumatra plus the Malaysian state of Sarawak and Indonesian province West Kalimantan on Borneo.",
+          "countries": [
+            "ID",
+            "MY"
+          ],
+          "regions": [
+            "Musi River",
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the highly diverse Danau Sentarum National Park in the Kapuas River basin, West Kalimantan, Borneo this species occurs sympatrically with over 200 other taxa including Barbonymus schwanenfeldii, Crossocheilus oblongus, Cyclocheilichthys janthochir, Epalzeorhynchos kalopterus, Paracrossochilus vittatus, 'Puntius' endecanalis, 'P.' everetii, 'P.' kuchingensis, 'P.' trifasciatus, Rasbora caudimaculata, R. cephalotaenia, R. sarawakensis, R. trilineata, Trigonopoma gracile, T. pauciperforatum, Homaloptera nebulosus, H. orthogoniata, Nemacheilus saravacensis, N. spiniferus, Vaillantella cinnamomea, Chromobotia macracanthus, Pangio semicincta, Hemibagrus wyckii, Mystus castaneus, M. singaringan, Kryptopterus bicirrhis, Datnioides microlepis, Nandus nebulosus, Helostoma temminckii, Channa pleurophthalma, and Mastacembelus erythrotaenia.",
+          "countries": [],
+          "regions": [
+            "Kapuas"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also known from the Pahang and Perak river systems in Peninsular Malaysia but it may already have disappeared there given that only a single confirmed specimen has been documented since 1955, while possible occurrences on Java also remain in doubt.",
+          "countries": [],
+          "regions": [
+            "Pahang",
+            "Perak"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368162,
+      "total": 56,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          28
+        ],
+        [
+          "TH",
+          14
+        ],
+        [
+          "MY",
+          8
+        ],
+        [
+          "VN",
+          4
+        ],
+        [
+          "MM",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          25.3125,
+          2,
+          0
+        ],
+        [
+          98.4375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          14.0625,
+          2,
+          0
+        ],
+        [
+          99.84375,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          101.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          101.25,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          101.25,
+          16.875,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          102.65625,
+          15.46875,
+          4,
+          0
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          3,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          3,
+          0
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          112.5,
+          0,
+          2,
+          2
+        ],
+        [
+          112.5,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          112.5,
+          11.25,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          115.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          0,
+          15,
+          15
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -146,20 +358,9 @@
       "width": 855,
       "height": 434,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Stan Sung / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/syncrossus-hymenophysa",
       "caption": "Subadult specimen.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/81b08f74d16e00ec.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/81b08f74d16e00ec-480.webp",
-      "width": 799,
-      "height": 472,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/syncrossus-hymenophysa",
-      "caption": "Juveniles often appear quite elongate in form...",
       "source": "seriouslyfish"
     },
     {
@@ -168,9 +369,20 @@
       "width": 800,
       "height": 395,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Wolfram Wolf / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/syncrossus-hymenophysa",
       "caption": "...but as the fish mature the body deepens considerably.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/81b08f74d16e00ec.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/81b08f74d16e00ec-480.webp",
+      "width": 799,
+      "height": 472,
+      "licence": "dùng với sự cho phép",
+      "author": "Wolfram Wolf / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/syncrossus-hymenophysa",
+      "caption": "Juveniles often appear quite elongate in form...",
       "source": "seriouslyfish"
     }
   ],

@@ -1,0 +1,186 @@
+{
+  "id": "pseudolaguvia-foveolata",
+  "scientificName": "Pseudolaguvia foveolata",
+  "order": "Siluriformes",
+  "family": "Erethistidae",
+  "genus": "Pseudolaguvia",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "tista"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Padma",
+        "Jamuna",
+        "Tista",
+        "Torsha"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Indian waters, north-eastern India, Padma, Jamuna, Brahmaputra, Tista and Torsha.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra",
+            "Padma",
+            "Jamuna",
+            "Torsha"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Tista River at Tista barrage, 26°45'10\"N, 88°34'11\"E, West Bengal, India.",
+          "countries": [],
+          "regions": [
+            "Tista"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341547,
+      "total": 6,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "IN",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          88.59375,
+          26.71875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1422",
+      "html": "<p>Size: 30 mm SL (1.2 in; about 3 cm).</p><p>Members of the genus Pseudolaguvia are small erethistid catfishes inhabiting hill streams and large rivers in the area bordered by the Ganges River drainage (northern India) to the west and the Sittang River drainage (east-central Myanmar) to the east. They can be distinguished from other sisorids by their small size, a combination of a thoracic adhesive apparatus with a median depression and prominent postcoracoid processes.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1422",
+      "html": "<p>Asia: Indian waters, north-eastern India, Padma, Jamuna, Brahmaputra, Tista and Torsha. Type locality: Tista River at Tista barrage, 26°45'10\"N, 88°34'11\"E, West Bengal, India. IUCN Red List category: Data Deficient (last assessed 2009).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1422",
+      "html": "<p>Flowing larger river with rocky substrate.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1422",
+      "html": "<p>pH: 6.0–7.0.</p><p>Temperature: 23–24°C.</p><p>Needs well oxygenated water.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1422",
+      "html": "<p>Known to take only live food like bloodworms, frozen brine shrimp etc. Spot feeding will help in case tank mates are voracious feeders.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1422",
+      "html": "<p>A peaceful species suitable for a hillstream biotope. Extreme care should be taken while choosing their tankmates as these fish are extremely poor at competing for food.</p><p>Suggested tankmates: cyprinids like Barilius and Danio and balitorine loaches like Homaloptera species.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1422",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1422",
+      "html": "<p>Ichthyological Exploration of Freshwaters v. 16 (no. 2), pp 174, Figs. 1-2, 4A.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "sục khí bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể suối",
+        "đá cuội trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

@@ -1,0 +1,57 @@
+{
+  "id": "sinibotia-superciliaris",
+  "native": {
+    "input": "9f433fa4649ac805",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the foot of Mount Emei (aka Omei Shan) in Sichuan province, western China and since recorded from Guizhou province which borders Sichuan to the south.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze River",
+        "source": "seriouslyfish",
+        "quote": "All known localities lie within the middle section of the Yangtze River (aka Chiang Jiang) drainage.",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Kottelat and Chu (1987)[2] identified specimens collected from the upper Mekong basin in Weixi County, Yunnan province as S. superciliaris though we've been unable to locate any additional records from the Mekong, and thus the full extent of its range remains unclear.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sinibotia superciliaris",
+    "status": "ACCEPTED",
+    "taxonKey": 2367821,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

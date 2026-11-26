@@ -3,6 +3,12 @@
   "name": "หลานชาง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-19T12:46:42.098Z",
+    "why": "\"หลานชาง\" is only a transliteration of Lancang and lacks the Thai kind word \"แม่น้ำ\"; Thai atlases write \"แม่น้ำโขง\" (or \"แม่น้ำล้านช้าง\" for the Chinese upper course) for this river."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

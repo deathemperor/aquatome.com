@@ -1,0 +1,356 @@
+{
+  "id": "pangasius-bocourti",
+  "scientificName": "Pangasius bocourti",
+  "order": "Siluriformes",
+  "family": "Pangasiidae",
+  "genus": "Pangasius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "cambodia",
+    "mekong",
+    "chao-phraya"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Phnom-Penh (Cambodia).",
+          "countries": [
+            "KH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Mekong and Chao Phraya River basins.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202457,
+      "total": 87,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "TH",
+          58
+        ],
+        [
+          "VN",
+          13
+        ],
+        [
+          "KH",
+          12
+        ],
+        [
+          "MY",
+          2
+        ],
+        [
+          "IN",
+          1
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          12.65625,
+          19,
+          19
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          104.0625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          15.46875,
+          8,
+          8
+        ],
+        [
+          104.0625,
+          16.875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          9.84375,
+          11,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          8,
+          7
+        ],
+        [
+          105.46875,
+          14.0625,
+          25,
+          25
+        ],
+        [
+          113.90625,
+          2.8125,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 120
+      },
+      {
+        "source": "scotcat",
+        "value": 120
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-22/",
+      "html": "<p>Shark catfishes have received their common name according to their swimming behaviour, which is very similar to the way several species of shark swim. Similar to sharks is also that the fishes swim permanently and only seldom take a rest.</p><p>Nowadays they are also well known by their scientific genus name, e.g. Pangasius, because these fishes are the subject of intense aquaculture in Southeast Asia. So their very tasty and boneless fillets can be found in almost any food store, even in Europe.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_bocourti.htm",
+      "html": "<p>Family: Pangasiidae. Common name: Basa fish. Synonym: Pangasius altifrons. Size: 120 cm. Temperature: 22–28°C. pH: 6.5–7.5.</p><p>Description: Anal soft rays: 31–35. Body stout and heavy, head broader than long; blue-black dorsum; blunt snout with broad white band on muzzle; single large patch of vomerine teeth with separate patch of palatine teeth on each side. Rounded head and blunt rounded snout.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-22/",
+      "html": "<p>Origin: Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_bocourti.htm",
+      "html": "<p>Asia: Mekong and Chao Phraya River basins. Type locality: Phnom-Penh (Cambodia).</p><p>IUCN Red List: A common species recorded from the Chao Phraya River and the Mekong basin. It is highly utilised and impacted by habitat loss, but is assessed as Least Concern at present as there is no evidence of significant population declines across its range. Impacts from potential future mainstream dams should be monitored.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_bocourti.htm",
+      "html": "<p>Known from large rivers and also found in rapids and in deeper slower reaches. Enters flooded forest and feeds on plants.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-22/",
+      "html": "<p>All species of Pangasius are large to very large growing fishes. Thus they fit in the long term only for show aquaria. Here they can live several decades.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_bocourti.htm",
+      "html": "<p>Spawns at the onset of flood season and the young are first seen in June, averaging about 5 cm by mid-June.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-22/",
+      "html": "<p>P. bocourti belongs to the medium-sized species; its maximum reported length is approx. 120 cm. The very attractive fish can be distinguished from its congeners in the trade quite easily by the white-bordered caudal fin.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_bocourti.htm",
+      "html": "<p>Etymology: The specific name bocourti honours French zoologist and artist Marie Firmin Bocourt (1819–1904), who described P. larnaudii in 1866.</p><p>Remarks: This is mainly the fish sold in U.K. supermarkets (rarely also as Pangasianodon hypophthalmus) as Vietnamese river cobbler, sold in place of the more expensive cod or haddock.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_bocourti.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2006. FishBase. www.fishbase.org, version (02/2010). Kano Y, et al. (2013) An online database on freshwater fish diversity and distribution in Mainland Southeast Asia. Ichthyological Research 60: 293-295. Roberts, T.R. and C. Vidthayanon, 1991. Systematic revision of the Asian catfish family Pangasiidae, with biological observations and descriptions of three new species. Proc. Acad. Nat. Sci. Philad. 143:97-144. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. Vidthayanon, C. 2012. Pangasius bocourti. The IUCN Red List of Threatened Species 2012.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/39157b7e660536fb.webp",
+      "thumb": "https://media.aquatome.com/glaser/39157b7e660536fb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-22/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a78def71e7bb8780.webp",
+      "thumb": "https://media.aquatome.com/glaser/a78def71e7bb8780-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-22/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ad3a4a876d477736.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ad3a4a876d477736-480.webp",
+      "width": 500,
+      "height": 325,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_bocourti.htm",
+      "caption": "Pangasius bocourti: juvenile",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "-Z3oOELwy7w",
+      "title": "How to breed shark fishes at home breedig pangasius fish in Aquarium easily",
+      "durationSec": 380,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "z5mCyjtq3QY",
+      "title": "Wao, top pangasius bocourti, basa fish in intensive pond #farm #pangasiusfish #aquaculture #cá #",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "o_-R0_o_ELQ",
+      "title": "Como é o AQUÁRIO IDEAL para o peixe PANGASIUS ?",
+      "durationSec": 282,
+      "lang": "pt-BR"
+    },
+    {
+      "youtubeId": "rhSfNRJg1Sc",
+      "title": "(Pangasius Bocourti) Basa Fish - Vietnamese Pangasius",
+      "durationSec": 152,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể kính trưng bày cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "thức ăn viên cho cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

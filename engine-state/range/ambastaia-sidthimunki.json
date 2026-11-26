@@ -1,8 +1,8 @@
 {
   "id": "ambastaia-sidthimunki",
   "native": {
-    "input": "026d085a426dec0f",
-    "at": "2026-11-12T13:29:05.219Z",
+    "input": "ef7222d911fe5220",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "TH",
@@ -43,6 +43,22 @@
         "quote": "Ambastaia sidthimunki comes from rivers and floodplain forests in Thailand.",
         "words": "Thailand",
         "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from northern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Ambastaia sidthimunki is native to the Mae Klong and Chao Phraya river basins in Thailand, which flow through central and western Thailand.",
+        "words": "Thailand",
+        "ok": true
       }
     ],
     "regions": [
@@ -57,6 +73,20 @@
         "name": "Ataran",
         "source": "seriouslyfish",
         "quote": "Instead, A. sidthimunki appears to be restricted to the Mae Klong river basin in western Thailand and the Ataran (Kasat in Thai) drainage, around the border between Thailand and Myanmar (K. Udomritthiruj, pers. comm.).",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "aquariumbreeder",
+        "quote": "Ambastaia sidthimunki is native to the Mae Klong and Chao Phraya river basins in Thailand, which flow through central and western Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "aquariumbreeder",
+        "quote": "Ambastaia sidthimunki is native to the Mae Klong and Chao Phraya river basins in Thailand, which flow through central and western Thailand.",
+        "country": "TH",
         "ok": true
       }
     ],

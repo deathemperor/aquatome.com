@@ -24,6 +24,8 @@ afterEach(() => { vi.unstubAllEnvs(); resetAccounts() })
 test.each(['stdout', 'stderr'])('a character cut between %s chunks is read whole', async stream => {
   vi.stubEnv('CLAUDE_CODE_OAUTH_TOKENS', '')
   vi.stubEnv('CLAUDE_CODE_OAUTH_TOKEN', '')
+  // The Mac's reading: on GitHub a failure says its kind and none of the CLI's text (claude-limit.ts failureMessage).
+  vi.stubEnv('GITHUB_ACTIONS', '')
   resetAccounts()
   const text = 'ที่เพาะ, cá bảy màu'
   const bytes = Buffer.from(stream === 'stdout' ? JSON.stringify({ structured_output: { text } }) : text)

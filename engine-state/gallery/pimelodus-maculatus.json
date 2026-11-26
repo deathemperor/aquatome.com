@@ -148,7 +148,6 @@
  "hashes": {
   "https://media.aquatome.com/scotcat/13fd904c33324a64.webp": "cf2d6e8ecdc20594",
   "https://media.aquatome.com/scotcat/6da14377147b136d.webp": "e6c464d96ecccdea",
-  "https://media.aquatome.com/commons/2f78231af77e966f.webp": "cf4f66662f2686cd",
   "https://media.aquatome.com/inaturalist/107517367.webp": "fc7c646e3f6f3917",
   "https://media.aquatome.com/inaturalist/248123738.webp": "5e4ee6a6a6b190d8",
   "https://media.aquatome.com/inaturalist/341890602.webp": "8cf6fcf8f2ce9cfc",
@@ -163,5 +162,9 @@
    "research": 320888127,
    "agree": 260197948
   }
+ },
+ "gbif": {
+  "key": 2338908,
+  "next": null
  }
 }

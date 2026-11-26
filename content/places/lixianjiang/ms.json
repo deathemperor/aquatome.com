@@ -3,6 +3,12 @@
   "name": "Lixianjiang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-17T11:38:08.125Z",
+    "why": "\"Lixianjiang\" is just the Chinese pinyin and keeps the Chinese word \"jiang\" (river) without the Malay kind word \"Sungai\", so an atlas in Malaysia would write \"Sungai Lixian\"."
+  },
   "quality": {
     "score": 0.45,
     "indexable": false

@@ -3,6 +3,12 @@
   "name": "Cyprus",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-20T01:53:05.081Z",
+    "why": "Malay atlases in Malaysia write the country as \"Cyprus\" in English spelling, but the standard Malay form is \"Cyprus\" in Dewan Bahasa usage as \"Cyprus\" or \"Siprus\"; Malaysian usage is typically \"Cyprus\", so this is mostly acceptable."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

@@ -1,0 +1,75 @@
+{
+  "id": "youtube-j8fD7EhXv0Y",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=j8fD7EhXv0Y",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-24",
+  "video": {
+    "youtubeId": "j8fD7EhXv0Y",
+    "title": "What The Hell Is Even That?",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 831,
+    "publishedAt": "2023-07-16",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D1WIxQi0sr79irnMFnlLzqJ",
+      "position": 10
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/j8fD7EhXv0Y/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 60
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "RPM salt",
+        "t": 165
+      },
+      {
+        "category": "test-nuoc",
+        "type": "man",
+        "t": 289
+      },
+      {
+        "category": "khac",
+        "brand": "CJ",
+        "model": "Ultra Zero",
+        "t": 360
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Aquarium Salt",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Có đáng tiền không",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/j8fD7EhXv0Y/p5-oX1RhbmtfMS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/j8fD7EhXv0Y/p5-oX1RhbmtfMS5qcGc-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "Itchy Melvin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:My_Brother%27s_Saltwater_Fish_Tank_1.jpg",
+          "caption": "Cá bống khỏe mạnh bơi trên nền cát cạnh san hô trong bể nước mặn."
+        }
+      }
+    ]
+  }
+}

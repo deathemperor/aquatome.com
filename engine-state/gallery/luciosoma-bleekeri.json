@@ -4,7 +4,6 @@
   "File:Fish apolloshark.jpg"
  ],
  "hashes": {
-  "https://media.aquatome.com/panitvong/inat-252491465.webp": "fdfcf47e3a3e3f7e",
   "https://media.aquatome.com/commons/a52a0ea8c0c67060.webp": "0f070687268ca6a7"
  },
  "commons": "2026-11-09",
@@ -15,5 +14,13 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2360866,
+  "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
  }
 }

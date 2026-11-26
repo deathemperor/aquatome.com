@@ -1,8 +1,8 @@
 {
   "id": "eirmotus-octozona",
   "native": {
-    "input": "c8a2d19e0bb65239",
-    "at": "2026-11-08T03:17:10.020Z",
+    "input": "ba1cd966cd252266",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
       {
         "code": "MY",
@@ -16,21 +16,36 @@
         "code": "TH",
         "status": "doubtful",
         "source": "seriouslyfish",
-        "quote": "The type series came from aquarium fish said to originate at Bueng Boraphet in Thailand, where it has never been recorded since, and if it occurs in Thailand it is probably restricted to the peninsula.",
+        "quote": "Specimens used in Tan and Kottelat's 2008 revision of the genus were obtained from commercial collectors in Johor state, Peninsular Malaysia, and the authors suggest that if E. octozona does occur in Thailand, it is probably restricted to the southern, peninsular section.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Eightbanded barb (Eirmotus octozona) is a very delicate, slightly transparent dwarf barb from blackwaters of Malaysia and Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Eightbanded barb (Eirmotus octozona) is a very delicate, slightly transparent dwarf barb from blackwaters of Malaysia and Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "doubtful",
+        "source": "glaser",
+        "quote": "However, there have been no reports since then about any occurrence of Eirmotus in Thailand.",
         "words": "Thailand",
         "ok": true
       }
     ],
-    "regions": [
-      {
-        "name": "Peninsular Malaysia",
-        "source": "seriouslyfish",
-        "quote": "Eirmotus octozona is a small cyprinid with eight dark body bars, known from Johor state in Peninsular Malaysia.",
-        "country": "MY",
-        "ok": false,
-        "why": "a country"
-      }
-    ],
+    "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -59,9 +74,10 @@
       ]
     ],
     "native": [
-      "MY"
+      "MY",
+      "ID"
     ],
     "requests": 12,
-    "at": "2026-11-08T03:17:10.020Z"
+    "at": "2026-11-19T00:50:56.943Z"
   }
 }

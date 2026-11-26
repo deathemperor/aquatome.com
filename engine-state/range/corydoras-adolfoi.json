@@ -1,8 +1,8 @@
 {
   "id": "corydoras-adolfoi",
   "native": {
-    "input": "98ed8b556c295203",
-    "at": "2026-11-05T06:42:12.410Z",
+    "input": "1dbe1dcfa2fb67a4",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
       {
         "code": "BR",
@@ -11,6 +11,22 @@
         "quote": "Type locality is given as 'Small tributary of the upper Rio Negro on the equator near São Gabriel da Cachoeira, Brazil', and this species is apparently highly endemic there.",
         "words": "Brazil",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "It comes from small blackwater tributaries of the upper Rio Negro near São Gabriel da Cachoeira, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Some sources state that it also occurs in the rio Uaupés (known as 'Vaupés' in Colombia), a major tributary of the Negro, but official confirmation has not been obtained so far.",
+        "words": "Colombia",
+        "ok": true
       }
     ],
     "regions": [
@@ -18,6 +34,13 @@
         "name": "Rio Negro",
         "source": "seriouslyfish",
         "quote": "Type locality is given as 'Small tributary of the upper Rio Negro on the equator near São Gabriel da Cachoeira, Brazil', and this species is apparently highly endemic there.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "bwaquatics",
+        "quote": "It comes from small blackwater tributaries of the upper Rio Negro near São Gabriel da Cachoeira, Brazil.",
         "country": "BR",
         "ok": true
       }

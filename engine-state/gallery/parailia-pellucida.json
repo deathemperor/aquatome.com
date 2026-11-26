@@ -5,7 +5,8 @@
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/4e8800438f9d15e0.webp": "33734cf1fcb6b37f",
-  "https://media.aquatome.com/scotcat/cbaef6677511f0bc.webp": "793376c1eadabd79"
+  "https://media.aquatome.com/scotcat/cbaef6677511f0bc.webp": "793376c1eadabd79",
+  "https://media.aquatome.com/glaser/623f2d8cf4648615.webp": "0d07030c1f1f4ce6"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -18,6 +19,9 @@
  },
  "gbif": {
   "key": 2341592,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

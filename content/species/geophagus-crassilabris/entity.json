@@ -8,21 +8,23 @@
   "places": [
     "north-america",
     "panama",
-    "chagres"
+    "chagres",
+    "south-america",
+    "colombia",
+    "rio-chacu"
   ],
   "range": {
     "native": {
       "countries": [
-        "PA"
+        "PA",
+        "CO"
       ],
       "regions": [
-        "Chagres",
-        "Bayano",
-        "Tuira",
-        "Sambú"
+        "Rio Chacu"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -34,14 +36,13 @@
           "regions": []
         },
         {
-          "source": "seriouslyfish",
-          "quote": "Known localities include the ríos Chagres, Cupe, Missimbi, Platenal, Frijoles, Bayano, Ipeti, Sucubti, Sabalo, Pirra, Pepé, Sambú, Morti, Uruseca, Meteti and Tuira.",
-          "countries": [],
+          "source": "glaser",
+          "quote": "Colombia, Rio Chacu.",
+          "countries": [
+            "CO"
+          ],
           "regions": [
-            "Chagres",
-            "Bayano",
-            "Tuira",
-            "Sambú"
+            "Rio Chacu"
           ]
         }
       ]
@@ -49,7 +50,7 @@
     "records": {
       "taxonKey": 5208427,
       "total": 106,
-      "fetched": "2026-11-08",
+      "fetched": "2026-11-16",
       "countries": [
         [
           "PA",
@@ -95,13 +96,13 @@
           -77.34375,
           4.21875,
           6,
-          0
+          6
         ],
         [
           -77.34375,
           5.625,
           1,
-          0
+          1
         ]
       ]
     }
@@ -138,6 +139,10 @@
       {
         "source": "seriouslyfish",
         "value": 24
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -150,6 +155,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
@@ -173,10 +182,22 @@
       "html": "<p>Type locality is 'Isthmus of Panama near Candelaria' and this species is endemic to the Pacific and Atlantic slopes of central and eastern Panama.</p><p>Known localities include the ríos Chagres, Cupe, Missimbi, Platenal, Frijoles, Bayano, Ipeti, Sucubti, Sabalo, Pirra, Pepé, Sambú, Morti, Uruseca, Meteti and Tuira.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_crassilabris_en/",
+      "html": "<p>Colombia, Rio Chacu.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
       "html": "<p>Inhabits pristine steams and rivers with moderate water flow and substrates of sand or gravel, with submerged woody structures such as driftwood or tree roots also common features.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_crassilabris_en/",
+      "html": "<p>These eartheaters live in nature in a habitat of moderately flowing streams and rivers.</p>"
     },
     {
       "key": "aquariumSize",
@@ -203,10 +224,22 @@
       "html": "<p>'Geophagus' steindachneri group spp. are benthophagous by nature and mostly employ a feeding strategy whereby mouthfuls of substrate are taken and sifted for edible items with the remaining material expelled via the gills and mouth.</p><p>For this reason they're commonly termed 'eartheaters' and the provision of a suitable substrate is essential to their long-term well-being.</p><p>Once settled they readily rise into the water column when food is introduced but continue to browse normally at other times.</p><p>The stomach contents of wild specimens mostly comprise small aquatic and terrestrial invertebrates, plant material in the form of seeds, organic detritus and sediment.</p><p>Even as adults these cichlids seem unable to properly ingest larger food items meaning the diet should contain a variety of high quality, fine-grade prepared foods plus small live or frozen bloodworm, Tubifex, Artemia, mosquito larvae, etc.</p><p>At least some of the dried products should contain a high proportion of vegetable matter such as Spirulina or similar.</p><p>Home-made, gelatine-bound recipes containing a mixture of dried fish food, puréed shellfish, fresh fruit and vegetables, for example, are proven to work well and can be cut into bite-sized discs using the end of a sharp pipette or small knife.</p><p>Rather than a single large meal offer 3-4 smaller portions daily to allow natural browsing behaviour as this seems to result in the best growth rate and condition.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_crassilabris_en/",
+      "html": "<p>These eartheaters eat all available fish food, including flakes and tablet food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
       "html": "<p>Adult males are typically aggressive towards one another, especially when courting or spawning and only one should be housed in all but the largest aquaria.</p><p>This species cannot be described as predatory but very small tankmates may nevertheless be eaten.</p><p>This species apparently practices polygyny meaning a single male should ideally be provided with a group of 2 or more females.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_crassilabris_en/",
+      "html": "<p>These fish should not be kept in pairs but as a group with one male and several females, as known with many Malawi and Tanganyika cichlids. This mating system is called \"open polygyny\".</p>"
     },
     {
       "key": "dimorphism",
@@ -219,6 +252,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
       "html": "<p>Ovophilous, maternal mouthbrooder forming weak pair bonds during the spawning process only.</p><p>Most breeders recommend isolating holding females as they're often subject to harassment from conspecifics.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_crassilabris_en/",
+      "html": "<p>Remarkably for this group of eartheaters is the way they breed their eggs: not as normally in the throat area, as known with most mouthbrooding cichlids, but in the oral cavity. With this type of mouthbreeding you can clearly see that the fish spread their operculum and need to expand their upper lip. The lips of G. crassilabris are clearly thicker than those of its two relatives, G. steindachneri and G. pellegrini.</p>"
     },
     {
       "key": "notes",
@@ -240,7 +279,7 @@
       "width": 800,
       "height": 561,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Enrico Richter / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
       "caption": "Subadult specimens of unconfirmed origin.",
       "source": "seriouslyfish"
@@ -251,13 +290,32 @@
       "width": 799,
       "height": 558,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Enrico Richter / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
       "caption": "Another subadult.",
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "h4nAYL22Z1w",
+      "title": "´Geophagus´crassilabris´",
+      "durationSec": 125,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "G5Q-ITbJ16g",
+      "title": "Geophagus crassilabris",
+      "durationSec": 98,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qvHqLbz3yzI",
+      "title": "Geophagus Guide 2 - the new Andes eartheaters + Geophagus pellegrini , steindachneri & crassilabris",
+      "durationSec": 471,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -287,5 +345,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-14"
 }

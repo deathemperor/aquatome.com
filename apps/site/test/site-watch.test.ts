@@ -1,9 +1,9 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { checkedPage, checks, prComment, sitemapPages, lateDeploy, goesLive, DEPLOY_PATHS, waitingCommits } from '../../../scripts/site-watch.mjs'
+import { checkedPage, checks, merged, prComment, sitemapPages, lateDeploy, goesLive, DEPLOY_PATHS, waitingCommits } from '../../../scripts/site-watch.mjs'
 
 // One page's review in Playwright's JSON report, shaped as a real run writes it (ci.yml runs the phone project only).
-const LIMIT = "Claude usage limit: You've hit your weekly limit · resets Nov 5, 6am (UTC)"
+const LIMIT = 'Claude usage limit' // e2e/claude-limit.ts: none of the CLI's words
 type Note = { type: string; description: string }
 const review = (path: string, status: 'expected' | 'unexpected' | 'skipped', annotations: Note[] = [], error?: string) => ({
   title: `review ${path}`, file: 'review.spec.ts', tags: ['review'],
@@ -43,6 +43,24 @@ test('pr-comment: a review that failed on its findings was reviewed; one that fa
 test('report: a review stopped by the limit neither fails nor passes, so its issue is left as it is', () => {
   const [c] = checks({ suites: [{ title: 'review.spec.ts', specs: [limited('/vi/')] }] })
   expect(c).toMatchObject({ failed: [], passed: [], notes: [], highs: [] })
+})
+
+// Lighthouse's results for one page on each form, as its JSON report writes them.
+const lighthouse = (path: string, forms: Record<string, 'expected' | 'unexpected' | 'flaky'>) => checks({ suites: [{ title: 'lighthouse.spec.ts', specs: [{
+  title: `lighthouse ${path} @lighthouse`, file: 'lighthouse.spec.ts', tags: ['lighthouse'],
+  tests: Object.entries(forms).map(([projectName, status]) => ({ projectName, expectedStatus: 'passed', status, annotations: [], results: [{ status: status === 'unexpected' ? 'failed' : 'passed', ...(status === 'unexpected' ? { error: { message: `largest contentful paint on a ${projectName}, ms` } } : {}) }] })),
+}] }] })
+
+test('report: Lighthouse\'s second measure decides a page it measured again; the other forms and pages keep their first', () => {
+  const first = [...lighthouse('/huong-dan/x/', { phone: 'expected', desktop: 'unexpected' }), ...lighthouse('/cay/', { phone: 'unexpected', desktop: 'expected' })]
+  // Measured again five minutes later: the guide passes on a computer, the plant list misses again on a phone.
+  const again = [...lighthouse('/huong-dan/x/', { desktop: 'expected' }), ...lighthouse('/cay/', { phone: 'unexpected' })]
+  const [guide, plants] = merged([first, again])
+  expect(guide).toMatchObject({ failed: [], passed: ['phone', 'desktop'], errors: [] })
+  expect(plants).toMatchObject({ failed: ['phone'], passed: ['desktop'] })
+  expect(plants!.errors).toEqual(['phone: largest contentful paint on a phone, ms'])
+  // No second measure: the first is the result, as before.
+  expect(merged([first])).toEqual(first)
 })
 
 test('the pages a site offers: through the index of its sitemaps, or an older build\'s plain list', async () => {

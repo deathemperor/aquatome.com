@@ -3,6 +3,12 @@
   "name": "แม่น้ำโตกันชินส์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:56:46.146Z",
+    "why": "Thai atlases usually write the Tocantins River as \"แม่น้ำโทแคนทินส์\" or \"แม่น้ำโตกันตินส์\", and \"โตกันชินส์\" uses a \"ชิ\" for \"ti\" that follows no standard Thai rendering, even though \"แม่น้ำ\" is the correct kind word."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

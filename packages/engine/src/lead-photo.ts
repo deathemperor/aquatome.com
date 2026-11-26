@@ -1,11 +1,13 @@
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { photoFitsHead, type Photo } from '@aq/schema'
+import { isNonCommercial, photoFitsHead, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
-import { across, cardWorthy, LARGE_PX, ownMarkOnly, readCalendar, readVerdicts, SLOT_RATIO } from './curation'
+import { across, cardWorthy, handAvoid, LARGE_PX, ownMarkOnly, readCalendar, readVerdicts, SLOT_RATIO } from './curation'
+import { pickStands, readPersonYes } from './person-yes'
 import { namedOn } from './photo-named'
+import { ageOf, grownHead } from './young-heads'
 import { contactSheet } from './video-images'
 
 /**
@@ -56,16 +58,34 @@ const fills = (p: Photo) => across(p.large ?? p, 'square') >= LARGE_PX
 /** The picture as the narrowest card crops it, from the middle: neither the site's cards nor the app's place the crop. */
 export const cardCrop = (bytes: Uint8Array) => sharp(bytes).rotate().resize(640, Math.round(640 / SLOT_RATIO.square), { fit: 'cover', position: 'centre' }).jpeg({ quality: 85 }).toBuffer()
 
-/** What a fish's head should do: lead with this photo, or ask about this pair first; nothing if it stays. */
-export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Photo) => boolean, compared: Compared, marked: (p: Photo) => boolean = () => false, named: (p: Photo) => number = () => 0): { lead: Photo } | { ask: { head: Photo; photo: Photo } } | undefined {
-  own=own.filter(photoFitsHead);gallery=gallery.filter(photoFitsHead)
+/**
+ * What a fish's head should do: lead with this photo, or ask about this pair first; nothing if it stays. `age`: true for a
+ * photo the photo check calls young, false for one it calls grown that may lead in a young one's place (young-heads.ts).
+ * `held`: a photo the calendar keeps off cards (content/curation.json `avoid`, a shop's lettered photo among them).
+ */
+export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Photo) => boolean, compared: Compared, marked: (p: Photo) => boolean = () => false, named: (p: Photo) => number = () => 0, kept: (p: Photo) => boolean = () => false, age: (p: Photo) => boolean | undefined = () => undefined, held: (p: Photo) => boolean = () => false): { lead: Photo } | { ask: { head: Photo; photo: Photo } } | undefined {
+  // A non-commercial album photo leads a page only where it's the one way to show that fish: no own photo, and no album
+  // photo that passes or that a shop's own mark leaves to lead. Any of those takes its place at the next run, with no
+  // model call (the chief of staff's rule, 17 Nov). Head and album differ on purpose (the chief of staff, 20 Nov): the
+  // head follows that line, and a Glaser photo with its mark is a way to show the fish, one the owner asked for, so it
+  // leads before a non-commercial one; the album follows looks: clean photos, then non-commercial, then banner photos
+  // (gallery.ts rankGallery). Where no open photo passes, the head's order is: a generated picture, then a Glaser photo
+  // with its mark, then a non-commercial one, so a non-commercial photo never takes a generated picture's place (the
+  // chief of staff, 20 Nov; whether any real photo leads over a generated picture goes to the owner). The order binds what
+  // a step chooses, not a person's pick (sweep.ts).
+  const open = (p: Photo) => !isNonCommercial(p.licence)
+  const byBest = (a: GalleryPhoto, b: GalleryPhoto) => Number(b.best ?? false) - Number(a.best ?? false) || across(b.large ?? b, 'square') - across(a.large ?? a, 'square')
+  own=own.filter(photoFitsHead)
+  const nc = gallery.filter(p => photoFitsHead(p) && !p.generated && !open(p)).sort(byBest)
+  gallery=gallery.filter(p=>photoFitsHead(p)&&open(p))
   // A photo its source names only with "cf.", to its genus or as another fish (`named`, photo-named.ts) doesn't lead while
   // one it names better passes: the lowest class that passes is the bar (the chief of staff, 2026-11-14).
-  const bar = Math.min(...[...own, ...gallery].filter(p => !p.generated && passes(p)).map(named))
+  const bar = Math.min(...[...own, ...gallery].filter(p => !p.generated && open(p) && passes(p)).map(named))
   const down = (p: Photo) => named(p) > bar
+  const last = () => nc.find(p => passes(p) && !down(p))
   // A passing real photograph takes the lead back even when the generated head already fills the card.
   if (own[0]?.generated) {
-    const real = [...own, ...gallery].find(p => !p.generated && passes(p) && !down(p))
+    const real = [...own, ...gallery].find(p => !p.generated && open(p) && passes(p) && !down(p))
     if (real) return { lead: real }
     return undefined
   }
@@ -73,17 +93,25 @@ export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Ph
   gallery = gallery.filter(p => !p.generated)
   const head = own[0]
   // Best first, then the largest.
-  const pool = [...new Map([...own.slice(1), ...[...gallery].sort((a, b) => Number(b.best ?? false) - Number(a.best ?? false) || across(b.large ?? b, 'square') - across(a.large ?? a, 'square'))].map(p => [p.url, p])).values()]
-  if (!head) { const lead = pool.find(p => passes(p) && !down(p)) ?? pool.find(marked); return lead ? { lead } : undefined }
+  const pool = [...new Map([...own.slice(1).filter(open), ...[...gallery].sort(byBest)].map(p => [p.url, p])).values()]
+  if (!head) { const lead = pool.find(p => passes(p) && !down(p)) ?? pool.find(marked) ?? last(); return lead ? { lead } : undefined }
+  if (!open(head)) { const lead = pool.find(p => passes(p) && !down(p)) ?? pool.find(marked); return lead ? { lead } : undefined }
   // A photo with its source's mark leads only where nothing else passes, and one its source names worse than the bar
-  // gives way to the first that passes at the bar.
-  if (marked(head) || down(head)) { const lead = pool.find(p => passes(p) && !down(p)); if (lead) return { lead } }
-  const back = own.slice(1).find(o => { const said = compared[head.url]?.[o.url]; return passes(o) && !down(o) && (said === false || (said === true && fills(o))) })
+  // gives way to the first that passes at the bar. So does one with a shop's own mark, kept (`kept`, own-mark.ts), and one
+  // kept off cards (`held`): a fish's own thumbnail is its head, so a held head stays only while nothing else passes (the
+  // chief of staff, 16 Nov, on Rineloricaria castroi's lettered head over two photos that pass).
+  if (marked(head) || kept(head) || held(head) || down(head)) { const lead = pool.find(p => passes(p) && !down(p)); if (lead) return { lead } }
+  // A head the photo check calls young gives way to the first of the page's own photos it calls grown, named no worse
+  // than the head, as the check and the sweep order them (`age`, young-heads.ts; the chief of staff, 15 Nov). A head a person picked has no age here.
+  if (age(head) === true) { const lead = own.slice(1).find(p => named(p) <= named(head) && age(p) === false); if (lead) return { lead } }
+  // Nor does a young photo take the lead from a head that isn't, so the step never undoes the rule above.
+  const younger = (p: Photo) => age(p) === true && age(head) !== true
+  const back = own.slice(1).find(o => { const said = compared[head.url]?.[o.url]; return passes(o) && !down(o) && !younger(o) && (said === false || (said === true && fills(o))) })
   if (back) return { lead: back }
   if (fills(head)) return undefined
   const seen = new Set<string>()
   const candidates = [...own.slice(1), ...gallery.filter(p => p.best), ...gallery.filter(p => !p.best)].filter(p => {
-    if (seen.has(p.url) || !fills(p) || !passes(p) || down(p)) return false
+    if (seen.has(p.url) || !fills(p) || !passes(p) || down(p) || younger(p)) return false
     seen.add(p.url)
     return true
   })
@@ -102,6 +130,9 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
   const compared: Compared = JSON.parse(await readFile(file, 'utf8').catch(() => '{}'))
   const verdicts = await readVerdicts(root)
   const cur = await readCalendar(root)
+  // A person's entries alone: the engine's (headAvoid) list a photo refused for one page, by address, and here a photo is
+  // judged for its own page, where it may pass.
+  const avoid = handAvoid(cur.avoid)
   const report = { sheets: 0, compared: 0, changed: [] as string[], gained: [] as string[], failed: [] as string[], waiting: 0, stopped: '' }
   const today = new Date().toISOString().slice(0, 10)
   const coming = new Set(cur.days.filter(x => x.date >= today && x.fish).map(x => x.fish!))
@@ -114,7 +145,10 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
       const path = join(content, kind, id, 'entity.json')
       const raw = await readFile(path, 'utf8').catch(() => null)
       if (!raw) continue
-      const empty = !(JSON.parse(raw) as Entity).photos?.length
+      // A page led by a non-commercial photo counts as empty, a generated picture kept behind it too: an open photo takes
+      // its place with no model call. One led by a generated picture alone isn't, as before.
+      const photos = (JSON.parse(raw) as Entity).photos ?? []
+      const empty = !photos.length || (photos.some(p => isNonCommercial(p.licence)) && photos.every(p => p.generated || isNonCommercial(p.licence)))
       // A plant is only ever given a first photo; the side-by-side and the crop's question are about fish. An empty page
       // needs no model call, so --calendar fills them too.
       if (kind === 'plants' && !empty) continue
@@ -130,7 +164,16 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
   const asked = <P extends { caption?: string }>(f: Fish, { caption, ...p }: P) => (f.ref.startsWith('plants/') || caption === undefined ? p : { ...p, caption })
   // What each photo's source calls its subject on the fish's page (photo-named.ts).
   const named = await namedOn(content)
-  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(asked(f, p), f.id, verdicts, cur.avoid), compared, p => ownMarkOnly(asked(f, p), f.id, verdicts, cur.avoid), named(f.id))
+  // How old the photo check says the fish in each photo is (young-heads.ts). A page whose head a person picked has no
+  // ages here: the sweep puts the pick first, and the young rule leaves that page as it is.
+  const picks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+  const yes = await readPersonYes(root)
+  const grown = grownHead(verdicts)
+  const age = (f: Fish) => (p: Photo) => {
+    if (picks[f.ref] && pickStands(f.ref, picks[f.ref]!, verdicts.subjects, yes)) return undefined
+    return ageOf(verdicts.subjects[p.url]?.[f.id]) === true ? true : grown(asked(f, p), f.id) && !(p.url in avoid) ? false : undefined
+  }
+  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(asked(f, p), f.id, verdicts, avoid), compared, p => ownMarkOnly(asked(f, p), f.id, verdicts, avoid), named(f.id), p => !!verdicts.kept?.(p.url), age(f), p => p.url in avoid)
 
   // Asked in rounds, since a pair answered no sends its fish on to the next photo.
   const dir = await mkdtemp(join(tmpdir(), 'lead-photos-'))
@@ -185,7 +228,8 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
     const own = f.entity.photos ?? []
     const { best: _b, kind: _k, ...photo } = c.lead as GalleryPhoto
     const had = own.find(p => p.url === photo.url)
-    const photos = [had ?? photo, ...own.filter(p => p.url !== photo.url)]
+    // A non-commercial head that gives way goes back to its album alone (gallery.ts dropNonCommercial).
+    const photos = [had ?? photo, ...own.filter(p => p.url !== photo.url && !isNonCommercial(p.licence))]
     ;(own.length ? report.changed : report.gained).push(`${f.ref}: ${own[0]?.url ?? 'none'} -> ${photo.url}`)
     await writeFile(f.path, `${JSON.stringify({ ...f.entity, photos }, null, f.raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }

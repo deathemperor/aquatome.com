@@ -1,0 +1,229 @@
+{
+  "id": "caridina-serratirostris",
+  "native": {
+    "input": "efc7263c3f54e831",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It has been recorded in the literature from Madagascar, Seychelles, Mauritius, the Comoros, Okinawa, South-East Asia, north-eastern Australia, New Caledonia, Fiji, Tahiti and the Marquesas in French Polynesia.",
+        "words": "Madagascar",
+        "ok": true
+      },
+      {
+        "code": "SC",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It has been recorded in the literature from Madagascar, Seychelles, Mauritius, the Comoros, Okinawa, South-East Asia, north-eastern Australia, New Caledonia, Fiji, Tahiti and the Marquesas in French Polynesia.",
+        "words": "Seychelles",
+        "ok": true
+      },
+      {
+        "code": "MU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It has been recorded in the literature from Madagascar, Seychelles, Mauritius, the Comoros, Okinawa, South-East Asia, north-eastern Australia, New Caledonia, Fiji, Tahiti and the Marquesas in French Polynesia.",
+        "words": "Mauritius",
+        "ok": true
+      },
+      {
+        "code": "KM",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It has been recorded in the literature from Madagascar, Seychelles, Mauritius, the Comoros, Okinawa, South-East Asia, north-eastern Australia, New Caledonia, Fiji, Tahiti and the Marquesas in French Polynesia.",
+        "words": "Comoros",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It has been recorded in the literature from Madagascar, Seychelles, Mauritius, the Comoros, Okinawa, South-East Asia, north-eastern Australia, New Caledonia, Fiji, Tahiti and the Marquesas in French Polynesia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "NC",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It has been recorded in the literature from Madagascar, Seychelles, Mauritius, the Comoros, Okinawa, South-East Asia, north-eastern Australia, New Caledonia, Fiji, Tahiti and the Marquesas in French Polynesia.",
+        "words": "New Caledonia",
+        "ok": true
+      },
+      {
+        "code": "FJ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It has been recorded in the literature from Madagascar, Seychelles, Mauritius, the Comoros, Okinawa, South-East Asia, north-eastern Australia, New Caledonia, Fiji, Tahiti and the Marquesas in French Polynesia.",
+        "words": "Fiji",
+        "ok": true
+      },
+      {
+        "code": "PF",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It has been recorded in the literature from Madagascar, Seychelles, Mauritius, the Comoros, Okinawa, South-East Asia, north-eastern Australia, New Caledonia, Fiji, Tahiti and the Marquesas in French Polynesia.",
+        "words": "French Polynesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Okinawa",
+        "source": "aquariumbreeder",
+        "quote": "It has been recorded in the literature from Madagascar, Seychelles, Mauritius, the Comoros, Okinawa, South-East Asia, north-eastern Australia, New Caledonia, Fiji, Tahiti and the Marquesas in French Polynesia.",
+        "ok": true
+      },
+      {
+        "name": "Tahiti",
+        "source": "aquariumbreeder",
+        "quote": "It has been recorded in the literature from Madagascar, Seychelles, Mauritius, the Comoros, Okinawa, South-East Asia, north-eastern Australia, New Caledonia, Fiji, Tahiti and the Marquesas in French Polynesia.",
+        "ok": true
+      },
+      {
+        "name": "Marquesas",
+        "source": "aquariumbreeder",
+        "quote": "It has been recorded in the literature from Madagascar, Seychelles, Mauritius, the Comoros, Okinawa, South-East Asia, north-eastern Australia, New Caledonia, Fiji, Tahiti and the Marquesas in French Polynesia.",
+        "country": "PF",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "JP"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Caridina serratirostris",
+    "status": "ACCEPTED",
+    "taxonKey": 5799208,
+    "datasets": [
+      [
+        "092c3e3f-a7d3-4e23-b343-839829f4d1b3",
+        47
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        26
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        20
+      ],
+      [
+        "5e1d0e63-c052-42fa-ba84-55f2166bfefd",
+        15
+      ],
+      [
+        "ff98132c-b720-4304-a68c-390968b991f7",
+        14
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        13
+      ],
+      [
+        "3dbd76b0-31c9-4402-aa41-2f1102d74d45",
+        10
+      ],
+      [
+        "01f5d83c-91b1-4473-a67c-c86b35705d4d",
+        8
+      ],
+      [
+        "5221e970-757c-43cb-bdd4-2f085bf36ae4",
+        8
+      ],
+      [
+        "5b7d4716-3ee7-4abb-a770-365e33c8b82c",
+        8
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        8
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        8
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        4
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        3
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        3
+      ],
+      [
+        "e13f7a37-837e-4199-824b-b7404ffc4f1f",
+        3
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        3
+      ],
+      [
+        "4fc42f17-eaeb-4296-949d-34b8414eb1c1",
+        2
+      ],
+      [
+        "ebab8ef5-b3b3-440e-a79f-cc4cf8a5180c",
+        2
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ],
+      [
+        "68262f35-4928-445e-959c-2aa191bed29f",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8b8c78fb-53d7-434c-b800-61f38b30d0c9",
+        1
+      ],
+      [
+        "c83289a9-a471-4de8-b119-d3321ee94551",
+        1
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        1
+      ],
+      [
+        "e30b2ef2-8923-4682-8f1c-1cf41a459f68",
+        1
+      ]
+    ],
+    "native": [
+      "MG",
+      "SC",
+      "MU",
+      "KM",
+      "AU",
+      "NC",
+      "FJ",
+      "PF"
+    ],
+    "requests": 15,
+    "at": "2026-11-23T01:48:47.136Z"
+  }
+}

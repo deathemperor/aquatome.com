@@ -16,6 +16,103 @@
     "indonesia",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN",
+        "LA",
+        "KH",
+        "TH",
+        "MY",
+        "ID",
+        "SG"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Fairly widespread in nature, having been recorded from Vietnam, Laos, Cambodia, Thailand, Malaysia, northern Indonesia and Singapore.",
+          "countries": [
+            "VN",
+            "LA",
+            "KH",
+            "TH",
+            "MY",
+            "ID",
+            "SG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs in several river basins, including the Mekong.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337840,
+      "total": 10,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MY",
+          7
+        ],
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -48,6 +145,10 @@
       {
         "source": "seriouslyfish",
         "value": 203
+      },
+      {
+        "source": "glaser",
+        "value": 150
       }
     ],
     "tankCm": [
@@ -70,6 +171,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
       "html": "<p>The striped wallago catfish, Wallagonia leerii, is a large predatory catfish from southeast Asia, including the Mekong basin, that can reach 2 metres. Like all Wallago it has an enormous mouth full of backward pointing teeth, and smaller fish are simply swallowed whole. This is NOT an aquarium fish, though it is imported quite regularly at a small size. In nature it is migratory and moves into inundated forest during the rainy season.</p><ul><li>Needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/wallagonia-micropogon-2/",
+      "html": "<p>This is a fish like an evening in a swamp: dark and spooky. Wallagonia micropogon is a predator, anyone can see. The validity of the species W. micropogon is the subject of controversial discussion, many scientists believe that it is a synonym of Wallagonia leerii. Specimens originate from Thailand. Currently they are small, only 7-9 cm long, and easy to handle, but one fine day they will be 1.5 m long and will weigh over 80 kg.</p>"
     },
     {
       "key": "distribution",
@@ -114,6 +221,12 @@
       "html": "<p>It would surely be a bad idea to attempt to keep one of these with anything else. While larger tankmates may escape predation initially, they will inevitably end up on the menu at some point.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/wallagonia-micropogon-2/",
+      "html": "<p>Wallagonia is very similar to the European Wels (Silurus glanis), but Wallagonia swims more often in the open water. Against conspecifics they are quarrelsome.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
@@ -138,6 +251,11 @@
       "thumb": "https://media.aquatome.com/commons/4267e3a755359881-480.webp",
       "width": 1200,
       "height": 718,
+      "large": {
+        "url": "https://media.aquatome.com/commons/4267e3a755359881-large.webp",
+        "width": 1709,
+        "height": 1023
+      },
       "licence": "CC BY-SA 3.0",
       "author": "Ginkgo100",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wallagonia_leerii.jpg",
@@ -161,5 +279,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-18"
 }

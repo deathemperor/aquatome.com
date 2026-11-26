@@ -3,6 +3,12 @@
   "name": "Carolina",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:36:53.184Z",
+    "why": "\"Carolina\" alone is ambiguous: Indonesian atlases write \"Carolina Utara\" and \"Carolina Selatan\" for the US states, and the region name \"Carolina\" is only a historical colony or a general term."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

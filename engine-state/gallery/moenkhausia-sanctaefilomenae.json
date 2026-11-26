@@ -15,7 +15,12 @@
   "File:Moenkhausia sanctaefilomenae - Tétra yeux rouge - Aqua Porte Dorée 11.JPG",
   "File:Moenkhausia sanctaefilomenae - Tétra yeux rouge - Aqua Porte Dorée 12.JPG",
   "File:Moenkhausia sanctaefilomenae (3678411).png",
-  "File:Peixes da planície de inundação do alto rio Paraná (3678411).png"
+  "File:Peixes da planície de inundação do alto rio Paraná (3678411).png",
+  "inat:1003305",
+  "inat:54948215",
+  "inat:93882696",
+  "inat:356518495",
+  "inat:552557626"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/0aae87b0e641671f.webp": "23a33366333111c4",
@@ -27,7 +32,8 @@
   "https://media.aquatome.com/commons/c19ee70cc676308c.webp": "8f0767e6676d4d4c",
   "https://media.aquatome.com/commons/4477f8e009dc1229.webp": "101a0b86cd077348",
   "https://media.aquatome.com/commons/3091724bf61ae9ba.webp": "c9a2b688ce45e1c4",
-  "https://media.aquatome.com/commons/6b80d0576aa1e71a.webp": "528f1f4f367f3590"
+  "https://media.aquatome.com/commons/6b80d0576aa1e71a.webp": "528f1f4f367f3590",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/356518495/large.jpeg": "5b1f3b3f6f77fde8"
  },
  "inat": {
   "taxon": 1580606,
@@ -44,6 +50,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 306403636,
+  "done": true
  },
  "exhausted": "2026-11-09"
 }

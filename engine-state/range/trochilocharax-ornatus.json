@@ -1,0 +1,48 @@
+{
+  "id": "trochilocharax-ornatus",
+  "native": {
+    "input": "56ee2a9cbc1d7802",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The hummingbird tetra, Trochilocharax ornatus, is a tiny characid from Amazonian Peru, reaching only 17 mm SL.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ampiyacu",
+        "source": "seriouslyfish",
+        "quote": "In the description Zarske (2010) states that there is conflicting information to the origin of the fish in the trade, with some stating it to be collected from a blackwater tributary of the río Ampiyacu near Pebas while others claim that it's native to the rio Nanay near Iquitos.",
+        "ok": true
+      },
+      {
+        "name": "Nanay",
+        "source": "seriouslyfish",
+        "quote": "In the description Zarske (2010) states that there is conflicting information to the origin of the fish in the trade, with some stating it to be collected from a blackwater tributary of the río Ampiyacu near Pebas while others claim that it's native to the rio Nanay near Iquitos.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trochilocharax ornatus",
+    "status": "ACCEPTED",
+    "taxonKey": 5962415,
+    "datasets": [],
+    "native": [
+      "PE"
+    ],
+    "requests": 2,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

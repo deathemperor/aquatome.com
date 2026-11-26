@@ -1,7 +1,22 @@
 {
   "id": "ancistrus-cirrhosus",
-  "photos": [],
-  "seen": 5,
-  "updatedAt": "2026-11-04",
-  "builtAt": "2026-11-04"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/3cf985eca1e6dd40.webp",
+      "thumb": "https://media.aquatome.com/commons/3cf985eca1e6dd40-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "TomiUSM",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ancistrus_sp.jpg",
+      "caption": "Cá lau kiếng đốm trắng trên nền sỏi trong bể thủy sinh",
+      "sourceCaption": "Ancistrus sp.",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    }
+  ],
+  "seen": 6,
+  "updatedAt": "2026-11-14",
+  "builtAt": "2026-11-14"
 }

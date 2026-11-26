@@ -1,0 +1,77 @@
+{
+  "id": "chimarrichthys-kishinouyei",
+  "native": {
+    "input": "95f0acacdde82f1f",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Nepal and China.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Nepal and China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Kwan-hsien, Szechwan Province, China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Min-Jiang River",
+        "source": "planetcatfish",
+        "quote": "Upper Min-Jiang River, Yangtze River basin.",
+        "ok": true
+      },
+      {
+        "name": "Yangtze River",
+        "source": "planetcatfish",
+        "quote": "Upper Min-Jiang River, Yangtze River basin.",
+        "ok": true
+      },
+      {
+        "name": "Jinshajiang",
+        "source": "scotcat",
+        "quote": "Asia: Jinshajiang (upper Yangtze River basin).",
+        "ok": true
+      },
+      {
+        "name": "Yangtze River",
+        "source": "scotcat",
+        "quote": "Asia: Jinshajiang (upper Yangtze River basin).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chimarrichthys kishinouyei",
+    "status": "ACCEPTED",
+    "taxonKey": 10689408,
+    "datasets": [],
+    "native": [
+      "NP",
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

@@ -3,6 +3,12 @@
   "name": "Trang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T18:00:33.089Z",
+    "why": "Trang is a Thai province and Malay atlases usually write \"Wilayah Trang\" or \"Provinsi Trang\"; in Malaysia, Thai provinces are often written \"Wilayah\", so the bare name lacks the kind word, though the proper name itself is correct."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

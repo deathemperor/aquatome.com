@@ -7,32 +7,33 @@
   "group": "cichlids",
   "places": [
     "south-america",
-    "venezuela"
+    "venezuela",
+    "orinoco"
   ],
   "range": {
     "native": {
-      "countries": [
-        "VE"
+      "countries": [],
+      "regions": [
+        "Orinoco"
       ],
-      "regions": [],
       "sources": [
         "glaser"
       ],
       "quotes": [
         {
           "source": "glaser",
-          "quote": "A rare dwarf cichlid from Venezuela.",
-          "countries": [
-            "VE"
-          ],
-          "regions": []
+          "quote": "In 1989 a second species of the genus, B. dicentrarchus, was described from the Orinoco basin.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2370393,
       "total": 94,
-      "fetched": "2026-11-10",
+      "fetched": "2026-11-22",
       "countries": [
         [
           "VE",
@@ -47,66 +48,129 @@
         [
           -68.90625,
           4.21875,
-          1,
           1
         ],
         [
           -68.90625,
           5.625,
-          34,
-          33
+          34
         ],
         [
           -67.5,
           2.8125,
-          12,
           12
         ],
         [
           -67.5,
           4.21875,
-          1,
           1
         ],
         [
           -67.5,
           5.625,
-          45,
-          43
+          45
         ],
         [
           -66.09375,
           7.03125,
-          1,
           1
         ]
       ]
     }
   },
   "dataCard": {
-    "sizeCm": [
+    "tempC": [
       {
         "source": "glaser",
-        "value": 6
+        "value": {
+          "min": 26,
+          "max": 30
+        }
       }
     ]
   },
   "sections": [
     {
-      "key": "quickFacts",
+      "key": "maintenance",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_dicentrarchus_en/",
-      "html": "<p>A rare dwarf cichlid from Venezuela. The male attains a maximum length of about 6 cm, the female about 4-5 cm. The fish are sandbottom dwellers.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/biotoecus-dicentrarchus-2/",
+      "html": "<p>For care a bottom of fine sand is the most important, in addition warmth (26-30°C), humic substances (from dead leaves, alder cones, peat, etc.) and if possible no or only extremely peaceful company, because Biotoecus are stress sensitive. If you also provide good water care and create low-germ conditions, you will have a lot of fun with the animals.</p>"
     },
     {
-      "key": "reproduction",
+      "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_dicentrarchus_en/",
-      "html": "<p>For breeding the male builds a large sandhill where the pair is spawning.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/biotoecus-dicentrarchus-2/",
+      "html": "<p>The dwarf cichlids of the genus Biotoecus were shrouded in mystery for decades. The first species, B. opercularis, was scientifically described as early as 1875. It originated from the Amazon River basin in Brazil, a well-collected area for aquaristic purposes, and yet the first import was not accomplished until the mid-1980s and early 1990s. The species was considered one of the most delicate aquarium fishes around. Its nice pastel colors and unusual breeding behavior – as sand dwellers, the fish like to build small “castles” for egg laying – nevertheless made it a sought-after keeper among specialists.</p><p>In 1989 a second species of the genus, B. dicentrarchus, was described from the Orinoco basin. Preserved animals differ from B. opercularis almost only by tiny anatomical details, which have to be examined under the microscope. Thus one looked with each of the (rare!) imports of Biotoecus very exactly whether differences were recognizable.</p><p>Nowadays Biotoecus are anything but everyday fishes, but by far not so sensitive. The ever improving catching, transporting and keeping methods on site are the reason for this. And so both B. opercularis and B. dicentrarchus, when offered, arrive in good to very good condition and present no one with unsolvable problems. The distinction between B. dicentrarchus and B. opercularis is very simple: B. dicentrarchus has free, extended rays in the front part of the dorsal fin, so that a “cockatoo” shape of the dorsal fin is formed here. In B. opercularis, all rays in the dorsal fin are approximately the same length.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/20615565169e4531.webp",
+      "thumb": "https://media.aquatome.com/glaser/20615565169e4531-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/biotoecus-dicentrarchus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d65e0545240c5f34.webp",
+      "thumb": "https://media.aquatome.com/glaser/d65e0545240c5f34-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/biotoecus-dicentrarchus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a6ae4ae53ce9c617.webp",
+      "thumb": "https://media.aquatome.com/glaser/a6ae4ae53ce9c617-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/biotoecus-dicentrarchus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/035288557016b5fb.webp",
+      "thumb": "https://media.aquatome.com/glaser/035288557016b5fb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/biotoecus-dicentrarchus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Lp35URV___s",
+      "title": "Dwarf Biotecus Dicentrarchus | MOST Experts won't know this one",
+      "durationSec": 77,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "r5AOwwCbwms",
+      "title": "Biotoecus dicentrarchus (wild) bij Aquarium Speciaalzaak Utaka ",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8XLbU8RZ5nE",
+      "title": "Biotoecus dicentrarchus",
+      "durationSec": 32,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tipzHmGV8eg",
+      "title": "Biotoecus Dicentrarchus 🌟🧡",
+      "durationSec": 60,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "phan-nen",
@@ -122,5 +186,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-21"
 }

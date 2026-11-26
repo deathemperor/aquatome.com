@@ -1,0 +1,299 @@
+{
+  "id": "caridina-cantonensis",
+  "scientificName": "Caridina cantonensis",
+  "order": "Decapoda",
+  "family": "Atyidae",
+  "genus": "Caridina",
+  "group": "shrimp",
+  "places": [
+    "asia",
+    "china",
+    "guangdong",
+    "hong-kong",
+    "vietnam"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "VN"
+      ],
+      "regions": [
+        "Nan'ao island"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Bee shrimp (Caridina cantonensis) are widespread and abundant in southern China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "They can be found on Nan'ao island, in Guangzhou and Yangjiang of Guangdong Province, in Hong Kong and in northern Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Nan'ao island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5863061,
+      "total": 37,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "CN",
+          19
+        ],
+        [
+          "HK",
+          16
+        ],
+        [
+          "VN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          108.28125,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          112.5,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          112.5,
+          22.5,
+          9,
+          9
+        ],
+        [
+          112.5,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          21.09375,
+          14,
+          0
+        ],
+        [
+          113.90625,
+          22.5,
+          9,
+          7
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 6.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 3,
+          "max": 6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Bee shrimp</li><li>Other names: Red Bee shrimp, Red Tiger shrimp, King Kong, Taiwan bee and many others</li><li>Scientific name: Caridina cantonensis</li><li>Optimal tank size: 40 litres</li><li>Breeding: medium</li><li>Optimal KH: 0–2</li><li>Optimal TDS: 120–150</li><li>Nitrate: less than 20 ppm</li><li>Diet: algae eater/omnivore</li><li>Temperament: peaceful</li></ul><p>In Asia, Caridina cantonensis is also called Red Bee Shrimp because of the striking reddish-brown transverse bands and numerous small dots on the body. It usually has 2–3 bands across the body (on the rear of the carapace and on the abdomen).</p><p>The wild coloration is most likely not seen in pet stores. After many generations of selective breeding, the most common ones have black or yellow stripes with or without dots.</p><p>When stressed by their environment, they dull their coloration for some time.</p><p>Like all dwarf shrimp, Bee shrimp usually grow up to 2–3 cm. Once a proper aquarium is set up and optimum conditions are met, they can reproduce and live up to 1.5–2 years.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>If you are a beginner at shrimp keeping, Bee shrimp should not be your first choice. They have specific requirements and there is little room for mistakes. They need a well-established tank of sufficient size with suitable water parameters. Although not recommended for beginners, they are easy to care for once you understand their needs.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bee shrimp (Caridina cantonensis) are widespread and abundant in southern China. They can be found on Nan'ao island, in Guangzhou and Yangjiang of Guangdong Province, in Hong Kong and in northern Vietnam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In nature, Caridina cantonensis prefer shallow, tropical, clean freshwater areas, including rivers, streams and mountain creeks.</p><p>Even though this species is listed as endangered, it is still threatened to some degree by habitat fragmentation, pollution and collection for the aquarium trade.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bee shrimp can be housed in tanks as small as 20 litres or even less, but this is not recommended without shrimp-keeping experience. A larger volume makes water parameters more stable, which is very important for dwarf shrimp, especially most Caridina species. Bee shrimp are more sensitive to changes in water quality, so 40 litres is the more common and recommended option.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Temperature: the optimal range is 20–24 °C, though Bee shrimp can tolerate lower or higher temperatures. Shrimp are poikilothermic, so their body temperature depends entirely on their surroundings. Temperature is one of the main factors affecting growth, survival and breeding. Higher temperature increases metabolism and breeding rate but reduces lifespan.</p><p>pH: 6.0–6.8. Bee shrimp appreciate acidic water. In some cases they can thrive in neutral pH (7.0), but only after several generations bred in these parameters.</p><p>Hardness: KH 0–2 and GH 3–6.</p><p>Check water parameters and do regular water changes. Be consistent: dwarf shrimp dislike big, sudden changes and can have serious molting problems (like the \"white ring of death\").</p><p>Bee shrimp require excellent water quality, so tap water cannot be used; use only RO/DI water. It contains no minerals, so all parameters (pH, KH, GH and TDS) must be set manually, which is easy with shrimp re-mineralizers. Salty Shrimp products (GH+) are recommended.</p><p>Shrimp are sensitive to ammonia and nitrates. Beware of chemicals such as copper: crabs, shrimp and crayfish do not tolerate copper-based medications.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Substrate: an active (buffered) substrate is crucial if pH must stay below 7.0, as it lowers pH. Examples: ADA Amazonia aqua soil, Fluval Plant and Shrimp Stratum, Akadama bonsai soil.</p><p>Filters: any filter suited to the tank size will do, but sponge or matten filters are recommended: they are cheap, easy to maintain and clean, provide plenty of grazing surface, and are safe for baby shrimp, with no need to cover the intake.</p><p>Aeration: since Caridina cantonensis live in mountain streams and rivulets, good aeration is needed.</p><p>Light: not important for Bee shrimp; adapt lighting to the plants in the tank.</p><p>Decorations: decorations, driftwood and plants provide more surface for algae and biofilm and many hiding places during molting.</p><p>Acclimate the shrimp carefully and very slowly before putting them in the tank; 2–3 hours is generally enough. When adding shrimp to an existing tank, quarantine them as well.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bee shrimp are opportunistic omnivores. They are excellent scavengers and eat almost anything they find on the bottom of the tank. They will help keep the tank clean, though they are not a substitute for tank maintenance. In a well-established tank they can usually find enough food (algae and biofilm) by themselves.</p><p>To keep them healthy or enhance their coloration, supplement them from time to time with common shrimp foods such as Bacter A.E., Dennerle Shrimp King, Hikari Shrimp Cuisine or Glassgarden Shrimp Dinner Food Pads. Leaves and blanched vegetables (carrots, sprouts, spinach, cucumber, zucchini, etc.) also provide the microelements needed for molting.</p><p>Their voracious behaviour may lead to overfeeding. Overfeeding can deteriorate water quality, stressing the shrimp and shortening their life span; uneaten food quickly decomposes and changes the tank's chemistry; and it can cause outbreaks of infections and parasites, such as Scutariella japonica, Planaria, Vorticella, Hydra, Ellobiopsidae or green fungus. Beginners should never overfeed.</p><p>Feed just once a day (or once every 2–3 days in a matured tank). Feed rations that last up to 3–6 hours at most, then, depending on the food, remove the uneaten parts to prevent poor water quality and parasite contamination.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Caridina cantonensis is completely harmless and will not bother anybody in a community tank. They are not territorial and prefer to be in large groups. The bigger the colony, the safer they feel and the more confident they act.</p><p>In the wild they are nocturnal. Their activity peaks at dusk and gradually stops before sunrise. This is mainly associated with avoiding visual predators while feeding. At dusk algae hold maximum nutrients at the end of the photosynthetic period, giving grazers profitable conditions to feed at the end of the light period.</p><p>In captivity, however, healthy shrimp roam all over the tank, constantly searching for food.</p><p>Like all shrimp, Bee shrimp shed their exoskeleton as they grow. The shrimp may look dead, but it is not. A fully grown Bee shrimp molts every 4–6 weeks, while juveniles molt every week or two. During this period they are less active and associate less with tankmates. Do not touch them, as they are very vulnerable and may die if disturbed. Do not remove the old shell after molting: it contains a lot of calcium and other microelements, and the shrimp will eat it.</p><p>Bee shrimp are safe in planted tanks. They are not interested in eating live aquatic plants, only dying, rotting or decaying ones. Hobbyists often confuse grazing on algae with eating the plant.</p><p>Tankmates: the ideal situation is a species tank, but they can be kept with carefully chosen fish. Avoid large and/or aggressive fish. Choose equally quiet, peaceful tankmates that share the same water parameters.</p><p>Compatible: other shrimp (Crystal shrimp, Bamboo shrimp, Caridina cf. babaulti, Tangerine Tiger shrimp, Blue Bolt shrimp, etc.) and snails (Japanese trapdoor snails, Ramshorn snails, Nerite snails, Malaysian trumpet snails, Black Devil snails, etc.), keeping in mind that some snails can suffer shell erosion when pH is under 7.0.</p><p>Avoid: most crayfish and freshwater crabs. Even small African dwarf frogs will try to catch the shrimp whenever possible.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Larger shrimp are females; males are smaller.</li><li>Because females carry eggs, the underside (abdomen) of a female is wider and curves down to protect the eggs. Males are thinner.</li><li>The presence of a saddle (on the upper body behind the head, where eggs are stored before fertilization). In some cases the saddle of a female may be virtually impossible to see because of the coloration.</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bee shrimp are very prolific and breed quickly if conditions are right: stable water parameters and enough food. They mature at about 3–3.5 months old, depending on temperature.</p><p>Females molt before mating and release a chemical substance into the water to attract males, who swim in frenzied circuits around the tank seeking her out.</p><p>Depending on her size, a female carries 30–50 eggs, fanning them regularly with her pleopods. She keeps the eggs for the entire incubation, usually 4–6 weeks.</p><p>At hatching, the baby shrimp are tiny replicas of the adults, no more than 2 mm long and fully independent. Their coloration becomes more intense as they mature.</p><p>It is important to have a good ratio of males and females to breed successfully when starting out.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In the shrimp hobby, the genetic pool of Caridina cantonensis (the original Bee shrimp) has been the basis for many colour variations, such as Crystal red shrimp, Crystal black shrimp, Blue bolt shrimp, Golden Bee shrimp, Red Bee shrimp, Red Tiger shrimp, King Kong and Panda shrimp.</p><p>In some cases new strains were created from only a few shrimp (for example, Crystal shrimp), which made them especially demanding about water parameters, in contrast to their relatives in the genus Neocaridina. In other cases nobody knows who created the colour variations, when or how. Inbred shrimp often have a weak immune system, are prone to disease and die out easily, and the history of these shrimp is unknown.</p><p>So many morphs have been created that it is no longer certain which species is in a given tank. Sometimes it is even hard to tell Neocaridina and Caridina apart.</p><p>Bee shrimp do not breed true: even from the same batch of eggs the young will not all be the same colour, and other colour morphs can appear.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/21c5d8556d1318c9.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/21c5d8556d1318c9-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/bee-shrimp-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "VoRC00U0d4E",
+      "title": "Caridina Shrimp for BEGINNERS [Shrimp Keeping Guide]",
+      "durationSec": 605,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "EerYLIzxbD0",
+      "title": "Beginner’s Guide to Caridina Shrimp Tanks | UGF vs Substrate vs Reset Baskets",
+      "durationSec": 572,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "Z-peaGDGlVE",
+      "title": "Seleção artificial e pigmentação camarão Red Crystal (Caridina cantonensis) #aquarium #curiosidades",
+      "durationSec": 49,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xGIqdua56gk",
+      "title": "CARIDINA SHRIMP CARE | Beginner Guide",
+      "durationSec": 499,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền aqua soil tép",
+        "nền Amazonia cho tép bee"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút sponge cho tép",
+        "lọc ôm hồ tép"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tép bee",
+        "thức ăn tép cảnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test GH KH",
+        "bút đo TDS"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

@@ -1,8 +1,13 @@
 {
   "slug": "lake-ontario",
-  "name": "ออนแทรีโอ",
+  "name": "ทะเลสาบออนแทรีโอ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-20T01:45:20.751Z"
+  },
   "quality": {
     "score": 0.82,
     "indexable": true

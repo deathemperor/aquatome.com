@@ -1,29 +1,52 @@
 {
   "id": "parathelphusa-pantherina",
   "native": {
-    "input": "d3818ca6b7d03750",
-    "at": "2026-11-12T13:29:05.219Z",
-    "claims": [],
+    "input": "c6f15db8b7b6178c",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "In the wild, the Panther Crab is found on the Indonesian island of Sulawesi.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
     "regions": [
       {
         "name": "Lake Matano",
         "source": "glaser",
-        "quote": "They originate from Lake Matano in Sulawesi, where they can also be found under roots etc. on the shore.",
+        "quote": "Panther crabs were received from Lake Matano in Indonesia.",
+        "country": "ID",
         "ok": true
       },
       {
         "name": "Sulawesi",
-        "source": "glaser",
-        "quote": "They originate from Lake Matano in Sulawesi, where they can also be found under roots etc. on the shore.",
+        "source": "aquariumbreeder",
+        "quote": "In the wild, the Panther Crab is found on the Indonesian island of Sulawesi.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Lake Matano",
+        "source": "aquariumbreeder",
+        "quote": "Populations are concentrated in and around Lake Matano, though they have also been found in areas south of the lake.",
         "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "ID"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -41,8 +64,10 @@
         2
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-12T13:29:05.219Z"
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T11:42:48.614Z"
   }
 }

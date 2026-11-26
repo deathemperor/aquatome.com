@@ -1,0 +1,25 @@
+{
+  "slug": "arius-africanus",
+  "name": "ปลากดทะเลแอฟริกัน",
+  "altNames": [
+    "African sea catfish",
+    "ปลากดทะเล",
+    "marine catfish"
+  ],
+  "sections": {
+    "quickFacts:scotcat": "<p>ปลากดทะเลแอฟริกัน (Arius africanus) หรือที่รู้จักกันในชื่อปลากดทะเล (marine catfish) เป็นปลากดทะเลชนิดหนึ่งในวงศ์ Ariidae โดยมี Albert Günther เป็นผู้อธิบายชนิดไว้เมื่อปี 1867 ปลาชนิดนี้มีความยาวมาตรฐานสูงสุด 45 ซม.</p>",
+    "distribution:scotcat": "<p>แอฟริกา: แม่น้ำปังกานี (Pangani) ประเทศแทนซาเนีย และปากแม่น้ำต่าง ๆ ของมาดากัสการ์ มีรายงานว่าพบในช่วงตอนล่างถึงตอนกลางของลุ่มน้ำต่าง ๆ ตามชายฝั่งตะวันตกของมาดากัสการ์และแอฟริกาตะวันออก</p>",
+    "habitat:scotcat": "<p>เป็นปลาชายฝั่งที่พบในน้ำกร่อยและน้ำจืดเขตร้อนในแทนซาเนีย มาดากัสการ์ และแม่น้ำปังกานี</p>",
+    "waterConditions:scotcat": "<ul><li>อุณหภูมิ: 20–27 °C</li><li>ค่า pH: 7.0–8.5</li></ul>",
+    "diet:scotcat": "<p>อาหารของปลากดทะเลแอฟริกันได้แก่ปลาขนาดเล็กและสัตว์น้ำไม่มีกระดูกสันหลังขนาดเล็ก</p>",
+    "notes:scotcat": "<p>ที่มาของชื่อ: ชื่อชนิด africanus หมายถึง \"มาจากแอฟริกา\"</p><p>บัญชีแดงของ IUCN: ชนิดนี้ได้รับการประเมินให้อยู่ในสถานะข้อมูลไม่เพียงพอ (Data Deficient) เนื่องจากปัจจุบันยังมีข้อมูลน้อยเกี่ยวกับสถานะของประชากรย่อยทั่วทั้งเขตการกระจายพันธุ์ จำเป็นต้องมีการศึกษาเพิ่มเติม (IUCN 2017)</p>",
+    "references:scotcat": "<p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, (07/2023).</p><p>Playfair, R. L. and A. Günther, 1867 The fishes of Zanzibar, with a list of the fishes of the whole east coast of Africa. London. i-xix + 1-153, Pls. 1-21.</p><p>Sparks, J.S. 2017. Arius africanus. The IUCN Red List of Threatened Species 2017.</p><p>Taylor, W.R., 1986. Ariidae. p. 153-159. In J. Daget, J.-P. Gosse and D.F.E. Thys van den Audenaerde (eds.) Check-list of the freshwater fishes of Africa (CLOFFA). ISBN, Brussels; MRAC, Tervuren; and ORSTOM, Paris. Vol. 2.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "scotcat": 0.85
+    }
+  }
+}

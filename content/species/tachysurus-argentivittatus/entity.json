@@ -9,12 +9,75 @@
     "asia",
     "china",
     "russia",
-    "amur"
+    "amur",
+    "pearl-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "RU"
+      ],
+      "regions": [
+        "Amur",
+        "Ussuri",
+        "Amur River",
+        "Pearl River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Canton, Cungkun, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Also reported from Russian waters: Amur and Ussuri.",
+          "countries": [
+            "RU"
+          ],
+          "regions": [
+            "Amur",
+            "Ussuri"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: China from Heilongjiang [Amur River] to Zhujiang [= Pearl River].",
+          "countries": [],
+          "regions": [
+            "Amur River",
+            "Pearl River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961270,
+      "total": 0,
+      "fetched": "2026-11-16",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      },
+      {
+        "source": "scotcat",
         "value": {
           "min": 20,
           "max": 25
@@ -24,6 +87,13 @@
     "ph": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 7,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
         "value": {
           "min": 7,
           "max": 7.5
@@ -38,6 +108,12 @@
           "max": 20
         }
       }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 5
+      }
     ]
   },
   "sections": [
@@ -48,10 +124,28 @@
       "html": "<p>Type locality: Canton, Cungkun, China.</p><p>IUCN Red List category: Least Concern (last assessed 2011).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_argentivittatus.htm",
+      "html": "<p>Tachysurus argentivittatus (Regan, 1905). Family: Bagridae. Size: 5 cm. Temperature: 20–25°C. pH: 7.0–7.5.</p><p>Dorsal spines (total): 2; dorsal soft rays (total): 6; anal soft rays: 13–15.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1378",
       "html": "<p>Asia: China. Also reported from Russian waters: Amur and Ussuri.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_argentivittatus.htm",
+      "html": "<p>Asia: China from Heilongjiang [Amur River] to Zhujiang [= Pearl River]. Type locality: Canton, Cungkun, China.</p><p>The species is widespread through a number of river systems in southern China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_argentivittatus.htm",
+      "html": "<p>The bagrid catfish genus Tachysurus (known until very recently in the literature as Pelteobagrus or Pseudobagrus) is among the most speciose catfish groups in East Asia, with at least 31 valid species. Its members inhabit habitats ranging from fast-flowing hillstreams to large rivers.</p>"
     },
     {
       "key": "waterConditions",
@@ -78,13 +172,59 @@
       "html": "<p>Tachysurus can be identified by an extrascapular without a laterosensory canal, and a pterotic with a broad lateral laminar expansion. It is among the most speciose catfish groups in East Asia and its members inhabit habitats ranging from fast-flowing hillstreams to large rivers.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_argentivittatus.htm",
+      "html": "<p>Etymology: the genus name Tachysurus comes from tachys, swift, and oura, tail. The specific name argentivittatus comes from argentum, silver, and vittatus, banded, referring to the silver lateral band extending from the opercle to the base of the caudal fin.</p><p>IUCN Red List: the species is fished, but it is considered Least Concern at present, though the assessment needs updating (IUCN 2011).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1378",
       "html": "<p>Revue Suisse de Zoologie v. 13, pp 390, Pl. 5 (fig. 2).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_argentivittatus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ng, H.H; 2009. Tachysurus spilotus, a new species of catfish from central Vietnam (Teleostei: Bagridae) Zootaxa 2283: 16–28.</p><p>Zhao, H.H. 2011. Pelteobagrus (Tachysurus) argentivittatus. The IUCN Red List of Threatened Species 2011.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/f4f72c3c3df65cc0.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f4f72c3c3df65cc0-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_argentivittatus.htm",
+      "caption": "Tachysurus argentivittatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b1ba43629c19d991.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b1ba43629c19d991-480.webp",
+      "width": 500,
+      "height": 311,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_argentivittatus.htm",
+      "caption": "Tachysurus argentivittatus: head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/74d87d5b18b18b97.webp",
+      "thumb": "https://media.aquatome.com/scotcat/74d87d5b18b18b97-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhou Hang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_argentivittatus.htm",
+      "caption": "Tachysurus argentivittatus",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -102,5 +242,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-16"
 }

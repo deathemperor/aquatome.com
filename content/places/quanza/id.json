@@ -3,6 +3,12 @@
   "name": "Cuanza",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-16T17:17:34.121Z",
+    "why": "Cuanza is the Portuguese spelling of the Angolan river, and without \"Sungai\" it reads as a bare name instead of the river that the source's list of rivers implies."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

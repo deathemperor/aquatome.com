@@ -10,6 +10,54 @@
     "japan",
     "ryukyu-islands"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "JP"
+      ],
+      "regions": [
+        "Ryukyu Islands",
+        "Okinawa",
+        "Iriomote"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Ryukyu Islands, Japan, and thus far recorded from just 4 streams on Okinawa island and two on Iriomote island.",
+          "countries": [
+            "JP"
+          ],
+          "regions": [
+            "Ryukyu Islands",
+            "Okinawa",
+            "Iriomote"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7193136,
+      "total": 1,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          136.40625,
+          36.5625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -133,36 +181,14 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/f3cd00eb897c4769.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/f3cd00eb897c4769-480.webp",
-      "width": 800,
-      "height": 431,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-alcedo",
-      "caption": "Adult female; Okinawa, Japan.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/33bf4b9158372425.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/33bf4b9158372425-480.webp",
       "width": 800,
       "height": 435,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Odyssey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-alcedo",
       "caption": "Nuptial adult male; Okinawa, Japan.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/ed67277c607921b6.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/ed67277c607921b6-480.webp",
-      "width": 800,
-      "height": 600,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-alcedo",
-      "caption": "Another non-nuptial male; Okinawa, Japan.",
       "source": "seriouslyfish"
     },
     {
@@ -171,9 +197,31 @@
       "width": 800,
       "height": 490,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Odyssey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-alcedo",
       "caption": "Another nuptial male; Okinawa, Japan.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f3cd00eb897c4769.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f3cd00eb897c4769-480.webp",
+      "width": 800,
+      "height": 431,
+      "licence": "dùng với sự cho phép",
+      "author": "Odyssey / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-alcedo",
+      "caption": "Adult female; Okinawa, Japan.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ed67277c607921b6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ed67277c607921b6-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Odyssey / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-alcedo",
+      "caption": "Another non-nuptial male; Okinawa, Japan.",
       "source": "seriouslyfish"
     }
   ],

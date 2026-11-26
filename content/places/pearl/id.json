@@ -3,6 +3,12 @@
   "name": "Sungai Mutiara",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-15T05:33:28.107Z",
+    "why": "The Indonesian atlas name for this river is \"Sungai Mutiara\" in a word-by-word translation of \"Pearl\", but Indonesian atlases write \"Sungai Zhujiang\" (or \"Sungai Chu Kiang\"/\"Sungai Pearl\"), so the translation is wrong."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

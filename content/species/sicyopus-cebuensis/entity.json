@@ -10,6 +10,40 @@
     "philippines",
     "naga-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PH"
+      ],
+      "regions": [
+        "Naga River",
+        "Cebu"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species appears to be rare in nature with the type series, which consisted of just a single adult pair, originating from the Uling brook within the upper Naga River basin on the island of Cebu, Cebu province, the Philippines.",
+          "countries": [
+            "PH"
+          ],
+          "regions": [
+            "Naga River",
+            "Cebu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208959,
+      "total": 0,
+      "fetched": "2026-11-15",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -139,25 +173,25 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/da4bd0c32fa690ba.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/da4bd0c32fa690ba-480.webp",
-      "width": 700,
-      "height": 466,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/sicyopus-cebuensis",
-      "caption": "Adult female in the aquarium.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/67a1d8a38a3e2293.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/67a1d8a38a3e2293-480.webp",
       "width": 800,
       "height": 519,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Odyssey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sicyopus-cebuensis",
       "caption": "A male with non-reproductive colour pattern.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/da4bd0c32fa690ba.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/da4bd0c32fa690ba-480.webp",
+      "width": 700,
+      "height": 466,
+      "licence": "dùng với sự cho phép",
+      "author": "CHS / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sicyopus-cebuensis",
+      "caption": "Adult female in the aquarium.",
       "source": "seriouslyfish"
     },
     {
@@ -166,7 +200,7 @@
       "width": 700,
       "height": 466,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "CSH / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sicyopus-cebuensis",
       "caption": "Non-reproductive adult male in the aquarium.",
       "source": "seriouslyfish"

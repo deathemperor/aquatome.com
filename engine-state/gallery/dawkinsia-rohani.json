@@ -4,7 +4,10 @@
   "inat:721691197"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/5316fc7e3e54926d.webp": "323319671b07c763"
+  "https://media.aquatome.com/commons/5316fc7e3e54926d.webp": "323319671b07c763",
+  "https://media.aquatome.com/glaser/f70b32ec02a81f1f.webp": "79ec39dfdb9bb160",
+  "https://media.aquatome.com/glaser/7d4612e88cb3db34.webp": "477e9ecc676bcc9e",
+  "https://media.aquatome.com/glaser/315f861cd4a897a6.webp": "b3fb2dcf67feb6d3"
  },
  "inat": {
   "taxon": 500335,
@@ -18,5 +21,9 @@
  "gbif": {
   "key": 7861567,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-16"
 }

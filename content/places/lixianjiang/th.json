@@ -3,6 +3,12 @@
   "name": "หลี่เซียนเจียง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T18:17:15.901Z",
+    "why": "หลี่เซียนเจียง is a correct Thai transliteration of Lixianjiang (李仙江), but it has no Thai kind word for a river, and atlases in Thailand would write แม่น้ำหลี่เซียน."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

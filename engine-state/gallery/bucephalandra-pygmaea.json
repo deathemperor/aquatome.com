@@ -5,5 +5,17 @@
   "https://media.aquatome.com/tropica/a4de7da19527f93f.webp": "e4e4e0f0b0701830",
   "https://media.aquatome.com/tropica/690bbc046a973856.webp": "5bcaead2d6fca2e4"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 1353626,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 241674556
+  }
+ },
+ "gbif": {
+  "key": 9524399,
+  "next": null
+ }
 }

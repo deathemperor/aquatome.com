@@ -3,6 +3,12 @@
   "name": "Lofa",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-19T00:45:56.631Z",
+    "why": "\"Lofa\" is the right proper name, but Malay atlases normally add the kind word for the Liberian county (\"Daerah Lofa\"), and the source sentence actually refers to the Lofa River."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

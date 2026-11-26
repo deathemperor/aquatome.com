@@ -1,0 +1,43 @@
+{
+ "at": "2026-11-20T02:19:31Z",
+ "checks": [
+  "elsewhere",
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Đàn Cyprinodon variegatus này có gốc từ một bể trên mái nhà để xe ở miền nam nước Đức.",
+   "why": "It talks about the source writer's own group of fish as if the reader already knew about them."
+  },
+  {
+   "check": "elsewhere",
+   "quote": "Thứ duy nhất phải tránh là để nước đóng băng",
+   "why": "Water freezing in an outdoor tank is a German winter problem, not one for a keeper in Vietnam."
+  }
+ ],
+ "text": {
+  "slug": "ca-pupfish-sheepshead",
+  "name": "Cá pupfish sheepshead",
+  "altNames": [
+   "Sheepshead minnow"
+  ],
+  "sections": {
+   "distribution:seriouslyfish": "<p>Nơi thu mẫu chuẩn được ghi là 'Carolinas, Hoa Kỳ'. Thực tế loài này phân bố rất rộng. Vùng sống của nó bắt đầu từ bang Massachusetts ở đông bắc Hoa Kỳ, chạy dọc bờ Đại Tây Dương xuống tận đông bắc Mexico, Bahamas và quần đảo Antilles. Ngoài ra còn có một vài ghi nhận ở đông bắc Nam Mỹ (Venezuela).</p>",
+   "habitat:seriouslyfish": "<p>Loài này thường gặp nhiều nhất ở vùng nước lợ cho tới nước siêu mặn, như đầm lầy muối ven biển, đầm phá và cửa sông.</p><p>Trên đảo San Salvador ở Bahamas, loài này có vẻ là loài gốc của cả một nhóm loài cùng sống chung một khu vực. Mỗi loài trong nhóm khai thác một nguồn sống riêng, đa dạng nhưng rất chuyên biệt. Một số loài còn có những thích nghi về hình thái rất ấn tượng.</p>",
+   "aquariumSize:seriouslyfish": "<p>Bể có đáy 60 × 30 cm hoặc tương đương (khoảng 54 lít) chỉ tạm đủ cho một cặp. Giống phần lớn các loài trong họ Cyprinodontidae, loài này sống khỏe nhất khi được nuôi theo đàn trong bể hoặc thùng rộng hơn.</p>",
+   "maintenance:seriouslyfish": "<p>Bể không cần bày biện cầu kỳ, miễn là có nhiều vật che chắn để cá không nhìn thấy nhau suốt từ đầu bể đến cuối bể.</p><p>Bạn nên cho nhiều chỗ trú, ví dụ cây thủy sinh hoặc tua len. Nếu cần lọc thì lọc vi sinh mút xốp chạy bằng sủi khí là hợp nhất, vì loại này không hút mất trứng hay cá bột.</p><p>Ánh sáng không quan trọng, muốn bật đèn thì cứ bật. Nếu được, bạn nên để tảo sợi mọc trong bể.</p>",
+   "references:seriouslyfish": "<ul><li>Martin, C. H. and P. C. Wainwright (2013). Remarkable Species Flock of Cyprinodon Pupfishes Endemic to San Salvador Island, Bahamas. Bulletin of the Peabody Museum of Natural History 54(2), 231-240</li><li>Martin, C. H. and P. C. Wainwright (2013). Multiple Fitness Peaks on the Adaptive Landscape Drive Adaptive Radiation in the Wild. Science 339(6116), 208-211</li><li>Martin, C. H. and P. C. Wainwright (2011). Trophic novelty is linked to extremes rates of morphological diversification in two adaptive radiations of Cyprinodon pupfishes. Evolution 65(8), 2197-2212</li></ul>",
+   "quickFacts:glaser": "<p>Cá pupfish thuộc giống Cyprinodon sống ở chỗ có thể gọi là chốn lấp lửng giữa sống và chết của loài cá. Ngày xưa, vùng sa mạc ở miền tây nước Mỹ và miền bắc Mexico bây giờ từng là một vùng hồ mênh mông, và cá ở đó sống như ở thiên đường. Qua hàng nghìn năm, các hồ ấy cạn dần. Giờ có loài pupfish chỉ còn sống trong đúng một hố nước nhỏ giữa sa mạc, chẳng hạn cá Devils Hole Pupfish (Cyprinodon diabolis). Hiện có 49 loài Cyprinodon được công nhận, và vài loài trong số đó đang đứng sát bờ tuyệt chủng, có loài đã mất hẳn. Chỉ cần mực nước ngầm tụt xuống hoặc cái ao bị ô nhiễm là loài đó coi như hết.</p><p>Nhưng cũng có loài sống ở khắp nơi và không bị đe dọa gì cả, như Cyprinodon variegatus. Những tay sinh tồn cừ khôi này đều chịu được nhiệt độ lên xuống mạnh, ngày và đêm chênh nhau tới 20°C, và chịu được độ mặn thay đổi nhanh. C. variegatus sống được cả ở vùng nước siêu mặn, tức là mặn hơn nước biển. Ngược lại, loài này cũng có những quần thể sống hoàn toàn trong nước ngọt.</p>",
+   "notes:glaser": "<p>Đàn Cyprinodon variegatus này có gốc từ một bể trên mái nhà để xe ở miền nam nước Đức. Chúng đã sống ở đó nhiều năm và vẫn đẻ đều. Nắng gắt hay mưa rào gì chúng cũng chịu được. Thứ duy nhất phải tránh là để nước đóng băng, vì đến cá pupfish cũng không sống nổi.</p>"
+  },
+  "quality": {
+   "score": 0.75,
+   "indexable": true,
+   "bySource": {
+    "seriouslyfish": 0.9,
+    "glaser": 0.75
+   }
+  }
+ }
+}

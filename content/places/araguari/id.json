@@ -1,8 +1,13 @@
 {
   "slug": "araguari",
-  "name": "Araguari",
+  "name": "Sungai Araguari",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T05:12:41.792Z"
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

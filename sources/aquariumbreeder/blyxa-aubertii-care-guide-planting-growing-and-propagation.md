@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/blyxa-aubertii-care-guide-planting-growing-and-propagation/
 title: Blyxa Aubertii Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T19:44:11.996Z
-hash: cd19c16a09c0fbf1066d521d6bad2e4bf46b37efdb4d70fc2b18c5fd9ad65b99
+hash: 1b74813fb14ad11498f860ef63a3d6c0b094741e00512f98be875e6e9a8ec174
 ---
 
 Blyxa aubertii is a beautiful plant that can change the color of its leaves from bright green to red depending on the brightness of the light. Although this plant has long been well-known in the aquatics community, it hasn’t really taken off. Sincere to say, there are a number of causes behind this.
@@ -161,6 +161,3 @@ So, if you are an experienced aquarist and are curious to try this plant, it can
 - Awing, Suzalina Akma. “Biological and Ecological Aspects of Frestwater Macrophytes in the Coastal Areas of Bintulu and Miri, Sarawak, Malaysia.” PhD diss., Universiti Putra Malaysia, 2008.
 - Zhang, Keliang, Jerry M. Baskin, Carol C. Baskin, Gregory P. Cheplick, Xuejun Yang, and Zhenying Huang. “Amphicarpic plants: definition, ecology, geographic distribution, systematics, life history, evolution and use in agriculture.” Biological Reviews95, no. 5 (2020): 1442-1466.
 - Zhao, Fei. “Comparison between non-wood fiber paper and Finnish traditional wood-fiber paper by mechanical properties.” (2017).
-## 2 thoughts on “Blyxa Aubertii Care Guide – Planting, Growing, and Propagation”
-- Thank you for the insightful article on Blyxa aubertii! Your detailed guidance on meeting these specific requirements has been immensely helpful in enhancing the overall health and visual appeal of Blyxa aubertii in my aquarium. ReplyHi Informatika, I am glad you liked it Best regards, Michael Reply
-### Leave a Reply Cancel reply

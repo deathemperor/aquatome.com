@@ -71,7 +71,7 @@ struct TanksView: View {
             if let p = tanks.problem { Section { ProblemText(problem: p) } }
             Section {
               ForEach(tanks.tanks) { t in
-                NavigationLink(value: t.id) { TankRow(tank: t, lights: tanks.devices(in: t).filter { $0.kind == "light" }.count) }
+                NavigationLink(value: t.id) { TankRow(tank: t, lights: tanks.devices(in: t).filter { $0.kind == "light" && !$0.isLoveEcology }.count) }
                   .accessibilityIdentifier("tank")
               }
               // In the list too, where it's seen: the + in the bar above is easy to miss.
@@ -161,27 +161,41 @@ private struct TankDetail: View {
   @State private var editing = false
   @State private var confirmDelete = false
   @State private var lifeSheet: LifeSheet?
+  /// The chat's check of this tank, opened from its answer.
+  @State private var trial: TankTrial?
   @Environment(TelemetryModel.self) private var telemetry
 
   var body: some View {
-    tank.onAppear { telemetry.telemetry.record(.view(.tank)) }
-      .ownerScreen("tank")
+    ScrollViewReader { proxy in
+      tank.onAppear {
+        telemetry.telemetry.record(.view(.tank))
+        guard let t = tanks.trial, t.tank == id else { return }
+        tanks.trial = nil
+        trial = t
+        Task {
+          try? await Task.sleep(for: .milliseconds(100))
+          withAnimation { proxy.scrollTo(t.added != nil && t.check != nil ? TankTrial.addedRow : TankTrial.verdictRow, anchor: .top) }
+        }
+      }
+    }
+    .ownerScreen("tank")
   }
 
   @ViewBuilder private var tank: some View {
     if let t = tanks.tanks.first(where: { $0.id == id }) {
-      let lights = tanks.devices(in: t).filter { $0.kind == "light" }
+      // The Love Ecology lamp is on Đèn's own card and the master button: nothing to connect to here.
+      let lights = tanks.devices(in: t).filter { $0.kind == "light" && !$0.isLoveEcology }
       List {
         Section("Thông tin bể") {
           let f = facts(t)
-          Text(f.isEmpty ? String(localized: "Chưa có kích thước.") : f.joined(separator: " · ")).accessibilityIdentifier("facts")
+          Text(f.isEmpty ? String(localized: "Chưa có kích thước.", bundle: .app) : f.joined(separator: " · ")).accessibilityIdentifier("facts")
           if let n = t.notes { Text(n).accessibilityIdentifier("notes") }
         }
         // As the site lists them: fish (with how many), then plants, each opening its page (TankLife.swift).
         TankLifeSections(tank: t, sheet: $lifeSheet)
         // Whether its fish go together and fit the tank, as the site's tank-mates tool says (TankCheckView.swift): after
         // them, so a long answer never hides what's in the tank.
-        TankCheckSection(tank: t)
+        TankCheckSection(tank: t, trial: trial)
         // Guides that name its fish and plants (TankGuides.swift).
         TankGuidesSection(tank: t)
         if !lights.isEmpty {
@@ -192,7 +206,7 @@ private struct TankDetail: View {
           // On the button: iOS shows the question as a popover from the view it's on.
           Button("Xóa bể", role: .destructive) { confirmDelete = true }.accessibilityIdentifier("delete")
             .confirmationDialog(
-              lights.isEmpty ? String(localized: "Xóa bể “\(t.name)”?") : String(localized: "Xóa bể “\(t.name)” cùng \(lights.count) đèn đã lưu trên bể?"),
+              lights.isEmpty ? String(localized: "Xóa bể “\(t.name)”?", bundle: .app) : String(localized: "Xóa bể “\(t.name)” cùng \(lights.count) đèn đã lưu trên bể?", bundle: .app),
               isPresented: $confirmDelete, titleVisibility: .visible
             ) {
               Button("Xóa", role: .destructive) {
@@ -270,10 +284,10 @@ private struct LightRow: View {
 
   private var chihiros: some View {
     VStack(alignment: .leading, spacing: 2) {
-      Text(device.nickname ?? device.model ?? device.bleName ?? String(localized: "Đèn"))
+      Text(device.nickname ?? device.model ?? device.bleName ?? String(localized: "Đèn", bundle: .app))
       if let s = device.schedules.first(where: { $0.id == device.activeScheduleId }) {
         // As the site writes it: on → off · ramp · the preset's name.
-        let parts = [s.ramp > 0 ? String(localized: "sáng dần \(s.ramp) phút") : nil, s.name].compactMap { $0 }
+        let parts = [s.ramp > 0 ? String(localized: "sáng dần \(s.ramp) phút", bundle: .app) : nil, s.name].compactMap { $0 }
         Text(verbatim: (["\(s.on) → \(s.off)"] + parts).joined(separator: " · "))
           .font(.caption).foregroundStyle(.secondary)
       } else {

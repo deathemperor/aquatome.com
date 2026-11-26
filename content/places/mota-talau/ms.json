@@ -3,6 +3,12 @@
   "name": "Talau",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-16T05:40:20.833Z",
+    "why": "The place is a river (Vietnamese \"sông Talau\"), and a Malay atlas would write \"Sungai Talau\"; bare \"Talau\" drops the kind word \"Sungai\" and so is cut short."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

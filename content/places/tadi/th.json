@@ -3,6 +3,12 @@
   "name": "ตาดี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T12:48:20.614Z",
+    "why": "ตาดี is a plausible Thai spelling of the proper name, but the source describes a river (type locality) and a Thai atlas would write it with the kind word, as คลองตาดี or แม่น้ำตาดี, so the bare form is incomplete."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

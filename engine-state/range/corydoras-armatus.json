@@ -1,17 +1,9 @@
 {
   "id": "corydoras-armatus",
   "native": {
-    "input": "d8ee05768714745c",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "9e64a77c8943964f",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
-      {
-        "code": "PE",
-        "status": "native",
-        "source": "glaser",
-        "quote": "The type specimens originated from Peru (Rio Huallaga).",
-        "words": "Peru",
-        "ok": true
-      },
       {
         "code": "PE",
         "status": "native",
@@ -39,17 +31,9 @@
     ],
     "regions": [
       {
-        "name": "Rio Huallaga",
-        "source": "glaser",
-        "quote": "The type specimens originated from Peru (Rio Huallaga).",
-        "country": "PE",
-        "ok": true
-      },
-      {
         "name": "Río Huallaga",
         "source": "seriouslyfish",
-        "quote": "Hoplisoma armatum, long known as Corydoras armatus, is an armoured catfish from the Río Huallaga watershed in Peru, to which it may be endemic.",
-        "country": "PE",
+        "quote": "Both localities lie within the Río Huallaga watershed to which Hoplisoma armatum may be endemic.",
         "ok": true
       },
       {
@@ -63,7 +47,8 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "VE"
+        "VE",
+        "CO"
       ],
       "sourcesOnly": []
     }

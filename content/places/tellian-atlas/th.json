@@ -3,6 +3,12 @@
   "name": "เทลอัตลาส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-20T11:58:37.778Z",
+    "why": "The Thai name is written in Thai, but \"เทลอัตลาส\" is a loose transliteration that omits the kind word \"เทือกเขา\" (mountains) that Thai atlases use, and the standard form is \"เทลแอตลาส\"."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

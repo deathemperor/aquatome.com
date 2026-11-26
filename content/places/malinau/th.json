@@ -3,6 +3,12 @@
   "name": "มาลีเนา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T18:19:05.811Z",
+    "why": "Malinau is a regency in North Kalimantan, and Thai usage would most likely write มาลีนาอู or มาลินาอู, so มาลีเนา misrenders the final \"au\" diphthong and lacks the regency kind word."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

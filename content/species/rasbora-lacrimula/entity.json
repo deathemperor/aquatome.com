@@ -26,19 +26,12 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The red cherry rasbora, Rasbora lacrimula, is a small cyprinid confirmed only from the Belayan drainage in east Kalimantan, Indonesian Borneo.",
+          "quote": "The only confirmed record is from the type locality in the Ulu (river) Belayan drainage, part of the lower Mahakam drainage in Kalimantan Timur (east Kalimantan), Indonesian Borneo.",
           "countries": [
             "ID"
           ],
           "regions": [
-            "Belayan"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "The only confirmed record is from the type locality in the Ulu (river) Belayan drainage, part of the lower Mahakam drainage in Kalimantan Timur (east Kalimantan), Indonesian Borneo.",
-          "countries": [],
-          "regions": [
+            "Belayan",
             "Mahakam",
             "Borneo"
           ]
@@ -97,6 +90,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.1
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -120,10 +117,22 @@
       "html": "<p>The red cherry rasbora, Rasbora lacrimula, is a small cyprinid confirmed only from the Belayan drainage in east Kalimantan, Indonesian Borneo. Also traded as 'Bornean redfin rasbora', 'sunshine rasbora' and 'dwarf volcano rasbora', it first appeared in the hobby in late 2010. Larger fish carry small tubercules on the back behind the dorsal fin, and a faint dark midlateral stripe ends in a teardrop-shaped blotch at the caudal peduncle.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_lacrimula_en/",
+      "html": "<p>Rasbora lacrimula was described scientifically only in 2009. Maximum length observed is around 4 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-lacrimula",
       "html": "<p>The only confirmed record is from the type locality in the Ulu (river) Belayan drainage, part of the lower Mahakam drainage in Kalimantan Timur (east Kalimantan), Indonesian Borneo. It may have a larger distribution in that area given its appearance in the aquarium trade.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_lacrimula_en/",
+      "html": "<p>R. lacrimula is endemic in the Mahakam basin, Kalimantan Timur Province on Borneo.</p>"
     },
     {
       "key": "habitat",
@@ -162,6 +171,12 @@
       "html": "<p>This species is very peaceful indeed making it an ideal resident of the well-furnished community tank. As it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, rainbowfish, anabantoids, catfish and loaches. As always when selecting a compatible community of fish thorough research is essential and its small adult size must be a consideration.</p><p>It's a schooling species by nature and really should be kept in a group of at least 8-10 specimens. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours as they compete with one other for female attention.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_lacrimula_en/",
+      "html": "<p>The new species is a lively, undemanding schooling fish and a perfect addition (not at least due to the unique orange fins) to any tank for Southeastern Asian fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-lacrimula",
@@ -180,6 +195,12 @@
       "html": "<p>This species is also traded as 'Bornean redfin rasbora', 'sunshine rasbora' and 'dwarf volcano rasbora' and first appeared in the hobby during the latter part of 2010.</p><p>It can be told apart from all other members of the genus by a combination of the following characters: possession of small tubercules on the dorsal surface, posterior to the dorsal fin and continuing onto the upper part of caudal fin, visible as an irregular 'crest' when a specimen is viewed laterally; a few tubercules on the lower edge of the caudal fin; colour pattern consisting of a faint, dark midlateral stripe ending in a relatively large, horizontally-orientated, teardrop-shaped blotch at the caudal peduncle. The tubercules on the dorsal surface of the body and caudal fin may be indicative of sexual maturity as they're not present in smaller specimens. The only other Rasbora species to possess such tubercules is R. tuberculata but in that species they're also distributed in front of the dorsal fin and on the dorsal fin itself.</p><p>Rainboth's 'Fishes of the Cambodian Mekong' characterised members of Rasbora by possession of an unbranched, non-spiny first dorsal fin ray and seven soft dorsal rays, origin of the dorsal fin in the middle of the body, five branched anal fin rays, a small mouth not extending below the eye and a lack of barbels. It's long been recognised as a polyphyletic lineage as noted by Kottelat (1999) amongst others, and in 2010 the results of a phylogenetic analysis by T. Y. Liao et al. suggested a number of changes in order to improve the taxonomy. The authors found species of rasborin genera to actually represent a monophyletic grouping existing in six clades and erected four new genera (all containing former members of Rasbora) in order to preserve monophyly of the existing groups i.e. Boraras, Horadandia, Rasbora, Rasboroides and Trigonostigma.</p><p>According to the authors the first two clades are monotypic; R. brittani should now be referred to as Kottelatia brittani and R. dorsiocellata as Brevibora dorsiocellata. The third clade comprises Boraras brigittae, Horadandia atukorali, Rasboroides vaterifloris, Trigonostigma heteromorpha and three species previously included in Rasbora but also moved into new genera; Trigonopoma gracile, T. pauciperforatum and Rasbosoma spilocerca. The results for B. brigittae and T. heteromorpha were found to be inconclusive in some respects and further work regarding their phylogenetic position was recommended. The fourth clade includes Rasbora semilineata, R. borapetensis, R. rubrodorsalis and an undescribed fish similar to R. beauforti. Clade five consists of R. daniconius, R. hubbsi, R. paucisqualis, R. wilpita, R. kobonensis, R. ornata and R. cf. daniconius. Clade six, meanwhile, is subdivided into two groupings. The first contains R. einthovenii, R. elegans and R. cephalotaenia and the second R. lateristriata, R. argyrotaenia, R. volzii, R. paviana, R. rasbora (plus an undescribed, similar fish), R. caudimaculata and R. trilineata. As this final clade contains the type species (see below) its members retain the generic name Rasbora as do clade five species because they don't differ sufficiently to warrant the erection of a new genus/genera. Unfortunately many species weren't included in the analysis, meaning inevitable questions are raised regarding the correct placement of the 40 or so other Rasboras, in particular.</p><p>As the genus had previously been split into various 'species groups' (groups of closely-related species) dating back to Brittan (1972, who referred to them as 'species complexes') Liao et al. proposed the following arrangement whilst noting it may be subject to change with further phylogenetic studies:</p><ul><li>R. semilineata species group: R. semilineata, R. borapetensis, R. rubrodorsalis.</li><li>R. trifasciata species group: R. trifasciata, R. amplistriga, R. api, R. bankanensis, R. dies, R. ennealepis, R. hubbsi, R. johannae, R. kluetensis, R. meinkeni, R. nodulosa, R. paucisqualis, R. rutteni, R. sarawakensis, R. taytayensis, R. tobana, R. truncata, R. tuberculata.</li><li>R. daniconius species group: R. daniconius, R. armitagei, R. dandia, R. kobonensis, R. labiosa, R. microcephalus, R. ornata, R. wilpita.</li><li>R. einthovenii species group: R. einthovenii, R. cephalotaenia, R. elegans, R. jacobsoni, R. kalochroma, R. kottelati, R. nematotaenia, R. patrickyapi, R. tubbi.</li><li>R. argyrotaenia species group: R. argyrotaenia, R. aprotaenia, R. aurotaenia, R. baliensis, R. borneensis, R. bunguranensis, R. dusonensis, R. evereti, R. hobelmani, R. hossi, R. lateristriata, R. laticlavia, R. leptosoma, R. philippina, R. septentrionalis, R. spilotaenia, R. steineri, R. tawarensis, R. tornieri, R. volzii.</li><li>R. sumatrana species group: R. sumatrana, R. atridorsalis, R. calliura, R. caudimaculata, R. dorsinotata, R. notura, R. paviana, R. rasbora, R. subtilis, R. trilineata, R. vulgaris.</li><li>Not classified: R. beauforti, R. chrysotaenia, R. gerlachi (validity in question), R. lacrimula (said to compare most closely with R. dies and R. semilineata which are members of the R. trifasciata and R. semilineata groups, respectively) R. kalbarensis, R. reticulata, R. vulcanus (possibly not Rasboras) and R. zanzibarensis (identity in question).</li></ul><p>NB - this list has been amended from that published in Liao et al. to reflect subsequent new species descriptions and taxonomical changes.</p><p>Shortly afterwards a paper investigating systematics of the subfamily Danioninae was published by Tang et al. (2010) Their results differed wildly from those of Liao et al. and the four new genera plus Boraras and Trigonostigma were synonymised with Rasbora based on an incomplete knowledge of relationships within the group, an approach they describe as 'more conservative'. Though perhaps neither conclusion is satisfactory the system of Liao et al. has been adopted pending future studies, if only because retaining Boraras and Trigonostigma is preferred.</p><p>The identity of the type species, often given as R. rasbora in the past, is no longer in question; when Bleeker first referred to the name Rasbora in 1859 only four nominal members were included of which R. cephalotaenia (known as Leuciscus cephalotaenia at the time) should be considered the type. Howes (1980) suggested the separation of a number of species into the new genus Parluciosoma with type species P. (Rasbora) argyrotaenia but the monophyly of that grouping was not recovered by Liao et al..</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_lacrimula_en/",
+      "html": "<p>Regarding coloration this new Rasbora reminds one in R. reticulata and R. vulcanus, but R. lacrimula stays much smaller.</p><p>Lexicon: Rasbora – the native Bengali name for Rasbora rasbora. lacrimula: Latin, means \"little teardrop\", referring to the drop-shape of the lateral band on the caudal peduncle.</p><p>Suggestion of a common name: Dwarf volcano rasbora</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-lacrimula",
@@ -193,7 +214,7 @@
       "width": 800,
       "height": 536,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Charles König / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-lacrimula",
       "caption": "Adult female.",
       "source": "seriouslyfish"
@@ -204,7 +225,7 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Charles König / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-lacrimula",
       "caption": "Subadult male.",
       "source": "seriouslyfish"
@@ -215,13 +236,38 @@
       "width": 800,
       "height": 536,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Charles König / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-lacrimula",
       "caption": "Young specimen.",
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "SQFgQ9k67To",
+      "title": "Rasbora lacrimula - Kirschbärbling (Zwerg-Vulkanbärbling) | Liquid Nature Fisch Vorstellung",
+      "durationSec": 515,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "LDROouFYYEk",
+      "title": "Rasbora (Red Cherry) [Lacrimula]",
+      "durationSec": 11,
+      "lang": "tr"
+    },
+    {
+      "youtubeId": "8h-7PqtWyaY",
+      "title": "Sleeper of a schooler! Species Spotlight",
+      "durationSec": 214,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sXqhWwkPi28",
+      "title": "Rasbora lacrimula.",
+      "durationSec": 183,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -251,5 +297,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-14"
 }

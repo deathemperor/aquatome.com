@@ -2,6 +2,45 @@
   "id": "bacopa-australis",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/704119756.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/704119756-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "topeuna",
+      "sourceUrl": "https://www.inaturalist.org/photos/704119756",
+      "caption": "Thảm Rau đắng nam xanh tươi mọc dưới nước",
+      "best": true,
+      "kind": "submersed",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/651983047.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/651983047-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nicola Crockford",
+      "sourceUrl": "https://www.inaturalist.org/photos/651983047",
+      "caption": "Rau đắng nam có hoa trắng mọc ở bãi ẩm",
+      "best": true,
+      "kind": "flower",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/704119754.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/704119754-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "topeuna",
+      "sourceUrl": "https://www.inaturalist.org/photos/704119754",
+      "caption": "Cụm lá Rau đắng nam xanh sáng trong bể",
+      "best": true,
+      "kind": "submersed",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/tropica/39206706e0d64a71.webp",
       "thumb": "https://media.aquatome.com/tropica/39206706e0d64a71-480.webp",
       "width": 1200,
@@ -39,8 +78,35 @@
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bacopaaustralis(043A)/4466",
       "source": "tropica",
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/651983013.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/651983013-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nicola Crockford",
+      "sourceUrl": "https://www.inaturalist.org/photos/651983013",
+      "caption": "Rau đắng nam ra hoa trắng ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/704119753.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/704119753-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "topeuna",
+      "sourceUrl": "https://www.inaturalist.org/photos/704119753",
+      "caption": "Rau đắng nam mọc thành mảng trên mặt nước suối",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 0,
-  "updatedAt": "2026-11-10"
+  "seen": 6,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

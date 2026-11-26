@@ -1,0 +1,65 @@
+{
+  "id": "ancistrus-patronus",
+  "native": {
+    "input": "40117b9f83434ddd",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Orinoco",
+        "source": "scotcat",
+        "quote": "Present in the upper Río Orinoco from the Río Cinaruco upstream and in the Río Casiquiare.",
+        "ok": true
+      },
+      {
+        "name": "Río Casiquiare",
+        "source": "scotcat",
+        "quote": "Present in the upper Río Orinoco from the Río Cinaruco upstream and in the Río Casiquiare.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ancistrus patronus",
+    "status": "ACCEPTED",
+    "taxonKey": 10202289,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        17
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

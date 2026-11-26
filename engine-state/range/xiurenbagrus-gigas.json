@@ -1,0 +1,51 @@
+{
+  "id": "xiurenbagrus-gigas",
+  "native": {
+    "input": "f17ca34b337a27e2",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Hongshuihe River, Pearl [= Zhujiang] River basin, China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pearl River",
+        "source": "scotcat",
+        "quote": "Asia: Hongshuihe River, Pearl [= Zhujiang] River basin, China.",
+        "country": "CN",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Hongshuihe River",
+        "source": "scotcat",
+        "quote": "Asia: Hongshuihe River, Pearl [= Zhujiang] River basin, China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xiurenbagrus gigas",
+    "status": "ACCEPTED",
+    "taxonKey": 2342878,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

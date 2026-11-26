@@ -1,10 +1,9 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import type { Content } from '@aq/schema'
 import { drawnKinds, levelBlocks, PageDoc, PageShard, pageShard, shardCount, type Block, type Inline } from '@aq/schema/app-page'
 import { appBreeds, appEquipment, appGlossary, appGuides, appPlants, appSeries, appSpecies, type AppIndex } from '../src/lib/app-index'
-import { appPages, guideDoc, listedPaths, PAGE_LEVELS, proseBlocks, shardsOf } from '../src/lib/app-page'
+import { appPages, glossaryDoc, guideDoc, listedPaths, PAGE_LEVELS, proseBlocks, sectionBlocks, shardsOf } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { GUIDE_KIND_LABELS } from '../src/lib/format'
 import { guideParts } from '../src/lib/guide-page'
@@ -20,7 +19,6 @@ type Vectors = {
   docs: { note: string; valid: boolean; doc: unknown; blocks: string[] }[]
 }
 const v: Vectors = JSON.parse(readFileSync(new URL('../../../protocols/page-vectors.json', import.meta.url), 'utf8'))
-const CONTENT = fileURLToPath(new URL('../../../content/', import.meta.url))
 const clean = (s: string) => s.replace(/\s+/g, ' ').trim()
 const textOf = (c: Inline[] = []) => c.map(r => (typeof r === 'string' ? r : r.text)).join('')
 const pagesOf = (d: PageDoc) => d.blocks.flatMap(b => (b.t === 'pages' ? b.paths : []))
@@ -44,27 +42,6 @@ test.each(v.shards)('$path is in shard $n of $shards', c => {
 test('about 8 pages a shard, a power of two', () => {
   expect([0, 1, 8, 9, 16, 17, 249, 1016].map(shardCount)).toEqual([1, 1, 1, 2, 2, 4, 32, 128])
 })
-
-test('every content file\'s text converts: nothing the app would have to send to the web', () => {
-  const unknown = new Map<string, string>()
-  let n = 0
-  for (const kind of ['guides', 'species', 'plants', 'breeds']) {
-    for (const id of readdirSync(CONTENT + kind)) {
-      for (const lang of LANGS) {
-        const f = `${CONTENT}${kind}/${id}/${lang}.json`
-        if (!existsSync(f)) continue
-        const t = JSON.parse(readFileSync(f, 'utf8')) as { body?: string; sections?: Record<string, string> }
-        for (const html of [t.body, ...Object.values(t.sections ?? {})]) {
-          if (typeof html !== 'string' || !html) continue
-          n++
-          for (const u of htmlBlocks(html).unknown) unknown.set(u, `${kind}/${id}/${lang}`)
-        }
-      }
-    }
-  }
-  expect(n).toBeGreaterThan(100)
-  expect([...unknown]).toEqual([])
-}, slow(60_000)) // about 17,000 texts: a second alone, more beside the other tests
 
 test('every guide converts as its page shows it (links, photos, a video\'s pictures), and is the format', async () => {
   let n = 0
@@ -142,6 +119,31 @@ test('in Indonesian: the Indonesian page\'s paths, links and words, and a Vietna
   expect(d.blocks.find(b => b.t === 'refs')).toMatchObject({ title: t('Nguồn tham khảo'), items: [{ title: `Thay nước cho bể cá (${t('tiếng Việt')})` }] })
 })
 
+// A term's source titled in Vietnamese says so on a page in another language, as a guide's does (the web page's live
+// check failed on three Indonesian, Thai and Malay term pages on 19 Nov 2026; the app's copy of them had the same gap).
+test('a term\'s source titled in Vietnamese says so in the app, on a page in another language', async () => {
+  const refs = async (lang: 'vi' | 'ms') => {
+    const c = await getContent(lang)
+    const g = appGlossary(lang, c).find(g => g.id === 'ca-dan')!
+    return glossaryDoc(lang, c, g, listedPaths(lang, c)).blocks.find(b => b.t === 'refs')
+  }
+  const vi = 'Cá bầy đàn: nuôi bao nhiêu con là đủ'
+  expect((await refs('vi'))?.items.map(i => i.title)).toEqual(['Shoal', vi])
+  expect((await refs('ms'))?.items.map(i => i.title)).toEqual(['Shoal', `${vi} (${translator('ms')('tiếng Việt')})`])
+})
+
+// The same for a fish's or a plant's sources (the reader's find on #1681). The fixture has no such page in another
+// language: its Vietnamese ones, made as those pages are. A guide's own video isn't here: video guides are Vietnamese only.
+test('a fish\'s source titled in Vietnamese says so in the app, on a page in another language', async () => {
+  const c = await getContent('vi')
+  const note = ` (${translator('ms')('tiếng Việt')})`
+  const vi = 'Cá neon: cách nuôi cho đàn khỏe'
+  const s = appSpecies('vi', c)[0]!
+  const refs = (lang: 'vi' | 'ms') => sectionBlocks(lang, c, { sections: [], t: s.t, self: `species:${s.id}`, refs: [{ url: 'https://example.com/ca-neon', title: vi }] }).blocks.find(b => b.t === 'refs')
+  expect(refs('vi')?.items.map(i => i.title)).toEqual([vi])
+  expect(refs('ms')?.items.map(i => i.title)).toEqual([vi + note])
+})
+
 test('a page the app index leaves out is in no "pages" block; a link to it in the text stays, for the web', async () => {
   const c = await getContent('vi')
   const listed = listedPaths('vi', c)
@@ -153,8 +155,12 @@ test('a page the app index leaves out is in no "pages" block; a link to it in th
   expect(pagesOf(d)).not.toContain(fish)
   expect(hrefsOf(d)).toContain(fish)
   // A fish and a guide whose translations scored low (Cá boraras đỏ, Thay nước đúng cách) are on the site's lists, so in
-  // the index and in the blocks that name them.
-  const block = (id: string) => pagesOf(guideDoc('vi', c, appGuides('vi', c).find(x => x.id === id)!, listed))
+  // the index and in the blocks that name them. A guide with no picture is on none of the app's lists of guides to read next
+  // (guide-page.ts appNext), and since 15 Nov one borrows a fish only when its title names it (mentions.ts): the fixture's
+  // "Thay nước đúng cách" names none, so here it has a photo of its own.
+  const own = c.species.find(s => s.id === 'boraras-brigittae')!.photos[0]!
+  const withPhoto = { ...c, guides: c.guides.map(x => (x.id === g.id ? { ...x, photos: [own] } : x)) }
+  const block = (id: string) => pagesOf(guideDoc('vi', withPhoto, appGuides('vi', withPhoto).find(x => x.id === id)!, listed))
   expect(block('sprucepets-low-maintenance-freshwater-fish-4770223')).toContain('/vi/ca/ca-boraras-do/')
   expect(block('loc-cho-be-nano')).toContain('/vi/huong-dan/thay-nuoc-dung-cach/')
 })

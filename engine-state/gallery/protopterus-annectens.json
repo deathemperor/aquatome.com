@@ -15,7 +15,11 @@
   "File:Dipneute 1006050.jpg",
   "File:Sarcopterygii collage.jpg",
   "inat:223520639",
-  "inat:223520647"
+  "inat:223520647",
+  "gbif:1230327668:5e9bb38a5200df58",
+  "gbif:1230327668:da562744026e44d9",
+  "gbif:1230327668:742d93750d00f295",
+  "gbif:1230327668:548670ddc8b329e3"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/8046ccad9f6ece26.webp": "1c1c9e1eafe87024",
@@ -37,5 +41,12 @@
    "research": 131355071,
    "agree": 343420449
   }
+ },
+ "gbif": {
+  "key": 2441257,
+  "next": null
+ },
+ "openverse": {
+  "next": null
  }
 }

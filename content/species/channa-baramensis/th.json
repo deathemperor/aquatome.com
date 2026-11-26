@@ -17,10 +17,10 @@
     "references:seriouslyfish": "<ul><li>Martin-Smith, K. M. and H. H. Tan (1998). Diversity of freshwater fishes from eastern Sabah: annotated checklist for Danum Valley and a consideration of inter- and intra-catchment variability. Raffles Bulletin of Zoology 46(2), 573-604</li><li>Steindachner, F. (1901). Kükenthal's Ergebnisse einer zoologischen Forschungreise in den Molukken und Borneo. Fische. Abhandlungen der Senckenbergischen Naturforschenden Gesellschaft v. 25, 409-464</li><li>Brede, N. and P. Antler (2009). Schlangenkopffische—Die Gattungen Channa und Parachanna. Natur und Tier Verlag, Münster, 62 pp.</li></ul>"
   },
   "quality": {
-    "score": 0.55,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.55
+      "seriouslyfish": 0.85
     }
   }
 }

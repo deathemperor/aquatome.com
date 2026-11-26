@@ -1,7 +1,51 @@
 {
   "id": "tetragonopterus-argenteus",
-  "photos": [],
-  "seen": 4,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/624809373.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/624809373-480.webp",
+      "width": 1024,
+      "height": 461,
+      "licence": "CC BY",
+      "author": "Pablo H Capovilla",
+      "sourceUrl": "https://www.inaturalist.org/photos/624809373",
+      "caption": "Cá tetra bạc nhìn nghiêng trong hộp trong suốt ngoài tự nhiên",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/cb9309740b8b0b42.webp",
+      "thumb": "https://media.aquatome.com/glaser/cb9309740b8b0b42-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/tetragonopterus-argenteus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7368c713b8b557b8.webp",
+      "thumb": "https://media.aquatome.com/glaser/7368c713b8b557b8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/tetragonopterus-argenteus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/167f81844e6455d7.webp",
+      "thumb": "https://media.aquatome.com/glaser/167f81844e6455d7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/tetragonopterus-argenteus-2/",
+      "source": "glaser"
+    }
+  ],
+  "seen": 38,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

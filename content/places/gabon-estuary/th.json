@@ -3,6 +3,12 @@
   "name": "ปากแม่น้ำกาบอง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T12:23:37.660Z",
+    "why": "The name ปากแม่น้ำกาบอง is a reasonable rendering of Gabon Estuary, but Thai atlases write an estuary as \"อ่าวกาบอง\" or \"ปากแม่น้ำโกโมโก\" (Komo), and the Thai name does not match any of those, so it is uncertain."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

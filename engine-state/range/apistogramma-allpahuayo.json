@@ -1,0 +1,60 @@
+{
+  "id": "apistogramma-allpahuayo",
+  "native": {
+    "input": "7fa02ed20c979092",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "For a long time this beautiful dwarf cichlid from the basin of the Rio Nanay in Peru sailed under the name \"cf. juruensis\" or \"sp. Black Chin\".",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Nanay",
+        "source": "glaser",
+        "quote": "For a long time this beautiful dwarf cichlid from the basin of the Rio Nanay in Peru sailed under the name \"cf. juruensis\" or \"sp. Black Chin\".",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma allpahuayo",
+    "status": "ACCEPTED",
+    "taxonKey": 8290133,
+    "datasets": [
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T19:07:52.042Z"
+  }
+}

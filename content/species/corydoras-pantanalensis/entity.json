@@ -15,15 +15,13 @@
   "range": {
     "native": {
       "countries": [
-        "BO",
-        "BR"
+        "BO"
       ],
       "regions": [
         "Pantanal"
       ],
       "sources": [
-        "seriouslyfish",
-        "glaser"
+        "seriouslyfish"
       ],
       "quotes": [
         {
@@ -35,21 +33,13 @@
           "regions": [
             "Pantanal"
           ]
-        },
-        {
-          "source": "glaser",
-          "quote": "Origin: Brazil.",
-          "countries": [
-            "BR"
-          ],
-          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 2342616,
       "total": 9,
-      "fetched": "2026-11-10",
+      "fetched": "2026-11-18",
       "countries": [
         [
           "BR",
@@ -61,25 +51,25 @@
           -57.65625,
           -22.5,
           1,
-          1
+          0
         ],
         [
           -56.25,
           -16.875,
           6,
-          6
+          0
         ],
         [
           -56.25,
           -15.46875,
           1,
-          1
+          0
         ],
         [
           -53.4375,
           -16.875,
           1,
-          1
+          0
         ]
       ]
     }
@@ -145,8 +135,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_pantanalensis_c5_en/",
-      "html": "<p>This species is one of the largest of its genus: C. pantanalensis can reach a total length of more than 8 cm. Origin: Brazil.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-pantanalensis-2/",
+      "html": "<p>Corydoras pantanalensis is one of the most beautiful and most splendid species of Corydoras. Before its scientific description it was known as C5. This species attains a body length of about 8 cm and is one of the largest species of Corydoras.</p>"
     },
     {
       "key": "distribution",
@@ -191,6 +181,12 @@
       "html": "<p>Very peaceful and suitable for many community tanks. Don't keep it with anything very large or aggressive. Good tankmates include small characins, cyprinids, anabantoids, dwarf cichlids and other peaceful catfish. Always try to maintain Corydoras in groups as they're far more confident and active in the presence of conspecifics. A group of at least 6 individuals is suggested.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-pantanalensis-2/",
+      "html": "<p>Within the genus, C. pantanalensis belongs to a relationship around C. elegans. All species of that group have in common a very obvious sexual dichromatism and the behaviour to swim a lot in the open water column instead of near the bottom as most other species of Corydoras do.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-pantanalensis",
@@ -199,8 +195,8 @@
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_pantanalensis_c5_en/",
-      "html": "<p>During the breeding season the males develop a completely different pattern: a dark net pattern all over the body. The males differ from the females otherwise only in the intensity of the colours: the males are more golden-red.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-pantanalensis-2/",
+      "html": "<p>Corydoras pantanalensis is also very interesting because the males develop a completely different pattern during the breeding season. At this time they have a dark net pattern all over the body. The somewhat larger males are the ones that show the mating pattern.</p>"
     },
     {
       "key": "reproduction",
@@ -209,19 +205,54 @@
       "html": "<p>No captive breeding information is available, but it can probably be bred in a similar fashion to many other Corydoras species. Set up the breeding tank (45 × 30 × 30 cm or similar is a good size), with either a bare bottom, sand or fine gravel substrate. Use air-powered sponge or box-type filtration as fry won't be sucked into these and provide some clumps of vegetation such as java moss. A temperature of around 24°C and a pH of 7 should be fine. It's always better to have a higher ratio of males to females when breeding corys and 2 males per female is recommended. Condition the group on a varied diet of live, frozen and dried foods. When the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>It's worth observing a couple of notes on general cory breeding at this point. Many species are seasonal spawners, breeding during the wet season in their native countries. This occurs at the same time of year as the UK winter, so if summer breeding attempts are failing, it may be worth waiting until winter before trying again. Also, some species can take several years to become sexually mature, so be patient. Finally some species simply require different tactics, including timing of water changes, oxygenation levels etc. If you aren't having any luck, don't be afraid of trying different approaches.</p><p>If the fish decide to spawn, they will usually lay their eggs on the tank glass, often in an area where water flow is quite high. Spawning behaviour is characterised by an initial increase in activity and excitement, before males begin to actively pursue females. A receptive female will allow a male to caress her with his barbels, before the pair take up the classic \"t-position\", in which the male grasps the female's barbels between his pectoral fin and body. He then releases some sperm and it's thought that this passes through the mouth and gills of the female, being directed towards her pelvic fins. These she uses to form a 'basket', into which she deposits a single egg (although up to 4 may be released). Once this is fertilised, she swims away to find a suitable place to deposit the egg, before the cycle is repeated. If you spawn the fish in a group situation, you will often see multiple males chasing a female as she goes to deposit an egg, in an effort to be the next chosen to fertilise eggs.</p><p>The adults will eat their spawn given the opportunity, so once spawning is complete you have 2 choices. Either remove the adults and raise the brood in the same tank, or move the eggs and raise the fry elsewhere. If you decide to move the eggs, you'll find they're quite robust, and can usually be gently rolled up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated. Wherever you decide to hatch the eggs, it's always best to add a few drops of methylene blue to the water to prevent fungussing. Even then some eggs will probably fungus, and these should be removed as soon as they're spotted in order to prevent the fungus spreading.</p><p>The eggs hatch in 3-4 days and once the fry have used up their yolk sacs, they will accept microworm and brine shrimp nauplii as first foods. The fry seem to be less susceptible to disease when kept over a thin layer of sand, as opposed to in a bare-bottomed setup.</p>"
     },
     {
-      "key": "reproduction",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_pantanalensis_c5_en/",
-      "html": "<p>The imported fish were not in the mood for breeding.</p>"
-    },
-    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-pantanalensis",
       "html": "<p>This species may also be referred to by its C-number, C005.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/b796a435e549af71.webp",
+      "thumb": "https://media.aquatome.com/glaser/b796a435e549af71-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-pantanalensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d7ef9d40d24b9ab9.webp",
+      "thumb": "https://media.aquatome.com/glaser/d7ef9d40d24b9ab9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-pantanalensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1ef24188e2b563e8.webp",
+      "thumb": "https://media.aquatome.com/glaser/1ef24188e2b563e8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-pantanalensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/07865a24b9b0e477.webp",
+      "thumb": "https://media.aquatome.com/glaser/07865a24b9b0e477-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-pantanalensis-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "CVc-EzMdCeY",
@@ -277,5 +308,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-17"
 }

@@ -3,6 +3,12 @@
   "name": "Irrawaddy",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-18T00:40:34.961Z",
+    "why": "The place is the Yiluowadi Jiang (the Chinese name for the upper Irrawaddy), and a Malaysian atlas would write the river with the kind word, \"Sungai Irrawaddy\", so bare \"Irrawaddy\" lacks \"Sungai\"."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

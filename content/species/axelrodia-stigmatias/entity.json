@@ -11,7 +11,10 @@
     "madeira",
     "peru",
     "ucayali",
-    "colombia"
+    "colombia",
+    "rio-negro",
+    "orinoco",
+    "venezuela"
   ],
   "range": {
     "native": {
@@ -20,10 +23,10 @@
         "PE"
       ],
       "regions": [
-        "Amazon",
-        "Rio Madeira",
-        "Rio Solimões",
-        "Río Ucayali"
+        "Madeira",
+        "Solimões",
+        "Ucayali",
+        "Lago Manacapuru"
       ],
       "sources": [
         "seriouslyfish"
@@ -43,10 +46,10 @@
           "quote": "Native to the western Amazon region with confirmed records existing from the rio Madeira and lago Manacapuru complex off the rio Solimões (Amazon) main channel, upstream from Manaus, in Brazil plus the Río Ucayali in Peru.",
           "countries": [],
           "regions": [
-            "Amazon",
-            "Rio Madeira",
-            "Rio Solimões",
-            "Río Ucayali"
+            "Madeira",
+            "Solimões",
+            "Ucayali",
+            "Lago Manacapuru"
           ]
         }
       ]
@@ -234,7 +237,7 @@
       },
       {
         "source": "glaser",
-        "value": 2
+        "value": 2.3
       }
     ],
     "tankCm": [
@@ -247,6 +250,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
@@ -260,8 +267,14 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_stigmatias_colombia_en/",
-      "html": "<p>The genus Axelrodia contains only three species, but it is quite difficult to distinguish two of them, namely A. stigmatias and A. riesei. Most probably the genus contains more, still undescribed species. Ruby tetras recently received from Colombia correspond very well with Axelrodia stigmatias in body proportions and caudal pattern, but are closer to A. riesei in their ruby red colours.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia-stigmatias-2/",
+      "html": "<p>The maximum size given for Axelrodia stigmatias is 23 mm. Sometimes these tiny specimens are more yellowish, sometimes deep reddish in color.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia-stigmatias-2/",
+      "html": "<p>Very red specimens are mostly traded as A. riesei. The true A. riesei comes from the upper Rio Meta, a large Orinoco tributary.</p>"
     },
     {
       "key": "distribution",
@@ -282,16 +295,16 @@
       "html": "<p>Despite its small size minimum base dimensions of 60 × 30 cm (24 × 12 in) or equivalent are recommended for long-term care, though smaller aquaria can be used for breeding. Volume is about 54 litres.</p>"
     },
     {
-      "key": "aquariumSize",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_stigmatias_colombia_en/",
-      "html": "<p>The charming tetra grows only up to 2 cm long. These tiny fish are ideal inhabitants of so-called nano tanks.</p>"
-    },
-    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-stigmatias",
       "html": "<p>Best-maintained in a well-structured set-up, ideally comprising a sandy substrate plus some driftwood roots and branches.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments. Alder cones may also be used for the latter purpose.</p><p>This species seems to do best under fairly dim lighting. You can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation, especially Ceratopteris spp., is also useful.</p><p>For breeding purposes acidic conditions with negligible carbonate hardness and very low general hardness are required so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>There is no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>This species is sensitive to fluctuating organic wastes and should never be introduced to biologically-immature aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia-stigmatias-2/",
+      "html": "<p>The care of the dwarfs is easy, but they need very small food.</p>"
     },
     {
       "key": "waterConditions",
@@ -312,22 +325,28 @@
       "html": "<p>Peaceful with other species but does not make an ideal community fish due to its small size and somewhat specialised requirements.</p><p>Ideally it should be maintained alone or at most with diminutive, non-aggressive characids and smaller callichthyid or loricariid catfishes.</p><p>Though gregarious by nature it is a shoaling rather than schooling species with rival males forming small territories and sparring on a regular basis.</p><p>8-10 specimens should be the minimum purchase since the fish will be less shy and display more interesting behaviour.</p>"
     },
     {
-      "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_stigmatias_colombia_en/",
-      "html": "<p>The fish are hardly shy and prefer not to swim too much.</p>"
-    },
-    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-stigmatias",
       "html": "<p>Sexually mature females should appear rounder-bodied than males, however, especially when gravid.</p><p>It is unclear whether the differences in colour pattern in newly-imported wild fish (see 'Notes') relate to gender or not.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia-stigmatias-2/",
+      "html": "<p>Some Axelrodia stigmatias have an additional intense red stripe above the luminous spot in the caudal fin. It is possible that this represents a sex difference, but this has not been investigated.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-stigmatias",
       "html": "<p>Has been achieved and in a properly-structured, mature aquarium it is possible that small numbers of fry may start to appear without intervention.</p><p>The main requirements are soft, slightly acidic water and provision of fine-leaved plants such as Taxiphyllum or similar within which the fish will spawn.</p><p>Addition of leaf litter is also recommended due to the microorganisms which colonise it as decomposition occurs since these constitute a useful food source for fry.</p><p>Once in condition adults spawn on a daily basis so if attempting to breed this species in controlled conditions a pair or male and several females can be placed in a smaller aquarium and removed after a few days with the eggs and fry left to hatch and grow in the spawning tank.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia-stigmatias-2/",
+      "html": "<p>Reproduction succeeds best in the species aquarium. Here the fish spawn daily in small portions in fine-feathered plants, if the water values are suitable (extremely soft water, pH around 5). An efficient breeding method is not yet known, but in biotope-fairly furnished aquariums (plentifully dead leaves at the soil, fine-sandy underground, moderate current, damped light) usually without assistance of the keeper a few young animals come up.</p>"
     },
     {
       "key": "notes",
@@ -349,7 +368,7 @@
       "width": 800,
       "height": 534,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Ricardo Kobe / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-stigmatias",
       "caption": "Adult male individual.",
       "source": "seriouslyfish"
@@ -360,10 +379,40 @@
       "width": 800,
       "height": 534,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Ricardo Kobe / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-stigmatias",
       "caption": "Specimen with a paler orange blotch in the upper portion of the caudal peduncle.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fd5fdd4872fbc9c0.webp",
+      "thumb": "https://media.aquatome.com/glaser/fd5fdd4872fbc9c0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia-stigmatias-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ae7b2a436d52733d.webp",
+      "thumb": "https://media.aquatome.com/glaser/ae7b2a436d52733d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia-stigmatias-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/76eb62b727ba39f4.webp",
+      "thumb": "https://media.aquatome.com/glaser/76eb62b727ba39f4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia-stigmatias-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -396,5 +445,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-22"
 }

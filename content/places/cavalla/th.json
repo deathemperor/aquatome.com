@@ -3,6 +3,12 @@
   "name": "คาวัลลา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:19:55.715Z",
+    "why": "คาวัลลา is a plausible transliteration of Cavalla, but it is a region/river name in Guinea (Cavally/Cavalla River, which forms the Liberia–Côte d'Ivoire border), and the name lacks a kind word, so it is uncertain whether this matches the atlas form."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

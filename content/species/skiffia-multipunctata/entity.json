@@ -6,6 +6,50 @@
   "genus": "Skiffia",
   "group": "livebearers",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2347686,
+      "total": 65,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "MX",
+          63
+        ],
+        [
+          "ES",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -104.0625,
+          19.6875,
+          14
+        ],
+        [
+          -102.65625,
+          18.28125,
+          5
+        ],
+        [
+          -102.65625,
+          19.6875,
+          43
+        ],
+        [
+          -101.25,
+          19.6875,
+          1
+        ],
+        [
+          -4.21875,
+          39.375,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -46,7 +90,25 @@
       "html": "<p>Lexicon: Skiffia: dedication name for F. J. V. Skiff, a former director of the Field Columbian Museum in Chicago. multipunctata: Latin, means \"with many spots\".</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c56b98b149fb052e.webp",
+      "thumb": "https://media.aquatome.com/commons/c56b98b149fb052e-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Livebearerguy",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skiffia_multipunctata_(1).jpg",
+      "caption": "Cá Skiffia đốm đen đực vàng trong bể thủy sinh",
+      "sourceCaption": "The Skiffia multipunctata is also known as \"Splotched Skiffia\" or \"Spotted Skiffia\". This species occurs in the Lower Rio Lerma throughout the federal state of Jalisco and Michoacán, Mexico. Populations in the area of the Rio Duero dam and Guadalajara seem to be extinct. This photo shows an adult ma",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/commons/c56b98b149fb052e-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

@@ -13,7 +13,7 @@
     "aquariumSize:glaser": "<p>So với các loài cá ăn đất khác, loài này có thể rất dữ. Vì thế chỉ nên nuôi G. harreri trong bể thật rộng, dài ít nhất 200 cm.</p>",
     "behaviour:glaser": "<p>Loài này nuôi chung được với các loài cichlid lớn khác như các loài cá ăn đất khác, Mesonauta, Heros, Uaru. Thả G. harreri chung với nhiều cá khác thì chúng bớt dữ hơn.</p>",
     "dimorphism:glaser": "<p>Con đực lớn hơn và thân thon dài hơn. Con cái nhỏ hơn, trông mập hơn. Cá già có thể nhô một chút gù trên đầu, nhưng con đực hay con cái đều có vẻ có thể bị như vậy.</p>",
-    "reproduction:glaser": "<p>Loài này đẻ trứng lộ thiên, đẻ lên rễ cây hoặc đá. Đến giờ mới thu được nhiều nhất 150 con bột, nhưng một cặp tốt có thể cho khoảng 400 cá con.</p>",
+    "reproduction:glaser": "<p>Loài này đẻ trứng lộ thiên, đẻ lên rễ cây hoặc đá.</p>",
     "quickFacts:glaser": "<p>Kích thước tối đa: có lẽ khoảng 25 cm.</p><p>Geophagus nghĩa là \"ăn đất\". Tên harreri đặt để ghi công một trong những người thu mẫu chuẩn.</p>"
   },
   "quality": {
@@ -23,12 +23,6 @@
       "glaser": 0.8
     },
     "reason": "thin"
-  },
-  "held": {
-    "checks": [
-      "source"
-    ],
-    "at": "2026-11-11"
   },
   "nameFixed": true
 }

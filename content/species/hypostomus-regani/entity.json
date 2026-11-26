@@ -10,7 +10,9 @@
     "brazil",
     "paraguay",
     "uruguay",
-    "argentina"
+    "argentina",
+    "rio-piracicaba",
+    "parana"
   ],
   "range": {
     "native": {
@@ -380,6 +382,13 @@
           "min": 24,
           "max": 28
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
       }
     ],
     "ph": [
@@ -388,6 +397,13 @@
         "value": {
           "min": 6,
           "max": 7
+        }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
         }
       }
     ],
@@ -404,6 +420,10 @@
       {
         "source": "seriouslyfish",
         "value": 40
+      },
+      {
+        "source": "planetcatfish",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -427,10 +447,22 @@
       "html": "<p>The giant white spot plec, Hypostomus regani, is a large suckermouth catfish from Brazil, Paraguay, Uruguay and Argentina. It is very hardy and grows to around 400 mm SL. Peaceful with most tankmates, it is territorial with similarly-sized bottom dwellers, especially its own kind, so a very large tank is needed to keep other large catfish with it.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=146",
+      "html": "<ul><li>Scientific name: Hypostomus regani (Ihering, 1905)</li><li>Common names: Giant White Spot Pleco, Regans Shilderwels (Germany)</li><li>Synonym: Plecostomus regani</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
       "html": "<p>Brazil, Paraguay, Uruguay and Argentina.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=146",
+      "html": "<p>South America: Paraná, Paraguay and Uruguay River basins. Type locality: Rio Piracicaba, São Paulo, Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -457,10 +489,28 @@
       "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 6.0–7.0</li><li>Hardness: 5–10 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=146",
+      "html": "<p>pH 6.0–7.5. Temperature 24–27°C. Slightly soft water is preferable.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=146",
+      "html": "<p>Plants must be well rooted and protected by rock work to avoid accidental up-rooting. Rocks and bogwood do well, especially large rounded rock. This fish is equally happy on sand or large pea-shaped substrate.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
       "html": "<p>An unfussy feeder, it will accept most foods. Offer regular feedings of greens such as cucumber, courgette, blanched spinach etc., as well as dried, live and frozen foods.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=146",
+      "html": "<p>Most greens are accepted (cucumber and courgette / zucchini seem favourite), but this fish loves to chew on dead fish and will accept most sinking foods once acclimatized.</p>"
     },
     {
       "key": "behaviour",
@@ -469,10 +519,22 @@
       "html": "<p>A peaceful species that can be kept with a variety of tankmates, such as larger characins, cyprinids, peaceful cichlids and other catfish. It's territorial with any similarly-sized bottom dwellers, especially conspecifics, so a very large tank is needed if any other large catfish are to be kept.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=146",
+      "html": "<p>As with most large Loricariids, this is a territorial but otherwise peaceful fish. It can be mixed with small fish more easily than other large catfish. Once an appropriate size, will withstand the rigours of an American Cichlid tank.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
       "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=146",
+      "html": "<p>Unknown, although examination of the genital area in a group of large adults should show differences.</p>"
     },
     {
       "key": "reproduction",
@@ -481,10 +543,28 @@
       "html": "<p>Unreported in the hobby.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=146",
+      "html": "<p>Unknown - a real challenge! There is no breeding report.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
       "html": "<p>An attractive and very hardy larger plec.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=146",
+      "html": "<p>Identification: very similar to H. margaritifer from the same river. H. regani is more slender, elongate and has a larger, higher dorsal fin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=146",
+      "html": "<p>Annals and Magazine of Natural History (Series 7) v. 15 (no. 90) (art. 75), pp 558.</p>"
     }
   ],
   "photos": [
@@ -520,20 +600,34 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_regani.htm",
       "caption": "Hypostomus regani",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/bb711fd337ace191.webp",
-      "thumb": "https://media.aquatome.com/scotcat/bb711fd337ace191-480.webp",
-      "width": 500,
-      "height": 317,
-      "licence": "dùng với sự cho phép",
-      "author": "Hans-Georg Evers / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_regani.htm",
-      "caption": "Hypostomus regani",
-      "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "yslFNO8Kgpo",
+      "title": "Hypostomus Regani",
+      "durationSec": 29,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kXs7cLzSvyo",
+      "title": "Hypostomus regani",
+      "durationSec": 52,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gRAPsjCR_oI",
+      "title": "Hypostomus regani qui vient manger dans la main",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ngRWNyEFN2s",
+      "title": "Hypostomus regani, pleco",
+      "durationSec": 46,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -562,5 +656,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-23"
 }

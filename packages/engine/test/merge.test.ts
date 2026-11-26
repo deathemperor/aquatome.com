@@ -52,7 +52,17 @@ test('a shop\'s own talk stays off the page; another source\'s "we" is its own',
   const shop = mergeSpecies({}, page({ sections }), { ...ctx('glaser'), source: 'bwaquatics' as const })
   expect(shop.entity.sections.map(s => [s.key, s.html])).toEqual([['beforeYouBuy', '<p>Wild-caught in Kalimantan.</p>']])
   expect(shop.vi.sections).toEqual({ 'beforeYouBuy:bwaquatics': '<p>Bắt tự nhiên ở Kalimantan.</p>' })
-  expect(mergeSpecies({}, page({ sections }), ctx('seriouslyfish')).entity.sections).toHaveLength(2)
+  // Each cut is listed, as the sweep lists its own: none is silent.
+  expect(shop.dropped).toEqual(['beforeYouBuy:bwaquatics (blocks)', 'diet:bwaquatics (the section)'])
+  // A part a person fixed stays on the page whatever the shop's page says: it isn't listed as cut.
+  const fixedDiet = { ...shop.entity.sections[0]!, key: 'diet' as const, html: '<p>Fixed.</p>', fixed: true as const }
+  const again = mergeSpecies({ entity: { ...shop.entity, sections: [...shop.entity.sections, fixedDiet] }, vi: shop.vi }, page({ sections }), { ...ctx('glaser'), source: 'bwaquatics' as const })
+  expect(again.entity.sections.find(s => s.key === 'diet')?.html).toBe('<p>Fixed.</p>')
+  expect(again.dropped).toEqual(['beforeYouBuy:bwaquatics (blocks)'])
+  const plain = mergeSpecies({}, page({ sections }), ctx('seriouslyfish'))
+  expect(plain.entity.sections).toHaveLength(2)
+  expect(plain.dropped).toBeUndefined()
+  expect(mergeSpecies({}, page(), { ...ctx('glaser'), source: 'bwaquatics' as const }).dropped).toBeUndefined()
 })
 
 test('a translated guide that fixes a problem is written with the fix first', () => {
@@ -315,4 +325,12 @@ test("a new species page's group fits its order; a page on file keeps the group 
   expect(mergeSpecies({}, page(), ctx('seriouslyfish')).entity.group).toBe('tetras')
   const onFile = { ...fresh.entity, group: 'loaches' }
   expect(mergeSpecies({ entity: onFile, vi: fresh.vi }, page({ scientificName: 'Macrognathus caudiocellatus', group: 'other' }), { ...ctx('glaser'), taxon: eel }).entity.group).toBe('loaches')
+})
+
+// 22 Nov 2026: a word on neither group table (gbif.ts GROUPS) stood as a new page's group, and the site had no name for it.
+test("a new species page in a word the engine has no group for goes where its order puts it", () => {
+  const catfish = { ...taxon, canonicalName: 'Corydoras paleatus', order: 'Siluriformes', family: 'Callichthyidae', genus: 'Corydoras' }
+  expect(mergeSpecies({}, page({ scientificName: 'Corydoras paleatus', group: 'plecos' }), { ...ctx('seriouslyfish'), taxon: catfish }).entity.group).toBe('catfish')
+  const puffer = { ...taxon, canonicalName: 'Tetraodon mbu', order: 'Tetraodontiformes', family: 'Tetraodontidae', genus: 'Tetraodon' }
+  expect(mergeSpecies({}, page({ scientificName: 'Tetraodon mbu', group: 'pufferfish' }), { ...ctx('seriouslyfish'), taxon: puffer }).entity.group).toBe('other')
 })

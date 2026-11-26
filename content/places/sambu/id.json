@@ -3,6 +3,12 @@
   "name": "Sambú",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:50:46.862Z",
+    "why": "Sambú is a Panamanian place (Darién, PA); Indonesian atlases would typically write the region with a kind word like \"Wilayah Sambú\" or just \"Sambu\", and the bare accented form without a kind word is a partial match at best."
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

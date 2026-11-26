@@ -1,8 +1,8 @@
 {
   "id": "carnegiella-strigata",
   "native": {
-    "input": "28ced5818ba99603",
-    "at": "2026-11-07T02:19:57.912Z",
+    "input": "04f71013d03b272b",
+    "at": "2026-11-23T01:48:47.136Z",
     "claims": [
       {
         "code": "BO",
@@ -59,11 +59,67 @@
         "quote": "Currently accepted to have an enormous range throughout Amazonian Bolivia, Brazil, Peru and Colombia plus the Río Orinoco system in Venezuela and some coastal drainages in Guyana and Suriname but this may be open to question (see 'Notes').",
         "words": "Suriname",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is widely distributed in South America (Brazil, Ecuador, Bolivia, Colombia, Guyana, Peru and Suriname) and common.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is widely distributed in South America (Brazil, Ecuador, Bolivia, Colombia, Guyana, Peru and Suriname) and common.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is widely distributed in South America (Brazil, Ecuador, Bolivia, Colombia, Guyana, Peru and Suriname) and common.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is widely distributed in South America (Brazil, Ecuador, Bolivia, Colombia, Guyana, Peru and Suriname) and common.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is widely distributed in South America (Brazil, Ecuador, Bolivia, Colombia, Guyana, Peru and Suriname) and common.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is widely distributed in South America (Brazil, Ecuador, Bolivia, Colombia, Guyana, Peru and Suriname) and common.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is widely distributed in South America (Brazil, Ecuador, Bolivia, Colombia, Guyana, Peru and Suriname) and common.",
+        "words": "Suriname",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Río Orinoco",
+        "name": "Orinoco",
         "source": "seriouslyfish",
         "quote": "Currently accepted to have an enormous range throughout Amazonian Bolivia, Brazil, Peru and Colombia plus the Río Orinoco system in Venezuela and some coastal drainages in Guyana and Suriname but this may be open to question (see 'Notes').",
         "country": "VE",
@@ -72,8 +128,7 @@
       {
         "name": "Rio Negro",
         "source": "seriouslyfish",
-        "quote": "The majority of fish in the ornamental trade are collected in the rio Negro basin, Brazil.",
-        "country": "BR",
+        "quote": "In the rio Negro system it inhabits so-called igapó and igarapé habitats characterised by thick, often overhanging, riparian vegetation and substrates covered in fallen branches, tree roots and leaf litter.",
         "ok": true
       },
       {
@@ -255,9 +310,10 @@
       "CO",
       "VE",
       "GY",
-      "SR"
+      "SR",
+      "EC"
     ],
     "requests": 12,
-    "at": "2026-11-07T02:19:57.912Z"
+    "at": "2026-11-23T01:48:47.136Z"
   }
 }

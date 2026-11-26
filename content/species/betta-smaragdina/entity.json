@@ -23,7 +23,8 @@
       ],
       "regions": [
         "Mekong",
-        "Khorat Plateau"
+        "Khorat Plateau",
+        "Mun"
       ],
       "sources": [
         "bwaquatics",
@@ -43,11 +44,19 @@
           ]
         },
         {
-          "source": "bwaquatics",
-          "quote": "The fish originate from the Khorat Plateau in Thailand.",
+          "source": "seriouslyfish",
+          "quote": "Native to the Khorat Plateau in eastern Thailand, a saucer-shaped upland region enclosed by the Mekong River main channel to the north and east.",
           "countries": [],
           "regions": [
             "Khorat Plateau"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The plateau is drained by the Mun, Chi, Songkhram, and Loei rivers, all of which belong to the Mekong watershed, and B. smaragdina has also been recorded from Mekong tributaries in central Laos.",
+          "countries": [],
+          "regions": [
+            "Mun"
           ]
         }
       ]
@@ -196,8 +205,8 @@
       {
         "source": "bwaquatics",
         "value": {
-          "min": 5,
-          "max": 7
+          "min": 5.5,
+          "max": 7.5
         }
       }
     ],
@@ -208,7 +217,7 @@
       },
       {
         "source": "bwaquatics",
-        "value": 7
+        "value": 6
       }
     ],
     "difficulty": [
@@ -237,8 +246,8 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<p>Betta smaragdina belongs to the Betta splendens complex. IUCN Red List: Data Deficient. This is the natural wild-type colour form: metallic green with blue iridescence. It can be identified by the snakescale-like pattern on the face.</p><ul><li>Body: slender and elongated, slightly compressed. Reaches a maximum standard length of about 7 cm.</li><li>Tail: rounded or slightly crescent-shaped caudal fin, shorter and less ornate than Betta splendens, often with a red distal band with faint black edging or transverse bars, varying by population.</li><li>Colour: dark brown to black body with iridescent green or blue scales giving a metallic \"emerald\" sheen, especially in males.</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-smaragdina-rare-bettas-copy",
+      "html": "<p>From the Betta splendens complex. IUCN Red List: Data Deficient. The \"Buriram\" form is a regional form of Betta smaragdina from Buriram province in northeastern Thailand, known for extra thick iridescence that gives more colour coverage than other populations. Like all smaragdina, it comes from a harsher environment than most splendens and handles lower temperatures well, which makes it a great choice for beginners. It is one of the larger species in the splendens complex, reaching about 6 cm.</p>"
     },
     {
       "key": "quickFacts",
@@ -249,8 +258,8 @@
     {
       "key": "distribution",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<p>Native to northeastern Thailand, Laos and parts of Cambodia in the Mekong Basin. The fish originate from the Khorat Plateau in Thailand.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-smaragdina-rare-bettas-copy",
+      "html": "<p>Native to northeastern Thailand, Laos and parts of Cambodia in the Mekong Basin.</p>"
     },
     {
       "key": "distribution",
@@ -261,8 +270,8 @@
     {
       "key": "habitat",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<p>Inhabits slow-moving, shallow waters such as rice paddies, swamps, ponds and streams with dense vegetation and leaf litter. The Khorat Plateau is a harsher environment than that of other splendens-complex bettas, so these fish are very hardy and can tolerate low temperatures. They live in warm, slightly acidic to neutral water with low oxygen, relying on the labyrinth organ for air-breathing.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-smaragdina-rare-bettas-copy",
+      "html": "<p>Lives in slow-moving, shallow water such as rice paddies, ponds, marshes and streams with dense vegetation. It uses its labyrinth organ to breathe air.</p>"
     },
     {
       "key": "habitat",
@@ -285,8 +294,8 @@
     {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<ul><li>Temperature: 24–29°C; coloration is much better at a warmer temperature above 26°C. Can tolerate a low of 16°C for a short period.</li><li>pH: 5.0–7.0 (in the wild 5.5–7.5).</li><li>TDS: 60–200. They are kept in soft water with low TDS to match other wild bettas, but are more tolerant of water conditions.</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-smaragdina-rare-bettas-copy",
+      "html": "<ul><li>Temperature: 24 to 29°C (much better coloration above 26°C). Known to withstand temperatures as low as 16°C. In the wild 24 to 30°C.</li><li>pH: 5.5 to 7.5</li><li>TDS: 60 to 200 (kept in soft, low-TDS water to match wild bettas, but they tolerate a wider range)</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -297,7 +306,7 @@
     {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
+      "sourceUrl": "https://bwaquatics.com/products/betta-smaragdina-rare-bettas-copy",
       "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
@@ -309,8 +318,8 @@
     {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<p>Males are very aggressive and should be kept alone or in tanks with non-male bettas. Can be kept in a planted community tank of multiple females if there is adequate space.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-smaragdina-rare-bettas-copy",
+      "html": "<p>Males are very aggressive and should be kept alone or with non-male betta tankmates. Multiple females can be kept together in a planted community tank if there is enough space.</p>"
     },
     {
       "key": "behaviour",
@@ -321,8 +330,8 @@
     {
       "key": "dimorphism",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<p>Males show vivid red accents on the caudal, anal and pelvic fins during courtship or aggression, and iridescent green or blue scales on the operculum with two parallel red or silvery vertical bars, more vibrant when flaring. Females are duller, brownish with muted green or red hints, reduced iridescence and simpler, less distinct opercular markings.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-smaragdina-rare-bettas-copy",
+      "html": "<p>Males are the most intense in colour, with red accents in the fins. Females are duller and brownish. The operculum shows a snake-scale pattern of iridescent green or blue scales, with two parallel red or silvery vertical bars in males, brightest when flaring; females have simpler, fainter markings.</p><p>Body slender and elongated, slightly compressed. Fins are usually spadetail, sometimes roundtail; the caudal fin has transverse bars and lacks the red crescent-shaped band seen in some other bettas. Fins are often longer than in other wild splendens types. Each body scale is outlined, with dense green-blue iridescence on a dark brown to black base.</p>"
     },
     {
       "key": "dimorphism",
@@ -333,8 +342,8 @@
     {
       "key": "reproduction",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<p>Bubble nester.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-smaragdina-rare-bettas-copy",
+      "html": "<p>Bubblenester. The male builds a bubble nest under a floating leaf or plants and places the eggs in it after spawning. Remove the female once spawning is done. Eggs hatch in 24 to 48 hours, and the fry are free-swimming about 3 days later. Start them on infusoria, then move to baby brine shrimp. Keep the surface calm so the nest stays intact.</p>"
     },
     {
       "key": "reproduction",
@@ -349,6 +358,12 @@
       "html": "<p>This species has been extensively line-bred for aggression in eastern Thailand, where it is used in organised bouts in the same way as B. splendens elsewhere. It has also been selectively bred for the ornamental trade, and hybridised with the congeners B. mahachaiensis and B. splendens, leading to the development of a number of colour forms that do not occur naturally.</p><p>Populations from different localities often exhibit differences in colouration and patterning, tending to vary in the extent of red or green patterning. If the locality of wild fish is known they are often labelled as such by collectors and enthusiasts in order to maintain accuracy and preserve pure bloodlines.</p><p>This species is included in the Betta splendens complex of closely-related species within the genus, of which members share the following set of characters: head length short 22-31 % SL; often a brightly-coloured body; iris of the eye with iridescent green or blue patches; body elongate or slender; opercles parallel when head viewed dorsally; caudal-fin rays red or brown and contrasting with the iridescent interradial membranes; unpaired fins without an iridescent margin; opercle with red or blue vertical bars or iridescent scales in males; dorsal-fin rays 0-II, 7-9; anal-fin rays II-V, 21-26.</p><p>The unique combination of characters distinguishing B. smaragdina from others in the group is as follows: body light brown, head brown; opercle with iridescent green scales; caudal-fin with transverse bars; caudal-fin without red, crescent-shaped distal band; anal-fin not coloured red distally.</p><p>The genus Betta is the most speciose within the family Osphronemidae. Members have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is largely based on morphological and behavioural characters.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which permits the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be more developed in those inhabiting harsher environments.</p>"
     },
     {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-smaragdina-rare-bettas-copy",
+      "html": "<p>Captive bred by a breeder in Vietnam.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-smaragdina",
@@ -357,25 +372,25 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/57fb358f03575f8d.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/57fb358f03575f8d-480.webp",
-      "width": 762,
-      "height": 387,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/betta-smaragdina",
-      "caption": "Male from the U.K. aquarium trade; possible hybrid.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/99ddb5342d77ba78.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/99ddb5342d77ba78-480.webp",
       "width": 800,
       "height": 535,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "FFish Asia / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-smaragdina",
       "caption": "Male individual from the Xouang river basin, Vientiane province, Laos.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d8ed7b0f06ae591e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d8ed7b0f06ae591e-480.webp",
+      "width": 800,
+      "height": 535,
+      "licence": "dùng với sự cho phép",
+      "author": "FFish Asia / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-smaragdina",
+      "caption": "Male from the Xouang river basin, Vientiane province, Laos.",
       "source": "seriouslyfish"
     },
     {
@@ -389,28 +404,6 @@
       "source": "bwaquatics"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/b771dda61cbb7c10.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/b771dda61cbb7c10-480.webp",
-      "width": 800,
-      "height": 535,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/betta-smaragdina",
-      "caption": "Female from the Xouang river basin, Vientiane province, Laos.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/d8ed7b0f06ae591e.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/d8ed7b0f06ae591e-480.webp",
-      "width": 800,
-      "height": 535,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/betta-smaragdina",
-      "caption": "Male from the Xouang river basin, Vientiane province, Laos.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/bwaquatics/17512b85b5b5e3a7.webp",
       "thumb": "https://media.aquatome.com/bwaquatics/17512b85b5b5e3a7-480.webp",
       "width": 1200,
@@ -419,6 +412,28 @@
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
       "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/57fb358f03575f8d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/57fb358f03575f8d-480.webp",
+      "width": 762,
+      "height": 387,
+      "licence": "dùng với sự cho phép",
+      "author": "Colin Dunlop / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-smaragdina",
+      "caption": "Male from the U.K. aquarium trade; possible hybrid.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b771dda61cbb7c10.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b771dda61cbb7c10-480.webp",
+      "width": 800,
+      "height": 535,
+      "licence": "dùng với sự cho phép",
+      "author": "FFish Asia / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-smaragdina",
+      "caption": "Female from the Xouang river basin, Vientiane province, Laos.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [
@@ -476,5 +491,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-21"
 }

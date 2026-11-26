@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { checkSentences, rewordLoose, sentences, stopNote } from '../src/glossary-facts'
+import { checkSentences, droppedInRewrite, rewordLoose, sentences, stopNote } from '../src/glossary-facts'
 
 // The glossary's fact check, sentence by sentence (the chief of staff, 14 Nov 2026): the old one-score check judged claims of
 // its own choosing each read, and scored one unchanged draft 0.95 and then 0.72.
@@ -48,8 +48,99 @@ test('a kind\'s sentences are read under its name, as a section\'s are under its
   const e = { definition: 'Lũa là gỗ.', body: '<h3>Các loại lũa</h3><ul><li><strong>Lũa đỗ quyên</strong> (spider wood): rễ cây. Lũa nhẹ. Thường dùng cho bể cá đĩa.</li><li><strong>Lũa sừng:</strong> màu vàng.</li></ul><p>Ngâm lũa trước.</p>' }
   const { llm, calls } = model([{ 'Lũa nhẹ.': 'unsupported: x' }, {}, {}], ['supported', 'supported', 'supported'])
   await checkSentences(llm, facts, e)
-  expect(calls[0]).toContain('SENTENCES:\n1. Lũa là gỗ.\n[Các loại lũa]\n2. Các loại lũa\n[Các loại lũa › Lũa đỗ quyên]\n3. Lũa đỗ quyên (spider wood): rễ cây.\n4. Lũa nhẹ.\n5. Thường dùng cho bể cá đĩa.\n[Các loại lũa › Lũa sừng]\n6. Lũa sừng: màu vàng.\n[Các loại lũa]\n7. Ngâm lũa trước.')
-  expect(calls[3]).toContain('HEADING:\nCác loại lũa › Lũa đỗ quyên\n\nPARAGRAPH:\nLũa đỗ quyên (spider wood): rễ cây. Lũa nhẹ. Thường dùng cho bể cá đĩa.\n\nSENTENCE:\nLũa nhẹ.')
+  expect(calls[0]).toContain('SENTENCES:\n[the definition]\n1. Lũa là gỗ.\n[Các loại lũa]\n2. Các loại lũa\n[Các loại lũa › Lũa đỗ quyên]\n3. Lũa đỗ quyên (spider wood): rễ cây.\n4. Lũa nhẹ.\n5. Thường dùng cho bể cá đĩa.\n[Các loại lũa › Lũa sừng]\n6. Lũa sừng: màu vàng.\n[Các loại lũa]\n7. Ngâm lũa trước.')
+  expect(calls[3]).toContain('HEADING:\nCác loại lũa › Lũa đỗ quyên\n\nOPENING:\n(none)\n\nPARAGRAPH:\nLũa đỗ quyên (spider wood): rễ cây. Lũa nhẹ. Thường dùng cho bể cá đĩa.\n\nSENTENCE:\nLũa nhẹ.')
+})
+
+// The chief of staff, 19 Nov 2026: five of the first six first writes failed their first reader on a claim only one site
+// gives, written plain, and three on a hedge or an amount widened past its fact. The check only noted them. Now a read
+// sees each list's opening, and each source's site, and both stop.
+test('a list item stands under the opening its list follows, a line ending in a colon; a paragraph after the list, or a list after no such line, under none', () => {
+  const e = { definition: 'Cá bột là cá con vừa nở.', body: '<p>Một tiệm ghi:</p><ul><li>Cho ăn 3–5 bữa nhỏ mỗi ngày.</li><li>Giữ dòng chảy yếu. Thay nước thường xuyên.</li></ul><p>Tách cá bột khỏi cá trưởng thành.</p><h3>Nên làm gì</h3><ul><li>Thay nước.</li></ul><ul><li>Bài tạp chí ấy cũng ghi:<ul><li>Vớt cá bố mẹ ra.</li></ul></li></ul>' }
+  const at = (t: string) => sentences(e).find(x => x.text === t)!
+  expect(at('Cho ăn 3–5 bữa nhỏ mỗi ngày.').opening).toBe('Một tiệm ghi:')
+  expect(at('Thay nước thường xuyên.').opening).toBe('Một tiệm ghi:')
+  expect(at('Tách cá bột khỏi cá trưởng thành.').opening).toBeUndefined()
+  expect(at('Thay nước.').opening).toBeUndefined()
+  expect(at('Vớt cá bố mẹ ra.').opening).toBe('Bài tạp chí ấy cũng ghi:')
+  expect(at('Cá bột là cá con vừa nở.').opening).toBeUndefined()
+})
+
+test('a read is told each list\'s opening and the verdicts that stop: a one-site claim written plain, and a hedge or an amount changed', async () => {
+  const e = { definition: 'Cá bột là cá con vừa nở.', body: '<p>Một tiệm ghi:</p><ul><li>Cho ăn 3–5 bữa nhỏ mỗi ngày.</li></ul><p>Cá bột sẽ chết nếu cho ăn quá tay.</p>' }
+  const plainOne = 'Cá bột sẽ chết nếu cho ăn quá tay.'
+  const { llm, calls } = model([{ [plainOne]: 'uncredited: one site, plain' }, { [plainOne]: 'uncredited: one site' }, {}])
+  const r = await checkSentences(llm, facts, e)
+  expect(calls[0]).toContain('SENTENCES:\n[the definition]\n1. Cá bột là cá con vừa nở.\n[no heading, under no opening]\n2. Một tiệm ghi:\n[under the opening "Một tiệm ghi:"]\n3. Cho ăn 3–5 bữa nhỏ mỗi ngày.\n[no heading, under no opening]\n4. Cá bột sẽ chết nếu cho ăn quá tay.')
+  expect(calls[0]).toContain('- uncredited: the facts carry it, but every fact that carries it comes from one site')
+  expect(calls[0]).toContain('"sẽ" for "can" is unsupported')
+  expect(calls[0]).toContain('Never loose, but unsupported: a hedge or an amount changed, a claim said more strongly or of more than its fact')
+  expect(calls[0]).toContain('the sources list gives each number\'s kind and site')
+  expect(r.stops.map(x => x.text)).toEqual([plainOne])
+  expect(stopNote(r.stops[0]!)).toBe(`"${plainOne}": the facts don't carry it (uncredited, uncredited, supported): one site, plain / one site`)
+  // One read's lone "uncredited" is settled alone, with the item's opening shown.
+  const item = 'Cho ăn 3–5 bữa nhỏ mỗi ngày.'
+  const alone = model([{ [item]: 'uncredited: x' }, {}, {}], ['uncredited: one site', 'supported', 'uncredited: one site'])
+  expect((await checkSentences(alone.llm, facts, e)).stops.map(x => x.text)).toEqual([item])
+  expect(alone.calls[3]).toContain(`OPENING:\nMột tiệm ghi:\n\nPARAGRAPH:\n${item}\n\nSENTENCE:\n${item}`)
+})
+
+// The chief of staff, 19 Nov 2026, on the check run again on the six live entries: Dòng chảy's "điểm chết" (one Vietnamese
+// shop's word for what another site calls a dead spot) stopped as one site's claim, as would most terms' Vietnamese words.
+test('a Vietnamese word that plainly translates another site\'s word is the thing\'s name and needs no credit; a trade name stays one shop\'s', async () => {
+  const { llm, calls } = model([{}, {}, {}])
+  await checkSentences(llm, facts, { definition: 'Dòng chảy là sự chuyển động của nước.', body: '<p>Chỗ nước không lưu thông gọi là điểm chết.</p>' })
+  expect(calls[0]).toContain('A Vietnamese word that plainly translates what another site\'s word says ("điểm chết" for "dead spot") is the thing\'s name and needs no credit. A word that is not a plain translation, or a trade name only one shop uses, as for a wood, stays that shop\'s word.')
+})
+
+// The chief of staff, 19 Nov 2026: Cá bột's "Tách cá bột khỏi cá trưởng thành." rests on two sites, one shop's in general and
+// the magazine's for species that don't guard their fry, whose limit follows it in the next sentence. The check counted
+// only a fact as broad as the sentence. A lone stop's re-read, which saw only the item, now sees the sentences beside it.
+test('two sites carry a claim in other words or for some of its cases, with that limit beside it; a lone stop\'s re-read sees the sentences before and after', async () => {
+  const split = 'Tách cá bột khỏi cá trưởng thành.', limit = 'Bài tạp chí ấy cũng ghi: loài không giữ con thì vớt cá bố mẹ ra sau khi đẻ.'
+  const e = { definition: 'Cá bột là cá con vừa nở.', body: `<h3>Nên làm gì</h3><ul><li>${split}</li><li>${limit}</li></ul>` }
+  const { llm, calls } = model([{ [split]: 'uncredited: one shop in general' }, {}, {}], ['supported', 'supported', 'uncredited: x'])
+  expect((await checkSentences(llm, facts, e)).stops).toEqual([])
+  expect(calls[0]).toContain('Two sites carry a claim when one gives it as broadly as the sentence does and another gives the same thing in other words, or for some of the cases it covers. If a fact limits the claim, the entry carries that limit beside it (in the sentence, or the one just before or after); if it doesn\'t, the claim takes its site\'s credit.')
+  expect(calls[3]).toContain(`SENTENCE:\n${split}\n\nBEFORE:\nNên làm gì\n\nAFTER:\n${limit}`)
+  expect(calls[3]).toContain('with the sentences just BEFORE and AFTER it')
+})
+
+// The chief of staff, 19 Nov 2026: a meaning can't open with a credit. Lưu vực's, set that morning, is one site's whole and
+// stopped as one site's claim, as a one-site meaning would every night.
+test('the meaning is read under [the definition]: one site may define it alone, saying only what that fact gives; a body sentence under no heading is not the definition', async () => {
+  const e = { definition: 'Lưu vực là một hệ sông. Bể biotope mô phỏng nó.', body: '<p>Chọn cá cùng một nơi.</p>' }
+  const { llm, calls } = model([{ 'Bể biotope mô phỏng nó.': 'uncredited: x', 'Chọn cá cùng một nơi.': 'uncredited: y' }, {}, {}], ['supported', 'supported', 'supported', 'supported', 'supported', 'supported'])
+  await checkSentences(llm, facts, e)
+  expect(calls[0]).toContain('SENTENCES:\n[the definition]\n1. Lưu vực là một hệ sông.\n2. Bể biotope mô phỏng nó.\n[no heading, under no opening]\n3. Chọn cá cùng một nơi.')
+  expect(calls[0]).toContain('The term\'s meaning, the sentences under [the definition], can\'t open with a credit: it rests on two sites where two define it, and where only one does, it says only what that fact gives and stands without a credit, so a sentence of it is never uncredited')
+  expect(calls[3]).toContain('HEADING:\n(the definition)\n\nOPENING:\n(none)\n\nPARAGRAPH:\nLưu vực là một hệ sông. Bể biotope mô phỏng nó.\n\nSENTENCE:\nBể biotope mô phỏng nó.')
+  expect(calls[6]).toContain('HEADING:\n(none)\n\nOPENING:\n(none)\n\nPARAGRAPH:\nChọn cá cùng một nơi.\n\nSENTENCE:\nChọn cá cùng một nơi.')
+  expect(sentences(e).map(s => s.meaning ?? false)).toEqual([true, true, false])
+})
+
+// Codex, 19 Nov 2026: a stop on a body sentence that repeats one of the meaning's let the meaning's copy go too, and a
+// rewrite could cut it from the meaning unnoticed.
+test('a stop on a body sentence never lets the meaning\'s copy of it go', () => {
+  const step = { facts: [{ fact: 'Soak new wood 2 weeks before use.' }] }
+  const s = 'Ngâm 2 tuần.'
+  const inBody = sentences({ definition: '', body: `<p>${s}</p>` })
+  expect(inBody.map(x => [x.text, x.meaning ?? false])).toEqual([[s, false]])
+  const before = { definition: `Lũa là gỗ. ${s}`, body: `<p>${s}</p>` }
+  expect(droppedInRewrite(before, { definition: 'Lũa là gỗ.', body: '' }, step, inBody)[0]).toContain('the advice "Ngâm 2 tuần"')
+  // The body's copy goes on its stop; the meaning's stays.
+  expect(droppedInRewrite(before, { definition: `Lũa là gỗ. ${s}`, body: '' }, step, inBody)).toEqual([])
+})
+
+// Codex, 19 Nov 2026: the rewording, told to join its page's credit where one stands beside the sentence, saw only the
+// sentence's own paragraph, not the credit in the paragraph before.
+test('a rewording sees the sentences just before and after its sentence, across paragraphs', async () => {
+  const e = { definition: 'Lũa là gỗ.', body: '<p>Một tiệm ghi: lũa mới nổi vài ngày.</p><p>Gỗ ngấm nước thì chìm.</p>' }
+  const flag = (t: string) => ({ ...sentences(e).find(x => x.text === t)!, verdicts: ['loose' as const, 'loose' as const], why: ['wider'] })
+  const { llm, calls } = model([{}, {}, {}])
+  await rewordLoose(llm, 'opus', facts, e, [flag('Gỗ ngấm nước thì chìm.')])
+  expect(calls[0]).toContain('1. CÂU: Gỗ ngấm nước thì chìm.\n   ĐOẠN: Gỗ ngấm nước thì chìm.\n   LÝ DO: wider\n   CÂU TRƯỚC: Một tiệm ghi: lũa mới nổi vài ngày.\n   CÂU SAU: (không có)')
+  expect(calls[0]).toContain('lời mở của trang ấy đứng ngay cạnh câu (CÂU TRƯỚC, CÂU SAU) thì nối theo nó')
 })
 
 // Codex, 14 Nov 2026: a paragraph inside a kind's item lost the kind's name, and could read as another wood's.
@@ -86,8 +177,8 @@ test('two reads of three that say the facts don\'t carry a sentence stop it; one
   const r = await checkSentences(llm, facts, entry)
   // The sentence one read stopped is read three times more, alone, under its heading; none of those stops it.
   expect(calls).toHaveLength(6)
-  expect(calls[0]).toContain('SENTENCES:\n1. pH đo độ chua của nước.\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống.')
-  expect(calls[3]).toContain('HEADING:\n(the definition)\n\nPARAGRAPH:\npH đo độ chua của nước. Nó đi từ 0 tới 14.\n\nSENTENCE:\nNó đi từ 0 tới 14.')
+  expect(calls[0]).toContain('SENTENCES:\n[the definition]\n1. pH đo độ chua của nước.\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống.')
+  expect(calls[3]).toContain('HEADING:\n(the definition)\n\nOPENING:\n(none)\n\nPARAGRAPH:\npH đo độ chua của nước. Nó đi từ 0 tới 14.\n\nSENTENCE:\nNó đi từ 0 tới 14.')
   expect(r.stops.map(s => s.text)).toEqual([advice])
   expect(stopNote(r.stops[0]!)).toBe('"Nên thả lá từ từ rồi đo pH.": the facts don\'t carry it (unsupported, unsupported, supported): not in the facts / advice not given')
   expect(r.loose.map(s => s.text)).toEqual(['Lá bàng làm pH xuống.'])
@@ -99,7 +190,7 @@ test('a sentence one read stops is read three times more alone, and stops when t
   const yes = model([{ [s]: 'contradicts: raises it' }, {}, {}], ['contradicts: raises it', 'supported', 'contradicts: raises it'])
   const r = await checkSentences(yes.llm, facts, entry)
   expect(yes.calls).toHaveLength(6)
-  expect(yes.calls[3]).toContain(`HEADING:\nTrong bể\n\nPARAGRAPH:\nLá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.\n\nSENTENCE:\n${s}`)
+  expect(yes.calls[3]).toContain(`HEADING:\nTrong bể\n\nOPENING:\n(none)\n\nPARAGRAPH:\nLá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.\n\nSENTENCE:\n${s}`)
   expect(r.stops.map(x => x.verdicts)).toEqual([['contradicts', 'supported', 'supported', 'contradicts', 'supported', 'contradicts']])
   const no = model([{ [s]: 'contradicts: raises it' }, {}, {}], ['supported', 'loose: x', 'contradicts: y'])
   expect((await checkSentences(no.llm, facts, entry)).stops).toEqual([])
@@ -141,35 +232,383 @@ test('"not a claim" takes a sentence out of the score, and never keeps two stops
 
 // The middle path's trial on Lũa (14 Nov 2026): 4 of 12 rewordings hedged ("many sources say…, but one notes…"), a rewording
 // can read worse than the line it replaced, and a sentence's verdict moved with what stood around it (Codex).
+// The chief of staff, 19 Nov 2026: the rewording, told to narrow and never to credit, could leave a claim one site gives
+// written plain, which then stopped and went back to its loose wording.
+test('a rewording left with one site\'s claim opens with that page\'s credit, or joins the opening it stands under; the meaning opens with none', async () => {
+  const e = { definition: 'Cá bột là cá con vừa nở. Chúng cần nước sạch.', body: '<p>Một tiệm ghi:</p><ul><li>Cho ăn 3–5 bữa nhỏ mỗi ngày.</li></ul>' }
+  const all = sentences(e)
+  const flag = (t: string) => ({ ...all.find(x => x.text === t)!, verdicts: ['loose' as const, 'loose' as const], why: ['wider'] })
+  const { llm, calls } = model([{}, {}, {}])
+  await rewordLoose(llm, 'opus', facts, e, [flag('Chúng cần nước sạch.'), flag('Cho ăn 3–5 bữa nhỏ mỗi ngày.')])
+  expect(calls[0]).toContain('Nếu điều còn lại chỉ một site ghi (đếm theo "site" của nguồn: hai trang của một site là một), câu mở bằng lời ghi nguồn của trang ấy như mục vẫn viết ("Một tiệm ghi: …", "Một bài tạp chí ghi: …"). Câu đã đứng dưới LỜI MỞ của chính trang ấy thì không thêm gì; lời mở của trang ấy đứng ngay cạnh câu (CÂU TRƯỚC, CÂU SAU) thì nối theo nó ("Tiệm ấy cũng ghi: …"), không mở lời mới. Câu thuộc NGHĨA của thuật ngữ (PHẦN) không mở bằng lời ghi nguồn.')
+  expect(calls[0]).not.toContain('"có tiệm ghi"')
+  expect(calls[0]).toContain('1. CÂU: Chúng cần nước sạch.\n   ĐOẠN: Cá bột là cá con vừa nở. Chúng cần nước sạch.\n   PHẦN: NGHĨA của thuật ngữ\n   LÝ DO: wider')
+  expect(calls[0]).toContain('2. CÂU: Cho ăn 3–5 bữa nhỏ mỗi ngày.\n   ĐOẠN: Cho ăn 3–5 bữa nhỏ mỗi ngày.\n   LỜI MỞ: Một tiệm ghi:\n   LÝ DO: wider')
+})
+
 test('the middle path rewords loose sentences once, no hedge, then reads the whole entry again; a rewording that stops goes back', async () => {
+  // The definition's second sentence: its first is never reworded (below).
+  const e = entry
   const loose = [
     { text: 'Lá bàng làm pH xuống.', block: 'Lá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.', heading: 'Trong bể', verdicts: ['loose' as const, 'loose' as const], why: ['stronger than the facts'] },
-    { text: 'pH đo độ chua của nước.', block: entry.definition, verdicts: ['loose' as const, 'loose' as const], why: ['also alkalinity'] },
+    { text: 'Nó đi từ 0 tới 14.', block: e.definition, verdicts: ['loose' as const, 'loose' as const], why: ['also alkalinity'] },
     { text: 'Làm pH lên: san hô.', block: 'Làm pH lên: san hô.', verdicts: ['loose' as const, 'loose' as const], why: ['x'] },
   ]
-  const added = 'pH đo độ chua hay kiềm của nước & nhiều hơn.'
-  const reword = { 'Lá bàng làm pH xuống.': 'Lá bàng làm pH xuống chút ít.', 'pH đo độ chua của nước.': added }
+  const added = 'Nó đi từ 0 tới 14 & hơn nữa.'
+  const reword = { 'Lá bàng làm pH xuống.': 'Lá bàng làm pH xuống chút ít.', 'Nó đi từ 0 tới 14.': added }
   const { llm, calls } = model([{ [added]: 'unsupported: added' }, { [added]: 'unsupported: added' }, {}], [], reword)
-  const r = await rewordLoose(llm, 'opus', facts, entry, loose)
-  expect(calls[0]).toContain('không rào đón ("có nguồn cho rằng", "nhiều nguồn", "có tiệm ghi")')
+  const r = await rewordLoose(llm, 'opus', facts, e, loose)
+  expect(calls[0]).toContain('không rào đón ("có nguồn cho rằng", "nhiều nguồn"):')
   expect(calls[0]).toContain('1. CÂU: Lá bàng làm pH xuống.\n   ĐOẠN: Lá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.\n   LÝ DO: stronger than the facts')
   // The whole entry as it would be saved, read three times as the first check read it.
   expect(calls).toHaveLength(4)
-  expect(calls[1]).toContain(`SENTENCES:\n1. ${added}\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống chút ít.\n5. Nên thả lá từ từ rồi đo pH.\n[Trong bể › Làm pH lên]\n6. Làm pH lên: san hô.`)
+  expect(calls[1]).toContain(`SENTENCES:\n[the definition]\n1. pH đo độ chua của nước.\n2. ${added}\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống chút ít.\n5. Nên thả lá từ từ rồi đo pH.\n[Trong bể › Làm pH lên]\n6. Làm pH lên: san hô.`)
   expect(r.entry.body).toBe('<h3>Trong bể</h3><p>Lá bàng làm pH xuống chút ít. Nên thả lá từ từ rồi đo pH.</p><ul><li><strong>Làm pH lên:</strong> san hô.</li></ul>')
-  expect(r.entry.definition).toBe(entry.definition)
+  expect(r.entry.definition).toBe(e.definition)
   expect(r.stops).toEqual([])
   expect(r.score).toBe(1)
   expect(r.log).toEqual([
     'Loose, left as written (not placeable): "Làm pH lên: san hô."',
     'Loose, reworded: "Lá bàng làm pH xuống." → "Lá bàng làm pH xuống chút ít." (supported)',
-    `Loose, rewording read as unsupported, old wording kept for the reader: "pH đo độ chua của nước." (not "${added}": unsupported, unsupported, supported)`,
+    `Loose, rewording read as unsupported, old wording kept for the reader: "Nó đi từ 0 tới 14." (not "${added}": unsupported, unsupported, supported)`,
   ])
   // A sentence the rewording didn't touch, read as a stop in the whole entry: returned, so the entry isn't saved.
   const other = model([{ 'Nên thả lá từ từ rồi đo pH.': 'unsupported: advice' }, { 'Nên thả lá từ từ rồi đo pH.': 'unsupported: advice' }, {}], [], reword)
   const kept = await rewordLoose(other.llm, 'opus', facts, entry, loose.slice(0, 1))
   expect(kept.stops.map(x => x.text)).toEqual(['Nên thả lá từ từ rồi đo pH.'])
   expect(kept.score).toBe(0.83)
+  // The chief of staff, 15 Nov 2026: the definition's first sentence says what the thing is, and the step leaves it as
+  // written (Artemia's became its English name). Nothing is asked of the model.
+  const lead = model([{}, {}, {}], [], { 'pH đo độ chua của nước.': 'pH có tên tiếng Anh.' })
+  const left = await rewordLoose(lead.llm, 'opus', facts, entry, [{ ...loose[1]!, text: 'pH đo độ chua của nước.' }])
+  expect(left).toEqual({ entry, log: ['Loose, left as written (the definition\'s first sentence): "pH đo độ chua của nước."'], stops: [] })
+  expect(lead.calls).toEqual([])
+})
+
+// The chief of staff, 15 Nov 2026: chu trình nitơ's rewording read only the facts, and put a brand where a kind stood (house
+// rule 8) and took out what the term's notes asked for, with nothing reading the rules after it.
+test('a rewording a house rules note quotes goes back to its old wording; one no note quotes stays', async () => {
+  const e = { definition: 'Khử clo cho nước máy.', body: '<p>Dùng thuốc khử clo. Thay nước mỗi tuần.</p>' }
+  const flag = (text: string) => ({ text, block: 'Dùng thuốc khử clo. Thay nước mỗi tuần.', verdicts: ['loose' as const, 'loose' as const], why: ['a shop names Prime'] })
+  const reword = { 'Dùng thuốc khử clo.': 'Dùng Seachem Prime.', 'Thay nước mỗi tuần.': 'Thay khoảng 30% nước mỗi tuần.' }
+  const { llm } = model([{}, {}, {}], [], reword)
+  const read: string[] = []
+  const rules = async (x: typeof e) => { read.push(x.body); return ['Rule 8: "Seachem Prime" is a brand where "thuốc khử clo" is enough.', 'Rule 4: "nước máy" twice.'] }
+  const r = await rewordLoose(llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.'), flag('Thay nước mỗi tuần.')], { rules })
+  // Read on the entry the rewording made, once.
+  expect(read).toEqual(['<p>Dùng Seachem Prime. Thay khoảng 30% nước mỗi tuần.</p>'])
+  expect(r.entry.body).toBe('<p>Dùng thuốc khử clo. Thay khoảng 30% nước mỗi tuần.</p>')
+  expect(r.log).toEqual([
+    'Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: "Dùng thuốc khử clo." (not "Dùng Seachem Prime.": Rule 8: "Seachem Prime" is a brand where "thuốc khử clo" is enough. / it drops the advice "Dùng thuốc khử clo")',
+    'Loose, reworded: "Thay nước mỗi tuần." → "Thay khoảng 30% nước mỗi tuần." (supported)',
+  ])
+  expect(r.score).toBe(1)
+  // A note quoting a whole passage the rewording sits in counts too; a rewording that read stops isn't read for the rules.
+  const two = model([{ 'Thay khoảng 30% nước mỗi tuần.': 'unsupported: x' }, { 'Thay khoảng 30% nước mỗi tuần.': 'unsupported: x' }, {}], [], reword)
+  const passage = async () => ['Rule 12: "Khử clo cho nước máy. Dùng Seachem Prime. Thay" drops the kind.']
+  expect((await rewordLoose(two.llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.'), flag('Thay nước mỗi tuần.')], { rules: passage })).entry.body).toBe(e.body)
+})
+
+// Grok's read, 15 Nov 2026: a sentence put back by its words landed on another that read the same, and the entry was saved
+// with a stop in it; a short quote reverted a good rewording; a note on words the rewording took out reverted nothing.
+test('going back puts in again only the rewordings that stay; a note is about a rewording by the words it put in or took out', async () => {
+  const flag = (text: string, block: string) => ({ text, block, verdicts: ['loose' as const, 'loose' as const], why: ['x'] })
+  // The definition's rewording stops and goes back; the body's had taken the definition's old words, so it can't stay.
+  const e = { definition: 'Khử clo cho nước máy. Dùng thuốc khử clo.', body: '<p>Rồi thả cá.</p>' }
+  const one = model([{ 'Khử clo trước.': 'unsupported: x' }, { 'Khử clo trước.': 'unsupported: x' }, {}], [], { 'Dùng thuốc khử clo.': 'Khử clo trước.', 'Rồi thả cá.': 'Dùng thuốc khử clo.' })
+  const quoting = async () => ['Rule 12: "Dùng thuốc khử clo." is not in THIS TERM.']
+  const r = await rewordLoose(one.llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.', e.definition), flag('Rồi thả cá.', 'Rồi thả cá.')], { rules: quoting })
+  expect(r.entry).toEqual(e)
+  expect(r.stops).toEqual([])
+  expect(r.log[1]).toBe('Loose, rewording not placed once others went back, old wording kept for the reader: "Rồi thả cá." (not "Dùng thuốc khử clo.")')
+  // Two body sentences: the one put back holds the other's new words. Neither lands inside the other.
+  const b = { definition: 'Một câu.', body: '<p>Chu trình ổn khi TAN và nitrite về 0 hoặc gần 0. Nitrate tăng sau đó.</p>' }
+  const block = 'Chu trình ổn khi TAN và nitrite về 0 hoặc gần 0. Nitrate tăng sau đó.'
+  const two = model([{}, {}, {}], [], { 'Chu trình ổn khi TAN và nitrite về 0 hoặc gần 0.': 'Chu trình ổn khi TAN và nitrite giảm.', 'Nitrate tăng sau đó.': '0 hoặc gần 0.' })
+  const r2 = await rewordLoose(two.llm, 'opus', facts, b, [flag('Chu trình ổn khi TAN và nitrite về 0 hoặc gần 0.', block), flag('Nitrate tăng sau đó.', block)], { rules: async () => ['Rule 12: the line never gives "0 hoặc gần 0" when the filter is mature.'] })
+  expect(r2.entry).toEqual(b)
+  // A name a note on another sentence quotes, which the rewording kept: not about it. Words it took out: about it.
+  const l = { definition: 'Một câu.', body: '<p>Lũa chìm khi ngâm.</p><p>Ngâm lũa mới.</p>' }
+  const three = model([{}, {}, {}], [], { 'Lũa chìm khi ngâm.': 'Lũa chìm sau khi ngâm lâu.' })
+  const kept = await rewordLoose(three.llm, 'opus', facts, l, [flag('Lũa chìm khi ngâm.', 'Lũa chìm khi ngâm.')], { rules: async () => ['Rule 6: "Lũa" in "Ngâm lũa mới." is not its page\'s name.'] })
+  expect(kept.entry.body).toBe('<p>Lũa chìm sau khi ngâm lâu.</p><p>Ngâm lũa mới.</p>')
+  const four = model([{}, {}, {}], [], { 'Lũa chìm khi ngâm.': 'Lũa chìm sau khi ngâm lâu.' })
+  const back = await rewordLoose(four.llm, 'opus', facts, l, [flag('Lũa chìm khi ngâm.', 'Lũa chìm khi ngâm.')], { rules: async () => ['Rule 12: THIS TERM asks for "khi ngâm." as it was.'] })
+  expect(back.entry).toEqual(l)
+})
+
+// The chief of staff, 15 Nov 2026: the rewording bought its fit by taking specifics out (pH's weekly 20–30%, chu trình
+// nitơ's fish deaths and "0 or near 0", Lũa's "must soak"). A rewording that drops one the facts carry keeps the old wording.
+const told = { ...facts, facts: [{ section: 'do', fact: 'Replace about 20–30% of the water weekly. Cardinal tetras (Paracheirodon axelrodi) live below pH 5.5. Below pH 7.3 more of it is ammonium (NH4+). Wait 2 weeks, then add CO2. Keep pH 6.0–6.5. About 2,000 ppm. Lights on 24/24. Keep pH 7.2 for 6 days. Dose 1.500 mg. Specific gravity about 1.020. Use 0.125 g. A shop lists it at 200.000đ/kg. One shop doses 1.234,5 mg. Another costs 2,500.00.', source: 2 }] }
+async function reworded(before: string, after: string, names: string[] = []) {
+  const e = { definition: 'Một câu.', body: `<p>${before}</p>` }
+  const { llm } = model([{}, {}, {}], [], { [before]: after })
+  return rewordLoose(llm, 'opus', told, e, [{ text: before, block: before, verdicts: ['loose', 'loose'], why: ['x'] }], { rules: async () => [], names })
+}
+
+test('a rewording that drops a figure the facts carry keeps the old wording; a figure they don\'t carry may go', async () => {
+  const r = await reworded('Thay 20–30% nước mỗi tuần.', 'Thay nước một phần đều đặn.')
+  expect(r.entry.body).toBe('<p>Thay 20–30% nước mỗi tuần.</p>')
+  expect(r.log).toEqual(['Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: "Thay 20–30% nước mỗi tuần." (not "Thay nước một phần đều đặn.": it drops the figure 20, the figure 30)'])
+  expect((await reworded('Thay 40% nước mỗi tuần.', 'Thay nước một phần mỗi tuần.')).entry.body).toBe('<p>Thay nước một phần mỗi tuần.</p>')
+  expect((await reworded('Thay 20–30% nước mỗi tuần.', 'Thay khoảng 20–30% nước mỗi tuần.')).entry.body).toBe('<p>Thay khoảng 20–30% nước mỗi tuần.</p>')
+  // Grok's read: a formula's digit and the facts' source number are no figures; 6.0 is 6; a figure a formula sits beside still counts.
+  expect((await reworded('Cây cần CO2 mỗi ngày.', 'Cây cần khí cacbonic mỗi ngày.')).entry.body).toBe('<p>Cây cần khí cacbonic mỗi ngày.</p>')
+  expect((await reworded('Dưới pH 7,3 nó ở dạng NH4+.', 'Dưới pH 7,3 nó ở dạng amoni.')).entry.body).toBe('<p>Dưới pH 7,3 nó ở dạng amoni.</p>')
+  expect((await reworded('Giữ pH 6.0–6.5.', 'Giữ pH 6–6,5.')).entry.body).toBe('<p>Giữ pH 6–6,5.</p>')
+  expect((await reworded('Sau 2 tuần thì bơm CO2.', 'Sau đó thì bơm CO2.')).entry.body).toBe('<p>Sau 2 tuần thì bơm CO2.</p>')
+  // A thousands group is one number; a figure given twice goes when it goes once; a figure written after pH counts.
+  expect((await reworded('Cần khoảng 2.000 ppm.', 'Cần nhiều ppm.')).entry.body).toBe('<p>Cần khoảng 2.000 ppm.</p>')
+  expect((await reworded('Cần khoảng 2,000 ppm.', 'Cần nhiều ppm.')).entry.body).toBe('<p>Cần khoảng 2,000 ppm.</p>')
+  expect((await reworded('Giá 200.000đ một ký.', 'Giá rẻ.')).entry.body).toBe('<p>Giá 200.000đ một ký.</p>')
+  expect((await reworded('Có 1.651 loài.', 'Có 1651 loài.')).entry.body).toBe('<p>Có 1651 loài.</p>')
+  expect((await reworded('Giữ pH 6.0 và đợi 6 ngày.', 'Giữ pH 6.0.')).entry.body).toBe('<p>Giữ pH 6.0 và đợi 6 ngày.</p>')
+  expect((await reworded('Bật đèn 24/24.', 'Bật đèn 24 giờ.')).entry.body).toBe('<p>Bật đèn 24/24.</p>')
+  expect((await reworded('Giữ pH7,2.', 'Giữ pH ổn định.')).entry.body).toBe('<p>Giữ pH7,2.</p>')
+  // Each text read in its own language's way: the facts' English "1.500" is 1.5 and "1.020" is 1.02, the entry's "1,020" too.
+  expect((await reworded('Liều 1,5 mg.', 'Liều nhỏ.')).entry.body).toBe('<p>Liều 1,5 mg.</p>')
+  expect((await reworded('Giữ tỷ trọng khoảng 1,02.', 'Giữ tỷ trọng phù hợp.')).entry.body).toBe('<p>Giữ tỷ trọng khoảng 1,02.</p>')
+  expect((await reworded('Giữ tỷ trọng khoảng 1,020.', 'Giữ tỷ trọng khoảng 1,02.')).entry.body).toBe('<p>Giữ tỷ trọng khoảng 1,02.</p>')
+  expect((await reworded('Dùng 0,125 g.', 'Dùng một ít.')).entry.body).toBe('<p>Dùng 0,125 g.</p>')
+  // Grok's read: the entry's own figures read the Vietnamese way only, so a changed figure is a dropped one.
+  expect((await reworded('Giá 200.000đ một ký.', 'Giá 200đ một ký.')).entry.body).toBe('<p>Giá 200.000đ một ký.</p>')
+  expect((await reworded('Cần khoảng 2.000 ppm.', 'Cần khoảng 2,000 ppm.')).entry.body).toBe('<p>Cần khoảng 2.000 ppm.</p>')
+  expect((await reworded('Giữ pH 6,0–6,5.', 'Giữ pH 6–6.5.')).entry.body).toBe('<p>Giữ pH 6–6.5.</p>')
+  // A fact with both marks reads whole, the Vietnamese way and the English way: neither figure may go.
+  expect((await reworded('Liều 1.234,5 mg.', 'Liều nhỏ.')).entry.body).toBe('<p>Liều 1.234,5 mg.</p>')
+  expect((await reworded('Giá 2.500đ.', 'Giá rẻ.')).entry.body).toBe('<p>Giá 2.500đ.</p>')
+})
+
+test('a rewording that drops a named example, a page\'s name or a Latin name the facts write, keeps the old wording', async () => {
+  expect((await reworded('Cá neon vua ưa nước chua.', 'Có loài ưa nước chua.', ['Cá neon vua'])).entry.body).toBe('<p>Cá neon vua ưa nước chua.</p>')
+  expect((await reworded('Paracheirodon axelrodi sống ở pH dưới 5,5.', 'Có loài sống ở pH dưới 5,5.')).entry.body).toBe('<p>Paracheirodon axelrodi sống ở pH dưới 5,5.</p>')
+  expect((await reworded('Cá neon vua ưa nước chua.', 'Cá neon vua sống ở nước chua.', ['Cá neon vua'])).entry.body).toBe('<p>Cá neon vua sống ở nước chua.</p>')
+  // Grok's read: a one-word name is an everyday word too; a Latin name counts in another case.
+  expect((await reworded('Nuôi mono trong bể lợ.', 'Nuôi cá trong bể lợ.', ['Mono', 'Cá neon vua'])).entry.body).toBe('<p>Nuôi cá trong bể lợ.</p>')
+  expect((await reworded('Paracheirodon Axelrodi sống ở pH dưới 5,5.', 'Có loài sống ở pH dưới 5,5.')).entry.body).toBe('<p>Paracheirodon Axelrodi sống ở pH dưới 5,5.</p>')
+  // A page's name swapped for a longer one is a drop: the longer is found first.
+  expect((await reworded('Cá rô ăn tạp.', 'Cá rô phi ăn tạp.', ['Cá rô', 'Cá rô phi'])).entry.body).toBe('<p>Cá rô ăn tạp.</p>')
+  expect((await reworded('Cá rô phi ăn tạp.', 'Cá rô phi ăn mọi thứ.', ['Cá rô', 'Cá rô phi'])).entry.body).toBe('<p>Cá rô phi ăn mọi thứ.</p>')
+})
+
+test('a rewording that drops a caution, a death or a must, keeps the old wording', async () => {
+  expect((await reworded('Cá thả sớm rất dễ bệnh và chết.', 'Cá thả sớm rất dễ mắc bệnh.')).entry.body).toBe('<p>Cá thả sớm rất dễ bệnh và chết.</p>')
+  expect((await reworded('Lũa mới phải ngâm trước.', 'Lũa mới thường được ngâm trước.')).entry.body).toBe('<p>Lũa mới phải ngâm trước.</p>')
+  expect((await reworded('Lũa mới phải ngâm trước.', 'Lũa mới phải ngâm kỹ trước.')).entry.body).toBe('<p>Lũa mới phải ngâm kỹ trước.</p>')
+  // Grok's read: the same words in a phrase that is no caution.
+  expect((await reworded('Màu sắc độc đáo.', 'Màu sắc lạ.')).entry.body).toBe('<p>Màu sắc lạ.</p>')
+  expect((await reworded('Có phải thay nước không?', 'Thay nước định kỳ.')).entry.body).toBe('<p>Thay nước định kỳ.</p>')
+  expect((await reworded('Đây không phải là muối.', 'Đây chẳng là muối.')).entry.body).toBe('<p>Đây chẳng là muối.</p>')
+})
+
+// The chief of staff, 15 Nov 2026: a dropped piece of advice counts. Chu trình nitơ's seeding sentence lost its established
+// tank's water, floss and media to a rewording the fact read called supported.
+test('a rewording that drops a piece of advice, an option or a step the old wording gave, keeps the old wording', async () => {
+  const seeding = 'Châm thêm men vi sinh của hãng uy tín, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.'
+  const r = await reworded(seeding, 'Châm thêm men vi sinh nitrat hóa của hãng uy tín.')
+  expect(r.entry.body).toBe(`<p>${seeding}</p>`)
+  expect(r.log[0]).toContain('it drops the advice "lấy nước", the advice "bông lọc từ một bể đã ổn định", the advice "riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe"')
+  // One option of a list.
+  expect((await reworded('Nếu pH thấp, thêm baking soda, đá vôi, san hô vụn hoặc vỏ sò.', 'Nếu pH thấp, thêm baking soda, đá vôi hoặc vỏ sò.')).entry.body).toBe('<p>Nếu pH thấp, thêm baking soda, đá vôi, san hô vụn hoặc vỏ sò.</p>')
+  // A rewording that keeps each part, in its own words, stays.
+  expect((await reworded('Bể càng lâu năm, pH càng tụt dần do chất hữu cơ tích lại.', 'Khi bể lâu năm, pH thường tụt dần do chất hữu cơ tích lại.')).entry.body).toBe('<p>Khi bể lâu năm, pH thường tụt dần do chất hữu cơ tích lại.</p>')
+  expect((await reworded('Clo trong nước sẽ giết vi khuẩn có lợi.', 'Nước máy có thể chứa clo, sẽ giết vi khuẩn có lợi.')).entry.body).toBe('<p>Nước máy có thể chứa clo, sẽ giết vi khuẩn có lợi.</p>')
+})
+
+// Grok's read of 15 Nov 2026: four ways a rewrite on notes still lost a read sentence with no note to say so.
+test('a rewrite\'s drop check: a part with one word left, a figure by its number, a phrase let go only, and a definition cut while its sentence stands in the body', () => {
+  const said = { facts: [{ fact: 'pH 4.0 is ten times more acidic than pH 5.0; cardinals live below pH 5.5' }, { fact: 'Change 20–30% weekly; wait 4 weeks' }] }
+  type Stop = Parameters<typeof droppedInRewrite>[3][number]
+  const drop = (before: { definition: string; body: string }, after: { definition: string; body: string }, stops: Stop[] = [], free: string[] = []) => droppedInRewrite(before, after, said, stops, [], free)
+  const note = (t: string, lost: string) => `The rewrite dropped from "${t}" ${lost}, and nothing lets that sentence go: write it as it was, word for word.`
+  const one = 'Một câu.'
+  // A part kept only by "nước", which the merged sentence says for another reason.
+  expect(drop({ definition: one, body: '<p>Thay 20–30% nước mỗi tuần, nước đã khử clo.</p><p>Ngâm lũa mới 1–2 tuần.</p>' }, { definition: one, body: '<p>Ngâm lũa mới 1–2 tuần, thay 20–30% nước.</p>' }))
+    .toEqual([note('Thay 20–30% nước mỗi tuần, nước đã khử clo.', 'the advice "nước đã khử clo"')])
+  // A merge that keeps every word stays.
+  expect(drop({ definition: one, body: '<p>Ngâm lũa mới 1–2 tuần.</p><p>Thay nước mỗi ngày.</p>' }, { definition: one, body: '<p>Ngâm lũa mới 1–2 tuần và thay nước mỗi ngày.</p>' })).toEqual([])
+  // 4,0 cut while "4 tuần" stands: the 4 left over is the sentence's 4,0.
+  expect(drop({ definition: one, body: '<p>pH 4,0 là rất chua.</p><p>Đợi 4 tuần.</p>' }, { definition: one, body: '<p>pH rất chua.</p><p>Đợi 4 tuần.</p>' }))
+    .toEqual([note('pH 4,0 là rất chua.', 'the figure 4,0')])
+  // The term's free list: "10 lần" lets those words go, not the worked example's figures; the sentence listed whole goes.
+  const log = 'Mỗi nấc cách nhau 10 lần, tức là pH 4,0 chua gấp 10 lần pH 5,0.'
+  const cut = drop({ definition: one, body: `<p>${log}</p>` }, { definition: one, body: '<p>Thang đo.</p>' }, [], ['10 lần'])
+  expect(cut).toHaveLength(1)
+  expect(cut[0]).toContain('the figure 4,0, the figure 5,0')
+  expect(drop({ definition: one, body: `<p>${log}</p>` }, { definition: one, body: '<p>Thang đo.</p>' }, [], [log])).toEqual([])
+  // "Cá neon vua" let go: the name may change, the rest of the sentence stays.
+  expect(drop({ definition: one, body: '<p>Cá neon vua sống dưới pH 5,5.</p>' }, { definition: one, body: '<p>Có loài chịu nước chua.</p>' }, [], ['Cá neon vua'])[0]).toContain('the figure 5,5')
+  // A definition cut to two words, its old sentence still in the body.
+  const lead = 'Giữ pH ổn định quan trọng hơn con số chính xác.'
+  expect(drop({ definition: lead, body: `<p>${lead}</p>` }, { definition: 'Độ chua.', body: `<p>${lead}</p>` })).toHaveLength(1)
+  // Grok's second read: half a part's words left is not enough, here "lấy" of "lấy nước".
+  const seeding = 'Châm thêm men vi sinh của hãng uy tín, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.'
+  expect(drop({ definition: one, body: `<p>${seeding}</p>` }, { definition: one, body: '<p>Châm thêm men vi sinh của hãng uy tín, hoặc lấy từ một bể đã ổn định; riêng thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.</p>' })[0]).toContain('the advice "lấy nước"')
+  // A sentence with quotation marks of its own, on the free list, goes; a stop lets go the sentence the check stopped.
+  const shop = 'Nhiều tiệm ghi lũa sa tùng là "không ra màu", còn tạp chí cá cảnh thì nói gỗ nào cũng tiết tanin.'
+  expect(drop({ definition: one, body: `<p>${shop}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' })).toHaveLength(1)
+  expect(drop({ definition: one, body: `<p>${shop}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' }, [], [shop])).toEqual([])
+  expect(drop({ definition: one, body: `<p>${shop}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' }, [{ text: shop }])).toEqual([])
+  // Grok's third read: a step inside another sentence's quotation marks isn't freed by a stop on that sentence; a passage
+  // on the free list frees each of its sentences.
+  const step = { facts: [{ fact: 'Soak new wood 2 weeks before use.' }] }
+  const shopSays = 'Nhiều tiệm ghi "Ngâm 2 tuần." là đủ, còn sách thì nói khác.'
+  const stepGone = droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${shopSays}</p>` }, { definition: one, body: `<p>${shopSays}</p>` }, step, [{ text: shopSays }])
+  expect(stepGone).toHaveLength(1)
+  expect(stepGone[0]).toContain('the advice "Ngâm 2 tuần"')
+  expect(drop({ definition: one, body: '<p>Đừng sốc cá.</p><p>Thả từ từ.</p>' }, { definition: one, body: '<p>Thả từ từ.</p>' })[0]).toContain('the caution "đừng"')
+  expect(drop({ definition: one, body: '<p>Lũa nổi. Đừng luộc lũa.</p><p>Thả từ từ.</p>' }, { definition: one, body: '<p>Thả từ từ.</p>' }, [], ['Lũa nổi. Đừng luộc lũa.'])).toEqual([])
+  const passage = 'Lũa nổi. Nhiều tiệm ghi "không ra màu", còn tạp chí thì nói khác.'
+  expect(drop({ definition: one, body: `<p>${passage}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' }, [], [passage])).toEqual([])
+  // Grok's fourth to sixth reads: a stop on a piece the splitter cut inside a quotation frees that piece, never the
+  // separate step.
+  const told = 'Sách nói "xong." Ngâm 2 tuần.'
+  expect(droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${told}</p>` }, { definition: one, body: `<p>${told}</p>` }, step, [{ text: told }])[0]).toContain('the advice "Ngâm 2 tuần"')
+  for (const shop of ['Sách nói "Xong. Ngâm 2 tuần."', 'Sách nói "Xong. Ngâm 2 tuần." Rồi thôi.', 'Sách nói "Xong. Ngâm 2 tuần".']) {
+    const pieces = sentences({ definition: '', body: `<p>${shop}</p>` }).map(x => ({ text: x.text }))
+    expect(droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${shop}</p>` }, { definition: one, body: `<p>${shop}</p>` }, step, pieces.slice(-1))[0]).toContain('the advice "Ngâm 2 tuần"')
+    expect(droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${shop}</p>` }, { definition: one, body: '<p>Ngâm 2 tuần.</p>' }, step, pieces)).toEqual([])
+  }
+  // A sentence moved from the body to the definition is kept.
+  expect(drop({ definition: 'Lũa là gỗ khô.', body: '<p>Lũa làm nước ngả vàng.</p>' }, { definition: 'Lũa là gỗ khô. Lũa làm nước ngả vàng.', body: '' })).toEqual([])
+  // A sentence said twice, its repeat taken out, goes by the free list too (GH's notes line: what GH measures is said once,
+  // in the definition), and so does a step whose words stand only inside another sentence.
+  const measures = 'GH là tổng canxi và magie hòa tan trong nước.'
+  expect(drop({ definition: measures, body: `<p>${measures} Đo bằng dGH.</p>` }, { definition: measures, body: '<p>Đo bằng dGH.</p>' })).toHaveLength(1)
+  expect(drop({ definition: measures, body: `<p>${measures} Đo bằng dGH.</p>` }, { definition: measures, body: '<p>Đo bằng dGH.</p>' }, [], [measures])).toEqual([])
+  expect(drop({ definition: one, body: '<p>Ngâm lũa mới 2 tuần.</p><p>Lũa cũ thì không cần ngâm lũa mới 2 tuần.</p>' }, { definition: one, body: '<p>Lũa cũ thì không cần ngâm lũa mới 2 tuần.</p>' })).toHaveLength(1)
+  // The seventh read: a kind's sentence kept only under another kind is gone from its own (Lũa's "Chưa thấy tiệm Việt Nam
+  // bán dưới tên tiếng Việt.", under two kinds); a kind renamed keeps its sentences.
+  const none = 'Chưa thấy tiệm Việt Nam bán dưới tên tiếng Việt.'
+  const kinds = (b: string) => ({ definition: one, body: `<ul><li><strong>Lũa đỗ quyên</strong> Chìm nhanh. ${none}</li><li><strong>${b}</strong> Nổi lâu. ${none}</li></ul>` })
+  expect(drop(kinds('Lũa mopani'), { definition: one, body: `<ul><li><strong>Lũa đỗ quyên</strong> Chìm nhanh. ${none}</li><li><strong>Lũa mopani</strong> Nổi lâu.</li></ul>` }))
+    .toEqual([note(none, `the advice "${none.slice(0, -1)}" under Lũa mopani`)])
+  expect(drop(kinds('Lũa mopani'), kinds('Gỗ mopani'))).toEqual([])
+  // The eighth read: a stop on one copy lets that copy go, not the other kind's.
+  const cutBoth = { definition: one, body: '<ul><li><strong>Lũa đỗ quyên</strong> Chìm nhanh.</li><li><strong>Lũa mopani</strong> Nổi lâu.</li></ul>' }
+  expect(drop(kinds('Lũa mopani'), cutBoth, [{ text: none, item: 'Lũa mopani' }])).toEqual([note(none, `the advice "${none.slice(0, -1)}" under Lũa đỗ quyên`)])
+  expect(drop(kinds('Lũa mopani'), cutBoth, [{ text: none, item: 'Lũa mopani' }, { text: none, item: 'Lũa đỗ quyên' }])).toEqual([])
+  // The Sonnet reviewer's read: a sentence said under two headings can't lose one copy unseen, and a piece of advice must
+  // stand in one new sentence, not in the new sentences' words pooled.
+  const twice = 'Không đo pH trong lúc bể đang chạy chu trình.'
+  const sections = (end: string) => ({ definition: one, body: `<h3>Nên làm gì</h3><p>Thay nước đều.</p><p>${twice}</p><h3>Sai lầm hay gặp</h3>${end}` })
+  expect(drop(sections(`<p>${twice}</p>`), sections(''))).toEqual([note(twice, `the advice "${twice.slice(0, -1)}"`)])
+  expect(drop({ definition: one, body: '<p>Cá cần nước sạch.</p><p>Thay nước đều.</p>' }, { definition: one, body: '<p>Cá cần ăn đều.</p><p>Thay nước sạch hằng tuần.</p>' }))
+    .toEqual([note('Cá cần nước sạch.', 'the advice "Cá cần nước sạch"')])
+})
+
+// The chief of staff, 20 Nov 2026: a heading renamed, its sentences kept, loses no advice by its plain words (Cá đàn's
+// "Trong bể của bạn" and Đường bên's "Nên làm gì" were refused on "bạn" and "gì"); its figures, names and cautions stay held,
+// and so does the frame of a heading of things not to do: a mistake read under a do-this heading reads as advice.
+test('a rewrite\'s drop check: a heading renamed with its sentences kept saves, but not its figures, nor a sentence that loses advice, nor a mistake out from under every not-to-do heading', () => {
+  const said = { facts: [{ fact: 'Cardinals live below pH 5.5' }, { fact: 'Soak new wood 1–2 weeks, then rinse it well' }] }
+  const drop = (before: string, after: string, free: string[] = []) => droppedInRewrite({ definition: 'Một câu.', body: before }, { definition: 'Một câu.', body: after }, said, [], [], free)
+  const note = (t: string, lost: string) => `The rewrite dropped from "${t}" ${lost}, and nothing lets that sentence go: write it as it was, word for word.`
+  // The rename that was refused: every sentence kept, under a heading whose words are new.
+  const school = '<p>Cá đàn tụ lại thành nhóm lỏng.</p><p>Nuôi ít nhất 6 con.</p>'
+  expect(drop(`<h3>Trong bể của bạn</h3>${school}<h3>Nên làm gì</h3><p>Thả từ từ.</p>`, `<h3>Tụ nhóm và bơi đồng loạt</h3>${school}<h3>Các bước</h3><p>Thả từ từ.</p>`)).toEqual([])
+  // A sentence under the renamed heading that loses a piece of advice is still refused, and the heading isn't.
+  expect(drop('<h3>Trong bể của bạn</h3><p>Ngâm lũa mới 1–2 tuần, rồi tráng thật kỹ.</p>', '<h3>Chuẩn bị lũa</h3><p>Ngâm lũa mới 1–2 tuần.</p>'))
+    .toEqual([note('Ngâm lũa mới 1–2 tuần, rồi tráng thật kỹ.', 'the advice "tráng thật kỹ"')])
+  // A heading's figure the facts carry stays held.
+  expect(drop('<h3>Khi pH dưới 5,5</h3><p>Cá neon vua sống khỏe.</p>', '<h3>Nước chua</h3><p>Cá neon vua sống khỏe.</p>')).toEqual([note('Khi pH dưới 5,5', 'the figure 5,5')])
+  // A mistakes heading renamed to a do-this heading, every sentence kept, is refused, a note for each mistake; to another
+  // heading of things not to do it isn't.
+  const mistakes = '<ul><li>Cho cá ăn quá nhiều.</li><li>Thay hết nước một lần.</li></ul>'
+  const flipped = (to: string) => ['Cho cá ăn quá nhiều.', 'Thay hết nước một lần.'].map(t => note(t, `the frame "sai lầm" of "Sai lầm hay gặp", now under "${to}"`))
+  expect(drop(`<h3>Sai lầm hay gặp</h3>${mistakes}`, `<h3>Nên làm gì</h3>${mistakes}`)).toEqual(flipped('Nên làm gì'))
+  expect(drop(`<h3>Sai lầm hay gặp</h3>${mistakes}`, `<h3>Sai lầm cần tránh</h3>${mistakes}`)).toEqual([])
+  expect(drop(`<h3>Sai lầm hay gặp</h3>${mistakes}`, `<h3>Những điều không nên làm</h3>${mistakes}`)).toEqual([])
+  // A heading that only asks for attention is no such frame: "Lưu ý" doesn't answer for a mistakes heading, and a heading of
+  // signs to watch for renamed to a plain one saves.
+  expect(drop(`<h3>Sai lầm hay gặp</h3>${mistakes}`, `<h3>Lưu ý</h3>${mistakes}`)).toEqual(flipped('Lưu ý'))
+  const signs = '<ul><li>Mép vây rách.</li><li>Vây có đốm trắng.</li></ul>'
+  expect(drop(`<h3>Mép đuôi rách, nham nhở: dấu hiệu cần để ý</h3>${signs}`, `<h3>Các dấu hiệu</h3>${signs}`)).toEqual([])
+  // "tránh" alone is how to avoid a thing: a how-to-avoid heading renamed, its sentences kept, saves.
+  const steps = '<ul><li>Giảm giờ đèn.</li><li>Thay nước đều.</li></ul>'
+  expect(drop(`<h3>Cách tránh tảo</h3>${steps}`, `<h3>Giữ nước trong</h3>${steps}`)).toEqual([])
+  // The same flip by the other road: a mistake moved word for word from a mistakes heading that stays to a do-this heading.
+  const moved = '<h3>Sai lầm hay gặp</h3><ul><li>Cho cá ăn quá nhiều.</li></ul><h3>Nên làm gì</h3><ul><li>Thay hết nước một lần.</li></ul>'
+  expect(drop(`<h3>Sai lầm hay gặp</h3>${mistakes}<h3>Nên làm gì</h3>`, moved)).toEqual([note('Thay hết nước một lần.', 'the frame "sai lầm" of "Sai lầm hay gặp", now under "Nên làm gì"')])
+  // The heading on the free list lets its words go, not the mistakes under it; the free list on a sentence lets it move.
+  expect(drop(`<h3>Sai lầm hay gặp</h3>${mistakes}`, `<h3>Nên làm gì</h3>${mistakes}`, ['Sai lầm hay gặp'])).toEqual(flipped('Nên làm gì'))
+  expect(drop(`<h3>Sai lầm hay gặp</h3>${mistakes}`, `<h3>Nên làm gì</h3>${mistakes}`, ['Cho cá ăn quá nhiều.', 'Thay hết nước một lần.'])).toEqual([])
+  expect(drop(`<h3>Sai lầm hay gặp</h3>${mistakes}<h3>Nên làm gì</h3>`, moved, ['Thay hết nước một lần.'])).toEqual([])
+})
+
+// The outside reader's five ways past the drop check's heading rules (Codex, 20 Nov 2026), each refused or let go as the
+// rules mean.
+test('a rewrite\'s drop check: a copy moved out while another stays, a list item that reads as its heading, "tránh" counted after the free list and only as a caution, a heading read whole and composed, and a stop made "!"', () => {
+  const said = { facts: [{ fact: 'Change part of the water' }] }
+  const drop = (before: string, after: string, free: string[] = [], names: string[] = []) => droppedInRewrite({ definition: 'Một câu.', body: before }, { definition: 'Một câu.', body: after }, said, [], names, free)
+  const note = (t: string, lost: string) => `The rewrite dropped from "${t}" ${lost}, and nothing lets that sentence go: write it as it was, word for word.`
+  const frame = (t: string, from: string, to: string) => note(t, `the frame "sai lầm" of "${from}", now under "${to}"`)
+  const mistake = 'Thay hết nước một lần.'
+  // 1. A mistake written for two kinds, one copy moved to a do-this heading while the other stands under its mistakes heading.
+  const kind = (name: string, heading: string, t = mistake) => `<li><strong>${name}</strong><h3>${heading}</h3><p>${t}</p></li>`
+  expect(drop(`<ul>${kind('Cá bảy màu', 'Sai lầm hay gặp')}${kind('Cá betta', 'Sai lầm hay gặp')}</ul>`, `<ul>${kind('Cá bảy màu', 'Sai lầm hay gặp')}${kind('Cá betta', 'Nên làm gì')}</ul>`))
+    .toEqual([frame(mistake, 'Sai lầm hay gặp', 'Nên làm gì')])
+  // 2. A list item that reads the same as its heading is no heading: cut, it loses its advice.
+  expect(drop('<h3>Thay nước đều</h3><ul><li>Thay nước đều</li><li>Giảm giờ đèn.</li></ul>', '<h3>Các bước</h3><ul><li>Giảm giờ đèn.</li></ul>'))
+    .toEqual([note('Thay nước đều', 'the advice "Thay nước đều"')])
+  // 3. A how-to-avoid heading's "tránh" is no caution, but its name is still held; a heading is a frame by the whole of it,
+  // so a mistakes heading's second piece keeps its "tránh"; and the free list has a heading's words before "tránh" goes.
+  const steps = '<ul><li>Giảm giờ đèn.</li></ul>'
+  expect(drop(`<h3>Cách tránh tảo</h3>${steps}`, `<h3>Giữ nước trong</h3>${steps}`)).toEqual([])
+  expect(drop(`<h3>Cách tránh tảo</h3>${steps}`, `<h3>Giữ nước trong</h3>${steps}`, [], ['Cách tránh tảo'])).toEqual([note('Cách tránh tảo', 'the name Cách tránh tảo')])
+  const list = '<ul><li>Cho cá ăn quá nhiều.</li></ul>'
+  expect(drop(`<h3>Sai lầm hay gặp. Tránh làm cá sốc</h3>${list}`, `<h3>Những điều không nên làm</h3>${list}`)).toEqual([note('Tránh làm cá sốc', 'the caution "tránh"')])
+  expect(drop(`<h3>Cách tránh cá chết khi thay nước</h3>${steps}`, `<h3>Thay nước an toàn</h3>${steps}`)).toEqual([note('Cách tránh cá chết khi thay nước', 'the caution "chết"')])
+  expect(drop(`<h3>Cách tránh cá chết khi thay nước</h3>${steps}`, `<h3>Thay nước an toàn</h3>${steps}`, ['tránh cá chết'])).toEqual([])
+  // 4. "không được" that says a fish isn't well is no frame, and a mistakes heading written with its accents apart is one.
+  expect(drop(`<h3>Sai lầm hay gặp</h3>${list}`, `<h3>Làm gì khi cá không được khỏe?</h3>${list}`)).toEqual([frame('Cho cá ăn quá nhiều.', 'Sai lầm hay gặp', 'Làm gì khi cá không được khỏe?')])
+  expect(drop(`<h3>Những điều không được làm</h3>${list}`, `<h3>Nên làm gì</h3>${list}`))
+    .toEqual([note('Những điều không được làm', 'the caution "không được"'), note('Cho cá ăn quá nhiều.', 'the frame "không được làm" of "Những điều không được làm", now under "Nên làm gì"')])
+  const apart = 'Sai lầm hay gặp'.normalize('NFD')
+  expect(apart).not.toBe('Sai lầm hay gặp')
+  expect(drop(`<h3>${apart}</h3>${list}`, `<h3>Nên làm gì</h3>${list}`)).toEqual([frame('Cho cá ăn quá nhiều.', apart, 'Nên làm gì')])
+  // 5. Kept word for word is by its words: a full stop made "!" moves the mistake all the same.
+  expect(drop(`<h3>Sai lầm hay gặp</h3><ul><li>Cho cá ăn quá nhiều.</li><li>${mistake}</li></ul><h3>Nên làm gì</h3>`, '<h3>Sai lầm hay gặp</h3><ul><li>Cho cá ăn quá nhiều.</li></ul><h3>Nên làm gì</h3><ul><li>Thay hết nước một lần!</li></ul>'))
+    .toEqual([frame(mistake, 'Sai lầm hay gặp', 'Nên làm gì')])
+})
+
+// The outside reader's second read (Codex, 20 Nov 2026), on the fixes: a stop on one copy, a copy one placement shares, a
+// fault named in a how-to heading, a prohibition by "chớ", a list item beside a heading that reads the same, and a caution
+// heading written with its accents apart.
+test('a rewrite\'s drop check: a copy let go isn\'t counted, nor does a shared placement hide one moved; "lỗi" alone and a how-to heading are no frame, "chớ" is; an item isn\'t its heading; cautions read composed', () => {
+  const said = { facts: [{ fact: 'Change part of the water' }] }
+  const drop = (before: string, after: string, stops: { text: string; heading?: string; item?: string }[] = []) => droppedInRewrite({ definition: 'Một câu.', body: before }, { definition: 'Một câu.', body: after }, said, stops, [], [])
+  const note = (t: string, lost: string) => `The rewrite dropped from "${t}" ${lost}, and nothing lets that sentence go: write it as it was, word for word.`
+  const frame = (t: string, word: string, from: string, to: string) => note(t, `the frame "${word}" of "${from}", now under "${to}"`)
+  const mistake = 'Thay hết nước một lần.'
+  const kind = (name: string, body: string) => `<li><strong>${name}</strong>${body}</li>`
+  // A stop on the empty tank's copy lets it move to a do-this heading; the stocked tank's copy, its heading renamed to
+  // another mistakes heading, is no copy moved out.
+  const both = `<ul>${kind('Bể đang nuôi cá', `<h3>Sai lầm hay gặp</h3><p>${mistake}</p>`)}${kind('Bể trống', `<h3>Sai lầm hay gặp</h3><p>${mistake}</p>`)}</ul>`
+  const after = `<ul>${kind('Bể đang nuôi cá', `<h3>Các sai lầm hay gặp</h3><p>${mistake}</p>`)}${kind('Bể trống', `<h3>Sai lầm hay gặp</h3><p>Bật máy sưởi khi chưa có nước.</p><h3>Nên làm gì</h3><p>${mistake}</p>`)}</ul>`
+  expect(drop(both, after, [{ text: mistake, heading: 'Sai lầm hay gặp', item: 'Bể trống' }])).toEqual([])
+  // Without the stop, the empty tank's copy is refused.
+  expect(drop(both, after)).toEqual([frame(mistake, 'sai lầm', 'Sai lầm hay gặp', 'Nên làm gì')])
+  // One of two copies under one heading moved to a do-this heading, the other staying where both stood.
+  expect(drop(`<h3>Sai lầm hay gặp</h3><p>${mistake}</p><p>${mistake}</p><h3>Nên làm gì</h3><p>Đo nhiệt độ nước.</p>`, `<h3>Sai lầm hay gặp</h3><p>${mistake}</p><h3>Nên làm gì</h3><p>Đo nhiệt độ nước.</p><p>${mistake}</p>`))
+    .toEqual([frame(mistake, 'sai lầm', 'Sai lầm hay gặp', 'Nên làm gì')])
+  // A heading that names the fault it says how to fix is no frame: renamed it saves, and a mistake moved under it is refused.
+  const fix = '<p>Tắt máy lọc trước khi tháo cánh quạt.</p>'
+  expect(drop(`<h3>Cách xử lý lỗi bộ lọc</h3>${fix}`, `<h3>Xử lý sự cố bộ lọc</h3>${fix}`)).toEqual([])
+  const wrong = 'Tháo cánh quạt khi máy lọc còn chạy.'
+  expect(drop(`<h3>Sai lầm hay gặp</h3><p>Đổ quá nhiều thức ăn.</p><p>${wrong}</p><h3>Cách xử lý lỗi bộ lọc</h3>${fix}`, `<h3>Sai lầm hay gặp</h3><p>Đổ quá nhiều thức ăn.</p><h3>Cách xử lý lỗi bộ lọc</h3>${fix}<p>${wrong}</p>`))
+    .toEqual([frame(wrong, 'sai lầm', 'Sai lầm hay gặp', 'Cách xử lý lỗi bộ lọc')])
+  expect(drop(`<h3>Những lỗi hay gặp</h3><p>${mistake}</p>`, `<h3>Sai lầm cần tránh</h3><p>${mistake}</p>`)).toEqual([])
+  // "Chớ" is a prohibition.
+  expect(drop(`<h3>Chớ làm những việc sau</h3><p>Đổ quá nhiều thức ăn.</p><p>${mistake}</p><h3>Nên làm gì</h3>`, `<h3>Chớ làm những việc sau</h3><p>Đổ quá nhiều thức ăn.</p><h3>Nên làm gì</h3><p>${mistake}</p>`))
+    .toEqual([frame(mistake, 'chớ', 'Chớ làm những việc sau', 'Nên làm gì')])
+  // A list item that reads the same as its heading, cut while the heading stays, loses its advice.
+  expect(drop('<h3>Thay nước đều</h3><ul><li>Thay nước đều</li><li>Giảm giờ đèn.</li></ul>', '<h3>Thay nước đều</h3><ul><li>Giảm giờ đèn.</li></ul>'))
+    .toEqual([note('Thay nước đều', 'the advice "Thay nước đều"')])
+  // A caution heading written with its accents apart keeps its caution word.
+  const apart = 'Lưu ý'.normalize('NFD')
+  expect(apart).not.toBe('Lưu ý')
+  expect(drop(`<h3>${apart}</h3><p>Giảm giờ đèn.</p>`, '<h3>Các bước</h3><p>Giảm giờ đèn.</p>')).toEqual([note(apart, 'the caution "lưu ý"')])
 })
 
 test('a reworded sentence in the body is written back escaped, and one still loose stays, logged; a rewording of two sentences isn\'t placed', async () => {

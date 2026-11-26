@@ -1,0 +1,340 @@
+{
+  "id": "amphilius-natalensis",
+  "scientificName": "Amphilius natalensis",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Amphilius",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "malawi",
+    "ruo-river",
+    "zimbabwe",
+    "zambezi",
+    "south-africa",
+    "umkomaas-river"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MW",
+        "ZW",
+        "ZA"
+      ],
+      "regions": [
+        "Ruo River",
+        "Zambezi",
+        "Umkomaas River",
+        "Buzi",
+        "Pungwe",
+        "Tugela"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Ruo River, Malawi; Zambezi system of Zimbabwe, south to Umkomaas River (Natal, South Africa).",
+          "countries": [
+            "MW",
+            "ZW",
+            "ZA"
+          ],
+          "regions": [
+            "Ruo River",
+            "Zambezi",
+            "Umkomaas River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species as currently described has three discrete and geographically widely spaced populations that can be broadly divided into southern (the uMkhomazi, uMgeni, Tugela and the Inkomati river systems in South Africa), central (the Buzi and Pungwe river systems) and northern (Ruo River in Malawi) populations.",
+          "countries": [],
+          "regions": [
+            "Buzi",
+            "Pungwe",
+            "Tugela"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340753,
+      "total": 462,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "ZA",
+          429
+        ],
+        [
+          "SZ",
+          13
+        ],
+        [
+          "MZ",
+          10
+        ],
+        [
+          "ZW",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          26.71875,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -29.53125,
+          68,
+          68
+        ],
+        [
+          28.125,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -30.9375,
+          56,
+          56
+        ],
+        [
+          29.53125,
+          -29.53125,
+          79,
+          79
+        ],
+        [
+          29.53125,
+          -28.125,
+          21,
+          21
+        ],
+        [
+          29.53125,
+          -26.71875,
+          58,
+          58
+        ],
+        [
+          29.53125,
+          -25.3125,
+          69,
+          69
+        ],
+        [
+          29.53125,
+          -23.90625,
+          16,
+          16
+        ],
+        [
+          30.9375,
+          -29.53125,
+          7,
+          7
+        ],
+        [
+          30.9375,
+          -28.125,
+          4,
+          4
+        ],
+        [
+          30.9375,
+          -26.71875,
+          28,
+          15
+        ],
+        [
+          30.9375,
+          -25.3125,
+          31,
+          31
+        ],
+        [
+          32.34375,
+          -21.09375,
+          3,
+          1
+        ],
+        [
+          32.34375,
+          -19.6875,
+          12,
+          5
+        ],
+        [
+          32.34375,
+          -18.28125,
+          4,
+          4
+        ],
+        [
+          33.75,
+          -21.09375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 12.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_natalensis.htm",
+      "html": "<ul><li>Common name: Natal mountain catfish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_natalensis.htm",
+      "html": "<p>Africa: Ruo River, Malawi; Zambezi system of Zimbabwe, south to Umkomaas River (Natal, South Africa). Type locality: Krantz Kloof, Natal.</p><p>This species as currently described has three discrete and geographically widely spaced populations that can be broadly divided into southern (the uMkhomazi, uMgeni, Tugela and the Inkomati river systems in South Africa), central (the Buzi and Pungwe river systems) and northern (Ruo River in Malawi) populations. An ongoing study has revealed that these three populations represent at least four distinct lineages.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_natalensis.htm",
+      "html": "<p>Amphilius natalensis occurs among cobbles and rocks in swiftly flowing water. Active at night, feeding on benthic stream invertebrates such as mayfly and midge larvae.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_natalensis.htm",
+      "html": "<p>Can be kept in aquaria with a small grained gravel or sand substrate, and well planted with a slight current to facilitate their natural habitat. Provide rockwork and caves. This genera prefer cooler temperatures in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_natalensis.htm",
+      "html": "<p>Mosquito larvae, Tubifex, Cyclops, Daphnia, grindal worms, vegetable food, tablet and flake.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_natalensis.htm",
+      "html": "<p>Colouration: Some individuals are uniform olive-brown dorsally, others have an intense dark spotting superimposed (Jubb, 1976).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_natalensis.htm",
+      "html": "<p>Breeds in summer. Iteroparous, with asynchronous ovarian development.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_natalensis.htm",
+      "html": "<p>Etymology: The specific name natalensis is named after the Province of Natal in South Africa.</p><p>Remarks: Preyed upon by trout and is now scarce in certain streams. Non-native species, particularly trout, have been introduced into the cool mountain tributaries where these fishes occur, but their actual impact requires investigation. Native vegetation in the upper catchments of a number of the streams has been replaced with monoculture plantations, while agricultural activities (particularly in the Buzi, Pungwe and Ruo catchments) have caused habitat degradation through increased sedimentation and water turbidity. Populations in the Eastern Highlands of Zimbabwe are further threatened by gold panning, which has degraded habitats through increased turbidity and deposition of fine sediments. Because of its large distribution (extent of occurrence 485,198 km², area of occupancy 756 km²) it does not trigger any threat category. IUCN status: Least Concern, but there is urgent need to resolve its taxonomy, as many smaller populations may represent restricted species (IUCN 2018).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_natalensis.htm",
+      "html": "<ul><li>Chakona, A. &amp; Mazungula, N. 2018. Amphilius natalensis. The IUCN Red List of Threatened Species 2018.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2019 ).</li><li>Seegers, Lothar; The Catfishes of Africa. A handbook for identification and maintenance. Tetra Verlag GmbH. 604p.</li><li>Skelton, P.H. and G.G. Teugels, 1986. Amphiliidae. p. 54-65. In J. Daget, J.-P. Gosse and D.F.E. Thys van den Audenaerde (eds.) Check-list of the freshwater fishes of Africa (CLOFFA). ISNB, Brussels; MRAC, Tervuren; and ORSTOM, Paris. Vol. 2.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/246514952.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/246514952-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Matthew Burnett",
+      "sourceUrl": "https://www.inaturalist.org/photos/246514952",
+      "caption": "Cá da trơn núi Natal nhìn từ trên xuống trong khay trắng",
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/246514952-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát thủy sinh",
+        "sỏi hạt nhỏ thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo dòng chảy bể cá",
+        "bơm sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

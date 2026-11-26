@@ -13,6 +13,112 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs in various parts of Lake Tanganyika including the Bujumbura route in Burundi, various localities in Congo Democratic Republic and various localities in Zambia.",
+          "countries": [
+            "BI",
+            "ZM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344472,
+      "total": 56,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ZM",
+          27
+        ],
+        [
+          "TZ",
+          14
+        ],
+        [
+          "CD",
+          13
+        ],
+        [
+          "BI",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          28.125,
+          -4.21875,
+          14,
+          2
+        ],
+        [
+          29.53125,
+          -9.84375,
+          10,
+          10
+        ],
+        [
+          29.53125,
+          -8.4375,
+          3,
+          2
+        ],
+        [
+          29.53125,
+          -7.03125,
+          3,
+          0
+        ],
+        [
+          29.53125,
+          -5.625,
+          7,
+          0
+        ],
+        [
+          30.9375,
+          -9.84375,
+          15,
+          15
+        ],
+        [
+          30.9375,
+          -8.4375,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -128,7 +234,24 @@
       "html": "<p>This species is superficially similar to S. petricola but the spots on its body are larger than in petricola and it has a longer head. It is rarely seen in the trade, though can occasionally be found mis-identified as S. angelicus, S. petricola or Synodontis sp..</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/341490366.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/341490366-480.webp",
+      "width": 1024,
+      "height": 659,
+      "licence": "CC BY-NC",
+      "author": "Ad Konings",
+      "sourceUrl": "https://www.inaturalist.org/photos/341490366",
+      "caption": "Cá nheo Synodontis polli đốm đen bơi trên nền đáy sỏi",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/341490366-large.webp",
+        "width": 1865,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

@@ -17,9 +17,7 @@
       ],
       "regions": [
         "Kapuas",
-        "Borneo",
-        "Sekayan",
-        "Melawi"
+        "Borneo"
       ],
       "sources": [
         "bwaquatics",
@@ -41,15 +39,6 @@
           "regions": [
             "Kapuas",
             "Borneo"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Separate populations were collected from the Sekayan and Melawi rivers (both Kapuas tributaries) close to the townships of Sanggau and Nanga Pinoh, respectively.",
-          "countries": [],
-          "regions": [
-            "Sekayan",
-            "Melawi"
           ]
         }
       ]
@@ -98,7 +87,8 @@
     "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": 12.7
+        "value": 12.7,
+        "overruled": "BW Aquatics' 5 inches, from its page for 'Betta antuta'; Seriously Fish gives 50 mm SL. Seriously Fish's figure stands where two sources are twice apart and no second source agrees with the other (rule of 10 Nov 2026; chief of staff, 17 Nov)"
       },
       {
         "source": "seriouslyfish",
@@ -132,7 +122,8 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-antuta-high-quality-wild-betta-fish-lb",
-      "html": "<ul><li>Wild-caught, from Indonesia (\"LB\" location).</li><li>Belongs to the Betta unimaculata complex.</li><li>Maximum size: 5 inches (about 12.7 cm).</li><li>IUCN Red List: not listed (not found on IUCN).</li><li>Breeding: mouthbrooder.</li></ul>"
+      "html": "<ul><li>Wild-caught, from Indonesia (\"LB\" location).</li><li>Belongs to the Betta unimaculata complex.</li><li>IUCN Red List: not listed (not found on IUCN).</li><li>Breeding: mouthbrooder.</li></ul>",
+      "fixed": true
     },
     {
       "key": "quickFacts",
@@ -198,7 +189,8 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-antuta-high-quality-wild-betta-fish-lb",
-      "html": "<p>Like many of the species in this complex, and being among the largest bettas, they can be aggressive. It is recommended to keep them in a species-only tank, as they can eat anything that fits in their big mouth.</p>"
+      "html": "<p>Like many of the species in this complex, they can be aggressive. It is recommended to keep them in a species-only tank, as they can eat anything that fits in their big mouth.</p>",
+      "fixed": true
     },
     {
       "key": "behaviour",
@@ -250,7 +242,7 @@
       "width": 894,
       "height": 596,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Colin Dunlop / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-antoni",
       "caption": "Adult female.",
       "source": "seriouslyfish"

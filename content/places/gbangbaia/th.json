@@ -3,6 +3,12 @@
   "name": "กบังไบอา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T12:23:41.975Z",
+    "why": "Thai script is fine, but \"กบังไบอา\" renders \"Gbangbaia\" poorly: initial \"Gb\" is a labial-velar stop, usually written \"กบ\" + \"ัง\"; \"กบังไบอา\" wrongly inserts a vowel and reads like \"Kabang-baia\", and it omits a region word like \"เขต\"."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

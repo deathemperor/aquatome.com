@@ -282,7 +282,12 @@
       "author": "Brian Gratwicke",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sandelia_capensis.jpg",
       "caption": "Sandelia capensis in Cape Town, South Africa",
-      "thumb": "https://media.aquatome.com/commons/1132737dd84c74f1-480.webp"
+      "thumb": "https://media.aquatome.com/commons/1132737dd84c74f1-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1132737dd84c74f1-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

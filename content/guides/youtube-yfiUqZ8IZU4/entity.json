@@ -83,20 +83,13 @@
         "heading": "Chuẩn bị vỏ ốc",
         "moments": [
           {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/yfiUqZ8IZU4/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Một rổ đầy vỏ ốc tròn nhiều cỡ, chuẩn bị cho vào bể.",
-            "sharpness": 872.3
-          },
-          {
             "t": 245,
             "url": "https://media.aquatome.com/video/yfiUqZ8IZU4/at245-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Vỏ ốc nhiều màu được rải khắp nền cát trong bể.",
-            "sharpness": 170.1
+            "sharpness": 170.1,
+            "person": false
           }
         ],
         "photo": {
@@ -119,7 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thả cá vào bể nền cát trắng, đàn ốc cá nằm rải rác.",
-            "sharpness": 365.6
+            "sharpness": 365.6,
+            "person": false
           },
           {
             "t": 270,
@@ -127,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nền cát gợn nhẹ, cá tự bơi và chọn chỗ trong bể.",
-            "sharpness": 280.2
+            "sharpness": 280.2,
+            "person": false
           }
         ],
         "photo": {
@@ -150,7 +145,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhiều vỏ ốc nằm rải rác trên mặt cát trắng.",
-            "sharpness": 293.6
+            "sharpness": 293.6,
+            "person": false
           },
           {
             "t": 330,
@@ -204,17 +200,7 @@
             "caption": "Những vỏ ốc trên nền cát trắng trong bể cá ốc châu Phi.",
             "sharpness": 65.7
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/yfiUqZ8IZU4/p5-MDYzMTE3MCkuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/yfiUqZ8IZU4/p5-MDYzMTE3MCkuanBn-480.webp",
-          "width": 960,
-          "height": 641,
-          "licence": "CC BY 2.0",
-          "author": "Elma from Reykjavík",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lamprologus_ocellatus_-_female_(4030631170).jpg",
-          "caption": "Cá ốc nhỏ bơi cạnh vỏ ốc trong bể nền cát đen."
-        }
+        ]
       }
     ]
   }

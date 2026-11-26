@@ -1,8 +1,13 @@
 {
   "slug": "lake-manacapuru",
-  "name": "Manacapuru",
+  "name": "Danau Manacapuru",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-16T11:29:05.388Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

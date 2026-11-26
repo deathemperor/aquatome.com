@@ -1,11 +1,11 @@
-import { spawnSync } from 'node:child_process'
+import { execFileSync, spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, realpathSync, writeFileSync } from 'node:fs'
 import { homedir, tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 // @ts-expect-error a plain script
-import { archiveNamed, archiveWorktree, expireArchive, simVerdict, space, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
+import { archiveNamed, archiveWorktree, expireArchive, helperPass, helperVerdict, scratch, scratchFolders, scratchKind, scratchVerdict, simVerdict, space, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
 import { slow } from '@aq/schema/test-time'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
@@ -67,6 +67,80 @@ test('the sweep removes a worktree only when no work can be lost and nobody is i
 })
 
 // GitHub started the 07:00 report about 5 hours late, four days running.
+// The chief of staff, 16 Nov 2026: a helper's own checkout goes an hour after its thread ends, saved first when it holds a
+// commit on no remote or a change not committed. A lead's checkout a helper shared stays the lead's.
+test("the sweep takes a helper's own checkout an hour after its thread ends, saving first what the remote lacks", () => {
+  const now = Date.parse('2026-11-17T10:00:00Z')
+  const done = { id: 'thread:delegated-task:command%3Amcp%3Ax%3Adelegate-task%3Ay', at: now - 2 * 3_600_000, active: false, runs: 1, last: 'completed' }
+  const h = { path: `${homedir()}/.infinitus/worktrees/aquatome.com/infi-ffb9be67-8366a39a0df50f26`, liveCwd: false, threads: [done], dirty: false, unpushed: 0, now }
+  expect(helperVerdict(h)).toBe('remove')
+  expect(helperVerdict({ ...h, path: `${homedir()}/.infinitus/worktrees/aquatome.com/infinitus-0c47974a-12259ca8fd11f902` })).toBe('remove')
+  // Its own commit, a change not committed, or git that can't count: saved first.
+  expect(helperVerdict({ ...h, unpushed: 2 })).toBe('archive')
+  expect(helperVerdict({ ...h, dirty: true })).toBe('archive')
+  expect(helperVerdict({ ...h, unpushed: NaN })).toBe('archive')
+  // Within the hour, still running, a process in it, or no thread found: it stays.
+  expect(helperVerdict({ ...h, threads: [{ ...done, at: now - 30 * 60_000 }] })).toBe('its thread ended within the hour')
+  expect(helperVerdict({ ...h, threads: [done, { ...done, at: now - 10 * 60_000 }] })).toBe('its thread ended within the hour')
+  expect(helperVerdict({ ...h, threads: [{ ...done, active: true }] })).toBe('its thread is live')
+  expect(helperVerdict({ ...h, liveCwd: true })).toBe('a process is working in it')
+  expect(helperVerdict({ ...h, threads: [] })).toBe('no thread found for it')
+  expect(helperVerdict({ ...h, threads: [{ ...done, at: NaN }] })).toBe('its thread ended within the hour')
+  // A time it can't read beside an old one it can, or a live thread beside an ended one: it stays. An hour to the ms: it goes.
+  expect(helperVerdict({ ...h, threads: [{ ...done, at: NaN }, { ...done, at: now - 30 * 3_600_000 }] })).toBe('its thread ended within the hour')
+  expect(helperVerdict({ ...h, threads: [done, { ...done, active: true }] })).toBe('its thread is live')
+  expect(helperVerdict({ ...h, threads: [{ ...done, at: now - 3_600_000 }] })).toBe('remove')
+  // One its lead may send more (a reader's count, 17 Nov: 21 of 1,047 helpers were resumed over an hour after a run ended,
+  // after up to 7.5 h): resumed before, or its last run stopped by a usage limit or cancelled. Three days, then it goes.
+  const paused = 'its lead may send it more: resumed before, or its last run unfinished'
+  expect(helperVerdict({ ...h, threads: [{ ...done, runs: 11, at: now - 15 * 3_600_000 }] })).toBe(paused)
+  expect(helperVerdict({ ...h, threads: [{ ...done, last: 'failed' }] })).toBe(paused)
+  expect(helperVerdict({ ...h, threads: [{ ...done, last: 'cancelled' }] })).toBe(paused)
+  expect(helperVerdict({ ...h, threads: [done, { ...done, runs: 2 }] })).toBe(paused)
+  expect(helperVerdict({ ...h, threads: [{ ...done, runs: 11, at: now - 72 * 3_600_000 }] })).toBe('remove')
+  expect(helperVerdict({ ...h, threads: [{ ...done, runs: NaN }] })).toBe(paused)
+  // A lead's checkout, even one a finished helper shared, and anything not named as Infinitus names a helper's.
+  expect(helperVerdict({ ...h, threads: [done, { id: '9e9c8b4c-lead', at: now - 5 * 3_600_000, active: false }] })).toBe("a lead's thread works in it")
+  for (const path of [`${homedir()}/.infinitus/worktrees/aquatome.com/lab-app-v2`, `${homedir()}/.infinitus/worktrees/aquatome.com/trail-not-fish`, `${homedir()}/.infinitus/worktrees/other/infi-ffb9be67-8366a39a0df50f26`, `${homedir()}/.infinitus/projects/aquatome.com`, `${homedir()}/.infinitus/worktrees/aquatome.com/lab-app-v2/infi-ffb9be67-8366a39a0df50f26`])
+    expect(helperVerdict({ ...h, path })).toBe("not a helper's checkout")
+})
+
+// Codex's read, 17 Nov: a helper resumed while git counted its checkout lost a clean one, since only a save read its
+// threads again; and a branch deleted or replaced on the remote since the last fetch still counted as holding its commits.
+test("a helper's checkout goes only when every read lets it, the last just before acting, and the remote's branches are fetched first", () => {
+  const path = `${homedir()}/.infinitus/worktrees/aquatome.com/infi-ffb9be67-8366a39a0df50f26`
+  const ended = { id: 'thread:delegated-task:command%3Amcp%3Ax%3Adelegate-task%3Ay', at: Date.now() - 2 * 3_600_000, active: false, runs: 1, last: 'completed' }
+  const pass = (o: { live?: number[]; refresh?: boolean; status?: string; unpushed?: number; dry?: boolean } = {}) => {
+    const did: string[] = []
+    let n = 0
+    const gone = helperPass([path], {
+      reads: () => { n++; did.push(`read ${n}`); return (p: string) => ({ path: p, liveCwd: false, threads: [{ ...ended, active: !!o.live?.includes(n) }] }) },
+      refresh: () => { did.push('fetch'); return o.refresh ?? true },
+      status: () => { did.push('status'); return o.status ?? '' },
+      unpushed: () => { did.push('count'); return o.unpushed ?? 0 },
+      archive: (_: string, still: () => boolean) => { did.push('save'); if (!still()) return false; did.push('removed'); return true },
+      remove: () => { did.push('removed'); return true },
+      pause: () => {},
+      dry: !!o.dry,
+      say: (m: string) => did.push(m),
+    })
+    return { gone, did }
+  }
+  // Every read lets it go: fetched before git counts, read once more just before it's removed.
+  expect(pass()).toEqual({ gone: 1, did: ['read 1', 'fetch', 'read 2', 'status', 'count', 'read 3', 'removed', expect.stringMatching(/^removed /)] })
+  // Resumed while git counted: a clean checkout stays, as a saved one does.
+  expect(pass({ live: [3] })).toEqual({ gone: 0, did: ['read 1', 'fetch', 'read 2', 'status', 'count', 'read 3', `kept ${path}: its thread or a process moved while it was read`] })
+  expect(pass({ live: [3], unpushed: 1 }).did).not.toContain('removed')
+  expect(pass({ unpushed: 1 })).toMatchObject({ gone: 1, did: expect.arrayContaining(['save', 'removed']) })
+  // A fetch that fails leaves it; so does a dry run, which only says.
+  expect(pass({ refresh: false })).toEqual({ gone: 0, did: ['read 1', 'fetch', "helpers' checkouts: could not fetch the remote's branches, leaving them"] })
+  expect(pass({ dry: true }).did).not.toContain('removed')
+  // A dry run doesn't fetch either: a fetch prunes the remote's branches and moves FETCH_HEAD (Codex's read, 17 Nov).
+  expect(pass({ dry: true }).did).toEqual(['read 1', 'read 2', 'status', 'count', `would remove ${path}: a helper's, its thread ended, nothing in it that the remote lacks`])
+  // Nothing to look at: no reads, no fetch.
+  expect(helperPass([], { reads: () => { throw new Error('read') }, refresh: () => { throw new Error('fetch') } })).toBe(0)
+})
+
 test("the owner's morning report is started from this Mac at 06:58, a minute's work before 07:00, by the same job", () => {
   const dir = home()
   mkdirSync(join(dir, 'bin'))
@@ -114,19 +188,32 @@ test('an archived worktree can be brought back: its commits, its changes, its un
   sh(dir, 'git init -q -b main --bare origin.git && git clone -q origin.git main 2>/dev/null && cd main && git checkout -q -b main 2>/dev/null; echo a > a && git add a && git commit -qm base && git push -q origin main && git worktree add -q -b work ../wt')
   sh(`${dir}/main`, 'printf "NOTES.md\\nbuild/\\n" > .gitignore && git add .gitignore && git commit -qm ignore && git push -q origin main')
   sh(`${dir}/wt`, 'git merge -q --ff-only main && echo unsaved > b && git add b && git commit -qm "on no remote" && echo changed > a && echo new > c && echo mine > NOTES.md && mkdir build && echo out > build/x')
+  // Staged, then deleted from the working tree: only the index has it (Codex's read, 17 Nov); and a change staged apart
+  // from a later one to the same file.
+  sh(`${dir}/wt`, 'echo staged > d && git add d && rm d && echo first > e && git add e && echo second > e')
   const saved = archiveWorktree(`${dir}/wt`, `${dir}/archive`, new Date('2026-11-08T00:00:00Z'))
   expect(saved).toBe(`${dir}/archive/2026-11-08-wt`)
   expect(readFileSync(`${saved}/note.txt`, 'utf8')).toContain('branch: work')
-  sh(`${dir}/main`, `git fetch -q ${saved}/work.bundle work:restored && git worktree add -q ../back restored && cd ../back && git apply ${saved}/uncommitted.patch && tar -xzf ${saved}/untracked.tgz`)
+  sh(`${dir}/main`, `git fetch -q ${saved}/work.bundle work:restored && git worktree add -q ../back restored && cd ../back && git apply --index ${saved}/staged.patch && git apply ${saved}/unstaged.patch && tar -xzf ${saved}/untracked.tgz`)
   expect(readFileSync(`${dir}/back/b`, 'utf8')).toBe('unsaved\n')
   expect(readFileSync(`${dir}/back/a`, 'utf8')).toBe('changed\n')
   expect(readFileSync(`${dir}/back/c`, 'utf8')).toBe('new\n')
   expect(readFileSync(`${dir}/back/NOTES.md`, 'utf8')).toBe('mine\n') // ignored, but nobody can make it again
+  expect(sh(`${dir}/back`, 'git show :d')).toBe('staged\n')
+  expect(existsSync(`${dir}/back/d`)).toBe(false)
+  expect([sh(`${dir}/back`, 'git show :e'), readFileSync(`${dir}/back/e`, 'utf8')]).toEqual(['first\n', 'second\n'])
   expect(existsSync(`${dir}/back/build/x`)).toBe(false) // build output isn't worth keeping
   // The next one of that name, the same day, doesn't overwrite it; nothing on no remote and no changes, just the note.
   sh(`${dir}/main`, 'git worktree add -q --detach ../clean main')
   expect(readdirSync(archiveWorktree(`${dir}/clean`, `${dir}/archive2`))).toEqual(['note.txt'])
   expect(archiveWorktree(`${dir}/wt`, `${dir}/archive`, new Date('2026-11-08T00:00:00Z'))).toBe(`${saved}-2`)
+  // A merge left half done on a picture: its sides are only in the index's stages, which no patch carries. Not saved, so
+  // it stays (helperPass and --archive say "kept"), and nothing is written (Codex's read, 17 Nov).
+  sh(`${dir}/main`, 'git worktree add -q -b clash ../clash')
+  sh(`${dir}/clash`, 'printf "\\0base" > p.bin && git add p.bin && git commit -qm pic && git branch side && printf "\\0ours" > p.bin && git commit -qam ours && git checkout -q side && printf "\\0theirs" > p.bin && git commit -qam theirs && git checkout -q clash && (git merge -q side 2>/dev/null || true)')
+  expect(sh(`${dir}/clash`, 'git ls-files --unmerged')).toContain('p.bin')
+  expect(() => archiveWorktree(`${dir}/clash`, `${dir}/archive3`)).toThrow(/unmerged/)
+  expect(existsSync(`${dir}/archive3`)).toBe(false)
   // Thirty days later it goes, and nothing younger does.
   expect(expireArchive(`${dir}/archive`, Date.parse('2026-12-07T00:00:00Z'))).toEqual([])
   expect(expireArchive(`${dir}/archive`, Date.parse('2026-12-09T00:00:00Z'))).toEqual(['2026-11-08-wt', '2026-11-08-wt-2'])
@@ -174,7 +261,50 @@ test('a reading of the Mac: the small job, the queues, and load only as backgrou
   // /usr/sbin's tools are the Mac's: elsewhere this script doesn't run.
   if (process.platform !== 'darwin') return
   expect(r.status, r.stderr).toBe(0)
-  expect(JSON.parse(readFileSync(`${dir}/.cache/aquatome/machine-metrics.jsonl`, 'utf8'))).toMatchObject({ small_job_s: expect.any(Number), waiting_checks: expect.any(Number), waiting_sim: expect.any(Number), swap_gb: expect.any(Number), thermal: expect.any(Number), cores: expect.any(Number) })
+  const reading = JSON.parse(readFileSync(`${dir}/.cache/aquatome/machine-metrics.jsonl`, 'utf8'))
+  expect(reading).toMatchObject({ small_job_s: expect.any(Number), waiting_checks: expect.any(Number), waiting_sim: expect.any(Number), swap_gb: expect.any(Number), thermal: expect.any(Number), cores: expect.any(Number), free_gb: expect.any(Number) })
+  // The five processes using the most CPU, each with its share, its program and its project (the chief of staff, 19 Nov).
+  expect(reading.top_cpu.length).toBeGreaterThan(0)
+  expect(reading.top_cpu.length).toBeLessThanOrEqual(5)
+  for (const p of reading.top_cpu) expect(p).toEqual({ cpu: expect.any(Number), name: expect.any(String), project: p.project === null ? null : expect.any(String) })
+  expect(reading.top_cpu.map((p: { cpu: number }) => p.cpu)).toEqual([...reading.top_cpu.map((p: { cpu: number }) => p.cpu)].sort((a, b) => b - a))
+}, slow(60_000))
+
+test("a busy process's project is its working folder's: a project's own or its worktree's, the engine's folders, or none", () => {
+  const dir = home()
+  const of = (folders: (string | null)[]) => spawnSync('python3', ['-I', '-B', '-c', `import importlib.util, json, sys
+s = importlib.util.spec_from_file_location("m", sys.argv[1]); m = importlib.util.module_from_spec(s); s.loader.exec_module(m)
+print(json.dumps([m.project_of(f) for f in json.loads(sys.argv[2])]))`, join(ROOT, 'scripts/machine-metric.py'), JSON.stringify(folders)], { env: { ...process.env, HOME: dir }, encoding: 'utf8' })
+  const r = of([`${dir}/.infinitus/projects/aquatome.com`, `${dir}/.infinitus/worktrees/aquatome.com/live-route/apps/site`, `${dir}/.infinitus/projects/other/src`,
+    `${dir}/.local/share/aquatome/engine-repo`, `${dir}/.cache/aquatome`, '/Users/Shared/aquatome/x', `${dir}/.cache/aquatomex`, `${dir}/.infinitus/projects/`, '/', null])
+  expect(r.status, r.stderr).toBe(0)
+  expect(JSON.parse(r.stdout)).toEqual(['aquatome.com', 'aquatome.com', 'other', 'aquatome.com', 'aquatome.com', 'aquatome.com', null, null, null, null])
+})
+
+// Codex's read, 19 Nov: a reading that fails writes no line at all, so a busy-process probe that hangs or fails must not
+// cost the reading. ps hanging: no busy processes; lsof failing: the processes without their projects; df hanging: no
+// free space. The line is written each time.
+test('a reading is still written when the busy-process or free-space probes hang or fail', () => {
+  if (process.platform !== 'darwin') return
+  const dir = home()
+  const reading = (fail: string) => {
+    const r = spawnSync('python3', ['-I', '-B', '-c', `import importlib.util, json, subprocess, sys
+s = importlib.util.spec_from_file_location("m", sys.argv[1]); m = importlib.util.module_from_spec(s); s.loader.exec_module(m)
+real, fail = m.run, sys.argv[2]
+def run(*cmd, timeout=60):
+    if (fail == "ps" and "-Aro" in cmd) or (fail == "df" and cmd[0] == "/bin/df"): raise subprocess.TimeoutExpired(cmd, timeout)
+    if fail == "lsof" and "cwd" in cmd: raise OSError("lsof")
+    return real(*cmd, timeout=timeout)
+m.run, m.small_job = run, lambda: 0.1
+m.main()`, join(ROOT, 'scripts/machine-metric.py'), fail], { env: { ...process.env, HOME: dir }, encoding: 'utf8' })
+    expect(r.status, r.stderr).toBe(0)
+    return JSON.parse(readFileSync(`${dir}/.cache/aquatome/machine-metrics.jsonl`, 'utf8').trim().split('\n').at(-1)!)
+  }
+  expect(reading('ps')).toMatchObject({ small_job_s: 0.1, top_cpu: [], free_gb: expect.any(Number) })
+  const noProjects = reading('lsof')
+  expect(noProjects.top_cpu.length).toBeGreaterThan(0)
+  expect(noProjects.top_cpu.every((p: { project: unknown }) => p.project === null)).toBe(true)
+  expect(reading('df')).toMatchObject({ free_gb: null, top_cpu: expect.any(Array) })
 }, slow(60_000))
 
 // 2026-11-08: signing on the own Mac took the owner's keychains off their list for minutes (gh's and git's sign-in among
@@ -221,4 +351,46 @@ test('free space under 30 GB reaches the chief of staff once a day, with where i
   expect(sent[1]!.message).toMatch(/^The Mac's upkeep \(machine-sweep\.mjs\), once a day while it lasts: 15 GB free on this Mac, under the 20 GB floor/)
   expect(sent[1]!.message).not.toContain('Under 20 GB no simulator')
   expect(lines.filter(l => l.startsWith('space: '))).toHaveLength(4)
+})
+
+// The chief of staff, 15 Nov 2026: tests had left 718,000 folders, about 78 GB, in the temp folder, and the hourly sweep
+// takes ours older than six hours, by the chief of staff's rules (~/.cache/aquatome/cos/space/temp-clean.py).
+test("the sweep takes our tests' scratch untouched for 6 h and open in no process, and nothing else in the temp folder", () => {
+  const temp = mkdtempSync(join(tmpdir(), 'aq-load-'))
+  const make = (name: string, kids: string[] = []) => { mkdirSync(join(temp, name)); for (const k of kids) mkdirSync(join(temp, name, k)) }
+  const litter = Array.from({ length: 21 }, (_, i) => `gate-Kq2a${String(i).padStart(2, '0')}`)
+  for (const n of litter) make(n, ['content', 'engine-state'])
+  make('aq-tests-a1B2c3') // a killed run's own folder
+  make('aq-open-k3Jd9s') // a run still working in it
+  make('gate-Zz9Yy8', ['notes']) // a gate- folder holding something else
+  make('lonely-a1B2c3', ['content']) // one of its kind: made by hand
+  make('com.apple.dock.launchpad') // not mkdtemp's name
+  const said: string[] = []
+  // One of them holds a lead's worktree (Grok's read): never taken.
+  const pass = (now: number, dry = false) => scratch({ temps: [temp], open: () => new Set(['aq-open-k3Jd9s']), worktrees: () => new Set(['gate-Kq2a20']), now, dry, say: (m: string) => said.push(m) })
+  // Everything here changed just now.
+  expect(pass(Date.now())).toBe(0)
+  expect(pass(Date.now() + 7 * 3_600_000, true)).toBe(21)
+  expect(readdirSync(temp)).toHaveLength(26)
+  expect(pass(Date.now() + 7 * 3_600_000)).toBe(21)
+  expect(readdirSync(temp).sort()).toEqual(['aq-open-k3Jd9s', 'com.apple.dock.launchpad', 'gate-Kq2a20', 'gate-Zz9Yy8', 'lonely-a1B2c3'])
+  expect(said.at(-1)).toMatch(/removed 21; left .*open in a process.*holds a worktree.*not test scratch by what it holds.*a kind too rare/)
+})
+
+test("a folder goes only when it's ours by name, owner and what it holds, and nothing in it changed within 6 h", () => {
+  const ours = { name: 'gate-Kq2a00', dir: true, mine: true, open: false, hours: 7, kids: ['content', '.git'], kidsHours: 7, kindCount: 35_000 }
+  expect(scratchVerdict(ours)).toBe('remove')
+  expect(scratchVerdict({ ...ours, kidsHours: 5 })).toBe('changed within 6 h')
+  expect(scratchVerdict({ ...ours, mine: false })).toBe('not our folder')
+  expect(scratchVerdict({ ...ours, name: 'gate-abcdef' })).toBe('not a scratch name')
+  expect(scratchVerdict({ ...ours, kids: ['content', 'Photos Library.photoslibrary'] })).toBe('not test scratch by what it holds')
+  expect(scratchVerdict({ ...ours, name: 'aq-tests-x1y2z3', kindCount: 1, kids: ['anything'] })).toBe('remove')
+  // A run's own folder whose suffix came out all lower case (about 1 in 180), and one holding a worktree (Grok's read).
+  expect([scratchKind('aq-tests-abcdef'), scratchVerdict({ ...ours, name: 'aq-tests-abcdef', kindCount: 1 })]).toEqual(['aq-tests', 'remove'])
+  expect(scratchVerdict({ ...ours, worktree: true })).toBe('holds a worktree')
+})
+
+test("the sweep looks in /tmp as well as this user's temp folder: launchd's jobs have no TMPDIR, so Node writes there", () => {
+  expect(scratchFolders()).toContain(realpathSync('/tmp'))
+  expect(scratchFolders()).toContain(realpathSync(process.platform === 'darwin' ? execFileSync('getconf', ['DARWIN_USER_TEMP_DIR'], { encoding: 'utf8' }).trim() : tmpdir()))
 })

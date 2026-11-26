@@ -1,8 +1,13 @@
 {
   "slug": "narathiwat",
-  "name": "Narathiwat",
+  "name": "Provinsi Narathiwat",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-20T01:47:23.493Z"
+  },
   "quality": {
     "score": 0.86,
     "indexable": true

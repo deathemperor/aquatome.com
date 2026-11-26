@@ -1,14 +1,22 @@
 {
   "id": "oryzias-woworae",
   "native": {
-    "input": "f50e0ef4def34faf",
-    "at": "2026-11-11T02:57:45.598Z",
+    "input": "0e02ccc85fa2ad31",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
       {
         "code": "ID",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Daisy's ricefish, Oryzias woworae, is known only from a single stream on the island of Muna, Southeast Sulawesi, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Oryzias woworae was described in 2010 and is found only on Muna Island, off southeastern Sulawesi, Indonesia.",
         "words": "Indonesia",
         "ok": true
       }

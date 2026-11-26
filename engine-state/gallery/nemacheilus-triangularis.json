@@ -8,7 +8,10 @@
   "inat:349157797"
  ],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/d1248792fe21d5fc.webp": "a1589854e462b71c"
+  "https://media.aquatome.com/seriouslyfish/d1248792fe21d5fc.webp": "a1589854e462b71c",
+  "https://media.aquatome.com/glaser/8ee4986974e61264.webp": "80c405470f618222",
+  "https://media.aquatome.com/glaser/8d4c422313e64544.webp": "4a4f0d478311051b",
+  "https://media.aquatome.com/glaser/2345891996a9a550.webp": "65e5a7be86614452"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -18,5 +21,12 @@
    "research": 198733606,
    "agree": 201770096
   }
+ },
+ "gbif": {
+  "key": 5205201,
+  "next": null
+ },
+ "openverse": {
+  "next": null
  }
 }

@@ -1,8 +1,8 @@
 {
   "id": "nemapteryx-nenga",
   "native": {
-    "input": "62a304857c83ab5d",
-    "at": "2026-11-10T15:58:17.469Z",
+    "input": "e0b3ce035b9deee1",
+    "at": "2026-11-18T12:30:34.128Z",
     "claims": [
       {
         "code": "IN",
@@ -11,9 +11,57 @@
         "quote": "Nemapteryx nenga is a catfish from India, formerly placed in the genus Arius.",
         "words": "India",
         "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and southeast Asia: India, Thailand, Myanmar, Malaysia and Indonesia.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and southeast Asia: India, Thailand, Myanmar, Malaysia and Indonesia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and southeast Asia: India, Thailand, Myanmar, Malaysia and Indonesia.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and southeast Asia: India, Thailand, Myanmar, Malaysia and Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and southeast Asia: India, Thailand, Myanmar, Malaysia and Indonesia.",
+        "words": "Indonesia",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "scotcat",
+        "quote": "Type locality: Ganges River, India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -72,9 +120,13 @@
       ]
     ],
     "native": [
-      "IN"
+      "IN",
+      "TH",
+      "MM",
+      "MY",
+      "ID"
     ],
     "requests": 13,
-    "at": "2026-11-10T15:58:17.469Z"
+    "at": "2026-11-18T12:30:34.128Z"
   }
 }

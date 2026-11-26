@@ -2,6 +2,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { LANGS, POPULAR, POPULAR_BREEDS, slugify, STAPLE_SPECIES } from '@aq/schema'
 import { shopIds, type ShopLang } from './shops'
+import { priorityFish } from './priority-fish'
 
 export type GalleryKind = 'species' | 'plants' | 'breeds'
 const KINDS: GalleryKind[] = ['species', 'plants', 'breeds']
@@ -66,7 +67,10 @@ export async function galleryPlan(root: string, langs: ShopLang[] = [...LANGS]):
     }
   }
   const t = (x: PlanItem) => TIER_ORDER.indexOf(x.tier)
+  // The owner's priority fish first, while their albums are short (priority-fish.ts).
+  const first = await priorityFish(root)
+  const p = (x: PlanItem) => { const i = first.indexOf(`${x.kind}/${x.id}`); return i < 0 ? first.length : i }
   return items
-    .sort((a, b) => t(a) - t(b) || a.rank - b.rank || b.sources - a.sources || KINDS.indexOf(a.kind) - KINDS.indexOf(b.kind) || a.id.localeCompare(b.id))
+    .sort((a, b) => p(a) - p(b) || t(a) - t(b) || a.rank - b.rank || b.sources - a.sources || KINDS.indexOf(a.kind) - KINDS.indexOf(b.kind) || a.id.localeCompare(b.id))
     .map(({ kind, id, tier, target }) => ({ kind, id, tier, target }))
 }

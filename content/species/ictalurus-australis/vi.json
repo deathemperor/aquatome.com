@@ -1,0 +1,21 @@
+{
+  "slug": "ca-nheo-panuco",
+  "name": "Cá nheo Panuco",
+  "altNames": [
+    "Panuco-dværgmalle"
+  ],
+  "sections": {
+    "distribution:planetcatfish": "<p>Trung Mỹ: Mexico. Loài này có ở sông Panuco và sông Blanco (Mexico).</p><p>Nơi thu mẫu chuẩn: sông Río Forlón, Forlón, thuộc lưu vực sông Rio Panuco, bang Tamaulipas, Mexico.</p><p>Danh mục Đỏ IUCN: Thiếu dữ liệu (lần đánh giá gần nhất năm 2018).</p>",
+    "reproduction:planetcatfish": "<p>Chưa có thông tin. Hiện chưa ai ghi lại chuyện loài này đẻ trong bể.</p>",
+    "notes:planetcatfish": "<p>Nguồn gốc tên gọi: Ictalurus ghép từ hai chữ Hy Lạp, ichthys là cá và ailouros là mèo. Nghĩa đen của nó là \"cá mèo\", tức cá nheo (catfish). Australis nghĩa là phương nam, vì loài này là một trong những loài sống xa về phía nam nhất của giống.</p>",
+    "references:planetcatfish": "<p>Field Columbian Museum, Zoölogical Series v. 5, pp 13.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  }
+}

@@ -4,7 +4,8 @@
   "altNames": [
     "Cá trê quỷ khổng lồ",
     "Gulper Catfish",
-    "Ogre Catfish"
+    "Ogre Catfish",
+    "Cá da trơn Ogre"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá trê nuốt, Asterophysus batrachus, là một loài cá trê săn mồi họ Auchenipteridae đến từ sông Negro ở Brazil và sông Orinoco ở Venezuela. Còn được gọi là 'cá trê quỷ khổng lồ', chúng săn mồi ở các nhánh sông nước đen nông, chủ yếu vào ban đêm. Chúng có thể nuốt những con cá lớn gần gấp đôi cơ thể mình và không được khuyến nghị cho bể cộng đồng.</p><ul><li>Kích thước tối đa: 250 mm SL</li><li>Kích thước bể: 150 × 60 cm</li><li>Nhiệt độ: 22–28°C</li><li>pH: 5,0–7,0</li><li>Độ cứng: 1–8 dGH</li><li>Độ khó: 4/8 – trung bình; cần bể rất lớn</li></ul>",
@@ -19,18 +20,25 @@
     "reproduction:seriouslyfish": "<p>Chưa có báo cáo.</p>",
     "notes:seriouslyfish": "<p>Loài này còn được gọi là 'cá trê quỷ khổng lồ' (ogre catfish).</p>",
     "references:seriouslyfish": "<ul><li>Kner, R. (1858). Ichthyologische Beiträge. II. Abtheilung. Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 26 (s. 373), 373-448</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>",
-    "quickFacts:glaser": "<ul><li>Xuất xứ: Venezuela</li><li>Kích thước khi bán: 5-7 cm</li><li>Kner mô tả năm 1858</li></ul>",
+    "quickFacts:glaser": "<ul><li>Xuất xứ: Venezuela</li><li>Kner mô tả năm 1858</li></ul>",
     "beforeYouBuy:glaser": "<p>Loài cá này trông gần như chỉ toàn là miệng, và đến nay vẫn chưa có tên thông dụng. Mỗi năm lượng cá nhập về vẫn rất ít.</p>",
     "distribution:glaser": "<p>Theo Check List of the Freshwater fishes of South and Central America, Asterophysus batrachus sống ở lưu vực Orinoco (sông Atabapo nằm trong lưu vực này). Loài này cũng có mặt ở thượng nguồn Rio Negro.</p>",
     "habitat:glaser": "<p>Roland Numrich từng gặp loài cá này khi lặn ống thở ở sông Atabapo, trong một chuyến thám hiểm Venezuela. Theo ghi chép của ông, loài cá da trơn này sống trong các khe đá. Nó lao ra rất nhanh để chộp mồi rồi lại biến mất vào khe. Vì vậy bắt được nó rất khó.</p>",
-    "diet:glaser": "<p>Cá ăn cá mồi rất dễ. Ngoài tự nhiên, nó săn cá ông tiên altum (Pterophyllum altum). Những con mới nhập về lúc đầu rất khó cho ăn. Sau khoảng 10 ngày chúng chịu ăn trở lại, và không cần đến cá ông tiên altum. Cá mồi là thức ăn bắt buộc phải có. Thậm chí có con còn ăn từ tay người nuôi.</p>"
+    "diet:glaser": "<p>Cá ăn cá mồi rất dễ. Ngoài tự nhiên, nó săn cá ông tiên altum (Pterophyllum altum). Những con mới nhập về lúc đầu rất khó cho ăn. Sau khoảng 10 ngày chúng chịu ăn trở lại, và không cần đến cá ông tiên altum. Cá mồi là thức ăn bắt buộc phải có. Thậm chí có con còn ăn từ tay người nuôi.</p>",
+    "quickFacts:scotcat": "<p>Họ: Auchenipteridae. Kích thước: 25 cm. Nhiệt độ: 23–28 °C. pH: 6,0–7,0.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Orinoco và sông Negro. Nơi thu mẫu chuẩn: Marabitanos, Brazil.</p>",
+    "behaviour:scotcat": "<p>Miệng loài này trông giống miệng cá họ Salmonidae (họ cá hồi), và đây là đặc điểm dễ dùng để nhận ra nó. Trong họ Auchenipteridae, ít con nào săn mồi dữ như vậy. Phải chọn cá nuôi chung thật cẩn thận, vì nó tấn công cả cá to hơn mình và cố nhét con mồi vào cái miệng rộng, há được rất to. Có lẽ nuôi riêng một loài trong bể thì hơn.</p>",
+    "diet:scotcat": "<p>Cho ăn krill, tôm, giun đất, bo bo và cá. Cá càng lớn thì càng phải cho ăn ít đi, vì ăn quá nhiều là nó nôn thức ăn ra.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài batrachus lấy từ chữ 'batrachus', nghĩa là con ếch, ý nói giống ếch.</p><p>Danh sách đỏ IUCN: Loài này sống ở lưu vực sông Orinoco và sông Negro. Vì phân bố rộng nên nó được xếp vào mức Ít quan ngại (IUCN 2023).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2003. Auchenipteridae (Driftwood catfishes). p. 470-482. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil. Frederico, R.G. 2023. Asterophysus batrachus. The IUCN Red List of Threatened Species 2023. Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2019 ).</p>"
   },
   "quality": {
     "score": 0.82,
     "indexable": true,
     "bySource": {
       "seriouslyfish": 0.85,
-      "glaser": 0.82
+      "glaser": 0.82,
+      "scotcat": 0.97
     }
   }
 }

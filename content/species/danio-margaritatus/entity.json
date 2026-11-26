@@ -28,7 +28,7 @@
       "quotes": [
         {
           "source": "bwaquatics",
-          "quote": "It is native to Southeast Asia, specifically the Shan State in Myanmar, and was first discovered in 2006 by a German aquarist named Tanja Schwedt.",
+          "quote": "Danio margaritatus, also known as the Celestial Pearl Danio, CPD or Galaxy Rasbora, was discovered in 2006 in small pools near Hopong, about 30 km east of Taunggyi in Shan State, Myanmar (Salween drainage), and described by Tyson Roberts in 2007.",
           "countries": [
             "MM"
           ],
@@ -40,6 +40,12 @@
           "countries": [
             "TH"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The celestial pearl danio, Danio margaritatus, is a miniature cyprinid from the Salween drainage in Shan State, eastern Myanmar.",
+          "countries": [],
           "regions": [
             "Salween"
           ]
@@ -75,13 +81,6 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 22,
-          "max": 26
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 20,
@@ -94,16 +93,16 @@
           "min": 22,
           "max": 26
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 6,
-          "max": 7.5
+          "min": 22,
+          "max": 26
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
@@ -117,13 +116,16 @@
           "min": 6.6,
           "max": 8
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
-      {
-        "source": "bwaquatics",
-        "value": 2.5
-      },
       {
         "source": "seriouslyfish",
         "value": 2.1
@@ -131,6 +133,10 @@
       {
         "source": "aquariumcoop",
         "value": 2.5
+      },
+      {
+        "source": "bwaquatics",
+        "value": 2
       }
     ],
     "gh": [
@@ -160,7 +166,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
-      "html": "<p>Danio margaritatus, also known as the celestial pearl danio or galaxy rasbora, is a freshwater fish species that belongs to the family Cyprinidae. It is a small, colorful fish, with a maximum size of around 1 inch (2.5 cm) in length.</p><ul><li>pH: 6.0-7.5</li><li>Temperature: 72-79°F (22-26°C)</li></ul>"
+      "html": "<ul><li>IUCN Red List: Data Deficient (not enough information to assess its risk)</li><li>Max size: about 0.8 in standard length (about 1 in total length)</li><li>Temperament: peaceful</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -178,7 +184,7 @@
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
-      "html": "<p>It is native to Southeast Asia, specifically the Shan State in Myanmar, and was first discovered in 2006 by a German aquarist named Tanja Schwedt.</p>"
+      "html": "<p>Danio margaritatus, also known as the Celestial Pearl Danio, CPD or Galaxy Rasbora, was discovered in 2006 in small pools near Hopong, about 30 km east of Taunggyi in Shan State, Myanmar (Salween drainage), and described by Tyson Roberts in 2007. The name means \"adorned with pearls\". Its closest relative is Danio erythromicron.</p>"
     },
     {
       "key": "distribution",
@@ -196,7 +202,7 @@
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
-      "html": "<p>Danio margaritatus is found in slow-moving streams and pools, and prefers clear, shallow water with plenty of vegetation.</p>"
+      "html": "<p>The original habitat is small, shallow ponds no more than about 30 cm deep, fed by springs and seepage, with clear water and dense Elodea in open grassland. Shallow, clear, densely planted spring-fed ponds.</p>"
     },
     {
       "key": "habitat",
@@ -223,6 +229,12 @@
       "html": "<p>This timid species should ideally be kept in a heavily-planted set-up, preferably with a dark substrate.</p><p>The broken lines of sight that exist in such a display allow it to display natural behaviour as well as helping to reduce skittishness.</p><p>Floating plants are a useful addition but driftwood and oak/beech/almond leaf litter are best avoided as the tannins they release are not a feature of its natural waters.</p><p>Use gentle filtration; an air-powered sponge-style unit should prove adequate.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
+      "html": "<p>They need a well-filtered tank with swimming space and hiding places such as plants.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
@@ -235,16 +247,16 @@
       "html": "<p>They can handle a fairly wide range of pH from 6.6–8.0, as well as soft to moderate water hardness (GH). They thrive at temperatures of 22–24°C and tolerate up to 26°C. Depending on how warm your home is, you may be able to keep this species in an unheated aquarium without a heater. Many danios, including CPDs, enjoy cooler temperatures than the average tropical fish.</p>"
     },
     {
-      "key": "equipment",
+      "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
-      "html": "<p>They require a well-filtered aquarium with plenty of swimming space and hiding places, such as plants and caves.</p>"
+      "html": "<ul><li>pH: 6.0 to 7.5</li><li>Temperature: 22 to 26°C</li></ul>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
-      "html": "<p>In the wild, the celestial pearl danio feeds on small invertebrates such as insect larvae, crustaceans, and worms. In captivity, they will readily accept a variety of foods, including high-quality flake foods, freeze-dried or frozen foods, and live foods such as brine shrimp or daphnia.</p>"
+      "html": "<p>Feeds on small insect larvae, crustaceans and worms in the wild. Takes quality flake, freeze-dried and frozen foods, plus live baby brine shrimp or daphnia.</p>"
     },
     {
       "key": "diet",
@@ -262,7 +274,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
-      "html": "<p>They are a peaceful species and are best kept in groups of at least 6 individuals. They are active swimmers and require plenty of open space to swim.</p>"
+      "html": "<p>Peaceful. Keep in groups of at least 6. Males spar and display at each other.</p>"
     },
     {
       "key": "behaviour",
@@ -289,6 +301,12 @@
       "html": "<p>Male celestial pearl danios are more brightly coloured, while females are rounder in shape.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
+      "html": "<p>Males have a red-orange belly and brighter fins; females are duller with a fuller body.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
@@ -301,10 +319,16 @@
       "html": "<p>Celestial pearl danios are relatively easy to breed at home as long as you have at least six fish to ensure there are both males and females. They are egg layers that prefer to spawn in media, so provide dense plants such as java moss or a DIY yarn spawning mop. Feed them well, and once the females develop large bellies full of eggs, they will likely spawn almost every day.</p><p>To prevent the adults from eating the eggs, move the spawning media into a separate tank; the eggs should hatch within a week, depending on water temperature. Another method is to place the fish in an outdoor mini pond with plenty of aquatic plants during warmer seasons and bring them back inside at the end of summer.</p><p>Newborn fry are very tiny and require food smaller than 50 µm, such as infusoria, green water and vinegar eels. Once large enough, feed them live baby brine shrimp, which are packed with healthy fats and proteins to help the fry grow quickly.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
+      "html": "<p>Spawns almost daily among fine plants or moss with no parental care. Adults eat eggs, so move moss or mops to a separate container. Fry are tiny and need infusoria first.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
-      "html": "<p>Appearance: Its body is a light blue-green color, with a series of iridescent pearl-like spots on its sides, and a bright red stripe running along its body. It has a small, pointed head, and a forked tail fin.</p>"
+      "html": "<p>Body: tiny, slender danio with a small pointed head. Fins: orange-red fins with black bands on the dorsal, anal and pelvic fins. Coloration: dark blue-gray to blue-green body covered in pearly gold-white spots.</p>"
     },
     {
       "key": "notes",
@@ -326,7 +350,7 @@
       "width": 900,
       "height": 675,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
       "caption": "Some males display a greater proportion of red pigmentation on the body and fins than others, and this intensifies during bouts of sparring.",
       "source": "seriouslyfish"
@@ -337,9 +361,20 @@
       "width": 900,
       "height": 676,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
       "caption": "...but will also eat its own eggs given the opportunity.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/595450b04dc77e10.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/595450b04dc77e10-480.webp",
+      "width": 900,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "Peter Macguire / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "caption": "Rival males spar often, especially when in spawning condition. These two have aberrant patterning in the anal-fin (see 'Notes').",
       "source": "seriouslyfish"
     },
     {
@@ -376,23 +411,12 @@
       "source": "aquariumcoop"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/595450b04dc77e10.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/595450b04dc77e10-480.webp",
-      "width": 900,
-      "height": 675,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
-      "caption": "Rival males spar often, especially when in spawning condition. These two have aberrant patterning in the anal-fin (see 'Notes').",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/18a3f658382997c5.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/18a3f658382997c5-480.webp",
       "width": 641,
       "height": 419,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Kross / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
       "caption": "Note the split caudal-fin of the fish to the left; minor injuries such as this are not uncommon.",
       "source": "seriouslyfish"
@@ -464,5 +488,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-19"
 }

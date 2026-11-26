@@ -12,6 +12,78 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371139,
+      "total": 147,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "ZM",
+          101
+        ],
+        [
+          "TZ",
+          29
+        ],
+        [
+          "CD",
+          17
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          -9.84375,
+          42
+        ],
+        [
+          29.53125,
+          -8.4375,
+          34
+        ],
+        [
+          29.53125,
+          -7.03125,
+          11
+        ],
+        [
+          29.53125,
+          -5.625,
+          1
+        ],
+        [
+          30.9375,
+          -9.84375,
+          52
+        ],
+        [
+          30.9375,
+          -8.4375,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -129,14 +201,20 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/db893f2b18979f26.webp",
-      "width": 960,
-      "height": 638,
-      "licence": "CC BY-SA 3.0",
-      "author": "JBenoit",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Variabilichromis_moorii_juv%C3%A9nile..jpg",
-      "caption": "Variabilichromis juvénile à Mvuna island.",
-      "thumb": "https://media.aquatome.com/commons/db893f2b18979f26-480.webp"
+      "url": "https://media.aquatome.com/inaturalist/573183136.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/573183136-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Heinrich Human",
+      "sourceUrl": "https://www.inaturalist.org/photos/573183136",
+      "caption": "Cá Moorii màu xám đen đậu gần đá trong tự nhiên",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/573183136-large.webp",
+        "width": 1799,
+        "height": 1200
+      }
     }
   ],
   "videos": [

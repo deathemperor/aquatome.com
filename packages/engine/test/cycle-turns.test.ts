@@ -37,13 +37,15 @@ function turns(steps: string[], waiter = '') {
 
 test('the checks take the lock a step at a time: whoever waits goes in between the build and the tests', () => {
   // 2026-11-07: one part's build and tests held the lock for 3 h 23 min, with four jobs waiting behind them.
+  // On the Mac each step's packages go one at a time from its first try (FIRST_TRY_WORKERS, the chief of staff, 16 Nov).
+  const one = 'export pnpm_config_workspace_concurrency=1; '
   const r = turns(['echo build', 'echo test'], 'xcodebuild test')
-  expect(r.lock).toEqual(['TAKE echo build', 'GIVE', 'TAKE xcodebuild test', 'GIVE', 'TAKE echo test', 'GIVE'])
+  expect(r.lock).toEqual([`TAKE ${one}echo build`, 'GIVE', 'TAKE xcodebuild test', 'GIVE', `TAKE ${one}echo test`, 'GIVE'])
   // The wait for a calmer Mac comes once, before the first step: the queue is the wait after that.
   expect(r).toMatchObject({ calm: 1, code: 0 })
   // A failed step gives the lock back and runs once more, after another wait for a calmer Mac, its packages one at a time,
   // and the steps after it don't queue for it.
-  expect(turns(['exit 3', 'echo test'])).toMatchObject({ lock: ['TAKE exit 3', 'GIVE', 'TAKE export pnpm_config_workspace_concurrency=1; exit 3', 'GIVE'], calm: 2, code: 1 })
+  expect(turns(['exit 3', 'echo test'])).toMatchObject({ lock: [`TAKE ${one}exit 3`, 'GIVE', `TAKE ${one}exit 3`, 'GIVE'], calm: 2, code: 1 })
 })
 
 /**

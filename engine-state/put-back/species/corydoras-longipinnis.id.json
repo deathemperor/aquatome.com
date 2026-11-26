@@ -1,0 +1,42 @@
+{
+ "at": "2026-11-18T06:32:25Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Ada juga satu ikan ikutan (bycatch) yang menarik, yaitu satu spesimen Corydoras ellisae.",
+   "why": "This is the source's own import shipment, described as if the reader knew about it."
+  }
+ ],
+ "text": {
+  "slug": "corydoras-longipinnis",
+  "name": "Corydoras longipinnis",
+  "altNames": [
+   "Long-finned Cory",
+   "Cory longipinnis",
+   "CW003",
+   "Hoplisoma longipinne"
+  ],
+  "sections": {
+   "quickFacts:planetcatfish": "<ul><li>Nama ilmiah: Corydoras(ln6) longipinnis Knaack, 2007</li><li>Nama umum: CW003, Long-finned Cory, Langfinnet Pansermalle (Denmark)</li><li>Ukuran: 61 mm SL</li><li>Etimologi: julukan spesiesnya merujuk pada siripnya yang panjang (pinnis = sirip).</li><li>Daftar Merah IUCN: Belum Dievaluasi (Not Evaluated)</li></ul>",
+   "distribution:planetcatfish": "<p>Amerika Selatan: Río Dulce di Argentina. Lokasi tipe: Río Dulce, sekitar 20 kilometer ke arah hilir dari Termas de Río Hondo, Provinsi Santiago del Estero, Argentina, kira-kira 27°29'29''S, 64°41'58''W.</p>",
+   "reproduction:planetcatfish": "<p>Pemijahan: Belum dilaporkan. Tidak ada laporan pemijahan.</p>",
+   "references:planetcatfish": "<p>Vertebrate Zoology v. 57 (no. 1), pp 36, Figs. 1-28, 31-39.</p>",
+   "quickFacts:glaser": "<p>Corydoras longipinnis dideskripsikan secara ilmiah pada tahun 2007 oleh Joachim Knaack. Spesies ini adalah kerabat dekat Corydoras paleatus yang sudah terkenal, dan agak mirip dengan varian sirip panjang (longfin) dari spesies tersebut. Pada C. longipinnis, hanya jantan yang mengembangkan sirip dada yang panjang memanjang, sedangkan pada varian sirip panjang C. paleatus, betinanya juga memiliki ciri ini.</p>",
+   "distribution:glaser": "<p>Spesies ini diimpor dari Paraguay. Deskripsinya dibuat berdasarkan spesimen dari Río Dulce di Argentina.</p>",
+   "dimorphism:glaser": "<p>Hanya jantan yang mengembangkan sirip dada yang panjang memanjang.</p>",
+   "reproduction:glaser": "<p>Memijahkan C. longipinnis itu mudah dan caranya sama dengan C. paleatus. Ikan harus diberi pakan banyak sampai perut betina terlihat membuncit. Setelah itu, lakukan ganti air dalam jumlah besar berulang kali dan isi kembali dengan air yang lebih dingin (3–5 °C lebih dingin daripada air lama). Cara ini memicu perkawinan dan pemijahan.</p>",
+   "notes:glaser": "<p>Ada juga satu ikan ikutan (bycatch) yang menarik, yaitu satu spesimen Corydoras ellisae. C. ellisae biasa hanya punya dua bercak besar di atas warna dasar yang pucat, tetapi spesimen ini sampai batas tertentu meniru pola C. longipinnis.</p>"
+  },
+  "quality": {
+   "score": 0.85,
+   "indexable": true,
+   "bySource": {
+    "planetcatfish": 0.85,
+    "glaser": 0.85
+   }
+  }
+ }
+}

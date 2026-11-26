@@ -1,0 +1,148 @@
+{
+  "id": "cherax-destructor",
+  "native": {
+    "input": "de760a4d02ecdcd6",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Southern Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cherax destructor",
+    "status": "ACCEPTED",
+    "taxonKey": 4417558,
+    "datasets": [
+      [
+        "37beb6ea-e591-41e3-b781-e384250dc42c",
+        8144
+      ],
+      [
+        "40c0f670-ee87-4576-be9d-2725e0b47035",
+        598
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        555
+      ],
+      [
+        "0645ccdb-e001-4ab0-9729-51f1755e007e",
+        360
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        170
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        161
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        160
+      ],
+      [
+        "0e5c0373-f957-4ce3-b8d9-a9054df51fc5",
+        151
+      ],
+      [
+        "4c313e80-c48b-4fc8-bd19-d8226b0a6921",
+        138
+      ],
+      [
+        "7ebef267-9d72-4c21-a276-cc84281a8590",
+        104
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        102
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        45
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        40
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        17
+      ],
+      [
+        "84a649ce-ff81-420d-9c41-aa1de59e3766",
+        15
+      ],
+      [
+        "4ffe66a0-6c8b-11de-8226-b8a03c50a862",
+        6
+      ],
+      [
+        "def80289-b974-48d3-8ff1-7e91c82b5bfd",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "b6465deb-2071-445a-9ebd-d5722e1ed7e2",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "2985efd1-45b1-46de-b6db-0465d2834a5a",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "0a0b594e-0c5e-4766-a5d7-66043160de5f",
+        1
+      ],
+      [
+        "0debafd0-6c8a-11de-8225-b8a03c50a862",
+        1
+      ],
+      [
+        "a56b9254-25a0-45a8-9909-bbe1365f01f1",
+        1
+      ],
+      [
+        "bf0f5d5f-f16e-4abe-9cd5-e4e7c4c630e2",
+        1
+      ],
+      [
+        "d4dcf329-c608-4914-ab81-12d9b3255583",
+        1
+      ],
+      [
+        "dca145de-af79-41c4-9dbb-9c61d4fb92b2",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 13,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

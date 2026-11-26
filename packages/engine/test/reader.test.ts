@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { loadPages, type Page } from '../src/pages'
-import { canRewrite, duePages, keepFindings, pageKey, readerReport, readerText, readPages, rewritePart, type ReaderState } from '../src/reader'
+import { canRewrite, duePages, keepFindings, pageKey, readerReport, readerText, readPages, rewritePart, rewriteTitle, type ReaderState } from '../src/reader'
 
 const page = (o: Partial<Page>): Page => ({ lang: 'vi', kind: 'guides', id: 'g', title: 'Cá ăn gì', path: '/vi/huong-dan/g/', fields: [], lines: [], captions: [], latinNames: [], card: [], ...o })
 const GUIDE = '<p>Cá cần ăn đủ.</p><p>Cho ăn hai lần một ngày là được rồi đó nha bạn.</p><h3>Kết luận</h3><p>Hết.</p>'
@@ -263,4 +263,20 @@ test('last item cost refuses admission without calls or content writes', async (
     expect(report.failed).toEqual([])
     expect(calls).toEqual([])
   })
+})
+
+// The chief of staff, 16 Nov 2026: the rewrite saw only headings and bold leads, and wrote "8 lý do" over eight headings
+// and ten reasons. It sees what the rule sees: what the text says of its count, its tables' rows, its chapters.
+test('a title written again is shown the text\'s own count, its table and its chapters, and the count it checks against them', async () => {
+  const prompts: string[] = []
+  const llm: Llm = async <T>({ prompt, schema }: { prompt: string; schema: object }) => {
+    prompts.push(prompt)
+    return ((schema as { required: string[] }).required.includes('title') ? { title: '10 lý do bể vẫn còn rêu hại' } : { score: 0.9, notes: [] }) as T
+  }
+  const body = `<p>Bài này đi qua 10 lý do.</p>${'<h3>A</h3><p>x</p>'.repeat(8)}`
+  const chapters = ['Mục lục', ...Array.from({ length: 10 }, (_, i) => `Lý do ${i + 1}`)]
+  const r = await rewriteTitle(llm, '8 lý do bể vẫn còn rêu hại', body, 'vi', undefined, chapters)
+  expect(r).toEqual({ title: '10 lý do bể vẫn còn rêu hại', score: 0.9, notes: [] })
+  for (const p of prompts) expect(p).toContain('WHAT THE TEXT SAYS OF ITS COUNT:\nThe text says: 10 lý do\nIts chapters (10): Lý do 1;')
+  expect(prompts[0]).toContain('the text says 10 lý do and has that many')
 })

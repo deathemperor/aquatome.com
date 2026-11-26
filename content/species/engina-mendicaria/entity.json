@@ -1,0 +1,1320 @@
+{
+  "id": "engina-mendicaria",
+  "scientificName": "Engina mendicaria",
+  "order": "Neogastropoda",
+  "family": "Pisaniidae",
+  "genus": "Engina",
+  "group": "snails",
+  "places": [
+    "north-america",
+    "united-states",
+    "florida",
+    "asia",
+    "indonesia",
+    "africa",
+    "kenya",
+    "madagascar",
+    "mauritius",
+    "mozambique",
+    "tanzania",
+    "oceania",
+    "hawaii"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "KE",
+        "MG",
+        "MU",
+        "MZ",
+        "TZ"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Bumble Bee Snails are found on marshy islands and are very commonly seen in the waters of Florida, Indonesia, Chagos, Kenya, Madagascar, Mauritius, Mozambique, Tanzania and Hawaii.",
+          "countries": [
+            "ID",
+            "KE",
+            "MG",
+            "MU",
+            "MZ",
+            "TZ"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5727962,
+      "total": 422,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "JP",
+          70
+        ],
+        [
+          "ID",
+          61
+        ],
+        [
+          "PH",
+          31
+        ],
+        [
+          "AU",
+          29
+        ],
+        [
+          "EG",
+          22
+        ],
+        [
+          "PG",
+          22
+        ],
+        [
+          "FJ",
+          20
+        ],
+        [
+          "MZ",
+          15
+        ],
+        [
+          "VU",
+          13
+        ],
+        [
+          "SB",
+          12
+        ],
+        [
+          "TZ",
+          12
+        ],
+        [
+          "MG",
+          9
+        ],
+        [
+          "MU",
+          9
+        ],
+        [
+          "TW",
+          8
+        ],
+        [
+          "CX",
+          7
+        ],
+        [
+          "IN",
+          7
+        ],
+        [
+          "KE",
+          7
+        ],
+        [
+          "IL",
+          6
+        ],
+        [
+          "NC",
+          6
+        ],
+        [
+          "TV",
+          6
+        ],
+        [
+          "KI",
+          5
+        ],
+        [
+          "OM",
+          5
+        ],
+        [
+          "ZA",
+          5
+        ],
+        [
+          "ER",
+          4
+        ],
+        [
+          "SC",
+          4
+        ],
+        [
+          "NR",
+          3
+        ],
+        [
+          "PF",
+          3
+        ],
+        [
+          "RE",
+          3
+        ],
+        [
+          "TH",
+          3
+        ],
+        [
+          "TO",
+          3
+        ],
+        [
+          "WF",
+          3
+        ],
+        [
+          "MH",
+          2
+        ],
+        [
+          "AS",
+          1
+        ],
+        [
+          "CC",
+          1
+        ],
+        [
+          "KM",
+          1
+        ],
+        [
+          "MX",
+          1
+        ],
+        [
+          "MY",
+          1
+        ],
+        [
+          "TL",
+          1
+        ],
+        [
+          "UM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -180,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          -178.59375,
+          -19.6875,
+          3,
+          0
+        ],
+        [
+          -177.1875,
+          -14.0625,
+          3,
+          0
+        ],
+        [
+          -175.78125,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          -175.78125,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          -174.375,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          -171.5625,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -163.125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -151.875,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          -150.46875,
+          -18.28125,
+          2,
+          0
+        ],
+        [
+          -115.3125,
+          26.71875,
+          1,
+          0
+        ],
+        [
+          28.125,
+          -32.34375,
+          1,
+          0
+        ],
+        [
+          30.9375,
+          -30.9375,
+          1,
+          0
+        ],
+        [
+          30.9375,
+          -29.53125,
+          1,
+          0
+        ],
+        [
+          32.34375,
+          -28.125,
+          2,
+          0
+        ],
+        [
+          32.34375,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          32.34375,
+          29.53125,
+          1,
+          0
+        ],
+        [
+          33.75,
+          -21.09375,
+          6,
+          6
+        ],
+        [
+          33.75,
+          25.3125,
+          2,
+          0
+        ],
+        [
+          33.75,
+          26.71875,
+          7,
+          0
+        ],
+        [
+          33.75,
+          28.125,
+          11,
+          0
+        ],
+        [
+          33.75,
+          29.53125,
+          6,
+          0
+        ],
+        [
+          35.15625,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          35.15625,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          36.5625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          37.96875,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          39.375,
+          -14.0625,
+          5,
+          5
+        ],
+        [
+          39.375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          39.375,
+          -7.03125,
+          7,
+          7
+        ],
+        [
+          39.375,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          39.375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          39.375,
+          15.46875,
+          4,
+          0
+        ],
+        [
+          43.59375,
+          -26.71875,
+          7,
+          7
+        ],
+        [
+          43.59375,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          45,
+          -9.84375,
+          3,
+          0
+        ],
+        [
+          46.40625,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          47.8125,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          54.84375,
+          -22.5,
+          3,
+          0
+        ],
+        [
+          56.25,
+          -21.09375,
+          3,
+          3
+        ],
+        [
+          57.65625,
+          -21.09375,
+          5,
+          5
+        ],
+        [
+          57.65625,
+          22.5,
+          5,
+          0
+        ],
+        [
+          59.0625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          71.71875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          80.15625,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          91.40625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          92.8125,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          92.8125,
+          11.25,
+          2,
+          0
+        ],
+        [
+          95.625,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          97.03125,
+          7.03125,
+          3,
+          0
+        ],
+        [
+          98.4375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          -11.25,
+          7,
+          0
+        ],
+        [
+          109.6875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          5.625,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          115.3125,
+          -8.4375,
+          29,
+          29
+        ],
+        [
+          118.125,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          118.125,
+          22.5,
+          2,
+          0
+        ],
+        [
+          119.53125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          119.53125,
+          14.0625,
+          5,
+          0
+        ],
+        [
+          119.53125,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          120.9375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          5.625,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          11.25,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          12.65625,
+          6,
+          0
+        ],
+        [
+          120.9375,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          120.9375,
+          22.5,
+          2,
+          0
+        ],
+        [
+          122.34375,
+          -12.65625,
+          12,
+          0
+        ],
+        [
+          122.34375,
+          8.4375,
+          6,
+          0
+        ],
+        [
+          122.34375,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          123.75,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          123.75,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          123.75,
+          9.84375,
+          3,
+          0
+        ],
+        [
+          123.75,
+          23.90625,
+          27,
+          0
+        ],
+        [
+          125.15625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          125.15625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          126.5625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          126.5625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          126.5625,
+          25.3125,
+          27,
+          0
+        ],
+        [
+          127.96875,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          127.96875,
+          25.3125,
+          7,
+          0
+        ],
+        [
+          127.96875,
+          26.71875,
+          3,
+          0
+        ],
+        [
+          127.96875,
+          28.125,
+          1,
+          0
+        ],
+        [
+          129.375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          129.375,
+          29.53125,
+          1,
+          0
+        ],
+        [
+          130.78125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          130.78125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          130.78125,
+          29.53125,
+          1,
+          0
+        ],
+        [
+          132.1875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          133.59375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          135,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          135,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          136.40625,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          139.21875,
+          35.15625,
+          1,
+          0
+        ],
+        [
+          142.03125,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          142.03125,
+          -11.25,
+          4,
+          0
+        ],
+        [
+          142.03125,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          143.4375,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          144.84375,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          144.84375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          146.25,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          146.25,
+          -9.84375,
+          5,
+          0
+        ],
+        [
+          146.25,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          149.0625,
+          -18.28125,
+          3,
+          0
+        ],
+        [
+          150.46875,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          150.46875,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          150.46875,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          150.46875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          150.46875,
+          -2.8125,
+          4,
+          0
+        ],
+        [
+          151.875,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          151.875,
+          -23.90625,
+          2,
+          0
+        ],
+        [
+          151.875,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          154.6875,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          156.09375,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          157.5,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          158.90625,
+          -32.34375,
+          1,
+          0
+        ],
+        [
+          158.90625,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          158.90625,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          158.90625,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          160.3125,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          164.53125,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          165.9375,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          165.9375,
+          -21.09375,
+          3,
+          0
+        ],
+        [
+          165.9375,
+          -16.875,
+          3,
+          0
+        ],
+        [
+          165.9375,
+          -15.46875,
+          2,
+          0
+        ],
+        [
+          165.9375,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          165.9375,
+          -11.25,
+          2,
+          0
+        ],
+        [
+          165.9375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          167.34375,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          167.34375,
+          -18.28125,
+          7,
+          0
+        ],
+        [
+          167.34375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          167.34375,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          168.75,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          168.75,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          171.5625,
+          0,
+          1,
+          0
+        ],
+        [
+          171.5625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          172.96875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          174.375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          175.78125,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          175.78125,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          177.1875,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          177.1875,
+          -18.28125,
+          11,
+          0
+        ],
+        [
+          177.1875,
+          -8.4375,
+          3,
+          0
+        ],
+        [
+          178.59375,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          178.59375,
+          -18.28125,
+          2,
+          0
+        ],
+        [
+          178.59375,
+          -9.84375,
+          3,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "aquariumbreeder",
+    "quote": "Distributed in tropical and warm seas, they live on intertidal reefs, usually under rocks or exposed in small pockets in the reef in shallow water."
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 8.1,
+          "max": 8.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2.2
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 2,
+          "max": 2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Bumble Bee snail</li><li>Other names: Striped engina, Wasp snail</li><li>Scientific name: Engina mendicaria</li><li>Minimum tank size: 20 litres</li><li>Breeding: Very difficult</li><li>Water type: SG 1.023–1.025</li><li>Optimal KH: 7–12</li><li>Nitrate: less than 20 ppm</li><li>Diet: Omnivorous / carnivorous</li><li>Temperament: Peaceful (with caution)</li><li>Colour form: yellow and black bands</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They originate from the Indo-Pacific region. Bumble Bee Snails are found on marshy islands and are very commonly seen in the waters of Florida, Indonesia, Chagos, Kenya, Madagascar, Mauritius, Mozambique, Tanzania and Hawaii.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Distributed in tropical and warm seas, they live on intertidal reefs, usually under rocks or exposed in small pockets in the reef in shallow water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Keep Bumble Bee Snails in tanks of at least 20 litres. Bigger tanks are better able to absorb sudden water changes and shifts than smaller tanks.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Care is not too difficult as long as water conditions are right and food is plentiful. Provide sufficient hiding places. Bumble Bee snails thrive in aquariums with live rock and deep sand beds (2.5–5 cm), and they can also help aerate the substrate.</p><p>Acclimate the snails: when adding new Bumble Bee snails to the tank, go slowly and gently, using drip acclimation.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Like other invertebrates, they are sensitive to fluctuations in water parameters, especially elevated nitrate. Make sure the tank has fully cycled before introducing them.</p><ul><li>SG: 1.023–1.025</li><li>Temperature: 22–25°C</li><li>pH: 8.1–8.4</li><li>KH: 7–12</li><li>Mg: 1300–1350</li><li>Ca: 350–450</li></ul><p>Ideally, maintain Ca and Mg to help the shells grow.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bumble Bee Snails are carnivorous (predators), although the animals they eat are very small. They do not eat algae. They eat dead organisms and meaty leftovers, and thrive on a high-protein diet.</p><p>Feeding is very easy as they find food in the aquarium. They can burrow in the sand bed and eat tiny worms living in the sand.</p><p>If the aquarium cannot provide sufficient food, supplement their diet, for example with chopped brine shrimp and mysis shrimp. Calcium is vital for good shell growth.</p><p>They do not eat corals and are therefore reef-safe. However, if sufficient food is not provided, they will feed on reef polychaetes (including bristle worms, though do not expect them to control the population) and other micro fauna that can be beneficial to the aquarium.</p><p>Opinions are mixed on their efficacy against Vermetid snails: some aquarists say their snails go right after Vermetids, while others say theirs never touched them. Do not give them a lot of processed foods, since they will eat whatever is easy and tasty. Do not expect fast results, as they are very slow, and one small snail will not solve an infestation; a group of them is needed.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Striped Engina is predominantly nocturnal. They live on rocky shores and sand beds and spend the day hiding. From time to time they burrow into the sand bed, but not very often; some aquarists have never seen them burrow. This can happen if there is plenty of food around and/or the sand bed is not deep enough.</p><p>They are pretty lazy and do not move much. If they find a spot they like, they stay there for a long time.</p><p>They are very peaceful and compatible with most tank mates. However, if sufficient food is not provided, they may prey on other, smaller snails. Full-grown snails (Fighting Conch, Cerith, Astrea, Mexican turbo snails, etc.) should be safe. They are compatible with shrimp such as Sexy shrimp, Red Fire shrimp (Lysmata debelius), Peppermint shrimp (Lysmata wurdemanni) or Skunk Cleaner (Lysmata amboinensis). It is risky to keep them with wrasses, Coral banded shrimp and hermit crabs, as these snails are small and can only defend themselves by hiding.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>It is not known how to sex these snails; the sexes are indistinguishable.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Breeding is not just difficult but close to impossible; there have been no reports of successful breeding. There is no data about maturity size, mating behaviour, egg number, hatching time, larval feeding or post-hatching development. Some factors such as a rise in water temperature, exposure to natural light and ample hiding places are said to trigger breeding, but these are only rumours.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The shell has a yellow and black banded pattern like wasps and bees (hence the common name), 1.5–2.2 cm long. The body is light tan with a long proboscis. In captivity a healthy snail can live about 1.5–2 years. Beads made of Engina mendicaria shells have been recorded as early as the 5th millennium BC.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/a0a36add3b5ae15e.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/a0a36add3b5ae15e-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/bumble-bee-snail-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "tgiEAaOXin0",
+      "title": "COMPRA ONLINE EN SUBMERSA - Engina Mendicaria para luchar contra los vermétidos",
+      "durationSec": 327,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1pLCuxxK9II",
+      "title": "Engina mendicaria - Hummelschnecke",
+      "durationSec": 46,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HiJqbuurIVk",
+      "title": "Bumblebee snail & bumblebee shrimp",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Vr_na1i6y3M",
+      "title": "CARACOL AVISPA en ACUARIO MARINO (ENGINA MENDICARIA)",
+      "durationSec": 474,
+      "lang": "es"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá biển 20 lít",
+        "bể reef nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể biển",
+        "cát san hô"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test KH nước biển",
+        "khúc xạ kế đo độ mặn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "mysis đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

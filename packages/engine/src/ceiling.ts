@@ -1,4 +1,5 @@
 import { AsyncLocalStorage } from 'node:async_hooks'
+import { spawnSync } from 'node:child_process'
 import { appendFileSync, readdirSync, readFileSync } from 'node:fs'
 import { homedir, tmpdir } from 'node:os'
 import { basename, dirname, join, resolve } from 'node:path'
@@ -21,7 +22,9 @@ import raw from './ceilings.json'
  */
 export type Place = { default: number; backstop: number; steps: { [step: string]: number | null } }
 export type CeilingTable = { from: string; note?: string; mac: Place; github: Place }
-export type Ceilings = { clock: string; tables: CeilingTable[] }
+/** Billed money's own tables (billed.ts): a place a table, in force by its `from` as the machines' are. */
+export type BilledTable = Place & { from: string; note?: string }
+export type Ceilings = { clock: string; tables: CeilingTable[]; api?: { note?: string; tables: BilledTable[] } }
 export type Machine = 'mac' | 'github'
 
 // The file's own keys are narrower than a step's name; ceiling.test.ts holds its shape.
@@ -36,6 +39,17 @@ export const machine = (env: NodeJS.ProcessEnv = process.env): Machine => (env.G
 let named: string | undefined
 /** The engine's command, as cli.ts parsed it: the name its calls are counted under, wherever it stood among the options. */
 export const nameStep = (step: string | undefined) => { named = step }
+
+/** The video job's photo check, counted on a line of its own (`stepFor`). */
+export const VIDEO_CHECK = 'check-photos-videos'
+/**
+ * The name a command's calls are counted under: the command, but the photo check the video job runs counts as
+ * `VIDEO_CHECK`, told by the cost log the job names (scripts/video-cycle.sh), so its cycle script needn't change. The video
+ * job's sheets have their own line and the photos runs keep theirs whole (the chief of staff, 20 Nov 2026): on the days the
+ * check's line ran out, the video job judged nothing in 3 to 5 of its runs.
+ */
+export const stepFor = (cmd: string | undefined, env: NodeJS.ProcessEnv = process.env): string | undefined =>
+  cmd === 'check-photos' && basename(env.ENGINE_COST_LOG ?? '') === 'aquatome-cost-videos.jsonl' ? VIDEO_CHECK : cmd
 
 /**
  * The name a call is counted under, and the one its line in the cost log has: the engine's command, as its own parser
@@ -67,8 +81,8 @@ export function costLog(env: NodeJS.ProcessEnv = process.env): string | undefine
 const NOTHING: Place = { default: 0, backstop: 0, steps: { gate: null, moderate: null } }
 
 /** The table in force: the one whose `from` is the latest that has passed, wherever it stands in the list. */
-export function tableInForce(tables: readonly CeilingTable[], now: Date): CeilingTable | undefined {
-  let chosen: CeilingTable | undefined
+export function tableInForce<T extends { from: string }>(tables: readonly T[], now: Date): T | undefined {
+  let chosen: T | undefined
   let latest = -Infinity
   for (const table of tables) {
     const from = Date.parse(table.from)
@@ -98,11 +112,16 @@ export function logsBeside(log: string): string[] {
  * in the total alone. `unlogged`: why the day's spend can't be counted, when a line of the day says so.
  */
 export function spentToday(log: string, now: Date): { total: number; by: Map<string, number>; unlogged?: string } {
+  return spentIn(logsBeside(log), now)
+}
+
+/** What `files` say was spent on `now`'s day, as `spentToday` reads them. */
+export function spentIn(files: readonly string[], now: Date): { total: number; by: Map<string, number>; unlogged?: string } {
   const day = vnDay(now)
   const by = new Map<string, number>()
   let total = 0
   let unlogged: string | undefined
-  for (const file of logsBeside(log)) {
+  for (const file of files) {
     let text: string
     try {
       text = readFileSync(file, 'utf8')
@@ -165,6 +184,22 @@ export function leftYielding(step: string, log: string, spare: number, ceilings:
 
 /** The piece a call is made for (pieces.ts): its cost line carries it, so a piece's cost is its own calls' alone. */
 export const inPiece = new AsyncLocalStorage<string>()
+
+/**
+ * Refuses unless a checkout's ceilings are main's: whatever yields to the engine reads the table in force, and that is
+ * main's. On 15 Nov the board's checkout, 178 commits behind, read 13 Nov's table and took $34 that main had given the
+ * engine. `dir` is the engine's folder in the checkout; main is fetched first, and a change not yet committed counts.
+ * Main out of reach is refused too: the copy fetched last may be days old.
+ */
+export function ceilingsAsMain(dir: string): void {
+  // Never a prompt for a sign-in, and never longer than a minute: either is main out of reach.
+  if (spawnSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: dir, timeout: 60_000, env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } }).status !== 0) {
+    throw new Error('can\'t reach main to compare the ceilings: try again once origin answers')
+  }
+  if (spawnSync('git', ['diff', '--quiet', 'origin/main', '--', 'src/ceilings.json'], { cwd: dir }).status !== 0) {
+    throw new Error('the ceilings here are not main\'s: rebase this checkout on main first')
+  }
+}
 
 /**
  * Nothing when the call may go; else the failure's message. It starts "claude failed" and says "limit reached" or

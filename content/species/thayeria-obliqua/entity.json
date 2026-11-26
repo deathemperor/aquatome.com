@@ -8,8 +8,283 @@
   "places": [
     "south-america",
     "brazil",
-    "tocantins"
+    "tocantins",
+    "peru",
+    "upper-amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Tocantins",
+        "Rio Guaporé"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The penguin tetra, Thayeria obliqua, is a characin from the central Amazon and Rio Tocantins basins and the Rio Guaporé in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Guaporé"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the central sections of the Amazon and Rio Tocantins basins and the Rio Guaporé, Brazil.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Rio Tocantins"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204169,
+      "total": 107,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          54
+        ],
+        [
+          "VE",
+          29
+        ],
+        [
+          "PE",
+          17
+        ],
+        [
+          "BO",
+          3
+        ],
+        [
+          "CO",
+          3
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          8,
+          0
+        ],
+        [
+          -73.125,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          6,
+          6
+        ],
+        [
+          -68.90625,
+          2.8125,
+          6,
+          0
+        ],
+        [
+          -67.5,
+          0,
+          4,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          6,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          15,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          3,
+          2
+        ],
+        [
+          -66.09375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          14,
+          14
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          3,
+          1
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          0,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -42,6 +317,10 @@
       {
         "source": "seriouslyfish",
         "value": 8
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -63,6 +342,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/thayeria-obliqua",
       "html": "<p>The penguin tetra, Thayeria obliqua, is a characin from the central Amazon and Rio Tocantins basins and the Rio Guaporé in Brazil. The type species of the genus, it was the original penguin tetra, though T. boehlkei is now usually sold under that name. In T. obliqua the black caudal stripe tapers upwards and fades before reaching the dorsal fin. It should be kept in a group of at least six.</p><ul><li>pH: not recorded</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "html": "<p>All penguin tetras grow to 5-6 cm in length and are peaceful schooling fish.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "html": "<p>Unfortunately the beautiful penguin tetra, Thayeria obliqua, from the upper Amazon is offered only very rarely, in contrast to its cousin T. boehlkei, which can always be found in the trade. In the trade are only offsprings of T. boehlkei; it originates from the Rio Xingu drainage in Brazil. A third species, T. ifati from Guyana is restricted to the Maroni River and is probably extinct in the hobby, while a fourth species, T. tapajonica, was only scientifically described in 2017 and has probably only been maintained in aquaria by accident. T. tapajonica is very similar in color to T. boehlkei and even occurs locally with it.</p>"
     },
     {
       "key": "distribution",
@@ -107,6 +398,12 @@
       "html": "<p>A peaceful species that won't compete well with very boisterous or much larger tankmates. Ideally, keep it with other South American species, such as Hemigrammus or Hyphessobrycon tetras, pencil fish, Apistogramma and other small cichlids, Corydoras and Loricariids. In a more general community it can be combined with smaller rasboras, barbs, Anabantoids and West African dwarf cichlids such as Pelvicachromis species. Always buy a group of at least 6 of these, preferably 10 or more. It's a schooling species by nature, and will fare much better when in the company of its own kind. Any potential for fin-nipping is also limited when it is kept in sufficient numbers as the fish tend to concentrate on squabbling amongst themselves. Like most tetras it actually looks far more effective when maintained like this anyway.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "html": "<p>All Thayeria species swim obliquely at an angle of about 30° to the water surface. The contrasting black and white pattern, along with the unusual swimming style, breaks up the typical fish outline, making Thayeria better protected from predatory fines.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/thayeria-obliqua",
@@ -132,10 +429,40 @@
       "width": 629,
       "height": 348,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mick Wright / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/thayeria-obliqua",
       "caption": "Thayeria obliqua",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b8485abf79df6113.webp",
+      "thumb": "https://media.aquatome.com/glaser/b8485abf79df6113-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/499a38cbdd7bcc28.webp",
+      "thumb": "https://media.aquatome.com/glaser/499a38cbdd7bcc28-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0a1a3136169b1e7c.webp",
+      "thumb": "https://media.aquatome.com/glaser/0a1a3136169b1e7c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thayeria-obliqua-4/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -168,5 +495,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-23"
 }

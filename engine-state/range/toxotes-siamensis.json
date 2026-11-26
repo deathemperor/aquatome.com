@@ -1,0 +1,43 @@
+{
+  "id": "toxotes-siamensis",
+  "native": {
+    "input": "4ae0b7e1c2bd8e6d",
+    "at": "2026-11-20T01:55:49.831Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is imported from Thailand, where it inhabits the Chao Phraya river.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "glaser",
+        "quote": "The species is imported from Thailand, where it inhabits the Chao Phraya river.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Toxotes siamensis",
+    "status": "ACCEPTED",
+    "taxonKey": 11122269,
+    "datasets": [],
+    "native": [
+      "TH"
+    ],
+    "requests": 2,
+    "at": "2026-11-20T01:55:49.831Z"
+  }
+}

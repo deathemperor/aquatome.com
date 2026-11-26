@@ -9,7 +9,8 @@
   "File:Rasbora-orné-3-min-2617071259.jpg",
   "File:Boraras-brigittae-3191524164.jpg",
   "File:Borasasb (cropped).jpg",
-  "flickr:22472342490"
+  "flickr:22472342490",
+  "inat:175045404"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/33de0bd15f65808d.webp": "19ab3c317b333337",
@@ -23,7 +24,7 @@
   "https://media.aquatome.com/aquariumcoop/84fb5f64489fe39a.webp": "b9183e37271b5b5b",
   "https://media.aquatome.com/aquariumcoop/6f807149fb667dd9.webp": "25c859b16148884c",
   "https://media.aquatome.com/aquariumcoop/32658b3923020409.webp": "13e612d2e4250f0f",
-  "https://live.staticflickr.com/652/22472342490_b9d94219c7_b.jpg": "ff1c1e1f6c3ce4c1"
+  "https://media.aquatome.com/flickr/22472342490.webp": "fe1c1e0f6c3cc4c0"
  },
  "commons": "2026-10-31",
  "gbif": {
@@ -40,6 +41,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 104465484,
+  "done": true
  },
  "exhausted": "2026-11-08"
 }

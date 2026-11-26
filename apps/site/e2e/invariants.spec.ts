@@ -44,6 +44,16 @@ for (const path of pages) {
     // Nothing wider than the screen: a sideways scroll on a phone means something broke out of the layout.
     expect(await sideways(page), 'sideways scroll').toBeNull()
 
+    // Source marks side by side are one group (lib/cite.ts citeGroup), whose tap areas reach away from each other
+    // (global.css). Outside a group each centres its 44 px, so the second's lies over the first and a tap on one opens the
+    // other: a fish's range line until 15 Nov 2026 (Fable's read). Words between two marks keep them apart.
+    const loose = await page.$$eval('a.cite', as => as.filter(a => {
+      let n = a.previousSibling
+      while (n?.nodeType === Node.TEXT_NODE && !n.textContent!.trim()) n = n.previousSibling
+      return n instanceof Element && n.matches('a.cite') && !a.parentElement!.matches('.marks')
+    }).map(a => a.parentElement!.outerHTML.slice(0, 160)))
+    expect(loose, 'source marks side by side outside a group').toEqual([])
+
     // Pictures keep their space while loading (width and height), and carry alt text (empty when decorative). An empty
     // <img> a script fills later (the gallery's viewer) is not a picture yet.
     const badImgs = await page.$$eval('img[src]', imgs => imgs.filter(i => !i.getAttribute('width') || !i.getAttribute('height') || !i.hasAttribute('alt')).map(i => i.outerHTML.slice(0, 120)))
@@ -74,6 +84,16 @@ for (const path of pages) {
       const hit = plain.match(new RegExp(`.{0,30}${VIETNAMESE.source}.{0,30}`, 'i'))?.[0]
       expect(hit?.replace(/\s+/g, ' '), 'Vietnamese on a non-Vietnamese page').toBeUndefined()
     }
+
+    // A guide card with no picture draws a cover in its picture's slot (GuideCard.astro): its kind's cloth and mark, never
+    // the empty box 98 cards of the guide list had (the chief of staff and the Design Lead, 15 Nov 2026).
+    const uncovered = await page.$$eval('.gc .img:not(:has(img))', els => els.filter(e => (e as HTMLElement).offsetParent !== null).flatMap(e => {
+      const s = getComputedStyle(e), mark = getComputedStyle(e, '::after')
+      const cloth = !/^(transparent|rgba\(0, 0, 0, 0\))$/.test(s.backgroundColor)
+      const masked = [mark.getPropertyValue('mask-image'), mark.getPropertyValue('-webkit-mask-image')].some(m => m && m !== 'none')
+      return e.classList.contains('cover') && cloth && masked && s.getPropertyValue('--x1') ? [] : [e.closest('a')?.getAttribute('href') ?? e.outerHTML.slice(0, 120)]
+    }))
+    expect(uncovered, 'a guide card with no picture and no cover').toEqual([])
 
     expect(errors, 'script errors').toEqual([])
 
@@ -106,3 +126,29 @@ for (const path of pages) {
     expect(checkPage(path, await res.text(), await factsOnce())).toEqual([])
   })
 }
+
+// Every crab's, shrimp's and snail's page, its photos', its group's and its lines', in every language, not a sample:
+// nothing of the site's own calls it a fish, its trail ("Loài cá", the owner's report of 15 Nov, the fiddler crab's
+// page; about 100 species) or any line (the range's "có thể là cá do người thả ra", the Writing Lead, 17 Nov). Live on
+// 17 Nov, before the fix: 1,373 on 408 pages. A page a language doesn't have (404) is skipped; a dropped connection is
+// asked once more.
+test('no crab\'s, shrimp\'s or snail\'s page calls it a fish', { tag: '@page-checks' }, async ({ request }, info) => {
+  test.skip(info.project.name !== 'phone', 'the HTML is the same on every screen')
+  // The content's facts, four languages, are read first when this worker hasn't yet: on this Mac with heat taking cores
+  // (17 Nov) that read took 238 s, and the ~420 pages 70 s more, past 300 s.
+  test.setTimeout(600_000)
+  const facts = await factsOnce()
+  const paths = [...facts.notFish], read: string[] = [], found: string[] = []
+  for (let i = 0; i < paths.length; i += 8) {
+    await Promise.all(paths.slice(i, i + 8).map(async path => {
+      const get = () => request.get(path, { headers: { accept: 'text/html' } })
+      const res = await get().catch(get)
+      if ([404, 410].includes(res.status())) return
+      expect(res.status(), path).toBe(200)
+      read.push(path)
+      found.push(...checkPage(path, await res.text(), facts).filter(p => p.check === 'not-fish').map(p => `${path} ${p.detail}`))
+    }))
+  }
+  expect(read.length, 'pages read').toBeGreaterThan(0)
+  expect(found).toEqual([])
+})

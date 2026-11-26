@@ -9,7 +9,8 @@
     "south-america",
     "brazil",
     "mamore",
-    "bolivia"
+    "bolivia",
+    "rio-mamore"
   ],
   "range": {
     "native": {
@@ -17,24 +18,28 @@
         "BR"
       ],
       "regions": [
+        "Mamoré",
         "Rio Mamoré",
-        "Rio Madeira"
+        "Madeira"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The palespotted cory, Hoplisoma gossei, long known as Corydoras gossei, is an armoured catfish from the rio Mamoré watershed in Rondônia state, northwestern Brazil.",
+          "quote": "Known only from the rio Mamoré watershed in Rondónia state, northwestern Brazil, but also likely to occur in northern Bolivia given that the Mamoré forms the border between the two countries at the type locality.",
           "countries": [
             "BR"
           ],
-          "regions": []
+          "regions": [
+            "Mamoré"
+          ]
         },
         {
-          "source": "seriouslyfish",
-          "quote": "Known only from the rio Mamoré watershed in Rondónia state, northwestern Brazil, but also likely to occur in northern Bolivia given that the Mamoré forms the border between the two countries at the type locality.",
+          "source": "glaser",
+          "quote": "It originates from the Rio Mamoré in Brazil.",
           "countries": [],
           "regions": [
             "Rio Mamoré"
@@ -45,7 +50,7 @@
           "quote": "The Mamoré is a major affluent within the upper rio Madeira, itself an important Amazon tributary with its confluence east of Manaus.",
           "countries": [],
           "regions": [
-            "Rio Madeira"
+            "Madeira"
           ]
         }
       ]
@@ -102,6 +107,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -125,10 +134,28 @@
       "html": "<p>The palespotted cory, Hoplisoma gossei, long known as Corydoras gossei, is an armoured catfish from the rio Mamoré watershed in Rondônia state, northwestern Brazil. It is also likely to occur in northern Bolivia, since the Mamoré forms the border between the two countries at the type locality. Also known as 'smokey cory' and 'Gosse's cory', it shares its colour pattern with Brochis seussi from the same river, which has a noticeably prolonged snout. A form referred to as 'CW069' appears intermediate between the two.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras_gossei_en/",
+      "html": "<p>Corydoras gossei is a very lively species of Corydoras. Maximum size is around 6 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras_gossei_en/",
+      "html": "<p>German bred specimens are available. Wild collected specimens are hardly ever available.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
       "html": "<p>Known only from the rio Mamoré watershed in Rondónia state, northwestern Brazil, but also likely to occur in northern Bolivia given that the Mamoré forms the border between the two countries at the type locality. The Mamoré is a major affluent within the upper rio Madeira, itself an important Amazon tributary with its confluence east of Manaus.</p><p>Type locality is 'creek near Guajará Mirim, 10°50'S, 65°21'W, rio Mamoré system, Rondônia State, Brazil.'</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras_gossei_en/",
+      "html": "<p>It originates from the Rio Mamoré in Brazil.</p>"
     },
     {
       "key": "aquariumSize",
@@ -179,6 +206,12 @@
       "html": "<p>Hoplisoma gossei is also known as 'smokey cory' and 'Gosse's cory' in the aquarium hobby.</p><p>The congener Brochis seussi, which is also native to the rio Mamoré, has a similar colour pattern but its snout is noticeably prolonged compared with that of H. gossei, plus there are some subtle differences in pigmentation. There is a third variant which has been referred to as 'CW069' in the aquarium hobby and appears to be somewhat intermediate, with a short, rounded snout as in H. gossei but a colour pattern more reminiscent of B. seussi.</p><p>The existence of multiple, similarly-coloured species which coexist and form large mixed schools is relatively common in the genus. In some cases Corydoras colour patterns have even evolved in other taxa, such as certain members of the genera Otocinclus, Brachyrhamdia, and Serrapinus. The reason for the success of such patterns is thought to be protection from predators in that they feature cryptic or otherwise disruptive details such as stripes, reticulations, or strongly-coloured fin spines. Similarly-patterned species may therefore have evolved to take advantage of foraging in a larger group while simultaneously adapting to exploit contrasting ecological niches. In Corydoras, this is typically expressed via differences in snout length or mouth position, for example.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Hoplisoma.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras_gossei_en/",
+      "html": "<p>Corydoras gossei is a close relative of C. sterbai. However, due to the dark basic coloration in C. gossei the bright orange spines of the pectoral fins look even better than in C. sterbai. Maximum size in both species is around 6 cm.</p><p>Corydoras: from ancient Greek, means \"with helmet and spear\". This refers to the strong armor and fin spines. gossei: dedication name for the ichthyologist Jean-Pierre Gosse. sterbai: dedication name for the zoologist Günther Sterba.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
@@ -192,7 +225,7 @@
       "width": 820,
       "height": 547,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Ricardo Kobe / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
       "caption": "This species has a short, rounded snout compared with the similar-looking C. seussi.",
       "source": "seriouslyfish"
@@ -203,7 +236,7 @@
       "width": 600,
       "height": 450,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Gareth Bull / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
       "caption": "Specimen from the UK aquarium trade.",
       "source": "seriouslyfish"
@@ -264,5 +297,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-15"
 }

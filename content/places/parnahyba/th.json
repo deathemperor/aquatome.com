@@ -3,6 +3,12 @@
   "name": "ปาร์นาอีบา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T18:24:51.761Z",
+    "why": "ปาร์นาอีบา is a reasonable Thai transliteration of Parnaíba (the older spelling is Parnahyba), but it has no kind word, and the place could be the Parnaíba River, where Thai would write แม่น้ำปาร์นาอีบา, or the city."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -1,0 +1,34 @@
+{
+ "at": "2026-11-20T11:04:49Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Hiện đã có nguồn cá A. atahualpa bắt ngoài tự nhiên, con nào cũng đẹp.",
+   "why": "This is the source importer's stock news, presented as if the reader could buy from it."
+  }
+ ],
+ "text": {
+  "slug": "ca-apisto-atahualpa",
+  "name": "Cá Apisto atahualpa",
+  "altNames": [
+   "Cá Apisto hoàng hôn",
+   "Sunset-Apistogramma"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Loài cá lùn (dwarf cichlid) xinh đẹp này đến từ Peru. Trước khi có mô tả khoa học, người chơi gọi nó là \"Apistogramma hoàng hôn\" (Sunset-Apistogramma), vì lúc cá cái giữ con, màu trên thân nó trông như cảnh hoàng hôn.</p>",
+   "notes:glaser": "<p>Tên khoa học atahualpa lấy theo Atahualpa, vị vua lớn cuối cùng của đế quốc Inca. Năm 1532, ông bị Pizarro, người Tây Ban Nha, bắt giữ, rồi bị xử tử năm 1533. Đó cũng là hoàng hôn của đế quốc Inca.</p>",
+   "beforeYouBuy:glaser": "<p>Hiện đã có nguồn cá A. atahualpa bắt ngoài tự nhiên, con nào cũng đẹp.</p>"
+  },
+  "quality": {
+   "score": 0.85,
+   "indexable": false,
+   "bySource": {
+    "glaser": 0.85
+   },
+   "reason": "thin"
+  }
+ }
+}

@@ -22,13 +22,21 @@ export const isViPage = (path: string) => {
 }
 
 /**
- * A fish's or plant's photo page the build didn't make (its album a picture short of six) forwards to its page, in every
- * language (test/photo-pages.test.ts holds each served one, and its line in wrangler.jsonc's run_worker_first).
+ * A fish's or plant's photo page forwards to its page for good, in every language: the album opens over the page since
+ * 18 Nov (the owner, 17 Nov: "opening a new page for it is unnecessary"), and the browser keeps a photo's #aN, which opens
+ * it there. test/photo-pages.test.ts holds each language's form, and its line in wrangler.jsonc's run_worker_first.
  */
 export const galleryParent = (path: string) => {
   const match = /^(\/(?:ca|cay)\/[^/]+\/)anh\/?$|^(\/(?:id|ms)\/(?:ikan|tanaman|tumbuhan)\/[^/]+\/)foto\/?$|^(\/th\/(?:fish|plants)\/[^/]+\/)photos\/?$/.exec(path)
   return match?.[1] ?? match?.[2] ?? match?.[3]
 }
+
+/**
+ * A list's numbered page the build didn't make (/huong-dan/trang/17/, /id/panduan/halaman/17/), whose list has grown
+ * shorter since: guides taken off for good or held (a stand-in read, 15 Nov 2026). Its list, which the Worker sends it to
+ * for now, as the page can come back.
+ */
+export const listParent = (path: string) => /^((?:\/(?:id|th|ms))?\/.+\/)(?:trang|halaman|page)\/\d+\/?$/.exec(path)?.[1]
 
 /**
  * Apple's return address for the web's sign-in, in each language: the tanks page, as its Services ID (com.aquatome.web)

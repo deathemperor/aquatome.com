@@ -3,10 +3,16 @@
  "judged": [
   "inat:331117444",
   "inat:330431919",
-  "inat:330431951"
+  "inat:330431951",
+  "inat:688654436",
+  "inat:688654476",
+  "inat:688654525"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/600cf22ff8752850.webp": "8129e87166220309"
+  "https://media.aquatome.com/commons/600cf22ff8752850.webp": "8129e87166220309",
+  "https://media.aquatome.com/glaser/5f8059c59ff84432.webp": "00042303d91a49ed",
+  "https://media.aquatome.com/glaser/ff0102458a0dc9b3.webp": "4cc91a5c10981422",
+  "https://media.aquatome.com/glaser/901faed68bc1828f.webp": "c84c2c9ee6a4a787"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -20,5 +26,13 @@
  "gbif": {
   "key": 2339319,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 376634659,
+  "done": true
+ },
+ "exhausted": "2026-11-24"
 }

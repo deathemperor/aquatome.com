@@ -9,8 +9,69 @@
     "africa",
     "gabon",
     "majinga",
-    "cameroon"
+    "cameroon",
+    "ogowe"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [
+        "Majinga"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The mustard synodontis, Synodontis albolineatus, is a small squeaker catfish endemic to the Majinga river system in Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Gabon, specifically the Majinga river system.",
+          "countries": [],
+          "regions": [
+            "Majinga"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344471,
+      "total": 10,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CM",
+          6
+        ],
+        [
+          "GA",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          11.25,
+          1.40625,
+          6,
+          0
+        ],
+        [
+          12.65625,
+          0,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -43,6 +104,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "planetcatfish",
+        "value": 11.8
       }
     ],
     "tankCm": [
@@ -66,10 +131,22 @@
       "html": "<p>The mustard synodontis, Synodontis albolineatus, is a small squeaker catfish endemic to the Majinga river system in Gabon. Also known as the mustard squeaker, it is imported infrequently but sometimes turns up in mixed boxes of Synodontis from exporters. It reaches around 10 cm and is peaceful with most species, though territorial towards its own kind in smaller systems.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1430",
+      "html": "<p>Synodontis albolineatus Pellegrin, 1924. Size: 118 mm SL (4.6 inches). Type locality: Djoua River at Madjingo, Gabon. Synonym: Synodontis albolineata.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
       "html": "<p>Endemic to Gabon, specifically the Majinga river system.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1430",
+      "html": "<p>Africa: known from the type locality, Ogowe basin. IUCN Red List category: Least Concern (last assessed 2009).</p>"
     },
     {
       "key": "habitat",
@@ -114,20 +191,63 @@
       "html": "<p>Unknown. Its size makes it very difficult to be sexed accurately using the genital papillae method.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1430",
+      "html": "<p>Lay the fish in your hand with its head toward your palm and the tail toward your fingers. Hold the dorsal spine between your middle and ring finger so the fish is belly up and you won't get punctured by the sharp fin spines. The genital pore is in a small furrow of tissue (in healthy fish) and is obstructed by the pelvic fins. Pull down on the tail gently to arch the fish's spine and the pelvic fins will stand and the furrow open to display the genital pore and the anus. The male has a somewhat ridged genital papilla on which the spermatoduct is on the back side, facing the tail fin. A gravid female will also show an extended papilla but the oviduct is on the ventral side of the papilla. It may also show a little redness if gravid. A thin or emaciated female will have just two pink pores, the oviduct and the anus.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
       "html": "<p>Not recorded in aquaria.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1430",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
       "html": "<p>Also known as the Mustard Squeaker, this species is imported infrequently, though it sometimes shows up in mixed boxes of Synodontis from exporters. An ideal Syno for the general community due to its small adult size.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1430",
+      "html": "<p>All species in the genus Synodontis have a hardened head cap with an attached humeral process situated behind the gill opening and pointed towards the posterior. The dorsal and pectoral fins have a hardened, serrated first ray. The caudal fin is always forked. There is one pair of maxillary barbels, sometimes having membranes and occasionally branched. The two pairs of mandibular barbels are often branched and can have nodes attached. The cone-shaped teeth in the upper jaw are short, S-shaped and movable in the lower jaw. These fish produce audible sounds when disturbed by rubbing the base of the pectoral spine against the pectoral girdle.</p><p>This species can look similar to, and is from around the same region as, S. tessmanni. It is differentiated by S. albolineatus having serrations on the hard ray of the dorsal fin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1430",
+      "html": "<p>Bulletin de la Société Zoologique de France v. 49 (no. 3/5), pp 320, Fig. 1.</p>"
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "9i2AuiJcf6A",
+      "title": "Synodontis albolineata. The REMARKABLE Mustard Catfish. (Leopard Aquatic B030B)",
+      "durationSec": 52,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JMOSiP4dxXQ",
+      "title": "Synodontis Albolineatus.",
+      "durationSec": 1291,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eOkeWuM2hCY",
+      "title": "Synodontis Albolineatus spends a significant amount of time swimming upside down!",
+      "durationSec": 12,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -156,5 +276,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-22"
 }

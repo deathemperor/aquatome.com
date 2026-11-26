@@ -17,13 +17,20 @@
     "behaviour:seriouslyfish": "<p>Đây là loài cá hiền, nuôi chung được với hầu hết các loài khác. Những con hợp để nuôi chung gồm cá tetra họ Alestiidae, Pelvicachromis sp. và các loài cichlid hiền khác, cá Mormyrid, cá sặc, cùng các loài rasbora và barb cỡ lớn hơn. Bể đủ rộng thì nuôi được vài con với nhau, còn trong bể nhỏ chúng hay giành chỗ.</p>",
     "dimorphism:seriouslyfish": "<p>Chưa rõ. Cá nhỏ quá nên rất khó phân biệt đực cái cho chính xác bằng cách xem gai sinh dục.</p>",
     "reproduction:seriouslyfish": "<p>Chưa thấy loài này đẻ trong bể nuôi.</p>",
-    "notes:seriouslyfish": "<p>Loài này còn có tên là Mustard Squeaker. Nó ít khi được nhập về, dù thỉnh thoảng vẫn lẫn trong những thùng Synodontis trộn nhiều loài của nhà xuất khẩu. Lớn lên cá vẫn nhỏ, nên đây là con Synodontis hợp nhất để thả chung với cá hiền trong bể nuôi chung thông thường.</p>"
+    "notes:seriouslyfish": "<p>Loài này còn có tên là Mustard Squeaker. Nó ít khi được nhập về, dù thỉnh thoảng vẫn lẫn trong những thùng Synodontis trộn nhiều loài của nhà xuất khẩu. Lớn lên cá vẫn nhỏ, nên đây là con Synodontis hợp nhất để thả chung với cá hiền trong bể nuôi chung thông thường.</p>",
+    "quickFacts:planetcatfish": "<p>Synodontis albolineatus Pellegrin, 1924. Kích thước: 118 mm SL (chiều dài chuẩn). Nơi lấy mẫu chuẩn: sông Djoua tại Madjingo, Gabon. Tên đồng nghĩa: Synodontis albolineata.</p>",
+    "distribution:planetcatfish": "<p>Châu Phi: mới chỉ thấy ở nơi lấy mẫu chuẩn, thuộc lưu vực Ogowe. Xếp hạng trong Danh sách Đỏ IUCN: Ít quan tâm (đánh giá lần cuối năm 2009).</p>",
+    "dimorphism:planetcatfish": "<p>Đặt cá nằm trên bàn tay, đầu quay về phía lòng bàn tay, đuôi quay về phía các ngón. Kẹp gai vây lưng giữa ngón giữa và ngón áp út để cá nằm ngửa bụng lên. Cầm như vậy thì gai vây sắc không đâm vào tay được. Ở cá khỏe, lỗ sinh dục nằm trong một rãnh thịt nhỏ và bị vây bụng che mất. Kéo nhẹ đuôi xuống cho lưng cá cong lại. Lúc đó vây bụng sẽ dựng lên, rãnh mở ra và để lộ lỗ sinh dục cùng hậu môn. Con đực có núm sinh dục hơi có gờ, với ống dẫn tinh nằm ở mặt sau, quay về phía vây đuôi. Con cái đang mang trứng cũng có núm sinh dục nhô dài ra, nhưng ống dẫn trứng lại nằm ở mặt bụng của núm. Khi mang trứng, chỗ này cũng có thể hơi đỏ. Con cái gầy hoặc ốm yếu thì chỉ có hai lỗ màu hồng, là ống dẫn trứng và hậu môn.</p>",
+    "reproduction:planetcatfish": "<p>Chưa rõ. Chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
+    "notes:planetcatfish": "<p>Mọi loài trong giống Synodontis đều có mũ đầu cứng. Gắn vào mũ đầu là một mấu vai nằm sau khe mang và chĩa về phía sau. Tia đầu tiên của vây lưng và vây ngực cứng và có răng cưa. Vây đuôi của chúng lúc nào cũng chẻ đôi. Hàm trên có một đôi râu, đôi khi có màng và thỉnh thoảng phân nhánh. Hàm dưới có hai đôi râu, thường phân nhánh và có thể mọc thêm các nốt. Răng hàm trên hình nón và ngắn, còn răng hàm dưới hình chữ S và cử động được. Khi bị động, những con cá này kêu thành tiếng nghe được. Tiếng kêu là do chúng cọ gốc gai vây ngực vào đai vai.</p><p>Loài này có thể trông giống S. tessmanni, và hai loài sống cùng một vùng. Muốn phân biệt thì xem tia cứng của vây lưng: ở S. albolineatus, tia này có răng cưa.</p>",
+    "references:planetcatfish": "<p>Bulletin de la Société Zoologique de France v. 49 (no. 3/5), pp 320, Fig. 1.</p>"
   },
   "quality": {
     "score": 0.75,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.75
+      "seriouslyfish": 0.75,
+      "planetcatfish": 0.9
     }
   }
 }

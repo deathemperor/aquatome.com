@@ -1,0 +1,378 @@
+{
+  "id": "auchenipterichthys-thoracatus",
+  "scientificName": "Auchenipterichthys thoracatus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Auchenipterichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "madeira"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Madeira",
+        "Rio Guaporé",
+        "Rio Cuieras"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "The species was captured by the image contributor in the Rio Cuieras, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Cuieras"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper Madeira River basin.",
+          "countries": [],
+          "regions": [
+            "Madeira"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Rio Guaporé.",
+          "countries": [],
+          "regions": [
+            "Rio Guaporé"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344726,
+      "total": 102,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "BO",
+          42
+        ],
+        [
+          "BR",
+          31
+        ],
+        [
+          "PE",
+          22
+        ],
+        [
+          "GY",
+          6
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          15,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          6,
+          0
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          5,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          4,
+          0
+        ],
+        [
+          -67.5,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -12.65625,
+          3,
+          0
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -14.0625,
+          6,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -14.0625,
+          10,
+          0
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          7,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          5,
+          5
+        ],
+        [
+          -63.28125,
+          -14.0625,
+          5,
+          0
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          6,
+          0
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 14
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_thoracatus.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern, due to its wide range (IUCN 2023), despite the little information available on this species.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_thoracatus.htm",
+      "html": "<p>South America: Upper Madeira River basin. Type locality: Rio Guaporé.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_thoracatus.htm",
+      "html": "<p>The Neotropical auchenipterid catfish genus Auchenipterichthys includes four species. Auchenipterichthys thoracatus, formerly considered to be widely distributed throughout the Amazon River basin, is found to be restricted to the upper Madeira River basin. The widespread Amazonian species that had been misidentified as A. thoracatus is, instead, A. coracoideus; a species that also occurs in the upper Essequibo River. Auchenipterichthys longimanus, the most widely distributed species of the genus, is found through much of the Amazon and Orinoco River basins. The fourth species of the genus, A. punctatus (and its junior synonym A. dantei), is found in the upper portions of the Orinoco and Negro River basins in Venezuela and the central portions of the Amazon River basin in Brazil. (Ferraris et al 2005).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_thoracatus.htm",
+      "html": "<p>Can be fed most aquarium fare such as good quality flake, white worm, tablet and pellet foods and frozen foods such as bloodworm. Better to feed at lights out until they get accustomed to the daytime feeding regime when they may very well join in.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_thoracatus.htm",
+      "html": "<p>Good community catfish with normal sized patrons but not to be trusted with small Tetras for instance, which will be picked off at night on its twilight patrols.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_thoracatus.htm",
+      "html": "<p>This family practice internal fertilization with the female depositing the fertilized eggs on aquatic vegetation with no care of the eggs shown. An unsuccessful breeding report states that the male swims behind the female and they suddenly lock their pectoral, female's adipose and caudal fin. They speed around the tank and are oblivious to anything around them. After this confrontation they break apart and fall to the aquarium floor where they sit for a couple hours in a \"dazed\" condition.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_thoracatus.htm",
+      "html": "<p>Etymology: The specific name thoracatus is Latin for armed with a breastplate, referring to the exposed coracoid process that forms a plate on the sides of the abdomen.</p><p>Remarks: The images depicted may or may not be this species as there would need to be a look ventrally at the coracoides and also the anal fin count, so they have tentatively been named as cf. (Conferre: same species, but with different characteristics), (Grant 2018). The species was captured by the image contributor in the Rio Cuieras, Brazil.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_thoracatus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ferraris, C.J. Jr., 2003. Auchenipteridae (Driftwood catfishes). p. 470-482. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Ferraris, C.J. Jr., Vari, Richard P. and Raredon, Sandra J. Catfishes of the genus Auchenipterichthys (Osteichthyes: Siluriformes: Auchenipteridae); a revisionary study. Neotropical Ichthyology, 3(1):89-106, 2005.</p><p>Frederico, R.G. 2023. Auchenipterichthys thoracatus. The IUCN Red List of Threatened Species 2023.</p><p>Grant, Steven. pers. comm. 2018.</p><p>Froese, R. and D. Pauly. Editors. 2018. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2018 ).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "wWhvD3z32FM",
+      "title": "大嘴藍鯨性情溫馴 可同時飼養複數個體 Auchenipterichthys thoracatus",
+      "durationSec": 10,
+      "lang": "zh-TW"
+    },
+    {
+      "youtubeId": "IPF6K-Vp3W0",
+      "title": "觀察大嘴藍鯨 Auchenipterichthys thoracatus",
+      "durationSec": 29,
+      "lang": "zh-TW"
+    },
+    {
+      "youtubeId": "BfzyvTjJ8kE",
+      "title": "藍域水族🐟All Blue-流域物種解析·大嘴藍鯨·大口藍鯨· Auchenipterichthys thoracatus·小型鯰魚",
+      "durationSec": 103,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn viên chìm cho cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

@@ -18,19 +18,21 @@ export type TextLine = { t: string; c: number; x: number; y: number; w: number; 
 export type WatermarkKind = 'credit' | 'logo' | 'url' | 'name' | 'caption' | 'stamp' | 'none'
 /** One photo's screen: the text read on it (`at`: where on the photo), then the model's verdict once it has looked. */
 export type WatermarkEntry = CompactScreen
-export const retainedOwnMark = (url: string, entry: WatermarkEntry | undefined) =>
-  url.startsWith('https://media.aquatome.com/glaser/') && entry?.retainedOwnMark?.source === 'glaser' && entry.retainedOwnMark.owner === 'source' && /^https?:\/\/(www\.)?aquariumglaser\.de\//.test(entry.retainedOwnMark.sourceUrl)
+import { retainedOwnMark, screenedShop, type OwnMarkShop } from './own-mark'
+export { retainedOwnMark }
 /**
- * A photo the never-again list (engine-state/_photo-rejected.json) holds that stays all the same: an Aquarium Glaser
- * photo with the shop's own mark, kept (retainedOwnMark), where the list holds it for that mark alone.
+ * A photo the never-again list (engine-state/_photo-rejected.json) holds that stays all the same: a cleared shop's photo
+ * with the shop's own mark, kept (own-mark.ts retainedOwnMark), where the list holds it for that mark alone.
  */
 export const keptOwnMark = (rejected: Record<string, string>, marks: Record<string, WatermarkEntry>) => (url: string) =>
   retainedOwnMark(url, marks[url]) && (!rejected[url] || rejected[url]!.startsWith('watermark:'))
 export type WatermarkDeps = {
   get: (url: string) => Promise<Uint8Array>
   read: (files: string[]) => Promise<(TextLine[] | null)[]>
-  look: (sheet: string, prompt: string) => Promise<{ photos: { n: number; watermark: boolean; kind: WatermarkKind; locations?: string[]; what?: string }[] }>
+  look: (sheet: string, prompt: string) => Promise<{ photos: { n: number; watermark: boolean; kind: WatermarkKind; locations?: string[]; what?: string; own?: boolean }[] }>
 }
+/** A screened shop's photo from its own pages (own-mark.ts SCREENED_OWN_MARK): its name and home page are ours (content/sources.json), never read off the photo. */
+export type ShopPhoto = { source: OwnMarkShop; sourceUrl: string; name: string; homepage: string }
 
 /** Text per image via macOS Vision (vision/text.swift); null = unreadable. `parallel` Swift processes of 100 images each. */
 export async function visionText(files: string[], parallel = 1): Promise<(TextLine[] | null)[]> {
@@ -63,10 +65,10 @@ export { LOGO_FOLDERS, ocrHit }
 
 export const WATERMARK_SCHEMA = {
   type: 'object', required: ['photos'],
-  properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'watermark', 'kind', 'locations'], properties: { n: { type: 'number' }, watermark: { type: 'boolean' }, kind: { type: 'string', enum: [...PHOTO_MARK_KINDS] }, locations: { type: 'array',items:{type:'string',enum:[...PHOTO_POSITIONS]} } } } } },
+  properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'watermark', 'kind', 'locations', 'own'], properties: { n: { type: 'number' }, watermark: { type: 'boolean' }, kind: { type: 'string', enum: [...PHOTO_MARK_KINDS] }, locations: { type: 'array',items:{type:'string',enum:[...PHOTO_POSITIONS]} }, own: { type: 'boolean' } } } } },
 }
 
-const prompt = (photos: { n: number; ocr: WatermarkEntry['ocr'] }[]) => `Numbered photos from an aquarium handbook. Some carry a watermark: text, a logo or a web address ADDED on top of the photo after it was taken.
+const prompt = (photos: { n: number; ocr: WatermarkEntry['ocr']; shop?: ShopPhoto }[]) => `Numbered photos from an aquarium handbook. Some carry a watermark: text, a logo or a web address ADDED on top of the photo after it was taken.
 Added (watermark: true):
 - credit: a photographer's or owner's credit or signature ("© Name", "Photo: Name")
 - logo: a shop, dealer, breeder, magazine or video channel logo or banner, with or without words
@@ -76,21 +78,30 @@ Added (watermark: true):
 - stamp: a camera's or phone's date stamp or "shot on" mark
 Not added (watermark: false, kind "none"): text that is part of the scene, there when the photo was taken: a product's own box, bottle, bag or label, a sticker or label on a tank, a shop sign or price tag in the shot, a museum or specimen tag, a ruler, a herbarium sheet's label, the printed caption of an old book plate or drawing, a diagram's own labels.
 Below are the machine reader's measurements, never the words. It misreads and misses faint marks and logos without letters. Look at every photo and read the photo itself if needed. Never transcribe lettering, signatures, names or web addresses.
-${photos.map(p => `${p.n}: ${p.ocr.length ? p.ocr.map(l => `lettering (${l.at ?? 'unknown'}; letters/digits ${l.alnum}; credit/URL marker ${l.mark}; hash ${l.hash})`).join('; ') : 'no text found'}`).join('\n')}
-For each photo n: watermark (true/false), kind (one of the above, "none" if not added), and locations from the controlled position list; no prose or quoted words.`
+${photos.map(p => `${p.n}: ${p.shop ? `taken from the web pages of the shop ${p.shop.name} (${p.shop.homepage}); ` : ''}${p.ocr.length ? p.ocr.map(l => `lettering (${l.at ?? 'unknown'}; letters/digits ${l.alnum}; credit/URL marker ${l.mark}; hash ${l.hash})`).join('; ') : 'no text found'}`).join('\n')}
+For each photo n: watermark (true/false), kind (one of the above, "none" if not added), locations from the controlled position list, and own (true/false); no prose or quoted words.
+own: for a photo taken from a shop's web pages, true only if it carries an added mark and every added mark is that shop's own: its name, its logo or banner, its web address. false if any added mark is anyone else's (a person's or photographer's signature or credit, a stock agency's mark, another site's or shop's) or you can't tell whose it is. For every other photo, false.`
 
 /** Controlled measurements from the native reader; no lettering is kept or included in the prompt. */
 export const ocrOf = (lines: TextLine[]): WatermarkEntry['ocr'] => lines.slice(0, 8).map(l => summarizeOcr({...l,at:at(l)}))
 
-/** The model's verdicts on up to 6 photos with the text read on each, from one numbered sheet written to `file`; undefined where it gave none. */
-export async function judgeSheet(photos: { b: Buffer; ocr: WatermarkEntry['ocr'] }[], file: string, look: WatermarkDeps['look']): Promise<(Omit<WatermarkEntry, 'ocr'> | undefined)[]> {
+/**
+ * The model's verdicts on up to 6 photos with the text read on each, from one numbered sheet written to `file`; undefined
+ * where it gave none. A screened shop's photo from its own pages (`shop`) is also asked whose its marks are: marked, and
+ * every mark the shop's own, its verdict carries the kept record (own-mark.ts retainedOwnMark); a verdict without that
+ * answer is none, so the photo waits for the next run rather than going on the never-again list unasked.
+ */
+export async function judgeSheet(photos: { b: Buffer; ocr: WatermarkEntry['ocr']; shop?: ShopPhoto }[], file: string, look: WatermarkDeps['look']): Promise<(Omit<WatermarkEntry, 'ocr'> | undefined)[]> {
   await writeFile(file, await contactSheet(photos.map(x => x.b), 640, 480, 2, 'contain'))
-  const v = await look(file, prompt(photos.map((x, j) => ({ n: j + 1, ocr: x.ocr }))))
+  const v = await look(file, prompt(photos.map((x, j) => ({ n: j + 1, ocr: x.ocr, ...(x.shop ? { shop: x.shop } : {}) }))))
   const out: (Omit<WatermarkEntry, 'ocr'> | undefined)[] = photos.map(() => undefined)
   for (const p of v.photos ?? []) {
     if (!photos[p.n - 1] || typeof p.watermark !== 'boolean') continue
     if(!(PHOTO_MARK_KINDS as readonly unknown[]).includes(p.kind))continue
-    const {ocr:_ocr,...record}=compactScreen({ocr:[],watermark:p.watermark,kind:p.watermark?p.kind:'none',locations:p.locations,what:p.what})
+    const shop = photos[p.n - 1]!.shop
+    if (shop && typeof p.own !== 'boolean') continue
+    const keep = shop && p.watermark && p.own ? { retainedOwnMark: { source: shop.source, sourceUrl: shop.sourceUrl, owner: 'source', by: 'screen' } } : {}
+    const {ocr:_ocr,...record}=compactScreen({ocr:[],watermark:p.watermark,kind:p.watermark?p.kind:'none',locations:p.locations,what:p.what,...keep})
     out[p.n - 1] = record
   }
   return out
@@ -98,14 +109,21 @@ export async function judgeSheet(photos: { b: Buffer; ocr: WatermarkEntry['ocr']
 
 const isRef = (x: unknown): x is { url: string } => !!x && typeof x === 'object' && typeof (x as { url: unknown }).url === 'string'
 
-/** Photos a content file shows: `photos` lists (pages, galleries), equipment heroes and type photos, video guides' stills and photos. */
-function urlsIn(x: unknown, out: Set<string>) {
-  if (Array.isArray(x)) for (const v of x) urlsIn(v, out)
+/**
+ * Photos a content file shows: `photos` lists (pages, galleries), equipment heroes and type photos, video guides' stills
+ * and photos; with the pages each was taken from (`from`).
+ */
+function urlsIn(x: unknown, out: Set<string>, from: Map<string, Set<string>>) {
+  const add = (p: { url: string; sourceUrl?: unknown }) => {
+    out.add(p.url)
+    if (typeof p.sourceUrl === 'string') (from.get(p.url) ?? from.set(p.url, new Set()).get(p.url)!).add(p.sourceUrl)
+  }
+  if (Array.isArray(x)) for (const v of x) urlsIn(v, out, from)
   else if (x && typeof x === 'object') {
     const o = x as Record<string, unknown>
-    for (const k of ['photos', 'moments']) if (Array.isArray(o[k])) for (const p of o[k] as unknown[]) if (isRef(p)) out.add(p.url)
-    for (const k of ['photo', 'hero']) { const p = o[k]; if (isRef(p)) out.add(p.url) }
-    for (const v of Object.values(o)) urlsIn(v, out)
+    for (const k of ['photos', 'moments']) if (Array.isArray(o[k])) for (const p of o[k] as unknown[]) if (isRef(p)) add(p)
+    for (const k of ['photo', 'hero']) { const p = o[k]; if (isRef(p)) add(p) }
+    for (const v of Object.values(o)) urlsIn(v, out, from)
   }
 }
 
@@ -138,7 +156,9 @@ async function contentFiles(content: string): Promise<string[]> {
  * text on them (`ocrHit`), and every photo from a `LOGO_FOLDERS` source, go to the model on numbered sheets of 6, which
  * tells a mark added to the photo (a credit, a dealer's logo, a URL, a stamped name) from text in the scene (a product's
  * own label). A watermarked photo leaves every page and gallery and joins `rejectedFile`, which the photo steps respect
- * (so a source re-read or a gallery rebuild doesn't bring it back). Runs each cycle after the photo steps.
+ * (so a source re-read or a gallery rebuild doesn't bring it back), but an Aquarium Glaser photo from Glaser's own pages
+ * whose every mark is Glaser's own stays, with its kept record (own-mark.ts SCREENED_OWN_MARK; the chief of staff, 16
+ * Nov). Runs each cycle after the photo steps.
  * `limit`: model calls this run; stops on a model failure (usage limit), and the rest wait for the next run.
  */
 export async function screenWatermarks(root: string, cacheFile: string, rejectedFile: string, d: WatermarkDeps, o: { limit: number; parallel?: number }) {
@@ -147,8 +167,22 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   const rejected: Record<string, string> = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}'))
   const report = { read: 0, hits: 0, judged: 0, confirmed: [] as string[], removed: [] as string[], kept: [] as string[], held: [] as string[], failed: [] as string[], stopped: '' }
   const files = await contentFiles(join(root, 'content'))
-  const urls = new Set<string>()
-  for (const f of files) urlsIn(JSON.parse(await readFile(f, 'utf8')), urls)
+  const urls = new Set<string>(), from = new Map<string, Set<string>>()
+  for (const f of files) urlsIn(JSON.parse(await readFile(f, 'utf8')), urls, from)
+  // A screened shop's photo from its own pages is asked whose its marks are (own-mark.ts SCREENED_OWN_MARK), with the
+  // shop's name and home page as we hold them. Not one already on the never-again list: a kept record would bring it back
+  // (keptOwnMark), and photos listed before this rule return only by their own step, on the chief of staff's word.
+  const sources = JSON.parse(await readFile(join(root, 'content', 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, { name?: string; homepage?: string }>
+  const shopOf = (u: string): ShopPhoto | undefined => {
+    // Nor one with a kept record already (a person's, on the chief of staff's word, or the image step's): the record
+    // stands, and the screen's answer can't take it off or keep it a second way.
+    if (u in rejected || retainedOwnMark(u, cache[u])) return undefined
+    for (const sourceUrl of from.get(u) ?? []) {
+      const source = screenedShop(u, sourceUrl), held = source && sources[source]
+      if (source && held?.name && held.homepage) return { source, sourceUrl, name: held.name, homepage: held.homepage }
+    }
+    return undefined
+  }
 
   const dir = await mkdtemp(join(tmpdir(), 'watermarks-'))
   const fetchTo = async (url: string, file: string) => {
@@ -178,7 +212,7 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
       for (const url of s) { const f = join(dir, `s${i}-${ok.length}`); if (await fetchTo(url, f)) ok.push({ url, b: await readFile(f) }) }
       if (!ok.length) return
       try {
-        const v = await piece(`sheet-${i}`, () => judgeSheet(ok.map(x => ({ b: x.b, ocr: cache[x.url]!.ocr })), join(dir, `sheet-${i}.jpg`), d.look))
+        const v = await piece(`sheet-${i}`, () => judgeSheet(ok.map(x => { const shop = shopOf(x.url); return { b: x.b, ocr: cache[x.url]!.ocr, ...(shop ? { shop } : {}) } }), join(dir, `sheet-${i}.jpg`), d.look))
         v.forEach((r, j) => { if (r) { cache[ok[j]!.url] = { ...cache[ok[j]!.url]!, ...r }; report.judged++ } })
       } catch (err) {
         if (err instanceof LlmError) report.stopped ||= photoModelStop(err)

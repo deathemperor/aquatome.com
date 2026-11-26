@@ -3,6 +3,12 @@
   "name": "เอ็นเดียน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:54:47.496Z",
+    "why": "The Thai transliteration เอ็นเดียน matches the sound of Ndian, but it omits the region word (จังหวัด/เขต) that Thai atlases usually add, and Thai atlases would more likely write \"นดีอัน\" or \"เอ็นเดียน\" with a kind word."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

@@ -4,7 +4,10 @@
   "File:Desmopuntius hexazona.jpg"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/7970bfbd17f919d7.webp": "a7a3c24c5e99d2e8"
+  "https://media.aquatome.com/commons/7970bfbd17f919d7.webp": "a7a3c24c5e99d2e8",
+  "https://media.aquatome.com/glaser/9b3d756ccdf6cdcf.webp": "b84c9c0ce60242c8",
+  "https://media.aquatome.com/glaser/c06419dda6663763.webp": "c3a31c3c06e3f31e",
+  "https://media.aquatome.com/glaser/8703d2f913b6c740.webp": "57d7a7cf9a2b75b5"
  },
  "commons": "2026-11-02",
  "inat": {
@@ -18,5 +21,9 @@
  "gbif": {
   "key": 7894327,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-16"
 }

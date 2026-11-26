@@ -1,0 +1,46 @@
+{
+  "id": "halocaridina-rubra",
+  "native": {
+    "input": "fe9ec36e9ff24763",
+    "at": "2026-11-22T12:48:24.036Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Hawaiian Islands",
+        "source": "aquariumbreeder",
+        "quote": "Opae Ula Shrimp are indigenous to the Hawaiian Islands and are found in tidal and anchialine pools there.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "US"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Halocaridina rubra",
+    "status": "ACCEPTED",
+    "taxonKey": 2223082,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        9
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-22T12:48:24.036Z"
+  }
+}

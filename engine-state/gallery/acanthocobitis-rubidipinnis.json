@@ -3,7 +3,12 @@
  "judged": [
   "File:Nemacheilus rubidipinnis Day 153.jpg"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/c5be77e4fcfc9b26.webp": "c7c6e7df371e7382",
+  "https://media.aquatome.com/glaser/516a2c779751fb46.webp": "dc9391c4c211d073",
+  "https://media.aquatome.com/glaser/3539f55644d61173.webp": "47068f6766525a51",
+  "https://media.aquatome.com/glaser/a853a40fdde229a9.webp": "69d86b37b6e0c873"
+ },
  "commons": "2026-11-03",
  "inat": {
   "taxon": null,
@@ -15,6 +20,9 @@
  },
  "gbif": {
   "key": 2358635,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

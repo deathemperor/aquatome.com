@@ -2,10 +2,11 @@
  "queue": [],
  "judged": [
   "File:Hyphessobrycon compressus (Michael Tobler).png",
-  "File:Hyphessobrycon compressus (Marco Endruweit).png"
+  "File:Hyphessobrycon compressus (Marco Endruweit).png",
+  "inat:180706323"
  ],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/c9c6b0360aeedb33.webp": "4f070f1f33130b17"
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/180706323/large.jpg": "2b601161e1c56120"
  },
  "commons": "2026-11-08",
  "inat": {
@@ -15,5 +16,17 @@
    "research": 0,
    "agree": 0
   }
- }
+ },
+ "gbif": {
+  "key": 2354655,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 107442624,
+  "done": true
+ },
+ "exhausted": "2026-11-21"
 }

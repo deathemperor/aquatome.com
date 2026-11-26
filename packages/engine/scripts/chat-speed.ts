@@ -41,6 +41,10 @@ import { clientFor, costOf } from '../../../apps/site/worker/fishid/claude'
 import { healthyKeys, isApiError, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
 import { CONDITIONS, savedTank, TOPICS, type HardQuestion, type PostTank } from './chat-vs-plain-lib'
 import { pool } from './eval-lib'
+import { unbilled } from '../src/billed'
+
+// Its calls on the chat's keys aren't held to the billed line yet (billed.ts).
+unbilled('chat-speed.ts')
 
 const ROOT = join(import.meta.dirname, '../../..')
 const { values: args } = parseArgs({

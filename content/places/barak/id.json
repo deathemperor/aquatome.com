@@ -3,6 +3,12 @@
   "name": "Barak",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T12:49:49.981Z",
+    "why": "The place is the Barak River drainage (a river), and an Indonesian atlas would write \"Sungai Barak\" with the kind word, so bare \"Barak\" omits it."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

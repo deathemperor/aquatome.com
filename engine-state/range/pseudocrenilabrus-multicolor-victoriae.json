@@ -1,0 +1,99 @@
+{
+  "id": "pseudocrenilabrus-multicolor-victoriae",
+  "native": {
+    "input": "450b9af0d4f6e02d",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "UG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The natural distribution area of this subspecies is Uganda.",
+        "words": "Uganda",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Victoria",
+        "source": "glaser",
+        "quote": "The name refers to Lake Victoria, where the species occurs.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudocrenilabrus multicolor",
+    "status": "SYNONYM",
+    "taxonKey": 4285761,
+    "datasets": [
+      [
+        "c2914e4b-381d-4814-8a34-66a7d949fd44",
+        31
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        27
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        9
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "ec6c5a00-8016-44cf-8550-62b8197c67fb",
+        6
+      ],
+      [
+        "22e2b984-fe8a-4344-9c2e-4145a89b6ec5",
+        4
+      ],
+      [
+        "8fbdc3e6-eaa0-4ad8-8733-ad433976a448",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "48a18d17-96f2-4a0d-89ad-bbe1ac6ce72c",
+        2
+      ],
+      [
+        "90b6055a-c12b-4c91-951a-7efbe184bca1",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "UG"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

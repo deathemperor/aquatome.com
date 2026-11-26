@@ -1,7 +1,20 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "inat:79408112",
+  "inat:79408105",
+  "inat:79408093",
+  "inat:359835810",
+  "inat:612593086",
+  "inat:612593102"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/inaturalist/359835810.webp": "3b76cc9c0ce34958",
+  "https://media.aquatome.com/inaturalist/79408112.webp": "260a155c4ae1e1e1",
+  "https://media.aquatome.com/inaturalist/79408105.webp": "383e78e6e071090c",
+  "https://media.aquatome.com/inaturalist/79408093.webp": "79716b73eae87162",
+  "https://media.aquatome.com/inaturalist/612593086.webp": "ae3f7e763f2ccce7"
+ },
  "commons": "2026-11-08",
  "inat": {
   "taxon": 609087,
@@ -10,5 +23,13 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2358871,
+  "next": null
+ },
+ "inatNc": {
+  "after": 337034629,
+  "done": true
  }
 }

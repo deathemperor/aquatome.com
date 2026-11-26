@@ -1,0 +1,43 @@
+{
+  "id": "cherax-peknyi",
+  "native": {
+    "input": "e2913442a51504f8",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Cherax peknyi originates from the Fly River drainage in Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Fly River",
+        "source": "glaser",
+        "quote": "Cherax peknyi originates from the Fly River drainage in Papua New Guinea.",
+        "country": "PG",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cherax peknyi",
+    "status": "ACCEPTED",
+    "taxonKey": 5789930,
+    "datasets": [],
+    "native": [
+      "PG"
+    ],
+    "requests": 2,
+    "at": "2026-11-23T01:48:47.136Z"
+  }
+}

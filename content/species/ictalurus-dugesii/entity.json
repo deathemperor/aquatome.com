@@ -1,0 +1,44 @@
+{
+  "id": "ictalurus-dugesii",
+  "scientificName": "Ictalurus dugesii",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Ictalurus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "mexico",
+    "turbio"
+  ],
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1558",
+      "html": "<p>Central America: Turbio and Ayuquila rivers, Mexico. Type locality: Río Turbio, Province of Guanajuato, Mexico.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1558",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1558",
+      "html": "<p>Etymology: Ictalurus comes from the Greek ichthys, meaning fish, and ailouros, meaning cat; literally \"fish cat\" (catfish). Named to honour Alfredo Dugès, a naturalist.</p><p>IUCN Red List category: Not Evaluated.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1558",
+      "html": "<p>Proceedings of the United States National Museum v. 2 (no. 95), pp 304.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-25"
+}

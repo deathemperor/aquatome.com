@@ -24,7 +24,7 @@
   "https://media.aquatome.com/commons/b722c7253e7494cf.webp": "8481c1e2783c460f",
   "https://media.aquatome.com/inaturalist/388416014.webp": "193df0c3030f1001",
   "https://media.aquatome.com/inaturalist/390651415.webp": "1038387dcde63cf8",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/383886206/large.jpeg": "44c2c6cb1db4fa53"
+  "https://media.aquatome.com/inaturalist/383886206.webp": "44c2c6ce9dbe7a73"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -34,5 +34,9 @@
    "research": 344170465,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2359506,
+  "next": null
  }
 }

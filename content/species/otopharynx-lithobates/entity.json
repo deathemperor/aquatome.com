@@ -86,6 +86,10 @@
       {
         "source": "seriouslyfish",
         "value": 16
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -109,6 +113,12 @@
       "html": "<p>The sulphur-headed hap, Otopharynx lithobates, is a cichlid endemic to Lake Malawi, where it lives among caves and crevices in rocky areas. A true rock dweller, it is hardly ever seen in open water, even in aquaria. In breeding males the three flank spots are masked by neon blue patterning and the dorsal fin and top of the head turn deep yellow-orange. It has been sold in the trade as 'Aristochromis sp. red top'.</p><ul><li>Max size: 160 mm SL (6 in)</li><li>Aquarium size: 90 × 45 cm (36 × 18 in)</li><li>Temperature: 24–28°C (75–82°F)</li><li>pH: 7.6–8.8</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/otopharynx-lithobates-2/",
+      "html": "<p>50 sexually ripe Otopharynx lithobates (7-10 cm long) were seen in one tank, more than half of them males in breeding mood.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/otopharynx-lithobates",
@@ -119,6 +129,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/otopharynx-lithobates",
       "html": "<p>It inhabits caves and crevices in rocky areas.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/otopharynx-lithobates-2/",
+      "html": "<p>In the natural habitat, males of this species inhabit caves. The bright head stripe is a distinctive feature for females passing the cave. For each female a courtship display is started immediately.</p>"
     },
     {
       "key": "aquariumSize",
@@ -139,16 +155,34 @@
       "html": "<ul><li>Temperature: 24–28°C (75–82°F)</li><li>pH: 7.6–8.8</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/otopharynx-lithobates-2/",
+      "html": "<p>The pH must not sink below 8 in the long term; otherwise these cichlids, like most cichlids from Lake Malawi, are not very demanding and are easy to care for.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/otopharynx-lithobates",
       "html": "<p>O. lithobates will accept most foods offered but live and frozen varieties should form the bulk of the diet.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/otopharynx-lithobates-2/",
+      "html": "<p>Otopharynx lithobates feeds on plankton in the wild and can be easily fed a variety of usual ornamental fish foods.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/otopharynx-lithobates",
       "html": "<p>A relatively peaceful species ideal for many hard water communities. Ideally, it should be kept in a Lake Malawi biotope aquarium with fish such as peaceful Haps. It can also be combined successfully with hard water rainbowfish and some cyprinids. However, small fish will be eaten. It can be maintained in groups but does become territorial when spawning. Males can also be quite vigorous in their pursuit of mates, so keeping several females to each male is recommended. Should not be kept with boisterous fish such as Mbuna.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/otopharynx-lithobates-2/",
+      "html": "<p>In the home aquarium one must take care that females which are not willing to spawn can hide. In the wild they can easily swim away, but in the tank the males can become pretty nasty if not enough hiding places are provided for the females.</p>"
     },
     {
       "key": "dimorphism",
@@ -169,8 +203,74 @@
       "html": "<p>O. lithobates is a true rock dweller and is hardly ever seen in open water, even in aquaria. In fact, the scientific name lithobates literally translates as \"rock dweller\". Breeding males of this species rank among the most stunning of Lake Malawi Haplochromine cichlids. The three characteristic spots on the flanks disappear and are masked by a stunning neon blue patterning. Almost the entire dorsal fin and top of the head turn a deep yellow-orange colour. The most colourful variant is the \"Zimbawe Rock\" form. It is sometimes erroneously sold as an Aristochromis species, being known in the trade as \"Aristochromis sp. red top\" for many years.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/64372743965c7f37.webp",
+      "thumb": "https://media.aquatome.com/glaser/64372743965c7f37-480.webp",
+      "width": 850,
+      "height": 1268,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/otopharynx-lithobates-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/44679ab5d65af477.webp",
+      "thumb": "https://media.aquatome.com/glaser/44679ab5d65af477-480.webp",
+      "width": 850,
+      "height": 673,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/otopharynx-lithobates-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/238bec7bd9b94e4c.webp",
+      "thumb": "https://media.aquatome.com/glaser/238bec7bd9b94e4c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/otopharynx-lithobates-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/acc9a7a5eac63208.webp",
+      "thumb": "https://media.aquatome.com/glaser/acc9a7a5eac63208-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/otopharynx-lithobates-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "gNXBIpiZZQQ",
+      "title": "Otopharynx lithobates Yellow Blaze Cichlid - Breeder Selection",
+      "durationSec": 92,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "rwJ8CQJ6kg4",
+      "title": "Otopharynx  lithobates sulphur head",
+      "durationSec": 92,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4lWulpolILI",
+      "title": "OTOPHARYNX LITHOBATES - VAMOS FALAR DE ESPÉCIES? #018",
+      "durationSec": 553,
+      "lang": "pt"
+    },
+    {
+      "youtubeId": "XGemwh21pAw",
+      "title": "Otopharynx Lithobates",
+      "durationSec": 10,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -200,5 +300,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-17"
 }

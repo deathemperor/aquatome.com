@@ -3,6 +3,12 @@
   "name": "กอนโชส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:48:11.338Z",
+    "why": "Conchos is a Mexican river/region name, and Thai atlases would write it as \"คอนโชส\" (Spanish \"ch\" → ช, initial \"co\" → คอ), whereas \"กอนโชส\" uses ก, which isn't the usual transliteration."
+  },
   "quality": {
     "score": 0.62,
     "indexable": false

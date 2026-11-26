@@ -1,0 +1,265 @@
+{
+  "id": "trichopodus-pectoralis",
+  "native": {
+    "input": "5d0b1fe6a315be45",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in both the Mekong and Chao Phraya drainages in Vietnam, Laos, Cambodia, Thailand and Myanmar.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in both the Mekong and Chao Phraya drainages in Vietnam, Laos, Cambodia, Thailand and Myanmar.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in both the Mekong and Chao Phraya drainages in Vietnam, Laos, Cambodia, Thailand and Myanmar.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in both the Mekong and Chao Phraya drainages in Vietnam, Laos, Cambodia, Thailand and Myanmar.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in both the Mekong and Chao Phraya drainages in Vietnam, Laos, Cambodia, Thailand and Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "As a result feral populations are established in Malaysia, Philippines, Singapore, Indonesia, Papua New Guinea, Sri Lanka, New Caledonia and Colombia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "As a result feral populations are established in Malaysia, Philippines, Singapore, Indonesia, Papua New Guinea, Sri Lanka, New Caledonia and Colombia.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "As a result feral populations are established in Malaysia, Philippines, Singapore, Indonesia, Papua New Guinea, Sri Lanka, New Caledonia and Colombia.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "As a result feral populations are established in Malaysia, Philippines, Singapore, Indonesia, Papua New Guinea, Sri Lanka, New Caledonia and Colombia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "As a result feral populations are established in Malaysia, Philippines, Singapore, Indonesia, Papua New Guinea, Sri Lanka, New Caledonia and Colombia.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "As a result feral populations are established in Malaysia, Philippines, Singapore, Indonesia, Papua New Guinea, Sri Lanka, New Caledonia and Colombia.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "As a result feral populations are established in Malaysia, Philippines, Singapore, Indonesia, Papua New Guinea, Sri Lanka, New Caledonia and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in both the Mekong and Chao Phraya drainages in Vietnam, Laos, Cambodia, Thailand and Myanmar.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in both the Mekong and Chao Phraya drainages in Vietnam, Laos, Cambodia, Thailand and Myanmar.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trichopodus pectoralis",
+    "status": "ACCEPTED",
+    "taxonKey": 5211177,
+    "datasets": [
+      [
+        "010fcd64-caa7-47dd-b1b1-c8be5a2144b6",
+        3707
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        1147
+      ],
+      [
+        "f442ef1d-7104-4a8c-85d6-a55181d6b265",
+        163
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        62
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        56
+      ],
+      [
+        "0a795556-3b24-4ff7-9113-22eb1bca08a4",
+        31
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        27
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        20
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        17
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        12
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        12
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        7
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        3
+      ],
+      [
+        "18896efa-22df-4fbd-9782-42f47257e753",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "038b9c13-f1ad-49e0-aeea-4458e0b6dcbe",
+        1
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        1
+      ],
+      [
+        "e760ba8b-f487-46ae-91a2-526fe72bbe1c",
+        1
+      ]
+    ],
+    "native": [
+      "VN",
+      "LA",
+      "KH",
+      "TH",
+      "MM"
+    ],
+    "requests": 14,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

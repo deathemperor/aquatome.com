@@ -3,6 +3,12 @@
   "name": "Swiss",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-20T17:39:19.195Z",
+    "why": "Indonesian atlases write the country as \"Swiss\" only as an adjective/short form; the standard country name is \"Swiss\" in KBBI too, but the usual atlas form is \"Swiss\" ... however the common name for the country is \"Swiss\", so this is mostly acceptable."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

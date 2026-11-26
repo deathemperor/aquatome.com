@@ -1,11 +1,14 @@
 {
   "id": "otocinclus-flexilis",
-  "summary": "Cá otocinclus flexilis (Otocinclus flexilis) là cá nhỏ, lớn tối đa 5,5 cm, sống trong nước 20–25 °C, pH 6,5–7,8, độ cứng 2–25 dGH. Hồ sơ không nêu bể tối thiểu, độ khó hay tính tình, nên cần tìm hiểu thêm trước khi quyết định. Chưa có ghi nhận loài này đẻ, nên đừng mong gây giống.",
+  "summary": "Loài này hợp người có bể thủy sinh nước mát và muốn nuôi một đàn cá ăn rêu cỡ 6 cm, vì cá không phá cây mà vẫn giữ rêu trong tầm kiểm soát. Giữ nước 20–25 °C, pH 6–7,8, độ cứng 2–25 dGH. Điểm khó nhất là nước nóng kéo dài, vì dễ làm cá gặp vấn đề, và với cá khác chúng có thể hơi hay giành chỗ.",
   "mistakes": [
-    "Giữ nước trong khoảng 20–25 °C, đừng để bể nóng hơn mức đó.",
-    "Đừng nuôi với kỳ vọng gây giống, vì chưa ai ghi lại chuyện loài này đẻ; hãy nuôi để ngắm."
+    "Để bể nóng kéo dài: nên giữ nước trong khoảng 20–25 °C."
   ],
-  "speciesUpdatedAt": "2026-11-13",
-  "generatedAt": "2026-11-13T19:26:31.146Z",
-  "review": "approved"
+  "speciesUpdatedAt": "2026-11-14",
+  "writtenFrom": "533cbb11c7626e98",
+  "generatedAt": "2026-11-20T02:00:54.318Z",
+  "review": "pending",
+  "problems": [
+    "\"vì dễ làm cá gặp vấn đề\": the page only says prolonged hot water \"có thể khiến cá gặp vấn đề\" (can cause problems). \"Dễ\" (easily) makes the hedge stronger than the page does."
+  ]
 }

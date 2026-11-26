@@ -45,7 +45,7 @@ test('each video series\' copy reads as its built page: name, its line of counts
       expect(img.credit?.text, `${d.path} ${img.src}`).toMatch(/^Ảnh: \S/)
       expect(img.credit?.licence, `${d.path} ${img.src}`).toBeTruthy()
     }
-    expect(new Set(imgs.map(i => i.credit?.url)), d.path).toEqual(new Set(dom.querySelectorAll('#photo-credits li a').map(a => a.getAttribute('href'))))
+    expect(new Set(imgs.map(i => i.credit?.url)), d.path).toEqual(new Set(dom.querySelectorAll('#photo-credits li a:not(.licence)').map(a => a.getAttribute('href'))))
     // No readers' comments or photos on the page: none in the copy.
     expect([d.talk, dom.querySelector('[data-comments], [data-reader-photos]')], d.path).toEqual([undefined, null])
   }

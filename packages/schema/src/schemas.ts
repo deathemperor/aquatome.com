@@ -55,9 +55,19 @@ const Alteration = z.object({
   checks:z.object({species:HashPair,ownership:HashPair,noTrace:HashPair.optional(),preservation:HashPair.optional()}).optional(),
 })
 const OriginalPicture = z.object({ url: z.string(), width: z.number(), height: z.number(), thumb: z.string().optional(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional() })
-const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional(), ownerCrop: z.object({ id: z.string(), pixelHash: Hash }).optional(), headFit: z.literal("contain").optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional(), subject: PixelBox.optional() })
+/**
+ * `sourceCaption`: the source's own description of the photo, kept where our caption replaces it (the album step), for the engine's genus rule; no page shows it.
+ * `report`: Unsplash's download address for the photo (unsplash.ts), asked once when it is added; no page shows it. A
+ * glossary run reads its entity through this schema and writes back what it parsed, so a field it lacks is lost: Lũa's and
+ * Nền cát's photos lost theirs on every run (20 Nov 2026).
+ */
+const Photo = z.object({ url: z.string(), thumb: z.string().optional(), report: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), sourceCaption: z.string().optional(), source: SourceId.optional(), ownerCrop: z.object({ id: z.string(), pixelHash: Hash }).optional(), headFit: z.literal("contain").optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional(), subject: PixelBox.optional() })
 export const PhotoSchema = Photo
-const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
+/**
+ * `originalTitle`, `generated` and `ownTitle` are the loader's (videosForPage): the engine writes none. `ownTitle`: a foreign
+ * video shown with its own title because its page's language isn't turned on for translated titles yet.
+ */
+const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string(), originalTitle: z.string().optional(), generated: z.literal(true).optional(), ownTitle: z.literal(true).optional() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })
 
 const CountryCode = z.string().refine(isCountryCode, { message: 'not an ISO 3166-1 alpha-2 country code' })
@@ -229,14 +239,20 @@ export const SeriesSchema = z.object({
 
 /**
  * A glossary term. `refs`: the pages AquaTome's fuller entry was researched from (engine glossary-entry.ts), listed under
- * it as a guide's are. `related`: other terms' ids, the ones a reader of this entry should see next. `photos`: as a
- * species' (Curation's records), kept by the engine's rewrites of the entry.
+ * it as a guide's are. `related`: other terms' ids, the ones a reader of this entry should see next. `photos` and
+ * `kinds`: Curation's records, kept by the engine's rewrites of the entry.
  */
 export const GlossarySchema = z.object({
   id: z.string(), en: z.string(), latin: z.string().optional(),
   refs: z.array(z.object({ url: WebUrl, title: z.string().min(1) })).optional(), related: z.array(z.string()).optional(),
   /** Only where seeing it explains the term (driftwood, white spot): the first is shown under its meaning. */
   photos: z.array(Photo).optional(),
+  /**
+   * Each kind's own picture, by the kind's id as the entry writes it (glossaryKinds: "lua-do-quyen"), shown beside that
+   * kind's name (the owner, 15 Nov 2026: "what does each look like?"). One photo a kind; a kind with none has no record.
+   */
+  kinds: z.array(z.object({ id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/), photo: Photo }))
+    .refine(ks => new Set(ks.map(k => k.id)).size === ks.length, { message: 'a kind is listed twice' }).optional(),
 })
 export const PlaceSchema = z.object({
   id: z.string(), kind: z.enum(['continent', 'country', 'region', 'river']), parent: z.string().optional(),
@@ -263,6 +279,12 @@ export const EquipmentSchema = z.object({
 /** `builtAt`: the last Commons + iNaturalist build (`updatedAt` also moves when a source adds a photo). */
 /** Photo captions written in Vietnamese, in one other language (content/captions/<lang>.json): Vietnamese caption → translation. */
 export const CaptionsSchema = z.record(z.string(), z.string())
+/** Video titles in one language (content/video-titles/<lang>.json): YouTube id → the title on that language's pages. */
+export const VideoTitlesSchema = z.record(z.string(), z.string())
+/** The languages whose translated video titles all show (content/video-titles/on.json): one line each, added with the chief of staff's yes. */
+export const VideoTitlesOnSchema = z.array(z.enum(['vi', 'id', 'th', 'ms']))
+/** Videos made by generation (content/video-generated.json): YouTube id → what we saw. None carries a label on the page (the owner's call, 14 Nov), and none feeds a guide, a loop or a still. */
+export const VideoGeneratedSchema = z.record(z.string(), z.string())
 /** content/picture-hashes.json: each photo's 64-bit difference hash (hex) by its address (pictures.ts). */
 export const PictureHashesSchema = z.record(z.string(), z.string().regex(/^[0-9a-f]{16}$/))
 /** The day each content file last changed for a reader, with its hash: file → "2026-11-10 ab12cd34ef56" (the engine's page-dates.ts). */
@@ -270,9 +292,11 @@ export const PageDatesSchema = z.record(z.string(), z.string().regex(/^\d{4}-\d{
 
 /**
  * content/one-voice.json: a species' id, then a heading (section key), then the one source that speaks under it. Where the
- * sources under a heading can't both be true, the page shows that source's text alone (load.ts).
+ * sources under a heading can't both be true, the page shows that source's text alone (load.ts). `false`: no source does,
+ * as none says what's fit to read there (the African snakehead's tank, the chief of staff, 15 Nov 2026), and the heading
+ * is off the page in every language, whatever a run writes under it.
  */
-export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTION_ORDER), SourceId))
+export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTION_ORDER), z.union([SourceId, z.literal(false)])))
 
 /**
  * A gallery photo can carry what the screening model said of it, so a top-up re-ranks the whole gallery: `best`, one of
@@ -360,6 +384,11 @@ export const HeldSchema = z.object({ checks: z.array(z.string()), at: z.string()
 
 export const TranslationSchema = z.object({
   slug: z.string(), name: z.string(), altNames: z.array(z.string()), sections: z.record(z.string(), z.string()),
+  /**
+   * A glossary term's link phrases: words other pages link to the term from ("sống theo đàn" for Cá đàn), never printed
+   * as its other names, which hold only what a keeper calls the thing (the chief of staff, 18 Nov 2026).
+   */
+  linkNames: z.array(z.string()).optional(),
   body: z.string().optional(), definition: z.string().optional(),
   /** Video guides: key takeaways, questions readers ask, and the video's chapter titles in Vietnamese (same order). */
   summary: z.array(z.string()).optional(), faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(), chapters: z.array(z.string()).optional(),
@@ -381,7 +410,12 @@ export const TranslationSchema = z.object({
   tested: z.array(CitedText).optional(),
   /** Owner-chosen main name, or a place's from the Vietnamese place-names step: the engine never replaces it. */
   nameFixed: z.boolean().optional(),
-  /** Owner-fixed text: the engine never replaces this guide's body (nameFixed's kin, for a fix made by hand). */
+  /**
+   * A place's name in another language judged alone against its source's sentence (the engine's place-judge.ts): `ok`
+   * false, and the place has no name in that language until a name passes (load.ts placeNamed).
+   */
+  nameCheck: z.object({ ok: z.boolean(), score: z.number(), at: z.string(), why: z.string().optional() }).optional(),
+  /** Owner-fixed text: the engine never replaces this guide's body, or a material page's text (nameFixed's kin, for a fix made by hand). */
   bodyFixed: z.boolean().optional(),
   /** Owner-fixed questions, set with bodyFixed on a video guide: written again, it keeps this FAQ (its other writers leave a video guide with a fixed body alone; a topic guide's and a translated guide's writers don't read this mark). */
   faqFixed: z.boolean().optional(),
@@ -439,6 +473,8 @@ export const SummarySchema = z.object({
   summary: z.string(), mistakes: z.array(z.string()).max(3),
   speciesUpdatedAt: z.string(), generatedAt: z.string(),
   problems: z.array(z.string()).optional(),
+  /** The page's text it was written from, as a hash (engine summaries.ts textHash): written again when the page's differs. */
+  writtenFrom: z.string().optional(),
 })
 
 /**

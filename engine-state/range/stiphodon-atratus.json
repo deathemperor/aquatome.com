@@ -1,0 +1,113 @@
+{
+  "id": "stiphodon-atratus",
+  "native": {
+    "input": "c06429425d69f7aa",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Stream at end of long narrow bay, Waigeo Island, Irian Jaya, Indonesia', with the species also known from rivers draining the northern slope of New Guinea as well as Halmahera Island (Indonesia), the Admiralty Islands (Papua New Guinea), the Bismarck Archipelago (Papua New Guinea), D'Entrecasteaux Islands (Papua New Guinea), Louisiade Archipelago (Papua New Guinea), Bougainville (Papua New Guinea), Vanuatu, and New Caledonia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Stream at end of long narrow bay, Waigeo Island, Irian Jaya, Indonesia', with the species also known from rivers draining the northern slope of New Guinea as well as Halmahera Island (Indonesia), the Admiralty Islands (Papua New Guinea), the Bismarck Archipelago (Papua New Guinea), D'Entrecasteaux Islands (Papua New Guinea), Louisiade Archipelago (Papua New Guinea), Bougainville (Papua New Guinea), Vanuatu, and New Caledonia.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "VU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Stream at end of long narrow bay, Waigeo Island, Irian Jaya, Indonesia', with the species also known from rivers draining the northern slope of New Guinea as well as Halmahera Island (Indonesia), the Admiralty Islands (Papua New Guinea), the Bismarck Archipelago (Papua New Guinea), D'Entrecasteaux Islands (Papua New Guinea), Louisiade Archipelago (Papua New Guinea), Bougainville (Papua New Guinea), Vanuatu, and New Caledonia.",
+        "words": "Vanuatu",
+        "ok": true
+      },
+      {
+        "code": "NC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Stream at end of long narrow bay, Waigeo Island, Irian Jaya, Indonesia', with the species also known from rivers draining the northern slope of New Guinea as well as Halmahera Island (Indonesia), the Admiralty Islands (Papua New Guinea), the Bismarck Archipelago (Papua New Guinea), D'Entrecasteaux Islands (Papua New Guinea), Louisiade Archipelago (Papua New Guinea), Bougainville (Papua New Guinea), Vanuatu, and New Caledonia.",
+        "words": "New Caledonia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Waigeo Island",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Stream at end of long narrow bay, Waigeo Island, Irian Jaya, Indonesia', with the species also known from rivers draining the northern slope of New Guinea as well as Halmahera Island (Indonesia), the Admiralty Islands (Papua New Guinea), the Bismarck Archipelago (Papua New Guinea), D'Entrecasteaux Islands (Papua New Guinea), Louisiade Archipelago (Papua New Guinea), Bougainville (Papua New Guinea), Vanuatu, and New Caledonia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "New Guinea",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Stream at end of long narrow bay, Waigeo Island, Irian Jaya, Indonesia', with the species also known from rivers draining the northern slope of New Guinea as well as Halmahera Island (Indonesia), the Admiralty Islands (Papua New Guinea), the Bismarck Archipelago (Papua New Guinea), D'Entrecasteaux Islands (Papua New Guinea), Louisiade Archipelago (Papua New Guinea), Bougainville (Papua New Guinea), Vanuatu, and New Caledonia.",
+        "ok": true
+      },
+      {
+        "name": "Halmahera Island",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Stream at end of long narrow bay, Waigeo Island, Irian Jaya, Indonesia', with the species also known from rivers draining the northern slope of New Guinea as well as Halmahera Island (Indonesia), the Admiralty Islands (Papua New Guinea), the Bismarck Archipelago (Papua New Guinea), D'Entrecasteaux Islands (Papua New Guinea), Louisiade Archipelago (Papua New Guinea), Bougainville (Papua New Guinea), Vanuatu, and New Caledonia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Bismarck Archipelago",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Stream at end of long narrow bay, Waigeo Island, Irian Jaya, Indonesia', with the species also known from rivers draining the northern slope of New Guinea as well as Halmahera Island (Indonesia), the Admiralty Islands (Papua New Guinea), the Bismarck Archipelago (Papua New Guinea), D'Entrecasteaux Islands (Papua New Guinea), Louisiade Archipelago (Papua New Guinea), Bougainville (Papua New Guinea), Vanuatu, and New Caledonia.",
+        "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "Admiralty Islands",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Stream at end of long narrow bay, Waigeo Island, Irian Jaya, Indonesia', with the species also known from rivers draining the northern slope of New Guinea as well as Halmahera Island (Indonesia), the Admiralty Islands (Papua New Guinea), the Bismarck Archipelago (Papua New Guinea), D'Entrecasteaux Islands (Papua New Guinea), Louisiade Archipelago (Papua New Guinea), Bougainville (Papua New Guinea), Vanuatu, and New Caledonia.",
+        "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "Bougainville",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Stream at end of long narrow bay, Waigeo Island, Irian Jaya, Indonesia', with the species also known from rivers draining the northern slope of New Guinea as well as Halmahera Island (Indonesia), the Admiralty Islands (Papua New Guinea), the Bismarck Archipelago (Papua New Guinea), D'Entrecasteaux Islands (Papua New Guinea), Louisiade Archipelago (Papua New Guinea), Bougainville (Papua New Guinea), Vanuatu, and New Caledonia.",
+        "country": "PG",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Stiphodon atratus",
+    "status": "ACCEPTED",
+    "taxonKey": 2376101,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "038b9c13-f1ad-49e0-aeea-4458e0b6dcbe",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "PG",
+      "VU",
+      "NC"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

@@ -21,10 +21,22 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-ruudwildekampi-2/",
-      "html": "<p>A new species of Nothobranchius, scientifically described in 2009 as Nothobranchius ruudwildekampi. Origin of the stock: captive bred.</p>"
+      "html": "<p>A new species of Nothobranchius, scientifically described in 2009 as Nothobranchius ruudwildekampi.</p>",
+      "fixed": true
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/02372b8991bbfc02.webp",
+      "thumb": "https://media.aquatome.com/commons/02372b8991bbfc02-480.webp",
+      "width": 949,
+      "height": 442,
+      "licence": "CC BY-SA 4.0",
+      "author": "Andrewbogott",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nothobranchius_ruudwildekampi.png",
+      "caption": "Cá killi đực thân đỏ nâu, vây vàng sọc đen trong bể"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "lu316qj6vis",

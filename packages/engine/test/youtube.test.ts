@@ -5,12 +5,12 @@ import { mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
-import { fitRules } from '../src/fit'
+import { checklistLines, fitPrompt, fitRules } from '../src/fit'
 import type { Page } from '../src/pages'
 import { logReviews, readReviews } from '../src/review-log'
-import { chaptersFrom, crowdLines, editDraft, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
+import { chaptersFrom, crowdLines, editDraft, fixDraft, flatEntries, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, writeDraft, ytApi, ytDlp, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
 
@@ -121,6 +121,18 @@ test('a video on the rejected list is never made a guide, nor written again by a
   expect(existsSync(join(root, 'content/guides/youtube-a1'))).toBe(false)
   await writeFile(join(root, 'engine-state/_video-rejected.json'), JSON.stringify({ a2: 'harm: the same' }))
   expect((await videoGuides(d, { playlists: ['PL1'], redo: true })).written).toEqual([])
+})
+
+test('a generated video is never made a guide, and none on the site was', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const { d } = deps(root, { videos: { a1: {}, a2: {} } })
+  await mkdir(join(root, 'content'), { recursive: true })
+  await writeFile(join(root, 'content/video-generated.json'), JSON.stringify({ a1: 'generated fish' }))
+  expect((await videoGuides(d, { playlists: ['PL1'] })).written).toEqual(['youtube-a2 (0.90)'])
+  expect(existsSync(join(root, 'content/guides/youtube-a1'))).toBe(false)
+  const repo = fileURLToPath(new URL('../../..', import.meta.url))
+  const generated = JSON.parse(await readFile(join(repo, 'content/video-generated.json'), 'utf8')) as Record<string, string>
+  expect(Object.keys(generated).filter(id => existsSync(join(repo, 'content/guides', `youtube-${id}`)))).toEqual([])
 })
 
 test('no guide on the site is made from a rejected video', async () => {
@@ -568,6 +580,40 @@ test('ytApi: playlist pages and video details from the Data API, with the key; p
   expect(asked).toHaveLength(4)
 })
 
+test("ytApi: an email address in a playlist's or a video's title is taken out before anything stores it (the chief of staff, 16 Nov)", async () => {
+  const get = async (u: string) => {
+    if (u.includes('/playlists?')) return { items: [{ snippet: { title: 'Bettas fishroom@example.com', channelTitle: 'C', channelId: 'UC1' } }] }
+    if (u.includes('/playlistItems?')) return { items: [{ snippet: { title: 'Part 1 (fishroom@example.com)', resourceId: { videoId: 'a1' } } }] }
+    return { items: [{ snippet: { title: 'Part 1 (fishroom@example.com)', channelTitle: 'C', channelId: 'UC1', description: '', thumbnails: {} }, contentDetails: { duration: 'PT1M' }, status: { embeddable: true, privacyStatus: 'public' } }] }
+  }
+  const yt = ytApi('K', get)
+  expect(await yt.playlist('PL1')).toMatchObject({ title: 'Bettas', videos: [{ id: 'a1', title: 'Part 1' }] })
+  expect((await yt.video('a1')).title).toBe('Part 1')
+})
+
+test("yt-dlp's reader, used with no API key: an email address in a playlist's, its videos' or a video's title is taken out before anything stores it (the chief of staff, 16 Nov)", async () => {
+  // A stand-in yt-dlp first on the path, answering the playlist and the video calls; nothing reaches YouTube.
+  const bin = await mkdtemp(join(tmpdir(), 'aq-yt-dlp-'))
+  await writeFile(join(bin, 'playlist.json'), JSON.stringify({ title: 'Bettas fishroom@example.com', entries: [{ id: 'a1', title: 'Part 1 (fishroom@example.com)' }] }))
+  await writeFile(join(bin, 'video.json'), JSON.stringify({ title: 'Part 1 (fishroom@example.com)', duration: 60, availability: 'public', language: 'en' }))
+  await writeFile(join(bin, 'yt-dlp'), `#!/bin/sh\ncase "$*" in *--flat-playlist*) cat "${bin}/playlist.json" ;; *) cat "${bin}/video.json" ;; esac\n`, { mode: 0o755 })
+  const path = process.env.PATH
+  process.env.PATH = `${bin}:${path}`
+  vi.stubGlobal('fetch', async () => ({ ok: true }))
+  try {
+    expect(await ytDlp.playlist('PL1')).toMatchObject({ title: 'Bettas', videos: [{ id: 'a1', title: 'Part 1' }] })
+    expect((await ytDlp.video('a1')).title).toBe('Part 1')
+  } finally {
+    process.env.PATH = path
+    vi.unstubAllGlobals()
+  }
+})
+
+test("yt-dlp's searches and a channel's playlists: an email address in a found title is taken out before anything stores it (the chief of staff, 16 Nov)", () => {
+  expect(flatEntries({ channel: 'C', entries: [{ id: 'a1', title: 'Wild bettas | fishroom@example.com' }, { id: 'a2', title: 'Discus care' }, { title: 'no id' }] }))
+    .toEqual([{ id: 'a1', title: 'Wild bettas', channel: 'C' }, { id: 'a2', title: 'Discus care', channel: 'C' }])
+})
+
 test('chapters: only when the description lists at least three, from 0:00, in order', () => {
   expect(chaptersFrom('1:00 a\n2:00 b\n3:00 c')).toEqual([])
   expect(chaptersFrom('0:00 a\n2:00 b')).toEqual([])
@@ -605,4 +651,47 @@ test('the editor of a guide that names its video drops a story of the day, and w
   expect(prompts[0]).toContain('câu chỉ kể chuyện hôm làm ("Hôm đó làm đến tối") thì bỏ')
   expect(prompts[0]).toContain('viết thành một ví dụ tự nói rõ cỡ bể ("Ví dụ, một bể dài 45 cm…")')
   expect(prompts[0]).not.toContain('thì viết lại thành lời nói thẳng')
+})
+
+// The chief of staff, 19 Nov 2026: of the 58 video guides first written from Tue 17 to Thu 19 and held, 48 were held for
+// talking about the video's source and 14 for advice for somewhere else. The writer is told both of the check's rules, in
+// the check's own words, read from its file; the mend has its own findings.
+test("the writer and the reviewer's fix are told the check's source and elsewhere rules in its own words", async () => {
+  const rules = checklistLines(['source', 'elsewhere'], 'vi', 'guides', true)
+  expect(rules.split('\n')[0]).toMatch(/^- source: the page makes the reader meet someone they don't know/)
+  expect(rules).toContain('  - its own tank or story as if the reader knew it: "bể mẫu"')
+  expect(rules).toContain('On a guide written from the video above it')
+  expect(rules).toMatch(/^- elsewhere: anything else written for a reader who lives somewhere else/m)
+  expect(rules).toContain("For this reader the North's winter is their own")
+  expect(rules).toContain('beech or oak leaves')
+  expect(rules).not.toMatch(/^- (shop|units|words|kit|harm):/m)
+  expect(fitPrompt('vi', 'guides', true)).toContain(rules.split('\n- elsewhere:')[0])
+  const draft = { relevant: true, kind: 'care', viTitle: 'T', summary: ['a'], body: '<p>b</p>', faq: [], chapters: [] }
+  const prompts: string[] = []
+  const llm = (async (a: { prompt: string }) => { prompts.push(a.prompt); return draft }) as never
+  await writeDraft(llm, meta('v1'), 'transcript')
+  await fixDraft(llm, 'transcript', draft as never, ['a note'])
+  expect(prompts[0]).toContain(rules)
+  expect(prompts[1]).toContain(rules)
+})
+
+// The reader's find (#1677): the writer's lines are cut when a prompt is made, so a heading renamed in fit.md stops the
+// writer and its fix with the error, never loading the engine or the mend (its own prompt, video-mend.ts).
+test('a renamed check heading stops the writer and its fix, never the engine loading or the mend', async () => {
+  expect(() => checklistLines(['nope' as never], 'vi', 'guides', true)).toThrow('prompts/fit.md has no line for nope')
+  vi.resetModules()
+  vi.doMock('../src/fit', async (orig: () => Promise<object>) => ({ ...(await orig()), checklistLines: () => { throw new Error('prompts/fit.md has no line for source') } }))
+  try {
+    const y = await import('../src/youtube')
+    await expect(import('../src/video-mend')).resolves.toHaveProperty('videoMend')
+    const draft = { relevant: true, kind: 'care', viTitle: 'T', summary: ['a'], body: '<p>b</p>', faq: [], chapters: [] }
+    let calls = 0
+    const llm = (async () => { calls++; return draft }) as never
+    await expect(y.writeDraft(llm, meta('v1'), 'transcript')).rejects.toThrow('no line for source')
+    await expect(y.fixDraft(llm, 'transcript', draft as never, ['a note'])).rejects.toThrow('no line for source')
+    expect(calls).toBe(0)
+  } finally {
+    vi.doUnmock('../src/fit')
+    vi.resetModules()
+  }
 })

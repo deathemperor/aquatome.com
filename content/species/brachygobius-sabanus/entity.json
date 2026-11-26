@@ -13,7 +13,8 @@
     "kalimantan",
     "thailand",
     "bangkok",
-    "singapore"
+    "singapore",
+    "sabah"
   ],
   "range": {
     "native": {
@@ -113,6 +114,10 @@
       {
         "source": "seriouslyfish",
         "value": 2.7
+      },
+      {
+        "source": "glaser",
+        "value": 2.5
       }
     ],
     "tankCm": [
@@ -136,10 +141,22 @@
       "html": "<p>The Sabanus bumblebee goby, Brachygobius sabanus, is a small goby described from the Kinabatangan district of Sabah, northeastern Borneo. Among the more frequently traded members of the genus, it is easily confused with B. doriae, but the last one or two rays of its first dorsal-fin are colourless and less than half of the pectoral-fin is black. Its full range is unclear, and populations in Singapore are not thought to be natural. It lives in fresh and brackish lowland coastal habitats.</p><ul><li>Max size: 27 mm SL (1.1 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 7.0–8.5</li><li>Hardness: 8–20 dGH</li><li>Difficulty: 4 of 8, moderate</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius-sabanus-thailand-2/",
+      "html": "<p>Brachygobius sabanus attains a maximum length of about 2.5 cm. The coloration differs a lot individually. The species inhabits pure freshwater habitats.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-sabanus",
       "html": "<p>Type locality is given as 'Lamag, Kinabatangan District, East Coast Residency, Malaysia', which corresponds to Kinabatangan district in modern-day Sandakan Division, Sabah state, Malaysia (northeastern Borneo).</p><p>The full extent of its range is unclear but similar-looking fish have been recorded in Indonesian (Kalimantan, Borneo), Singapore, Peninsular Malaysia (Muar), and Thailand (Bangkok).</p><p>The populations in Singapore are not thought to be natural and some probably escaped from commerical breeding facilities while others may have been introduced with intent. The species was first recorded there in 2007 (Lim and Tan, 2012)[1].</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius-sabanus-thailand-2/",
+      "html": "<p>Brachygobius sabanus was initially described from Borneo (Sabah); the fish featured here were collected in Thailand. The determination of bumblebee gobies often proves quite tricky, and usually a big question mark has to be set behind the names. The illustration accompanying the original description of B. sabanus fits the Thai specimens very well.</p>"
     },
     {
       "key": "habitat",
@@ -190,6 +207,12 @@
       "html": "<p>This species spawns in small caves with small flower pots, ceramic tubes, shells, or plastic camera film canisters all suitable (the latter may need to be weighed down somehow).</p><p>An individual male will select a site and display to female in the vicinity until he finds a receptive partner. Around 100-200 eggs are deposited in the cave after which the female departs, leaving the male to guard and tend the clutch.</p><p>Once a male is guarding eggs you may wish to remove any other fish present, or if possible the cave with male and eggs inside, to a different tank containing identical water in order to avoid fry predation. The incubation period is 7-9 days.</p><p>Once free swimming the fry require microscopic foods such as Paramecium or Brachionus until large enough to accept Artemia nauplii and suchlike. They are pelagic for the first few weeks of life, eventually settling on the substrate.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius-sabanus-thailand-2/",
+      "html": "<p>A spawning was observed in the facility. The eggs were expected to suffer from fungus quite fast, but while the male defended the whitish eggs for days, a closer look showed that the eyes of the offspring were already visible in the eggs. It was the white yolk sac, not fungus, that made the eggs look white. The larvae hatched at night over a weekend. An experienced hobbyist should be able to raise Brachygobius sabanus without problems.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-sabanus",
@@ -205,39 +228,64 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/917e22bb11d029d2.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/917e22bb11d029d2-480.webp",
       "width": 800,
       "height": 536,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-sabanus",
       "caption": "This male is an F1 offspring spawned from a group of wild adults collected in Sabah state, Malaysia (northern Borneo). All specimens lack dark saddle-like markings between the body bars but otherwise ",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/917e22bb11d029d2-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/faf7d0c04f77cda4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/faf7d0c04f77cda4-480.webp",
       "width": 800,
       "height": 536,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Charles König / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-sabanus",
       "caption": "F1 adult female of the same population.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/faf7d0c04f77cda4-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/c24cb0109abd9b47.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c24cb0109abd9b47-480.webp",
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Choy Heng Wah / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-sabanus",
       "caption": "Head detail.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/c24cb0109abd9b47-480.webp"
+      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "dy6587a4YU8",
+      "title": "小蜜蜂Brachygobius sabanus",
+      "durationSec": 89,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_JS90la8DJ8",
+      "title": "Бычек Пчелка vs. Креветка Brachygobius Sabanus vs. Neocaridina  Heteropoda",
+      "durationSec": 99,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jzMqRwOX_2Y",
+      "title": "Jom sauk : Bumblebee  Goby @ Brachygobius sabanus @ Ikan Tebuan",
+      "durationSec": 958,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tvir4Sivgr0",
+      "title": "Bumblebee goby feeding on white worm.",
+      "durationSec": 14,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -268,5 +316,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-17"
 }

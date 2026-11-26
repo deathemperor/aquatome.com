@@ -20,11 +20,6 @@
       "kind": "shop"
     },
     {
-      "url": "https://cabaymau.vn/cach-tha-ca-moi-mua-vao-be-2/",
-      "title": "Cách Thả Cá Mới Mua Vào Bể: Hướng Dẫn Toàn Tập Cho Người Mới Bắt Đầu – Cá Bảy Màu",
-      "kind": "shop"
-    },
-    {
       "url": "https://aquaticarts.com/pages/acclimation-information",
       "title": "Acclimation Guides & Information – Aquatic Arts",
       "kind": "shop"
@@ -33,6 +28,21 @@
       "url": "https://www.seachem.com/prime.php",
       "title": "Seachem Prime – product page",
       "kind": "maker"
+    },
+    {
+      "url": "https://blog.tetra.net/en-en/fish-transport-and-acclimatisation/",
+      "title": "Fish transport and acclimatisation – Tetra Fishkeeper Blog",
+      "kind": "maker"
+    },
+    {
+      "url": "https://ornamentalfish.org/wp-content/uploads/OATA-Transport-Code-Oct-2022.pdf",
+      "title": "Transporting Aquatic Livestock Code – OATA, the ornamental fish trade association (October 2022)",
+      "kind": "other"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/12-3-quarantine-tanks",
+      "title": "12.3. Quarantine Tanks – Aquarium Science",
+      "kind": "keeper"
     }
   ],
   "facts": [
@@ -54,7 +64,7 @@
     {
       "section": "causes",
       "fact": "Ammonia occurs as NH3, which is highly toxic, and NH4+, which is fairly harmless for a short time. Which form dominates depends on pH and temperature.",
-      "source": 4
+      "source": 3
     },
     {
       "section": "causes",
@@ -104,22 +114,17 @@
     {
       "section": "steps",
       "fact": "Shrimp drip method: drip about 1 drop per second until the container is about 1/3 shipping water and 2/3 tank water, which takes 1–2 hours. Add a detoxifier such as Seachem Prime to the container.",
-      "source": 4
+      "source": 3
     },
     {
       "section": "steps",
       "fact": "'Plop and drop' for shipped animals: float the sealed bag 10–15 minutes, cut it, pour it through a net over a bucket, and put the animals in the tank without the shipping water.",
-      "source": 4
+      "source": 3
     },
     {
       "section": "steps",
       "fact": "For shipped fish in a breather bag, set the bag on the aquarium lid for 30–60 minutes instead of floating it. Sealed bags should float 10–15 minutes.",
       "source": 0
-    },
-    {
-      "section": "steps",
-      "fact": "Vietnamese guide: float the sealed bag 15–20 minutes, then drip tank water in at 2–3 drops per second until the volume doubles (30–60 minutes). Catch the fish with a clean net.",
-      "source": 3
     },
     {
       "section": "treatment",
@@ -129,12 +134,12 @@
     {
       "section": "treatment",
       "fact": "Seachem Prime removes chlorine and chloramine and binds ammonia, nitrite and nitrate for up to 48 hours. Dose: 5 mL (1 capful) per 200 L of new water. In emergencies, up to 5 times the dose.",
-      "source": 5
+      "source": 4
     },
     {
       "section": "treatment",
       "fact": "Seachem says to use a half dose of Prime in water above 30 °C when chlorine or ammonia is low.",
-      "source": 5
+      "source": 4
     },
     {
       "section": "firstAid",
@@ -153,8 +158,8 @@
     },
     {
       "section": "prevention",
-      "fact": "Vietnamese guide: only add fish once ammonia and nitrite are 0 ppm. Add 2–3 fish at a time, 1–2 weeks apart. A 20–40 L quarantine tank can be used to watch new fish for 1–2 weeks.",
-      "source": 3
+      "fact": "Always keep a new fish in a quarantine tank for at least four weeks.",
+      "source": 7
     },
     {
       "section": "prevention",
@@ -164,7 +169,7 @@
     {
       "section": "prevention",
       "fact": "Keep aquarium lights off for the first 6–8 hours after adding new animals.",
-      "source": 4
+      "source": 3
     },
     {
       "section": "prevention",
@@ -173,13 +178,8 @@
     },
     {
       "section": "prevention",
-      "fact": "Vietnamese guide: don't feed for 24–48 hours after adding fish, then feed lightly.",
-      "source": 3
-    },
-    {
-      "section": "prevention",
       "fact": "Use a net that carries water for air-sensitive animals such as puffers, micro rasboras, mollusks and dwarf shrimp.",
-      "source": 4
+      "source": 3
     },
     {
       "section": "mistakes",
@@ -202,24 +202,17 @@
       "source": 1
     },
     {
-      "section": "mistakes",
-      "fact": "Vietnamese guide lists these mistakes: adding too many fish at once (the nitrogen cycle can crash), keeping bright lights on in the first days, feeding right after adding fish, and using a net with chemical residue.",
-      "source": 3
-    },
-    {
       "section": "vietnam",
-      "fact": "Vietnamese guide: transport bags should be about 1/3 oxygen. Get home within 1–2 hours and keep the bag out of direct sun.",
-      "source": 3
-    },
-    {
-      "section": "vietnam",
-      "fact": "For guppies, the Vietnamese guide gives an ideal 24–28 °C, daily swings of no more than 2 °C, and pH 7.0–8.0.",
-      "source": 3
+      "fact": "Fill transport bags about 1/3 water and 2/3 oxygen (Tetra; the ornamental fish trade association OATA's transport code gives 1/3 water, 2/3 oxygen or air); oxygen gas rather than air limits oxygen shortage on the way.",
+      "source": 5,
+      "also": [
+        6
+      ]
     },
     {
       "section": "other",
       "fact": "Aquatic Arts says drip acclimation is mainly needed only for saltwater animals, dwarf shrimp and very sensitive fish. For most shipped fish it uses plop and drop.",
-      "source": 4
+      "source": 3
     },
     {
       "section": "other",

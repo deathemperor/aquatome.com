@@ -17,13 +17,19 @@
     "dimorphism:seriouslyfish": "<p>Con đực có núm sinh dục nhọn, nhìn thấy được từ bên ngoài, nằm ngay trước vây hậu môn. Râu con đực cũng dài hơn hẳn. Con cái trưởng thành thường to thân hơn con đực một chút.</p>",
     "reproduction:seriouslyfish": "<p>Theo những gì được biết đến nay, chưa có ghi nhận nào về loài này sinh sản trong bể nuôi. Ngoài tự nhiên, khi mùa mưa bắt đầu, cá trưởng thành di chuyển vào những vùng ngập tạm thời để sinh sản.</p>",
     "notes:seriouslyfish": "<p>Tên thông thường 'lancer' (người cầm thương) xuất phát từ chiếc gai vây lưng kéo dài mà một số loài trong chi này có. Hiện chi này có 7 loài.</p><p>Trong số đó, B. majusculus giống B. macracanthus và B. vaillantii nhất. Có thể phân biệt nó với cả hai loài kia nhờ gai vây ngực dài hơn (dài 15,8 - 20,7 % SL so với 11,5 - 16,2 %). So với B. macracanthus, B. majusculus có vây mỡ lớn hơn (chiều dài gốc 46,0 - 50,7 % SL so với 38,8 - 45,8 %) và cuống đuôi cao hơn (cao 7,1 - 7,5 % SL so với 5,6 - 7,0 %). So với B. vaillantii, B. majusculus có gai vây lưng dài hơn (dài 24,4 - 32,5 % SL so với 18,2 - 21,9 %), đầu thấp hơn (cao 14,0 - 16,1 % SL so với 16,2 - 19,0 %) và vây mỡ cao hơn (cao 9,9 - 10,5 % SL so với 8,2 - 9,5 %).</p>",
-    "references:seriouslyfish": "<ul><li>Ng, H. H. (2002). Bagrichthys majusculus, a new catfish from Indochina (Teleostei, Bagridae). Folia Zoologica 51(1), 49-54</li><li>Linder, R. S. and H. H. Ng (2002). Notes on the Lancers of the Genus Bagrichthys (Teleostei, Bagridae) Cat Chat: The Official Journal of The Catfish Study Group 3(3)</li></ul>"
+    "references:seriouslyfish": "<ul><li>Ng, H. H. (2002). Bagrichthys majusculus, a new catfish from Indochina (Teleostei, Bagridae). Folia Zoologica 51(1), 49-54</li><li>Linder, R. S. and H. H. Ng (2002). Notes on the Lancers of the Genus Bagrichthys (Teleostei, Bagridae) Cat Chat: The Official Journal of The Catfish Study Group 3(3)</li></ul>",
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Bagrichthys majusculus Ng, 2002</li><li>Danh sách đỏ IUCN: Thiếu dữ liệu (đánh giá lần cuối năm 2011)</li><li>Sinh sản: chưa có thông tin</li></ul>",
+    "distribution:planetcatfish": "<p>Châu Á: Thái Lan. Loài này sống ở các lưu vực sông Chao Phraya, Mekong và Bang Pakong. Nơi thu mẫu chuẩn là sông Mun ở Ban Dan, cách chỗ sông Mun đổ vào sông Mekong 3 km về phía thượng nguồn, thuộc huyện Khong Chiam, tỉnh Ubon Ratchathani, Thái Lan.</p>",
+    "habitat:planetcatfish": "<p>Các loài trong chi Bagrichthys Bleeker, 1858 sống ở những con sông lớn, nước nhiều bùn, khắp Đông Nam Á.</p>",
+    "notes:planetcatfish": "<p>Bagrichthys là một nhóm cá lăng (họ Bagridae) chuyên hóa cao, có hình dáng khác thường. Nhận ra chúng qua mấy đặc điểm sau: cuống đuôi dài và dẹp hai bên, mép sau gai vây lưng có răng cưa chĩa lên trên, hai màng mang dính liền nhau nhưng không dính vào eo họng, và vây mỡ dài, không có mép sau tách rời (Roberts, 1989).</p>",
+    "references:planetcatfish": "<p>Folia Zoologica: international journal of vertebrate zoology. v. 51 (no. 1), pp 50, Fig. 1.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "planetcatfish": 0.9
     }
   }
 }

@@ -24,8 +24,6 @@
   "inat:474934773"
  ],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/27da63b43eec347a.webp": "130bc65c0c0c05c1",
-  "https://media.aquatome.com/seriouslyfish/5703b90f15e5d9a5.webp": "2f6d4d464626065c",
   "https://media.aquatome.com/seriouslyfish/d98dc9602701b00e.webp": "4f65f9bc381e1e7b",
   "https://media.aquatome.com/seriouslyfish/6afa3121fe256851.webp": "4b4dc7656381730f",
   "https://media.aquatome.com/inaturalist/229120093.webp": "33260589b5351344",
@@ -42,5 +40,9 @@
    "research": 405433923,
    "agree": 378006253
   }
+ },
+ "gbif": {
+  "key": 2368319,
+  "next": null
  }
 }

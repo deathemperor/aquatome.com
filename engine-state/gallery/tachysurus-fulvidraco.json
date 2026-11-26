@@ -7,11 +7,32 @@
   "File:Косатка-скрипун в аквариуме ф6.JPG",
   "File:Tachysurus fulvidraco from the Lake Khanka.jpg",
   "File:Yellow Catfish (35).jpg",
-  "File:Frozen fresh yellow catfish.jpg"
+  "File:Frozen fresh yellow catfish.jpg",
+  "inat:2781781",
+  "inat:57898262",
+  "inat:364397324",
+  "inat:674326818",
+  "inat:599807661",
+  "inat:691309836",
+  "inat:691310026"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/e82c80197a54a588.webp": "fd2d2d2d0d47f5f4",
-  "https://media.aquatome.com/commons/3035dbd21646032f.webp": "4ba7f19ac8b96c08"
+  "https://media.aquatome.com/commons/3035dbd21646032f.webp": "4ba7f19ac8b96c08",
+  "https://media.aquatome.com/inaturalist/674326818.webp": "f8f8f4f2e387864c",
+  "https://media.aquatome.com/inaturalist/691309836.webp": "0f0f0f9ad2323ae0"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 609036,
+  "pass": "done",
+  "after": {
+   "research": 369171182,
+   "agree": 390629536
+  }
+ },
+ "gbif": {
+  "key": 6168091,
+  "next": null
+ }
 }

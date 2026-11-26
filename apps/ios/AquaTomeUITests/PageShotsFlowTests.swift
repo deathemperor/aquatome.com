@@ -4,7 +4,8 @@ import XCTest
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant,
 /// a guide, a video series and a kind of kit, in light, the fish and the kit in dark too, the fish's top at a large text
 /// size, and a guide's video playing in its page (the stand-in player); the fish-ID screen with its guesses, light and
-/// dark; photos as stand-ins (`-fixed-pictures`). Also the Tài khoản sheet with the ways to sign in, in light and in
+/// dark; the chat, empty, waiting and answered with one of each kind of block, light, dark and at the largest text; photos
+/// as stand-ins (`-fixed-pictures`). Also the Tài khoản sheet with the ways to sign in, in light and in
 /// dark, on a new phone. And a search's results under the kinds it finds, light and dark, at the default and the
 /// largest text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the app's
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
@@ -16,7 +17,7 @@ import XCTest
 /// day's page and Khám phá, light, dark and at the largest text, and in Malay. The lights tab top to
 /// bottom (its Week Aqua row on the first screen) and the Week Aqua screen with the simulator's group connected
 /// (`-fake-weekaqua`), in v2, light and dark.
-/// Each checks only that its screen opened:
+/// Each checks only that its screen opened (the chat's parity shot also measures "Thu gọn", as its section flow does):
 /// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
@@ -90,6 +91,74 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheAccountSignedIn() { shootAccount("account-light") }
   func testTheAccountSignedInInTheDark() { shootAccount("account-dark", dark: true) }
   func testTheAccountSignedInInTheLargestText() { shootAccount("account-largest-light", size: largest) }
+  func testTheChat() { shootChat("chat-light") }
+  func testTheChatInTheDark() { shootChat("chat-dark", dark: true) }
+  func testTheChatInTheLargestText() { shootChat("chat-largest-light", size: largest) }
+  /// For Design's parity (Báo sai, 16 Nov), the mock's five states (docs/design/img/chat-report.webp): "Báo sai" under a
+  /// finished answer, after its cards; its sheet empty; the mock's reason typed; sending; the answer once reported.
+  func testTheReport() { shootReport("chat-report-light") }
+  func testTheReportInTheDark() { shootReport("chat-report-dark", dark: true) }
+  func testTheReportInTheLargestText() { shootReport("chat-report-largest-light", size: largest) }
+  /// For Design's parity (15 Nov): a species card's page and iOS's back to the chat, where it was left; then a long section
+  /// opened, its "Thu gọn" in view and measured. v2, light.
+  func testTheChatsOpenSectionAndBackFromACardsPage() {
+    let app = launch(dark: false, size: nil, ["-fake-accounts", "on", "-reset-fake-server", "-chat-blocks"], look: .v2)
+    let tabs = app.tabBars.buttons
+    XCTAssertTrue(tabs.firstMatch.waitForExistence(timeout: 10), "no tabs")
+    tabs.element(boundBy: tabs.count - 1).tap()
+    open(app, "ca neon", "Cá neon")
+    let entry = app.scrolledDown(to: app.descendants(matching: .any)["chat-entry"].firstMatch)
+    entry.tap()
+    let sign = app.descendants(matching: .any)["apple-sign-in"].firstMatch
+    XCTAssertTrue(sign.waitForExistence(timeout: 5), "no sign-in")
+    sign.tap()
+    let chip = app.buttons.matching(identifier: "chat-chip").firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 10), "no starters")
+    chip.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["chat-answer"].firstMatch.waitForExistence(timeout: 60), "no whole answer")
+    func shot(_ what: String) {
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = "shot-chat-parity-\(what)"
+      a.lifetime = .keepAlways
+      add(a)
+    }
+    // As ChatFlowTests' `reveal`: fast drags until it's on screen and clear of the box. A slow scroll stopped short of the
+    // section, which sits under the species cards and the comparison (15 Nov 12:32).
+    let box = app.descendants(matching: .any)["chat-box"].firstMatch
+    func reveal(_ e: XCUIElement) {
+      func clear() -> Bool { e.exists && e.isHittable && (!box.exists || e.frame.midY < box.frame.minY - 16) }
+      repeatUntil(clear(), times: 12) {
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
+          .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.4)), withVelocity: .fast,
+                 thenHoldForDuration: 0.1)
+      }
+      XCTAssertTrue(clear(), "\(e) not found, or behind the box")
+    }
+    // The species card comes first in the answer: its page, and back to the chat.
+    let page = app.buttons.matching(identifier: "chat-card-open").firstMatch
+    reveal(page)
+    shot("01-before-the-page")
+    page.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 10), "the card's page didn't open")
+    app.leavePage()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForNonExistence(timeout: 5), "the card's page stayed")
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "not back in the chat")
+    shot("02-back-in-the-chat")
+    // Then the long section, below the comparison: opened, with its "Thu gọn" in view and measured.
+    let section = app.descendants(matching: .any)["chat-section"].firstMatch
+    reveal(section)
+    section.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+    let close = app.buttons["Thu gọn"]
+    XCTAssertTrue(close.waitForExistence(timeout: 5), "the section didn't open")
+    reveal(close)
+    shot("03-section-open")
+    let size = XCTAttachment(string: "Thu gọn: \(close.frame.width) × \(close.frame.height) pt at \(close.frame.minX), \(close.frame.minY)")
+    size.name = "chat-parity-thu-gon-frame"
+    size.lifetime = .keepAlways
+    add(size)
+    XCTAssertGreaterThanOrEqual(heightOnPixels(close), 44, "Thu gọn under 44 pt")
+  }
   func testFishId() { shootFishId("fish-id-light") }
   func testFishIdInTheDark() { shootFishId("fish-id-dark", dark: true) }
   func testAKindOfKit() { shoot("kit-light", "loc", "Lọc", more: ["-equipment"]) }
@@ -109,10 +178,18 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheTabBarOverTextInTheDark() { shootTabBar("tab-bar-text-dark", overText: true, dark: true) }
   func testTheTabBarOverPhotos() { shootTabBar("tab-bar-photos-light", overText: false) }
   func testTheTabBarOverPhotosInTheDark() { shootTabBar("tab-bar-photos-dark", overText: false, dark: true) }
+  // v2's glass bar over a page's text, a page from each of the five tabs (the owner's report of 15 Nov).
+  func testTheBarOverAPagesTextFromEachTab() { shootBarOverText("bar-text-light") }
+  func testTheBarOverAPagesTextFromEachTabInTheDark() { shootBarOverText("bar-text-dark", dark: true) }
   func testV2() { shootV2("v2-light") }
   func testV2InTheDark() { shootV2("v2-dark", dark: true) }
   func testV2InTheLargestText() { shootV2("v2-largest-light", size: largest) }
   func testV2InMalayInTheDarkAtTheLargestText() { shootV2("v2-ms-largest-dark", dark: true, size: largest, lang: ("ms", "ms_MY", "Teroka")) }
+  // The big titles, the headers and Khám phá's chips (spec-titles.md, spec-chips.md), for Design's parity.
+  func testTheTitles() { shootTitles("titles-light") }
+  func testTheTitlesInTheDark() { shootTitles("titles-dark", dark: true) }
+  func testTheTitlesInTheLargestText() { shootTitles("titles-largest-light", size: largest) }
+  func testTheTitlesInTheLargestTextInTheDark() { shootTitles("titles-largest-dark", dark: true, size: largest) }
 
   // Three to a page (`-search-page`), so "Xem thêm kết quả" shows on the first screen, as it does under 200 rows.
   func testASearchFindingMoreThanItLists() { shootSearch("search-more-light", more: ["-search-page", "3"]) }
@@ -218,6 +295,60 @@ final class PageShotsFlowTests: XCTestCase {
     capture(app, name, dark: dark, large: true, screens: 6)
   }
 
+  /// v2's glass tab bar over a page's text (the owner's report of 15 Nov: the fiddler crab's page, opened from Tìm, had its
+  /// summary under the bar, bent by the glass): a page opened from each of the five tabs, each scrolled until its text
+  /// reaches the bar. Hôm nay's fish of the day, Khám phá's first guide, Bể của tôi's tank, the Đèn tab itself, and the
+  /// neon's page from a search. A shot where a page didn't open shows where it stopped, for the shots to say so.
+  private func shootBarOverText(_ name: String, dark: Bool = false) {
+    let app = launch(dark: dark, size: nil, ["-seed-tanks", "life"], look: .v2)
+    var n = 0
+    func shot(_ tab: String) {
+      // Up most of a screen twice, slowly: the page's text under the bar, not flung past it.
+      for _ in 0..<2 {
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8))
+          .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .slow,
+                 thenHoldForDuration: 0.3)
+      }
+      n += 1
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-%@-%02d-%@", name, n, tab)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+    let page = app.descendants(matching: .any)["v2-species"]
+    let fish = app.buttons["v2-fish-of-the-day"]
+    if fish.waitForExistence(timeout: 10) {
+      fish.tap()
+      _ = page.waitForExistence(timeout: 5)
+    }
+    shot("hom-nay")
+    app.openTab("Khám phá")
+    let guide = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch
+    if app.scrolledDown(to: guide).exists { guide.tap() }
+    shot("kham-pha")
+    app.openTab("Bể của tôi")
+    let tank = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Bể cá neon")).firstMatch
+    if tank.waitForExistence(timeout: 5) { tank.tap() }
+    shot("be-cua-toi")
+    app.openTab("Đèn")
+    shot("den")
+    // Tìm kiếm, the search tab: the last.
+    let tabs = app.tabBars.buttons
+    tabs.element(boundBy: tabs.count - 1).tap()
+    let field = app.searchFields.firstMatch
+    if field.waitForExistence(timeout: 5) {
+      field.tap()
+      field.typeText("ca neon")
+      let row = app.descendants(matching: .any).matching(identifier: "item").firstMatch
+      if row.waitForExistence(timeout: 5) {
+        row.tap()
+        _ = page.waitForExistence(timeout: 5)
+      }
+    }
+    shot("tim-kiem")
+  }
+
   /// What's new (`-whats-new`): its row at the end of the Tìm home, then the list it opens.
   private func shootWhatsNew(_ name: String, dark: Bool = false) {
     let app = XCUIApplication()
@@ -269,8 +400,74 @@ final class PageShotsFlowTests: XCTestCase {
     app.swipeUp()
     shot()
     app.openTab(lang.khamPha)
-    XCTAssertTrue(app.navigationBars[lang.khamPha].waitForExistence(timeout: 5), "no Khám phá")
+    // Its title is the page's own, with no bar over it (spec-titles.md).
+    XCTAssertTrue(app.scrollViews.staticTexts[lang.khamPha].firstMatch.waitForExistence(timeout: 5), "no Khám phá")
     shot()
+  }
+
+  /// Every tab at rest and scrolled, Khám phá's chips, and two groups' pages, each at rest and scrolled. On the site's own
+  /// index where the runner's `SHOT_INDEX` names its file (`TEST_RUNNER_SHOT_INDEX`): Ali's and Cá chuột's pages, as
+  /// Design asked; else the fixed one's Tetra and Cá nhỏ.
+  private func shootTitles(_ name: String, dark: Bool = false, size: String? = nil) {
+    let live = ProcessInfo.processInfo.environment["SHOT_INDEX"]
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults"]
+      + (live.map { ["-index-file", $0] } ?? ["-fixed-handbook", "-fixed-pictures"])
+      + (dark ? ["-dark"] : []) + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? [])
+    app.launchForFlow(.v2)
+    var n = 0
+    func shot() {
+      n += 1
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+    func atRestAndScrolled() {
+      shot()
+      app.swipeUp()
+      shot()
+      app.swipeDown()
+      app.swipeDown()
+    }
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no Hôm nay")
+    atRestAndScrolled()
+    app.openTab("Khám phá")
+    let chips = app.buttons.matching(identifier: "v2-chip")
+    XCTAssertTrue(chips.firstMatch.waitForExistence(timeout: 10), "no chips on Khám phá")
+    atRestAndScrolled()
+    for group in live == nil ? ["Tetra", "Cá nhỏ"] : ["Ali", "Cá chuột"] {
+      guard let chip = chipInView(app, group) else { XCTFail("no \(group) chip"); continue }
+      chip.tap()
+      XCTAssertTrue(app.descendants(matching: .any)["v2-chip-page"].waitForExistence(timeout: 5), "\(group)'s page didn't open")
+      atRestAndScrolled()
+      app.leavePage()
+    }
+    // The search tab last: on iOS 26.5 (CI's) its field takes the tab bar's place, and the other tabs aren't buttons there.
+    for tab in ["Bể của tôi", "Đèn", "Tìm kiếm"] {
+      app.openTab(tab)
+      atRestAndScrolled()
+    }
+  }
+
+  /// Khám phá's chip for `group`, its row dragged until the chip is whole on screen, by as much as it lies past the edge
+  /// (at the largest text the live row is about 6,000 points long, and Cá chuột its 16th). Whole before it's asked
+  /// whether it can be tapped: asked of a chip off the screen, XCUITest fails the test.
+  private func chipInView(_ app: XCUIApplication, _ group: String) -> XCUIElement? {
+    let chips = app.buttons.matching(identifier: "v2-chip")
+    let chip = chips.matching(NSPredicate(format: "label BEGINSWITH %@", group + ",")).firstMatch
+    guard chip.waitForExistence(timeout: 5) else { return nil }
+    let w = app.frame.width, y = chips.firstMatch.frame.midY, o = app.coordinate(withNormalizedOffset: .zero)
+    for _ in 0..<30 {
+      let f = chip.frame
+      if f.minX >= 0 && f.maxX <= w { return chip.isHittable ? chip : nil }
+      let dx = f.maxX > w ? -min(f.maxX - w + 24, w * 0.7) : min(24 - f.minX, w * 0.7)
+      let x = dx < 0 ? w * 0.85 : w * 0.15
+      o.withOffset(CGVector(dx: x, dy: y))
+        .press(forDuration: 0.05, thenDragTo: o.withOffset(CGVector(dx: x + dx, dy: y)), withVelocity: .slow, thenHoldForDuration: 0.2)
+    }
+    return nil
   }
 
   /// Tìm's first screen: its tools, fish ID's card leading them, then their tiles (at the largest text, the next screen
@@ -391,6 +588,91 @@ final class PageShotsFlowTests: XCTestCase {
     // From the top: the screen scrolls to the guesses when they come.
     for _ in 0..<4 { app.swipeDown() }
     capture(app, name, dark: dark, large: false, screens: 8)
+  }
+
+  /// The neon's chat: empty with its starters, the wait with its steps, then a whole answer with one of each kind of block,
+  /// from its top.
+  private func shootChat(_ name: String, dark: Bool = false, size: String? = nil) {
+    let app = launch(dark: dark, size: size, ["-fake-accounts", "on", "-reset-fake-server", "-chat-slow", "-chat-blocks"])
+    open(app, "ca neon", "Cá neon")
+    let entry = app.descendants(matching: .any)["chat-entry"].firstMatch
+    // Up until its middle, where the tap lands, is clear of the tab bar: XCUITest calls it hittable once its middle is in
+    // the window, and at the largest text the button is tall. On the split's run (17 Nov) it stopped with its top at
+    // 786 pt, the tab bar from 791: the tap landed on the tab bar and opened nothing, on both tries.
+    let bar = app.tabBars.firstMatch
+    repeatUntil(entry.exists && entry.isHittable && entry.frame.midY < (bar.exists ? bar.frame.minY : app.windows.firstMatch.frame.maxY) - 8,
+                times: 12) { app.swipeUp() }
+    entry.tap()
+    let sign = app.descendants(matching: .any)["apple-sign-in"].firstMatch
+    XCTAssertTrue(sign.waitForExistence(timeout: 5), "no sign-in")
+    sign.tap()
+    let chip = app.buttons.matching(identifier: "chat-chip").firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 10), "no starters")
+    capture(app, name + "-empty", dark: dark, large: true, screens: 1)
+    chip.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["chat-step"].firstMatch.waitForExistence(timeout: 10), "no wait")
+    capture(app, name + "-wait", dark: dark, large: true, screens: 1)
+    XCTAssertTrue(app.descendants(matching: .any)["chat-answer"].firstMatch.waitForExistence(timeout: 60), "no whole answer")
+    // Its blocks too: they come after the text.
+    let tool = app.buttons.matching(identifier: "chat-tool").element(boundBy: 1)
+    XCTAssertTrue(tool.waitForExistence(timeout: 30), "no blocks")
+    for _ in 0..<4 { app.swipeDown() }
+    capture(app, name + "-answer", dark: dark, large: size != nil, screens: size == nil ? 16 : 20)
+  }
+
+  private func shootReport(_ name: String, dark: Bool = false, size: String? = nil) {
+    // `-chat-report-slow`: the fake server holds a report 6 s, so "Đang gửi…" can be shot.
+    let app = launch(dark: dark, size: size, ["-fake-accounts", "on", "-reset-fake-server", "-chat-blocks", "-chat-report-slow"])
+    open(app, "ca neon", "Cá neon")
+    let entry = app.descendants(matching: .any)["chat-entry"].firstMatch
+    repeatUntil(entry.exists && entry.isHittable, times: 12) { app.swipeUp() }
+    entry.tap()
+    let sign = app.descendants(matching: .any)["apple-sign-in"].firstMatch
+    XCTAssertTrue(sign.waitForExistence(timeout: 5), "no sign-in")
+    sign.tap()
+    let chip = app.buttons.matching(identifier: "chat-chip").firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 10), "no starters")
+    chip.tap()
+    let report = app.buttons["chat-report"]
+    XCTAssertTrue(report.waitForExistence(timeout: 60), "no Báo sai under the answer")
+    // As the chat's flows: fast drags until it's on screen and clear of the box.
+    let box = app.descendants(matching: .any)["chat-box"].firstMatch
+    func clear() -> Bool { report.exists && report.isHittable && (!box.exists || report.frame.midY < box.frame.minY - 16) }
+    repeatUntil(clear(), times: 20) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.4)), withVelocity: .fast,
+               thenHoldForDuration: 0.1)
+    }
+    XCTAssertTrue(clear(), "Báo sai behind the box")
+    still(name + "-under", dark: dark)
+    report.tap()
+    let reason = app.descendants(matching: .any)["chat-report-reason"].firstMatch
+    XCTAssertTrue(reason.waitForExistence(timeout: 5), "no sheet")
+    still(name + "-sheet", dark: dark)
+    reason.tap()
+    reason.typeText("Bể 60 cm là 54 lít, không phải 60 lít")
+    still(name + "-typed", dark: dark)
+    let send = app.buttons["chat-report-send"]
+    send.tap()
+    let sending = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == %@", "Đang gửi…"), object: send)
+    XCTAssertEqual(XCTWaiter().wait(for: [sending], timeout: 2), .completed, "no Đang gửi…: \(send.label)")
+    still(name + "-sending", dark: dark)
+    // Still sending once shot: a late shot of "Đã báo" would pass as this one.
+    XCTAssertEqual(send.label, "Đang gửi…", "the sending shot came too late")
+    XCTAssertTrue(app.descendants(matching: .any)["chat-reported"].firstMatch.waitForExistence(timeout: 8), "not reported")
+    still(name + "-sent", dark: dark)
+  }
+
+  /// One screen as it is, not scrolled after (`capture` drags after each shot, which would move the sheet, type on the
+  /// keyboard or scroll the answer before the next tap), in the appearance asked for.
+  private func still(_ name: String, dark: Bool) {
+    settle()
+    let shot = XCUIScreen.main.screenshot()
+    XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))")
+    let a = XCTAttachment(screenshot: shot)
+    a.name = "shot-\(name)-01"
+    a.lifetime = .keepAlways
+    add(a)
   }
 
   /// The handbook's row for `row`, found by `query`, opened.

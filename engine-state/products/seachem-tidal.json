@@ -1,0 +1,380 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Type",
+      "value": "Hang-on-back (lọc thác/lọc treo) power filter with a self-priming pump",
+      "source": 1
+    },
+    {
+      "key": "Flow rate",
+      "value": "130–450 US GPH (500–2000 L/H), depending on model",
+      "source": 0
+    },
+    {
+      "key": "Power",
+      "value": "6–12 W at 120 V/60 Hz; 5–10 W at 230 V/50 Hz",
+      "source": 0
+    },
+    {
+      "key": "Tank size",
+      "value": "Up to 35, 55, 75 or 110 US gal (130/200/300/400 L)",
+      "source": 0
+    },
+    {
+      "key": "Flow adjustment",
+      "value": "Adjustable, e.g. Tidal 110 goes from about 450 down to 90 GPH",
+      "source": 1
+    },
+    {
+      "key": "Impeller",
+      "value": "Self-cleaning and corrosion-resistant, on a shaft made of corrosion-resistant metal; for freshwater and saltwater",
+      "source": 1
+    },
+    {
+      "key": "Warranty",
+      "value": "3 years against material and workmanship defects (impeller excluded), extended to 5 years if registered",
+      "source": 1
+    },
+    {
+      "key": "Warranty (Vietnam distributor)",
+      "value": "3 years with a warranty card, from the official Seachem Vietnam distributor",
+      "source": 2
+    },
+    {
+      "key": "Manufacturer",
+      "value": "Made for Seachem by Sicce (Italy)",
+      "source": 4
+    }
+  ],
+  "variants": [
+    {
+      "name": "Tidal 35",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "130 US GPH (500 L/H)",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "6 W (120 V) / 5 W (230 V)",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "Up to 35 US gal (130 L)",
+          "source": 0
+        },
+        {
+          "key": "Filter volume",
+          "value": "0.7 L",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "15.5 × 13 × 18 cm",
+          "source": 0
+        },
+        {
+          "key": "Back clearance",
+          "value": "7 cm",
+          "source": 0
+        },
+        {
+          "key": "Note",
+          "value": "No dual intake, no telescoping intake, no heater holder",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Tidal 55",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "250 US GPH (1000 L/H)",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "6 W (120 V) / 5 W (230 V)",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "Up to 55 US gal (200 L)",
+          "source": 0
+        },
+        {
+          "key": "Filter volume",
+          "value": "1.2 L",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "20.5 × 15.5 × 21.4 cm",
+          "source": 0
+        },
+        {
+          "key": "Back clearance",
+          "value": "7.5 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Tidal 75",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "350 US GPH (1500 L/H)",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "8 W (120 V) / 7 W (230 V)",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "Up to 75 US gal (300 L)",
+          "source": 0
+        },
+        {
+          "key": "Filter volume",
+          "value": "1.9 L",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "23.4 × 17.8 × 24.2 cm",
+          "source": 0
+        },
+        {
+          "key": "Back clearance",
+          "value": "8.5 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Tidal 110",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "450 US GPH (2000 L/H)",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "12 W (120 V) / 10 W (230 V)",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "Up to 110 US gal (400 L)",
+          "source": 0
+        },
+        {
+          "key": "Filter volume",
+          "value": "3.2 L",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "29.5 × 19.2 × 24.2 cm",
+          "source": 0
+        },
+        {
+          "key": "Back clearance",
+          "value": "9.5 cm",
+          "source": 0
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Green Deal",
+      "url": "https://www.greendeal.vn/seachem-power-filter-tidal-35",
+      "variant": "Tidal 35",
+      "vnd": 1400000,
+      "source": 2
+    },
+    {
+      "shop": "Brothers Concept",
+      "url": "https://brothersconcept.vn/tidal-loc-treo",
+      "variant": "Tidal 55 (listed as out of stock)",
+      "vnd": 1100000,
+      "source": 3
+    },
+    {
+      "shop": "Brothers Concept",
+      "url": "https://brothersconcept.vn/tidal-loc-treo",
+      "variant": "Tidal 75 (out of stock; the description says 1,200k)",
+      "vnd": 1300000,
+      "source": 3
+    },
+    {
+      "shop": "Brothers Concept",
+      "url": "https://brothersconcept.vn/tidal-loc-treo",
+      "variant": "Tidal 110 (price only in the description; out of stock)",
+      "vnd": 1350000,
+      "source": 3
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Works in both freshwater and saltwater tanks thanks to the corrosion-resistant impeller",
+      "source": 1
+    },
+    {
+      "fact": "The Tidal 35 suits tanks of about 130 L; the 55, 75 and 110 suit about 200, 300 and 400 L",
+      "source": 0
+    },
+    {
+      "fact": "Needs 7–9.5 cm of space behind the tank, depending on model, so check the gap to the wall",
+      "source": 0
+    },
+    {
+      "fact": "The basket is open, so the whole interior can hold whatever media you choose; it could even work as a media reactor in a reef tank",
+      "source": 4
+    },
+    {
+      "fact": "Vietnamese shops say each unit comes with Seachem Matrix biomedia and a sponge",
+      "source": 3
+    },
+    {
+      "fact": "A user worried that very small fish such as neons could get pulled into the Tidal 110's intake slots, so a prefilter sponge is sensible for small fish or shrimp",
+      "source": 6
+    },
+    {
+      "fact": "Tanks covered with floating plants such as duckweed can clog the surface skimmer",
+      "source": 5
+    }
+  ],
+  "usage": [
+    {
+      "fact": "The pump primes itself: you don't need to fill the basket or start a siphon, and it restarts on its own after a power cut",
+      "source": 1
+    },
+    {
+      "fact": "Keep the water above the minimum line marked on the filter, or the pump will stop",
+      "source": 1
+    },
+    {
+      "fact": "A leveling dial lets you set the filter level on uneven tank rims",
+      "source": 1
+    },
+    {
+      "fact": "When the media clogs, water goes out a side outlet and a blue indicator rises on top, which tells you it's time to clean",
+      "source": 1
+    },
+    {
+      "fact": "The 55, 75 and 110 have a telescoping intake and adjustable surface/sub-surface intake; you can change the intake depth without turning the filter off",
+      "source": 1
+    },
+    {
+      "fact": "The basket lifts out without dripping, which makes rinsing the media easier",
+      "source": 1
+    },
+    {
+      "fact": "If the filter stops: unplug it, take out the pump and impeller, and rinse both; keep the original impeller for any warranty claim",
+      "source": 5
+    },
+    {
+      "fact": "Clean the prefilter sponge and impeller often; a dirty sponge or impeller is a common cause of noise",
+      "source": 5
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Some owners report impeller rattling; one fixed it by lightly sanding the impeller, and another by cleaning the impeller and filter",
+      "source": 5
+    },
+    {
+      "fact": "Some Tidal 110 owners stayed noisy even after a warranty motor and impeller replacement or silicone lubrication",
+      "source": 5
+    },
+    {
+      "fact": "On one Tidal 75, the skimmer kept sucking in duckweed and blocking the filter every few minutes",
+      "source": 5
+    },
+    {
+      "fact": "Others report their Tidal 75s running quietly with little maintenance for more than a year",
+      "source": 5
+    },
+    {
+      "fact": "Seachem's support page says the impeller is only covered for 6 months, unlike the 3-year warranty on the rest of the filter",
+      "source": 5
+    },
+    {
+      "fact": "Version differences: the Tidal 35 lacks the dual intake, telescoping intake and heater holder that the larger models have",
+      "source": 1
+    },
+    {
+      "fact": "Some Vietnamese shop pages list incorrect specs (for example, Tidal 35 at 1300 L/h or Tidal 110 at 4000 L/h/16 W); trust Seachem's figures instead",
+      "source": 7
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Fluval",
+      "model": "AquaClear 30/50/70/110",
+      "why": "A classic hang-on filter with a large media basket and easy-to-find spare parts. It's often cheaper but needs priming, and it has no surface skimmer or clog indicator."
+    },
+    {
+      "brand": "Sicce",
+      "model": "Tidal (Sicce version)",
+      "why": "Made in the same Sicce factory with the same design. It may cost differently depending on the distributor in Vietnam."
+    },
+    {
+      "brand": "SunSun",
+      "model": "HBL series hang-on filters",
+      "why": "Much cheaper and easy to find in Vietnam, for those on a budget, though build quality and quietness are weaker than the Tidal."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.seachem.com/tidal-compare.php",
+      "title": "Seachem – Tidal Compare Models",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://seachem.com/tidal-filters.php",
+      "title": "Seachem – Tidal Power Filters",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.greendeal.vn/seachem-power-filter-tidal-35",
+      "title": "Green Deal – SEACHEM Filter Tidal 35",
+      "kind": "shop"
+    },
+    {
+      "url": "https://brothersconcept.vn/tidal-loc-treo",
+      "title": "Brothers Concept – TIDAL LỌC TREO",
+      "kind": "shop"
+    },
+    {
+      "url": "https://reefbuilders.com/2016/05/27/seachem-tidal-power-filter-made-by-sicce",
+      "title": "Reef Builders – Seachem Tidal power filter made by Sicce",
+      "kind": "review"
+    },
+    {
+      "url": "https://seachem.zendesk.com/hc/en-us/articles/360022350234-FAQ-My-Tidal-Filter-stopped-working-What-do-I-do",
+      "title": "Seachem Support – My Tidal Filter stopped working (plus forum reports on noise and clogging from search results)",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://forum.aquariumcoop.com/topic/8016-anyone-experienced-with-seachem-tidal-hob-filters-5575110/",
+      "title": "Aquarium Co-Op Forum – Experiences with Seachem Tidal 55/75/110",
+      "kind": "forum"
+    },
+    {
+      "url": "https://thuysinhaqua.com/san-pham/loc-thac-cao-cap-cua-seachem-tidal-35-tidal-55-tidal-75-va-tidal-110/",
+      "title": "Thủy Sinh Aqua – Lọc thác Seachem Tidal 35/55/75/110",
+      "kind": "shop"
+    }
+  ]
+}

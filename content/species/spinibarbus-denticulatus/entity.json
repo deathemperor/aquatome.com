@@ -10,6 +10,76 @@
     "china",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This large barb originates from the south of China and the north of Vietnam.",
+          "countries": [
+            "CN",
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2365468,
+      "total": 27,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "VN",
+          22
+        ],
+        [
+          "CN",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          37.96875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          15.46875,
+          20,
+          20
+        ],
+        [
+          105.46875,
+          22.5,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -56,7 +126,19 @@
       "html": "<p>The usual length of the fish is up to 40 cm, at which they weigh about 1.5 kg. However, the largest S. denticulatus captured so far weighed about 30 kg. It is one of the most important food fishes for aquaculture in its native range, as it grows fast and has a high tolerance regarding water temperature. It has potential use as an aquarium or garden pond fish.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/268677705.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/268677705-480.webp",
+      "width": 1000,
+      "height": 665,
+      "licence": "CC BY-NC",
+      "author": "batworker",
+      "sourceUrl": "https://www.inaturalist.org/photos/268677705",
+      "caption": "Cá măng đá nổi gần mặt nước, nhìn nghiêng",
+      "setup": false
+    }
+  ],
   "videos": [
     {
       "youtubeId": "XTgNcbdpo9g",

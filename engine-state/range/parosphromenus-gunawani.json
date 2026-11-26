@@ -1,0 +1,33 @@
+{
+  "id": "parosphromenus-gunawani",
+  "native": {
+    "input": "0dc3b02874f706f2",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "glaser",
+        "quote": "Parosphromenus gunawani comes from the island of Sumatra, from the province of Jambi.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parosphromenus gunawani",
+    "status": "ACCEPTED",
+    "taxonKey": 8413148,
+    "datasets": [],
+    "native": [],
+    "requests": 2,
+    "at": "2026-11-21T19:07:52.042Z"
+  }
+}

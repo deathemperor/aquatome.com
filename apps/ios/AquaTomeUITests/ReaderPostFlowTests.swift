@@ -366,8 +366,10 @@ final class ReaderPostFlowTests: XCTestCase {
     thanks.buttons["Đóng"].tap()
   }
 
+  /// Gone within 10 s: on a loaded GitHub Mac one look for a comment took 4 s, twice, and 5 s ran out on its first look
+  /// (#1502's run, 17 Nov), though hiding is at once (ReaderSafety's block, the page's filter on every draw).
   private func gone(_ e: XCUIElement) -> Bool {
-    XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == false"), object: e)], timeout: 5) == .completed
+    XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == false"), object: e)], timeout: 10) == .completed
   }
 
   private func openNeon(_ app: XCUIApplication) {

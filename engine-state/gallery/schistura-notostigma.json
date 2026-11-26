@@ -1,8 +1,41 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:58771103",
+  "inat:58771262",
+  "inat:58771240",
+  "inat:58771249",
+  "inat:58771306",
+  "inat:58771302",
+  "inat:58773036",
+  "inat:58773045",
+  "inat:265166281",
+  "inat:265166288",
+  "inat:265166303",
+  "inat:463232001",
+  "inat:463232013"
+ ],
  "hashes": {
-  "https://media.aquatome.com/commons/0d6563b2daf6f511.webp": "365258d03493268d"
+  "https://media.aquatome.com/commons/0d6563b2daf6f511.webp": "365258d03493268d",
+  "https://media.aquatome.com/inaturalist/58771103.webp": "3832c7b059642603",
+  "https://media.aquatome.com/inaturalist/58771240.webp": "0b0b6272689c9776",
+  "https://media.aquatome.com/inaturalist/58771302.webp": "121a33d2b0127260",
+  "https://media.aquatome.com/inaturalist/58771262.webp": "cc2d84661cce1f56",
+  "https://media.aquatome.com/inaturalist/58771306.webp": "078c1d99f0c6174d",
+  "https://media.aquatome.com/inaturalist/58773036.webp": "fc781bc6e3f9dcfc",
+  "https://media.aquatome.com/inaturalist/463232001.webp": "9032301c4a7c1c9a"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 618014,
+  "pass": "done",
+  "after": {
+   "research": 258204808,
+   "agree": 260257037
+  }
+ },
+ "gbif": {
+  "key": 5204924,
+  "next": null
+ }
 }

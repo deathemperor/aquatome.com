@@ -7,5 +7,17 @@
   "https://media.aquatome.com/tropica/25fa0da665570981.webp": "70e0e4d09078e020",
   "https://media.aquatome.com/tropica/f8b252660d31e57c.webp": "1a7af9f9ebdcdcee"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 706651,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 7708637,
+  "next": null
+ }
 }

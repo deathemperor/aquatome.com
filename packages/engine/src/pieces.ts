@@ -103,10 +103,12 @@ export async function piece<T>(name: string, fn: () => Promise<T>, o: { now?: ()
 
 /** CLI steps whose items check admission and record their complete cost. Both backfill commands share the worker. */
 export const WRAPPED: Record<string, string> = {
-  traits: 'traits.ts', range: 'range.ts', 'check-photos': 'photo-check.ts', 'guide-photos': 'guide-photos.ts', watermarks: 'watermarks.ts',
-  'write-ideas': 'ideas.ts', summaries: 'summaries.ts', 'rewrite-vi': 'vi-backfill.ts', 'fit-rewrite': 'fit-rewrite.ts',
+  traits: 'traits.ts', range: 'range.ts', 'check-photos': 'photo-check.ts', 'check-photos-videos': 'photo-check.ts', 'guide-photos': 'guide-photos.ts', watermarks: 'watermarks.ts',
+  'write-ideas': 'ideas.ts', magazine: 'ideas.ts', summaries: 'summaries.ts', 'rewrite-vi': 'vi-backfill.ts', 'fit-rewrite': 'fit-rewrite.ts',
   localize: 'localize.ts', 'localize-guides': 'topics.ts', reader: 'reader.ts', run: 'run.ts', videos: 'youtube.ts',
   gallery: 'gallery.ts', 'album-ask': 'album-ask.ts', 'review-backfill': 'review-backfill.ts', 'review-backfill-97': 'review-backfill.ts', material: 'materials.ts',
+  'judge-places': 'place-judge.ts', 'frame-sheet': 'frame-sheet.ts', recheck: 'localize-recheck.ts',
+  fit: 'fit.ts', 'fit-pass': 'fit.ts',
 }
 /** Steps with no engine items to check. */
 export const ONE_CALL: Record<string, string> = {
@@ -117,5 +119,10 @@ export const ONE_CALL: Record<string, string> = {
   'card-crops': 'Reserved ceiling; no engine CLI handler in this checkout.',
   'chat-board': 'Ceiling set ahead of its step; no engine CLI handler yet. When one lands, it goes on WRAPPED or here with its reason.',
   'glossary-entry': 'Ceiling set ahead of its step; no engine CLI handler yet. When one lands, it goes on WRAPPED or here with its reason.',
+  'quota-road-test': "The AI lead's end-to-end test of the board's quota road, outside the engine, on 15 Nov alone: four calls it logs itself.",
+  'video-titles-redo': 'Ceiling set ahead of its step, for 17 Nov (the video titles\' full run); its command is on feat/video-titles-r9. When it lands, it goes on WRAPPED or here with its reason.',
+  'video-titles-check': 'Ceiling set ahead of its step, for 17 Nov (the titles\' meaning check); its command is on feat/video-titles-r9. When it lands, it goes on WRAPPED or here with its reason.',
+  'species-videos': 'The fish pages\' video step, named on 21 Nov alone for FishLoft\'s hand runs: its videos are not wrapped by piece() yet, so claude.ts stops its next call at the day\'s line and a video stopped part way is tried again on the next run.',
+  'writer-evidence': 'A hand script outside the engine\'s CLI, on 19 Nov alone: about ten held video guides written again from the writer\'s new instructions and read by the check, its calls logged by claude.ts.',
 
 }

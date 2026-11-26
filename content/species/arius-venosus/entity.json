@@ -1,0 +1,219 @@
+{
+  "id": "arius-venosus",
+  "scientificName": "Arius venosus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Arius",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "mozambique-channel",
+    "asia",
+    "myanmar",
+    "china",
+    "indonesia",
+    "vietnam",
+    "mekong"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "ID"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Indo-West Pacific: Mozambique Channel to Burma (Myanmar) and southern China to Indonesia (excluding the Philippines and Australia).",
+          "countries": [
+            "CN",
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Found in the Mekong delta.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345242,
+      "total": 21,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MY",
+          13
+        ],
+        [
+          "IN",
+          5
+        ],
+        [
+          "BD",
+          1
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          71.71875,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          73.125,
+          16.875,
+          3,
+          0
+        ],
+        [
+          87.1875,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          88.59375,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          11.25,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          2,
+          0
+        ],
+        [
+          102.65625,
+          5.625,
+          8,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          118.125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          118.125,
+          5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "scotcat",
+    "quote": "It inhabits tropical marine and brackish waters in the Indo-western Pacific region, including the Mozambique Channel, Myanmar, Indonesia and southern China."
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_venosus.htm",
+      "html": "<ul><li>Described by Achille Valenciennes in 1840.</li><li>Common name: Veined catfish</li><li>Synonym: Tachysurus venosus</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_venosus.htm",
+      "html": "<p>Indo-West Pacific: Mozambique Channel to Burma (Myanmar) and southern China to Indonesia (excluding the Philippines and Australia). Found in the Mekong delta.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_venosus.htm",
+      "html": "<p>It inhabits tropical marine and brackish waters in the Indo-western Pacific region, including the Mozambique Channel, Myanmar, Indonesia and southern China. Marine; brackish; demersal; depth range 20–50 m. Tropical. It dwells at a depth range of 20 to 50 m.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_venosus.htm",
+      "html": "<p>Feeds mainly on invertebrates and small fishes.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_venosus.htm",
+      "html": "<p>It reaches a maximum total length of 30 cm, but more commonly about 19 cm TL. Etymology: the specific name venosus means veiny, referring to the vein-like latero-sensory canals. Remarks: captured mainly with bamboo traps and set bagnets.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_venosus.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2020. FishBase. www.fishbase.org (12/2020). Jayaram, K.C., 1984. Ariidae. In W. Fischer and G. Bianchi (eds.) FAO species identification sheets for fishery purposes. Western Indian Ocean fishing area 51. Vol. 1. FAO, Rome. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

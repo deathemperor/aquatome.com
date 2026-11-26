@@ -3,6 +3,12 @@
   "name": "ซังกา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:37:52.519Z",
+    "why": "Thai atlases write the Sangha region of the Republic of the Congo as \"ซังฮา\" (Sangha, with the h sounded), so \"ซังกา\" is a plausible transliteration but not the standard one, and it also lacks the kind word \"แคว้น/จังหวัด\" for a region."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

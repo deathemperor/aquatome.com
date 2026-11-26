@@ -1,0 +1,85 @@
+{
+  "id": "trichomycterus-maracaya",
+  "scientificName": "Trichomycterus maracaya",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Trichomycterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-pardo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1546",
+      "html": "<p>Common name: Margay Pencil Catfish. Maximum size: 51 mm (2 in) SL. Type locality: unnamed streamlet at the foothill of the Morro de Ferro, rio Pardo basin, Poços de Caldas, Minas Gerais State, Brazil. IUCN Red List: Least Concern (assessed 2018).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1546",
+      "html": "<p>South America: Rio Pardo drainage, upper Rio Paraná, southeastern Brazil.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1546",
+      "html": "<p>This genus takes live or frozen food, and commercial dry prepared foods are also well accepted. Be careful not to overfeed. In nature, they feed on small invertebrates living at the bottom.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1546",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1546",
+      "html": "<p>Etymology: Trichomycterus comes from the Greek trichos, meaning hair, and mykter, meaning nose, in reference to the barbels. The specific epithet \"maracaya\" (also \"mbaracaya\") is a Tupi-Guarani Amerindian name for the margay wild cat (Leopardus wiedii), an allusion both to the blotched pigmentation pattern of the species and its predatory habits on vertebrates (tadpoles).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1546",
+      "html": "<p>Neotropical Ichthyology v. 2 (no. 2), pp 63, Figs. 1-8.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "iM4wSgx8sb4",
+      "title": "Cambeva Maracajá (Trichomycterus maracaya), peixe descoberto em 2004, em seu habitat- Lambari- MG",
+      "durationSec": 292,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "nền cát cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-25"
+}

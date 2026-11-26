@@ -36,17 +36,10 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "Endemic to parts of the island of Sumatra, Indonesia.",
-          "countries": [],
-          "regions": [
-            "Sumatra"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
           "quote": "Betta raja is a mouthbrooding labyrinth fish endemic to Sumatra, Indonesia, found in the Batang Hari and Indragiri river basins.",
           "countries": [],
           "regions": [
+            "Sumatra",
             "Batang Hari",
             "Indragiri"
           ]
@@ -76,6 +69,13 @@
           "min": 22,
           "max": 27
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -102,6 +102,10 @@
       {
         "source": "seriouslyfish",
         "value": 7
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ],
     "gh": [
@@ -123,6 +127,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
@@ -140,6 +148,12 @@
       "html": "<p>Betta raja is a mouthbrooding labyrinth fish endemic to Sumatra, Indonesia, found in the Batang Hari and Indragiri river basins. Before its description it was widely misidentified as Betta fusca. It lives in lowland forest swamps with both clear and black water. Mature males of this B. pugnax complex member have very long pelvic fins and black marginal bands on the anal and lower caudal fins.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-raja-2/",
+      "html": "<p>Betta raja belongs to the closer relatives of Betta pugnax. It is a mouth-breeding Betta from Sumatra and was only scientifically described in 2005.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
@@ -150,6 +164,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-raja",
       "html": "<p>Endemic to parts of the island of Sumatra, Indonesia. The type specimens were collected from a stream named Ayer Merah which is a tributary of the Danau Souak Padang, Jambi province, and it's found throughout the lowland swamp forest formed by the Batang Hari River in Jambi.</p><p>B. raja has also been collected from various localities in Riau province (river Indragiri basin), northern Sumatra Selatan province and Sumatra Barat province, in the eastern regency of Sawahlunto Sijunjung. Populations from the different localities should ideally be labelled as such by collectors/enthusiasts in order to maintain accuracy and preserve pure bloodlines.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-raja-2/",
+      "html": "<p>So far Betta raja has been confirmed on Sumatra by the following sites: lowland swamp forests of the Batang Hari Basin in Jambi, the northern part of Sumatra Selatan, the Indragiri Basin in Riau and the eastern part of Sumatra Barat in Sijunjung.</p>"
     },
     {
       "key": "habitat",
@@ -194,6 +214,12 @@
       "html": "<ul><li>Temperature: 22–27°C</li><li>pH: values over the range 4.0–7.0 have been recorded in its natural waters.</li><li>Hardness: 0–10 dGH. Captive-bred fish have spawned in water with a value of 20 dH.</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-raja-2/",
+      "html": "<p>Betta raja are undemanding in terms of water values, except for breeding. Then you should offer soft and slightly acidic water to the mouth breeders in the male sex. The care temperature should be 24-26°C, for breeding 2-3°C warmer.</p>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
@@ -218,6 +244,12 @@
       "html": "<p>Not recommended for the standard community set-up for reasons already touched upon. Its requirements and disposition mean it's best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate and outcompete it. Some small cyprinids and loaches that inhabit similar environments in nature are compatible.</p><p>It can be maintained in a pair or group and will display some interesting behavioural interactions under the latter circumstances.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-raja-2/",
+      "html": "<p>They are peaceful, somewhat shy animals that are best kept in company with conspecifics and other calm and peaceful fish. They go down in rough company.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-anabatoides-wild-type-bettas-1",
@@ -228,6 +260,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-raja",
       "html": "<p>Males grow larger, possess a greater amount of iridescent scaling on the head, a broader head shape, and more extended fins than females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-raja-2/",
+      "html": "<p>The most reliable identification feature are the extremely long ventral fins of the males, which almost reach the caudal fin when put on. The pelvic fins are also the best distinguishing feature of the sexes, because those of the females are usually much shorter than those of the males. Additionally the males have a blue-green face mask and a wonderfully long caudal fin.</p>"
     },
     {
       "key": "reproduction",
@@ -246,6 +284,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-raja",
       "html": "<p>Prior to description this species was widely misidentified as Betta fusca. It's included in the B. pugnax complex of closely-related species within the genus, an assemblage of which members share the following set of characters: relatively large head measuring 28-40% SL; live colouration usually brown with green or blue iridescent spots; male with similarly-coloured scales on opercle, sometimes extending to abdomen; juveniles and females usually brown with two central body stripes and a dark marking on the caudal peduncle; anal-fin in mature specimens pointed and often elongated; caudal-fin lanceolate.</p><p>It should be noted that not all authors consider the B. pugnax group to contain the same species, with some placed in the B. picta complex by Schindler and Schmidt (2006), for example.</p><p>B. raja can be told apart from other members of the B. pugnax group by the following characters: mature males with very long pelvic fins covering 15-23 anal-fin rays or even longer than the base of the anal-fin in some cases; anal-fin and lower caudal-fin with black marginal bands; 25-28 anal-fin rays; 30-32 lateral scales; head length 33.9-37.4% SL; predorsal length 20.0-24.6% SL; preanal length 46.1-52.4% SL; length of body 62.8-70.7% SL.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological/behavioural characters. Molecular phylogenetic work is thus required and would undoubtedly prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth. So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-raja-2/",
+      "html": "<p>With 73 species generally regarded as valid, the genus Betta has become rather confusing and without knowledge of the origin, even specialists find it difficult to identify the species. Before its scientific description, Betta raja was often confused with Betta schalleri, described in 1994. Betta schalleri looks extremely similar, but only occurs on the relatively small island of Bangka off the coast of Sumatra. With a body length of 6-7 cm (without fins) Betta raja belongs to the medium sized Betta species.</p>"
     },
     {
       "key": "references",
@@ -291,13 +335,50 @@
       "width": 653,
       "height": 467,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Rahul Kumar / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-raja",
       "caption": "Male from the aquarium trade: population unspecified.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/13d8f5b94376be28.webp",
+      "thumb": "https://media.aquatome.com/glaser/13d8f5b94376be28-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-raja-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6693ca9d93c16548.webp",
+      "thumb": "https://media.aquatome.com/glaser/6693ca9d93c16548-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-raja-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5443de76d6ab3a18.webp",
+      "thumb": "https://media.aquatome.com/glaser/5443de76d6ab3a18-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-raja-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "QTMmczuZkYw",
+      "title": "Betta Raja: Cupang Liar Sumatra yang Mengeram Telur di Dalam Mulut #CupangLiar #IkanAirTawar",
+      "durationSec": 41,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -327,5 +408,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-20"
 }

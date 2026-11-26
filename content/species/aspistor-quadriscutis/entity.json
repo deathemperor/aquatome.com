@@ -1,0 +1,313 @@
+{
+  "id": "aspistor-quadriscutis",
+  "scientificName": "Aspistor quadriscutis",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Aspistor",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "brazil"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Atlantic coastal rivers of South America from Guyana to northeastern Brazil.",
+          "countries": [
+            "GY",
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345325,
+      "total": 224,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "GF",
+          161
+        ],
+        [
+          "BR",
+          59
+        ],
+        [
+          "GY",
+          2
+        ],
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          -54.84375,
+          5.625,
+          19,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          8,
+          0
+        ],
+        [
+          -53.4375,
+          4.21875,
+          116,
+          0
+        ],
+        [
+          -52.03125,
+          2.8125,
+          2,
+          1
+        ],
+        [
+          -52.03125,
+          4.21875,
+          13,
+          0
+        ],
+        [
+          -50.625,
+          1.40625,
+          6,
+          6
+        ],
+        [
+          -50.625,
+          2.8125,
+          13,
+          13
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          0,
+          6,
+          6
+        ],
+        [
+          -49.21875,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -47.8125,
+          0,
+          1,
+          1
+        ],
+        [
+          -45,
+          -2.8125,
+          10,
+          10
+        ],
+        [
+          -42.1875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -35.15625,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -35.15625,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -35.15625,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 50
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_quadriscutis.htm",
+      "html": "<ul><li>Common name: Bressou sea catfish</li><li>Synonyms: Arius quadriscutis, Aspistor quadriscutis</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_quadriscutis.htm",
+      "html": "<p>South America: Atlantic coastal rivers of South America from Guyana to northeastern Brazil. Type locality: Cayenne ou de la Mana ... Cayenne.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_quadriscutis.htm",
+      "html": "<p>Found in turbid waters over muddy bottoms in shallow coastal areas, also around estuaries and coastal rivers.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_quadriscutis.htm",
+      "html": "<p>Food items include bottom-living invertebrates.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_quadriscutis.htm",
+      "html": "<p>Colouration: Body yellow or gray-yellow dorsally, white ventrally.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_quadriscutis.htm",
+      "html": "<p>Reproduction period is probably between September and November. Egg diameter is 9–11 mm. Males practice mouth brooding of the eggs.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_quadriscutis.htm",
+      "html": "<p>Description: Dorsal spines (total): 1. Three pair of barbels on rostral region, two pairs on lower jaw, one pair on posterior end of maxilla; end of maxilla barbel reaching pectoral fin insertion; large saddle-shaped bony plate with rugosa surface in front of dorsal fin, anterior margin of this plate waved but no deep medial incision.</p><p>Etymology: The specific name quadriscutis: quadus, square; scutum, shield, referring to the square shape of the bony plate (occipital process) in front of dorsal fin.</p><p>Remarks: Still found on some online searches as Aspistor quadriscutis.</p><p>IUCN Red List: This species is widely distributed and common where it occurs in shallow coastal waters and estuaries over soft bottom. It is taken only occasionally as bycatch. It is estuarine dependent and may be susceptible to habitat loss, however, this is not thought to be a major threat. Therefore, it is listed as Least Concern, but needs updating (IUCN 2015).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_quadriscutis.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (05/2011).</p><p>Marceniuk, A.P., Betancur, R., Giarrizzo, T. &amp; Fredou, F.L. 2015. Notarius quadriscutis. The IUCN Red List of Threatened Species 2015.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/31fceffe92eb0234.webp",
+      "thumb": "https://media.aquatome.com/scotcat/31fceffe92eb0234-480.webp",
+      "width": 500,
+      "height": 307,
+      "licence": "dùng với sự cho phép",
+      "author": "Jackie Goulder / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_quadriscutis.htm",
+      "caption": "Notarius quadriscutis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f1e92d0bd7f3b3a7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f1e92d0bd7f3b3a7-480.webp",
+      "width": 500,
+      "height": 365,
+      "licence": "dùng với sự cho phép",
+      "author": "Jackie Goulder / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_quadriscutis.htm",
+      "caption": "Notarius quadriscutis - head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f914e28b23f51e93.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f914e28b23f51e93-480.webp",
+      "width": 500,
+      "height": 317,
+      "licence": "dùng với sự cho phép",
+      "author": "David Marshall / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_quadriscutis.htm",
+      "caption": "Notarius quadriscutis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

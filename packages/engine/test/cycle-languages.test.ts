@@ -1,6 +1,8 @@
+import { spawnSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { LANG, OTHER_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
+import { RECHECK_LANGS } from '../src/localize-recheck'
 
 const script = readFileSync(new URL('../../../scripts/engine-cycle.sh', import.meta.url), 'utf8')
 const loops = (lang: string) => [...script.matchAll(/for lang in ([a-z -]+); do/g)].map(m => m[1]!.split(' ')).filter(l => l.includes(lang))
@@ -28,6 +30,22 @@ test("Malay's steps: 10 species a cycle right after Indonesian and Thai, never g
   for (const line of block.split('\n').filter(l => l.includes('pnpm'))) expect(line.trim(), line).toMatch(/^ahead pnpm /)
 })
 
+test('the pages out of search for their score are read again on two models, Indonesian and Thai, after the other translations and gated as they are', () => {
+  // The chief of staff, 16 Nov 2026: a page comes back on two fresh reads on two models, Indonesian and Thai fish pages
+  // only. Up to six model calls a page: a long cycle gives it first, and it starts no page after 15 minutes, inside the
+  // 20 a gated step is allowed (the test below).
+  const from = script.indexOf('for lang in ms; do')
+  const malay = script.indexOf('\n  done\n', from)
+  const recheck = script.indexOf('do ahead pnpm engine recheck --lang "$lang" --limit "${RECHECK_LIMIT:-15}" --max-minutes "${RECHECK_MINUTES:-15}"')
+  expect(from).toBeGreaterThan(-1)
+  expect(recheck).toBeGreaterThan(malay)
+  expect(recheck).toBeLessThan(script.indexOf('pnpm engine judge-places'))
+  // Nothing but comments between Malay's steps and it, and the two languages its rule was measured on.
+  const line = script.lastIndexOf('\n', recheck)
+  expect(script.slice(malay + '\n  done\n'.length, line).split('\n').filter(l => l.trim() && !l.trim().startsWith('#'))).toEqual([])
+  expect(script.slice(line + 1, recheck).trim()).toBe(`for lang in ${RECHECK_LANGS.join(' ')};`)
+})
+
 test('the rewrite part spends on the Vietnamese rewrite and every translation first, Malay inside them, then the rest; a gated step started at the gate ends inside the job', () => {
   const at = (s: string) => { const i = script.indexOf(s); expect(i, s).toBeGreaterThan(-1); return i }
   // The chief of staff, 2026-11-11: the rewrites and translations go before any other step spends, so a sign-in that runs
@@ -52,6 +70,23 @@ test('the rewrite part spends on the Vietnamese rewrite and every translation fi
 test("a cycle that changed only UI text still publishes it, or the next would drop it and pay for it again", () => {
   expect(script).toContain('git status --porcelain -- content sources apps/site/src/i18n)" ]; then\n  # Only the engine\'s own records')
   expect(script).toContain('git add content sources engine-state docs/review apps/site/src/i18n')
+})
+
+test("the cycle's own site build for new UI strings says so in one line when it fails, so a run that translated none is never silent", () => {
+  // The chief of staff, 21 Nov 2026: the build fails when the face finder's record is lost or past its limit (load.ts),
+  // and its output goes nowhere. The block, run with pnpm, node and the log stood in for.
+  const from = script.indexOf('  # UI text those pages need that src/i18n lacks')
+  const to = script.indexOf('\n  fi\n', from) + '\n  fi\n'.length
+  expect(from).toBeGreaterThan(-1)
+  const run = (build: number, missing: number) => {
+    const r = spawnSync('bash', ['-c', `set -euo pipefail\nlog() { echo "LOG $*"; }\npnpm() { if [ "$3" = build ]; then return ${build}; fi; echo "RAN $*"; }\nnode() { return ${missing}; }\n${script.slice(from, to)}`], { encoding: 'utf8', env: { PATH: process.env.PATH } })
+    expect(r.status, r.stderr).toBe(0)
+    return r.stdout.trim().split('\n').filter(Boolean)
+  }
+  expect(run(1, 0)).toEqual(["LOG ui strings: the site's build failed, so this run translated no new UI strings"])
+  expect(run(1, 1)).toEqual(["LOG ui strings: the site's build failed, so this run translated no new UI strings"])
+  expect(run(0, 0)).toEqual(['RAN --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/aq-i18n-missing.json'])
+  expect(run(0, 1)).toEqual([])
 })
 
 test('their UI text goes first in the block, 500 strings a cycle: it decides when a language can go live, and last it was skipped', () => {

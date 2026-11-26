@@ -13,6 +13,8 @@ enum Browse: Hashable {
   case kept
   /// The pages saved to read later (Tìm's "Đọc tiếp").
   case saved
+  /// The pages read last, all that are kept, newest first (Khám phá's "Đọc gần đây").
+  case recent
   /// A kind's ways in, as a list: the fish groups, where plants go, the guides' subjects (Tìm's chips, at the
   /// accessibility text sizes).
   case ways(HandbookIndex.Kind)
@@ -38,16 +40,16 @@ struct BrowseView: View {
     case .fish(let group):
       FishShelf(items: group.map { s.fish(group: $0, handbook.labels) } ?? s.all(.fish))
         .modifier(ClearUnderTopBar(shown: true))
-        .navigationTitle(group.map { handbook.labels["group", $0] ?? $0 } ?? String(localized: "Tất cả loài"))
+        .navigationTitle(group.map { handbook.labels["group", $0] ?? $0 } ?? String(localized: "Tất cả loài", bundle: .app))
     case .plants(let placement):
       PlantShelf(items: placement.map { s.plants(placement: $0) } ?? s.all(.plant))
         .modifier(ClearUnderTopBar(shown: true))
-        .navigationTitle(placement.map { handbook.labels["placement", $0] ?? $0 } ?? String(localized: "Cây thủy sinh"))
+        .navigationTitle(placement.map { handbook.labels["placement", $0] ?? $0 } ?? String(localized: "Cây thủy sinh", bundle: .app))
     case .guides(let section):
       let guides = section.map { s.guides(section: $0) } ?? s.all(.guide)
       List(guides) { Row(item: $0) }
         .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
-        .navigationTitle(section.map { handbook.labels["section", $0] ?? $0 } ?? String(localized: "Tất cả hướng dẫn"))
+        .navigationTitle(section.map { handbook.labels["section", $0] ?? $0 } ?? String(localized: "Tất cả hướng dẫn", bundle: .app))
         .toolbar { KeepOffline(items: guides) }
         #if DEBUG
         .background {
@@ -63,12 +65,20 @@ struct BrowseView: View {
         .toolbar { KeepOffline(items: s.videoGuides) }
     case .saved:
       let saved = handbook.saved(nil)
-      List(saved) { item in
-        Row(item: item).swipeActions { Button("Bỏ lưu", role: .destructive) { handbook.toggleSaved(item) } }
+      List {
+        ForEach(saved) { item in
+          Row(item: item).swipeActions { Button("Bỏ lưu", role: .destructive) { handbook.toggleSaved(item) } }
+        }
+        if saved.isEmpty { ElsewhereNote(kept: false) }
       }
       .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Đã lưu để đọc sau")
       .accessibilityIdentifier("saved")
+    case .recent:
+      List(handbook.recent(nil, limit: ReadingList.recentMax)) { Row(item: $0) }
+        .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
+        .navigationTitle("Đọc gần đây")
+        .accessibilityIdentifier("recent")
     case .ways(let kind):
       let ways: [(HandbookShelves.Shelf, Browse)] = switch kind {
       case .fish: s.groups.map { ($0, .fish($0.key)) }
@@ -92,6 +102,7 @@ struct BrowseView: View {
             let gone = rows.map { kept[$0] }
             Task { await handbook.unkeep(gone) }
           }
+        if kept.isEmpty { ElsewhereNote(saved: false) }
       }
       .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Đã tải để đọc offline")
@@ -150,7 +161,26 @@ private struct LatestList: View {
 
   /// "28/10/2026 · Cập nhật · Seriously Fish", as the site's list says it; an action this app doesn't know, no word.
   static func change(_ e: Latest.Entry) -> String {
-    let word = e.isNew ? String(localized: "Mới") : e.isUpdate ? String(localized: "Cập nhật") : nil
+    let word = e.isNew ? String(localized: "Mới", bundle: .app) : e.isUpdate ? String(localized: "Cập nhật", bundle: .app) : nil
     return [e.shown, word, e.source].compactMap { $0 }.joined(separator: " · ")
+  }
+}
+
+/// One line where the pages saved, or kept to read offline, would be, when this language has none and another has some:
+/// they stay on the phone with their language (HandbookPaths, one set per language) and come back with it. The same words
+/// for both.
+struct ElsewhereNote: View {
+  @Environment(HandbookModel.self) private var handbook
+  /// Which of the two it speaks for.
+  var kept = true
+  var saved = true
+
+  var body: some View {
+    if (kept && handbook.keptElsewhere) || (saved && handbook.savedElsewhere) {
+      Text("Các trang đã lưu hoặc đã tải bằng ngôn ngữ khác vẫn còn trên máy, và sẽ hiện lại khi bạn chọn lại ngôn ngữ đó.")
+        .font(.footnote)
+        .foregroundStyle(.secondary)
+        .accessibilityIdentifier("kept-elsewhere")
+    }
   }
 }

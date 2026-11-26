@@ -1,0 +1,16 @@
+{
+  "slug": "rio-tefe",
+  "name": "เตเฟ",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-20T11:56:43.572Z",
+    "why": "เตเฟ transliterates Tefé correctly but lacks the river word แม่น้ำ that Thai atlases use, so it reads as the town name rather than the river."
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true
+  }
+}

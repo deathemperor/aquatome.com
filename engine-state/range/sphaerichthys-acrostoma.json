@@ -1,0 +1,50 @@
+{
+  "id": "sphaerichthys-acrostoma",
+  "native": {
+    "input": "5711dab73bc0f444",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The giant chocolate gourami, Sphaerichthys acrostoma, is a small gourami known only from the Mentaya River drainage in Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mentaya River",
+        "source": "seriouslyfish",
+        "quote": "The giant chocolate gourami, Sphaerichthys acrostoma, is a small gourami known only from the Mentaya River drainage in Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "The giant chocolate gourami, Sphaerichthys acrostoma, is a small gourami known only from the Mentaya River drainage in Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sphaerichthys acrostoma",
+    "status": "ACCEPTED",
+    "taxonKey": 2394135,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

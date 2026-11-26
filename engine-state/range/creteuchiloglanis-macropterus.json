@@ -1,0 +1,106 @@
+{
+  "id": "creteuchiloglanis-macropterus",
+  "native": {
+    "input": "b1c7a055f4cc5cfa",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Known from the Salween River (Nujiang) and Irrawaddy River drainages in southern China, and from Myanmar waters.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Known from the Salween River (Nujiang) and Irrawaddy River drainages in southern China, and from Myanmar waters.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Salween River (Nujiang) and Irrawaddy River drainages in southern China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween River",
+        "source": "planetcatfish",
+        "quote": "Known from the Salween River (Nujiang) and Irrawaddy River drainages in southern China, and from Myanmar waters.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Irrawaddy River",
+        "source": "planetcatfish",
+        "quote": "Known from the Salween River (Nujiang) and Irrawaddy River drainages in southern China, and from Myanmar waters.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Salween River",
+        "source": "scotcat",
+        "quote": "Asia: Salween River (Nujiang) and Irrawaddy River drainages in southern China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Irrawaddy River",
+        "source": "scotcat",
+        "quote": "Asia: Salween River (Nujiang) and Irrawaddy River drainages in southern China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Creteuchiloglanis macropterus",
+    "status": "ACCEPTED",
+    "taxonKey": 6103917,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        69
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        51
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        22
+      ],
+      [
+        "a75ebb21-197b-450e-bdea-b41c4dcad504",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "a25d99ce-5c50-41d8-9da7-0bd787ec8a75",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

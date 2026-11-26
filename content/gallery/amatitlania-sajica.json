@@ -26,18 +26,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/357143044.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/357143044-480.webp",
-      "width": 1024,
-      "height": 1006,
-      "licence": "CC BY",
-      "author": "Buckelkopfcichlide",
-      "sourceUrl": "https://www.inaturalist.org/photos/357143044",
-      "caption": "Cá rô phi sajica bơi trên đáy đá trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/458217364.webp",
       "thumb": "https://media.aquatome.com/inaturalist/458217364-480.webp",
       "width": 1024,
@@ -46,6 +34,18 @@
       "author": "Lukas Zangl",
       "sourceUrl": "https://www.inaturalist.org/photos/458217364",
       "caption": "Cá rô phi sajica bơi trên nền cát dưới nước trong tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/357143044.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/357143044-480.webp",
+      "width": 1024,
+      "height": 1006,
+      "licence": "CC BY",
+      "author": "Buckelkopfcichlide",
+      "sourceUrl": "https://www.inaturalist.org/photos/357143044",
+      "caption": "Cá rô phi sajica bơi trên đáy đá trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat"
     }

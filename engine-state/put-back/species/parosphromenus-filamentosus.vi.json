@@ -1,0 +1,47 @@
+{
+ "at": "2026-11-20T05:43:25Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Đây là một loài cá sặc cam thảo mới, khá đẹp. Nó rất gần với P. filamentosus",
+   "why": "This is the source shop's text about a new fish it has in stock. It describes a different species, so the reader can't make sense of it here."
+  }
+ ],
+ "text": {
+  "slug": "ca-than-tien-filamentosus",
+  "name": "Cá thần tiên filamentosus",
+  "altNames": [
+   "Filamentosus",
+   "Cá Parosphromenus Ampah",
+   "Licorice gourami",
+   "Cá cam thảo đuôi nhọn",
+   "Spiketail licorice gourami"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Đây là một loài cá sặc cam thảo mới, khá đẹp. Nó rất gần với P. filamentosus và lớn tới khoảng 3 cm.</p>",
+   "distribution:glaser": "<p>Loài này có nguồn gốc ở Borneo (đông nam Kalimantan) và gặp được trong vùng giữa Ampah và Muarateweh.</p>",
+   "maintenance:glaser": "<p>Cũng như mọi loài cá sặc cam thảo, loài này thích bể nhỏ nuôi riêng một loài. Nước cần mềm và có tính axit. Thức ăn nên là đồ tươi sống cỡ nhỏ.</p>",
+   "dimorphism:glaser": "<p>Con cái rất dễ nhận ra vì vây đuôi trong suốt hoàn toàn.</p>",
+   "quickFacts:bwaquatics": "<p>Parosphromenus filamentosus, tên thường gọi là cá cam thảo đuôi nhọn, thuộc chi Parosphromenus (nhóm cá sặc cam thảo). Trong Danh sách đỏ IUCN, loài này xếp hạng Nguy cấp, tức là ngoài tự nhiên nó có nguy cơ tuyệt chủng rất cao. Đây là một trong những loài cam thảo cỡ lớn trong chi. Tên của nó lấy từ sợi tơ ở đuôi con đực. Dự án Parosphromenus (Parosphromenus Project) xếp nó vào nhóm loài ít kén nhất trong chi, hợp với người chưa nhiều kinh nghiệm. Nhưng cũng như mọi loài paro khác, nó phải có thức ăn tươi sống.</p>",
+   "distribution:bwaquatics": "<p>Loài này được mô tả năm 1981 từ mẫu thu ở đông nam đảo Borneo. Ngoài tự nhiên, chúng sống trong các hệ sông giữa rừng gần Banjarmasin.</p>",
+   "habitat:bwaquatics": "<p>Chúng sống ở rừng đầm lầy than bùn và các suối nước đen gần Banjarmasin. Rừng ở khu vực này đã bị phá đi nhiều.</p>",
+   "aquariumSize:bwaquatics": "<p>Một cặp nuôi bể 20 lít là đủ. Nếu nuôi nhóm 3–6 con thì dùng bể 40 lít. Bể nên có nhiều hang và rải nhiều lá khô.</p>",
+   "waterConditions:bwaquatics": "<ul><li>TDS: 0–50</li><li>pH: 4,0–6,0</li><li>Nhiệt độ: 22–28°C</li></ul>",
+   "diet:bwaquatics": "<p>Đây là loài săn mồi nhỏ, chỉ ăn đồ tươi sống. Có thể cho ăn Artemia mới nở còn sống, bo bo và trùn chỉ đen.</p>",
+   "behaviour:bwaquatics": "<p>Loài này hiền và nhát. Có thể nuôi chung với các loài cá nước đen nhỏ con, tính điềm như Boraras. Tuyệt đối không nuôi lẫn các loài Parosphromenus khác nhau trong cùng bể.</p>",
+   "dimorphism:bwaquatics": "<p>Ở con đực, vây đuôi nhọn và kết thúc bằng một sợi tơ. Giữa vây đuôi màu nâu đỏ, bao quanh là viền đen rộng, ngoài cùng là một mép mỏng màu trắng đến xanh. Vây lưng và vây hậu môn cũng có kiểu màu này, với sắc nâu đỏ hoặc xanh lục. Vây bụng màu xanh lục pha lam, có sợi tơ dài. Thân con đực màu đồng, lúc tán con cái thì có thể sẫm lại gần như toàn thân. Con cái nhạt màu hơn hẳn. Đuôi nó cũng nhọn nhưng sợi tơ chỉ thấy lờ mờ.</p>",
+   "reproduction:bwaquatics": "<p>Loài này đẻ trong hang. Lúc tán con cái, con đực chúc đầu xuống. Tổ bọt của nó có lẽ rõ nét nhất trong chi, vì nó lên mặt nước lấy không khí mang xuống nhiều lần. Mỗi lứa thường được 50–70 trứng, có khi lên tới khoảng 200. Muốn cho đẻ thì chỉ cần nuôi như các loài cá sặc cam thảo khác, không cần thêm điều kiện gì đặc biệt.</p>"
+  },
+  "quality": {
+   "score": 0.9,
+   "indexable": true,
+   "bySource": {
+    "bwaquatics": 0.9,
+    "glaser": 0.93
+   }
+  }
+ }
+}

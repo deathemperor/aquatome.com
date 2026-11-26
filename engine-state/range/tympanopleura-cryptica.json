@@ -1,0 +1,85 @@
+{
+  "id": "tympanopleura-cryptica",
+  "native": {
+    "input": "707dc8cfe9937905",
+    "at": "2026-11-22T00:38:58.151Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Middle and upper Amazon River basin, State of Amazonas in Brazil and Loreto Region in Peru.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Middle and upper Amazon River basin, State of Amazonas in Brazil and Loreto Region in Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Middle and upper Amazon River basin, State of Amazonas in Brazil and Loreto Region in Peru.",
+        "ok": true
+      },
+      {
+        "name": "Solimões",
+        "source": "glaser",
+        "quote": "It occurs in the upper Amazon, where the river is still called the Solimões.",
+        "ok": true
+      },
+      {
+        "name": "Orosa",
+        "source": "scotcat",
+        "quote": "Type locality: Loreto, río Solimões drainage, río Orosa, mouth of Tonche Cano, about 112 km east of Iquitos, about 3°47'26\"S, 73°14'50\"W, Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tympanopleura cryptica",
+    "status": "ACCEPTED",
+    "taxonKey": 8755660,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-22T00:38:58.151Z"
+  }
+}

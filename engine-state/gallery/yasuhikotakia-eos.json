@@ -4,7 +4,25 @@
   "File:Yasuhikotakia eos.jpg"
  ],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/fb6a298aeaba6f0b.webp": "99fbb3d2daccc66a"
+  "https://media.aquatome.com/seriouslyfish/fb6a298aeaba6f0b.webp": "99fbb3d2daccc66a",
+  "https://media.aquatome.com/glaser/8f914ab72b7f9976.webp": "3f2f362f034ad0c7",
+  "https://media.aquatome.com/glaser/6cd9e5628da07081.webp": "cd6715079736c081",
+  "https://media.aquatome.com/glaser/f449832a6fdc2e60.webp": "bdb3908106080c54"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 446598,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2367773,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ }
 }

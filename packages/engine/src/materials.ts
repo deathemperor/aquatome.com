@@ -10,6 +10,7 @@ import { isMarketplace } from './marketplaces'
 import { piece } from './pieces'
 import { logReviews, type Review } from './review-log'
 import { sanitizeHtml } from './sanitize'
+import { withoutRefused } from './refused-sources'
 
 /**
  * A hobby material's page (content/materials/<id>/: lũa, đá, nền, lá khô), written in Vietnamese from web research and
@@ -245,6 +246,8 @@ const readJson = async <T>(file: string) => JSON.parse(await readFile(file, 'utf
 export async function makeMaterial(root: string, d: { research: Llm; llm: Llm }, a: MaterialAsk, o: MaterialOptions = {}) {
   // The site's loader refuses a page whose parent has none: checked before anything is asked or written.
   if (a.parent && !(await readJson(join(root, 'content/materials', a.parent, 'entity.json')))) throw new Error(`${a.id}: its parent "${a.parent}" has no page yet: write it first`)
+  // A page whose text a person fixed (bodyFixed, as on a guide) is theirs: never written again, and nothing is asked.
+  if ((await readJson<{ bodyFixed?: boolean }>(join(root, 'content/materials', a.id, 'vi.json')))?.bodyFixed) throw new Error(`${a.id}: a person fixed this page's text (bodyFixed): it isn't written again`)
   // A page is one piece of the step's day (pieces.ts): it starts only if what's left covers a page as the last one cost,
   // and its whole cost goes on record for the next.
   return piece(a.id, () => writeMaterial(root, d, a, o), { now: o.now })
@@ -257,9 +260,10 @@ async function writeMaterial(root: string, d: { research: Llm; llm: Llm }, a: Ma
   const factsFile = join(root, 'engine-state/materials', `${a.id}.json`)
   const kept = o.reuse ? await readJson<MaterialFacts>(factsFile) : null
   if (o.reuse && !kept) throw new Error(`${a.id}: no research kept in ${factsFile}`)
-  let researched = kept
+  // A refused site's facts leave before anything reads them or the file keeps them (refused-sources.ts).
+  let researched = kept && withoutRefused(kept).kept
   if (!researched) {
-    researched = { ...await d.research<MaterialFacts>({ system: 'You research aquarium materials carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a), schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' }), at: now.toISOString().slice(0, 10) }
+    researched = withoutRefused({ ...await d.research<MaterialFacts>({ system: 'You research aquarium materials carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a), schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' }), at: now.toISOString().slice(0, 10) }).kept
     await mkdir(join(root, 'engine-state/materials'), { recursive: true })
     await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`)
   }

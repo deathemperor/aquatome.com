@@ -6,11 +6,12 @@
     "Red dwarf bushfish",
     "Cá rô leo cây lùn đỏ",
     "Cá ctenopoma châu Phi",
-    "Ornate ctenopoma"
+    "Ornate ctenopoma",
+    "Cá bụi châu Phi",
+    "Ornate bushfish",
+    "Orange bushfish"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Đây là cá bushfish lùn đỏ đánh bắt tự nhiên ở Congo. Loài này thuộc nhóm cá làm tổ bọt và trưởng thành dài khoảng 6-8 cm. Lứa cá hiện tại mới dài 3-4 cm.</p>",
-    "reproduction:glaser": "<p>Cá bushfish lùn đỏ thuộc nhóm cá làm tổ bọt.</p>",
     "quickFacts:seriouslyfish": "<p>Cá ctenopoma hoa văn (Microctenopoma ansorgii) là một loài cá mê cung (anabantoid) sống ở lưu vực sông Congo, thuộc Cộng hòa Congo và Cộng hòa Dân chủ Congo. Trong các loài anabantoid châu Phi, đây là loài có màu sắc rực rỡ nhất. Dù vậy, cá khá hiếm trên thị trường. Lý do là chúng sống ở những con suối nhỏ cây cỏ mọc dày, rất khó bắt. Cá có thể khó thuần lúc mới về, nhưng một khi đã quen bể thì rất khỏe. Đây là loài bơi chậm, nên đến giờ ăn rất dễ bị cá khác giành hết mồi.</p>",
     "distribution:seriouslyfish": "<p>Cá có nguồn gốc từ lưu vực sông Congo, phân bố ở một phần lãnh thổ của cả Cộng hòa Congo và Cộng hòa Dân chủ Congo. Ngoài ra, hình như còn có một quần thể cá thoát ra sống hoang trên đảo Madagascar.</p>",
     "habitat:seriouslyfish": "<p>Ngoài tự nhiên, cá sống ở các con suối nhỏ. Chúng thường ở những chỗ cây cỏ mọc dày sát bờ.</p>",
@@ -21,13 +22,19 @@
     "behaviour:seriouslyfish": "<p>Đây là loài bơi khá chậm. Nuôi chung với những loài hiếu động hơn thì đến giờ ăn cá sẽ dễ bị giành hết mồi. Vì thế, tốt nhất nên ghép với các loài nhỏ, hiền, sống ở tầng mặt và tầng đáy, chẳng hạn cá hatchet, cá lampeye, cá chuột và các loài loricariid nhỏ. Cá đẹp đến mức xứng đáng có hẳn một bể riêng, và nuôi bể riêng là lúc cá sống tốt nhất. Các con đực có thể đánh nhau, nhất là khi vào mùa sinh sản.</p>",
     "dimorphism:seriouslyfish": "<p>Con đực to hơn con cái và có màu sặc sỡ hơn hẳn. Vây hậu môn và vây lưng của con đực còn có viền trắng.</p>",
     "reproduction:seriouslyfish": "<p>Cho loài này sinh sản được nhưng khá khó. Đây là loài làm tổ bọt. Muốn cá đẻ, bạn cần một bể ánh sáng dịu, trồng nhiều cây, có nhiều cây nổi và nước mềm, hơi chua. Trước đó, hãy cho cá ăn mồi sống để vỗ béo. Con đực sẽ thổi một tổ bọt rất nhỏ và lỏng lẻo, gồm những bọt khí to, nằm giữa đám cây nổi hoặc dưới một chiếc lá bản rộng. Cá đẻ ngay dưới tổ, con đực quấn lấy con cái theo kiểu ôm quen thuộc của dòng cá mê cung. Mỗi lứa có thể lên tới 600 trứng. Trứng nở sau khoảng 24 giờ, và 2–3 ngày sau thì cá con bắt đầu bơi tự do. Tốt nhất nên vớt cá bố mẹ ra sau khi trứng nở. Cá bột rất nhỏ, nên tuần đầu cần cho ăn trùng cỏ. Qua tuần đầu thì cá con đã ăn được ấu trùng artemia.</p>",
-    "notes:seriouslyfish": "<p>Đây là loài có màu sắc rực rỡ nhất trong các loài cá mê cung châu Phi, và được dân chơi săn lùng rất nhiều. Một con đực đang lên màu sinh sản trọn vẹn thực sự là cảnh rất đáng ngắm. Ở những nơi cá sống rất khó bắt được số lượng lớn, nên M. ansorgei khá hiếm trên thị trường. Cá có thể khó thuần lúc mới về. Nhưng khi đã quen bể, chúng rất khỏe và có thể sống tới 5 năm trong bể nuôi.</p>"
+    "notes:seriouslyfish": "<p>Đây là loài có màu sắc rực rỡ nhất trong các loài cá mê cung châu Phi, và được dân chơi săn lùng rất nhiều. Một con đực đang lên màu sinh sản trọn vẹn thực sự là cảnh rất đáng ngắm. Ở những nơi cá sống rất khó bắt được số lượng lớn, nên M. ansorgei khá hiếm trên thị trường. Cá có thể khó thuần lúc mới về. Nhưng khi đã quen bể, chúng rất khỏe và có thể sống tới 5 năm trong bể nuôi.</p>",
+    "quickFacts:glaser": "<p>Cá bụi cam, cá bắt ngoài tự nhiên ở Congo. Loài này làm tổ bọt và lớn tới khoảng 6-8 cm.</p>",
+    "dimorphism:glaser": "<p>Muốn phân biệt đực cái thì nhìn hình dạng vây bụng là chắc nhất. Vây bụng của con cái ngắn hơn hẳn. Các vây khác của con cái cũng kém dài hơn. Nhưng con đực đứng thấp trong đàn có thể thu bớt vây lưng và vây hậu môn, nên trông giống con cái và ít bị con đực đầu đàn đánh hơn. Có điều vây bụng thì không giấu được.</p>",
+    "behaviour:glaser": "<p>Cá bụi cam là loài rất thú vị. Nó sớm đạt nửa cỡ và cũng sớm đủ lớn để đẻ. Càng lớn tuổi, thân cá càng cao lên.</p><p>Khả năng đổi màu của loài này thì phi thường. Lúc bình thường, cá có màu nâu đỏ ánh xanh lục, trên thân có các sọc đứng sẫm màu. Đôi khi trên thân còn hiện một sọc sáng chạy dọc từ đầu tới đuôi. Cá càng bị kích động thì màu nền càng sáng lên, còn các sọc đứng hiện ra đậm hẳn. Riêng màu đỏ nhạt trên vây lưng, vây hậu môn và vây đuôi không đổi theo, nên lúc nào cũng thấy rõ.</p>",
+    "maintenance:glaser": "<p>Nuôi loài này trong bể bày trí dày, giữ nhiệt độ 20–24°C.</p>",
+    "reproduction:glaser": "<p>Chỉ khi ép đẻ mới tăng nhiệt thêm 2-3°C, và lúc đó nước nên mềm, hơi chua. Microctenopoma ansorgii làm tổ bọt, cách đẻ giống cá cờ.</p>",
+    "diet:glaser": "<p>Loài này ăn nhiều. Chúng không kén ăn, nhưng thích đồ đông lạnh và đồ tươi sống hơn.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "glaser": 0.8,
+      "glaser": 0.85,
       "seriouslyfish": 0.8
     }
   }

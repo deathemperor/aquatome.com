@@ -1,0 +1,85 @@
+{
+  "id": "galeichthys-ater",
+  "native": {
+    "input": "a5572864aa805ebc",
+    "at": "2026-11-18T12:30:34.128Z",
+    "claims": [
+      {
+        "code": "ZA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Southeast Atlantic: South Africa and Namibia.",
+        "words": "South Africa",
+        "ok": true
+      },
+      {
+        "code": "NA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Southeast Atlantic: South Africa and Namibia.",
+        "words": "Namibia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Galeichthys ater",
+    "status": "ACCEPTED",
+    "taxonKey": 2345220,
+    "datasets": [
+      [
+        "0324faa2-894d-459c-b86a-bda617ef0690",
+        35
+      ],
+      [
+        "2a47dd25-4813-4d3c-99c1-1bc1aeb774e7",
+        22
+      ],
+      [
+        "0b1150c9-dfa8-4904-8bc5-b79b4e1930e6",
+        21
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        19
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        9
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        2
+      ],
+      [
+        "968dfa3e-3614-4bab-a3b5-e9209bdd6078",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "ZA",
+      "NA"
+    ],
+    "requests": 11,
+    "at": "2026-11-18T12:30:34.128Z"
+  }
+}

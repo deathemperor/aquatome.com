@@ -3,6 +3,12 @@
   "name": "Filipina",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T11:35:16.475Z",
+    "why": "Malaysian Malay (DBP standard) writes the country as \"Filipina\" in some usage, but the atlas and official form in Malaysia is \"Filipina\" (DBP) versus \"Filipina\" in Indonesia \"Filipina\" too; however common Malaysian usage is \"Filipina\", so this is acceptable."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

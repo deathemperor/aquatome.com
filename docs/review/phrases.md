@@ -67,7 +67,7 @@ Per million words, site | forum | videos:
 | bể cộng đồng, cá cộng đồng | species 521, guides 226 | 4 | 15 | nuôi chung (86 in the forum), thả chung (25) |
 | được xem là | species 184, guides 44 | 7 | 4 | the plain verb; not "được coi là" |
 | ghi nhận | species 1,021, guides 104 | 12 | 4 | có ở, gặp ở, thấy ở |
-| không xương sống | species 242, guides 176 | 0.7 | 0 | the animals' names: tép, ốc |
+| không xương sống | species 242, guides 176 | 0.7 | 0 | the animals' names: in a tank tép, ốc (cua, tôm hùm đất where the source says); in the wild the ones the source names, and the word itself only where it names none (the Writing Lead, 22 Nov 2026) |
 | cá mê cung | species 263, guides 37 | 0.7 | 0 | the fish's names: cá sặc, cá betta |
 | bơi tự do | species 194, guides 59 | 7 | 0 | tự bơi được |
 | khẩu phần | species 153, guides 117 | 14 | 0 | thức ăn, cho ăn |

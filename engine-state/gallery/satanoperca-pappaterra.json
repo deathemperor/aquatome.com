@@ -7,5 +7,17 @@
  "hashes": {
   "https://media.aquatome.com/inaturalist/160520375.webp": "0019cc5cec4cccc6"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 604969,
+  "pass": "done",
+  "after": {
+   "research": 260197988,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 5208456,
+  "next": null
+ }
 }

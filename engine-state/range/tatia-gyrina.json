@@ -1,0 +1,155 @@
+{
+  "id": "tatia-gyrina",
+  "native": {
+    "input": "42a95913f8b010ba",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Itaya, Iquitos, Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Amazon River basin, Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers (Suriname), Marowijne, Itaya.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper and central Amazon, in Peru, Colombia and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper and central Amazon, in Peru, Colombia and Brazil.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper and central Amazon, in Peru, Colombia and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "It is also found in rivers of northern Suriname.",
+        "words": "Suriname",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Amazon River basin, Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers (Suriname), Marowijne, Itaya.",
+        "ok": true
+      },
+      {
+        "name": "Marowijne",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Amazon River basin, Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers (Suriname), Marowijne, Itaya.",
+        "ok": true
+      },
+      {
+        "name": "Itaya",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Itaya, Iquitos, Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Upper and central Amazon, in Peru, Colombia and Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tatia gyrina",
+    "status": "ACCEPTED",
+    "taxonKey": 2344653,
+    "datasets": [
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        12
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        12
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        4
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "SR",
+      "CO",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

@@ -10,6 +10,26 @@
     "mexico",
     "lake-catemaco"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2350161,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MX",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -95.625,
+          18.28125,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -26,7 +46,18 @@
       "html": "<p>The Catemaco Swordtail is a splendid, large species of swordtail. Females can reach a length up to 12 cm! The wonderful metallic golden shine is species-specific and led to the alternative popular name \"Brass Swordtail\" in the hobby, long before the species has been described scientifically.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/b270a40e613ea643.webp",
+      "thumb": "https://media.aquatome.com/glaser/b270a40e613ea643-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus_kallmani_en/",
+      "source": "glaser"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

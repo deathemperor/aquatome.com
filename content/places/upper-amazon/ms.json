@@ -3,6 +3,12 @@
   "name": "Hulu Amazon",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T18:01:27.691Z",
+    "why": "\"Hulu Amazon\" is plausible Malay for the upper Amazon, but it lacks \"Sungai\" and is ambiguous (the Vietnamese \"thượng lưu sông Amazon\" matches \"Hulu Sungai Amazon\"); the source's \"Upper Amazon\" is a region, so \"Amazon Hulu\" or \"Amazon Atas\" could also be seen."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

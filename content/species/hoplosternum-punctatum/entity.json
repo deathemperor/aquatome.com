@@ -9,7 +9,8 @@
     "south-america",
     "colombia",
     "atrato",
-    "panama"
+    "panama",
+    "central-america"
   ],
   "range": {
     "native": {
@@ -23,12 +24,13 @@
       ],
       "sources": [
         "planetcatfish",
-        "scotcat"
+        "scotcat",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "planetcatfish",
-          "quote": "Type locality: Río Marte Arnade, 6 mi. east of Panama City, Panama.",
+          "quote": "Hoplosternum punctatum Meek & Hildebrand, 1916. Common names: Spotted Hoplo. Type locality: Río Marte Arnade, 6 mi. east of Panama City, Panama. Size: 77 mm (3\") SL. IUCN Red List: Near Threatened (last assessed 2019).",
           "countries": [
             "PA"
           ],
@@ -105,6 +107,10 @@
       {
         "source": "scotcat",
         "value": 8
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ],
     "tempC": [
@@ -140,10 +146,22 @@
       "html": "<ul><li>Common name: Spotted hoplo</li><li>Synonyms: none</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/hoplosternum_punctatum_en/",
+      "html": "<p>Plated catfish from the genus Hoplosternum are known in the hobby mainly from relatively large growing species, which can reach 15 to 20 cm in length. However, there also exist small species, like H. punctatum, which hardly grows larger than 7 cm.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
       "html": "<p>Similar looking to Dianema longibarbus, but D. longibarbus has much larger eyes.</p><p>Key to species: interopercle covered by skin, not visible externally; caudal peduncle shallower (14.3-17.2% of standard length in specimens larger than 55.0 mm SL).</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/hoplosternum_punctatum_en/",
+      "html": "<p>No commercial exports of ornamental fish come from that part of the world. All specimens in the trade are therefore bred ones. Sadly the breeders usually offer their fish under the name Dianema longibarbis, which is a completely different species from Amazonia.</p>"
     },
     {
       "key": "distribution",
@@ -158,6 +176,12 @@
       "html": "<p>South America: Pacific coastal drainages of Panama and Atrato River basin, Colombia. Type locality: Rio Marte Arnade, 6 miles east of Panama City, Panama.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/hoplosternum_punctatum_en/",
+      "html": "<p>The natural distribution of this species is in Panama and in the rivers of Colombia flowing in the Pacific Ocean.</p>"
+    },
+    {
       "key": "diet",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
@@ -170,16 +194,34 @@
       "html": "<p>This is a peaceful midwater to bottom swimmer that will do better if kept in a group of at least 4, as individuals on their own tend to sulk and never seem to progress too well. Try to resist placing them in an aquarium with aggressive species such as some cichlids; they will do better with the usual community type fish and of course along with Corydoras sp.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/hoplosternum_punctatum_en/",
+      "html": "<p>Hoplosternum punctatum is a rather day-active and social species which often swims free in the water column.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1048",
       "html": "<p>In Dianema, Hoplosternum and Megalechis (but not in Callichthys), medial expansions of the coracoid bones are especially developed, covering most of the skin between the pectoral fins and sometimes overlapping in the midline in fully developed mature males (vs. not fully covering the abdominal skin and not overlapping in females). Mature males of Callichthys, Dianema, Hoplosternum, Lepthoplosternum, and Megalechis have a thick adipose body on the ventral surface of the pectoral fin. Mature females of Dianema, Hoplosternum and Megalechis have a small fold of skin on the external face of the leading pelvic-fin ray.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/hoplosternum_punctatum_en/",
+      "html": "<p>Males and females can easily be distinguished from each other by the much larger and thicker pectoral spine in males. Moreover, if one looks at the belly of the fish, the bony plates that cover the breast touch each other in males, whereas in females they leave open a broad gap.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1048",
       "html": "<p>There is a single breeding report for this species.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/hoplosternum_punctatum_en/",
+      "html": "<p>Plated catfish are known to be bubblenest builders and the males aggressively guard their nests. Sadly no details regarding the breeding behaviour of H. punctatum have been published yet.</p>"
     },
     {
       "key": "notes",
@@ -213,6 +255,17 @@
       "source": "scotcat"
     },
     {
+      "url": "https://media.aquatome.com/scotcat/f52afa197f153ec5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f52afa197f153ec5-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Ivan Sokol / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
+      "caption": "Hoplosternum punctatum",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/scotcat/3e624fde3c07db9e.webp",
       "thumb": "https://media.aquatome.com/scotcat/3e624fde3c07db9e-480.webp",
       "width": 500,
@@ -230,17 +283,6 @@
       "height": 302,
       "licence": "dùng với sự cho phép",
       "author": "Allan James / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
-      "caption": "Hoplosternum punctatum",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/f52afa197f153ec5.webp",
-      "thumb": "https://media.aquatome.com/scotcat/f52afa197f153ec5-480.webp",
-      "width": 500,
-      "height": 375,
-      "licence": "dùng với sự cho phép",
-      "author": "Ivan Sokol / ScotCat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
       "caption": "Hoplosternum punctatum",
       "source": "scotcat"
@@ -301,5 +343,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-16"
 }

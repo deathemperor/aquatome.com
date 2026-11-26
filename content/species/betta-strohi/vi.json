@@ -7,13 +7,20 @@
     "dimorphism:bwaquatics": "<p>Thân nền màu nâu đen với các vạch đỏ vàng ánh kim trên má nắp mang ở cả cá đực và cá cái. Cá đực trưởng thành có vây hậu môn và vây đuôi dài hơn cá cái. Rất giống B. foerschi, ngoại trừ cá cái có vây bụng màu xanh lam. Giống nhiều loài trong phức hợp này, cá cái xuất hiện các vạch dọc trên thân khi vào trạng thái sinh sản. B. mandor, B. foerschi và B. strohi nổi tiếng là rất khó phân biệt đực cái khi còn nhỏ; cá lớn hơn với vây dài hơn thì dễ phân biệt hơn nhiều.</p>",
     "behaviour:bwaquatics": "<p>Tập tính: có tính lãnh thổ nhẹ, nhưng có thể nuôi theo nhóm nếu có đủ không gian.</p>",
     "waterConditions:bwaquatics": "<ul><li>TDS: khoảng 60–100 (chịu được nước TDS cao nhưng thích nước TDS thấp).</li><li>pH: khoảng 6,0–7,0 (thích nước mềm hơn).</li><li>Nhiệt độ: 24–28°C; sống tốt ở nhiệt độ mát hơn, nhưng nhiệt độ cao hơn giúp lên màu và kích thích sinh sản.</li></ul>",
-    "reproduction:bwaquatics": "<p>Cá ấp trứng trong miệng.</p>"
+    "reproduction:bwaquatics": "<p>Cá ấp trứng trong miệng.</p>",
+    "notes:glaser": "<p>Betta strohi có phải là một loài riêng hay không thì đến giờ vẫn còn tranh cãi. Nó là một dạng trong nhóm loài gần với Betta foerschi. Có tác giả xếp B. strohi làm tên đồng nghĩa của B. foerschi, có tác giả lại coi nó là loài hợp lệ. Xét về mặt kỹ thuật, hai loài chỉ khác nhau ở một chi tiết khá khó thấy là đường sọc mắt. Ở Betta strohi, sọc này chạy từ nắp mang xuyên qua mắt. Ở B. foerschi thì nó chạy bên dưới mắt. Trên cá sống hầu như không nhìn ra chi tiết này, còn trên mẫu bảo quản thì thấy được.</p><p>Một đặc điểm rất quan trọng là màu nắp mang lúc cá bắt cặp. B. strohi có nắp mang vàng tươi, còn B. foerschi thì đỏ tươi. Khi không vào mùa bắt cặp thì cá không lên màu này. Nhưng đặc điểm này cũng gây tranh cãi, vì trong bản mô tả gốc, B. strohi lại có sọc nắp mang màu đỏ còn B. foerschi có sọc màu vàng.</p>",
+    "distribution:glaser": "<p>Các loài trong nhóm Betta foerschi chỉ có ở Borneo. B. foerschi sống ở lưu vực sông Mentaya, B. mandor ở vùng hạ lưu sông Kapuas. Còn B. strohi sống ở chỗ cách Sukamara khoảng 30 km về phía nam. Ở đó không có con sông lớn nào có tên, nhưng vẫn có những con sông không tên.</p>",
+    "behaviour:glaser": "<p>B. strohi là loài cá nhút nhát. Nó nuôi chung rất hợp với các loài cá nước đen hiền khác, chẳng hạn cá rasbora, cá sặc socola, cá sặc trân châu. Muốn thì cũng nuôi chung được nhiều con đực. Chúng có cãi nhau thì cũng chỉ lặt vặt, không gây hại gì.</p>",
+    "dimorphism:glaser": "<p>Nhìn độ dài của vây là phân biệt đực cái khá dễ.</p>",
+    "quickFacts:glaser": "<p>Bể nước đen được chăm kỹ mà thả thêm loài cá này thì vừa đẹp vừa thú vị.</p>"
   },
   "quality": {
     "score": 0.9,
-    "indexable": true,
+    "indexable": false,
     "bySource": {
-      "bwaquatics": 0.9
-    }
+      "bwaquatics": 0.9,
+      "glaser": 0.93
+    },
+    "reason": "thin"
   }
 }

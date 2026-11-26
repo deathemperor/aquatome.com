@@ -1,6 +1,6 @@
-import { cleanPhoto, fitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PictureSet, type PlantEntity, type SpeciesEntity } from '@aq/schema'
-import { GROUP_LABELS } from './format'
-import { guideImage, mentionIndex } from './mentions'
+import { cleanPhoto, fitsCard, isNonCommercial, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PictureSet, type PlantEntity, type SpeciesEntity } from '@aq/schema'
+import { GROUP_LABELS, OFF_LIST_GROUPS } from './format'
+import { mentionIndex } from './mentions'
 import { LANG, type Lang } from './i18n'
 
 
@@ -37,9 +37,20 @@ const complete = (s: Localized<SpeciesEntity>) => CORE.every(f => resolveDataCar
 /** Species with all core figures first, in their order; one missing a figure only fills a spot nothing complete can. */
 export const completeFirst = (list: Localized<SpeciesEntity>[]) => [...list.filter(complete), ...list.filter(s => !complete(s))]
 
-/** The home page's species: well-known ones and the richest profiles, but never a half-empty card while a full one is left. */
-export function featuredSpecies(lang: Lang, c: Content, n = 8): Localized<SpeciesEntity>[] {
-  return completeFirst(knownFirst(lang, c)).slice(0, n)
+/**
+ * Photos the calendar keeps off cards (content/curation.json `avoid`): each stays on its page, but no card, featured fish
+ * or group tile shows it, as no Hôm nay day does (the chief of staff, 15 Nov: a drawing, a figure plate and a water
+ * surface wait there for another head).
+ */
+export type OffCards = Readonly<Record<string, string>>
+
+/**
+ * The home page's species: well-known ones and the richest profiles, but never a half-empty card while a full one is
+ * left, nor one whose head is kept off cards (`avoid`).
+ */
+export function featuredSpecies(lang: Lang, c: Content, n = 8, avoid: OffCards = {}): Localized<SpeciesEntity>[] {
+  const head = (s: Localized<SpeciesEntity>) => s.photos.find(p => !p.generated)
+  return completeFirst(knownFirst(lang, c)).filter(s => !Object.hasOwn(avoid, head(s)?.url ?? '')).slice(0, n)
 }
 
 /** The reader's own country for each language: its native fish get a place on the home page. */
@@ -71,12 +82,14 @@ export function nativeSpecies(lang: Lang, c: Content) {
 
 /**
  * The home page's native fish: those often recorded there first, full data cards first within each; none featured above,
- * none with only strip photos, none kept in brackish or sea water (a reader's fresh-water tank can't hold it).
+ * none with only strip photos, none kept in brackish or sea water (a reader's fresh-water tank can't hold it), none whose
+ * head is kept off cards (`avoid`), as with the featured fish.
  */
-export function nativeCards(lang: Lang, c: Content, featured: Localized<SpeciesEntity>[], n = 4) {
+export function nativeCards(lang: Lang, c: Content, featured: Localized<SpeciesEntity>[], n = 4, avoid: OffCards = {}) {
   const { species, local } = nativeSpecies(lang, c)
-  // A fish whose photos are all strips would show as a headless slice of body: it waits for a photo.
-  const left = species.filter(s => !featured.includes(s) && !s.water && s.photos.some(fitsCard))
+  // A fish whose photos are all strips would show as a headless slice of body: it waits for a photo. One led by a
+  // non-commercial photo waits for an open one: the row features fish (the chief of staff's rule, 17 Nov).
+  const left = species.filter(s => !featured.includes(s) && !s.water && s.photos.some(fitsCard) && !s.photos.some(p => isNonCommercial(p.licence ?? '')) && !Object.hasOwn(avoid, s.photos.find(p => !p.generated)?.url ?? ''))
   return [...completeFirst(left.filter(local)), ...completeFirst(left.filter(s => !local(s)))].slice(0, n)
 }
 
@@ -89,38 +102,43 @@ export function listOrder(lang: Lang, c: Content): Localized<SpeciesEntity>[] {
 /**
  * Each species group with a page: its size and a picture of its best-documented member, a sharp one first. `pics`: the pictures its page
  * already shows (the home page's fish cards just above): a group whose best member is shown takes its next member's.
+ * A photo kept off cards (`avoid`) is passed over.
  */
-export function groupTiles(lang: Lang, c: Content, pics?: PictureSet): { group: string; label: string; count: number; photo?: Photo }[] {
+export function groupTiles(lang: Lang, c: Content, pics?: PictureSet, avoid: OffCards = {}): { group: string; label: string; count: number; photo?: Photo }[] {
   return Object.entries(GROUP_LABELS)
     .map(([group, label]) => {
       const members = c.species.filter(s => s.group === group)
       const first = GROUP_COVERS[group] ?? []
       const cover = (x: Localized<SpeciesEntity>) => (first.includes(x.id) ? first.indexOf(x.id) : first.length)
       const ranked = [...members].sort((a, b) => cover(a) - cover(b) || richest(lang)(a, b))
-      const all = [...ranked.filter(clean), ...ranked.filter(s => !clean(s))].flatMap(s => cleanPhoto(s.photos) ?? [])
+      const all = [...ranked.filter(clean), ...ranked.filter(s => !clean(s))].flatMap(s => cleanPhoto(s.photos) ?? []).filter(p => !Object.hasOwn(avoid, p.url))
       // A photo under 640 px wide is often an old, soft scan: it waits for every larger one.
       const photos = [...all.filter(p => p.width >= 640), ...all.filter(p => p.width < 640)]
       return { group, label, count: members.length, photos }
     })
-    .filter(g => g.count > 0 && g.group !== 'other')
+    .filter(g => g.count > 0 && g.group !== 'other' && !OFF_LIST_GROUPS.includes(g.group))
     .sort((a, b) => b.count - a.count)
     .map(({ photos, ...g }) => ({ ...g, photo: pics ? pics.take(photos) : photos[0] }))
 }
 
-/** Plants that need neither strong light nor CO2, easiest first. */
+/** Plants that need neither strong light nor CO2, easiest first. None led by a non-commercial photo: the row features
+ * plants (the chief of staff's rule, 17 Nov). */
 export function easyPlants(c: Content, n = 4): Localized<PlantEntity>[] {
-  const easy = c.plants.filter(p => p.photos.length && p.light !== 'high' && p.co2 !== 'required')
+  const easy = c.plants.filter(p => p.photos.length && !p.photos.some(x => isNonCommercial(x.licence ?? '')) && p.light !== 'high' && p.co2 !== 'required')
   const staples = PLANT_STAPLES.flatMap(id => easy.filter(p => p.id === id))
   const rest = easy.filter(p => !staples.includes(p)).sort((a, b) => a.difficulty - b.difficulty || b.photos.length - a.photos.length || b.sections.length - a.sections.length)
   return [...staples, ...rest].slice(0, n)
 }
 
-/** Guides worth leading with: the beginner staples, then practical guides naming the most of our species and plants. */
+/**
+ * Guides worth leading with: the beginner staples, then practical guides naming the most of our species and plants. One
+ * with no picture keeps its place: its card draws a cover (GuideCard; the chief of staff and the Design Lead, 15 Nov 2026).
+ */
 export function leadGuides(c: Content): Localized<GuideEntity>[] {
   const mentions = (g: Localized<GuideEntity>) => mentionIndex(c).guides.get(g.id)?.keys.length ?? 0
   const practical = ['setup', 'care', 'aquascaping', 'plantCare', 'breeding', 'disease']
   // Video guides have their own section and reading order (their series).
-  const ok = c.guides.filter(g => !g.video && practical.includes(g.kind) && guideImage(c, g))
+  const ok = c.guides.filter(g => !g.video && practical.includes(g.kind))
   const staples = LEAD_GUIDES.flatMap(id => ok.filter(g => g.id === id))
   const rest = ok.filter(g => !staples.includes(g)).sort((a, b) => mentions(b) - mentions(a) || practical.indexOf(a.kind) - practical.indexOf(b.kind) || a.id.localeCompare(b.id))
   return [...staples, ...rest]
@@ -129,9 +147,11 @@ export function leadGuides(c: Content): Localized<GuideEntity>[] {
 /** Guides for the homepage's three first steps: cycle the tank, choose fish, change water. Missing ones are skipped. */
 export const STEP_GUIDES = { cycle: 'aquariumcoop-blogs-aquarium-fish-tank-cycling', water: 'aquariumcoop-blogs-aquarium-how-to-change-aquarium-water-correctly' }
 
-/** What to read after a guide: the next beginner staple if it is one, then guides sharing the most species and plants, same kind first. */
-export function nextGuides(c: Content, g: Localized<GuideEntity>, n = 3): Localized<GuideEntity>[] {
-  const lead = leadGuides(c)
+/**
+ * What to read after a guide: the next beginner staple if it is one, then guides sharing the most species and plants, same
+ * kind first. `lead`: the guides to choose from, in leadGuides' order (the app's, only those with a picture).
+ */
+export function nextGuides(c: Content, g: Localized<GuideEntity>, n = 3, lead = leadGuides(c)): Localized<GuideEntity>[] {
   const keys = (x: Localized<GuideEntity>) => (mentionIndex(c).guides.get(x.id)?.keys ?? []).filter(k => k.startsWith('species:') || k.startsWith('plant:'))
   const mine = new Set(keys(g))
   const i = lead.indexOf(g)

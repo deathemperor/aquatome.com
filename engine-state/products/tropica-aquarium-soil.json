@@ -1,0 +1,268 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Brand / origin",
+      "value": "Tropica, Denmark",
+      "source": 1
+    },
+    {
+      "key": "Volume",
+      "value": "9 L bag",
+      "source": 2
+    },
+    {
+      "key": "Grain size",
+      "value": "2–3 mm",
+      "source": 1
+    },
+    {
+      "key": "Colour",
+      "value": "Black granules",
+      "source": 1
+    },
+    {
+      "key": "Type",
+      "value": "Complete nutrient substrate; can be used without a separate base layer",
+      "source": 2
+    },
+    {
+      "key": "Water chemistry effect",
+      "value": "Shops say it lowers pH and keeps it stable",
+      "source": 1
+    },
+    {
+      "key": "Nutrients (shop claim)",
+      "value": "N, P, K plus trace elements Fe, Mn, Zn, Cu, B, Mo",
+      "source": 4
+    },
+    {
+      "key": "Material",
+      "value": "Shops disagree. One VN shop says it is made from Japanese volcanic granules; this is unconfirmed",
+      "source": 3
+    }
+  ],
+  "variants": [
+    {
+      "name": "Tropica Aquarium Soil 9 L",
+      "specs": [
+        {
+          "key": "Grain size",
+          "value": "2–3 mm",
+          "source": 1
+        },
+        {
+          "key": "Volume",
+          "value": "9 L",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Tropica Aquarium Soil 3 L",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "3 L (listed alongside the 9 L bag at a VN shop)",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "Tropica Aquarium Soil Powder (3 L / 9 L)",
+      "specs": [
+        {
+          "key": "Grain size",
+          "value": "Finer grain than the standard soil, aimed at foreground plants",
+          "source": 9
+        }
+      ]
+    },
+    {
+      "name": "Repacked portion (chiết lẻ)",
+      "specs": [
+        {
+          "key": "Price",
+          "value": "120,000₫ (volume not stated)",
+          "source": 2
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Mỹ Đình Aquarium",
+      "url": "https://mdaqua.com.vn/san-pham/phan-nen-tropica-aquarium-soil-bao-9-lit/",
+      "vnd": 820000,
+      "variant": "9 L",
+      "source": 0
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/tropica-aquarium-soil-9l-phan-nen-dat-nen-thuy-sinh",
+      "vnd": 790000,
+      "variant": "9 L (in stock)",
+      "source": 1
+    },
+    {
+      "shop": "Bucep Việt",
+      "url": "https://bucepviet.vn/phan-nen-tropica-aquarium-soil-9l",
+      "vnd": 850000,
+      "variant": "9 L (in stock; the page also says the price is being updated)",
+      "source": 2
+    },
+    {
+      "shop": "Bucep Việt",
+      "url": "https://bucepviet.vn/phan-nen-tropica-aquarium-soil-9l",
+      "vnd": 120000,
+      "variant": "Repacked portion, volume not stated",
+      "source": 2
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Sold for planted tanks and shrimp tanks",
+      "source": 2
+    },
+    {
+      "fact": "Works as the only substrate in a new tank, with no other substrate needed",
+      "source": 0
+    },
+    {
+      "fact": "For heavily planted Dutch or nature-style tanks, one shop suggests adding a nutrient base layer underneath, such as Tropica Substrate or local mixes",
+      "source": 1
+    },
+    {
+      "fact": "One comparison says it suits Dutch or jungle tanks with stem plants and regular water changes. It says Dennerle is the better pick for Caridina shrimp or tanks that can't handle ammonia",
+      "source": 6
+    },
+    {
+      "fact": "The 9 L bag only covers a small area. Work out the litres you need first: length × width × depth (cm) ÷ 1000. Example: a 90×45 cm tank at 8 cm depth needs about 32.4 L",
+      "source": 2
+    }
+  ],
+  "usage": [
+    {
+      "fact": "One shop says to rinse the soil until the water runs clear before use",
+      "source": 3
+    },
+    {
+      "fact": "Recommended depth is about 5–6 cm according to one shop and 5–7 cm according to another",
+      "source": 3
+    },
+    {
+      "fact": "Fill with water slowly and gently so the soil stays in place, then plant and start the filter",
+      "source": 2
+    },
+    {
+      "fact": "For the first 4 weeks, change 30–50% of the water twice a week",
+      "source": 1
+    },
+    {
+      "fact": "Another shop suggests 2–3 water changes a week after setup to remove excess nutrients",
+      "source": 4
+    },
+    {
+      "fact": "Store opened bags somewhere cool and dry, out of the sun, and reseal them",
+      "source": 2
+    },
+    {
+      "fact": "You can slope the soil to make the layout look deeper",
+      "source": 2
+    }
+  ],
+  "issues": [
+    {
+      "fact": "One buyer said the soil started dissolving within a day and turned to sand after a few days. Most other reviews on the same site are positive, with a 4.8/5 average",
+      "source": 5
+    },
+    {
+      "fact": "One reviewer said it fed plants for two years without root tabs",
+      "source": 5
+    },
+    {
+      "fact": "One comparison says its grains are softer than ADA's and break down faster when plants are pulled up often. It also says the pH buffering lasts about 12–18 months",
+      "source": 6
+    },
+    {
+      "fact": "The same comparison measured an ammonia peak of about 1–2 ppm early on, lower than ADA Amazonia and higher than Dennerle. The pH settled around 6.4–6.8",
+      "source": 6
+    },
+    {
+      "fact": "Shops describe the material differently: volcanic granules versus other descriptions. Check the bag label",
+      "source": 3
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "ADA",
+      "model": "Aqua Soil Amazonia (Ver.2)",
+      "why": "Lowers pH more strongly (about 6.0–6.4) and the buffering lasts longer (about 18–24 months). It is the usual choice for Iwagumi tanks, but it leaches more ammonia at first and costs more",
+      "source": 6
+    },
+    {
+      "brand": "Dennerle",
+      "model": "Scaper's Soil 8 L",
+      "why": "Less ammonia at startup, and the buffering is said to last longer for the money. It is good for shrimp tanks and carpet plants, but grips hardscape less well",
+      "source": 6
+    },
+    {
+      "brand": "Tropica",
+      "model": "Aquarium Soil Powder",
+      "why": "Finer grains from the same brand, easier for planting small foreground and carpet plants",
+      "source": 9
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://mdaqua.com.vn/san-pham/phan-nen-tropica-aquarium-soil-bao-9-lit/",
+      "title": "Phân nền TROPICA AQUARIUM SOIL (9 Lít) – Mỹ Đình Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/tropica-aquarium-soil-9l-phan-nen-dat-nen-thuy-sinh",
+      "title": "TROPICA AQUARIUM SOIL 9L – Thủy Sinh Bích Phương",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bucepviet.vn/phan-nen-tropica-aquarium-soil-9l",
+      "title": "Phân nền thủy sinh Tropica 9L – Bucep Việt",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhaqua.com/san-pham/nen-tropica-aquarium-soil-9-lit/",
+      "title": "Nền Tropica Aquarium Soil (9 lít) – Thủy Sinh Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://yeuthuysinh.vn/tropica-aquarium-soil-9l-phan-nen-dat-nen-thuy-sinh",
+      "title": "TROPICA AQUARIUM SOIL 9L – Yêu Thủy Sinh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.olibetta.ch/en-CH/reviews/tropica/aquarium-soil",
+      "title": "Olibetta – customer reviews for Tropica Aquarium Soil",
+      "kind": "review"
+    },
+    {
+      "url": "https://gensou.sg/?p=41254",
+      "title": "ADA vs Tropica vs Dennerle Aquasoil Comparison Guide (Gensou)",
+      "kind": "review"
+    },
+    {
+      "url": "https://aquasabi.com/Tropica-Aquarium-Soil-9-l",
+      "title": "Tropica Aquarium Soil – Aquasabi",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.olibetta.com/tropica/aquarium-soil",
+      "title": "Tropica Aquarium Soil – Olibetta",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquascaperoom.ca/tropica-aquarium-soil-powder",
+      "title": "Tropica Aquarium Soil Powder – Aquascape Room",
+      "kind": "shop"
+    }
+  ]
+}

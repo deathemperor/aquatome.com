@@ -22,10 +22,10 @@
     "references:seriouslyfish": "<ul><li>Grant, S. (2007). A new subgenus of Acanthocobitis Peters, 1861 (Teleostei: Nemacheilidae). Ichthyofile No. 2, 1-9</li><li>Kottelat, M. (1990). Indochinese nemacheilines. A revision of nemacheiline loaches (Pisces: Cypriniformes) of Thailand, Burma, Laos, Cambodia and southern Viet Nam. Verlag Dr. Friedrich Pfeil, München, Germany, 1-262</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Grant, S. (2008). Schmerlen der Gattung Acanthocobitis Peters, 1861. BSSW-Report 20(3), 49-52</li><li>Kottelat, M. (2012). Acanthocobitis pictilis, a new species of loach from Myanmar and Thailand (Teleostei: Nemacheilidae). Zootaxa 3327, 45-52</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Singer, R. A. and L. M. Page (2015). Revision of the zipper loaches, Acanthocobitis and Paracanthocobitis (Teleostei: Nemacheilidae), with descriptions of five new species. Copeia v. 103 (no 2), 378-401</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6
+      "seriouslyfish": 0.85
     }
   }
 }

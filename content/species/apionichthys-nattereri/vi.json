@@ -1,0 +1,30 @@
+{
+  "slug": "ca-bon-nuoc-ngot-apionichthys-nattereri",
+  "name": "Cá bơn nước ngọt Apionichthys nattereri",
+  "altNames": [
+    "Cá bơn Nam Mỹ",
+    "American sole"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Apionichthys nattereri là cá bơn sống hoàn toàn ở nước ngọt, thuộc họ Achiridae (cá bơn Mỹ). Loài này dài tới khoảng 25 cm, thuộc hàng lớn nhất trong giống.</p>",
+    "distribution:glaser": "<p>Loài này có ở khắp lưu vực sông Amazon. Số cá nhập về là cá từ Peru.</p>",
+    "behaviour:glaser": "<p>Như mọi loài cá bơn khác, chúng vùi mình trong cát mịn gần như cả ngày. Vì vậy, nếu bể set đúng kiểu cho chúng thì ít khi thấy được bộ hoa văn đốm đẹp của chúng. Mắt rất nhỏ, nằm trên cuống, và miệng cũng nhỏ xíu.</p>",
+    "reproduction:glaser": "<p>Chưa có thông tin gì về chuyện sinh sản. Chắc chắn đây là loài đẻ trứng và không giữ con. Còn cá đẻ ra sao, ở đâu, lúc nào và cá bột lớn lên thế nào thì chưa ai biết. Người ta đã soi sỏi tai (otolith) của hai loài nước ngọt họ hàng là A. finis và Hypoclinemus mentalis. Kết quả cho thấy hai loài này có lẽ đẻ trong nước ngọt và không bao giờ ra biển, kể cả lúc còn là cá bột (Matsushita et al., 2020).</p>",
+    "notes:glaser": "<p>Lúc đầu, lô cá này được gửi sang với tên Apionichthys finis. Đó là một loài họ hàng gần, cũng chỉ sống ở nước ngọt và có ở Peru. Theo bản tu chỉnh phân loại năm 2003 của Ramos thì chúng là A. nattereri. Ở A. nattereri, vây lưng, vây đuôi và vây hậu môn nhìn rõ là ba vây riêng nhưng vẫn nối liền với nhau. Ở A. finis thì ba vây này tách hẳn ra. Viền đen ở mặt không có mắt là nét riêng của A. nattereri, không loài nào khác có.</p><p>Họ Achiridae ở Nam Mỹ có 26 loài sống được ở nước ngọt. Nhưng nhiều loài trong số đó là loài rộng muối, sống được cả ở biển, nước lợ lẫn nước ngọt. Riêng A. nattereri thì chỉ sống ở nước ngọt.</p>",
+    "references:glaser": "<p>Eigenmann, C. H. (1912): The freshwater fishes of British Guiana, including a study of the ecological grouping of species, and the relation of the fauna of the plateau to that of the lowlands. Memoirs of the Carnegie Museum v. 5 (no. 1): i-xxii + 1-578, Pls. 1-103.</p><p>Matsushita, Y., Miyoshi, K., Kabeya, N., Sanada, S., Yazawa, R., Haga, Y., Satoh, S., Yamamoto, Y, Strüssmann, C. A., Luckenbach, J. A. &amp; Yoshizaki, G. (2020): Flatfishes colonised freshwater environments by acquisition of various DHA biosynthetic pathways. Communications biology, 3(1), 1-9.</p><p>Ramos, R. T. C. (2003): Systematic review of Apionichthys (Pleuronectiformes: Achiridae), with description of four new species. Ichthyological Exploration of Freshwaters v. 14 (no. 2): 97-126.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-23"
+  }
+}

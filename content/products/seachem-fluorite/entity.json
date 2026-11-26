@@ -1,0 +1,154 @@
+{
+  "id": "seachem-fluorite",
+  "brand": "Seachem",
+  "model": "Fluorite",
+  "category": "phan-nen",
+  "type": "phan",
+  "specs": [
+    {
+      "key": "Material",
+      "value": "Specially fractured, stable porous clay gravel",
+      "source": 0
+    },
+    {
+      "key": "Treatment",
+      "value": "Not chemically coated or treated",
+      "source": 0
+    },
+    {
+      "key": "Bag sizes",
+      "value": "3.5 kg, 7 kg",
+      "source": 0
+    },
+    {
+      "key": "pH effect",
+      "value": "Does not alter water pH",
+      "source": 0
+    },
+    {
+      "key": "Lifespan",
+      "value": "Lasts the life of the aquarium; doesn't need replacing (manufacturer)",
+      "source": 0
+    },
+    {
+      "key": "Origin",
+      "value": "USA",
+      "source": 1
+    },
+    {
+      "key": "Undergravel filter compatibility",
+      "value": "Compatible",
+      "source": 0
+    }
+  ],
+  "variants": [
+    {
+      "name": "Flourite (original)",
+      "specs": [
+        {
+          "key": "Sizes",
+          "value": "3.5 kg / 7 kg",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Flourite Red",
+      "specs": [
+        {
+          "key": "Color",
+          "value": "Reddish-brown",
+          "source": 3
+        },
+        {
+          "key": "Sizes",
+          "value": "3.5 kg / 7 kg",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "Flourite Black",
+      "specs": [
+        {
+          "key": "Sizes",
+          "value": "3.5 kg / 7 kg",
+          "source": 4
+        }
+      ]
+    },
+    {
+      "name": "Flourite Dark",
+      "specs": [
+        {
+          "key": "Sizes",
+          "value": "3.5 kg (listed in VN)",
+          "source": 5
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.seachem.com/flourite.php",
+      "title": "Seachem Flourite – official product page",
+      "kind": "manufacturer",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://www.greendeal.vn/seachem-flourite",
+      "title": "Greendeal – SEACHEM Flourite",
+      "kind": "shop",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://shopthuysinh.com/dat-nen-seachem-flourite-chuyen-dung-cho-cay-thuy-sinh",
+      "title": "ShopThuySinh – Đất nền Seachem Flourite",
+      "kind": "shop",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://greendeal.vn/seachem-flourite-red",
+      "title": "Greendeal – SEACHEM Flourite Red",
+      "kind": "shop",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://shopthuysinh.com/products/nen-cao-cap-seachem-flourite-black-cho-cay-thuy-sinh",
+      "title": "ShopThuySinh – Seachem Flourite Black",
+      "kind": "shop",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://greendeal.vn/seachem-flourite-dark",
+      "title": "Greendeal – SEACHEM Flourite Dark",
+      "kind": "shop",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://www.fishlore.com/aquariumfishforum/threads/seachem-fluorite-super-cloudy-dusty.376573/",
+      "title": "Fishlore – Seachem Fluorite super cloudy/dusty",
+      "kind": "forum",
+      "at": "2026-11-19"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=gLfQEXBzirw",
+      "title": "Seachem Fluorite review",
+      "kind": "video",
+      "at": "2026-11-19"
+    }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-19",
+    "videos": [
+      {
+        "youtubeId": "gLfQEXBzirw",
+        "title": "Seachem Fluorite review",
+        "durationSec": 987,
+        "lang": "en",
+        "channel": "fishy fam"
+      }
+    ]
+  },
+  "updatedAt": "2026-11-19"
+}

@@ -3,6 +3,12 @@
   "name": "มิสซิสซิปปี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.68,
+    "at": "2026-11-20T11:53:57.853Z",
+    "why": "มิสซิสซิปปี is the standard Thai spelling, but it lacks the kind word รัฐ that an atlas in Thailand puts before a US state's name, and the source sentences refer to the Mississippi River and basin rather than the state."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

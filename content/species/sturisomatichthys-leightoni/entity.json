@@ -10,6 +10,143 @@
     "colombia",
     "magdalena"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Magdalena",
+        "Cauca"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Upper Magdalena and Cauca River basins, Colombia Caribbean Rivers.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Magdalena",
+            "Cauca"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339319,
+      "total": 427,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CO",
+          427
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          -77.34375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -77.34375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          1.40625,
+          64,
+          64
+        ],
+        [
+          -75.9375,
+          2.8125,
+          45,
+          45
+        ],
+        [
+          -75.9375,
+          4.21875,
+          192,
+          192
+        ],
+        [
+          -75.9375,
+          5.625,
+          10,
+          10
+        ],
+        [
+          -75.9375,
+          7.03125,
+          76,
+          76
+        ],
+        [
+          -75.9375,
+          8.4375,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          8.4375,
+          12,
+          12
+        ],
+        [
+          -74.53125,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          7.03125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -35,6 +172,10 @@
       {
         "source": "scotcat",
         "value": 15
+      },
+      {
+        "source": "glaser",
+        "value": 12
       }
     ],
     "ph": [
@@ -53,6 +194,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=104",
       "html": "<ul><li>Scientific name: Sturisomatichthys leightoni (Regan, 1912)</li><li>Family: Loricariidae</li><li>Common names: Dwarf Royal Twig Catfish; Leightons Störwels (Germany)</li><li>Synonym: Oxyloricaria leightoni</li><li>Size: 180 mm (7.1\") SL</li><li>Temperature: 20.0–24.0°C (68–75.2°F)</li><li>Breeding: unreported</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/sturisomatichthys-leightoni-2/",
+      "html": "<p>Until recently, two genera of closely related whiptail catfish were distinguished according to anatomical features: the relatively short-nosed Sturisomatichthys with four described species and the relatively long-nosed Sturisoma with over 15 species. All species are popular aquarium fish because they are attractive and easy to breed.</p><p>In well acclimatized animals one can recognize in S. sp. Colombia1 numerous spots and worm lines on the front body, which are missing in S. leightoni. Unfortunately these colour features fade to unrecognizability in stressed animals. The species S. guaitipan from the upper and middle Rio Magdalena in Colombia, newly described in December 2019, is very similar to S. sp. Colombia1, but the unique feature for S. guaitipan is that it has only 10 branched fin rays in the caudal fin, while both animals photographed for this post have 12 branched rays in the caudal fin.</p>"
     },
     {
       "key": "distribution",
@@ -91,10 +238,22 @@
       "html": "<p>Breeding: unreported. There are 2 breeding reports on the site.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/sturisomatichthys-leightoni-2/",
+      "html": "<p>Unlike most other loricariid catfish they do not breed in caves, but lay their eggs openly (usually on one of the vertical aquarium panes). After spawning the male guards the clutch until the young hatch.</p>"
+    },
+    {
       "key": "notes",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_leightoni.htm",
       "html": "<p>This species sports a golden sheen on the sides of the head and is one of the smallest in the genus. The work carried out by Covain et al. 2016 confines the genus Sturisoma to east of the Andes (cis-Andean), and the genus Sturisomatichthys to the west of the Andes (trans-Andean).</p><p>Etymology: the specific name leightoni honours British soldier Bryan Leighton (1868–1919), who \"presented\" the holotype to the British Museum (Natural History).</p><p>IUCN Red List: the species has a relatively wide range. Although data are lacking on its population size and trend or the threats affecting it, it appears to be relatively common. It is listed as Least Concern.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/sturisomatichthys-leightoni-2/",
+      "html": "<p>As a rule of thumb, Sturisomatichthys remain smaller (10-12 cm), while Sturisoma can be expected to reach 15-30 cm (depending on the species). A recent study by Alejandro Londoño-Burbano and Roberto E. Reis showed that all species from Colombia, Venezuela and Panama are so closely related that they belong to the same genus, Sturisomatichthys, while the species from the entire Amazon basin and further south to Paraguay remain in Sturisoma.</p>"
     },
     {
       "key": "references",
@@ -107,6 +266,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_leightoni.htm",
       "html": "<p>Baensch, H.A. and R. Riehl 1991 Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur- und Heimtierkunde, Germany. 1104 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Turley, Paul E; Keeping and Breeding Sturisomatichthys leightoni, the Dwarf Royal Farlowella.</p><p>Superina, M., Sanchez-Duarte, P., Mesa-Salazar, L., Lasso, C. &amp; Usma, S. 2016. Sturisomatichthys leightoni. The IUCN Red List of Threatened Species 2016.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/sturisomatichthys-leightoni-2/",
+      "html": "<p>Londoño-Burbano, A. &amp; R.E. Reis (2019): A Taxonomic Revision of Sturisomatichthys Isbrücker and Nijssen, 1979 (Loricariidae: Loricariinae), with Descriptions of Three New Species. Copeia 107, No. 4, 2019, 764–806</p>"
     }
   ],
   "photos": [
@@ -115,10 +280,45 @@
       "thumb": "https://media.aquatome.com/commons/600cf22ff8752850-480.webp",
       "width": 960,
       "height": 639,
+      "large": {
+        "url": "https://media.aquatome.com/commons/600cf22ff8752850-large.webp",
+        "width": 1024,
+        "height": 682
+      },
       "licence": "CC BY-SA 4.0",
       "author": "Biodiego88 (via iNaturalist)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:INaturalist_Observation_188742000_Sturisomatichthys_leightoni.jpg",
       "caption": "Registro de biodiversidad de la especie Sturisomatichthys leightoni (No disponible) detectado en el municipio de Caicedonia, Valle del Cauca, Colombia."
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5f8059c59ff84432.webp",
+      "thumb": "https://media.aquatome.com/glaser/5f8059c59ff84432-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/sturisomatichthys-leightoni-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ff0102458a0dc9b3.webp",
+      "thumb": "https://media.aquatome.com/glaser/ff0102458a0dc9b3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/sturisomatichthys-leightoni-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/901faed68bc1828f.webp",
+      "thumb": "https://media.aquatome.com/glaser/901faed68bc1828f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/sturisomatichthys-leightoni-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -168,5 +368,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-20"
 }

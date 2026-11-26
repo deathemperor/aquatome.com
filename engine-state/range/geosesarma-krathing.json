@@ -1,0 +1,40 @@
+{
+  "id": "geosesarma-krathing",
+  "native": {
+    "input": "a9a64366a2c56e2a",
+    "at": "2026-11-19T07:58:14.453Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Tangerine-head crabs (Geosesarma krathing) originate from eastern Thailand in Chanthaburi Province, near the Cambodian border.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geosesarma krathing",
+    "status": "ACCEPTED",
+    "taxonKey": 5974713,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-19T07:58:14.453Z"
+  }
+}

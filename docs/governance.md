@@ -413,6 +413,80 @@ The layers above still check the result.
   - **The style rewrite takes the pages out of search for their score first** (`rewriteExisting`, `vi-backfill.ts`),
     then the rest in its kinds' order: a kept rewrite is what brings such a page back, and in folder order the last of
     them waited five weeks (2026-11-10: 238 fish and plant pages; 28 of the 31 it had reached were back in search).
+    - **`--phrases` takes a page up once for each listed word it has**, as the list matches it (`phraseRun`,
+      `phrases.ts`; the words are kept in its line of `engine-state/vi-rewrite.json`).
+      - A word the rewrite leaves, in a part the reviewer failed or a fixed part, doesn't bring the page back at the next
+        run.
+      - A word new to the list, as a new row or added to a row's pattern, does. A row's label changed alone doesn't.
+      - Each word a row matches is its own mark, case aside: a rewrite that swaps one of a row's words for another of the
+        same row ("bạn nên" for "bạn cần") brings the page back once, for the new word.
+      - A page whose rewrite failed isn't marked, so it comes back. A page the gate holds back gets its old line back, with
+        its old marks, so it comes back too.
+      - A marked word in text written later, such as a new source's section, doesn't bring the page back.
+      - Found 2026-11-16: 544 of the 758 pages it had rewritten still had a listed phrase, and every run took them all up
+        again, each part a write and a review.
+      - **A page rewritten without its marks gets them from the pass**: `rewrite-vi --phrases` writes them as its first
+        step (`rewrite-marks.ts`, no model call; the chief of staff's option of 20 Nov). The daily queue writes none, and
+        no record from before them has any. The pass's own command writes them, so no one has to remember a hand run
+        days ahead, and the days between can't refill the list (the chief of staff, 22 Nov). `pnpm engine rewrite-marks`
+        counts them and writes nothing but its `--out` report. The record merges page by page (`.gitattributes`, `scripts/merge-json-map.mjs`),
+        so a daily run's push that meets the pass's commit keeps both. A page gets a mark for a
+        word it still has only when the word's row was in the rewrite's prompt the day the page was rewritten: 61 rows
+        from 8 Nov, four from 12 Nov, from the list's history in git.
+        - The record's day is UTC and a row's is Vietnam's, so only a later day than the row's counts. A page rewritten
+          the day its row landed keeps the word for the pass.
+        - Only a page rewritten whole is marked: every part it sent came back rewritten. A page with a part the reviewer
+          refused kept that part's old words, so it's left for the pass, as is a failed rewrite. A record that has
+          marks is left as it is; an empty list is none, as `--phrases` reads it. A row added since is never marked by
+          it. A row's words are pinned as on its day (a test): one that widens takes the widening's day, so a page
+          rewritten before it isn't marked for the new word.
+        - A word counts only in what the rewrite's own commit changed, read from git: the newest commit in which the
+          page's record took the value it has, and the parts of the page that commit changed, as it left them, but for
+          the units the rewrite's own last step changes on the whole page. "Rewritten whole" alone doesn't prove the text
+          changed: on 22 Nov, 4 of the 44 pages then marked had their words in text byte-identical to before (Fable's
+          read), and on one the rewrite's commit didn't touch the page. The word must be in the same part then and now.
+          A part the commit didn't change is never marked, nor is a page whose commit shows nothing of a rewrite: no
+          history, a commit whose parent the checkout doesn't have (a shallow clone's edge: before 22 Nov's second fix it
+          read as a commit that wrote every record and every page from nothing, and marked 45 pages, not 37), or a page
+          not there before the commit (moved, or first written in it). A word the page also has in a part that commit
+          didn't change (a guide's question, a fish page's references or fixed sections) isn't marked either: a mark is
+          the page's, so it would close that part too. Another step that ran in the same commit and changed a part
+          makes it count as changed, as does a record set back to an earlier value in a commit that changed the page.
+          A marked word is the rewrite's own text either way: on 22 Nov, 35 of the 38 were "không xương sống", which
+          the rewrite wrote in for "tôm, cua, ốc" on the translation review's note, not kept from before.
+        - The record is written whole, through a new file of its own beside it (never one already there), and only if it
+          was unchanged at the last read before the write: otherwise nothing is written and the step says to run it
+          again. A write in the moment between is still lost, so it runs only in the pass's own checkout.
+        - The count, and the pass's `--dry-run`, write nothing in the repository but the count's `--out` report. It reports, per row, the pages rewritten whole with it, those
+          that still have it (each such word stays on the page once marked), and the pages `--phrases` would still take
+          up for it. The pages it gives as left are `rewrite-vi --phrases --dry-run`'s own, run on a marked copy in the
+          system's temporary folder. `--out` writes the report only to a file that doesn't exist yet.
+  - **An Indonesian or Thai fish page out of search for its score comes back on two fresh reads on two models**
+    (`pnpm engine recheck`, `localize-recheck.ts`, in the rewrite part after the other translations; the chief of staff,
+    2026-11-16). A kept rewrite is no longer the only way back. The steady Sonnet read of the page's text as it is, then,
+    after a pass, the steady Opus read: when both pass and no read of that text carries a note on a dose or harm, the page
+    is back at the lower of the two scores.
+    - One try a text, by its hash (`engine-state/recheck-<lang>.json`): a page that fails either read keeps its place and
+      its old score and goes to the rewrite as before, and isn't read again until its text changes. One pass after one fail
+      changes nothing.
+    - A dose or harm note counts on any read of the text the page has: the two fresh reads, a logged read of it, the
+      translator's own. One on a text the page never kept doesn't. One the Page Recovery or Writing lead has read and
+      cleared, by page and quoted whole with why (`packages/engine/src/dose-cleared.json`, by pull request), doesn't
+      either; nothing is cleared by pattern.
+    - The bar moves one way. Main already keeps a pass over a later fail (a passing translation is never replaced by one
+      under it, above), and with this a page under it can pass on a later read, while one over it isn't read again. That
+      is accepted because two models must agree, and both fail what is wrong: on 2026-11-16, of 12 passing pages with one
+      fault planted in each (a figure, a caution dropped or turned round, a wrong name, an invented sentence), Opus named
+      all 12 and Sonnet 11 in their notes, and each it named fell under the bar; Sonnet's one miss, a cut caution, Opus
+      failed at 0.6. What it rests on: of 40 pages under the bar, 30 passed a fresh read with nothing changed and 29 of
+      those passed Opus too, and of 40 in search at exactly the bar, 39 passed again. Most pages under it were put there by
+      one early read, before the middle-of-three read began (2026-11-11).
+    - Indonesian and Thai fish pages only, the kinds that was measured on. Malay fish pages and other kinds each get a
+      20-page sample first. `RECHECK_LIMIT` pages a language a cycle (15), the translator's pages of the last day first so
+      a new page its first read failed has its two reads in the same cycle, then the most-read, starting none after
+      `RECHECK_MINUTES` (15), on its own line on GitHub's side of `ceilings.json`: $12 on 18 Nov and $6 on 19 Nov until
+      13:00, about $18 on the second sign-in while the third is out of its week, then $25 a day to 24 Nov and $6 from
+      25 Nov, GitHub's backstop $180 and that line (the chief of staff, 16 and 17 Nov 2026).
   - **What recurs, per kind:** `docs/review/reviews.md` (`pnpm engine reviews`, each cycle's photos part): how many pages
     each kind last left under the bar and the faults their notes name most, grouped, with notes quoted and their pages.
     What prompt fixes start from.
@@ -477,6 +551,28 @@ The layers above still check the result.
   runs first in its source's next run, with no backoff. A usage limit uses none of its 3 attempts, and 3 pages in a
   row failing on the network stop the source, so an outage doesn't use up every page's attempts. Found with the
   above: after one browser crash (2026-10-29), 115 Seriously Fish pages waited behind hundreds of new ones.
+- **Refused sources.** A site refused as a source for its quality (`REFUSED_SITES`, `packages/engine/src/cycle-only.ts`;
+  cabaymau.vn since 16 Nov 2026) is read by no research, and its pages leave the research the engine keeps and the
+  pages it shows (`packages/engine/src/refused-sources.ts`):
+  - the research steps of guides, glossary terms, materials, breeds, products and species drop an item that cites one
+    of its pages, whatever else it lists, before the step writes or uses it;
+  - every sweep does the same to the research kept in those six kinds, and drops its pages from every page's top-level
+    reference list (`refs`), in every language, so a run on older code can't bring them back at its push;
+  - the real-content test fails if any page or kept research names one anywhere, so what the sweep can't take out (a
+    list a page's text cites by number: a section's `refs`, a material's or a breed's `sources`) stops the run's push
+    until a person takes it out. The one exception is a page left waiting with its owner and day (`WAITING`), whose text
+    cites the refused page by number: the test holds it to still naming it, so it leaves that list the day its text is
+    fixed;
+  - the same test fails on any address on a proxy's host (Google's cache, Translate's proxy, a reader proxy), whose
+    original the engine doesn't read: research is refused those hosts, none is kept or shown, and none stays none, so a
+    refused site's pages can't come back through one;
+  - a buying list keeps an entry it has (`engine-state/shop-lists`, which the test doesn't read: the chief of staff,
+    16 Nov 2026).
+  - **The list is a switch for the whole site.** One more name drops that site's facts everywhere at the next push, and
+    the test then fails on main for every page still resting on them, stopping every push behind it. So a site is added
+    only in a change that carries the pass's result (`pnpm engine refused-sweep`, its files committed), the count of
+    facts and pages it took out, and each page it leaves waiting with its owner and day. Nobody adds a name alone (the
+    chief of staff, 17 Nov 2026).
 - **Daily ceiling.** Each step may spend only so many dollars on the model in a day, counted from the cost log before
   every call (`ceiling.ts`). The amounts are in `packages/engine/src/ceilings.json`, a table a period, with the clock
   a day runs on. A step the file doesn't name has the small ceiling, never none. The gate and moderation have none, and
@@ -492,6 +588,10 @@ The layers above still check the result.
   - A measurement yields to the engine: the chat's board spends only what leaves every other step its whole line and
     some room for the gate (`leftYielding`), so the backstop never stops a step on its account (the chief of staff,
     13 Nov 2026).
+  - From 18 Nov the Mac's backstop is its named lines and $59 more, the room for the steps without a line of their own
+    (the gate with the video guides' editor, and the steps on the small line), which spent $88 on 16 Nov against the $10
+    then kept and stopped the day at 21:50; `ceiling.test.ts` fails on a Mac table that keeps less (the chief of staff,
+    17 Nov 2026).
   - The AI page review on pull requests, the nightly AI review and the auto-fix call Claude on the same accounts by
     another road, and each has a line on GitHub's side (`page-review`, `nightly-review`, `autofix`). A call writes a
     cost line: the time, the step, the account's hash, the model, dollars and tokens, and nothing of a page, a prompt
@@ -567,11 +667,13 @@ The layers above still check the result.
 - **Photos.** No people, and hands count (PRODUCT.md: faces dropped by Apple Vision, and the model asks about any person
   or part of one wherever it looks), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
-  good; a photo that screen still owes a look waits, and no public build shows it on a page, in an album, a guide or a
+  good, but an Aquarium Glaser photo from Glaser's own pages whose every mark is Glaser's own (its banner, name, logo or web address) stays, with a kept record: the model, told the shop's name as `content/sources.json` holds it, says whose the marks are, and the photo check, which runs first in a cycle, waits for that answer before a logo on such a photo counts (the chief of staff, 16 Nov; anyone else's mark is refused as before, a photo already on the never-again list isn't asked, and BW Aquatics' kept marks still need their record by hand); a Glaser photo the list already holds for a mark comes back only through the return step (`pnpm engine shop-return --pages <file>`, `shop-return.ts`), page by page on the chief of staff's word: it asks the screen the same question and takes off the list only a photo whose every mark is Glaser's own, one at a time, while the list still holds it for the mark it was asked about, with why in `engine-state/_shop-photo-returns.json` (the list's reason as the list keeps it), back in its page's album waiting for the photo check; a refused one, or one another step listed again for another reason meanwhile, or one with no page left to take it, stays listed (or goes back on it) and out of the albums, and isn't asked again, and nothing else takes a photo listed for a mark off that list (the credit hold's release takes off only its own holds; the chief of staff, 19 Nov). Its writes go kept record, its line with the photo, off the list, into the albums, then the line loses the photo, each file written whole or not at all, so the next run finishes a run that stopped between them. It refuses to start while an engine cycle runs in the same checkout, the one other step that writes the list there; it can't keep a cycle from starting after it, so the hand run goes in a checkout no cycle runs in. It reads each photo's newest record in the repository's history. A kept record says who wrote it (`by`: the screen, the return step, the image step or a person), and one a person writes says on whose word and on what date, or keeps nothing; one that says either in any other way keeps nothing, read raw or compacted (`own-mark.ts` keptAuthorOk; the chief of staff, 19 Nov); a photo that screen still owes a look waits, and no public build shows it on a page, in an album, a guide or a
   card until it is judged, and the calendar, which names a picture by address, asks the screen's record about each one whatever that language's build loaded; an equipment guide whose pictures all wait is left out, and a kind of kit is linked only where the language builds its page; the homepage's cover (a site picture chosen by hand) and a video's own thumbnail (YouTube's, never in our store) are no fetched photos and are not asked: on 2026-11-11 the model ran out of quota and 36 photos reached main with no look), no shop's or dealer's brand in a guide's photo (on its own-brand products too; a maker's brand on its own product is
   fine), no dead fish or fish as food (markets, plates, catches landed or held,
   preserved, mounted or museum specimens), each photo must show its species (a landscape where it can't be picked out
   doesn't), open licences or permission only.
+  A listed publisher's permission (Aquarium Co-op, 2Hr Aquarist, Seriously Fish, ScotCat, Aquarium Breeder) covers its
+  photos on any AquaTome page, by the owner's word of 16 Nov 2026.
   Pages show photos from our own media host: a Commons or iNaturalist photo waits for `pnpm engine mirror-photos` (every
   cycle), and a public build leaves it out until then (`setsCookies`), since those hosts set third-party cookies.
   Every request the engine sends to Wikimedia (Commons' API, its pictures, their thumbnails) asks under the engine's own
@@ -600,7 +702,33 @@ The layers above still check the result.
     and trade names) and Openverse, never iNaturalist or GBIF, which give the wild fish; it is screened for that line
     alone, and a photo another breed's page shows stays there. Each photo's licence is read from the source's API for
     that photo, never assumed: CC BY-NC, the default on iNaturalist and Flickr, stays out, since the site carries ads
-    and affiliate links. Photos a source gave permission for (`content/sources.json`) and Unsplash photos join through
+    and affiliate links. One exception sits behind a switch (`IMAGE_SWITCHES.inatNonCommercial`,
+    `packages/schema/src/image-policy.ts`), on from 18 Nov, on the chief of staff's yes of 17 Nov (the owner's yes, 10 Nov): iNaturalist's
+    research-grade CC BY-NC and CC BY-NC-SA photos, any version, never ND, all rights reserved or none. With it on they
+    are the album step's last source, read after every page's open sources in a run, pages with no photo of their own first: on such a page right after iNaturalist's open passes, on any other once every open one has run dry,
+    and only while fewer than 200 of them wait for the photo check, which judges them after every other photo but on a page with no photo of its own, in the first-photo turn after that page's open ones, at most 20 sheets a run (`BARE_NC_SHARE`, the chief of staff, 20 Nov), and on a page whose album shows fewer than six, so no strip (counted from the files as the build fills the album, never too few), where they come right after the open photos that wait on such pages; as for every photo, a page's sheet with room left is filled from that page's later photos, a non-commercial one among them (`photo-check.ts`, the chief of staff, 19 Nov); they rank
+    last among the photos with no mark and before the Glaser banner photos (the chief of staff, 19 Nov: the owner was told the banner photos sit below the clean ones, and a non-commercial photo is a clean one), pass every screen and the photo check like any album photo, and their credit names the licence. The chief of staff's
+    rule of 17 Nov: a non-commercial photo shows only where it's the one way to show that fish, on its own page and its
+    own card. Wherever the site picks a fish to stand for many, or to feature, it picks one with an open photo. So one
+    leads a page only where the page has no photo of its own, no album photo that passes as its head and none a shop's
+    own mark lets lead (`lead-photo.ts`), never in a generated picture's place (where no open photo passes, the head's
+    order is a generated picture, then a Glaser photo with its mark, then a non-commercial one: the chief of staff, 20
+    Nov; the order binds what a step chooses by itself, never a person's standing pick, which leads over a generated
+    picture too, the sweep logging that the order wouldn't have made it), and an open one that passes, or such a shop's photo, takes its place at the next
+    run with no model call, after which it is in its album alone; a person's pick of one follows the same rule (the
+    sweep). Head and album differ on purpose (the chief of staff, 20 Nov). The head follows the line of 17 Nov: a
+    non-commercial photo shows only where it is the one way to show that fish, and a Glaser photo with its mark is a way,
+    one the owner asked for, so it leads before a non-commercial one. The album follows looks: clean photos, then
+    non-commercial, then banner photos. The page's own card shows it as it shows any head, so lists and search do; it is never the day's card, a
+    featured card, a group tile, a Khám phá chip or the app's top cards (`curation.ts`: on the engine's avoid list, no
+    card photo), never on the home page's rows of native fish or easy plants, Khám phá's shelves or a guide's borrowed picture (the site checks
+    the licence itself there, a plant's too: the engine's list holds fish and breeds only), never a fish-ID reference, and a page it leads offers the site's own picture to shares and search
+    (`shareImage`). Its credit with the licence sits by it, as in the album. The site shows one on a page only as its one
+    real photo (`load.ts`, `ncAlone`), and the content stats count a page's photos by the same rule. Their licence text is their mark
+    (`isNonCommercial`, `licence.ts`), so with the switch off the site shows none and the sweep takes every one off every
+    album and page, heads too (`dropNonCommercial`).
+    Commons, GBIF, Openverse, hand seeds and the mirror keep refusing NC whatever the switch says (the mirror copies an
+    iNaturalist album one only while it's on). Photos a source gave permission for (`content/sources.json`) and Unsplash photos join through
     their own steps. Each source is read at the pace it asks for (iNaturalist about one request a second; Openverse 200
     a day without a key), and each page keeps its place in `engine-state/gallery/<id>.json`, so the next cycle continues
     there.
@@ -614,7 +742,12 @@ The layers above still check the result.
     as when Commons holds a copy of an iNaturalist or Flickr photo); no human face (Apple Vision); then Claude, on contact
     sheets of 20, keeps only a clear living example of the species, with no person or body part, no drawing, text overlay
     or banner, and no near-copy, and writes its caption. After the photos move to our bucket, `pnpm engine watermarks`
-    reads the text on every photo shown, gallery photos included, and the model blocks a marked one for good. A gallery
+    reads the text on every photo shown, gallery photos included, and the model blocks a marked one for good. A page
+    shows at most three Aquarium Glaser photos kept with Glaser's own mark, its own photos and its album together, its own
+    first, and six where it has no clean photo at all (a photo waiting for the photo check, and a non-commercial one,
+    count as clean), a person's pick from the album among them. In an album they come after every other real photo, a non-commercial one too, and the sweep leaves
+    those past the cap out of the page's file or the album file, the first in each one's order staying, stored still and
+    off the never-again list (`keptCap` and `keptCapOwn`, `own-mark.ts`; the chief of staff, 16 and 19 Nov). A gallery
     leads with Claude's best picks, mixed by what they show (male, female, colour form, young, the wild; for a plant
     under water, emersed, in flower).
   - **What a picture says it is.** Before any look, a species', plant's or breed's picture is left out when its own
@@ -651,7 +784,18 @@ The layers above still check the result.
     and, for a breed, what sets it apart. Verdicts: shows it (in the wild too, where it is clearly seen), something else
     (it says what), not a photo of it (a map, chart, hands, a tank, a packshot, a landscape or stream where it can't be
     picked out), or can't tell. "Something else" and "not a photo of it" leave the page; a photo no page keeps joins
-    `_photo-rejected.json`. Can't tell stays and is listed in
+    `_photo-rejected.json`. From 20 Nov, a photo listed there as "something else" whose answer named one other species
+    or plant we have a page for keeps that page's id in `engine-state/_photo-other-kinds.json` (`namedKind`): the id
+    only, never the answer's words, and the photo stays listed everywhere (the chief of staff, 20 Nov). Only an answer
+    naming one other kind, with no word of denial or doubt, gets an id; the judged page's own kind (a breed's species
+    included) may be named only to deny it, right before its name ("X, not Y" denies Y). An answer in doubt gets none,
+    since the id is for an offer that judges the photo again as that fish. Only a photo this run puts on the list gets one, and the record is written whole before
+    the verdicts. When the check answers "something else" for an album photo, the same run judges that album's
+    other photos from the same uploader that have no verdict for the page yet: the same source (its id, else the site)
+    and author (the author's page where both photos have one, else the name). This round goes past the run's limit and
+    stops at the check's daily line. Only the run's own first answers start it: not a file name's verdict, a guide's, a
+    page's own photo's, an earlier verdict or this round's answers (the chief of staff, 16 Nov: on 15 Nov a second
+    photo by the same uploader in one album was the same wrong fish, and waited for a person). Can't tell stays and is listed in
     `docs/review/photo-subjects.md`, with the removals and the pages left with no photo (they show none; the check
     puts nothing in its place, and the photo steps fill it from their sources as for any page short of photos). A
     "can't tell" photo keeps showing, behind the others (the owner, 2026-11-11): it never leads a page, a breed's
@@ -669,7 +813,14 @@ The layers above still check the result.
     iNaturalist's 7), then the waiting photos of a page with no photo of its own, then the other waiting photos, the
     most-read pages first within each. A page's lead is judged in the first sheet its page gets, whatever its turn, so
     no photo judged before it goes ahead of it. Before all of them, `PHOTO_CHECK_FILL` of a cycle's sheets go to a
-    permitted source's photos that fill a page with none. And before the turns, since 2026-11-11: a page's lead that
+    permitted source's photos that fill a page with none. A sheet the model fails on for a reason that isn't a limit is
+    asked again on the same account after a minute, then once on the next account (`claude-accounts.ts`
+    `onNextAccount`); one no try answers is set aside (`engine-state/_photo-check-aside.json`) and goes first in the
+    next run, before everything else, until it is judged or its page no longer shows it, and a second sheet set aside
+    stops the run. A limit, the account's or the engine's own for the day, stops the run as before. Each failed try is
+    kept as its kind in a word of ours (timed out, overloaded, server error, network, or other with the status number
+    and the error's class name where the tool gave them), never the tool's text (the chief of staff, 19 Nov: three of
+    the eight runs from 18 Nov 11:10 judged nothing, each stopped by one failed call). And before the turns, since 2026-11-11: a page's lead that
     neither check has a verdict on that counts (a first check's "can't tell" does not), Flickr's and Commons' first and then the other sources', each on a sheet filled from
     its page; then the gallery of a page with no photo of its own. The owner had found a parasite paper's plate as a
     page's only photo, three days on the page and not yet judged, behind every more-read page's gallery (the chief of
@@ -688,7 +839,7 @@ The layers above still check the result.
     Until 2026-11-07 a fourth verdict, "its wild habitat, with or without it", stayed on the page and only went last:
     the firemouth's and the flame tetra's only photos, a lake and a stream with no fish, led their pages, their index
     cards and the tank-mates blocks (a design review's find). Such a verdict is asked again (below).
-    Before everything else, since 2026-11-12: a fish's or a breed's head the box step found no animal in
+    Before everything else but a sheet set aside last run (above; the chief of staff, 19 Nov), since 2026-11-12: a fish's or a breed's head the box step found no animal in
     (`_photo-boxes.json`: null), on a sheet filled from its page. On 12 Nov 34 heads were a river, a lake or open water,
     and none had been judged (the chief of staff). Such a head is "not a photo of it", as above: it leaves the page, and
     a page with nothing else shows no photo, its tile "Chưa có ảnh" (no photo yet), until a photo of the fish arrives. A
@@ -779,6 +930,28 @@ The layers above still check the result.
     `PageDoc.Image.Credit` in AquaTomeKit); in its card lists' credits, once the name links the photographer's page,
     each photo's own page is a number, as in the site's credits list, and a line's links are underlined, as the
     site's are. Its photo viewer doesn't yet link an Unsplash photo's own page once the name links the photographer's.
+    A photo a publisher lets us use names the photographer its page prints under it, the line as printed, then the
+    publisher ("<line> / Seriously Fish"; the chief of staff's rulings of 10 and 17 Nov 2026: the owner's leave for
+    those pictures rests on the photographer being named). Each sweep mends a photo credited to its publisher alone
+    from the page's stored copy, by the line that follows its caption there (`publisher-credits.ts`, Seriously Fish's
+    pages; `publisher-credits.test.ts`). A photo whose line can't be told for certain keeps the publisher alone, and
+    `pnpm engine credits` lists it by file and address, with why, and counts each publisher's photos with their line
+    and with its name alone. Found on 17 Nov 2026: 1,654 Seriously Fish photo places credited the site alone a week
+    after the ruling. Since 20 Nov 2026:
+    - A new photo is stored with the line its page prints with it (`source-photos.ts`). A stored one is named only by the
+      sweep or the line-read list below, which read every copy of the photo first.
+    - Aquarium Glaser prints one line for every picture on a page ("Text & photos: <name>"): each sweep names its photos
+      by it. A page whose lines name different people, a line naming more than one person or going on past the name, and
+      a photo whose own caption prints another credit keep "Aquarium Glaser" alone, listed with why (the chief of staff's
+      guard of 17 Nov). One photo is one picture: a copy the guard holds, or one whose line shows another credit, keeps
+      every copy of that photo with the publisher alone, wherever it is.
+    - The pages whose pictures' lines the stored copy keeps without their place (The Spruce Pets, Aquarium Breeder,
+      ScotCat, Loaches Online) are on `engine-state/_credit-lines.json`: the cycle reads each once, the ones its own turn
+      reaches within two weeks on that turn and the rest the next time it reads their source, and each read names our
+      photos from its pictures' lines, but never a photo one of whose copies another line names already. A page read
+      early is read early once: if its request or the read of its lines fails, it waits for its own turn, and a failed
+      request leaves its state as it was, so no retry brings it back sooner. Each of ScotCat's picture pages is asked once
+      a read; if one fails or answers with an error, the page stays on the list for its own turn.
   - **Removal.** A reader or a photographer writes to the address on the contact page (`/lien-he/`, "Bản quyền và
     ghi nguồn" or "ảnh nhầm loài"). The owner adds the photo's address to `engine-state/_photo-rejected.json` with the
     reason: the next cycle drops it from every page and gallery, and it is never picked again. A source that withdraws
@@ -809,6 +982,71 @@ The layers above still check the result.
     rewrite job: the research of `pnpm engine topic`, with the shops' posts on the topic as leads it is told never to
     copy, to check elsewhere (shops sell what they write about), and to cite only for a Vietnamese name or what is sold
     in Vietnam. An idea written or found to have nothing reliable is not tried again.
+  - **Practical Fishkeeping, through the Internet Archive.** The magazine's site answers the engine with a challenge
+    page, and the owner said "use internet archive" (20 Nov 2026; 9 Nov: "any site that are often blocked should use the
+    same way"). Its whole Archive work is one step on the Mac, whose rest the Archive's is: `pnpm engine magazine`, in
+    the pages job right after the three sources read through the Archive, with its own record
+    (`engine-state/_magazine.json`), which only it writes; GitHub never asks the Archive, and its ideas step reads the
+    magazine's titles and guides from that record (the chief of staff, 21 Nov 2026). While the site refuses, its list is
+    read from the Archive's copy of its sitemap, tried once a day until titles come (forced or not), and the capture
+    index marks which posts it holds. The day's one magazine guide, on the Mac's $3 line beside GitHub's two shop
+    guides, gets its post from the Archive's newest good copy (an archived challenge page is no copy), given to research
+    as a page to take facts from, never instructions. Its text is held for that run alone and written nowhere: the
+    magazine has given no permission to republish and the repository is public (the chief of staff, 21 Nov 2026).
+    Research's, the writer's and the checker's calls keep no session on disk, and research's answer is kept as its
+    schema has it, no other field. Every check reads a text as a reader sees it, its letters and digits alone: its
+    entities undone, and nothing of the spaces, marks or markup between its words; and again as the file holds it,
+    markup and all (words between angle brackets count). A fact that repeats eight of its words in a row, or facts that
+    do between them in order, is dropped before anything keeps it (after a refused site's have left), and of two that
+    would side by side, in either order, the later goes; a source's address that does is no source (its escapes undone,
+    each run of them on its own), its title becomes its site's name, a species' name that does goes, and a failure's
+    reason that repeats it is kept without its words. The guide itself is held to it too: one whose writer puts its
+    sentence back together is not kept, and a checker's note that quotes it is kept without its words. A copy with no
+    title of its own is named by its site, and research citing the post with a query is citing the post. The repository
+    keeps its record: its own address and title, the copy's date (the copy's stamp when the Archive sends none), a hash
+    of the text, and the Archive as how it was read (`via: "archive"`), so sites are still counted by a source's
+    address. A guide that takes more than half its facts from the post (a fact that cites it `also` counted as its), or
+    has fewer than two other sites beside it, drops the post's facts, those citing it `also` with them, and is written
+    from the others; each other language's guide is held to the same on the facts it is written from, and leaves them
+    out too where the Vietnamese one did. Each guide prints how many of the facts its writer was given came from the
+    post (none, with no post). No photo is read, and the writer sees facts, not the post. A post the Archive lacks, or
+    one not reached within the day's requests, is counted as such and the guide written as before; a copy of another
+    page (a redirect's) is no copy; past a browser-check copy, the requests spent, a refusal, or the Archive down or not
+    answering stop the search without calling it "no copy", and an older copy the Archive holds nothing for is passed
+    over (one that answers 403 ends the search). At most 6 requests a day for the post, and 9 for the list in Vietnam's
+    last eight days (so a day's count for seven whole days after it), a redirect counted as one (none followed off the
+    Archive), each counted on the day it goes out, against that day's allowance, and written down just before it is made
+    (one the rest stops is not counted) in the Mac's own file beside the Archive's rest
+    (`~/.cache/aquatome/magazine-archive.json`), so a cycle that starts again from main forgets none; the record carries
+    a copy. The magazine's own listing, GitHub's shops' listings and its forum step follow redirects by hand, never to a
+    copy site such as the Archive, nor from a shop's to the magazine's. One magazine guide a day, counted in the Mac's
+    ledger too, once: one whose record isn't saved stops the step. One magazine step runs at a time, by a lock the Mac
+    frees when its step ends however it ends, so no step takes over a dead one's (`127.0.0.1:41232`, `mac-lock.ts`); a
+    step that finds it held waits its turn, and reads its record and the ledger only once it holds it, on the Mac alone (not on GitHub, and only on macOS). The reader, name, pace (10 s) and rest are the archived sources',
+    and each request holds the Mac's one lock on the Archive (`127.0.0.1:41231`) from reading the rest to its answer, the
+    rest written or cleared, in every job and checkout, its pace and the minute's wait after a failure outside it (the
+    chief of staff, 21 Nov 2026): no request goes out past a refusal another just got, and no answer clears a wait another
+    just began. Both locks are held on 127.0.0.1 alone, only the CLI names their ports, and every test names a free port of
+    its own; a lock held by anything else is waited for, said in the log once at 2 minutes, and at 10 the run asks the
+    Archive nothing more (the magazine's: the step runs nothing, and the next cycle's runs it), which is no refusal: no rest is written, and nothing is asked without the lock (the chief of
+    staff, 22 Nov 2026). That wait is counted in tries, never read off the clock, and a lock not had, or a rest on file that
+    can't be read under it or holds no time, stops the source as a refusal does: no page is marked, none loses an
+    attempt, a page waits rather than losing its pictures (one the line-read list read early waits for its own turn, as
+    after any failed read), and the magazine's listing keeps its day's try when the lock, or a rest it can't read, stopped it before
+    anything was asked (a rest on file spends it, as ever). As the magazine's post is
+    read, either makes the day's guide wait for the next run, as a refusal does, with no day of the rest counted. A
+    magazine ledger that can't be read stops the step, rather than the record's copy counting the day's requests again. Once one call gives up on the lock, no other in that run asks, even one that has
+    it after. A reader's allowance is read again under the lock, so two calls waiting on one reader never both go; the rest is written whole
+    (to a file beside it, then moved into place), and the look before the lock passes over a rest it can't read, which
+    the look under it reads again; what a reader runs before a request (its pace, its count) never asks the Archive
+    (Codex, 22 Nov 2026). A rest another job writes while a request waits its pace or the lock stops it, and a rest ends
+    only on the Archive's own answer, never on a redirect (one to no address is no copy of a page, and from the index, no
+    answer) nor a 403, and only the rest that request came after, the lock still held. A 403 from
+    the Archive's index is a refusal, as a 429; on one page's copy it is no copy of that page, but on a second page's in
+    the same run it is a refusal, the reader shut out (the owner's rule on refusals; the chief of staff, 21 Nov 2026).
+    The log names both pages. GitHub's ideas step takes what the Mac made of each magazine idea at every run. During a
+    rest the guide waits, its idea kept, and the days it waits in a row are printed; they end only when the Archive
+    answers for the post. Research still opens neither the magazine's hosts nor the Archive's.
   - Chợ Thủy Sinh's fish, shrimp and snails go into the private Vietnamese shop list (`engine-state/shop-lists/vi.json`:
     which species come first, and the names shops use) by a seeded run, `pnpm engine shop-list --lang vi --seed`. A
     shop's list seeded later adds only the species the list lacks, after it. Its robots.txt (Cloudflare's) says `search=yes, ai-train=no,
@@ -942,6 +1180,16 @@ The layers above still check the result.
   Nov 2026 08:00, six a run, before the gate): only a volume that maps back to the table exactly, every place the page
   gives it, each part changed in its figures alone and within a tenth; a range, a size in between, inches or degrees
   stay held and are listed (the chief of staff, 2026-11-11).
+- **A held video guide's cut.** A video guide the gate holds only for sentences its read names as the source talking, a
+  foreign shop, a price or a product has those sentences cut whole by code (`pnpm engine video-cut`, video-cut.ts, twelve
+  a run in the Mac's photos part, before the units mend and the gate), once a guide. Advice for elsewhere waits for the
+  mend. Each cut sentence is kept in `engine-state/_video-cut.json` (an entry a guide and run: its part, the sentence
+  before it, the sentence, its finding), added to and never rewritten, for the sentence-only mend to write the true
+  ones back. A guide stays as it is, and is listed, where a person waits on it (harm, a kit, a dose), a person fixed it,
+  its read isn't of its text, or a cut could break it or take a step: a sentence to cut with a step or a caution word
+  in it, a table cell, an item's label or a lead-in, a name the guide speaks of again, or what comes later; a kept sentence next to it that points back, announces it or
+  gives a figure or a price it set; a dose near it; more than a tenth of its words (the chief of staff, 15 Nov 2026,
+  after two readers and a whole read of what was left).
 - **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has
   for that source, and the family (merge, and the page for older content); a block that states a figure the card shows
   otherwise says above itself which source it follows (`@aq/schema` card-facts). Found in a review: Cá neon vua's text
@@ -985,6 +1233,26 @@ The layers above still check the result.
       article it reprints ("Được Loaches Online chuyển thể với sự cho phép.", "… dengan izin", "… โดยได้รับอนุญาต"):
       dropped, its paragraph too when it is all there is (owner, 2026-11-05). A sentence that only has the words ("Chỉ
       bắt cá với sự cho phép của cơ quan quản lý.") stays. No audit rule holds it at zero yet: the sweep alone
+    - a source's photo caption or credit left as a block of its own in a guide's text, its photo not with it ("Ảnh:
+      <name>", "Hình: …", "Foto: …", "ภาพ: …", a caption ending "© <name>"); a source's thanks to a named person or shop
+      as a block of its own ("Cảm ơn <name>.", "Terima kasih kepada <name>.", "Thanks to <name> for the photos"); and
+      "© <name>" after a work's title in a fish page's references, the title and link kept (Page Recovery, 2026-11-12:
+      121 caption lines in 21 guides, 17 pages of thanks, about 130 fish pages' references). Only whole blocks of that
+      shape: a label word that starts another word ("Ảnh hưởng:", "ภาพรวม:"), a thanks inside care advice, a thanks to no
+      one named or with another sentence beside it, a caption in a `<figure>` and a "©" with a year or two names stay.
+      A caption that says something more than what its photo shows (more than eight words, a year, or a sentence of four
+      words or more: many carry a fact found nowhere else on the page) keeps its words, and only its label and credits go.
+      Like the cuts above, it cleans a part a person fixed too, since it adds no word. No audit rule lists them (their
+      words are people's names, and the report is public): a real-content test sweeps every stored page in memory and
+      holds them at zero
+    - an email address, in any field of any file under content/ (the chief of staff, 2026-11-16: a translated article
+      printed its author's in each letter's header, and two video titles their uploader's), or one written out so a
+      program won't read it ("someone [at] example [dot] org", "someone at example dot com", a full-width "＠"): cut with
+      the brackets round it, a link to one keeping its words, first in a page's text with the fixes above, then last in every file, keys
+      too (`dropEmails`, `dropEmailsEverywhere`). A file's name with a scale mark or a frame rate ("ảnh@2x.png",
+      "1080p@60fps.mov"), a handle ("@seriouslyfish") and a link's user stay. A real-content test fails on one anywhere
+      under content/, naming the file and the field, never the address, and has no list of allowed ones; sources/ and
+      engine-state/ join it once their copies are cleaned
     - a photo whose caption names another species the site has a page for, with nothing saying the fish is still the
       page's ("in a batch of", "here with", "known as"), or that is a map, or a Wikimedia Commons photo whose file name
       or description says it is no photo of the living fish (a paper's plate, a microscope picture, a drawing, a dish:
@@ -1182,6 +1450,21 @@ The layers above still check the result.
     front list's pages whose read is of older text. After its
     first run (`engine-state/_fit-front.json` has what it did) it waits until the chief of staff has looked at that
     run's pages and `cleared` is set in the list's file (`fit-front.test.ts`).
+  - The pages whose saved read found a foreign product or medicine still on them (the owner's complaint) go ahead of
+    the lane until they're done (`products: "ahead"`), each read again first if its read is of older text, and tried
+    once more past the cap. Where the writer's cut is refused, code cuts each sentence holding the product, a shop or a
+    price whole, beside findings of other kinds, which wait for the page's next read and try; each sentence it cuts is
+    in the run's list for the chief of staff, and a true care line in one gets its general half back by hand the same
+    day (the chief of staff, 17 Nov 2026: after eight runs at one for one, 62 of the 74 were left, the fallback never
+    having run on a page with another finding; `fit-rewrite.test.ts`, `fit-front.test.ts`).
+  - The open pages no read covers, put out by a push or a hand change with no read (docs/review/fit.md's "Open, no read
+    of its text": 1,054 on 21 Nov 2026), are read once by a pass on two nights, 23 and 24 Nov from midnight to 07:00, in
+    the Mac's photos part on the Mac's second sign-in, on a line of its own in `ceilings.json` (`pnpm engine fit-pass`,
+    `fit-pass.ts`, `fit-pass.json`): first the 86 open pages read against a source that has changed since, then the
+    rest, Vietnamese, Indonesian, Thai and Malay, guides first. It records each read, marked as the pass's, and holds
+    nothing itself: the gate after it holds a page whose read found harm, in every language, and a kit the pass finds
+    holds none. The rest goes to the site lead's morning report (the chief of staff, 21 Nov 2026; `fit-pass.test.ts`,
+    `gate.test.ts`).
   - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a
     dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
     the source says so; a trend names its figures and where they come from. A held card stays out of the app, and the

@@ -90,6 +90,10 @@
       {
         "source": "seriouslyfish",
         "value": 13.5
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
@@ -113,10 +117,28 @@
       "html": "<p>The red top ice blue zebra, Maylandia greshakei, is an mbuna endemic to Lake Malawi, found only around Makokola in the southeast of the lake. It inhabits the upper parts of rocky reefs next to open water, leaving the reef to feed on phytoplankton. Formerly Pseudotropheus greshakei and Metriaclima greshakei, it is still named as either of these by many sources. Aggressive and territorial, it can be combined with other mbuna but not with peaceful species such as peacocks or utaka.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/maylandia-greshakei-2/",
+      "html": "<p>Maylandia greshakei is a zebra cichlid from Lake Malawi with a bright orange dorsal fin. In the aquarium it can reach a maximum length of about 15 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/maylandia-greshakei-2/",
+      "html": "<p>Collecting the fish for ornamental purposes is usually not allowed. All M. greshakei in the trade are bred ones.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-greshakei",
       "html": "<p>Endemic to Lake Malawi. It is found only around Makokola in the southeastern part of the lake.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/maylandia-greshakei-2/",
+      "html": "<p>The fish is endemic to Lake Malawi. In the wild it is restricted to only two comparatively small areas, e.g. Crocodile Rocks and Makokola Reef, both in the southern part of the lake. This makes the species vulnerable to uncontrolled human activities.</p>"
     },
     {
       "key": "habitat",
@@ -143,10 +165,22 @@
       "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 7.6–8.8</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/maylandia-greshakei-2/",
+      "html": "<p>As in all cichlids from Lake Malawi, the pH should never drop below 8. In all other respects of water the fish are undemanding. Plenty of water changes are recommended to keep the fish fit and healthy, and the fish will show maximum coloration if kept this way.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-greshakei",
       "html": "<p>It will accept most foods offered but vegetable matter in the form of spirulina flakes, blanched spinach etc. should form a large proportion of the diet. This can be supplemented with live and frozen varieties.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/maylandia-greshakei-2/",
+      "html": "<p>Correct feeding is the key to beautiful and healthy Maylandia, for fat animals become drab and sick. The balance between good, varied nutrients and fibres is crucial. Correctly fed bred fish are as beautiful as wild-collected ones.</p>"
     },
     {
       "key": "behaviour",
@@ -171,21 +205,52 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-greshakei",
       "html": "<p>This species was formerly classified as Pseudotropheus greshakei and Metriaclima greshakei and is still named as either of these by many sources. The genus name Maylandia is now used to describe all former members of the 'zebra' group of Pseudotropheus. An albino form of this species exists in aquaria and is occasionally available.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/maylandia-greshakei-2/",
+      "html": "<p>Maylandia greshakei is sometimes also called Metriaclima greshakei. Fish of 15 cm are never found in the natural habitat, because a wild fish does not live long enough to grow so big, and because the food in the wild is very nutrient-poor compared with almost all typical ornamental fish foods.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/86c9eb901be3d4a3.webp",
+      "thumb": "https://media.aquatome.com/commons/86c9eb901be3d4a3-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 3.0",
       "author": "Jutta234",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maylandia_aurora_-_Zoo_Frankfurt.jpg",
-      "caption": "Aufgenommen im Zoo Frankfurt",
-      "thumb": "https://media.aquatome.com/commons/86c9eb901be3d4a3-480.webp"
+      "caption": "Aufgenommen im Zoo Frankfurt"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "NwYGlvyfB9U",
+      "title": "Breeder Selection | Metriaclima greshakei 'Redtop Cobalt Mbuna' | Tropical Fish Hatchery",
+      "durationSec": 186,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "H35tSctqihI",
+      "title": "Maylandia zebra greshakei Makokola Reef",
+      "durationSec": 150,
+      "lang": "es"
+    },
+    {
+      "youtubeId": "fGc_cgEyou8",
+      "title": "MAYLANDIA GRESHAKEI - VAMOS FALAR DE ESPÉCIES #021",
+      "durationSec": 413,
+      "lang": "pt"
+    },
+    {
+      "youtubeId": "JwtipdUVknw",
+      "title": "Ice blue zebra cichlid ( Maylandia Greshakei)",
+      "durationSec": 33,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -215,5 +280,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-17"
 }

@@ -1,0 +1,43 @@
+{
+  "id": "astroblepus-quispei",
+  "native": {
+    "input": "7faf0292f6d7a899",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Andes, Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Andes",
+        "source": "scotcat",
+        "quote": "South America: Andes, Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus quispei",
+    "status": "ACCEPTED",
+    "taxonKey": 9652816,
+    "datasets": [],
+    "native": [
+      "PE"
+    ],
+    "requests": 2,
+    "at": "2026-11-21T19:07:52.042Z"
+  }
+}

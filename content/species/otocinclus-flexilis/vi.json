@@ -3,7 +3,8 @@
   "name": "Cá otocinclus flexilis",
   "altNames": [
     "Cá oto xám",
-    "Peppered Oto"
+    "Peppered Oto",
+    "Imitator Sucker Catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Otocinclus flexilis Cope, 1894</li><li>Tên thường gọi: Peppered Oto</li><li>Tên đồng nghĩa: Macrotocinclus flexilis, Otocinclus fimbriatus</li><li>Danh sách đỏ IUCN: Ít quan tâm (đánh giá lần cuối năm 2018)</li></ul>",
@@ -11,14 +12,20 @@
     "waterConditions:planetcatfish": "<ul><li>Nhiệt độ: 20–25°C</li><li>pH: 6,5–7,8</li><li>Độ cứng: 2–25 dGH</li></ul>",
     "dimorphism:planetcatfish": "<p>Con cái to hơn và bầu hơn con đực. Nhìn từ trên xuống thì thấy rõ nhất.</p>",
     "reproduction:planetcatfish": "<p>Chưa thấy ai ghi lại chuyện loài này đẻ.</p>",
-    "references:planetcatfish": "<p>Proceedings of the American Philosophical Society v. 33, pp 97, Pl. 8 [7] (figs. 13, 13a-b).</p>"
+    "references:planetcatfish": "<p>Proceedings of the American Philosophical Society v. 33, pp 97, Pl. 8 [7] (figs. 13, 13a-b).</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Imitator Sucker Catfish</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: Brazil, Rio Jacuí, Rio Grande do Sul. Nơi thu mẫu chuẩn: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.</p><p>Otocinclus flexilis là loài đặc hữu, chỉ có ở lưu vực đầm Patos thuộc bang Rio Grande do Sul, Brazil.</p>",
+    "maintenance:scotcat": "<p>Loài này cần nước mát, vì nước nóng kéo dài có thể khiến cá gặp vấn đề. Hợp nhất là bể thủy sinh, do cá không phá cây mà vẫn giữ được rêu trong tầm kiểm soát. Với cá khác, chúng có thể hơi hay giành chỗ. Còn nuôi theo đàn thì chúng sống với nhau tốt.</p>",
+    "diet:scotcat": "<p>Đây là cá ăn rêu. Ngoài rêu, chúng ăn thức ăn viên, xà lách, thức ăn dạng mảnh, cùng đồ tươi sống và đông lạnh cỡ nhỏ.</p>",
+    "notes:scotcat": "<p>Năm 1997, Schaffer tách loài này (cùng một loài khác) khỏi Otocinclus, đưa sang giống mới Macrotocinclus. Một số tài liệu đã dùng cách xếp này, nhưng tính đến năm 2011 thì nó vẫn chưa phổ biến. Bài báo gần đây (2010) của Lehmann, P., F. Mayer và R.E. Reis đã khôi phục Otocinclus arnoldi ở lưu vực La Plata, vốn trước đó bị gộp làm tên đồng nghĩa của O. flexilis. Như vậy O. arnoldi là một loài riêng, phân biệt nhờ ba đặc điểm: có năm tia vây ngực phân nhánh, có nhiều gai da (odontode) phì đại hơn ở đầu mỏm sau xương parieto-supraoccipital, và xương prootic tham gia tiếp xúc với lồi khớp hyomandibular.</p><p>Nguồn gốc tên: tên loài flexilis trong tiếng Latin nghĩa là mềm dẻo, uyển chuyển. Tên này ám chỉ điều gì thì không thấy giải thích, và cũng không dễ đoán ra.</p><p>Danh sách đỏ IUCN: Mối đe dọa chính là môi trường sống xuống cấp, chủ yếu ở các suối nhánh thuộc lưu vực sông Jacuí. Nhưng loài này vẫn hay gặp, số lượng lại nhiều. Vì chưa có bằng chứng đo đếm được về mối đe dọa nào, IUCN xếp loài này vào nhóm Ít quan ngại (LC) (IUCN 2022).</p>",
+    "references:scotcat": "<ul><li>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p.</li><li>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Otocinclus flexilis. The IUCN Red List of Threatened Species 2022.</li><li>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Lehmann, P., F. Mayer and R.E. Reis, 2010. Re-validation of Otocinclus arnoldi Regan and reappraisal of Otocinclus phylogeny (Siluriformes: Loricariidae). Neotrop. Ichthyol. 8(1):57-68.</li></ul>"
   },
   "quality": {
-    "score": 0.85,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.8
+    }
   }
 }

@@ -2,7 +2,11 @@
  "queue": [],
  "judged": [
   "inat:110802250",
-  "inat:110802254"
+  "inat:110802254",
+  "gbif:6227248359:c18569f51cc8343e",
+  "gbif:1265263486:80042a747c383bfb",
+  "gbif:6227237494:e27c3f60310c2b19",
+  "gbif:6227240887:6fff174925b6d617"
  ],
  "hashes": {
   "https://media.aquatome.com/bwaquatics/f2046f256901a819.webp": "0e1c0ce2f87f9ed5",
@@ -18,5 +22,9 @@
    "research": 68430581,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2333056,
+  "next": null
  }
 }

@@ -1,0 +1,23 @@
+{
+  "slug": "cua-demanietta-sirikit",
+  "name": "Cua Demanietta sirikit",
+  "altNames": [
+    "Cua Thái Lan",
+    "Thai crab"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Thái Lan.</p>",
+    "habitat:glaser": "<p>Loài cua này sống trong hang dài 50–100 cm gần bờ sông. Chúng đào hang sâu tới tận mực nước ngầm.</p>",
+    "maintenance:glaser": "<p>Nuôi trong terrarium.</p>",
+    "diet:glaser": "<p>Trái cây.</p>",
+    "reproduction:glaser": "<p>Tới mùa sinh sản, cua đi tìm bạn để bắt cặp. Mùa này rơi vào mùa mưa, lúc nhiều loại trái cây chín. Cua con lớn lên dưới yếm (phần bụng gập dưới thân) của cua mẹ. Khi đã lớn đủ, chúng rời mẹ và tự sống riêng.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

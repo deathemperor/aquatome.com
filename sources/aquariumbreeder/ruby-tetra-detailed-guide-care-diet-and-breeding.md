@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/
 title: Ruby Tetra – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-01T00:34:41.493Z
-hash: 24acaa2adc25fb105aeea75b071f41ab7bbf6d9f0171c661e5e80fec1589215d
+hash: 32f8ccf795eeb02866d46c5664ef970d3a17f293544589d22cb3dec8c24aafa1
 ---
 
 Finding the right fish for a nano tank can be a real challenge. So, today I will be talking about Ruby tetras (Axelrodia riesei) a lesser-known species of fish that could be the perfect choice for your small aquarium.
@@ -191,4 +191,3 @@ This small, colorful fish can be a highlight in many peaceful community aquarium
 - Géry, J., 1977. Characoids of the world. Neptune City ; Reigate : T.F.H. [etc.]; 672 p. : ill. (chiefly col.) ; 23 cm. (Ref. 598)
 - Christopher Scharpf & Kenneth J. Lazara (22 September 2018). “Order CHARACIFORMES: Family CHARACIDAE: Subfamily STEVARDIINAE + Incertae sedis”. The ETYFish Project Fish Name Etymology Database. Christopher Scharpf and Kenneth J. Lazara. Retrieved 27 March 2021.
 - Weitzman, Stanley H., and William L. Fink. Relationships of the neon tetras, a group of South American freshwater fishes (Teleostei, Characidae), with comments on the phylogeny of New World characiforms. Museum of Comparative Zoology, Harvard University, 1983.
-### Leave a Reply Cancel reply

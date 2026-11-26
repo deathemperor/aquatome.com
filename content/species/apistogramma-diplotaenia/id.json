@@ -1,25 +1,22 @@
 {
   "slug": "apisto-diplotaenia",
-  "name": "Apisto diplotaenia",
+  "name": "Apistogramma diplotaenia",
   "altNames": [
-    "Two-striped Apisto"
+    "Apisto diplotaenia",
+    "Double-stripe Apistogramma",
+    "Apistogramma Double Stripe"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Cichlid kerdil ini termasuk anggota paling tidak biasa dari genus Apistogramma yang besar. Badannya sangat ramping dan bercorak dua garis memanjang. Corak seperti ini tidak dimiliki Apistogramma lain, jadi A. diplotaenia tidak mungkin tertukar dengan spesies lain.</p>",
-    "beforeYouBuy:glaser": "<p>Sayangnya, spesies ini sangat jarang dijual. Saat ini ikan tangkapan alam maupun hasil penangkaran sama-sama tersedia.</p>",
-    "behaviour:glaser": "<p>Jantan tangkapan alam yang sedang dominan atau agresif hampir kehilangan dua garisnya, dan yang muncul justru pita berwarna kuning-oranye. Secara keseluruhan, pada Apistogramma diplotaenia betinalah yang memegang kendali, dan betina juga yang tampilannya lebih menarik.</p>"
+    "quickFacts:glaser": "<p>Si garis ganda (itulah arti kata diplotaenia) masih jarang ditemui di akuarium. Dengan panjang total maksimal 5 cm (termasuk sirip ekor), ikan ini termasuk spesies cichlid paling kecil di antara semua cichlid.</p>",
+    "habitat:glaser": "<p>Spesies Apistogramma yang tidak biasa ini berasal dari perairan blackwater Rio Negro. Di sana ikan ini kebanyakan hidup di atas dasar berpasir yang terbuka, dalam koloni pemijahan yang cukup besar.</p>",
+    "reproduction:glaser": "<p>Supaya berhasil memijahkannya, Anda perlu benar-benar menguasai seluk-beluk kimia air, dan ikan ini juga tergolong kurang produktif.</p>",
+    "notes:glaser": "<p>Seperti semua spesies Apistogramma, ikan ini polikromatis, artinya dalam satu populasi ada beberapa variasi warna. Yang paling dikenal adalah A. diplotaenia berwarna biru, tetapi ada juga individu berwarna kuning-merah.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "glaser": 0.9
+      "glaser": 0.8
     }
-  },
-  "held": {
-    "checks": [
-      "source"
-    ],
-    "at": "2026-11-10"
   }
 }

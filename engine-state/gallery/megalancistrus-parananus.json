@@ -5,7 +5,8 @@
   "inat:510961165",
   "File:Megalancistrus parananus lateral.jpg",
   "File:Megalancistrus parananus dorsal.jpg",
-  "File:Megalancistrus parananus ventral.jpg"
+  "File:Megalancistrus parananus ventral.jpg",
+  "inat:659639069"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/ec20b141f5da969b.webp": "9383104c1422c681",
@@ -28,6 +29,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 361446486,
+  "done": true
  },
  "exhausted": "2026-11-11"
 }

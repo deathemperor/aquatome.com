@@ -1,0 +1,16 @@
+{
+  "slug": "tigre-river",
+  "name": "ติเกร",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-23T01:44:05.165Z",
+    "why": "ติเกร is a plausible transliteration of Tigre, but it omits the Thai kind word for river (แม่น้ำ), so it reads as a bare name rather than the river's full atlas name."
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false
+  }
+}

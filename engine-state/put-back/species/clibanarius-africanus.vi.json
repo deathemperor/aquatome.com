@@ -1,0 +1,36 @@
+{
+ "at": "2026-11-16T14:11:43Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Đợt này thì hầu như con nào cũng mang vỏ ốc trắng rất đẹp",
+   "why": "Refers to the source shop's current import batch as if the reader knew it."
+  }
+ ],
+ "text": {
+  "slug": "cua-an-si-chau-phi",
+  "name": "Cua ẩn sĩ châu Phi",
+  "altNames": [
+   "Ốc mượn hồn châu Phi",
+   "African hermit crab",
+   "Cua ẩn sĩ Clibanarius africanus"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Cua ẩn sĩ Clibanarius africanus trông rất dễ thương, và giờ đã có rất nhiều người nuôi trong bể. Đây là loài rộng muối, tức là nó sống được cả trong nước ngọt hoàn toàn lẫn nước biển hoàn toàn.</p>",
+   "waterConditions:glaser": "<p>Tuy nhiên, có vẻ nó chỉ sống được vài tháng trong nước ngọt hoàn toàn. Nuôi trong nước lợ thì tốt hơn nhiều.</p>",
+   "diet:glaser": "<p>Clibanarius ăn mùn bã, tức là xác cây cỏ và xác động vật đã chết. Trong bể, chúng ăn ngay mọi loại thức ăn cá thông thường.</p>",
+   "notes:glaser": "<p>Cua C. africanus nhập về thường ở trong vỏ ốc màu nâu của loài Tympanotonus fuscatus. Đợt này thì hầu như con nào cũng mang vỏ ốc trắng rất đẹp của loài Pachymelania aurita.</p><p>Nghĩa của tên: Clibanarius là từ chỉ kỵ binh mặc giáp nặng. Còn africanus nghĩa là \"đến từ châu Phi\".</p>"
+  },
+  "quality": {
+   "score": 0.8,
+   "indexable": false,
+   "bySource": {
+    "glaser": 0.8
+   },
+   "reason": "thin"
+  }
+ }
+}

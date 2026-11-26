@@ -24,9 +24,9 @@
     "native": {
       "countries": [
         "CD",
-        "ZA",
         "MW",
         "ZW",
+        "ZA",
         "AO",
         "NA",
         "ZM",
@@ -46,19 +46,12 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The southern mouth-brooder, Pseudocrenilabrus philander, is a cichlid found in eleven countries from the Democratic Republic of Congo to South Africa.",
-          "countries": [
-            "CD",
-            "ZA"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
           "quote": "Democratic Republic of Congo, Malawi, Zimbabwe, South Africa, Angola, Namibia, Zambia, Tanzania, Botswana, Mozambique, Swaziland.",
           "countries": [
+            "CD",
             "MW",
             "ZW",
+            "ZA",
             "AO",
             "NA",
             "ZM",
@@ -1127,12 +1120,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pseudocrenilabrus_philander_en/",
       "html": "<p>The females are mouthbrooders; courtship and brood care follow the typical haplochromine pattern.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pseudocrenilabrus_philander_en/",
-      "html": "<p>May 2007: Pseudocrenilabrus philander was received from the Congo.</p>"
     },
     {
       "key": "quickFacts",

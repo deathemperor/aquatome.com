@@ -3,6 +3,12 @@
   "name": "Pang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-18T05:54:19.337Z",
+    "why": "\"Pang\" drops the river's full name (Nam Pang) and omits the kind word \"Sungai\", so it is cut short; an Indonesian atlas would write \"Sungai Nam Pang\"."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

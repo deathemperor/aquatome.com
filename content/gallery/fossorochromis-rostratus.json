@@ -2,18 +2,6 @@
   "id": "fossorochromis-rostratus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/444327352.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/444327352-480.webp",
-      "width": 1024,
-      "height": 759,
-      "licence": "CC BY-SA",
-      "author": "Tony Rebelo",
-      "sourceUrl": "https://www.inaturalist.org/photos/444327352",
-      "caption": "Cá đực ánh vàng, vây đuôi tím nhạt trong nước nông",
-      "best": true,
-      "kind": "male"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/444326564.webp",
       "thumb": "https://media.aquatome.com/inaturalist/444326564-480.webp",
       "width": 1024,
@@ -72,6 +60,18 @@
       "caption": "Cá Fossorochromis rostratus có đốm sẫm bơi gần mặt nước",
       "best": false,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/444327352.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/444327352-480.webp",
+      "width": 1024,
+      "height": 759,
+      "licence": "CC BY-SA",
+      "author": "Tony Rebelo",
+      "sourceUrl": "https://www.inaturalist.org/photos/444327352",
+      "caption": "Cá đực ánh vàng, vây đuôi tím nhạt trong nước nông",
+      "best": true,
+      "kind": "male"
     }
   ],
   "seen": 17,

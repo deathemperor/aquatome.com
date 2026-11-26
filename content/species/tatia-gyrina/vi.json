@@ -4,7 +4,8 @@
   "altNames": [
     "Cá mèo gỗ",
     "Zwergdornwels",
-    "Woodcat"
+    "Woodcat",
+    "Driftwood catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Tatia gyrinus (Eigenmann &amp; Allen, 1942)</li><li>Tên thường gọi: Woodcat, Zwergdornwels (Đức)</li><li>Nơi thu mẫu chuẩn: Río Itaya, Iquitos, Peru.</li><li>Kích thước: 70 mm SL (chiều dài chuẩn, không tính vây đuôi).</li><li>Sách đỏ IUCN: Chưa được đánh giá</li></ul>",
@@ -13,13 +14,18 @@
     "dimorphism:planetcatfish": "<p>Con đực bắt đầu lộ rõ đặc điểm giới tính khi dài 3,5-4,0 cm.</p>",
     "reproduction:planetcatfish": "<p>Chưa được ghi nhận. Hiện chỉ có duy nhất một báo cáo về việc loài này sinh sản.</p>",
     "notes:planetcatfish": "<p>Loài này có thể dễ bị nhầm với cá con của Glanidium leopardus. Muốn phân biệt thì nhìn vào gai vây ngực và đếm tia vây hậu môn. Gai vây ngực của Tatia gyrinus có mấu, còn của G. leopardus thì nhẵn. Vây hậu môn của Tatia gyrinus có 8-9 tia, trong khi G. leopardus có 12-14 tia.</p><p>Nguồn gốc tên gọi: chi Tatia được đặt theo tên nhà ngư học C. Tate Regan.</p>",
-    "references:planetcatfish": "<p>Fishes of western South America, pp 118, Pl. 5 (fig. 4).</p>"
+    "references:planetcatfish": "<p>Fishes of western South America, pp 118, Pl. 5 (fig. 4).</p>",
+    "quickFacts:glaser": "<p>Tatia gyrina là một loài cá da trơn lũa khá nhỏ, nhập từ Peru về và rất hiếm khi có bán. Con lớn nhất dài khoảng 5 cm, tính cả vây đuôi.</p>",
+    "behaviour:glaser": "<p>Cá da trơn lũa chủ yếu hoạt động về đêm, nhưng vẫn có một nhóm nhỏ người mê chúng, hăng hái nuôi và cho đẻ.</p>",
+    "dimorphism:glaser": "<p>Cá đực có vây hậu môn biến đổi thành cơ quan giao phối, nhìn vào đó là nhận ra. Con đực cũng thon hơn hẳn và to hơn con cái một chút.</p>",
+    "reproduction:glaser": "<p>Các loài cá da trơn này thụ tinh trong. Chuyện thụ tinh có khi đã xảy ra từ mấy ngày hay mấy tuần trước, nên đôi lúc cá cái vẫn đẻ ra ổ trứng có phôi dù không có con đực ở bên. Nhiều người cho cá đẻ thấy chuyện này rất thú vị.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "glaser": 0.9
     }
   }
 }

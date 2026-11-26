@@ -3,7 +3,12 @@
  "judged": [
   "File:Dekeyseria picta.jpg"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/f004249df27e1325.webp": "cfe7efcfe5c1797c",
+  "https://media.aquatome.com/glaser/518c8159d9c69aee.webp": "7b732e6e63341983",
+  "https://media.aquatome.com/glaser/2fce33a25cc107d0.webp": "f4f155e5e9686400",
+  "https://media.aquatome.com/glaser/422ea867d3bef022.webp": "5574f5d7f5e4f6ac"
+ },
  "commons": "2026-11-08",
  "inat": {
   "taxon": null,
@@ -12,5 +17,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2340170,
+  "next": null
  }
 }

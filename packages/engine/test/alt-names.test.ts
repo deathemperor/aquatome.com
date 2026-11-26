@@ -72,6 +72,14 @@ test('one name written twice is kept once, in its best-written form, where the f
   expect(clean({ name: 'ปลารากกล้วย', sci: 'Acanthopsoides molobrion' }, ['รากกล้วยแคระ', 'ปลารากกล้วยแคระ'])).toEqual(['ปลารากกล้วยแคระ'])
 })
 
+// The Site Lead's spellings, 16 Nov: keepers in the south and the shops write the discus "Cá dĩa", and the cleaner took it
+// off "Cá đĩa" as the same name. A row that keeps a spelling (names.ts FISH_NAMES) keeps it; other copies still fold.
+test('a spelling a names row keeps stays beside the page\'s own name, and other copies of that name still fold', () => {
+  const clean = (altNames: string[]) => cleanAltNames({ name: 'Cá đĩa', sci: 'Symphysodon aequifasciatus', altNames }).altNames
+  expect(clean(['Discus', 'Cá dĩa', 'Cá Đĩa', 'Ca dia'])).toEqual(['Discus', 'Cá dĩa'])
+  expect(cleanAltNames({ name: 'Cá đĩa Heckel', sci: 'Symphysodon discus', altNames: ['Cá dĩa Heckel', 'Discus'] }).altNames).toEqual(['Discus'])
+})
+
 test('cleaning cleaned names changes nothing', () => {
   const pages: [{ name: string; sci: string; altNames: string[] }, BreedName[]][] = [
     [betta(BETTA), BETTA_BREEDS], [{ name: 'Cá Oscar', sci: 'Astronotus ocellatus', altNames: ['Oscar', 'Tiger Oscar', 'Cá Tiger Oscar', 'Tiger oscar', 'Red oscar'] }, []],
@@ -283,6 +291,14 @@ test('a renamed fish keeps the names the chief of staff kept for it; another fis
   expect(cleanAltNames({ ...page, sci: 'Noturus nocturnus' }, [], rows).altNames).toEqual(cleanAltNames({ ...page, sci: 'Noturus nocturnus' }).altNames)
   // The blue-eye's old name on its page.
   expect(cleanAltNames({ name: 'Cá mắt xanh neon đỏ', sci: 'Pseudomugil luminatus', altNames: ['Red-Neon Blue-eye', 'Cá cầu vồng neon đỏ mắt xanh'] }).altNames).toEqual(['Red-Neon Blue-eye', 'Cá cầu vồng neon đỏ mắt xanh'])
+})
+
+// A name the row drops is no name it kept (the fiddler crab, 2026-11-15): "Cá Austruca annulipes" reads as the scientific
+// name, so kept it would keep the bare scientific name too, which no step takes off.
+test('a renamed fish\'s dropped name is cleaned as any other, never kept', () => {
+  const rows = [{ id: 'austruca-annulipes', sci: 'Austruca annulipes', was: 'Cá Austruca annulipes', name: 'Cua vĩ cầm annulipes', drop: ['Cá Austruca annulipes'] }]
+  const page = { name: 'Cua vĩ cầm annulipes', sci: 'Austruca annulipes', altNames: ['Cua vĩ cầm', 'Austruca annulipes', 'Cá Austruca annulipes'] }
+  expect(cleanAltNames(page, [], rows).altNames).toEqual(['Cua vĩ cầm'])
 })
 
 // 2026-11-13: Boraras merah's page had "Chili rasbora", B. brigittae's name, which neither of its sources gives.

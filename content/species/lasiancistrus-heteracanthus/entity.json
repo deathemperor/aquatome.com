@@ -9,7 +9,8 @@
     "south-america",
     "peru",
     "ecuador",
-    "rio-napo"
+    "rio-napo",
+    "maranon"
   ],
   "range": {
     "native": {
@@ -123,6 +124,10 @@
       {
         "source": "scotcat",
         "value": 18
+      },
+      {
+        "source": "planetcatfish",
+        "value": 15.3
       }
     ],
     "ph": [
@@ -143,6 +148,12 @@
       "html": "<ul><li>Total length: 15-18 cm</li><li>Avoid a pH lower than 6.5</li><li>Cave-brooder</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1454",
+      "html": "<ul><li>Scientific name: Lasiancistrus heteracanthus (Günther, 1869)</li><li>Synonym: Chaetostomus heteracanthus</li><li>Type locality: Upper Amazon River basin, Peru.</li><li>IUCN Red List: Least Concern (last assessed 2014).</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lasiancistrus_heteracanthus_en/",
@@ -159,6 +170,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
       "html": "<p>South America: Upper Río Napo of Ecuador and the lower Río Napo of Peru. Type locality: Upper Amazons, Peruvian Amazons.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1454",
+      "html": "<p>South America: Marañón River basin, Peru (Amazon, Upper Amazon, Marañón).</p>"
     },
     {
       "key": "habitat",
@@ -197,10 +214,22 @@
       "html": "<p>Males have longer pectoral fins and have a heavier growth of odontodes behind the gill covers and on the edges of the snout.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1454",
+      "html": "<p>Snout of nuptial males almost square (vs. rounded in females and juveniles). Adult males of most species (except Lasiancistrus tentaculatus) have whisker-like odontodes at the anterolateral corner of the snout; males of L. tentaculatus have tentacules instead of whisker-like odontodes along the anterior margin of the snout. Nuptial males have tentacules longer than their associated odontodes on the pectoral-fin spine.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lasiancistrus_heteracanthus_en/",
       "html": "<p>Like almost all species of ancistrine catfish this species is a cave-brooder. A clutch of eggs found in the wild contained about 200 eggs and was deposited in a cave in a tree lying under water. The male guards the eggs.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1454",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
       "key": "notes",
@@ -215,10 +244,22 @@
       "html": "<p>This species can be distinguished from L. caucanus, L. saetiger, and L. tentaculatus by having abdominal plates (vs. absent), from L. schomburgkii and L. saetiger by having dark spots in the dorsal and caudal fins (vs. white spots or all dark); and from L. guacharote by not having the abdominal plates restricted to a region near the insertion of the pectoral-fin spine. The Lasiancistrus species are quite similar to the Ancistrus genus but have a flatter profile and do not possess the tentacles on the mouths of this genus.</p><p>Etymology: the specific name heteracanthus: héteros, different; acanthus, from ákantha, thorn, referring to two kinds of spines on the interoperculum: a group of ~12 slender but stiff and slightly hooked spines surrounded by a ring of long setiform spines.</p><p>IUCN Red List: Least Concern because it has a wide range and is not exposed to any major threat (IUCN 2016).</p>"
     },
     {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1454",
+      "html": "<p>Identification: adult Lasiancistrus can be separated from all other loricariids by the presence of whisker-like odontodes on the cheeks. In addition, they have evertible cheek odontodes; three rows of plates on the caudal peduncle; and a modified, bar-shaped opercle. The caudal fin is slightly emarginate to forked, with the lower lobe longer than the upper. Nuptial males have tentacules on the pectoral-fin spines longer than their associated odontodes, and translucent tentacules on the snout that have odontodes associated with them. Nuptial males lack hypertrophied odontodes on top of the head and lack long, bristle-like odontodes on the leading edge of the pectoral-fin spine.</p><p>Etymology: Greek, lasios, -a, -on = hairy + Greek, agkistron = hook.</p>"
+    },
+    {
       "key": "references",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
       "html": "<p>Armbruster, J.W., 2005. The loricariid catfish genus Lasiancistrus (Siluriformes) with descriptions of two new species. Neotrop. Ichthyol. 3(4):549-569. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2011. FishBase. www.fishbase.org. Hidalgo del Aguila, M., Chocano, L., Velasquez, M., Arguello, P. &amp; Jimenez-Prado, P. 2016. Lasiancistrus heteracanthus. The IUCN Red List of Threatened Species 2016. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1454",
+      "html": "<p>Proceedings of the Zoological Society of London 1869 (pt 2), pp 425, Figs. 3-4.</p>"
     }
   ],
   "photos": [
@@ -227,17 +268,6 @@
       "thumb": "https://media.aquatome.com/scotcat/a0b170a53474f198-480.webp",
       "width": 500,
       "height": 292,
-      "licence": "dùng với sự cho phép",
-      "author": "Haakon Haagensen / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
-      "caption": "Lasiancistrus heteracanthus",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/3e64c55578481c47.webp",
-      "thumb": "https://media.aquatome.com/scotcat/3e64c55578481c47-480.webp",
-      "width": 500,
-      "height": 380,
       "licence": "dùng với sự cho phép",
       "author": "Haakon Haagensen / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
@@ -262,6 +292,17 @@
       "height": 333,
       "licence": "dùng với sự cho phép",
       "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
+      "caption": "Lasiancistrus heteracanthus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3e64c55578481c47.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3e64c55578481c47-480.webp",
+      "width": 500,
+      "height": 380,
+      "licence": "dùng với sự cho phép",
+      "author": "Haakon Haagensen / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
       "caption": "Lasiancistrus heteracanthus",
       "source": "scotcat"
@@ -323,5 +364,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-14"
+  "updatedAt": "2026-11-23"
 }

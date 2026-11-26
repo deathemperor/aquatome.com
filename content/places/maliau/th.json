@@ -3,6 +3,12 @@
   "name": "มาเลียว",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:47:13.600Z",
+    "why": "มาเลียว is a plausible phonetic transcription of Maliau, but it gives no kind word (the place is the Maliau Basin conservation area in Sabah), and Thai atlases would likely write it as แอ่งมาเลียว."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

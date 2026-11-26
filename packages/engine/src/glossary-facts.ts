@@ -10,12 +10,15 @@ import { unescapePlain } from './sanitize'
  * sentence to a stop.
  */
 
-export type Verdict = 'supported' | 'loose' | 'unsupported' | 'contradicts' | 'not a claim'
+export type Verdict = 'supported' | 'loose' | 'unsupported' | 'uncredited' | 'contradicts' | 'not a claim'
 /**
  * One sentence of an entry, the definition or paragraph or list item it stands in, the heading it stands under, and the
- * kind its block is about (the bold name it opens with, "Lũa đỗ quyên"), as plain text.
+ * kind its block is about (the bold name it opens with, "Lũa đỗ quyên"), as plain text. `opening`: for a list item, the
+ * line the list follows when that line ends with a colon ("Một tiệm ghi:"), the credit every item under it carries.
+ * `meaning`: a sentence of the definition, the term's meaning, which can't open with a credit.
  */
-export type Sentence = { text: string; block: string; heading?: string; item?: string }
+/** `head`: the sentence is (a piece of) a heading's own text, not one under it that happens to read the same. */
+export type Sentence = { text: string; block: string; heading?: string; item?: string; opening?: string; meaning?: true; head?: true }
 type Read = { verdict: Verdict; why?: string }
 /**
  * A sentence the reads call loose, unsupported or contradicted, with what they said. `unjudged`: how many reads it had, when
@@ -50,13 +53,18 @@ const TOKENS = /<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>|<\/?(?:p|ul|ol|li|table|thead
  * item that opens with a name of its own stands under both.
  */
 export function sentences(e: { definition: string; body: string }): Sentence[] {
-  const blocks: { block: string; heading?: string; item?: string }[] = [{ block: plain(e.definition) }]
+  const blocks: { block: string; heading?: string; item?: string; opening?: string; meaning?: true; head?: true }[] = [{ block: plain(e.definition), meaning: true }]
   let heading: string | undefined
+  // Each open list's opening: the line it follows, when that line ends with a colon. An item stands under the nearest one
+  // (the chief of staff, 19 Nov 2026: a list under an opening counts as credited, each item included; a full stop ends a
+  // credit, so a paragraph after the list stands under none).
+  const openings: (string | undefined)[] = []
+  const opening = () => openings.findLast(Boolean)
   // The open lists and list items, each item with the name it opens with, if any; a new item closes an unclosed one. One
   // pass over the whole body, so a heading inside a kind's item doesn't drop its name (Codex, 14 Nov 2026).
   const open: ('list' | { name?: string; seen: boolean })[] = []
   const names = () => open.flatMap(x => (x !== 'list' && x.name ? [x.name] : []))
-  const push = (block: string, item: string) => blocks.push({ block, ...(heading ? { heading } : {}), ...(item ? { item } : {}) })
+  const push = (block: string, item: string) => { const o = opening(); blocks.push({ block, ...(heading ? { heading } : {}), ...(item ? { item } : {}), ...(o ? { opening: o } : {}) }) }
   const text = (b: string) => {
     const block = plain(b)
     if (!block) return
@@ -70,12 +78,12 @@ export function sentences(e: { definition: string; body: string }): Sentence[] {
   for (const m of e.body.matchAll(TOKENS)) {
     text(e.body.slice(at, m.index))
     at = m.index + m[0].length
-    if (m[1] !== undefined) { heading = plain(m[2]!) || undefined; if (heading) push(heading, names().join(' › ')); continue }
+    if (m[1] !== undefined) { heading = plain(m[2]!) || undefined; if (heading) { push(heading, names().join(' › ')); blocks.at(-1)!.head = true } continue }
     const tag = /^<(\/?)([a-z]+)/i.exec(m[0])!
     const [close, name] = [tag[1] === '/', tag[2]!.toLowerCase()]
     if (name === 'ul' || name === 'ol') {
-      if (!close) open.push('list')
-      else while (open.length && open.pop() !== 'list');
+      if (!close) { const last = blocks.length > 1 ? blocks.at(-1)!.block : ''; openings.push(/:\s*$/.test(last) ? last : undefined); open.push('list') }
+      else { openings.pop(); while (open.length && open.pop() !== 'list'); }
     } else if (name === 'li') {
       if (open.length && open.at(-1) !== 'list') open.pop()
       if (!close) open.push({ seen: false })
@@ -86,20 +94,26 @@ export function sentences(e: { definition: string; body: string }): Sentence[] {
 }
 /** Where a sentence stands: its heading, and the kind its item is about. */
 const under = (s: Sentence) => [s.heading, s.item].filter(Boolean).join(' › ')
-/** Numbered sentences for a read, each section's under its heading, each kind's under its name too. */
+/** Where a sentence stands for a read: the definition, or its heading and kind and the opening its list follows, if any. */
+const where = (s: Sentence) => (s.meaning ? 'the definition' : [under(s), s.opening ? `under the opening "${s.opening}"` : ''].filter(Boolean).join(' › '))
+/** Numbered sentences for a read, each section's under its heading, each kind's under its name too, each list's under its opening. */
+// A sentence that stands under nothing after one that stood under an opening says so, or it would read as still under it.
 const numbered = (list: Sentence[], show: (s: Sentence) => string = s => s.text) =>
-  list.map((s, i) => `${under(s) && under(s) !== (list[i - 1] ? under(list[i - 1]!) : '') ? `[${under(s)}]\n` : ''}${i + 1}. ${show(s)}`).join('\n')
+  list.map((s, i) => { const before = list[i - 1] ? where(list[i - 1]!) : ''; return `${where(s) !== before && (where(s) || before) ? `[${where(s) || 'no heading, under no opening'}]\n` : ''}${i + 1}. ${show(s)}` }).join('\n')
 
+// What carries a claim on two sites, a plain translation as a thing's name, and the meaning, which can't open with a credit:
+// the chief of staff, 19 Nov 2026, after the check run again on the six live entries stopped six sentences their readers passed.
 const VERDICTS = `- supported: every claim in it is in the facts (a figure converted to metric, sensibly rounded, is the same figure);
-- loose: supported, but generalised, or put a little more or less strongly than the facts, or joining what several sources say about the same thing, in a way a keeper would not act on differently;
-- unsupported: it has a claim, number, cause, name or advice the facts don't give, or gives one kind's, form's or case's trait to another, or drops a qualifier that limits a claim to some kinds, forms or cases (wild fish only, small pieces only), or joins what sources say about different things into one claim;
+- loose: supported, but worded a little more generally, or joining what several sources say about the same thing, in a way a keeper would not act on differently. Never loose, but unsupported: a hedge or an amount changed, a claim said more strongly or of more than its fact ("rất dễ" where the fact says "often", "nhiều tài liệu" where one page says it), or a step, a test or advice the facts don't give as one;
+- unsupported: it has a claim, number, cause, name or advice the facts don't give, or gives one kind's, form's or case's trait to another, or drops a qualifier that limits a claim to some kinds, forms or cases (wild fish only, small pieces only), or joins what sources say about different things into one claim, or drops or adds a hedge its fact has or lacks ("can", "may", "some", "often", "usually", "about", "up to": "sẽ" for "can" is unsupported), or rounds, widens or narrows an amount, a time or a count ("vài tuần" for "a couple of weeks"), or says a claim more strongly or of more than its fact, or gives as a step, a test or advice what the facts don't give as one;
+- uncredited: the facts carry it, but every fact that carries it comes from one site (count each fact's source and its "also" by their "site": two pages of one site are one), and the sentence states it as plain fact: neither the sentence itself nor the opening its list is under credits a page ("Một tiệm ghi:", "Một bài khác ghi:", "Một nguồn người nuôi ghi:", "Một bài tạp chí ghi:", "Theo một tài liệu tham khảo, …"). A full stop ends a credit: a sentence after the one that credits a page, or a paragraph after a credited list, stands under none. A claim two sites give needs no credit. Two sites carry a claim when one gives it as broadly as the sentence does and another gives the same thing in other words, or for some of the cases it covers. If a fact limits the claim, the entry carries that limit beside it (in the sentence, or the one just before or after); if it doesn't, the claim takes its site's credit. A Vietnamese word that plainly translates what another site's word says ("điểm chết" for "dead spot") is the thing's name and needs no credit. A word that is not a plain translation, or a trade name only one shop uses, as for a wood, stays that shop's word. The term's meaning, the sentences under [the definition], can't open with a credit: it rests on two sites where two define it, and where only one does, it says only what that fact gives and stands without a credit, so a sentence of it is never uncredited: judge what it says;
 - contradicts: the facts say otherwise;
 - not a claim: a picture, a transition or a heading, with nothing in it to check ("it gives the tank the look of a stream"). An item under a heading of steps, mistakes or warnings is a claim: judge the advice or warning it gives.
 For every verdict but supported, say why in a few English words.`
-const ALL = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind) and the numbered SENTENCES of a Vietnamese glossary entry written from them, each section's under its [heading], and each kind's under [heading › its name]: a sentence there is about that kind. Give every sentence one verdict against the FACTS:
+const ALL = `Below are FACTS gathered about a fishkeeping term (each with a source number, and in "also" the other sources that give the same; the sources list gives each number's kind and site) and the numbered SENTENCES of a Vietnamese glossary entry written from them, the term's meaning under [the definition], each section's under its [heading], each kind's under [heading › its name]: a sentence there is about that kind, and each list's items under the opening the list follows, which credits every item. Give every sentence one verdict against the FACTS:
 ${VERDICTS}
 Reply {"verdicts": [{"n": 1, "verdict": "supported"}, {"n": 2, "verdict": "loose", "why": "..."}]}, one for every sentence, in order.`
-const ONE = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind), and one SENTENCE of a Vietnamese glossary entry written from them, in its PARAGRAPH, under its HEADING. Give the SENTENCE one verdict against the FACTS:
+const ONE = `Below are FACTS gathered about a fishkeeping term (each with a source number, and in "also" the other sources that give the same; the sources list gives each number's kind and site), and one SENTENCE of a Vietnamese glossary entry written from them, in its PARAGRAPH, under its HEADING ("(the definition)" for the term's meaning), and under the OPENING its list follows, if any, which credits it, with the sentences just BEFORE and AFTER it. Give the SENTENCE one verdict against the FACTS:
 ${VERDICTS}
 Reply {"verdict": "...", "why": "..."}.`
 const SYSTEM = 'You check a guide against its facts, sentence by sentence. Reply only with JSON.'
@@ -110,11 +124,16 @@ const SYSTEM = 'You check a guide against its facts, sentence by sentence. Reply
  * carried from one kind to another (the discus and vân thép lines): the read-back carries those.
  */
 const READ_MODEL = 'opus'
-const VERDICT = { type: 'string', enum: ['supported', 'loose', 'unsupported', 'contradicts', 'not a claim'] }
+const VERDICT = { type: 'string', enum: ['supported', 'loose', 'unsupported', 'uncredited', 'contradicts', 'not a claim'] }
 const MANY = { type: 'object', required: ['verdicts'], properties: { verdicts: { type: 'array', items: { type: 'object', required: ['n', 'verdict'], properties: { n: { type: 'number' }, verdict: VERDICT, why: { type: 'string' } } } } } }
 const SINGLE = { type: 'object', required: ['verdict'], properties: { verdict: VERDICT, why: { type: 'string' } } }
-const KNOWN = new Set<string>(['supported', 'loose', 'unsupported', 'contradicts', 'not a claim'])
-const STOP = new Set<Verdict>(['unsupported', 'contradicts'])
+const KNOWN = new Set<string>(['supported', 'loose', 'unsupported', 'uncredited', 'contradicts', 'not a claim'])
+/**
+ * What stops a save. A one-site claim written plain and a hedge or amount changed stop too (the chief of staff, 19 Nov
+ * 2026): five of the first six first writes failed their first reader on the one, three on the other, and the check only
+ * noted them, so a reader was spent on what the check could have stopped.
+ */
+const STOP = new Set<Verdict>(['unsupported', 'uncredited', 'contradicts'])
 const LOOSE = new Set<Verdict>(['loose'])
 const NOT_A_CLAIM = new Set<Verdict>(['not a claim'])
 /** A verdict a read left out, or one not on the list, counts as no verdict: it can't stop a sentence or clear one. A sentence fewer than two reads judge isn't cleared: it stops, unjudged (Codex, 14 Nov 2026: three empty replies scored an entry 1). */
@@ -139,9 +158,10 @@ const flagged = (s: Sentence, rs: (Read | null)[]): Flagged => ({ ...s, verdicts
  * that stop it stop it too: a lone stop is settled, not outvoted, whatever the other two said ("not a claim" among them).
  * A sentence two reads call loose is advice (`loose`), never a stop. "Not a claim" takes a sentence out of the score only.
  * A sentence fewer than two reads give a verdict stops, unjudged: what the check didn't read, it can't clear.
+ * `pass`: a sentence of the site's own house form, which carries no claim from the facts (glossary-dose.ts), isn't read.
  */
-export async function checkSentences(llm: Llm, facts: object, e: { definition: string; body: string }): Promise<FactCheck> {
-  const list = sentences(e)
+export async function checkSentences(llm: Llm, facts: object, e: { definition: string; body: string }, pass: (text: string) => boolean = () => false): Promise<FactCheck> {
+  const list = sentences(e).filter(s => !pass(s.text))
   if (!list.length) return { score: 1, claims: 0, stops: [], loose: [] }
   const reads = await readAll(llm, facts, numbered(list), list.length)
   const stops: Flagged[] = []
@@ -155,7 +175,7 @@ export async function checkSentences(llm: Llm, facts: object, e: { definition: s
     let all = count(rs, STOP) >= 2 ? rs : null
     if (!all && count(rs, STOP) === 1) {
       const again: (Read | null)[] = []
-      for (let k = 0; k < 3; k++) again.push(asRead(await llm<{ verdict?: string; why?: string }>({ system: SYSTEM, model: READ_MODEL, schema: SINGLE, prompt: `${ONE}\n\nFACTS:\n${JSON.stringify(facts)}\n\nHEADING:\n${under(s) || '(the definition)'}\n\nPARAGRAPH:\n${s.block}\n\nSENTENCE:\n${s.text}` })))
+      for (let k = 0; k < 3; k++) again.push(asRead(await llm<{ verdict?: string; why?: string }>({ system: SYSTEM, model: READ_MODEL, schema: SINGLE, prompt: `${ONE}\n\nFACTS:\n${JSON.stringify(facts)}\n\nHEADING:\n${s.meaning ? '(the definition)' : under(s) || '(none)'}\n\nOPENING:\n${s.opening ?? '(none)'}\n\nPARAGRAPH:\n${s.block}\n\nSENTENCE:\n${s.text}\n\nBEFORE:\n${list[i - 1]?.text ?? '(none)'}\n\nAFTER:\n${list[i + 1]?.text ?? '(none)'}` })))
       // Re-reads too few of which give a verdict don't settle it: it stops, unjudged (Codex, 14 Nov 2026).
       if (again.filter(Boolean).length < 2) { stops.push({ ...flagged(s, [...rs, ...again]), unjudged: 6, ...(claim ? {} : { unscored: true as const }) }); if (claim) stopped++; continue }
       if (count(again, STOP) >= 2) all = [...rs, ...again]
@@ -172,7 +192,7 @@ export const stopNote = (s: Flagged) => s.unjudged
   ? `"${s.text}": the reads left it unjudged (${s.verdicts.length} of ${s.unjudged} gave a verdict)`
   : `"${s.text}": the facts don't carry it (${s.verdicts.join(', ')}): ${[...new Set(s.why)].join(' / ') || 'no reason given'}`
 
-const REWORD = `Dưới đây là DỮ KIỆN (JSON) đã thu thập về một thuật ngữ cá cảnh, và vài CÂU trong mục thuật ngữ tiếng Việt viết từ đó, mỗi câu trong đoạn của nó, kèm lý do người kiểm tra cho là câu ấy nói rộng hơn, mạnh hơn hoặc gộp hơn dữ kiện. Viết lại từng câu cho đúng điều dữ kiện ghi: giữ ý và giọng văn, vừa với đoạn, chỉ nói điều dữ kiện chịu được. Không thêm ý mới. Không thêm câu hay vế nói các nguồn khác nhau, và không rào đón ("có nguồn cho rằng", "nhiều nguồn", "có tiệm ghi"): nói thẳng điều dữ kiện chịu được, hẹp lại nếu cần. Trả lời {"sentences": [{"n": 1, "text": "..."}]}, mỗi câu một mục, theo thứ tự.`
+const REWORD = `Dưới đây là DỮ KIỆN (JSON) đã thu thập về một thuật ngữ cá cảnh, và vài CÂU trong mục thuật ngữ tiếng Việt viết từ đó, mỗi câu trong đoạn của nó, kèm lý do người kiểm tra cho là câu ấy nói rộng hơn, mạnh hơn hoặc gộp hơn dữ kiện. Viết lại từng câu cho đúng điều dữ kiện ghi: giữ ý và giọng văn, vừa với đoạn, chỉ nói điều dữ kiện chịu được. Không thêm ý mới. Không thêm câu hay vế nói các nguồn khác nhau, và không rào đón ("có nguồn cho rằng", "nhiều nguồn"): nói thẳng điều dữ kiện chịu được, hẹp lại nếu cần. Nếu điều còn lại chỉ một site ghi (đếm theo "site" của nguồn: hai trang của một site là một), câu mở bằng lời ghi nguồn của trang ấy như mục vẫn viết ("Một tiệm ghi: …", "Một bài tạp chí ghi: …"). Câu đã đứng dưới LỜI MỞ của chính trang ấy thì không thêm gì; lời mở của trang ấy đứng ngay cạnh câu (CÂU TRƯỚC, CÂU SAU) thì nối theo nó ("Tiệm ấy cũng ghi: …"), không mở lời mới. Câu thuộc NGHĨA của thuật ngữ (PHẦN) không mở bằng lời ghi nguồn. Trả lời {"sentences": [{"n": 1, "text": "..."}]}, mỗi câu một mục, theo thứ tự.`
 const REWORD_SCHEMA = { type: 'object', required: ['sentences'], properties: { sentences: { type: 'array', items: { type: 'object', required: ['n', 'text'], properties: { n: { type: 'number' }, text: { type: 'string' } } } } } }
 const escapeText = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
@@ -185,6 +205,106 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
   const html = escapeText(text)
   if (e.body.includes(html)) return to => ({ ...e, body: e.body.replace(html, escapeText(to)) })
   return null
+}
+
+/**
+ * The figures a text gives, each as often as it gives it, with the numbers it can be read as (Grok's reads, 15 Nov 2026).
+ * Vietnamese writes thousands with dots and the decimal with a comma ("200.000", "1.234,5"), English the other way round
+ * ("2,000", "1,500.00"); any other mark is a decimal ("6.0" is 6, "7,3" 7.3). The facts keep no one way (an English fact
+ * quotes a shop's "200.000đ"), so a fact's figure reads both ways ("2,000" is 2 or 2000). The entry is Vietnamese and reads
+ * one way, so a figure the rewording changed ("200.000đ" to "200đ") is a figure it dropped. "20–30%" gives 20 and 30.
+ * Never a digit inside a word or a formula (CO2, NH4+, H3PO4), but "pH7,2" gives 7.2.
+ */
+type Figure = { text: string; reads: string[] }
+/** A figure's number when `thousands` marks thousands in it, and the other mark the decimal. */
+const written = (n: string, thousands: '.' | ',') => {
+  const decimal = thousands === '.' ? ',' : '.'
+  const grouped = new RegExp(`^[1-9]\\d{0,2}(?:\\${thousands}\\d{3})+(?:\\${decimal}\\d+)?$`).test(n)
+  return String(Number(grouped ? n.split(thousands).join('').replace(decimal, '.') : n.replace(/^(\d+)[.,](\d+).*$/, '$1.$2')))
+}
+const figures = (text: string, entry = false): Figure[] => [...text.replace(/pH(?=\d)/g, 'pH ').matchAll(/(?<![\p{L}\p{N}.,])\d+(?:[.,]\d+)*/gu)].map(m => (
+  { text: m[0], reads: [...new Set([written(m[0], '.'), ...(entry ? [] : [written(m[0], ',')])])] }
+))
+/** The figures `before` gives that `after` doesn't: each matched once to a figure after it that reads the same. */
+const lessOf = (before: Figure[], after: Figure[]) => {
+  const left = [...after]
+  return before.filter(f => { const i = left.findIndex(g => g.reads.some(r => f.reads.includes(r))); if (i < 0) return true; left.splice(i, 1); return false })
+}
+const has = (text: string, w: string) => new RegExp(`(?<![\\p{L}\\p{N}])${w}(?![\\p{L}\\p{N}])`, 'iu').test(text)
+const escapeRe = (n: string) => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+/**
+ * The names a text holds: these (a page's name, a kind's) where they are two words or more, as whole words in any case,
+ * and any Latin name (a genus and its species) the facts write, in any case. A one-word name ("Mono", "Front") is an
+ * everyday word too.
+ */
+const namesIn = (text: string, names: string[], facts = '') => [
+  // The longest first, each taken out of the text once found, so "Cá rô" isn't found inside "Cá rô phi".
+  ...[...names].map(n => n.trim()).filter(n => /\S\s+\S/.test(n)).sort((a, b) => b.length - a.length).filter(n => {
+    const re = new RegExp(`(?<![\\p{L}\\p{N}])${escapeRe(n)}(?![\\p{L}\\p{N}])`, 'giu')
+    return re.test(text) && ((text = text.replace(re, ' ')), true)
+  }),
+  ...[...text.matchAll(/(?<![\p{L}\p{N}])[A-Za-z][a-z]+ [A-Za-z][a-z]{2,}(?![\p{L}\p{N}])/gu)].map(m => m[0]).filter(n => /^[A-Z]/.test(n) && facts.toLowerCase().includes(n.toLowerCase())),
+]
+/** The words of a caution in Vietnamese: a warning, a must, a never; read on a text without the phrases where they mean something else. */
+const CAUTIONS = ['không được', 'không nên', 'đừng', 'chớ', 'tránh', 'phải', 'cẩn thận', 'lưu ý', 'coi chừng', 'cảnh báo', 'nguy hiểm', 'độc', 'hại', 'chết']
+const NOT_CAUTIONS = /(?<![\p{L}\p{N}])(?:không phải|độc đáo|độc lập|độc quyền|độc nhất|độc giả|đơn độc|bên phải|tay phải|phía phải|phải không|có phải|phải chăng|lẽ phải|phải trái)(?![\p{L}\p{N}])/giu
+const cautionsIn = (text: string) => { const t = text.normalize('NFC').replace(NOT_CAUTIONS, ' '); return CAUTIONS.filter(w => has(t, w)) }
+/** Each caution word as often as the text says it. */
+const cautionWords = (text: string) => {
+  const t = text.normalize('NFC').replace(NOT_CAUTIONS, ' ')
+  return CAUTIONS.flatMap(w => Array.from({ length: (t.match(new RegExp(`(?<![\\p{L}\\p{N}])${w}(?![\\p{L}\\p{N}])`, 'giu')) ?? []).length }, () => w))
+}
+/** What `before` has that `after` hasn't, each matched once. */
+const less = <T>(before: T[], after: T[]) => {
+  const left = [...after]
+  return before.filter(x => { const i = left.indexOf(x); if (i < 0) return true; left.splice(i, 1); return false })
+}
+/** Words too common to tell one part of a sentence from another. */
+const FUNCTION_WORDS = new Set(['của', 'và', 'hoặc', 'thì', 'là', 'có', 'một', 'các', 'những', 'cho', 'với', 'từ', 'trong', 'khi', 'đã', 'sẽ', 'được', 'bị', 'này', 'đó', 'mà', 'nên', 'rồi', 'cũng', 'để', 'ra', 'vào', 'lại', 'nó', 'như', 'hay', 'đến', 'tới', 'ở', 'rất', 'càng', 'thường', 'thể'])
+const wordsOf = (text: string) => (text.toLowerCase().match(/\p{L}+/gu) ?? []).filter(w => !FUNCTION_WORDS.has(w))
+/**
+ * A sentence's pieces of advice (the chief of staff, 15 Nov 2026: a dropped piece of advice counts): its parts between
+ * commas, semicolons and colons, and either side of "hoặc", "rồi" and "và", each an option, a step or a reason. A part is
+ * left out when fewer than half of its own words stand in the other text: chu trình nitơ's seeding sentence lost its water,
+ * floss and media from an established tank that way ("…, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc
+ * thì chỉ lấy từ bể đã ổn định…" → "Châm thêm men vi sinh nitrat hóa của hãng uy tín."). One word was too few (Grok's read,
+ * 15 Nov 2026): "nước" kept "nước đã khử clo" once a merged sentence said "thay 20–30% nước". `strict`: half its words
+ * standing isn't enough either ("lấy nước" kept by "lấy", Grok's second read), for a sentence no note asked to change.
+ */
+const adviceLost = (before: string, after: string, strict = false) => {
+  const kept = new Set(wordsOf(after))
+  // A comma between two digits is a decimal ("pH 4,0"), not a break between parts.
+  return before.split(/[;:]|,(?!\d)|(?<!\d),|\s(?:hoặc|rồi|và)\s/u).map(p => p.trim().replace(/[.!?…]+$/u, '')).filter(p => {
+    const own = [...new Set(wordsOf(p))], standing = own.filter(w => kept.has(w)).length * 2
+    return own.length > 0 && (strict ? standing <= own.length : standing < own.length)
+  })
+}
+/** The facts' own words, not their source numbers. */
+const factText = (facts: object) => ((facts as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n')
+
+/**
+ * The phrases a note quotes, "…" or “…”, of three characters or more: its own quotes only, read as pairs that nest, so a
+ * quoted sentence keeps its own quotation marks whole ("Nhiều tiệm ghi "không ra màu", còn…"; Grok's reads, 15 Nov 2026:
+ * paired left to right, the words after an inner quote became a quote of their own). A straight mark at the start, or after
+ * a space or an opening bracket and before a character, opens; any other closes the last one open. One written \" (a saved
+ * review's "là \"không ra màu\", còn…") is a mark inside the quote, never its end. A note whose marks don't pair up gives no
+ * quote at all (Grok's fifth and sixth reads: the splitter can cut a sentence inside a quotation, and a note on such a piece,
+ * "Ngâm 2 tuần." Rồi thôi.", read as quoting the separate step "Ngâm 2 tuần." and freed it): such a piece stays held, on the
+ * safe side.
+ */
+const quotes = (note: string) => {
+  const found: string[] = [], open: number[] = []
+  for (let i = 0; i < note.length; i++) {
+    const c = note[i]
+    if (note[i - 1] === '\\') continue
+    if (c === '“' || (c === '"' && (i === 0 || /[\s([]/.test(note[i - 1]!)) && /\S/.test(note[i + 1] ?? ''))) open.push(i + 1)
+    else if (c === '"' || c === '”') {
+      if (!open.length) return []
+      const at = open.pop()!
+      if (!open.length) found.push(note.slice(at, i))
+    }
+  }
+  return open.length ? [] : found.map(q => q.replace(/\\"/g, '"').trim()).filter(q => q.length >= 3)
 }
 
 /**
@@ -202,34 +322,198 @@ function placed<E extends { definition: string; body: string }>(e: E, text: stri
  * once in the entry, and its new wording only when that wording stood nowhere before and the entry then reads as it did
  * but for that one sentence, which stands once: the final read's verdict on it is its own, and going back finds it.
  */
-export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[]): Promise<{ entry: E; log: string[]; stops: Flagged[]; score?: number }> {
+export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[], keep: { rules?: (e: E) => Promise<string[]>; names?: string[]; fits?: (e: E) => boolean; pass?: (text: string) => boolean } = {}): Promise<{ entry: E; log: string[]; stops: Flagged[]; score?: number }> {
   const log: string[] = []
   const texts = sentences(e).map(s => s.text)
-  const here = loose.filter(s => (occurrences(e, s.text) === 1 && texts.filter(t => t === s.text).length === 1 && placed(e, s.text)) || (log.push(`Loose, left as written (not placeable): "${s.text}"`), false))
+  // The definition's first sentence says what the thing is, and no later read catches a change to it (the chief of staff,
+  // 15 Nov 2026: Artemia's "Artemia là loài tôm li ti." became its English name, dry food's lost four of its seven forms):
+  // it stays as written.
+  const lead = sentences({ definition: e.definition, body: '' })[0]?.text
+  const here = loose.filter(s => (s.text === lead && s.block === plain(e.definition) ? (log.push(`Loose, left as written (the definition's first sentence): "${s.text}"`), false) : true)
+    && ((occurrences(e, s.text) === 1 && texts.filter(t => t === s.text).length === 1 && placed(e, s.text)) || (log.push(`Loose, left as written (not placeable): "${s.text}"`), false)))
   if (!here.length) return { entry: e, log, stops: [] }
-  const listed = here.map((s, i) => `${i + 1}. CÂU: ${s.text}\n   ĐOẠN: ${s.block}\n   LÝ DO: ${[...new Set(s.why)].join(' / ')}`).join('\n')
+  // Each sentence with its list's opening and the sentences beside it, so a one-site rewording joins its page's credit
+  // where it stands, even in the paragraph before (Codex, 19 Nov 2026), and the meaning marked, which opens with none (the
+  // chief of staff, 19 Nov 2026).
+  const all = sentences(e)
+  const beside = (s: Flagged) => { const i = all.findIndex(x => x.text === s.text); return `\n   CÂU TRƯỚC: ${all[i - 1]?.text ?? '(không có)'}\n   CÂU SAU: ${all[i + 1]?.text ?? '(không có)'}` }
+  const listed = here.map((s, i) => `${i + 1}. CÂU: ${s.text}\n   ĐOẠN: ${s.block}${s.meaning ? '\n   PHẦN: NGHĨA của thuật ngữ' : ''}${s.opening ? `\n   LỜI MỞ: ${s.opening}` : ''}\n   LÝ DO: ${[...new Set(s.why)].join(' / ')}${beside(s)}`).join('\n')
   const r = await llm<{ sentences?: { n: number; text: string }[] }>({ system: 'You reword sentences of a Vietnamese aquarium glossary entry to what its facts carry. Reply only with JSON.', model, schema: REWORD_SCHEMA, prompt: `${REWORD}\n\n--- CÂU ---\n${listed}\n\n--- DỮ KIỆN ---\n${JSON.stringify(facts)}` })
   const now = here.map((s, i) => ({ s, to: (r.sentences ?? []).find(x => x.n === i + 1)?.text.replace(/\s+/g, ' ').trim() ?? '' }))
-  let entry = e
-  const changed: typeof now = []
-  for (const x of now) {
-    const was = sentences(entry).map(s => s.text)
-    const want = was.map(t => (t === x.s.text ? x.to : t))
-    const next = x.to && x.to !== x.s.text && occurrences(entry, x.to) === 0 ? placed(entry, x.s.text)?.(x.to) : undefined
-    // The same sentences in the same order but this one, which stands once: not two sentences, nor one run into the next.
-    if (next && JSON.stringify(sentences(next).map(s => s.text)) === JSON.stringify(want) && want.filter(t => t === x.to).length === 1) { entry = next; changed.push(x) }
-    else log.push(`Loose, not reworded: "${x.s.text}"`)
+  // Puts rewordings into the entry as written, in order, each where its sentence stands: the same sentences in the same
+  // order but this one, which stands once; not two sentences, nor one run into the next. Going back is the same: the
+  // rewordings that stay put in again from the entry as written, never a sentence put back by its words, which could
+  // land on another that now reads the same (Grok, 15 Nov 2026).
+  type Rewording = (typeof now)[number]
+  const place = (xs: Rewording[]) => {
+    let entry = e
+    const done: Rewording[] = []
+    for (const x of xs) {
+      const was = sentences(entry).map(s => s.text)
+      const want = was.map(t => (t === x.s.text ? x.to : t))
+      const next = x.to && x.to !== x.s.text && occurrences(entry, x.to) === 0 ? placed(entry, x.s.text)?.(x.to) : undefined
+      if (next && JSON.stringify(sentences(next).map(s => s.text)) === JSON.stringify(want) && want.filter(t => t === x.to).length === 1) { entry = next; done.push(x) }
+    }
+    return { entry, done }
   }
+  const first = place(now)
+  for (const x of now) if (!first.done.includes(x)) log.push(`Loose, not reworded: "${x.s.text}"`)
+  const changed = first.done
   if (!changed.length) return { entry: e, log, stops: [] }
-  const final = await checkSentences(llm, facts, entry)
+  const final = await checkSentences(llm, facts, first.entry, keep.pass)
   const verdictsOf = (text: string) => [...final.stops, ...final.loose].find(f => f.text === text)?.verdicts.join(', ') ?? 'supported'
+  const stopped = (x: Rewording) => final.stops.some(f => f.text === x.to)
+  const unstopped = place(changed.filter(x => !stopped(x)))
+  // The rewording reads only the facts, so the house rules and the term's notes are read again on what it kept: a rewording
+  // a rules note is about goes back to its old wording too (the chief of staff, 15 Nov 2026: chu trình nitơ's put a brand
+  // where a kind stood, and took out the fish deaths and "0 or near 0" its notes asked for). A note is about a rewording
+  // when it quotes words the rewording put in or took out, or a passage that holds its new sentence whole; never by words
+  // the sentence had either way, as a name a note on another sentence also quotes.
+  const ruled = keep.rules && unstopped.done.length ? await keep.rules(unstopped.entry) : []
+  const about = (n: string, x: Rewording) => quotes(n).some(q => x.to.includes(q) !== x.s.text.includes(q) || q.includes(x.to))
+  // Nor may it buy its fit by taking specifics out (the chief of staff, 15 Nov 2026: pH lost its weekly 20–30%, chu trình
+  // nitơ its fish deaths and its "0 or near 0", Lũa its "must soak"): a figure the facts carry, a named example (a page's
+  // name, a kind's, a Latin name) or a caution the old wording had and the new one hasn't keeps the old wording.
+  // The facts' own words, not their source numbers.
+  // A piece of advice counts too, an option, step or reason the old wording gave (the chief of staff, 15 Nov 2026).
+  const said = factText(facts), carried = new Set(figures(said).flatMap(f => f.reads))
+  const dropped = (x: Rewording) => [
+    ...lessOf(figures(x.s.text, true), figures(x.to, true)).filter(f => f.reads.some(r => carried.has(r))).map(f => `the figure ${f.text}`),
+    ...namesIn(x.s.text, keep.names ?? [], said).filter(n => !namesIn(x.to, keep.names ?? [], said).includes(n)).map(n => `the name ${n}`),
+    ...cautionsIn(x.s.text).filter(w => !cautionsIn(x.to).includes(w)).map(w => `the caution "${w}"`),
+    ...adviceLost(x.s.text, x.to).map(p => `the advice "${p}"`),
+  ]
+  const broke = new Map(unstopped.done.map(x => [x, [...ruled.filter(n => about(n, x)), ...(dropped(x).length ? [`it drops ${dropped(x).join(', ')}`] : [])]]))
+  const staying = unstopped.done.filter(x => !broke.get(x)!.length)
+  let { entry, done } = staying.length === unstopped.done.length ? unstopped : place(staying)
+  // Past its length, the last rewordings go back to their old wording until it fits.
+  const long = new Set<Rewording>()
+  while (keep.fits && !keep.fits(entry) && done.length) { long.add(done.at(-1)!); ({ entry, done } = place(done.slice(0, -1))) }
   for (const x of changed) {
-    if (final.stops.some(f => f.text === x.to)) {
-      entry = placed(entry, x.to)?.(x.s.text) ?? entry
-      log.push(`Loose, rewording read as unsupported, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${verdictsOf(x.to)})`)
-    } else log.push(`${final.loose.some(f => f.text === x.to) ? 'Loose, reworded and still loose' : 'Loose, reworded'}: "${x.s.text}" → "${x.to}" (${verdictsOf(x.to)})`)
+    if (stopped(x)) log.push(`Loose, rewording read as unsupported, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${verdictsOf(x.to)})`)
+    else if (broke.get(x)?.length) log.push(`Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${broke.get(x)!.join(' / ')})`)
+    else if (long.has(x)) log.push(`Loose, rewording would take the entry past its length, old wording kept for the reader: "${x.s.text}" (not "${x.to}")`)
+    else if (!done.includes(x)) log.push(`Loose, rewording not placed once others went back, old wording kept for the reader: "${x.s.text}" (not "${x.to}")`)
+    else log.push(`${final.loose.some(f => f.text === x.to) ? 'Loose, reworded and still loose' : 'Loose, reworded'}: "${x.s.text}" → "${x.to}" (${verdictsOf(x.to)})`)
   }
-  const stops = final.stops.filter(f => !changed.some(x => x.to === f.text))
+  // The stops of the entry as returned: a sentence that read stops and still stands in it, wherever it stands.
+  const standing = new Set(sentences(entry).map(s => s.text))
+  const stops = final.stops.filter(f => standing.has(f.text))
   // The score of the entry as saved: a reworded sentence that stopped is back in its old wording, which read loose.
   return { entry, log, stops, score: scoreOf(final.claims, stops.filter(f => !f.unscored).length) }
+}
+
+const DROP = 'The rewrite dropped from "'
+/**
+ * The words that make a heading the frame of what stands under it: that it is not to be done, or is a danger (the chief of
+ * staff, 20 Nov 2026: "sai lầm" is none of the caution words, so "Sai lầm hay gặp" renamed to a do-this heading, its
+ * sentences kept whole, would turn every mistake under it into advice). One class: any of them answers for any other. A
+ * heading that only asks for attention ("lưu ý", "để ý", "cẩn thận") is none, nor is "tránh" alone, which a how-to-avoid
+ * heading ("Cách tránh …") writes too: only its to-be-avoided forms are. Nor "không được" alone, which says a thing isn't
+ * so as often as that it mustn't be done ("Làm gì khi cá không được khỏe?", Codex, 20 Nov 2026): "không được làm" is.
+ * Nor "lỗi" alone, which also names the fault a section says how to fix ("Cách xử lý lỗi bộ lọc", Codex's second read):
+ * "lỗi hay gặp" and "lỗi thường gặp" are.
+ * Read with its accents composed, so a heading written with them apart is the same heading. Main's are "Sai lầm hay gặp"
+ * and "Sai lầm cần tránh".
+ */
+const FRAMES = ['sai lầm', 'lỗi hay gặp', 'lỗi thường gặp', 'cần tránh', 'nên tránh', 'phải tránh', 'không nên', 'không được làm', 'đừng', 'chớ', 'nguy hiểm', 'cảnh báo']
+const framesIn = (heading?: string) => (heading ? FRAMES.filter(w => has(heading.normalize('NFC'), w)) : [])
+/** A sentence by its words alone: what "kept word for word" compares, so a full stop made "!" is the same sentence. */
+const bare = (t: string) => t.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim()
+/** "tránh" alone, which in a heading that is no frame is how to avoid a thing, not a caution. */
+const AVOID = /(?<![\p{L}\p{N}])tránh(?![\p{L}\p{N}])/giu
+/**
+ * What a rewrite on notes took out that nothing let go (the chief of staff, 15 Nov 2026: pH's trim for length dropped
+ * "pH đổi đột ngột có thể làm cá chết." and the log scale's worked example, and nothing checked the rewrite). Two things
+ * let a sentence go, and nothing else: a stop on it, a sentence the fact check stopped (the facts don't carry it, or the
+ * reads left it unjudged) where it stood, under its heading and in its kind's item (the eighth read, 15 Nov 2026: Lũa's
+ * "Chưa thấy tiệm Việt Nam bán dưới tên tiếng Việt." stands under two kinds, and a stop on one copy let both go); and
+ * the term's own `free` list in its notes file (glossary-asks.json), which the chief of staff reads: a sentence it lists
+ * whole, or one of a passage's sentences, may go wherever it stands; a phrase it lists may go from its sentence. A
+ * review note never does, whatever it quotes: a note quotes a sentence to keep it, to place an addition beside it or to
+ * say where a thing already stands as often as to change it (the seventh read, 15 Nov 2026: with their real notes,
+ * pH's rewrites could cut "Nếu nước nguồn dưới 8…", the definition's "Điều cần tránh là pH đổi đột ngột." and "Muốn
+ * đổi pH…", and nitrogen's the 50% emergency change, each because a note quoted it). Any other sentence that is gone
+ * from where it stood, the definition, the body under its heading or a kind's item, must leave nothing behind: its
+ * figures the facts carry, its names and its cautions, counted over the whole entry so what moved is kept (the 0,5 pace
+ * moved from the mistakes to the steps); and each piece of its advice, which stands in one of the new or moved
+ * sentences: a repeat taken out goes by the free list too (GH's notes line: what GH measures is said once, in the
+ * definition). A kind's sentence keeps its advice in its kind's item, while that item stands. One note for each such
+ * sentence, naming what it lost, for the writer to write it as it was.
+ *
+ * A heading renamed (the chief of staff, 20 Nov 2026) loses no advice by its plain words: "Trong bể của bạn" and "Nên làm
+ * gì" are no step to stand anew, and the sentences under it move with it, each held as any moved sentence is. Its figures,
+ * names and cautions are counted over the entry as any sentence's, but for the "tránh" of a heading that is no frame
+ * ("Cách tránh tảo"), which isn't counted as a caution once the free list has had its words: its names and figures still
+ * are, and a heading is a frame or not by the whole of it, not by the piece the splitter cut. And the frame holds: a
+ * sentence kept word for word that stood under a heading of things not to do or of dangers (FRAMES) and now stands under
+ * none, its heading renamed or the sentence moved, is refused, since it would read as the opposite. Its copies are
+ * counted, kind by kind, under such headings, and over the entry under none: fewer in a kind under such a heading and
+ * more under none is a copy moved out, whichever copy stayed (Codex, 20 Nov 2026: a mistake written for two kinds, one
+ * moved to "Nên làm gì", passed while the other stood; and one of two copies under one heading, which a placement shares,
+ * moved unseen). A stop on it, or the free list, lets it go: that is how a sentence moves out on purpose, and a copy let go
+ * isn't counted where it stood (Codex's second read: a stop on one kind's copy refused the other's renamed heading).
+ */
+export function droppedInRewrite(before: { definition: string; body: string }, after: { definition: string; body: string }, facts: object, stops: Pick<Sentence, 'text' | 'heading' | 'item' | 'meaning'>[], names: string[] = [], free: string[] = []): string[] {
+  const placed = (e: { definition: string; body: string }) => [
+    ...sentences({ definition: e.definition, body: '' }).map(s => ({ ...s, key: `d ${s.text}` })),
+    // A heading isn't the list item that reads the same under it (Codex's second read: the item cut, the heading kept).
+    ...sentences({ definition: '', body: e.body }).map(s => ({ ...s, key: `b ${s.head ? '# ' : ''}${s.heading ?? ''}\n${s.item ?? ''}\n${s.text}` })),
+  ]
+  const was = placed(before), is = placed(after)
+  // A stop on a body sentence never frees the meaning's copy of it, nor the other way (Codex, 19 Nov 2026).
+  const stopped = (s: Sentence) => stops.some(x => x.text === s.text && (x.heading ?? '') === (s.heading ?? '') && (x.item ?? '') === (s.item ?? '') && !x.meaning === !s.meaning)
+  // A listed passage frees each of its own sentences, never one that is only words inside another sentence (Grok's third
+  // read: a shop's sentence quoting the step "Ngâm 2 tuần." freed the step).
+  const whole = (s: Sentence) => stopped(s) || free.some(q => q === s.text || (q.includes(s.text) && sentences({ definition: q, body: '' }).some(x => x.text === s.text)))
+  const unfreed = (t: string) => free.filter(q => t.includes(q)).reduce((s, q) => s.split(q).join(' '), t)
+  const now = new Set(is.map(s => s.key)), then = new Set(was.map(s => s.key))
+  // A sentence as its cautions are counted: a heading that is no frame loses its "tránh", after the free list has had it.
+  const warning = (s: Pick<Sentence, 'head' | 'heading'>, t: string) => (s.head && !framesIn(s.heading).length ? t.replace(AVOID, ' ') : t)
+  const gone = was.filter(s => !now.has(s.key) && !whole(s)).map(s => ({ ...s, u: unfreed(s.text) }))
+  const kept = was.filter(s => !whole(s))
+  // The frame, kind by kind: a sentence's words under a heading of things not to do, fewer there and more under none.
+  const framed = (x: Sentence) => !x.head && framesIn(x.heading).length > 0
+  const inKind = (list: Sentence[], item: string, w: string) => list.filter(x => framed(x) && (x.item ?? '') === item && bare(x.text) === w).length
+  const outside = (list: Sentence[], w: string) => list.filter(x => !x.head && !framed(x) && bare(x.text) === w)
+  const flipped = new Map<string, Sentence>()
+  for (const x of kept.filter(framed)) {
+    const w = bare(x.text), g = `${x.item ?? ''}\n${w}`
+    if (!flipped.has(g) && inKind(is, x.item ?? '', w) < inKind(kept, x.item ?? '', w) && outside(is, w).length > outside(was, w).length) flipped.set(g, x)
+  }
+  if (!gone.length && !flipped.size) return []
+  const said = factText(facts), carried = new Set(figures(said).flatMap(f => f.reads))
+  const rest = kept.map(s => unfreed(s.text)).join(' ')
+  const all = is.map(s => s.text).join(' ')
+  const figs = lessOf(figures(rest, true), figures(all, true)).filter(f => f.reads.some(r => carried.has(r)))
+  const named = less(namesIn(rest, names, said), namesIn(all, names, said))
+  const warned = less(cautionWords(kept.map(s => warning(s, unfreed(s.text))).join(' ')), cautionWords(is.map(s => warning(s, s.text)).join(' ')))
+  // Where a gone sentence's advice must stand anew: its kind's item, if the rewrite kept that item; else the whole entry.
+  const items = new Set(is.flatMap(s => (s.item ? [s.item] : [])))
+  const within = (item?: string) => is.filter(s => !item || !items.has(item) || s.item === item)
+  // Each thing lost goes to the first gone sentence that had it. A figure goes by its number, named as that sentence wrote
+  // it (Grok: "pH 4,0" cut, with "4 tuần" still standing, left a 4 no sentence wrote as "4" to take it).
+  const take = <T>(pool: T[], has: (x: T) => boolean) => { const mine = pool.filter(has); pool.splice(0, pool.length, ...pool.filter(x => !mine.includes(x))); return mine }
+  const note = (t: string, lost: string[]) => `${DROP}${t}" ${[...new Set(lost)].join(', ')}, and nothing lets that sentence go: write it as it was, word for word.`
+  const frameOf = (x: Pick<Sentence, 'text' | 'heading'>) => `the frame "${framesIn(x.heading).join('", "')}" of "${x.heading}", now under ${[...new Set(outside(is, bare(x.text)).map(y => (y.heading ? `"${y.heading}"` : y.meaning ? 'the definition' : 'no heading')))].join(', ')}`
+  const told = new Set<string>()
+  const notes = gone.flatMap(({ text: t, u, item, ...s }) => {
+    const own = figures(u, true), as = (f: Figure) => own.find(g => g.reads.some(r => f.reads.includes(r)))
+    // Each piece stands in one new or moved sentence, not in their words pooled (the eighth read's Sonnet reviewer: "Cá cần
+    // nước sạch." cut read as kept, its words scattered through a longer sentence added beside it).
+    const fresh = within(item).filter(s => !then.has(s.key)).map(s => s.text)
+    // Kept word for word, a copy out from under every heading of things not to do: said in this sentence's note.
+    const g = `${item ?? ''}\n${bare(t)}`
+    const frame = flipped.has(g) && !s.head && framesIn(s.heading).length && !told.has(g) ? (told.add(g), [frameOf({ text: t, heading: s.heading })]) : []
+    const lost = [
+      ...take(figs, f => !!as(f)).map(f => `the figure ${as(f)!.text}`),
+      ...take(named, n => namesIn(u, names, said).includes(n)).map(n => `the name ${n}`),
+      ...take(warned, c => cautionWords(warning(s, u)).includes(c)).map(c => `the caution "${c}"`),
+      ...(s.head ? [] : adviceLost(u, '', true).filter(p => fresh.every(f => adviceLost(p, f, true).length)).map(p => `the advice "${p}"${item && items.has(item) ? ` under ${item}` : ''}`)),
+      ...frame,
+    ]
+    return lost.length ? [note(t, lost)] : []
+  })
+  // A copy moved out whose own placement stayed (one of two under one heading), in a note of its own.
+  return [...notes, ...[...flipped].filter(([g]) => !told.has(g)).map(([, x]) => note(x.text, [frameOf(x)]))]
 }

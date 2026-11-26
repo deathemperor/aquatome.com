@@ -1,0 +1,71 @@
+{
+  "id": "auchenipterus-menezesi",
+  "native": {
+    "input": "3527e05284c4a938",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Parnaíba and Pindaré-Mirim River basins of Maranhão and Piauí, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Parnaíba",
+        "source": "scotcat",
+        "quote": "South America: Parnaíba and Pindaré-Mirim River basins of Maranhão and Piauí, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Pindaré-Mirim",
+        "source": "scotcat",
+        "quote": "South America: Parnaíba and Pindaré-Mirim River basins of Maranhão and Piauí, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Auchenipterus menezesi",
+    "status": "ACCEPTED",
+    "taxonKey": 2344567,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        21
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-23T01:48:47.136Z"
+  }
+}

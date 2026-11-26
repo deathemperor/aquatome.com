@@ -1,25 +1,9 @@
 {
   "id": "aplocheilus-blockii",
   "native": {
-    "input": "ca4f060de384566d",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "ba174bf563054a06",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
-      {
-        "code": "LK",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The green panchax, Aplocheilus blockii, is a small killifish from Sri Lanka and southern India, growing to around 45 mm SL.",
-        "words": "Sri Lanka",
-        "ok": true
-      },
-      {
-        "code": "IN",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The green panchax, Aplocheilus blockii, is a small killifish from Sri Lanka and southern India, growing to around 45 mm SL.",
-        "words": "India",
-        "ok": true
-      },
       {
         "code": "LK",
         "status": "native",
@@ -42,14 +26,6 @@
         "source": "seriouslyfish",
         "quote": "Reports from Pakistan may be erroneous while the species's distribution in certain parts of the Western Ghats mountains in India requires confirmation.",
         "words": "Pakistan",
-        "ok": true
-      },
-      {
-        "code": "LK",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is given simply as 'Sri Lanka'.",
-        "words": "Sri Lanka",
         "ok": true
       }
     ],

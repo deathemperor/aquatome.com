@@ -57,8 +57,8 @@ struct ReaderPost: View {
     var text: String {
       switch self {
       case let .refused(s), let .posted(s): s
-      case .received: String(localized: "Đã nhận ảnh, cảm ơn bạn! Ảnh sẽ hiện ở đây sau khi được duyệt, thường trong vòng một ngày.")
-      case .unreadable: String(localized: "Không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.")
+      case .received: String(localized: "Đã nhận ảnh, cảm ơn bạn! Ảnh sẽ hiện ở đây sau khi được duyệt, thường trong vòng một ngày.", bundle: .app)
+      case .unreadable: String(localized: "Không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.", bundle: .app)
       }
     }
   }
@@ -82,7 +82,7 @@ struct ReaderPost: View {
     .onAppear { draft = who; naming = trimmed(who).isEmpty }
     // What the form says, said to VoiceOver as it changes, as the site's status line is read (aria-live).
     .onChange(of: said) { _, s in if let s { AccessibilityNotification.Announcement(s.text).post() } }
-    .onChange(of: sending) { _, on in if on { AccessibilityNotification.Announcement(String(localized: "Đang gửi…")).post() } }
+    .onChange(of: sending) { _, on in if on { AccessibilityNotification.Announcement(String(localized: "Đang gửi…", bundle: .app)).post() } }
     .task(id: picked) {
       reading = picked != nil
       #if DEBUG
@@ -264,11 +264,11 @@ struct ReaderPost: View {
       shown(c)
       text = ""
       keepName()
-      said = .posted(String(localized: "Đã đăng bình luận."))
+      said = .posted(String(localized: "Đã đăng bình luận.", bundle: .app))
     case .held?:
       text = ""
       keepName()
-      said = .posted(String(localized: "Bình luận đang chờ duyệt."))
+      said = .posted(String(localized: "Bình luận đang chờ duyệt.", bundle: .app))
     case let .received(delete)?:
       sent = photo.map { ($0, name) }
       picked = nil; jpeg = nil; preview = nil; consent = false
@@ -305,18 +305,18 @@ struct ReaderPost: View {
   private static func refusal(_ code: String, _ kind: Kind) -> String {
     switch (kind, code) {
     case (.comment, "name must be 1–40 characters"), (.comment, "comment must be 2–2000 characters"), (.comment, "too large"):
-      String(localized: "Tên từ 1 đến 40 ký tự, bình luận từ 2 đến 2.000 ký tự.")
+      String(localized: "Tên từ 1 đến 40 ký tự, bình luận từ 2 đến 2.000 ký tự.", bundle: .app)
     case (.comment, "verification_required"):
-      String(localized: "Bình luận cần xác minh người dùng theo quy định; tính năng này sẽ sớm mở.")
+      String(localized: "Bình luận cần xác minh người dùng theo quy định; tính năng này sẽ sớm mở.", bundle: .app)
     case (.comment, _):
-      String(localized: "Không gửi được bình luận, vui lòng thử lại.")
-    case (.photo, "rate"): String(localized: "Bạn đã gửi đủ 5 ảnh hôm nay. Hãy quay lại ngày mai.")
-    case (.photo, "not an image"): String(localized: "Chỉ nhận ảnh JPEG, PNG hoặc WebP.")
-    case (.photo, "too large"): String(localized: "Ảnh quá lớn (tối đa 8 MB).")
-    case (.photo, "bad name"): String(localized: "Tên chỉ gồm chữ, 1–40 ký tự, không chứa đường link.")
-    case (.photo, "consent"): String(localized: "Vui lòng xác nhận ảnh do bạn chụp.")
-    case (.photo, "no file"): String(localized: "Chọn một ảnh trước đã.")
-    case (.photo, _): String(localized: "Không gửi được ảnh, vui lòng thử lại.")
+      String(localized: "Không gửi được bình luận, vui lòng thử lại.", bundle: .app)
+    case (.photo, "rate"): String(localized: "Bạn đã gửi đủ 5 ảnh hôm nay. Hãy quay lại ngày mai.", bundle: .app)
+    case (.photo, "not an image"): String(localized: "Chỉ nhận ảnh JPEG, PNG hoặc WebP.", bundle: .app)
+    case (.photo, "too large"): String(localized: "Ảnh quá lớn (tối đa 8 MB).", bundle: .app)
+    case (.photo, "bad name"): String(localized: "Tên chỉ gồm chữ, 1–40 ký tự, không chứa đường link.", bundle: .app)
+    case (.photo, "consent"): String(localized: "Vui lòng xác nhận ảnh do bạn chụp.", bundle: .app)
+    case (.photo, "no file"): String(localized: "Chọn một ảnh trước đã.", bundle: .app)
+    case (.photo, _): String(localized: "Không gửi được ảnh, vui lòng thử lại.", bundle: .app)
     }
   }
 }

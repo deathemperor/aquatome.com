@@ -1,0 +1,121 @@
+{
+  "id": "pseudobunocephalus-bifidus",
+  "native": {
+    "input": "7e4c616ee2bde554",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin of Bolivia, Brazil, Ecuador, and Peru.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin of Bolivia, Brazil, Ecuador, and Peru.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin of Bolivia, Brazil, Ecuador, and Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin of Bolivia, Brazil, Ecuador, and Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin of Bolivia, Brazil, Ecuador, and Peru.",
+        "ok": true
+      },
+      {
+        "name": "Huallaga River",
+        "source": "scotcat",
+        "quote": "Type locality: creek, Yurimaguas [Huallaga River, Peru].",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudobunocephalus bifidus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340576,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BO",
+      "BR",
+      "EC",
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T07:13:45.828Z"
+  }
+}

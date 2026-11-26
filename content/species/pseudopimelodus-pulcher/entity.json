@@ -1,0 +1,101 @@
+{
+  "id": "pseudopimelodus-pulcher",
+  "scientificName": "Pseudopimelodus pulcher",
+  "order": "Siluriformes",
+  "family": "Pseudopimelodidae",
+  "genus": "Pseudopimelodus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "ecuador",
+    "amazon"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 8.3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1524",
+      "html": "<ul><li>Scientific name: Rhyacoglanis pulcher (Boulenger, 1887)</li><li>Common names: Torrent Bumblebee Catfish, Båndet Strømmalle (Denmark)</li><li>Type locality: Canelos, eastern Ecuador</li><li>IUCN: Least Concern (last assessed 2020)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1524",
+      "html": "<p>South America: upper Amazon River basin, Ecuador. Marañón, Pastaza, Bobonaza; Napo, Curaray, Villano.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1524",
+      "html": "<p>Rhyacoglanis likely prefer well-aerated water with significant current over a substrate of rocks, pebbles and sand.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1524",
+      "html": "<p>Little is known of these fish in the aquarium. Provide good aeration; modest current may be beneficial.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1524",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1524",
+      "html": "<p>Rhyacoglanis is distinguished from other Pseudopimelodidae by three synapomorphies: presence of a light blotch on the cheek; a connection between the middle of the dark caudal-fin stripe and the dark caudal-peduncle pigmentation; and 30-35 total vertebrae.</p><p>Many Rhyacoglanis specimens with an appearance very similar to R. pulcher have been collected in Peru, Brazil, Bolivia and elsewhere, but R. pulcher sensu stricto is considered limited to Ecuador. Specimens from outside Ecuador that look similar are currently considered to be other (likely undescribed) species and are treated as Rhyacoglanis aff. pulcher.</p><p>Etymology: Rhyacoglanis, from the Greek rhyax = torrent + glanis = catfish; the specific epithet pulcher means beautiful.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1524",
+      "html": "<p>Proceedings of the Zoological Society of London 1887 (pt 2) (art. 2) (for 1 Mar. 1887), pp 276, Pl. 21 (fig. 1).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/340543687.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/340543687-480.webp",
+      "width": 1024,
+      "height": 743,
+      "licence": "CC BY-NC",
+      "author": "Flávio Mendes",
+      "sourceUrl": "https://www.inaturalist.org/photos/340543687",
+      "caption": "Cá Pseudopimelodus pulcher vằn đen vàng trong khay trắng",
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/340543687-large.webp",
+        "width": 1655,
+        "height": 1200
+      }
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy sục khí",
+        "bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông bể cá",
+        "sỏi nhỏ bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

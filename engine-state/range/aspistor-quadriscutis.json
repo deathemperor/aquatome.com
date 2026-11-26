@@ -1,0 +1,105 @@
+{
+  "id": "aspistor-quadriscutis",
+  "native": {
+    "input": "38afffcd718c05a9",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Atlantic coastal rivers of South America from Guyana to northeastern Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Atlantic coastal rivers of South America from Guyana to northeastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aspistor quadriscutis",
+    "status": "ACCEPTED",
+    "taxonKey": 2345325,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        75
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        70
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        26
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        25
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

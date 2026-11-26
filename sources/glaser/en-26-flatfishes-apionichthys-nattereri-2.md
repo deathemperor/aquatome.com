@@ -1,0 +1,17 @@
+---
+url: https://www.aquariumglaser.de/en/26-flatfishes/apionichthys-nattereri-2/
+title: Apionichthys nattereri - Aquarium Glaser GmbH
+fetchedAt: 2026-11-23T01:39:14.916Z
+hash: 92231aada23234a81def89a16b9ef075caa498a053d4820d2446cee78042abc6
+---
+
+When we think of flatfishes like flounders, plaice, butts and tongues, we actually think of the sea and edible fishes. However, it is little known that several species are also purely freshwater dwellers. Among the Achiridae (American sole) in South America, for example, 26 species are known from freshwater, but many of them are euryhaline, i.e. they live in the sea, brackish water and freshwater. Among the species living exclusively in freshwater is Apionichthys nattereri, which we were able to import from Peru.
+The animals were sent to us as Apionichthys finis, a closely related species, which also occurs only in freshwater and is also reported for Peru; a first comparison on the day of import with the original description of A. finis from 1912 did not raise any concerns at first. One week later we found time to study the animals more intensively. The revision of the genus Apionichthys by Ramos from 2003, which we consulted, quickly showed that our animals must be A. nattereri. In contrast to A. finis, the dorsal, caudal and anal fins of A. nattereri are clearly distinguishable from each other, but nevertheless connected. In A. finis the three fins are separated from each other. The identification became unambiguous when an animal attached itself to the front glass of the photographic aquarium. The black border on the blind side of the flatfish is characteristic for A. nattereri and does not occur in any other species.
+Quite droll are the tiny eyes sitting on stalks and the no less tiny mouth. However, you don’t often get to see the pretty spotted pattern of the animals in a properly set up aquarium, because like all flatfishes, these animals spend a large part of the day buried in fine sand.
+Apionichthys nattereri grows to about 25 cm in length, making it one of the largest members of the genus. The species is found throughout the Amazon basin. There is no information about the reproduction. The animals are certainly egg-layers without brood care, but how, where and when the fish spawn and the larvae develop is unknown. Examination of the ear stones (otoliths) of two related freshwater species, namely A. finis and Hypoclinemus mentalis, revealed that these two species probably spawn in freshwater and never live in the sea, even as larvae (Matsushita et al., 2020).
+For our customers: the animals have code 207075 on our stocklist. Please note that we only supply wholesale. Only a few specimens available!
+Text & photos: Frank Schäfer
+Literature:
+Eigenmann, C. H. (1912): The freshwater fishes of British Guiana, including a study of the ecological grouping of species, and the relation of the fauna of the plateau to that of the lowlands. Memoirs of the Carnegie Museum v. 5 (no. 1): i-xxii + 1-578, Pls. 1-103.
+Matsushita, Y., Miyoshi, K., Kabeya, N., Sanada, S., Yazawa, R., Haga, Y., Satoh, S., Yamamoto, Y, Strüssmann, C. A., Luckenbach, J. A. & Yoshizaki, G. (2020): Flatfishes colonised freshwater environments by acquisition of various DHA biosynthetic pathways. Communications biology, 3(1), 1-9.
+Ramos, R. T. C. (2003): Systematic review of Apionichthys (Pleuronectiformes: Achiridae), with description of four new species. Ichthyological Exploration of Freshwaters v. 14 (no. 2): 97-126.

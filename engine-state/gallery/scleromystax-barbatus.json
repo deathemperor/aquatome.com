@@ -29,5 +29,20 @@
   "https://media.aquatome.com/commons/543dfe15ec24ed8d.webp": "09f998a7b8e8183f",
   "https://media.aquatome.com/commons/1ae390416a98fc6b.webp": "4c01c64d49835009"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 609745,
+  "pass": "done",
+  "after": {
+   "research": 357297442,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2342592,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ }
 }

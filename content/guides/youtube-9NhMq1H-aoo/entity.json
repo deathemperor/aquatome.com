@@ -54,20 +54,6 @@
     ],
     "figures": [
       {
-        "heading": "Nhận biết cá heo vằn",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/9NhMq1H-aoo/p0-X3N0cmlhdGEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/9NhMq1H-aoo/p0-X3N0cmlhdGEuanBn-480.webp",
-          "width": 960,
-          "height": 601,
-          "licence": "CC BY-SA 3.0",
-          "author": "Lerdsuwa",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Botia_striata.jpg",
-          "caption": "Cá heo vằn nhìn nghiêng, thấy rõ sọc đen vàng cam, mắt và mũi."
-        }
-      },
-      {
         "heading": "Tập tính: vì sao ít khi thấy cá",
         "moments": [
           {
@@ -78,7 +64,68 @@
             "caption": "Cá đáy sọc vằn nằm sát tảng đá, gần chỗ trốn quen.",
             "sharpness": 147,
             "person": false
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Cá heo vằn và ốc trong bể",
+        "moments": [
+          {
+            "t": 170,
+            "url": "https://media.aquatome.com/video/9NhMq1H-aoo/at170-hd.webp",
+            "width": 1200,
+            "height": 689,
+            "caption": "Chạch ngựa vằn bám dưới chân hòn đá, bên thảm cỏ xanh trong bể.",
+            "sharpness": 271.7,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Chọn nền",
+        "moments": [
+          {
+            "t": 290,
+            "url": "https://media.aquatome.com/video/9NhMq1H-aoo/at290-hd.webp",
+            "width": 1200,
+            "height": 689,
+            "caption": "Góc bể cho thấy lớp nền hạt mịn giữa đá và cây.",
+            "sharpness": 87.5,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Nhiệt độ và sưởi",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/9NhMq1H-aoo/p7-ha3dhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/9NhMq1H-aoo/p7-ha3dhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Ewkaa",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
+          "caption": "Thanh sưởi bể cá có giác hút, dùng giữ nước ấm ổn định."
+        }
+      },
+      {
+        "heading": "Chạch ngựa vằn trông thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/9NhMq1H-aoo/p0-X3N0cmlhdGEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/9NhMq1H-aoo/p0-X3N0cmlhdGEuanBn-480.webp",
+          "width": 960,
+          "height": 601,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lerdsuwa",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Botia_striata.jpg",
+          "caption": "Chạch ngựa vằn nhìn nghiêng, thấy rõ sọc đen vàng cam, mắt và mũi."
+        }
+      },
+      {
+        "heading": "Tính cách: hay trốn, ra ăn về đêm",
+        "moments": [
           {
             "t": 155,
             "url": "https://media.aquatome.com/video/9NhMq1H-aoo/at155-hd.webp",
@@ -97,25 +144,11 @@
           "licence": "CC BY 3.0",
           "author": "lienyuan lee",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%92%B0%E7%BA%B9%E9%BC%A0_Botia_striata_-_panoramio.jpg",
-          "caption": "Cá chạch vằn nằm gần hốc trốn dưới lũa trong bể."
+          "caption": "Chạch ngựa vằn nằm gần hốc trốn dưới lũa trong bể."
         }
       },
       {
-        "heading": "Cá heo vằn và ốc trong bể",
-        "moments": [
-          {
-            "t": 170,
-            "url": "https://media.aquatome.com/video/9NhMq1H-aoo/at170-hd.webp",
-            "width": 1200,
-            "height": 689,
-            "caption": "Cá heo vằn bám dưới chân hòn đá, bên thảm cỏ xanh trong bể.",
-            "sharpness": 271.7,
-            "person": false
-          }
-        ]
-      },
-      {
-        "heading": "Bố trí bể thế nào",
+        "heading": "Set bể thế nào cho hợp",
         "moments": [
           {
             "t": 240,
@@ -134,12 +167,7 @@
             "caption": "Khe giữa các hòn đá và thảm cây phía trước là chỗ trốn cho cá.",
             "sharpness": 339.2,
             "person": false
-          }
-        ]
-      },
-      {
-        "heading": "Chọn nền",
-        "moments": [
+          },
           {
             "t": 265,
             "url": "https://media.aquatome.com/video/9NhMq1H-aoo/at265-hd.webp",
@@ -147,15 +175,6 @@
             "height": 689,
             "caption": "Nền đất nâu mịn cùng đá và thảm cỏ xanh trong bể.",
             "sharpness": 1011.9,
-            "person": false
-          },
-          {
-            "t": 290,
-            "url": "https://media.aquatome.com/video/9NhMq1H-aoo/at290-hd.webp",
-            "width": 1200,
-            "height": 689,
-            "caption": "Góc bể cho thấy lớp nền hạt mịn giữa đá và cây.",
-            "sharpness": 87.5,
             "person": false
           }
         ],
@@ -171,7 +190,7 @@
         }
       },
       {
-        "heading": "Cá lớn tới đâu",
+        "heading": "Kích thước khi trưởng thành",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/9NhMq1H-aoo/p5-X3N0cmlhdGEuanBn.webp",
@@ -181,35 +200,7 @@
           "licence": "CC BY-SA 3.0",
           "author": "Lerdsuwa",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Botia_striata.jpg",
-          "caption": "Cá heo vằn trưởng thành với sọc vằn rõ nét, nhìn nghiêng thấy rõ thân dài."
-        }
-      },
-      {
-        "heading": "Cho ăn",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/9NhMq1H-aoo/p6-NTU3MTYwOCkuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/9NhMq1H-aoo/p6-NTU3MTYwOCkuanBn-480.webp",
-          "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 2.0",
-          "author": "Benson Kua from Toronto, Canada",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vacuum!!!_(3475571608).jpg",
-          "caption": "Cá vàng mắt lồi chúi xuống đáy bể tìm thức ăn chìm."
-        }
-      },
-      {
-        "heading": "Nhiệt độ và sưởi",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/9NhMq1H-aoo/p7-ha3dhcml1bS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/9NhMq1H-aoo/p7-ha3dhcml1bS5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Ewkaa",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
-          "caption": "Thanh sưởi bể cá có giác hút, dùng giữ nước ấm ổn định."
+          "caption": "Chạch ngựa vằn trưởng thành với sọc vằn rõ nét, nhìn nghiêng thấy rõ thân dài."
         }
       }
     ]

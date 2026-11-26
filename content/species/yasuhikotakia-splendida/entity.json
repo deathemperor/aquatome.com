@@ -10,6 +10,61 @@
     "laos",
     "xe-pian"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA"
+      ],
+      "regions": [
+        "Xe Pian",
+        "Xe Khong",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Officially known only from a handful of localities in the Xe Pian river, a tributary system of the Xe Khong (which itself drains into the Mekong river main channel) in Champasak and Attapeu provinces, southern Laos.",
+          "countries": [
+            "LA"
+          ],
+          "regions": [
+            "Xe Pian",
+            "Xe Khong",
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367785,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "LA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          106.875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -42,6 +97,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -65,6 +124,12 @@
       "html": "<ul><li>Max size: 100 mm SL (3.9 in)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–12 dGH</li><li>Difficulty: 4 of 8 (moderate) – needs a well-established tank and stable water.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-splendida-4/",
+      "html": "<p>The genus Yasuhikotakia was separated from the genus Botia by Teodor Nalbant in 2002 and currently comprises 10 species. Some of them are important aquarium fish like Y. morleti (older synonym: Botia horae) and Y. modesta.</p><p>The newest species on the ornamental fish market is Y. splendida, which was described as Botia splendida in 1995. It differs from the very closely related, aquaristically well known species Y. morleti only by its colouration. However, this is very striking, beautiful and makes the species unmistakable.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-splendida",
@@ -77,10 +142,22 @@
       "html": "<p>Officially known only from a handful of localities in the Xe Pian river, a tributary system of the Xe Khong (which itself drains into the Mekong river main channel) in Champasak and Attapeu provinces, southern Laos.</p><p>If additional populations have been discovered by commercial collectors no details have been made available.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-splendida-4/",
+      "html": "<p>So far the species is only known from Laos (Xe Pian), but this does not mean that it does not occur in other places. Together with it Y. modesta and Ambastaia sidthimunki were found, the latter a species described from Northern Thailand and in the meantime even considered extinct.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-splendida",
       "html": "<p>According to the description by Roberts (1995) all collection localities were similar and comprised small, swiftly-running, headwater streams draining foothills of the Bolaven Plateau and contained clear water with substrates of rocks and cobbles.</p><p>Other botiids present in these habitats were Yasuhikotakia modesta, Ambastaia nigrolineata, misidentified as A. sidthimunki, and an unidentified Syncrossus species.</p><p>The author also speculated that the species' upstream distribution may be limited by the Tad Saepha waterfall since no specimens were recorded above it.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-splendida-4/",
+      "html": "<p>In nature these loaches inhabit clear running waters with stony bottom.</p>"
     },
     {
       "key": "aquariumSize",
@@ -111,6 +188,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-splendida",
       "html": "<p>Several SF members have experience with this species and all report it to be milder in temperament than some congeners.</p><p>That said slow-moving or long-finned fishes are best omitted with active, pelagic cyprinids such as many Devario, Rasbora, 'Puntius', and some Danio spp. representing more suitable tankmates.</p><p>In terms of other bottom-dwellers it should coexist relatively peacefully with most Botia and Syncrossus spp. or in very large tanks, Chromobotia macracanthus. Some cobitid and nemacheilid loaches are also possibilities as are members of Epalzeorhynchos, Crossocheilus, Garra, and many catfishes.</p><p>As always, thorough research prior to selecting a community of fishes is the best way to avoid potential problems.</p><p>Yasuhikotakia spp. are gregarious, form complex social hierarchies and should be maintained in groups of at least 5 or 6 specimens, preferably 10 or more.</p><p>When kept singly they can become withdrawn or even aggressive towards similarly-shaped fishes, and if only a pair or trio are purchased the dominant individual may stress the other(s) to the extent that they stop feeding.</p><p>That said they seemingly require regular contact with conspecifics, a fact exemplified by a number of behavioural rituals which have been recorded consistently in aquaria (see 'Notes').</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-splendida-4/",
+      "html": "<p>Not much is known about the behaviour of Y. splendida. However, it is not to be assumed that it deviates substantially from that of the skunk loach.</p>"
     },
     {
       "key": "dimorphism",
@@ -144,7 +227,7 @@
       "width": 799,
       "height": 590,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-splendida",
       "caption": "Like other bottids this species fares best when maintained in a group.",
       "source": "seriouslyfish"
@@ -155,7 +238,7 @@
       "width": 799,
       "height": 591,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-splendida",
       "caption": "The vertical bars in the lower half of the body appear more-or-less prominently depending on mood and lighting. Here almost invisible...",
       "source": "seriouslyfish"
@@ -166,13 +249,68 @@
       "width": 799,
       "height": 503,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-splendida",
       "caption": "...here clearly-defined.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/30a5db9b800da45a.webp",
+      "thumb": "https://media.aquatome.com/glaser/30a5db9b800da45a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-splendida-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4e713ea5e66b5e83.webp",
+      "thumb": "https://media.aquatome.com/glaser/4e713ea5e66b5e83-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-splendida-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4127a229f1e9fa1d.webp",
+      "thumb": "https://media.aquatome.com/glaser/4127a229f1e9fa1d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia-splendida-4/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "_cxoAr6O5AQ",
+      "title": "Splendid Loach - Yasuhikotakia Splendida Rare Freshwater Botia Loach Aquarium Fish Profile",
+      "durationSec": 318,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "ZQKCyLNRbDQ",
+      "title": "Yasuhikotakia splendida",
+      "durationSec": 47,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VOgR7YmlFl0",
+      "title": "Рыбка Боция Сплендида в аквариуме Содержание Чем кормить и Совместимость Боций с рыбками",
+      "durationSec": 489,
+      "lang": "ru"
+    },
+    {
+      "youtubeId": "RsZo0WdTMZ8",
+      "title": "Splendid Loach - Yasuhikotakia splendida",
+      "durationSec": 15,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -202,5 +340,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-19"
 }

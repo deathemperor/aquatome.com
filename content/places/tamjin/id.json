@@ -1,8 +1,13 @@
 {
   "slug": "tamjin",
-  "name": "Tamjin",
+  "name": "Sungai Tamjin",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-16T17:20:09.731Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

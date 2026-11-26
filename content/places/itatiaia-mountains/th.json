@@ -1,0 +1,16 @@
+{
+  "slug": "itatiaia-mountains",
+  "name": "อีตาตียายา",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-20T07:11:36.214Z",
+    "why": "อีตาตียายา is only a rough transliteration: the Portuguese 'tia' should be ชี/เชีย, not ตียา, and it has no word like เทือกเขา for a mountain range."
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true
+  }
+}

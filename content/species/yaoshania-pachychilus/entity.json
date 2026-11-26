@@ -10,12 +10,78 @@
     "china",
     "pearl-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Pearl River",
+        "Liu River",
+        "Gui River",
+        "Dayao Mountain"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Due to their origin (China) and their black and white coloration they are called dwarf panda hillstream loaches.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There are just three confirmed localities of which two drain into the Liu River (Liujiang) and one the Gui River (Guijiang), themselves both north bank tributaries of the much larger Pearl River (Zhujiang) system.",
+          "countries": [],
+          "regions": [
+            "Pearl River",
+            "Liu River",
+            "Gui River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Officially known only from a handful of headwater tributary streams draining the Dayao Mountain (Dayaoshan) in Jinxiu County, Guangxi Zhuang Autonomous Region, southern China.",
+          "countries": [],
+          "regions": [
+            "Dayao Mountain"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7663625,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "CN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
-      {
-        "source": "glaser",
-        "value": 7
-      },
       {
         "source": "seriouslyfish",
         "value": 6
@@ -65,8 +131,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/protomyzon_pachychilus_season_for_panda_loaches__en/",
-      "html": "<p>The extremely charming juveniles of the Panda loach are available only a few weeks per year. Fully grown Panda loaches lose the juvenile pattern and get a brownish and greyish coloration. The species attains a length of 6-7 cm.</p><p>The Panda loach has been placed currently in the new genus Yaoshania, so the full scientific name is now Yaoshania pachychilus.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/protomyzon_pachychilus_en/",
+      "html": "<p>For the first time these charming hillstream loaches have been imported. Due to their origin (China) and their black and white coloration they are called dwarf panda hillstream loaches. Although the species was scientifically described in 1980 in a Chinese journal, almost nothing has been published about the species since then.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -135,6 +201,12 @@
       "html": "<p>Juvenile specimens were first exported for the aquarium hobby during 2009 and have since been available on a sporadic basis with prices generally reflecting its rarity.</p><p>The striking black-and-white-striped juvenile colour pattern inspired the vernacular name although it's sometimes labelled as 'panda goby' rather than 'panda loach'.</p><p>In older individuals the broad, blackish vertical bars become paler and anastomose to an extent, forming a variable network of stripes and blotches more-or-less arranged in three lateral rows; one running along the dorsal surface of the fish, one at midbody and another lower but above the origins of the pelvic, ventral and anal fins. Adults are thus comparatively plain in appearance meaning only young fish tend to be traded.</p><p>This species was initially included in the genus Protomyzon where it remained until 2004 when Kottelat found sufficient geographical and morphological differences between members of the group inhabiting the island of Borneo and those from mainland China to warrant their separation. The genus Erromyzon was thus erected to accommodate the mainland fishes, while the Bornean representatives were retained in Protomyzon.</p><p>Since Y. pachychilus does not occur in Borneo it could not be included in Protomyzon but Kottelat could not conclusively assign it to Erromyzon either because he was unable to examine any specimens, and it was not until 2012 that Yang et al. erected the new genus Yaoshania to accommodate it.</p><p>Yaoshania is distinguished from related genera by possession of a unique enlarged lip lamina at the corners of the mouth, connecting the upper lip and maxillary. The lamina is a flange of skin originating under the lateral part of the upper lip and continuous with the maxillary barbel (Yang et al. 2012).</p><p>Other characters useful to diagnose the genus, but not unique to it, are: gill opening large, with the ventral extremity reaching lower extremity of pectoral-fin base; upper lip and rostral fold separated by a groove, rostral fold with four notches to accommodate rostral barbels; two pairs of rostral barbels and one pair of maxillary barbels; a small fleshy lobe present posterior to each maxillary barbel; pectoral fin with one simple and 17–18 branched rays; pelvic fin with one simple and 8–9 branched rays; side of body lacking vertical blotches in adult; 71–75 scales in the lateral line.</p><p>Y. pachychilus is exclusively benthic with morphology specialised to life in fast-flowing water, i.e., the paired fins are orientated horizontally, body and head flattened. These features form a powerful sucking cup which allows the fish to cling tightly to solid surfaces.</p><p>The ability to swim in open water is greatly reduced and they instead 'crawl' and 'hop' their way across rocks, an interesting behaviour to observe in aquaria.</p><p>Yang et al. (2012) placed the new genus in the family Balitoridae.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/protomyzon_pachychilus_en/",
+      "html": "<p>The specimens are around 3 cm long. There is no reliable information about how big they can grow. These small beauties do not seem to be delicate at all and are a must-have for any real loach enthusiast.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yaoshania-pachychilus",
@@ -148,9 +220,20 @@
       "width": 800,
       "height": 531,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Charles König / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yaoshania-pachychilus",
       "caption": "Adult colour pattern is somewhat different to that of juveniles...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c566771ffbe542bb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c566771ffbe542bb-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Charles König / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yaoshania-pachychilus",
+      "caption": "...a process during which colour pattern is highly variable, for example here...",
       "source": "seriouslyfish"
     },
     {
@@ -159,7 +242,7 @@
       "width": 600,
       "height": 398,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Leo Chan / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yaoshania-pachychilus",
       "caption": "Very young specimens possess particularly strong markings...",
       "source": "seriouslyfish"
@@ -170,24 +253,38 @@
       "width": 800,
       "height": 533,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Charles König / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yaoshania-pachychilus",
       "caption": "...these becoming less so as they grow.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/c566771ffbe542bb.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/c566771ffbe542bb-480.webp",
-      "width": 800,
-      "height": 533,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/yaoshania-pachychilus",
-      "caption": "...a process during which colour pattern is highly variable, for example here...",
-      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "1pORezPnjM0",
+      "title": "PANDASCHMERLE - Protomyzon pachychilus | Pandabachschmerle | GarnelenTv",
+      "durationSec": 285,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "8ZRPgUdPUc8",
+      "title": "Panda Loach — Yaoshania pachychilus",
+      "durationSec": 424,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AT3ADhq8YIk",
+      "title": "Protomyzon pachychilus - Panda Loach (Yaoshania pachychilus)",
+      "durationSec": 147,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PS59O-aQO80",
+      "title": "Panda Loach - Yaoshania pachychilus",
+      "durationSec": 40,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -210,5 +307,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-14"
 }

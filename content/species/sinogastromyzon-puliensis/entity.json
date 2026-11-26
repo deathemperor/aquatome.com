@@ -10,6 +10,76 @@
     "taiwan",
     "choshui"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [
+        "Kaoping",
+        "Tsengwen",
+        "Choshui",
+        "Tatu",
+        "Tachia"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to western river drainages of central and southern Taiwan including the Kaoping, Tsengwen, Choshui, Tatu and Tachia systems with type locality 'Pu-lo, (Tatuchi, Puli), Taiwan'.",
+          "countries": [
+            "TW"
+          ],
+          "regions": [
+            "Kaoping",
+            "Tsengwen",
+            "Choshui",
+            "Tatu",
+            "Tachia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358678,
+      "total": 1650,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "TW",
+          1650
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          22.5,
+          348,
+          348
+        ],
+        [
+          119.53125,
+          23.90625,
+          1032,
+          1032
+        ],
+        [
+          120.9375,
+          22.5,
+          5,
+          5
+        ],
+        [
+          120.9375,
+          23.90625,
+          265,
+          265
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -139,17 +209,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/e3b58e7c7319e0ad.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/e3b58e7c7319e0ad-480.webp",
-      "width": 1024,
-      "height": 486,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/sinogastromyzon-puliensis",
-      "caption": "This species is only traded on an irregular basis.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/c26480803ed0870f.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/c26480803ed0870f-480.webp",
       "width": 1023,
@@ -161,25 +220,36 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/eb0c038724128e07.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/eb0c038724128e07-480.webp",
-      "width": 800,
-      "height": 536,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/sinogastromyzon-puliensis",
-      "caption": "Another lateral view showing the compressed body shape.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/3be79a0d7c8419b8.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/3be79a0d7c8419b8-480.webp",
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Odyssey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sinogastromyzon-puliensis",
       "caption": "Dorsal patterning can be somewhat variable.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/86982ad9e6110e04.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/86982ad9e6110e04-480.webp",
+      "width": 800,
+      "height": 513,
+      "licence": "dùng với sự cho phép",
+      "author": "Henri Frietema / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sinogastromyzon-puliensis",
+      "caption": "Some specimens have a brownish background body colouration...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9f9ae6696281eca5.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9f9ae6696281eca5-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Odyssey / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sinogastromyzon-puliensis",
+      "caption": "...while others are greyish.",
       "source": "seriouslyfish"
     }
   ],

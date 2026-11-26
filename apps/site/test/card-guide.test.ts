@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { NEED_RULES } from '@aq/schema'
-import { CONFLICT_ANCHOR, FIELD_ANCHORS, FIELD_TIPS, LEVEL_WORDS, NEED_LABELS, NEEDS_ANCHOR, TEMPERAMENT_WORDS, WHY_WORDS } from '../src/lib/card-guide'
+import { CONFLICT_ANCHOR, FIELD_ANCHORS, FIELD_TIPS, FIELD_TIPS_NOT_FISH, LEVEL_WORDS, NEED_LABELS, NEEDS_ANCHOR, TEMPERAMENT_WORDS, WHY_WORDS } from '../src/lib/card-guide'
 import { FIELD_LABELS, FIELD_ORDER } from '../src/lib/format'
 import { page, sitemapText } from './dist'
 import { OTHER_LANGS } from '@aq/schema/langs'
@@ -96,7 +96,7 @@ test('a need without its figures is left out, not shown as easy; a card with no 
 test('the card\'s new words have Indonesian and Thai, though the fixture has no Indonesian or Thai fish page to fail the build', async () => {
   const src = readFileSync(new URL('../src/components/DataCard.astro', import.meta.url), 'utf8')
   const literals = [...src.matchAll(/\bt\('((?:[^'\\]|\\.)*)'/g)].map(m => m[1]!.replace(/\\'/g, "'"))
-  const words = [...literals, ...[FIELD_LABELS, FIELD_TIPS, NEED_LABELS, LEVEL_WORDS, WHY_WORDS, TEMPERAMENT_WORDS].flatMap(o => Object.values(o))]
+  const words = [...literals, ...[FIELD_LABELS, FIELD_TIPS, FIELD_TIPS_NOT_FISH, NEED_LABELS, LEVEL_WORDS, WHY_WORDS, TEMPERAMENT_WORDS].flatMap(o => Object.values(o))]
   for (const lang of OTHER_LANGS) {
     const dict = (await import(`../src/i18n/${lang}.json`)).default as Record<string, string>
     expect(words.filter(w => !(w in dict)), lang).toEqual([])

@@ -10,6 +10,56 @@
     "vietnam",
     "thu-bon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [
+        "Thu Bon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from a handful of localities within the Thu Bon river system in Quang Nam province, central Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Thu Bon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205385,
+      "total": 3,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "VN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          106.875,
+          15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -144,7 +194,7 @@
       "width": 800,
       "height": 533,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Manuel Haselbauer / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sewellia-albisuera",
       "caption": "Young individual from the European aquarium trade.",
       "source": "seriouslyfish"
@@ -155,7 +205,7 @@
       "width": 800,
       "height": 533,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Manuel Haselbauer / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sewellia-albisuera",
       "caption": "Ventral detail of posterior portion of body. Note the clear space between the pelvic fins and the anal-fin origin, a character which separates this species from S. sp. 'SEW01'.",
       "source": "seriouslyfish"
@@ -166,7 +216,7 @@
       "width": 800,
       "height": 447,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Beverley Newcomer / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sewellia-albisuera",
       "caption": "Adult female specimen.",
       "source": "seriouslyfish"
@@ -177,7 +227,7 @@
       "width": 800,
       "height": 533,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Manuel Haselbauer / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sewellia-albisuera",
       "caption": "Ventral detail of head.",
       "source": "seriouslyfish"

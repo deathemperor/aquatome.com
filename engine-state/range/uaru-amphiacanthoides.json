@@ -1,0 +1,154 @@
+{
+  "id": "uaru-amphiacanthoides",
+  "native": {
+    "input": "ae70a0e0ffb27da4",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to parts of the Amazon basin in northern Brazil and Guyana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to parts of the Amazon basin in northern Brazil and Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "U. amphiacanthoides occurs in the Amazon basin and upper Orinoco (Brazil and Colombia).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "U. amphiacanthoides occurs in the Amazon basin and upper Orinoco (Brazil and Colombia).",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "It occurs both in the middle to lower Rio Negro, as well as between the Rio Japurá and Rio Tapajós along the Rio Solimões and main Amazon river.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "It occurs both in the middle to lower Rio Negro, as well as between the Rio Japurá and Rio Tapajós along the Rio Solimões and main Amazon river.",
+        "ok": true
+      },
+      {
+        "name": "Rio Solimões",
+        "source": "seriouslyfish",
+        "quote": "It occurs both in the middle to lower Rio Negro, as well as between the Rio Japurá and Rio Tapajós along the Rio Solimões and main Amazon river.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "U. amphiacanthoides occurs in the Amazon basin and upper Orinoco (Brazil and Colombia).",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "The type locality is the Rio Negro in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Uaru amphiacanthoides",
+    "status": "ACCEPTED",
+    "taxonKey": 2371462,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        34
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        30
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        19
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GY",
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T05:18:20.405Z"
+  }
+}

@@ -1,8 +1,25 @@
 {
  "queue": [],
  "judged": [
-  "File:Tometes makue 204788337.jpg"
+  "File:Tometes makue 204788337.jpg",
+  "inat:204788337"
  ],
  "hashes": {},
- "commons": "2026-11-11"
+ "commons": "2026-11-11",
+ "inat": {
+  "taxon": 620784,
+  "pass": "done",
+  "after": {
+   "research": 121042687,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2354759,
+  "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
+ }
 }

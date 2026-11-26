@@ -20,7 +20,8 @@
       ],
       "regions": [],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -240,6 +241,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -273,6 +278,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
       "html": "<p>Widely distributed in peninsular India and also found in northern Sri Lanka.</p><p>Type locality is Mumbai, India.</p><p>It has been introduced to Singapore and Hong Kong.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-lineatus-red-2/",
+      "html": "<p>The striped panchax (Aplocheilus lineatus) comes from South India.</p>"
     },
     {
       "key": "habitat",
@@ -311,6 +322,12 @@
       "html": "<p>Despite its predatory nature A. lineatus can be kept with peaceful species too large to be considered food. Good tankmates include peaceful cichlids, larger characins, Corydoras and loricariids. It can be aggressive towards conspecifics but a group can be kept in a big enough tank.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-lineatus-red-2/",
+      "html": "<p>Its magnificent coloration compensates for its sometimes quarrelsome temperament. One should not keep the striped panchax together with too tender fish, and very small fish are also eaten by this animal, which grows up to 10 cm long. With medium-sized barbs, catfish and labyrinth fish, however, keeping is problem-free, and here the striped panchax is a perfect tankmate for the upper water layers.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
@@ -329,14 +346,91 @@
       "html": "<p>The popular golden form of this fish is the one commonly sold as \"golden wonder panchax\". It was selectively bred in the hobby and does not occur in the wild. There is also a red strain and a couple of type locality forms available. Some of these are sold as striped panchax or sparkling panchax.</p><p>Unlike many other killifish species, it's usually found in bodies of permanent water and is not an annual species. It's used in its native countries as a form of biological mosquito control.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-lineatus-red-2/",
+      "html": "<p>The striped panchax has been inspiring generations of aquarists for over 100 years. In recent years mainly the golden cultivated form was in the trade; wild-colored fish are now available again, and to differentiate them from the golden ones they are called \"Red\".</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-lineatus",
       "html": "<ul><li>Huber, J. H. (1996). Killi-Data 1996. Updated checklist of taxonomic names, collecting localities and bibliographic references of oviparous Cyprinodont fishes (Atherinomorpha, Pisces) Société Française d'Ichtyologie, Muséum National d'Histoire Naturelle, Paris, 1-399</li><li>Borisov, Vasily; Shkil, Fedor; Smirnov, Sergei (2026). Seawater incubated embryos of a freshwater Aplocheilus lineatus (Aplocheilidae; Cyprinodontiformes) support the dispersal hypothesis of killifish intercontinental distribution Developmental Dynamics doi.org/10.1002/dvdy.70176</li><li>Riehl, R. and H.A. Baensch (1997). Aquarium Atlas. Volume 1, 6th Edition. Microcosm, 1-992</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/3981d3a9c42682e2.webp",
+      "thumb": "https://media.aquatome.com/commons/3981d3a9c42682e2-480.webp",
+      "width": 1200,
+      "height": 715,
+      "large": {
+        "url": "https://media.aquatome.com/commons/3981d3a9c42682e2-large.webp",
+        "width": 2013,
+        "height": 1200
+      },
+      "licence": "CC BY 4.0",
+      "author": "Christopher",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aplocheilus_lineatus_68014544.jpg",
+      "caption": "Cá sọc panchax đực ánh vàng trong bể có cây thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d2fe01df323db4e6.webp",
+      "thumb": "https://media.aquatome.com/glaser/d2fe01df323db4e6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-lineatus-red-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5ba99986aa3f5ec5.webp",
+      "thumb": "https://media.aquatome.com/glaser/5ba99986aa3f5ec5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-lineatus-red-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9da963d8f3c0be6b.webp",
+      "thumb": "https://media.aquatome.com/glaser/9da963d8f3c0be6b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-lineatus-red-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "koiqrve4k0s",
+      "title": "Aplocheilus Lineatus 4k 60fps",
+      "durationSec": 70,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "E-vYwbwn5hM",
+      "title": "Goldener Streifenhechtling (Aplocheilus lineatus \"gold\") im Aquarium",
+      "durationSec": 44,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "qf-kM3hIi0k",
+      "title": "Aplocheilus lineatus. The GOLDEN WONDER Yellow Pancax. (Leopard Aquatic K004A)",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "D-W136YWBYI",
+      "title": "Golden Wonder Killifish - Aplochelius Lineatus (Gold)",
+      "durationSec": 473,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -366,5 +460,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-20"
 }

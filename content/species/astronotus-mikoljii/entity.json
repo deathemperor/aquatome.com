@@ -1,0 +1,173 @@
+{
+  "id": "astronotus-mikoljii",
+  "scientificName": "Astronotus mikoljii",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Astronotus",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco",
+    "colombia",
+    "trinidad-and-tobago",
+    "gulf-of-paria"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Orinoco",
+        "Gulf of Paria"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Oscar from the Orinoco drainage and the Gulf of Paria in northern South America.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Gulf of Paria"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11523528,
+      "total": 1,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          1.40625,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-mikoljii-2/",
+      "html": "<p>Astronotus mikoljii, Mikolji's Oscar, was scientifically described in 2022 (Perez Lozano et al.). Like all Astronotus species, it usually grows to 25-30 cm in length and does not differ from the other species in terms of care and breeding.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-mikoljii-2/",
+      "html": "<p>The Oscar from the Orinoco drainage and the Gulf of Paria in northern South America.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-mikoljii-2/",
+      "html": "<p>Of the seven scientifically described species of Astronotus, only two are currently recognized by most ichthyologists, namely A. crassipinnis and A. ocellatus; however, a third, A. zebra, is so distinctly different in color from the others that there is little doubt as to its validity. Now A. mikoljii has been added.</p><p>The differentiation of Oscar species is decidedly tricky and can only be accomplished with certainty using molecular biology methods (DNA analysis). However, the juvenile coloration of three of the now four species considered valid is very different. The \"common\" Oscar, A. ocellatus, is well known from pet shops. A. crassipinnis juveniles are very conspicuous yellow-black colored (\"Bumble-Bee-Oskars\") and A. mikoljii is very colorful.</p><p>Besides A. mikoljii there are, according to molecular data, at least three more species of Oscars in South America, named Astronotus sp. \"East\", A. sp. \"Negro\" and A. sp. \"Jurua\" in the work of Perez Lozano et al. It must be carefully checked whether they have not been described before and are wrongly listed as synonyms. The matter is not simple, because Oscars were and are repeatedly brought within South America as food fish into areas where they were not originally native, which may also have led to hybrids that are difficult to identify molecularly.</p><p>A. mikoljii was named after Ivan Mikolji, an avid artist, nature lover, and explorer of Venezuela and Colombia who is also an ornamental fish exporter.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-mikoljii-2/",
+      "html": "<p>Perez Lozano A, Lasso-Alcalá OM, Bittencourt PS, Taphorn DC, Perez N, Farias IP (2022): A new species of Astronotus (Teleostei, Cichlidae) from the Orinoco River and Gulf of Paria basins, northern South America. ZooKeys 1113: 111–152. https://doi.org/10.3897/zookeys.1113.81240</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/b36ebd255fd0021e.webp",
+      "thumb": "https://media.aquatome.com/glaser/b36ebd255fd0021e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-mikoljii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6600f39c60b8186a.webp",
+      "thumb": "https://media.aquatome.com/glaser/6600f39c60b8186a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-mikoljii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d6c6aebed0720c83.webp",
+      "thumb": "https://media.aquatome.com/glaser/d6c6aebed0720c83-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-mikoljii-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "dHtrqBVsDpk",
+      "title": "The 240 Gallon Trashtank with the Mikolji Oscars",
+      "durationSec": 276,
+      "lang": "tl"
+    },
+    {
+      "youtubeId": "SRkymGK2XtY",
+      "title": "Mikolji's Oscar - Astronotus mikoljii #aquarium #oscarfish #cichlid #aquadecor #fish #fishtank",
+      "durationSec": 43,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pGf6lN2WscY",
+      "title": "The Mikolji's Oscar (Astronotus Mikoljii) | Amazing Aquatics",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jsHUGpu8wMw",
+      "title": "Astronotus mikoljii #astronotus #cichlids #aquariumhobby #acuariofilia #acuarismo",
+      "durationSec": 33,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn nuôi cá hổ báo"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid lớn",
+        "thức ăn cá hổ báo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

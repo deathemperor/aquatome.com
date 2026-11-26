@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "indonesia",
-    "sumatra"
+    "sumatra",
+    "jambi"
   ],
   "range": {
     "native": {
@@ -17,13 +18,14 @@
       ],
       "regions": [
         "Sumatra",
+        "Musi",
         "Indragiri",
-        "Batang Hari",
-        "Musi"
+        "Batang Hari"
       ],
       "sources": [
         "seriouslyfish",
-        "aquariumcoop"
+        "aquariumcoop",
+        "glaser"
       ],
       "quotes": [
         {
@@ -37,13 +39,20 @@
           ]
         },
         {
+          "source": "glaser",
+          "quote": "P. tetrazona is the only Puntigrus species from Sumatra; the animals used for the species description came from Palembang Province near Lahat, in the Musi River system.",
+          "countries": [],
+          "regions": [
+            "Musi"
+          ]
+        },
+        {
           "source": "seriouslyfish",
           "quote": "Additional records exist from the Indragiri, Batang Hari, and Musi river systems in Riau, Jambi, and South Sumatra provinces, respectively.",
           "countries": [],
           "regions": [
             "Indragiri",
-            "Batang Hari",
-            "Musi"
+            "Batang Hari"
           ]
         }
       ]
@@ -271,10 +280,22 @@
       "html": "<p>Tiger barbs are often sold at pet store chains to beginners because of their bright colors and strong schooling behavior, but they sometimes get a bad reputation for fin nipping other fish.</p><p>The regular or wild-type tiger barb has black vertical bands with an orange-tipped nose and fins, with approximately four black stripes. Other selectively bred patterns include:</p><ul><li>Albino: light orange body with white stripes</li><li>Green: solid emerald green body with orange and black fins</li><li>Long fin: flowy fins that are longer than usual</li><li>GloFish: fluorescent colors such as electric green, purple, and more</li></ul><p>The many color variations are all of the same species, so you can make a school of tiger barbs with multiple colors to create a kaleidoscope effect. Other hobbyists like to stay with the same type of tiger barb to create a more unified look when they are schooling together.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntigrus-tetrazona-the-true-tiger-barb/",
+      "html": "<p>The fish that generations of aquarists have known, loved and bred as \"tiger barb\" cannot yet be assigned with certainty to any of the scientifically described Puntigrus species. The only certainty is that it is NOT P. tetrazona.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
       "html": "<p>Probably endemic to central and southern Sumatra, with records from Borneo corresponding to congeners. Additional records exist from the Indragiri, Batang Hari, and Musi river systems in Riau, Jambi, and South Sumatra provinces, respectively.</p><p>Type locality is 'Lahat, Palembang Province, Sumatra, Indonesia' which corresponds to modern-day Lahat Regency in Sumatera Selatan (South Sumatra) province.</p><p>Feral populations derived from aquarium stock also exist in a number of other territories including Singapore, Australia, the United States, Colombia, and Suriname.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntigrus-tetrazona-the-true-tiger-barb/",
+      "html": "<p>P. tetrazona is the only Puntigrus species from Sumatra; the animals used for the species description came from Palembang Province near Lahat, in the Musi River system. The wild-caught fish imported here come from Central Sumatra (Jambi Province).</p><p>Other Puntigrus species: P. anchisporus from West Kalimantan (Kapuas system; Kalimantan is the Indonesian part of Borneo); P. navjotsodhii from central Kalimantan (Katingan and Barito systems); P. partipentazona from Malaysia and Thailand; P. pulcher from Kalimantan Timur Province, Borneo (Mahakam and Kayan systems).</p>"
     },
     {
       "key": "habitat",
@@ -367,6 +388,12 @@
       "html": "<p>P. tetrazona is traditionally considered to be among the most ubiquitous species available in the aquarium trade. Wild examples are rarely traded, however, and there exists ongoing confusion as to the identity of the commercially-produced 'aquarium' tiger barb.</p><p>A number of selectively-bred, ornamental strains are available. The albino, 'green' (aka 'moss'), and 'golden' (leucistic) variants are particularly popular, but there also exist 'platinum', 'blushing', 'black marble', and 'coral red' strains. These have no additional requirements and care is as described above.</p><p>Unfortunately, many of the fish traded today are genetically weak, prone to disease, or develop physical deformities due to excessive inbreeding. This species has also been subjected to the abhorrent practice of artificial dying, a cruel and undoubtedly painful process which involves injecting the fish repeatedly with coloured dyes.</p><p>P. tetrazona is distinguished from congeners by the following combination of characters: lateral line incomplete; 12 circumpeduncular scales; 19-21+2 scales in the lateral row; dorsal fin mostly black with paler outer margin; pelvic fins black in middle, hyaline at base and tip; dark body bars relatively wide, covering up to 2.5 scales.</p><p>The genus Puntigrus was raised by Kottelat (2013) in order to accommodate a group of species formerly referred to as the 'Puntius tetrazona group'. Other members are P. anchisporus, P. navjotsodhii, P. pulcher, and P. partipentazona, of which the first three are native to western, central, and eastern Borneo, respectively, and the latter to Indochina.</p><p>This assemblage is diagnosed by possession of a unique colour pattern comprising 4 black bars on a pale body, and black pigmentation on at least the basal half of the dorsal-fin. The anteriormost body bar passes through the eye, the second is anterior to the pelvic-fin base, the third is above the anal-fin and continues onto it, and the posteriormost is at the caudal-fin base.</p><p>The following combination of characters also aid in identification, although individually they are not unique to the genus: body rhomboid, deep; last simple dorsal-fin ray serrated posteriorly; rostral barbels absent; maxillary barbels present; lips smooth and thin, postlabial groove interrupted medially; lateral line complete or incomplete; 18–23 lateral line scales; 9½–10½ [5½/1/3–4½] scale rows between dorsal-fin origin and ventral midline anterior to pelvic-fin base; 12–14 circumpeduncular scale rows; 8–9 rakers on first gill arch.</p><p>The genus Puntius was previously viewed as a polyphyletic catch-all containing over 100 species, but this situation has been largely resolved since the turn of the century. Puntigrus tetrazona is referred to as Puntius tetrazona, Systomus tetrazona, or Capoeta tetrazona in older literature.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntigrus-tetrazona-the-true-tiger-barb/",
+      "html": "<p>Tiger barbs have long made correct naming difficult for ichthyologists and aquarists. At genus level they were \"pushed around\" for a long time until a separate genus, Puntigrus, was created for them. This is certainly the best solution and remains unchallenged so far.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
@@ -379,15 +406,15 @@
       "thumb": "https://media.aquatome.com/commons/a9ce5abbcfa6ca8b-480.webp",
       "width": 1200,
       "height": 728,
-      "licence": "CC BY-SA 2.5",
-      "author": "André Karwath aka Aka",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_tetrazona_(aka).jpg",
-      "caption": "Cá tứ vân đực vây lưng đen viền đỏ, nền sáng",
       "large": {
         "url": "https://media.aquatome.com/commons/a9ce5abbcfa6ca8b-large.webp",
         "width": 1978,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 2.5",
+      "author": "André Karwath aka Aka",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_tetrazona_(aka).jpg",
+      "caption": "Cá tứ vân đực vây lưng đen viền đỏ, nền sáng"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/175ec923044d9832.webp",
@@ -395,7 +422,7 @@
       "width": 720,
       "height": 439,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Neil Woodward / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
       "caption": "A genuine wild individual from Sumatra (see 'Notes').",
       "source": "seriouslyfish"
@@ -428,7 +455,7 @@
       "width": 820,
       "height": 572,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Steven Grant / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
       "caption": "Wild-collected adult male specimen from the U.K. aquarium trade.",
       "source": "seriouslyfish"
@@ -439,7 +466,7 @@
       "width": 820,
       "height": 518,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Steven Grant / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
       "caption": "Wild-collected adult female from the U.K. aquarium trade.",
       "source": "seriouslyfish"
@@ -522,5 +549,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-22"
 }

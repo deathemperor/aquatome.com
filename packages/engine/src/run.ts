@@ -2,7 +2,7 @@ import { piece, PieceAdmissionError } from './pieces'
 import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { awaitsScreen, GuideSchema, isAllowedLicence, PHOTO_SCREEN_FILE, type PhotoScreenEntry, isOwnerCrop, mayPublish, setsCookies, ownerCropApproved, ownerCropCanonical, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
+import { awaitsScreen, GuideSchema, isAllowedLicence, PHOTO_SCREEN_FILE, type PhotoScreenEntry, isOwnerCrop, mayPublish, setsCookies, ownerCropApproved, ownerCropCanonical, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, retiredTo, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
 import { across, LARGE_PX } from './curation'
 import { cardGaps } from './card-fill'
@@ -18,6 +18,7 @@ import { recordKindFallback } from './kind-words'
 import { ensurePlaces, guideId, mergePlant, mergeSpecies, writeGuide } from './merge'
 import { METRIC_KINDS } from './metric'
 import { htmlToOutline, isChallenge, type PageImage } from './outline'
+import { namePictureLines, readLineReads, writeLineReads } from './publisher-credits'
 import { findPhotos } from './photos'
 import { withSections } from './guide-sections'
 import { processPage, type ProcessedPage } from './process'
@@ -28,7 +29,7 @@ import { logReviews, type Review } from './review-log'
 import { holdForSecondLook } from './last-photo'
 import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
-import { ARCHIVE_POLITE, ArchiveRefused } from './archive'
+import { ARCHIVE_POLITE, archiveStops } from './archive'
 import { SOURCES, sourceById, type SourceConfig } from './sources'
 import { BROWSER_GONE, attemptsAfter, errorKind, loadState, moveToArchive, needsFetch, noteBlock, saveState, setSourceBlock, sourceBlockedSince, sourcesOnArchive, type UrlState } from './state'
 import { findVideos, readVideoRejected } from './videos'
@@ -54,7 +55,7 @@ export type Deps = {
   readersWanted?: () => Promise<ReaderWant[]>
 }
 type Counts = { discovered: number; fetched: number; processed: number; skipped: number; blocked: number; errors: number }
-export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; movedToArchive: SourceId[]; changed: ChangelogEntry[]; errors: string[]; depth?: DepthReport; stopped?: string }
+export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; movedToArchive: SourceId[]; changed: ChangelogEntry[]; errors: string[]; /** Each part a shop's own talk was cut from as it merged, `kind/id: key:source (blocks|the section)` (merge.ts). */ shopText: string[]; depth?: DepthReport; stopped?: string }
 
 type Kind = 'species' | 'plants' | 'guides' | 'places' | 'glossary' | 'breeds'
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
@@ -68,7 +69,13 @@ export const MAX_PHOTOS = 8
 const rank = (p: Photo) => (p.source && !SOURCES.find(s => s.id === p.source)?.photoStep ? SOURCE_IDS.indexOf(p.source) : SOURCE_IDS.length)
 
 const MAX_LLM_FAILURES = 3
-/** Pages in a row that failed on the network: it is the network, not the pages, so the source stops (their attempts last). */
+/**
+ * Pages in a row that failed on the network or that the source refused for now (HTTP 408, 429, a 5xx: state.ts
+ * errorKind 'transient'): the source stops for the rest of the run, so the pages after them keep their attempts. Each
+ * failed one used an attempt and goes first in the source's next run, but one that has used all MAX_ATTEMPTS waits until
+ * its source changes it (state.ts needsFetch). A page read early for its credit lines alone counts toward the three but
+ * keeps its state: it uses no attempt and keeps its own turn. There is no rest past the run: the next run asks again.
+ */
 const MAX_NETWORK_FAILURES = 3
 const BLOCK_MEMORY_MS = 86_400_000
 /** A source that meets a browser check on this many runs within the window reads the Internet Archive's copies from then on (the owner, 2026-11-10: a person can't always pass one). */
@@ -243,7 +250,7 @@ const outranked = (sections: Section[] | undefined, source: SourceId, url: strin
  * Wikimedia's leaves the page unmarked, to be read again once the rest ends (wikimedia-rest.ts).
  */
 export async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<T> {
-  try { return await f() } catch (e) { if (e instanceof ArchiveRefused || e instanceof WikimediaRefused) throw e; console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
+  try { return await f() } catch (e) { if (archiveStops(e) || e instanceof WikimediaRefused) throw e; console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
 }
 
 /**
@@ -260,7 +267,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
   const screen = await readJson<Record<string, PhotoScreenEntry>>(join(root, 'engine-state', PHOTO_SCREEN_FILE))
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
-  const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [] }
+  const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [], shopText: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
   // What a re-read keeps of a page's photos (mergeRead): the owner's approved crops; never a never-again photo, or one whose source no longer lets us show photos.
   const keeps = (page: string, scientificName: string): ReadKeeps => readKeeps(page, scientificName, blocked, sourceNames, screen)
@@ -276,6 +283,30 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     await applyCreditReads(root)
     const reads = await readCreditReads(root)
     if (url in reads) { delete reads[url]; await writeCreditReads(root, reads) }
+  }
+  // Source pages whose pictures' lines a read still has to learn (publisher-credits.ts LINE_READS): each read once, then off.
+  const lineWaiting = await soft('line reads', () => readLineReads(root), {})
+  // `missed`: the picture pages (ScotCat's) whose request failed. The page then stays on the list for its own turn, so
+  // those pictures' lines are read then; what this read named stays named.
+  const lineRead = async (source: SourceId, url: string, images: PageImage[], missed: readonly string[]) => {
+    const n = await namePictureLines(root, source, sourceNames[source]?.name ?? source, images, url, k => deps.media.urlFor(k), sourceNames[source]?.permission ?? {})
+    if (n) console.log(`line read: ${url}: ${n} photo places named from its pictures' lines`)
+    if (missed.length) {
+      await lineTurn(url)
+      report.errors.push(`${url}: ${missed.length} picture page${missed.length > 1 ? 's' : ''} not read, the page waits for its own turn for their lines`)
+      return
+    }
+    const reads = await readLineReads(root)
+    if (url in reads) { delete reads[url]; await writeLineReads(root, reads) }
+    delete lineWaiting[url]
+  }
+  // A page the list reads early is read early once: marked before its request, it then waits for its own turn whatever
+  // the read meets (a failed request, a failed read of its lines, the Archive stopping its source), so a page that keeps
+  // failing isn't asked every cycle.
+  const lineTurn = async (url: string) => {
+    const reads = await readLineReads(root)
+    if (url in reads) await writeLineReads(root, { ...reads, [url]: { ...reads[url]!, turn: true } })
+    lineWaiting[url] = { ...lineWaiting[url]!, turn: true }
   }
 
   // Species our pages name but don't have yet: their source pages are fetched first (see wanted.ts); the audit lists the rest.
@@ -379,6 +410,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       const known = new Set(await s.ids('places'))
       for (const p of ensurePlaces(page.places, known)) await s.write('places', PlaceSchema, p)
       await s.write('species', SpeciesSchema, item)
+      report.shopText.push(...(item.dropped ?? []).map(d => `species/${item.entity.id}: ${d}`))
       // A source's name that names another kind of animal: the page took its plain scientific form, listed for the Writing Lead.
       if (item.fellBack) await recordKindFallback(root, `species/${item.entity.id}`, { ...item.fellBack, took: item.vi.name, at: now })
       await appendChangelog(contentRoot, [log('species', item.entity.id, !!existing.entity)])
@@ -395,6 +427,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       await holdLast(held, `plants/${item.entity.id}`)
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(item.entity.scientificName, http, 4, blocked), [])
       await s.write('plants', PlantSchema, item)
+      report.shopText.push(...(item.dropped ?? []).map(d => `plants/${item.entity.id}: ${d}`))
       await appendChangelog(contentRoot, [log('plant', item.entity.id, !!existing.entity)])
       return [`plants/${item.entity.id}`]
     }
@@ -471,7 +504,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (onArchive && found.length) await mkdir(join(root, 'engine-state'), { recursive: true }).then(() => writeFile(indexFile, `${JSON.stringify(found)}\n`))
     } catch (e) {
       if (e instanceof ChallengeError) { await block(); continue }
-      if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); continue }
+      if (archiveStops(e)) { report.errors.push(`${id}: not read: ${e.message}`); continue }
       const lastIndex = onArchive ? JSON.parse(await readFile(indexFile, 'utf8').catch(() => 'null')) as typeof found | null : null
       // No index yet: the pages already read are still there to read again.
       const kept = lastIndex?.length || !onArchive ? lastIndex : Object.keys(await loadState(root, id)).map(url => ({ url }))
@@ -500,7 +533,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       try {
         searched = await soft(`${id}: thin species search`, () => searchThin(src, thinNow.thin, new Set(deeper.values()), thinNow.families, u => links(u), searchCache, deps.now()), new Map<string, number>())
       } catch (e) {
-        if (!(e instanceof ArchiveRefused)) throw e
+        if (!archiveStops(e)) throw e
         report.errors.push(`${id}: not read: ${e.message}`)
         continue
       }
@@ -510,8 +543,12 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       }
       if (src.search) await soft('search cache', () => saveSearchCache(root, searchCache), undefined)
     }
-    const due = found.filter(f => (!opts.only || opts.only.test(f.url)) && (!opts.cardFill || deeper.has(f.url)) && (forced(f.url) || needsFetch(state[f.url], f.lastmod, deps.now())))
+    // A guide off the site for good (@aq/schema retired.ts) is never read again: no call is spent on a page that stays held.
+    const due = found.filter(f => !retiredTo(guideId(id, f.url)) && (!opts.only || opts.only.test(f.url)) && (!opts.cardFill || deeper.has(f.url)) && (forced(f.url) || (f.url in lineWaiting && !lineWaiting[f.url]!.turn) || needsFetch(state[f.url], f.lastmod, deps.now())))
     const todo = runOrder(due, state, deeper).slice(0, opts.limit ?? Infinity)
+    // Pages read now only because the line-read list asks: a failed read leaves their state as it was, so no error state
+    // brings them back before their own turn.
+    const early = new Set(due.filter(f => !forced(f.url) && f.url in lineWaiting && !lineWaiting[f.url]!.turn && !needsFetch(state[f.url], f.lastmod, deps.now())).map(f => f.url))
 
     let networkFailures = 0
     for (const { url, lastmod } of todo) {
@@ -521,8 +558,11 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       const save = async (next: UrlState) => { state[url] = next; await saveState(root, id, state) }
       counts.fetched++
       try {
+        if (url in lineWaiting && !lineWaiting[url]!.turn) await lineTurn(url)
         const r = await get(url)
-        networkFailures = 0
+        // A page that came back ends a run of network failures, but not one the source refused for now (408, 429, a 5xx):
+        // a source answering 429 page after page stops too (the chief of staff, 20 Nov).
+        if (errorKind(`HTTP ${r.status}`) !== 'transient') networkFailures = 0
         const o = htmlToOutline(r.html, src.contentSelector)
         if (isChallenge(o.title, o.outline)) {
           await block()
@@ -535,6 +575,15 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         // A page whose credits are still to learn, read now on its own turn: what this read shows decides (credit-reads.ts).
         // Its own try: a failure here is ours, not the page's, so the page keeps its read and its turn, and its credits wait for the next one.
         if (creditWaiting.has(url)) await creditRead(id, url, o.images).catch((e: unknown) => { report.errors.push(`${url}: credits not read, the page waits for its next turn: ${(e as Error).message.slice(0, 200)}`) })
+        // The page's pictures, read once for both the line read and the page's photos: ScotCat's from each picture's own page.
+        let linked: Promise<{ images: PageImage[]; missed: string[] }> | undefined
+        const pictures = () => (linked ??= (async () => {
+          const missed: string[] = []
+          return { images: src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get, undefined, missed) : o.images, missed }
+        })())
+        // A page on the line-read list: its pictures' lines name our photos credited to the publisher alone (publisher-credits.ts).
+        // ScotCat prints its line on each picture's own page, read as the photo step reads it. Its own try, like the credits'.
+        if (url in lineWaiting) await pictures().then(p => lineRead(id, url, p.images, p.missed)).catch((e: unknown) => { report.errors.push(`${url}: lines not read, the page waits for its next read: ${(e as Error).message.slice(0, 200)}`) })
         if (prev?.processedHash === hash && !forced(url)) {
           counts.skipped++
           const { error: _stale, ...rest } = prev
@@ -543,7 +592,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         }
         await piece(url, async () => {
           const { page, score, tries } = await translate({ source: id, url, title: o.title, outline: o.outline, glossary })
-          const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
+          const { images } = await pictures()
           const entityIds = await apply(id, url, page, score, images, bytes)
           // The last translation reviewed is the page's, unless another source outranks this one there; a page is reviewed per source.
           for (const e of entityIds ?? []) {
@@ -557,7 +606,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         })
       } catch (e) {
         // Nothing is wrong with the page, so nothing is marked on it, and the source waits with the archive.
-        if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); break }
+        if (archiveStops(e)) { report.errors.push(`${id}: not read: ${e.message}`); break }
         // Wikimedia resting: the page waits, unmarked and with its attempts, and the source goes on.
         if (e instanceof WikimediaRefused) { report.errors.push(`${url}: waits for Wikimedia: ${e.message}`); continue }
         const message = (e as Error).message
@@ -565,7 +614,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         counts.errors++
         report.errors.push(`${url}: ${message}`)
         // A usage limit uses no attempt; a transient failure (browser, network, usage limit) runs first next time (state.ts, depth.ts).
-        await save({ ...base, ...keep(prev), status: 'error', attempts: attemptsAfter(prev, message), error: message.slice(0, 300) })
+        // A page read early for its lines alone keeps its state, and so its own turn.
+        if (!early.has(url)) await save({ ...base, ...keep(prev), status: 'error', attempts: attemptsAfter(prev, message), error: message.slice(0, 300) })
         // The browser itself is gone (crash, closed window): every later page would fail the same way.
         if (BROWSER_GONE.test(message)) {
           report.errors.push('stopping: the browser closed — the next cycle starts a fresh one')

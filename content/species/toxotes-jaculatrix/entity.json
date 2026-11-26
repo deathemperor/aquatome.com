@@ -49,7 +49,7 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "It's been recorded from India, Myanmar, Thailand, China, the Ryukyu Islands, Malaysia, the Philippines, Micronesia, Palau, Indonesia, the Solomon Islands, Papua New Guinea, Vanuatu and northern Australia.",
+          "quote": "This species has a very wide natural range. It's been recorded from India, Myanmar, Thailand, China, the Ryukyu Islands, Malaysia, the Philippines, Micronesia, Palau, Indonesia, the Solomon Islands, Papua New Guinea, Vanuatu and northern Australia.",
           "countries": [
             "IN",
             "MM",
@@ -767,6 +767,12 @@
       "html": "<p>This species has a very wide natural range. It's been recorded from India, Myanmar, Thailand, China, the Ryukyu Islands, Malaysia, the Philippines, Micronesia, Palau, Indonesia, the Solomon Islands, Papua New Guinea, Vanuatu and northern Australia.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/toxotes-jaculatrix/",
+      "html": "<p>Seven species of Archerfishes (Toxotes) are known. Three of them (T. lorentzi and T. kimberleyensis from Australia and T. microlepis from South East Asia) are usually found in fresh water. Two are practically unknown, at least they have not been kept in aquaria so far: T. blythi from Burma and T. oligolepis from the Moluccas. The remaining two species have an extremely wide distribution in the Indo-West-Pacific region. They are found in brackish water (especially T. chatareus) or even in pure marine environment (T. jaculatrix).</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
@@ -819,6 +825,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
       "html": "<p>The Banded Archer fish is one of a fascinating group of fish that have evolved this very distinctive feeding pattern. The family contains six species, of which Toxotes jaculatrix is the most commonly available (sometimes sold incorrectly as T. jaculator). Occasionally, the similarly marked Toxotes chatareus is offered for sale in the UK although much less frequently. There are reports that juvenile archers can be kept in fresh water but it is recommended that a brackish setup is always used. Eaten as a food fish in many of its native countries.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/toxotes-jaculatrix/",
+      "html": "<p>Toxotes chatareus can easily be recognized by its typical pattern (alternating large and small spots), whereas T. jaculatrix is the only species of archerfish with only 4 spines in the dorsal fin (all other species have 5). Both features are recognizable in live fish and serve as the basis for the determination.</p>"
     }
   ],
   "photos": [
@@ -827,18 +839,43 @@
       "thumb": "https://media.aquatome.com/inaturalist/436160058-480.webp",
       "width": 1024,
       "height": 768,
-      "licence": "CC0",
-      "author": "Justin Philbois",
-      "sourceUrl": "https://www.inaturalist.org/photos/436160058",
-      "caption": "Cá bắn cung bơi trong nước xanh, nhìn nghiêng rõ nét",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/436160058-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC0",
+      "author": "Justin Philbois",
+      "sourceUrl": "https://www.inaturalist.org/photos/436160058",
+      "caption": "Cá bắn cung bơi trong nước xanh, nhìn nghiêng rõ nét"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "vMzrQeqDllo",
+      "title": "テッポウウオ　Archerfish　Toxotes jaculatrix",
+      "durationSec": 53,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "voy0aX8SXYU",
+      "title": "Toxotes jaculatrix - Archerfish hunt by shooting jets of water",
+      "durationSec": 70,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UNdjRiVmMw4",
+      "title": "Banded Archer fish (Toxotes jaculatrix) in Crocodile breeding pond.",
+      "durationSec": 10,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VogMO8fevo0",
+      "title": "Strzelczyk indyjski, Banded Archerfish (Toxotes jaculatrix)",
+      "durationSec": 41,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -867,5 +904,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-17"
 }

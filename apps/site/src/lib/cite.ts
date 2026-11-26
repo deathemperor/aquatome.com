@@ -1,6 +1,6 @@
 import type { Photo } from '@aq/schema'
 import { alterationNotice } from './gallery'
-import { licenceLabel, translator, type Lang } from './i18n'
+import { isVietnameseTitle, licenceLabel, translator, type Lang } from './i18n'
 import { isUnsplash, unsplashParts, type CreditPart } from './unsplash'
 
 // Sources as small marks instead of a credit line under every block or photo: a numbered mark for a text source (its
@@ -18,7 +18,9 @@ export function citeMark(lang: Lang, n: number, name: string, url: string, card?
   const t = translator(lang)
   const tip = card?.tip ?? `${host(url)} · ${t('dịch từ nguồn')}`
   const more = card?.more ?? t('Mở bài gốc ↗')
-  return `<a class="cite" href="${esc(url)}" rel="noopener" data-term="${esc(name)}" data-tip="${esc(tip)}" data-more="${esc(more)}" aria-label="${esc(t('Nguồn {n}: {name}', { n, name }))}">${n}</a>`
+  // A source named in Vietnamese says so on a page in another language, as the source list beside it does.
+  const named = lang !== 'vi' && isVietnameseTitle(name) ? `${name} (${t('tiếng Việt')})` : name
+  return `<a class="cite" href="${esc(url)}" rel="noopener" data-term="${esc(named)}" data-tip="${esc(tip)}" data-more="${esc(more)}" aria-label="${esc(t('Nguồn {n}: {name}', { n, name: named }))}">${n}</a>`
 }
 
 type Credited = Pick<Photo, 'author' | 'authorUrl' | 'licence' | 'sourceUrl' | 'generated' | 'altered'>
@@ -58,6 +60,14 @@ export function photoMark(lang: Lang, p: Credited): string {
   const { text: who, licence: lic } = photoCredit(lang, p)
   return `<a class="cite pic" href="${esc(p.sourceUrl)}" rel="noopener" data-term="${esc(who)}"${lic ? ` data-tip="${esc(lic)}"` : ''} data-more="${esc(t('Xem ảnh gốc ↗'))}" aria-label="${esc(lic ? `${who}, ${lic}` : who)}">©</a>`
 }
+
+/**
+ * Marks side by side ("2 3"), as one group: only marks in a group take each other's side for their 44 px (global.css).
+ * A rule over any two marks (`.cite + .cite`) matched across the words between them, as `+` skips text, so a mark a few
+ * words after another, at a line's end, reached 44 px right from its left edge and took a phone 6 px sideways (the
+ * driftwood pages, 15 Nov 2026). One mark is no group.
+ */
+export const citeGroup = (marks: string[]): string => (marks.length > 1 ? `<span class="marks">${marks.join(' ')}</span>` : marks.join(''))
 
 /** The mark at the end of a block's last sentence: inside its last paragraph or list item, else on a line of its own. */
 export function withCite(html: string, mark: string): string {

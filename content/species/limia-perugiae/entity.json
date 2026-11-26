@@ -47,16 +47,17 @@
   "dataCard": {},
   "sections": [
     {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_limia_perugiae_en/",
-      "html": "<p>This beautiful livebearer is available on a quite regular basis, but usually only a few specimens. The specimens are German bred ones. Available size: 4-5 cm.</p>"
-    },
-    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_limia_perugiae_en/",
       "html": "<p>The Dominican Republic is the destination for millions of tourists each year. But it is only known by few people that also beautiful freshwater fish exist there. One of the prettiest of them is Poecilia perugiae.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/limia_special_en/",
+      "html": "<p>All species of Limia are very peaceful fish that fit perfectly for community tanks. If one is interested in breeding the fish only one species per tank should be kept, for all Limia very easily cross. The hybrids are not attractive. There should be always several males in the tank, for their combats are wonderful to look at. These combats are completely harmless. Limia develop the greatest and most beautiful coloration when the keeper allows some algae to grow on the side glasses of the tank. Limia like to graze these algae and obviously this food contains nutrients that are very healthy for the fish.</p>",
+      "fixed": true
     }
   ],
   "photos": [
@@ -125,5 +126,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-15"
 }

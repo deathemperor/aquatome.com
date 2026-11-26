@@ -3,6 +3,12 @@
   "name": "กีนาบาตังงัน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-18T12:26:15.613Z",
+    "why": "The name transliterates \"Kinabatangan\" but omits the Thai kind word แม่น้ำ for a river, and the usual Thai rendering is กินาบาตังงัน, with กี- an unusual spelling."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

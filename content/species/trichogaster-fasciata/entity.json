@@ -11,8 +11,37 @@
     "india",
     "nepal",
     "bangladesh",
-    "myanmar"
+    "myanmar",
+    "manipur",
+    "bengal"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PK",
+        "NP",
+        "BD",
+        "MM"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The banded gourami, Trichogaster fasciata, is a labyrinth fish from Pakistan, India, Nepal, Bangladesh and Myanmar, found in sluggish, weedy waters.",
+          "countries": [
+            "PK",
+            "NP",
+            "BD",
+            "MM"
+          ],
+          "regions": []
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -20,6 +49,13 @@
         "value": {
           "min": 21,
           "max": 28
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 32
         }
       }
     ],
@@ -45,6 +81,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -58,6 +98,15 @@
         "source": "seriouslyfish",
         "value": 2
       }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 4,
+          "max": 5
+        }
+      }
     ]
   },
   "sections": [
@@ -68,10 +117,22 @@
       "html": "<p>The banded gourami, Trichogaster fasciata, is a labyrinth fish from Pakistan, India, Nepal, Bangladesh and Myanmar, found in sluggish, weedy waters. The largest species in its genus, it is a popular food fish in its native countries. Peaceful, it suits most quiet community tanks, but should not be kept with the thick-lipped gourami because the two can hybridise.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-fasciata-wild-2/",
+      "html": "<p>This special form normally grows to about 4-5 cm, very rarely to 6-7 cm, so its size is comparable to the breeding forms of the dwarf gourami (C. lalia).</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-fasciata",
       "html": "<p>Pakistan, India, Nepal, Bangladesh and Myanmar. Some reports state that it exists in a few colour forms, depending on locality.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-fasciata-wild-2/",
+      "html": "<p>Nobody knows exactly what Colisa fasciata is: the specimen on which the first description is based was lost in the turmoil of the French Revolution, and where it is supposed to come from (Tranquebar in the south of India) there are no gourami at all. That is why everything that isn't Colisa lalia, C. chuna or C. labiosa is currently called simply C. fasciata. The wild catches described here come from Bengal.</p>"
     },
     {
       "key": "habitat",
@@ -92,10 +153,22 @@
       "html": "<p>This is not a very vigorous species. To see it at its best keep it in a quiet, heavily planted tank with plenty of floating plants to provide shade. Add some pieces of driftwood and twisted branches for further cover, and use a dark substrate if possible. Keep water movement to a minimum, as neither fish nor plants will appreciate any strong currents.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-fasciata-wild-2/",
+      "html": "<p>They should be kept in well planted aquariums. While these animals barely live one year in nature, they often reach 4-5 times that lifespan in an aquarium.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-fasciata",
       "html": "<ul><li>Temperature: 21–28°C</li><li>pH: 6.0–7.5</li><li>Hardness: 5–15 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-fasciata-wild-2/",
+      "html": "<p>They are most beautiful at 26-32°C, but one should consider that the water temperature in the natural habitats can drop to 16°C depending on the season.</p>"
     },
     {
       "key": "diet",
@@ -108,6 +181,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-fasciata",
       "html": "<p>Suitable for most peaceful community tanks but it can be a bit aggressive when spawning. Males will fight amongst themselves in smaller tanks. Keep it with inoffensive species that don't resemble it too much. Shoals of rasboras, danionins and barbs work well, as do loaches and smaller Bagrid catfish. In a big tank, you could keep it as part of a community of gourami species. One to avoid though is the Thick-lipped Gourami, Trichogaster labiosa, as the two species can hybridise.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-fasciata-wild-2/",
+      "html": "<p>The peaceful, sometimes somewhat shy animals should be kept with other peaceful fish.</p>"
     },
     {
       "key": "dimorphism",
@@ -123,15 +202,15 @@
     },
     {
       "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/colisa_fasciata_bred_en/",
-      "html": "<p>Specimens of Colisa fasciata from Singapore were received that were exceptionally beautiful. This species is an ideal tankmate in attractive community tanks with small, peaceful barbs, minnows and similar fish, and a dense planting.</p>"
-    },
-    {
-      "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-fasciata",
       "html": "<p>This species is a popular food fish in its native countries. It is not often seen for sale these days, although it is both beautiful and peaceful. The alternative common name of 'Giant Gourami' is not particularly apt, although it is the largest species in the genus. Like others in the suborder Anabantoidei, the species possesses an accessory breathing organ known as the labyrinth organ. So-called due to its maze-like structure, this organ allows the fish to breathe atmospheric air to a certain extent. It is formed by a modification of the first gill arch, and consists of many highly vascularised, folded flaps of skin. The structure of the organ varies in complexity between species, tending to be more well-developed in those inhabiting particularly oxygen-deprived conditions.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-fasciata-wild-2/",
+      "html": "<p>The beautiful wild catches from Bengal are characterized by their particularly narrow stripes.</p>"
     }
   ],
   "photos": [
@@ -140,15 +219,45 @@
       "thumb": "https://media.aquatome.com/inaturalist/188281877-480.webp",
       "width": 1024,
       "height": 768,
-      "licence": "CC BY",
-      "author": "Sandipan Das",
-      "sourceUrl": "https://www.inaturalist.org/photos/188281877",
-      "caption": "Cá gourami sọc trong bể thủy sinh nhiều cây xanh",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/188281877-large.webp",
         "width": 1440,
         "height": 1080
-      }
+      },
+      "licence": "CC BY",
+      "author": "Sandipan Das",
+      "sourceUrl": "https://www.inaturalist.org/photos/188281877",
+      "caption": "Cá gourami sọc trong bể thủy sinh nhiều cây xanh"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/949615b49b8332e3.webp",
+      "thumb": "https://media.aquatome.com/glaser/949615b49b8332e3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-fasciata-wild-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/01c3cbb4edac7bd4.webp",
+      "thumb": "https://media.aquatome.com/glaser/01c3cbb4edac7bd4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-fasciata-wild-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/229d5249b78f4760.webp",
+      "thumb": "https://media.aquatome.com/glaser/229d5249b78f4760-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-fasciata-wild-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -192,5 +301,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-20"
 }

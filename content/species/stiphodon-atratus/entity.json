@@ -15,6 +15,82 @@
     "vanuatu",
     "new-caledonia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "PG",
+        "VU",
+        "NC"
+      ],
+      "regions": [
+        "Waigeo Island",
+        "New Guinea",
+        "Halmahera Island",
+        "Bismarck Archipelago",
+        "Admiralty Islands",
+        "Bougainville"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as 'Stream at end of long narrow bay, Waigeo Island, Irian Jaya, Indonesia', with the species also known from rivers draining the northern slope of New Guinea as well as Halmahera Island (Indonesia), the Admiralty Islands (Papua New Guinea), the Bismarck Archipelago (Papua New Guinea), D'Entrecasteaux Islands (Papua New Guinea), Louisiade Archipelago (Papua New Guinea), Bougainville (Papua New Guinea), Vanuatu, and New Caledonia.",
+          "countries": [
+            "ID",
+            "PG",
+            "VU",
+            "NC"
+          ],
+          "regions": [
+            "Waigeo Island",
+            "New Guinea",
+            "Halmahera Island",
+            "Bismarck Archipelago",
+            "Admiralty Islands",
+            "Bougainville"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2376101,
+      "total": 3,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          2
+        ],
+        [
+          "NC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          132.1875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          164.53125,
+          -21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -149,7 +225,7 @@
       "width": 819,
       "height": 482,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Gerald Allen / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-atratus",
       "caption": "Adult male specimen from Fergusson Island, D'Entrecasteaux Islands, Papua New Guinea.",
       "source": "seriouslyfish"
@@ -160,7 +236,7 @@
       "width": 818,
       "height": 570,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Gerald Allen / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-atratus",
       "caption": "Adult female; locality unspecified.",
       "source": "seriouslyfish"

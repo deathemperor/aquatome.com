@@ -1,8 +1,8 @@
 {
   "id": "distichodus-sexfasciatus",
   "native": {
-    "input": "bcabc6f32dc40423",
-    "at": "2026-11-08T03:17:10.020Z",
+    "input": "e797415748b0f112",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
       {
         "code": "CM",
@@ -29,27 +29,11 @@
         "ok": true
       },
       {
-        "code": "CM",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Cameroon, Democratic Republic of Congo, Tanzania.",
-        "words": "Cameroon",
-        "ok": true
-      },
-      {
         "code": "CD",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Cameroon, Democratic Republic of Congo, Tanzania.",
-        "words": "Democratic Republic of Congo",
-        "ok": true
-      },
-      {
-        "code": "TZ",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Cameroon, Democratic Republic of Congo, Tanzania.",
-        "words": "Tanzania",
+        "source": "glaser",
+        "quote": "Distichodus sexfasciatus originates from the Congo River basin in the Democratic Republic of the Congo (formerly Zaire).",
+        "words": "Democratic Republic of the Congo",
         "ok": true
       }
     ],
@@ -58,6 +42,13 @@
         "name": "Lake Tanganyika",
         "source": "seriouslyfish",
         "quote": "It is present in Lake Tanganyika.",
+        "ok": true
+      },
+      {
+        "name": "Congo River",
+        "source": "glaser",
+        "quote": "Distichodus sexfasciatus originates from the Congo River basin in the Democratic Republic of the Congo (formerly Zaire).",
+        "country": "CD",
         "ok": true
       }
     ],

@@ -8,6 +8,7 @@ import { albumLooks, rankGallery, screenedAt, waiting, type GalleryPhoto, type G
 import { largeSize } from './large-photos'
 import { cantTellOn, type PhotoVerdict } from './photo-check'
 import { namedOn } from './photo-named'
+import { keptMarks } from './own-mark'
 import { MAX_PHOTOS } from './run'
 import { SOURCE_PHOTO_LICENCE, type Media } from './source-photos'
 
@@ -20,6 +21,11 @@ export type TropicaDeps = {
   sleep: (ms: number) => Promise<void>
   now: () => Date
 }
+/**
+ * Off until its fix (the owed read of 20 Nov: its photos go on a page without waiting for the photo check, and its
+ * requests don't stop at a refusal): no request to Tropica, from a cycle or by hand. The chief of staff, 20 Nov.
+ */
+export const TROPICA_OFF: string | undefined = 'off until its fix (the chief of staff, 20 Nov)'
 const DELAY = 5_000 // between requests to Tropica, as the engine reads its pages (sources.ts)
 const RETRY_MS = 30 * 86_400_000
 const MAX = 4 // photos a page; a page shows four at most
@@ -89,7 +95,9 @@ type Gallery = { photos: GalleryPhoto[]; seen: number; updatedAt: string; builtA
  *
  * `engine-state/_photo-tropica.json`: plant page → when it was read. `--limit`: pages a run.
  */
-export async function tropicaPhotos(root: string, d: TropicaDeps, o: { limit?: number } = {}) {
+export async function tropicaPhotos(root: string, d: TropicaDeps, o: { limit?: number; off?: string | false } = {}) {
+  const off = o.off ?? TROPICA_OFF
+  if (off) return { added: [] as string[], skipped: [] as string[], failed: [] as string[], off }
   const dir = join(root, 'content/plants')
   const triedFile = join(root, 'engine-state/_photo-tropica.json')
   const tried = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}')) as Record<string, string>
@@ -97,6 +105,7 @@ export async function tropicaPhotos(root: string, d: TropicaDeps, o: { limit?: n
   const subjects = JSON.parse(await readFile(join(root, 'engine-state/_photo-subjects.json'), 'utf8').catch(() => '{}')) as Record<string, Record<string, PhotoVerdict>>
   const looksOn = await albumLooks(root, subjects)
   const on = await namedOn(join(root, 'content'))
+  const markKept = await keptMarks(root)
   const report = { added: [] as string[], skipped: [] as string[], failed: [] as string[] }
   let pages = 0
   for (const id of (await readdir(dir).catch(() => [] as string[])).sort()) {
@@ -144,7 +153,7 @@ export async function tropicaPhotos(root: string, d: TropicaDeps, o: { limit?: n
       if (rest.length) {
         // Ranked as the sweep ranks it (gallery.ts orderAlbums), so the next sweep doesn't move its photos again.
         const st = JSON.parse(await readFile(join(root, 'engine-state/gallery', `${id}.json`), 'utf8').catch(() => '{}')) as Partial<GalleryState>
-        const photos = rankGallery([...(g?.photos ?? []), ...rest.map((p, i) => waiting({ ...plain(p), kind: p.scene ? 'submersed' : 'other', ...(empty && p.scene && i === 0 ? { best: true } : {}) }))], cantTellOn(subjects, id), screenedAt(st.judged ?? []), looksOn(id), on(id))
+        const photos = rankGallery([...(g?.photos ?? []), ...rest.map((p, i) => waiting({ ...plain(p), kind: p.scene ? 'submersed' : 'other', ...(empty && p.scene && i === 0 ? { best: true } : {}) }))], cantTellOn(subjects, id), screenedAt(st.judged ?? []), looksOn(id), on(id), markKept)
         await mkdir(join(root, 'content/gallery'), { recursive: true })
         await writeFile(gfile, `${JSON.stringify(GallerySchema.parse({ id, photos, seen: g?.seen ?? 0, updatedAt: d.now().toISOString().slice(0, 10), ...(g?.builtAt ? { builtAt: g.builtAt } : {}) }), null, 2)}\n`)
       }

@@ -29,7 +29,7 @@
       "quotes": [
         {
           "source": "bwaquatics",
-          "quote": "Native to southwestern Borneo, Indonesia.",
+          "quote": "The Chili Rasbora is endemic to southern Borneo, Indonesia, with its type locality near Banjarmasin.",
           "countries": [
             "ID"
           ],
@@ -80,13 +80,6 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 22,
-          "max": 28
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 20,
@@ -99,16 +92,16 @@
           "min": 22,
           "max": 28
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 4,
-          "max": 7
+          "min": 22,
+          "max": 28
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
@@ -122,16 +115,16 @@
           "min": 6,
           "max": 8
         }
-      }
-    ],
-    "gh": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 1,
-          "max": 10
+          "min": 4,
+          "max": 7
         }
-      },
+      }
+    ],
+    "gh": [
       {
         "source": "seriouslyfish",
         "value": {
@@ -142,23 +135,19 @@
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 2
-      },
-      {
         "source": "seriouslyfish",
         "value": 2
       },
       {
         "source": "aquariumcoop",
         "value": 2
+      },
+      {
+        "source": "bwaquatics",
+        "value": 2
       }
     ],
     "difficulty": [
-      {
-        "source": "bwaquatics",
-        "value": 3
-      },
       {
         "source": "seriouslyfish",
         "value": 4
@@ -180,7 +169,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
-      "html": "<p>IUCN Red List: Data Deficient (peat-swamp habitat loss remains a significant concern).</p><p>The Chili Rasbora is a brilliantly colored miniature schooling fish. Mature males develop an intense crimson-red body crossed by a bold dark lateral stripe, while females are generally rounder and slightly less colorful. Peaceful, active, and exceptionally small, Chili Rasboras are ideal for mature planted nano aquariums and carefully selected softwater communities. Their best coloration and most confident behavior appear when maintained in a large group under subdued lighting.</p><p>Adults typically reach 1.5–2 cm (≈ 0.6–0.8″) in standard length.</p>"
+      "html": "<ul><li>Genus: Boraras (dwarf rasboras)</li><li>IUCN Red List: Data Deficient (peat swamp habitat loss remains a significant concern)</li><li>Maximum size: about 2 cm standard length</li><li>Temperament: peaceful schooling fish</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -195,10 +184,16 @@
       "html": "<p>Boraras brigittae is a close relative of other micro rasboras such as the exclamation point rasbora and the strawberry rasbora. It grows to only about 2 cm long and has a slender body with pointed fins. Adults have intensely scarlet bodies with a black horizontal stripe. Unlike many red aquarium fish with a warmer red-orange hue, they show a deep, cool-toned red.</p><p>Juveniles sold in pet stores are tiny and look washed-out, so they are often passed over. Adults become temporarily paler whenever they move to a new tank; after a couple of weeks of adjustment their true colours return.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras-brigittae-2/",
+      "html": "<p>Dieter Vogt described a subspecies of Rasbora urophthalma from Borneo in 1978. He named the fish Rasbora urophthalma brigittae, a dedication name in honour of his wife Brigitte. Today the mosquito rasbora is regarded as a full species in Boraras, and thus the correct name is Boraras brigittae.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
-      "html": "<p>Native to southwestern Borneo, Indonesia.</p>"
+      "html": "<p>The Chili Rasbora is endemic to southern Borneo, Indonesia, with its type locality near Banjarmasin.</p>"
     },
     {
       "key": "distribution",
@@ -216,7 +211,7 @@
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
-      "html": "<p>Blackwater peat-swamp streams and pools. In nature, they inhabit slow-moving, heavily shaded water containing submerged roots, branches, and decomposing leaf litter.</p>"
+      "html": "<p>It lives in slow, heavily shaded blackwater peat swamp streams and pools with submerged roots, branches and decomposing leaf litter.</p>"
     },
     {
       "key": "habitat",
@@ -249,10 +244,16 @@
       "html": "<p>Best maintained in a densely-planted aquarium and is an excellent choice for the carefully-aquascaped set-up. The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong as it mostly hails from sluggish waters and may struggle if there is a fast current.</p><p>To see it at its best a biotope-style set-up can also make an interesting project. A soft, sandy substrate is probably the best choice, to which can be added roots and branches, placed in such a way that plenty of shady spots are formed.</p><p>The addition of dried leaf litter further emphasises the natural feel and encourages growth of microbe colonies as decomposition occurs. These tiny creatures can provide a valuable secondary food source for fry whilst the tannins and other chemicals released by the decaying leaves are thought to be beneficial for blackwater fish species. Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>Fairly dim lighting should be used to simulate the conditions the fish would encounter in nature. You could add aquatic plants that can survive under such conditions such as Microsorum pteropus, Taxiphyllum barbieri or Cryptocoryne spp.</p><p>Do not introduce any Boraras sp. to a biologically-immature aquarium as they can be susceptible to swings in water chemistry.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
+      "html": "<p>Gentle filtration, leaf litter, botanicals, driftwood, floating plants and dim light. Stable water matters more than hitting an exact pH.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
-      "html": "<p>Soft, acidic water is preferred for long-term health and coloration.</p><ul><li>pH 4.0–7.0</li><li>GH 1–10 °d</li><li>KH 0–3 °d</li><li>TDS preferably below 150 ppm</li><li>Temperature: 22–28 °C (72–82 °F); approximately 24–27 °C (75–81 °F) is ideal for routine maintenance.</li></ul><p>Stable water conditions are more important than achieving an exact pH.</p>"
+      "html": "<ul><li>TDS: below 150 ppm</li><li>pH: 4.0 to 7.0</li><li>Temperature: 22 to 28°C; 24 to 27°C ideal</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -268,12 +269,6 @@
     },
     {
       "key": "equipment",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
-      "html": "<p>Provide gentle filtration with minimal current. Leaf litter, botanicals, driftwood, floating plants, and dim lighting help recreate their natural peat-swamp environment.</p>"
-    },
-    {
-      "key": "equipment",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
       "html": "<p>To recreate the dim lighting of the jungle, use plenty of low-light plants that create shady areas and good hiding spots for both adults and fry. Suggested plants include java fern, anubias, cryptocoryne, dwarf aquarium lily and floating water sprite.</p><p>For a biotope tank imitating their natural setting, add dried catappa leaves to tint the water, gently lower the pH and create biofilm for the fish to nibble on.</p><p>They are not fast swimmers, so choose a filter with low current, such as a sponge filter. If using a hang-on-back or canister filter, cover the intake tube with a prefilter sponge so the fish will not be sucked up.</p>"
@@ -282,7 +277,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
-      "html": "<p>A micropredator requiring appropriately sized foods. Offer a varied diet including:</p><ul><li>Baby brine shrimp</li><li>Moina and small daphnia</li><li>Microworms and vinegar eels</li><li>Cyclops and other fine frozen foods</li><li>High-quality powdered flakes</li><li>Extra-small micro-pellets</li></ul><p>Because of their tiny mouths, all foods must be very small. Feed modest portions once or twice daily, ensuring timid individuals receive enough food.</p>"
+      "html": "<p>Micro-predator with a tiny mouth. Baby brine shrimp, moina, small daphnia, microworms, vinegar eels, cyclops, powdered flakes and extra-small micro pellets. Feed small portions once or twice daily and make sure shy fish eat.</p>"
     },
     {
       "key": "diet",
@@ -300,7 +295,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
-      "html": "<p>A peaceful schooling species—keep in groups of 10–20+ whenever possible. Larger groups encourage natural social behavior, improve confidence, and produce stronger coloration.</p><p>Suitable tankmates include:</p><ul><li>Other Boraras species</li><li>Sundadanio</li><li>Small Parosphromenus</li><li>Licorice and sparkling gouramis</li><li>Pygmy corydoras</li><li>Peaceful dwarf shrimp</li></ul><p>Avoid large, aggressive, fast-feeding, or highly active fish. Even otherwise peaceful species may intimidate or accidentally consume these extremely small rasboras. A species-only aquarium or community of similarly sized nano fish is ideal.</p>"
+      "html": "<p>Peaceful schooling fish. Keep in groups of 10 to 20 or more. Good with other Boraras, Sundadanio, small Parosphromenus, sparkling gouramis, pygmy corydoras and dwarf shrimp. Avoid large, aggressive or fast-feeding fish. A species-only tank or a community of similarly sized nano fish is ideal.</p>"
     },
     {
       "key": "behaviour",
@@ -318,7 +313,7 @@
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
-      "html": "<p>Mature males develop an intense crimson-red body crossed by a bold dark lateral stripe, while females are generally rounder and slightly less colorful.</p>"
+      "html": "<p>Mature males develop an intense crimson-red body crossed by a bold dark stripe; females are rounder and less colorful. Males have red and black markings on the dorsal and anal fins. Young adults may arrive lightly colored after transport; their red strengthens with maturity, good food and stable water.</p>"
     },
     {
       "key": "dimorphism",
@@ -336,7 +331,7 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
-      "html": "<p>A continuous egg-scattering species with no parental care. Well-conditioned adults may deposit small numbers of eggs among Java moss, fine-leaved plants, or other dense vegetation. Adults may consume both eggs and newly hatched fry.</p><p>For serious breeding attempts, use a separate, dimly lit aquarium containing very soft, acidic water, fine plants, or mesh that allows eggs to fall beyond the adults’ reach. Eggs generally hatch within approximately 24–48 hours. The extremely small fry initially require infusoria, Paramecium, or similarly microscopic foods before progressing to microworms and newly hatched baby brine shrimp.</p>"
+      "html": "<p>Continuous egg scatterer with no parental care. Eggs are laid a few at a time in Java moss or fine plants. Adults eat eggs and fry, so use a separate dim tank with very soft, acidic water and moss or mesh. Eggs hatch in about 24 to 48 hours; fry need infusoria or paramecium before microworms and baby brine shrimp.</p>"
     },
     {
       "key": "reproduction",
@@ -357,6 +352,12 @@
       "html": "<p>The congener B. urophthalmoides is often traded as B. brigittae, presumably in order to obtain a more favourable price. Though these are similar in that they are the only two members of the genus to possess a dark lateral body stripe, B. brigittae is easily identifiable by its larger adult size, lack of distinct dark blotch at the caudal peduncle, comparatively short, often broken lateral stripe and overall brighter, more uniformly red patterning. It is sometimes seen on sale with the alternative vernacular names 'chili rasbora' or 'dwarf rasbora'.</p><p>B. merah is also similar-looking but it lacks colour in much of the body with the red pigmentation tending to be concentrated around the dark body markings, which do not usually form an unbroken stripe. Striped male individuals do exist, however, and this has led to speculation that B. brigittae and B. merah are the same species (Körner, 2010). The same author also reported that in an 'eastern' population (from the area around Banjarmasin?) both sexes develop a striped pattern before maturity, while in the 'central' population (Palangkaraya, where fish are collected for the aquarium trade) only males develop the striped colour pattern, and only when sexually mature. Kottelat (2013) argued that the different ontogenies in colour pattern, and presumed geographical distribution of these two populations, supports the existence of two species, whilst also noting that Palangkaraya is not close to the type locality of B. merah; the Sungei Jelai Bila river basin in Kalimantan Tengah, much further west.</p><p>Boraras was erected in 1993 in order to separate a small group of species from the larger Rasbora assemblage on the basis of differences in morphology and reproductive strategy.</p><p>In older literature they are therefore referred to as members of Rasbora and following Liao et al. (2010) the genus is a member of the rasborin sub-group within the subfamily Danioninae (the other sub-group contains the danionins).</p><p>This group is further subdivided into six clades (clusters of closely-related species) of which Boraras (or at least B. brigittae; the only species involved in the study) is included in 'clade three' alongside Horadandia atukorali, Rasboroides vaterifloris, Trigonostigma heteromorpha and three species previously included in Rasbora but moved into new genera by the authors; Trigonopoma gracile, T. pauciperforatum and Rasbosoma spilocerca.</p><p>Of these it was found to form a monophyletic group with Rasboroides, meaning these two derived from the same common ancestor. The results for B. brigittae and T. heteromorpha were found to be inconclusive in some respects and further work regarding their phylogenetic position was recommended.</p><p>Shortly afterwards a paper investigating systematics of the subfamily Danioninae was published by Tang et al. (2010). Their results differed from those of Liao et al. and their conclusion was to synonymise the four new genera plus Boraras and Trigonostigma with Rasbora based on an incomplete knowledge of relationships within the group, an approach they describe as 'more conservative'. This has not been followed by the majority of authors, however, and the separate groupings are maintained in the extensive work by Kottelat (2013), which is followed here.</p><p>The small adult size in Boraras species evolved via a process known as miniaturisation, characterised by sexually mature adults with a significantly reduced size of less than 20 mm SL.</p><p>Among bony fishes cyprinids are one of the few groups in which this phenomenon occurs repeatedly, with all Barboides, Danionella, Microdevario, Microrasbora, Horadandia, Boraras, Paedocypris, Sawbwa and Sundadanio species representing miniaturised taxa along with a few members of Danio, Laubuca and Rasbora. All show a preference for still or slow-moving waters, often in nutrient-poor habitats such as forest peat swamps.</p><p>The anatomical structure of miniaturised cyprinids can vary greatly, and there are two principal 'groupings' with some species possessing intermediate features to some degree. The first contains those fishes which though small are essentially proportionally dwarfed versions of their larger relatives, e.g., Barboides, Microdevario, Microrasbora, Boraras, etc.</p><p>The other includes those in which anatomical development stops at a point where adults still resemble a larval form of their larger ancestor, i.e., Danionella and Paedocypris.</p><p>The latter are usually referred to as 'developmentally truncated' or 'paedomorphic' and are thought to have evolved via a process known as 'progenetic paedomorphosis', i.e. paedomorphosis brought about by accelerated maturation. They typically exhibit a simplified skeletal structure along with species-specific morphological peculiarities.</p><p>Britz et al. (2009) consider that developmental truncation may have facilitated the development of such novelties 'by freeing large parts of the skeleton from developmental constraints, dissociating developmentally linked pathways and creating a greater potential for more dramatic changes'.</p><p>Boraras species from the Malay Archipelago (B. brigittae, B. maculatus and B. merah) tend to have a slimmer, more elongate body profile than those from Indochina (B. micros, B. urophthalmoides, B. naevus), which may assist when attempting to identify them.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras-brigittae-2/",
+      "html": "<p>The German name is \"mosquito rasbora\". This is not because the fish are as tiny as mosquitos or as red as mosquitos after having a dinner, but because there were so many mosquitos at the collecting site that fishing became a real pain.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-brigittae",
@@ -369,15 +370,15 @@
       "thumb": "https://media.aquatome.com/commons/bb991a4fdd2edcd5-480.webp",
       "width": 960,
       "height": 960,
-      "licence": "CC BY-SA 4.0",
-      "author": "JoKrimmel",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Borasasb.jpg",
-      "caption": "Male Boraras Brigittae in Aquarium.",
       "large": {
         "url": "https://media.aquatome.com/commons/bb991a4fdd2edcd5-large.webp",
         "width": 1200,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "JoKrimmel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Borasasb.jpg",
+      "caption": "Male Boraras Brigittae in Aquarium."
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/40f6bddd849cc4fe.webp",
@@ -385,7 +386,7 @@
       "width": 900,
       "height": 675,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-brigittae",
       "caption": "This species is sometimes confused with the congener B. merah.",
       "source": "seriouslyfish"
@@ -396,7 +397,7 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-brigittae",
       "caption": "The dark lateral stripe is broken in some individuals...",
       "source": "seriouslyfish"
@@ -407,7 +408,7 @@
       "width": 800,
       "height": 601,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-brigittae",
       "caption": "...but solid in most.",
       "source": "seriouslyfish"
@@ -513,5 +514,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-20"
 }

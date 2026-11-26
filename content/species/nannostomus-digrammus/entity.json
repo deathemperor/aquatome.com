@@ -27,7 +27,8 @@
         "Tapajós"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -480,6 +481,18 @@
       "html": "<p>The twostripe pencilfish, Nannostomus digrammus, is a lebiasinid from the central Amazon basin in Brazil and the Rupununi basin in Guyana. Rare in the hobby, it usually arrives as bycatch among shipments of other fishes. It is most similar to N. bifasciatus but has an adipose fin, and its small size and timid nature make it a poor community fish.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus_digrammus_en/",
+      "html": "<p>The pencilfishes (Nannostomus) belong to the most beautiful tetras. Besides their nice coloration their swimming style makes them so attractive. It always reminds one of a miniature airship.</p><ul><li>Origin: Brazil</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus_digrammus_en/",
+      "html": "<p>Nannostomus digrammus is a rarely imported species. It looks quite similar to the common N. trifasciatus. However, the eponymous third black stripe on the belly, which is always present in N. trifasciatus, is lacking in N. digrammus.</p><p>Nannostomus digrammus has an almost identical looking counterpart in Guyana: N. bifasciatus. Nevertheless there is a way to distinguish both species even without knowing their origin: in N. digrammus the adipose fin is usually present whereas in N. bifasciatus the adipose fin is usually lacking.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-digrammus",
@@ -522,10 +535,22 @@
       "html": "<p>Very peaceful but does not make an ideal community fish due to its small size and rather timid nature.</p><p>In a community it's best kept with similarly-sized, peaceful characids and smaller callichthyid or loricariid catfishes.</p><p>It also makes an ideal dither fish for Apistogramma spp. and other dwarf cichlids since it tends to inhabit the middle-to-upper regions of the tank, and does not actively predate fry.</p><p>Though gregarious by nature it's a shoaling rather than schooling species with rival males sparring on a regular basis during daylight hours.</p><p>It's not uncommon to see nipped fins within a group though this behaviour does not normally extend to tankmates.</p><p>Buy as many as possible, ideally 10 or more, as when kept in larger groups any aggression is spread between individuals plus the fish are bolder and exhibit more natural behaviour.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus_digrammus_en/",
+      "html": "<p>N. digrammus is a completely peaceful species, both towards other Nannostomus and towards tankmates of other species. Plants will also never be destroyed by this fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-digrammus",
       "html": "<p>Adult males possess a highly-modified, extended anal-fin, are more intensely-coloured, and usually slimmer than females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus_digrammus_en/",
+      "html": "<p>Males and females can be distinguished best by the shape of the anal fin, which is much larger in males than in females. This is true for all Nannostomus species.</p>"
     },
     {
       "key": "reproduction",
@@ -553,7 +578,7 @@
       "width": 640,
       "height": 465,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter & Martin Hoffmann / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-digrammus",
       "caption": "Adult female individual in the aquarium.",
       "source": "seriouslyfish"
@@ -564,7 +589,7 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Choy Heng Wah / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-digrammus",
       "caption": "This species has two dark lateral stripes of which the upper is often poorly-developed.",
       "source": "seriouslyfish"
@@ -575,7 +600,7 @@
       "width": 640,
       "height": 461,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter & Martin Hoffmann / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-digrammus",
       "caption": "Adult pair, female at top.",
       "source": "seriouslyfish"
@@ -586,13 +611,26 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Choy Heng Wah / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-digrammus",
       "caption": "N. digrammus is very similar to N. bifasciatus but possesses an adipose-fin which its congener does not.",
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "e1a2mj7Ma9Y",
+      "title": "Nannostomus digrammus (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YbTRWpV_saY",
+      "title": "Nannostomus & Crenicichla en Rio Atabapo",
+      "durationSec": 106,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -622,5 +660,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-16"
 }

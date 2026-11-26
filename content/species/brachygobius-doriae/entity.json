@@ -12,7 +12,8 @@
     "indonesia",
     "kapuas",
     "brunei",
-    "belait"
+    "belait",
+    "borneo"
   ],
   "range": {
     "native": {
@@ -175,7 +176,7 @@
       },
       {
         "source": "glaser",
-        "value": 3.5
+        "value": 4.5
       }
     ],
     "tankCm": [
@@ -201,20 +202,14 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
-      "html": "<p>This is by far the most beautiful species of the bumblebee gobies. The males develop a splendid orange-red in the vertical bands of the body and tail. Females most often have yellow bands, but despite the colours they can be easily recognized by the comparably smaller head.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius-doriae-4/",
+      "html": "<p>This is probably the most beautiful species of the bumble bee gobies, because the males (also some females) develop a splendid orange-red in the rear half of the body. The females are mostly yellow in color, but they are easily recognized by the comparatively smaller head regardless of coloration.</p><p>Brachygobius doriae grows only 3.5-4.5 cm long and therefore fits perfectly into smaller aquariums.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-doriae",
       "html": "<p>Described from the Malaysian state of Sarawak on the island of Borneo, and appears endemic to western parts of the island plus the Natuna Islands archipelago which lies off Borneo's western coast but forms part of Riau Islands province, Indonesia.</p><p>On Borneo itself records exist from various localities in Sarawak and Brunei Darussalam, with the Kapuas river system, Kalimantan Barat (West Kalimantan) province, Indonesia, appearing to mark the limit of its eastward range.</p><p>Records from Singapore are apparently erroneous.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
-      "html": "<p>Indonesia.</p>"
     },
     {
       "key": "habitat",
@@ -227,12 +222,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-doriae",
       "html": "<p>Standard length: 35 mm SL (1.4 in). Aquarium base: 45 × 30 cm (18 × 12 in). Volume: ~41 litres (~11 US gal).</p><p>Base dimensions of 45 × 30 cm (18 × 12 in) or equivalent should be the minimum considered.</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
-      "html": "<p>Brachygobius doriae becomes only 3.5 cm long and fits perfectly for small aquaria.</p>"
     },
     {
       "key": "maintenance",
@@ -249,8 +238,8 @@
     {
       "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
-      "html": "<p>Adding some salt to the water (1-2 grams per litre) is much appreciated, but not necessary.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius-doriae-4/",
+      "html": "<p>Some salt addition (1-2 grams per liter) does the animals good, but is not absolutely necessary.</p>"
     },
     {
       "key": "diet",
@@ -273,8 +262,8 @@
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
-      "html": "<p>Males develop a splendid orange-red in the vertical bands of the body and tail. Females most often have yellow bands and a comparably smaller head.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius-doriae-4/",
+      "html": "<p>Males (also some females) develop a splendid orange-red in the rear half of the body. Females are mostly yellow, but are easily recognized by the comparatively smaller head regardless of coloration.</p>"
     },
     {
       "key": "reproduction",
@@ -285,8 +274,8 @@
     {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
-      "html": "<p>Bumblebee gobies are broodcaring fishes. The males take care of the eggs that become attached to the wall of caves etc. As soon as the fry swims free the broodcare ends.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius-doriae-4/",
+      "html": "<p>This is a brood caring species in which the male guards the spawn, which is pinned to a cave wall or the like, until the larvae hatch. After that the brood care ends.</p>"
     },
     {
       "key": "notes",
@@ -297,8 +286,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
-      "html": "<p>The species has been confused with B. xanthozonus for decades. The fish were received and stocked under that name, because almost all aquarium books and websites depict B. doriae but name it B. xanthozonus. However, B. xanthozonus has more than 50 scales in the horizontal row (these fish have somewhat more than 30); it is very questionable if the \"true\" B. xanthozonus has ever been kept in aquaria.</p><p>Lexicon: Brachygobius: Latin, means \"short goby\". doriae: dedication name for the collector of the fish, the Marquis J. Doria. xanthozonus: Latin, means \"with yellow bands\".</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius-doriae-4/",
+      "html": "<p>Lexicon: Brachygobius: Latin, means \"short goby\". doriae: dedication name for the collector of the species, the Marquis J. Doria. xanthozonus: Latin, means \"with yellow bands\".</p>"
     },
     {
       "key": "references",
@@ -314,10 +303,40 @@
       "width": 800,
       "height": 534,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Ricardo Kobe / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-doriae",
       "caption": "The main issue with fish in the hobby matching the description of B. doriae is that black pigmentation does not cover two thirds of the pectoral-fin, as here (see 'Notes').",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/15fddddc498cd1c7.webp",
+      "thumb": "https://media.aquatome.com/glaser/15fddddc498cd1c7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius-doriae-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/de115d9fc985a1dd.webp",
+      "thumb": "https://media.aquatome.com/glaser/de115d9fc985a1dd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius-doriae-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/dec9a2f5d76bfc07.webp",
+      "thumb": "https://media.aquatome.com/glaser/dec9a2f5d76bfc07-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius-doriae-4/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -376,5 +395,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-21"
 }

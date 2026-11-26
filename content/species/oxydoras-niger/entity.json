@@ -576,6 +576,10 @@
       {
         "source": "seriouslyfish",
         "value": 90
+      },
+      {
+        "source": "glaser",
+        "value": 100
       }
     ],
     "tankCm": [
@@ -593,10 +597,28 @@
       "html": "<p>The ripsaw catfish, Oxydoras niger, is a large doradid catfish from many of the major river systems of northern South America. Reaching 90 cm, it is only for the experienced fishkeeper and best suited to public aquaria. Much more peaceful than its common name suggests, it takes that name from the spines along the lateral line. It was previously referred to Pseudodoras niger.</p><p>Needs a tank at least 2 m long.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/oxydoras-niger-2/",
+      "html": "<p>With a maximum length of 1 metre, Oxydoras niger is among the largest species of thorny catfishes. It is nevertheless a very peaceful species and therefore quite attractive for owners of very large aquariums, show aquariums and zoos.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/oxydoras-niger-2/",
+      "html": "<p>These fish are mostly imported from Peru in small sizes of 4–10 cm. A fish kept aside for a season is now 30 cm long and confirms that the brown spotted young animals do become Oxydoras niger.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oxydoras-niger",
       "html": "<p>Found throughout many of the major river systems of northern South America. It has been recorded from Ecuador, Colombia, Venezuela, Guyana, Peru, Bolivia and Brazil in the Rio São Francisco and Rio Essequibo basins, amongst others. A population is also thought to exist in the Rio Orinoco.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/oxydoras-niger-2/",
+      "html": "<p>Imported from Peru.</p>"
     },
     {
       "key": "habitat",
@@ -651,6 +673,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oxydoras-niger",
       "html": "<p>Previously referred to as Pseudodoras niger, the ripsaw cat is a fish only for the experienced fishkeeper due to its large adult size. Although a visually stunning fish, realistically, it is best suited to public aquaria. Much more peaceful than its common name suggests, which it gets from the spines that run down the lateral line of the fish.</p><p>This fish is becoming more readily available to the hobby and prices are also falling, meaning that many fishkeepers are being tempted into buying a fish that they will be unable to care for on a permanent basis. It can also be very difficult to move large fish on when they have outgrown your tank, as not many people want (or can keep) fish of this size and there is no guarantee that your local aquatic outlet or aquarium will be able to take it.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/oxydoras-niger-2/",
+      "html": "<p>Fully grown, these fishes are uniformly black (this is what the species name \"niger\" = black means). Half grown, the fins are black and the body is silver-gray. Very young animals are reddish brown and have numerous spots.</p>"
     }
   ],
   "photos": [
@@ -659,17 +687,6 @@
       "thumb": "https://media.aquatome.com/scotcat/b8ee6aef9d3a74b0-480.webp",
       "width": 500,
       "height": 321,
-      "licence": "dùng với sự cho phép",
-      "author": "Danny Blundell / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/doradidae/oxydoras_niger.htm",
-      "caption": "Oxydoras niger",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/05517e4ce5279199.webp",
-      "thumb": "https://media.aquatome.com/scotcat/05517e4ce5279199-480.webp",
-      "width": 500,
-      "height": 325,
       "licence": "dùng với sự cho phép",
       "author": "Danny Blundell / ScotCat",
       "sourceUrl": "https://www.scotcat.com/doradidae/oxydoras_niger.htm",
@@ -688,6 +705,37 @@
       "source": "scotcat"
     },
     {
+      "url": "https://media.aquatome.com/commons/9cdf2b10cb25cec3.webp",
+      "thumb": "https://media.aquatome.com/commons/9cdf2b10cb25cec3-480.webp",
+      "width": 960,
+      "height": 638,
+      "licence": "CC BY-SA 3.0",
+      "author": "Tino Strauss",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudodoras_niger_01.jpg",
+      "caption": "Ripsaw catfish"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8e2b61bfaab5d74b.webp",
+      "thumb": "https://media.aquatome.com/commons/8e2b61bfaab5d74b-480.webp",
+      "width": 960,
+      "height": 543,
+      "licence": "CC BY-SA 3.0",
+      "author": "User:Cscott",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Armored_Catfish.jpg",
+      "caption": "Oxydoras niger (Armored or Thorny catfish) at the California Academy of Science"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/05517e4ce5279199.webp",
+      "thumb": "https://media.aquatome.com/scotcat/05517e4ce5279199-480.webp",
+      "width": 500,
+      "height": 325,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/oxydoras_niger.htm",
+      "caption": "Oxydoras niger",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/scotcat/ceea0f9ae74707ed.webp",
       "thumb": "https://media.aquatome.com/scotcat/ceea0f9ae74707ed-480.webp",
       "width": 500,
@@ -699,27 +747,52 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/commons/9cdf2b10cb25cec3.webp",
-      "width": 960,
-      "height": 638,
-      "licence": "CC BY-SA 3.0",
-      "author": "Tino Strauss",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudodoras_niger_01.jpg",
-      "caption": "Ripsaw catfish",
-      "thumb": "https://media.aquatome.com/commons/9cdf2b10cb25cec3-480.webp"
+      "url": "https://media.aquatome.com/glaser/a4b32a95951d7de0.webp",
+      "thumb": "https://media.aquatome.com/glaser/a4b32a95951d7de0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/oxydoras-niger-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/commons/8e2b61bfaab5d74b.webp",
-      "width": 960,
-      "height": 543,
-      "licence": "CC BY-SA 3.0",
-      "author": "User:Cscott",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Armored_Catfish.jpg",
-      "caption": "Oxydoras niger (Armored or Thorny catfish) at the California Academy of Science",
-      "thumb": "https://media.aquatome.com/commons/8e2b61bfaab5d74b-480.webp"
+      "url": "https://media.aquatome.com/glaser/40419633f2751a7b.webp",
+      "thumb": "https://media.aquatome.com/glaser/40419633f2751a7b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/oxydoras-niger-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "8_C2x98xt04",
+      "title": "Five Oxydoras niger, ~3' all, 4 to 30 years old, with feeding, 4500 gal, 12-21-2017",
+      "durationSec": 76,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1P7t7OAcjCg",
+      "title": "Randy and Ayden bring a 2.5 foot / 75 cm ripsaw catfish aka Oxydoras niger",
+      "durationSec": 307,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QfEDUAvIQBE",
+      "title": "Ripsaw Catfish ( Oxydoras Niger ) with Iridescent Shark Catfish | Aquarium in Lviv Oceanarium",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "y42u6q6FISE",
+      "title": "Oxydoras niger at a public aquarium",
+      "durationSec": 27,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -742,5 +815,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-22"
 }

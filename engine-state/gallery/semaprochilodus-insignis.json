@@ -1,14 +1,39 @@
 {
  "queue": [],
  "judged": [
-  "File:Prochilodus insignis - Zoo Frankfurt 2.jpg"
+  "File:Prochilodus insignis - Zoo Frankfurt 2.jpg",
+  "inat:179490786",
+  "inat:179491425",
+  "inat:179491567",
+  "inat:179491597",
+  "inat:179491613",
+  "inat:331471681",
+  "inat:599154329",
+  "inat:599154333",
+  "inat:599154335",
+  "inat:625527686",
+  "inat:642204034"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/6901d1bb9159c261.webp": "3fbf1d3d9fbd0f0d",
   "https://media.aquatome.com/commons/2b50e431436937a9.webp": "41813c1e8ea38544",
   "https://media.aquatome.com/commons/b14a24f00b040199.webp": "469a332763343607",
   "https://media.aquatome.com/commons/4717e5d8c15db3c6.webp": "6c1c4c4606868161",
-  "https://media.aquatome.com/commons/f17c0a0f913082c3.webp": "c93938d8f0952948"
+  "https://media.aquatome.com/commons/f17c0a0f913082c3.webp": "c93938d8f0952948",
+  "https://media.aquatome.com/inaturalist/625527686.webp": "0d0bcf1b3767cf9f",
+  "https://media.aquatome.com/inaturalist/642204034.webp": "1f636089809291e4"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 342612,
+  "pass": "done",
+  "after": {
+   "research": 330419225,
+   "agree": 403954834
+  }
+ },
+ "gbif": {
+  "key": 2352126,
+  "next": null
+ }
 }

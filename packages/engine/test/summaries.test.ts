@@ -1,6 +1,7 @@
+import { execSync } from 'node:child_process'
 import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { loadAll } from '@aq/schema'
@@ -162,6 +163,111 @@ test('a pending draft from before the check is checked; a changed page is done a
   await writeFile(file, JSON.stringify({ ...s, review: 'pending' }))
   await writeFile(join(root, 'summaries', 'paracheirodon-axelrodi.json'), JSON.stringify({ ...s, id: 'paracheirodon-axelrodi', speciesUpdatedAt: '2026-01-01' }))
   expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved.slice(0, 2)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi'])
+})
+
+// 15 Nov 2026, the chief of staff: a shown summary likely to say what its page dropped comes off the page (pending) until
+// it's written again, and is written first, before the fish readers look for first.
+test('a summary taken off its page until rewritten is written first, then the most-read', async () => {
+  const root = await content()
+  const { llm } = fake(() => OK)
+  await draftSummaries(root, llm, { top: 100, now, publicBuild: false })
+  const file = (id: string) => join(root, 'summaries', `${id}.json`)
+  const neon = JSON.parse(await readFile(file('paracheirodon-innesi'), 'utf8')), last = JSON.parse(await readFile(file('boraras-brigittae'), 'utf8'))
+  await writeFile(file('paracheirodon-innesi'), JSON.stringify({ ...neon, speciesUpdatedAt: '2026-01-01' })) // due, and read most
+  await writeFile(file('boraras-brigittae'), JSON.stringify({ ...last, review: 'pending' })) // taken off its page
+  expect((await draftSummaries(root, llm, { top: 1, now, publicBuild: false })).approved).toEqual(['boraras-brigittae'])
+  expect((await draftSummaries(root, llm, { top: 1, now, publicBuild: false })).approved).toEqual(['paracheirodon-innesi'])
+})
+
+// 15 Nov 2026, the chief of staff: the killifish's summary kept the importer's stock remark the rewrite had taken out of its
+// page, and "bred in tanks" a hand fix had. Neither moved the page's date, which was all this step read.
+const AXEL = (root: string) => join(root, 'species', 'paracheirodon-axelrodi', 'vi.json')
+async function dropLastSection(root: string) {
+  const page = JSON.parse(await readFile(AXEL(root), 'utf8'))
+  const keys = Object.keys(page.sections)
+  await writeFile(AXEL(root), JSON.stringify({ ...page, sections: Object.fromEntries(keys.slice(0, -1).map(k => [k, page.sections[k]])) }))
+}
+const asBefore = async (root: string) => {
+  for (const { writtenFrom: _, ...s } of await readSummaries(root)) await writeFile(join(root, 'summaries', `${s.id}.json`), `${JSON.stringify(s, null, 2)}\n`)
+}
+const commit = (root: string, what: string) => execSync(`git add -A && git -c user.email=t@example.com -c user.name=t -c commit.gpgsign=false commit -qm '${what}'`, { cwd: dirname(root) })
+const gitInit = (root: string) => { execSync('git init -q', { cwd: dirname(root) }); commit(root, 'summaries') }
+
+test('a page whose text changed is summarised again, though its date didn\'t move; a change outside its text is not', async () => {
+  const root = await content()
+  const { llm } = fake(() => OK)
+  await draftSummaries(root, llm, { top: 100, now, publicBuild: false })
+  expect((await readSummaries(root)).every(s => s.writtenFrom)).toBe(true)
+  const page = JSON.parse(await readFile(AXEL(root), 'utf8'))
+  await writeFile(AXEL(root), JSON.stringify({ ...page, quality: { ...page.quality, score: 0.5 } }, null, 1)) // a score, and the file's layout
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual([])
+  await dropLastSection(root)
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual(['paracheirodon-axelrodi'])
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual([])
+})
+
+test('a summary from before it kept its page\'s text: git says whether the page changed since; one unchanged is stamped, not written again', async () => {
+  const root = await content()
+  const { llm, calls } = fake(() => OK)
+  await draftSummaries(root, llm, { top: 100, now, publicBuild: false })
+  await asBefore(root)
+  gitInit(root)
+  const before = new Map((await readSummaries(root)).map(s => [s.id, s.generatedAt]))
+  const innesi = join(root, 'summaries', 'paracheirodon-innesi.json'), raw = await readFile(innesi, 'utf8')
+  await dropLastSection(root)
+  calls.length = 0
+  const later = () => new Date('2026-11-15T00:00:00Z')
+  expect((await draftSummaries(root, llm, { top: 100, now: later, publicBuild: false })).approved).toEqual(['paracheirodon-axelrodi'])
+  const after = await readSummaries(root)
+  expect(after.every(s => s.writtenFrom)).toBe(true)
+  expect(after.filter(s => s.generatedAt !== before.get(s.id)).map(s => s.id)).toEqual(['paracheirodon-axelrodi'])
+  // Stamped: the field added at the end, the rest of the file as it was, to the character.
+  const { writtenFrom } = after.find(s => s.id === 'paracheirodon-innesi')!
+  expect(await readFile(innesi, 'utf8')).toBe(raw.replace(/\n\}\n$/, `,\n  "writtenFrom": ${JSON.stringify(writtenFrom)}\n}\n`))
+  expect(calls.length).toBe(2) // one draft and its check
+}, 30_000)
+
+// Fable's read, 15 Nov 2026: the last commit to touch a summary isn't always the one that wrote it. pristella-maxillaris was
+// written 1 Nov, its page changed 2 Nov and a name fix touched the summary 7 Nov: read at the name fix, the page looked
+// unchanged, and the summary was stamped and never written again.
+test('a summary touched after its page changed, its writing date kept (a name fix), is still written again', async () => {
+  const root = await content()
+  const { llm } = fake(() => OK)
+  await draftSummaries(root, llm, { top: 100, now, publicBuild: false })
+  await asBefore(root)
+  gitInit(root)
+  await dropLastSection(root)
+  commit(root, 'the page changes')
+  const file = join(root, 'summaries', 'paracheirodon-axelrodi.json')
+  const s = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, `${JSON.stringify({ ...s, summary: s.summary.replace('nhỏ', 'nhỏ gọn') }, null, 2)}\n`)
+  commit(root, 'a name fix in the summary')
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual(['paracheirodon-axelrodi'])
+}, 30_000)
+
+// A run's commit rebased on main carries main's newer page beside a summary written from the page the run had: from that
+// commit alone the page looks unchanged. So a summary whose writing commit changed its page too is written again.
+test('a summary written in the same commit that changed its page is written again, from the page as it is', async () => {
+  const root = await content()
+  const { llm } = fake(() => OK)
+  await draftSummaries(root, llm, { top: 100, now, publicBuild: false })
+  await asBefore(root)
+  gitInit(root)
+  await dropLastSection(root)
+  const file = join(root, 'summaries', 'paracheirodon-axelrodi.json')
+  await writeFile(file, `${JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), generatedAt: '2026-11-01T00:00:00.000Z' }, null, 2)}\n`)
+  commit(root, 'a run: the page and its summary')
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual(['paracheirodon-axelrodi'])
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual([])
+}, 30_000)
+
+test('without git, a summary from before it kept its page\'s text goes by the page\'s date, as before', async () => {
+  const root = await content()
+  const { llm } = fake(() => OK)
+  await draftSummaries(root, llm, { top: 100, now, publicBuild: false })
+  await asBefore(root)
+  await dropLastSection(root)
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual([])
 })
 
 test('--only redoes the given species, whatever their state', async () => {

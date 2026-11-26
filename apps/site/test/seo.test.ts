@@ -3,11 +3,16 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { robotsTxt } from '../src/lib/seo'
 import { createHash } from 'node:crypto'
+import { parse } from 'node-html-parser'
 import { DIST, page, sitemapText } from './dist'
-import { missingAddresses } from '../scripts/check-addresses'
+import { missingAddresses, unlinkedSitemapPages } from '../scripts/check-addresses'
 import { VI_SECTIONS } from '../worker/paths'
 import { LANGS } from '@aq/schema/langs'
 import { APP_PAGES, APP_STATE } from '../src/lib/app'
+import { getContent } from '../src/lib/content'
+import { OFF_LIST_GROUPS } from '../src/lib/format'
+import { localizePath } from '../src/lib/i18n'
+import { sitemapEntries } from '../src/lib/sitemap'
 
 const htmlFiles = (dir: string): string[] =>
   readdirSync(dir).flatMap(f => { const p = join(dir, f); return statSync(p).isDirectory() ? htmlFiles(p) : p.endsWith('.html') ? [p] : [] })
@@ -32,10 +37,33 @@ test('every page has one non-empty h1', () => {
   expect(bad.map(f => f.slice(DIST.length))).toEqual([])
 })
 
+test('search descriptions fit 160 characters in all served languages', () => {
+  for (const file of LANGS.flatMap(langFiles)) {
+    const dom = parse(readFileSync(file, 'utf8'))
+    const description = dom.querySelector('meta[name="description"]')?.getAttribute('content')
+    if (description) expect([...description].length, file).toBeLessThanOrEqual(160)
+  }
+})
+
 test('sitemap lists indexable pages and omits noindex ones', () => {
   const xml = sitemapText()
   expect(xml).toContain('/ca/ca-neon-vua/')
   expect(xml).not.toContain('/ca/ca-boraras-do/')
+})
+
+test('the sitemap lists the fish groups offered to search in each language', async () => {
+  const entries = await sitemapEntries()
+  const paths = new Set(entries.filter(e => e.kind === 'other').map(e => e.path))
+  for (const lang of LANGS) {
+    const content = await getContent(lang)
+    for (const group of OFF_LIST_GROUPS) expect(paths.has(localizePath(lang, `/vi/nhom/${group}/`))).toBe(false)
+    for (const group of new Set(content.species.map(s => s.group))) {
+      const path = localizePath(lang, `/vi/nhom/${group}/`)
+      expect(paths.has(path), path).toBe(!OFF_LIST_GROUPS.includes(group))
+    }
+  }
+  expect(paths.has('/phan-loai/')).toBe(true)
+  expect(paths.has('/nguon-goc/')).toBe(true)
 })
 const sheet = (kind: string) => readFileSync(join(DIST, `sitemap-${kind}.xml`), 'utf8')
 const dateIn = (xml: string, path: string) => new RegExp(`<loc>https?://[^/]+${path}</loc>(?:<lastmod>([^<]+)</lastmod>)?`).exec(xml)
@@ -45,7 +73,9 @@ test('/sitemap.xml is the index of one sitemap per kind of page, and a page is i
   expect(index).toContain('<sitemapindex')
   expect(index).not.toContain('<urlset')
   const kinds = [...index.matchAll(/\/sitemap-([a-z-]+)\.xml<\/loc>/g)].map(m => m[1])
-  expect(kinds).toEqual(expect.arrayContaining(['fish', 'fish-photos', 'plants', 'plant-photos', 'guides', 'videos', 'glossary', 'equipment', 'products', 'other']))
+  expect(kinds).toEqual(expect.arrayContaining(['fish', 'plants', 'guides', 'videos', 'glossary', 'equipment', 'products', 'other']))
+  // The photo pages' two went with the pages on 18 Nov: an album opens over its fish's or plant's page.
+  expect(kinds.filter(k => k!.endsWith('photos'))).toEqual([])
   const locs = [...sitemapText().matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1])
   expect(locs.length).toBeGreaterThan(30)
   expect(locs.filter((l, i) => locs.indexOf(l) !== i)).toEqual([])
@@ -61,22 +91,43 @@ test('every page a sitemap lists, and every redirect target, is a page the build
   expect(missingAddresses(DIST)).toEqual({ sitemap: [], redirects: [] })
 })
 
+test('every sitemap address has an ordinary link from the HTML catalogue', () => {
+  expect(unlinkedSitemapPages(DIST)).toEqual([])
+})
+
 // The dates are the fixture's page-dates.json, all in the past: a page's own files, the latest of them.
 test('a page\'s last-changed date is the latest of its own files, never the build\'s; a page with no files of its own has none', () => {
   expect(dateIn(sheet('fish'), '/ca/ca-neon-vua/')?.[1], 'entity, vi and summary: the summary is the latest').toBe('2026-11-04')
-  expect(dateIn(sheet('fish-photos'), '/ca/ca-neon-vua/anh/')?.[1], 'the gallery and the names, not the summary').toBe('2026-11-03')
   expect(dateIn(sheet('guides'), '/huong-dan/setup-be-thuy-sinh-dau-tien/')?.[1]).toBe('2026-10-31')
   const tools = dateIn(sheet('other'), '/cong-cu/')
   expect(tools, 'the tools page is listed').not.toBeNull()
   expect(tools?.[1], 'a fixed page').toBeUndefined()
   const dates = new Set([...sitemapText().matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map(m => m[1]))
-  expect([...dates].sort()).toEqual(['2026-10-31', '2026-11-03', '2026-11-04'])
+  // (2026-11-03 was a photo page's: its gallery and names. The photo pages went on 18 Nov.)
+  expect([...dates].sort()).toEqual(['2026-10-31', '2026-11-04'])
 })
 
 test('robots: production points to the sitemap, staging blocks everything', () => {
   expect(robotsTxt(false, 'https://example.com')).toBe('User-agent: *\nContent-Signal: ai-train=no, search=yes, ai-input=yes\nAllow: /\nDisallow: /go/\n\nSitemap: https://example.com/sitemap.xml\n')
   expect(robotsTxt(true, 'https://x.huuloc.com')).toBe('User-agent: *\nDisallow: /\n')
   expect(readFileSync(join(DIST, 'robots.txt'), 'utf8')).toContain('Sitemap:')
+})
+
+test('only the content-hashed Astro directory gets immutable caching', () => {
+  const rules = readFileSync(new URL('../public/_headers', import.meta.url), 'utf8').trim().split(/\r?\n\r?\n/)
+  expect(rules.filter(rule => /\bimmutable\b/.test(rule))).toEqual([
+    '/_astro/*\n  Cache-Control: public, max-age=31536000, immutable',
+  ])
+})
+
+test('the immutable Astro directory is reserved for generated files', () => {
+  expect(existsSync(new URL('../public/_astro', import.meta.url)), 'public/_astro would bypass content hashing').toBe(false)
+})
+
+test('every file in the Astro asset directory has a content hash in its name', () => {
+  const files = readdirSync(join(DIST, '_astro'), { recursive: true, withFileTypes: true }).filter(file => file.isFile())
+  expect(files.length).toBeGreaterThan(0)
+  expect(files.map(f => f.name).filter(name => !/[.-][A-Za-z0-9_-]{8}\.[a-z0-9]+$/i.test(name))).toEqual([])
 })
 test('search index is built and pages carry an accent-free search alias', () => {
   expect(existsSync(join(DIST, 'pagefind', 'pagefind.js'))).toBe(true)
@@ -86,8 +137,7 @@ test('search index is built and pages carry an accent-free search alias', () => 
   expect(dom.querySelector('h1[data-pagefind-meta="aka[data-aka]"]')?.getAttribute('data-aka')).toContain('ca dia')
   expect(() => page('/tim-kiem/')).not.toThrow()
 })
-test('search leaves out photo galleries, reference lists, old names and other names lists', () => {
-  expect(page('/ca/ca-neon-vua/anh/').dom.querySelector('[data-pagefind-body]')).toBeNull()
+test('search leaves out reference lists, old names and other names lists', () => {
   const { dom } = page('/ca/ca-neon-xanh/')
   for (const sel of ['section[data-section="references"]', 'section.refs', 'p.alt']) expect(dom.querySelector(sel)?.closest('[data-pagefind-ignore]'), sel).not.toBeNull()
   expect(page('/ca/ca-neon-vua/').dom.querySelector('p.redirected')?.hasAttribute('data-pagefind-ignore')).toBe(true)
@@ -131,11 +181,11 @@ test('markdown for agents: every page has index.md — front matter, headings, f
   expect(md).toMatch(/^-\s+\*\*Nhiệt độ:\*\* \d/m)
   expect(md).not.toMatch(/<[a-z][^>]*>/)
   expect(md).not.toContain('Gửi bình luận')
-  // Readers' photos load live: neither the fish's copy nor its gallery's has their section.
+  // Readers' photos load live: the fish's copy hasn't their section.
   expect(md).not.toContain('Ảnh bạn đọc')
-  const gallery = readFileSync(join(DIST, 'ca', 'ca-neon-vua', 'anh', 'index.md'), 'utf8')
-  expect(gallery).not.toContain('Ảnh bạn đọc')
-  expect(gallery).not.toContain('#rp-h') // the link down to them, empty until the page says how many
+  // Nor a fish's album data, which only the viewer over its page reads (GalleryStrip.astro).
+  expect(readFileSync(join(DIST, 'ca', 'ca-neon-vua', 'index.html'), 'utf8')).toContain('data-album')
+  expect(readFileSync(join(DIST, 'ca', 'ca-neon-vua', 'index.md'), 'utf8')).not.toMatch(/"photos":\[/)
   expect(md).not.toContain('/go/')
   expect(md).toMatch(/\]\(https?:\/\/[^)]+\)/) // links are absolute
   // The app page has none while it's the owner's (worker/app-switch.ts).
@@ -178,11 +228,11 @@ test('glossary title asks the question; its description is the definition', () =
   expect(g.querySelector('title')?.text).toMatch(/ là gì\? — AquaTome$/)
   expect(g.querySelector('meta[name="description"]')?.getAttribute('content')?.length).toBeGreaterThan(20)
 })
-test('excerpt skips captions and credits, cuts at a word', async () => {
-  const { excerpt } = await import('../src/lib/meta')
+test('guide description skips captions and credits, and the snippet cuts at a word', async () => {
+  const { descriptionForSearch, guideDescription } = await import('../src/lib/meta')
   const html = '<figure><figcaption>Ảnh © Ai đó</figcaption></figure><p>Ngắn.</p><p>Ảnh © Nonn Panitvong, dạng vây đỏ của loài cá chạch này rất hiếm gặp</p><p>Từng bị xem nhẹ như đội dọn dẹp của bể cộng đồng, nhóm cá này thật ra có tập tính xã hội phức tạp và thú vị hơn nhiều người nghĩ, đặc biệt khi nuôi theo đàn lớn.</p>'
-  const e = excerpt(html, 80)
+  const e = descriptionForSearch('vi', guideDescription(html), 80)
   expect(e.startsWith('Từng bị xem nhẹ')).toBe(true)
-  expect(e.endsWith('…')).toBe(true)
-  expect(e.length).toBeLessThanOrEqual(81)
+  expect(e.endsWith('…')).toBe(false)
+  expect(e.length).toBeLessThanOrEqual(80)
 })

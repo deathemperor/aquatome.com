@@ -3,6 +3,12 @@
   "name": "มาราคานา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T12:49:01.545Z",
+    "why": "\"มาราคานา\" is a correct transliteration of Maracanã, but the place is a lake (lago) and the name omits the Thai kind word \"ทะเลสาบ\", which an atlas would normally include."
+  },
   "quality": {
     "score": 0.74,
     "indexable": false

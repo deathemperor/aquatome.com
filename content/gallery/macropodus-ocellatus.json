@@ -26,18 +26,6 @@
       "kind": "female"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/28365502.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/28365502-480.webp",
-      "width": 1024,
-      "height": 705,
-      "licence": "CC BY-SA",
-      "author": "Zinogre",
-      "sourceUrl": "https://www.inaturalist.org/photos/28365502",
-      "caption": "Cá cờ đuôi tròn bơi trong bể thủy sinh có rêu",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/1887dc350dc6db20.webp",
       "thumb": "https://media.aquatome.com/commons/1887dc350dc6db20-480.webp",
       "width": 1200,
@@ -47,6 +35,18 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macropodus_ocellatus_28365944.jpg",
       "caption": "Cá cờ đuôi tròn đực bơi trong bể thủy sinh có rêu",
       "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1cb3b496c84c18cd.webp",
+      "thumb": "https://media.aquatome.com/commons/1cb3b496c84c18cd-480.webp",
+      "width": 1200,
+      "height": 795,
+      "licence": "CC BY-SA 4.0",
+      "author": "Zinogre",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macropodus_ocellatus_93522058.jpg",
+      "caption": "Cá cờ đuôi tròn đực màu sẫm trong bể kính",
+      "best": false,
       "kind": "male"
     },
     {
@@ -62,16 +62,16 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/commons/1cb3b496c84c18cd.webp",
-      "thumb": "https://media.aquatome.com/commons/1cb3b496c84c18cd-480.webp",
-      "width": 1200,
-      "height": 795,
-      "licence": "CC BY-SA 4.0",
+      "url": "https://media.aquatome.com/inaturalist/28365502.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/28365502-480.webp",
+      "width": 1024,
+      "height": 705,
+      "licence": "CC BY-SA",
       "author": "Zinogre",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macropodus_ocellatus_93522058.jpg",
-      "caption": "Cá cờ đuôi tròn đực màu sẫm trong bể kính",
-      "best": false,
-      "kind": "male"
+      "sourceUrl": "https://www.inaturalist.org/photos/28365502",
+      "caption": "Cá cờ đuôi tròn bơi trong bể thủy sinh có rêu",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 15,

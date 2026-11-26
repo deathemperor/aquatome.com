@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { ArchiveRefused } from '../src/archive'
+import { LockBusy } from '../src/mac-lock'
 import { htmlToOutline } from '../src/outline'
 import { linkedPhotos, mayTake, photoKey, pickSourcePhotos, storeSourcePhotos } from '../src/source-photos'
 
@@ -50,6 +51,16 @@ test('logos, icons, svgs, QR codes, tiny and banner images are never picked', ()
   expect(picked.map(p => p.src)).toEqual(['https://shop.example/cardinal.jpg'])
 })
 
+test("a commenter's picture is never picked, though its file name is a bare hash and its caption the fish's name", () => {
+  const picked = pickSourcePhotos([
+    { src: 'https://secure.gravatar.com/avatar/0123456789abcdef0123456789abcdef?s=800&d=mm&r=g', alt: '', width: 800, height: 800 },
+    { src: 'https://0.gravatar.com/avatar/fedcba9876543210fedcba9876543210?s=900', alt: 'Cherry shrimp', width: 900, height: 900 },
+    { src: '/wp-content/uploads/avatars/12/cherry.jpg', alt: 'Cherry shrimp', width: 800, height: 800 },
+    { src: '/cherry-shrimp.jpg', alt: 'Cherry shrimp', width: 1000, height: 700 },
+  ], 'https://shop.example/p', ['Cherry shrimp'])
+  expect(picked.map(p => p.src)).toEqual(['https://shop.example/cherry-shrimp.jpg'])
+})
+
 test("a drawing, plate or stamp a source shows is no photo of the species: ScotCat's line drawings and stamps, Seriously Fish's Bleeker plate", () => {
   const picked = pickSourcePhotos([
     { src: '/silurichthys_hasseltii.jpg', alt: 'Silurichthys hasseltii: line drawing', width: 1000, height: 500 },
@@ -74,6 +85,26 @@ test('stores picked photos once, credited to the source', async () => {
   const again = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, picked, deps, photos)
   expect(again).toEqual(photos)
   expect(uploads).toHaveLength(1)
+})
+
+test("a photo is stored with the line its page prints with it; one stored already keeps its credit at a read, for the sweep or the line-read list to name", async () => {
+  // The chief of staff, 10 and 17 Nov 2026: a publisher's photo names its photographer, the line as printed.
+  const deps = {
+    bytes: async () => jpeg(),
+    media: { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 800, height: 600 }) },
+  }
+  const credited = [{ src: 'https://www.seriouslyfish.com/images/a.jpg', alt: 'Adult male.', width: 800, height: 600, credit: 'Ann Example' }]
+  const [stored] = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, credited, deps, [])
+  expect(stored!.author).toBe('Ann Example / Seriously Fish')
+  // Only a step that reads every copy of a photo names a stored one (found in Codex's read, 20 Nov 2026: another copy may
+  // carry another line).
+  const [again] = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, credited, deps, [{ ...stored!, author: 'Seriously Fish' }])
+  expect(again!.author).toBe('Seriously Fish')
+  // A line that reads as a sentence, or none, keeps the publisher alone; a named photo keeps its name.
+  const [sentence] = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, [{ ...credited[0]!, credit: 'these fish swim together.' }], deps, [])
+  expect(sentence!.author).toBe('Seriously Fish')
+  const [kept] = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, credited, deps, [{ ...stored!, author: 'Bo Sample / Seriously Fish' }])
+  expect(kept!.author).toBe('Bo Sample / Seriously Fish')
 })
 
 test('species/plant picks skip product packshots; duplicate captions collapse', () => {
@@ -129,14 +160,16 @@ test('photos on pages of their own (ScotCat): each thumbnail\'s page gives the f
     asked.push(u)
     if (u.endsWith('3.htm')) throw new Error('HTTP 404')
     const n = Number(u.match(/(\d)\.htm$/)![1])
-    return { html: photoPage(n, n === 1 ? 'Hoplisoma sterbai = spawning embrace' : 'Hoplisoma sterbai', n === 1 ? 'Photographer\n   A' : n === 2 ? 'Photographer B' : '') }
+    return { html: photoPage(n, n === 1 ? 'Hoplisoma sterbai = spawning embrace' : 'Hoplisoma sterbai, mail b@example.com', n === 1 ? 'Photographer\n   A' : n === 2 ? 'Photographer B (b&#64;example.com)' : '') }
   }
   const images = await linkedPhotos(page, SC, /^https:\/\/www\.scotcat\.com\/[a-z]+idae\/[a-z0-9_]+\d\.htm$/, get)
   // Four photo pages at most; the one that fails is skipped.
   expect(asked).toHaveLength(4)
   expect(images[0]).toEqual({ src: 'https://www.scotcat.com/images/c_sterbai1.jpg', alt: 'Hoplisoma sterbai: spawning embrace', displayWidth: 500, displayHeight: 316, page: 'https://www.scotcat.com/callichthyidae/hoplisoma_sterbai1.htm', author: 'Photographer A' })
-  // No credit under a photo: no author (never the site's footer).
+  // No credit under a photo: no author (never the site's footer). An email address in a credit or alt text isn't kept, its
+  // "@" written as a character reference in the credit's markup too (Codex's read, 17 Nov).
   expect(images.map(i => i.author)).toEqual(['Photographer A', 'Photographer B', undefined])
+  expect(images[1]!.alt).toBe('Hoplisoma sterbai, mail')
   // 500 px photos only where the source allows them; shared captions are not duplicates here.
   expect(await storeSourcePhotos('scotcat', 'ScotCat', SC, pickSourcePhotos(images, SC, ['Hoplisoma sterbai']), { bytes: async () => jpeg(500, 316), media: { urlFor: k => k, put: async () => { throw new Error('too small') } } }, [])).toEqual([])
   const picked = pickSourcePhotos(images, SC, ['Hoplisoma sterbai'], 4, 'subject', 500)
@@ -162,6 +195,17 @@ test('the archive refusing a picture stops the page, which waits and keeps its p
   const media = { urlFor: (k: string) => `https://media.test/${k}`, put: async () => { throw new Error('nothing to store') } }
   const picked = [{ src: 'https://x.test/a.jpg', alt: '' }]
   await expect(storeSourcePhotos('planetcatfish', 'PlanetCatfish', 'https://x.test/p', picked, { bytes: async () => { throw new ArchiveRefused('2026-11-10T12:00:00.000Z') }, media }, [])).rejects.toBeInstanceOf(ArchiveRefused)
+})
+
+test("the Mac's lock on the archive held elsewhere stops the page as a refusal does: it waits and keeps its pictures", async () => {
+  const media = { urlFor: (k: string) => `https://media.test/${k}`, put: async () => { throw new Error('nothing to store') } }
+  const picked = [{ src: 'https://x.test/a.jpg', alt: '' }]
+  const busy = new LockBusy('the lock on 127.0.0.1:1 was held 600 s, at every try, by one process or more: nothing was asked, and this is no refusal')
+  await expect(storeSourcePhotos('planetcatfish', 'PlanetCatfish', 'https://x.test/p', picked, { bytes: async () => { throw busy }, media }, [])).rejects.toBe(busy)
+  const asked: string[] = []
+  const html = [1, 2].map(n => `<a href="/photo${n}.htm"><img src="/thumb${n}.jpg"></a>`).join('')
+  await expect(linkedPhotos(html, 'https://source.test/species', /photo\d\.htm$/, async u => { asked.push(u); throw busy })).rejects.toBe(busy)
+  expect(asked).toEqual(['https://source.test/photo1.htm'])
 })
 
 test('a refusal on a linked photo page stops before the next photo page', async () => {

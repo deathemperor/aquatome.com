@@ -12,6 +12,66 @@
     "vietnam",
     "thua-thien-hue"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "VN"
+      ],
+      "regions": [
+        "Xe Nam Noi",
+        "Xe Pian",
+        "Se Kong",
+        "Bolovens plateau"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "S. elongata is native to the upper Xe Nam Noi and Xe Pian rivers on the Bolovens plateau, southern Laos.",
+          "countries": [
+            "LA"
+          ],
+          "regions": [
+            "Xe Nam Noi",
+            "Xe Pian",
+            "Bolovens plateau"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Both these flow off the plateau into the Se Kong river and it's also been recorded from the upper part of that drainage in Thua Thien-Hue province, central Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Se Kong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205386,
+      "total": 2,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "LA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          14.0625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -146,7 +206,7 @@
       "width": 800,
       "height": 533,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Manuel Haselbauer / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sewellia-elongata",
       "caption": "Subadults, such as this specimen, are traded more often than fully-mature fish.",
       "source": "seriouslyfish"

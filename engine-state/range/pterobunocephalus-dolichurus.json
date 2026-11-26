@@ -1,0 +1,91 @@
+{
+  "id": "pterobunocephalus-dolichurus",
+  "native": {
+    "input": "2eca8a1ab8e71872",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin of Brazil and Peru.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin of Brazil and Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Trombetas-river, near Obidos, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin of Brazil and Peru.",
+        "ok": true
+      },
+      {
+        "name": "Trombetas",
+        "source": "scotcat",
+        "quote": "Type locality: Trombetas-river, near Obidos, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pterobunocephalus dolichurus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340530,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "7d3ad006-2cec-4488-ad1f-6e5998602de0",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T07:13:45.828Z"
+  }
+}

@@ -10,16 +10,27 @@ import Telemetry
 final class HandbookModel {
   enum Status: Equatable { case loading, ready, offline, failed }
 
-  /// The site's language for this app's language: the one iOS chose, if the app offers it (SiteLanguage), else Vietnamese.
-  let lang: String
+  /// The site's language for the app's language as shown now (AppLanguageNow): another picked while the app runs reads
+  /// that language's index and lists (`speak`).
+  private(set) var lang: String
   /// The app's language, as the site has it: its pages' addresses (SiteLanguage).
   var language: SiteLanguage { SiteLanguage.served(lang) ?? .vietnamese }
   let site = URL(string: "https://aquatome.com")!
   private(set) var status = Status.loading
+  /// What waits for the index shown to be read (`settled`): let go once the status leaves `.loading`.
+  @ObservationIgnored private var settling: [CheckedContinuation<Void, Never>] = []
+  /// The index's read on its way (`load`): one at a time, the app's own. A screen asking while it's on its way waits for
+  /// it, and a screen leaving doesn't stop it, as a tank's save may wait on it (Fable, Codex, 21 Nov). A language picked
+  /// stops the old language's.
+  @ObservationIgnored private var reading: Task<Void, Never>?
+  /// Counts the reads begun: a read lets go of `reading` as it ends, unless a newer one has it.
+  @ObservationIgnored private var reads = 0
   private(set) var count = 0
   /// The query, the kind picked and what they find (SearchState): searched once a change, not on every redraw.
   private(set) var searching = SearchState(HandbookSearch([]), page: HandbookModel.searchPage())
   var query: String { get { searching.query } set { searching.query = newValue } }
+  /// A page about to open at one of its headings (a chat section's "Đọc tiếp"): taken by that page as it opens.
+  var openingAt: (path: String, heading: String)?
   /// Counts the times a screen asked for Tìm with its words (AppScreen.search): typing changes `query` too, and v2 opens
   /// its search tab for this alone.
   var searchAsked = 0
@@ -35,13 +46,19 @@ final class HandbookModel {
   /// what they read changes with the index, not with each letter typed in the Tìm tab, which would redraw them and
   /// search again for them.
   private var search = HandbookSearch([])
-  /// Fish and plant pages by their content id: what a tank's `species[].id` and `plants[].id` hold.
-  private var pages: [String: HandbookIndex.Item] = [:]
+  /// Fish and plant pages by their content id: what a tank's `species[].id` and `plants[].id` hold (HandbookIndex.tankPages:
+  /// not a guide's, a glossary term's or kit's of the same id).
+  private var pages = ItemsByKey([]) { _ in nil }
   /// The page a tank's entry without a page is shown as, by its scientific name.
   private var matcher = PageMatcher([])
   /// Every page by its path, and what the reader keeps on this phone by path (the pages saved to read later and read
   /// last, the pages kept for offline), one set per language: all in the index's form, moved when it changes.
-  private let paths: HandbookPaths
+  private var paths: HandbookPaths
+  /// Counts the languages picked while the app runs (`speak`): a read begun in one lands only while it's still the one.
+  private var generation = 0
+  /// Whether other languages have pages kept for offline, and pages saved, on this phone (HandbookPaths.elsewhere): read
+  /// once for each language shown, as only the one shown changes them.
+  private var elsewhere: (kept: Bool, saved: Bool)
   /// What's new on the site as last read: none until read, and none from a site without it (the index names no file).
   private var whatsNew: Latest?
   /// Its entries with their pages in the index shown now, newest first (looked up in the index's form).
@@ -98,13 +115,19 @@ final class HandbookModel {
     case fixed(HandbookIndex)
   }
 
-  init(source: Source = HandbookModel.defaultSource(), preferred: [String] = Bundle.main.preferredLocalizations) {
+  init(source: Source = HandbookModel.defaultSource(), lang: String = AppLanguageNow.code) {
     self.source = source
-    lang = SiteLanguage.of(preferred).code
+    self.lang = lang
     drawn = Self.pageCache(source, site: site)
     paths = HandbookPaths(lang: lang, cache: drawn)
+    elsewhere = HandbookPaths.elsewhere(than: lang, languages: SiteLanguage.served.map(\.code))
     #if DEBUG
-    if ProcessInfo.processInfo.arguments.contains("-watch-tank-searches") { tankSearchChanges = 0; watchTankSearches() }
+    let args = ProcessInfo.processInfo.arguments
+    if args.contains("-watch-tank-searches") { tankSearchChanges = 0; watchTankSearches() }
+    // `-read-familiar N`: the first N of `-familiar`'s fish read in turn, the Nth last, so "Đọc gần đây" runs long.
+    if let n = args.firstIndex(of: "-read-familiar").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }), n > 0 {
+      for i in 1...n { paths.read(HandbookIndex.Item(kind: .fish, name: "Cá quen \(i)", path: "/vi/ca/ca-quen-\(i)/")) }
+    }
     #endif
   }
 
@@ -127,6 +150,7 @@ final class HandbookModel {
 
   /// The page as blocks, from the phone or the site; nil when the web page is to show instead.
   func doc(_ item: HandbookIndex.Item) async -> PageDoc? {
+    let paths = paths, lang = lang
     guard let count = shardCounts[item.kind.rawValue] else { return nil }
     await paths.settled()
     return await drawn.doc(path: paths.shardPath(item.path), kind: item.kind.rawValue, lang: lang, count: count)
@@ -170,16 +194,18 @@ final class HandbookModel {
   /// Keeps these pages for reading offline: the shards they're in, read from the site now, then every picture in them,
   /// telling how many pictures are kept so far. Returns how many of the pages are on the phone.
   /// A stop (the task cancelled) ends it; a page counts as kept only once it's whole on the phone (KeepPages).
+  /// In the language it began in: a keep's last picture can land after another is picked (`speak` stops it).
   func keep(_ items: [HandbookIndex.Item], progress: (_ done: Int, _ of: Int) -> Void) async -> Int {
-    await KeepPages.run(items.map { paths.shardPath($0.path) }, docs: { _ in
+    let paths = paths, lang = lang, counts = shardCounts
+    return await KeepPages.run(items.map { paths.shardPath($0.path) }, docs: { _ in
       await paths.settled()
       var docs: [PageDoc] = []
       for (kind, list) in Dictionary(grouping: items, by: \.kind) {
-        guard let count = shardCounts[kind.rawValue] else { continue }
+        guard let count = counts[kind.rawValue] else { continue }
         docs += await drawn.keep(list.map { paths.shardPath($0.path) }, kind: kind.rawValue, lang: lang, count: count)
       }
       return docs
-    }, picture: { await PageImages.keep($0) }, kept: { paths.markKept($0, counts: shardCounts) }, progress: progress)
+    }, picture: { await PageImages.keep($0) }, kept: { paths.markKept($0, counts: counts) }, progress: progress)
   }
 
   /// Starts keeping a shelf's pages (`shelf`: its key), unless that shelf's keep is on its way.
@@ -216,37 +242,66 @@ final class HandbookModel {
   /// The pages kept for offline that the index has now.
   var keptItems: [HandbookIndex.Item] { paths.keptItems }
 
+  /// None kept for offline in this language, while another has some: they stay on the phone with it (ElsewhereNote).
+  var keptElsewhere: Bool { status != .loading && elsewhere.kept && keptItems.isEmpty }
+  /// None saved in this language, while another has some.
+  var savedElsewhere: Bool { status != .loading && elsewhere.saved && saved(nil).isEmpty }
+
   /// Pages no longer kept for offline: off the list, then their pictures and the shards no kept page is in deleted from
   /// the phone (not what a page still kept needs).
   /// A keep on its way is stopped first, and waited for: it would put back a shard or picture this deletes.
   func unkeep(_ items: [HandbookIndex.Item]) async {
+    let paths = paths, lang = lang, counts = shardCounts
     let running = Array(runs.values)
     for shelf in Array(runs.keys) { stopKeeping(shelf) }
     paths.unmark(items)
     for t in running { await t.value }
     for (kind, list) in Dictionary(grouping: items, by: \.kind) {
-      guard let count = shardCounts[kind.rawValue] else { continue }
-      await forget(list.map { paths.shardPath($0.path) }, kind: kind.rawValue, count: count)
+      guard let count = counts[kind.rawValue] else { continue }
+      await forget(list.map { paths.shardPath($0.path) }, kind: kind.rawValue, count: count, paths: paths, lang: lang)
     }
   }
 
-  private func forget(_ gone: [String], kind: String, count: Int) async {
+  /// In `paths`' language, whichever is shown by the time it runs.
+  private func forget(_ gone: [String], kind: String, count: Int, paths: HandbookPaths, lang: String) async {
     await paths.settled()
     for src in await drawn.forget(gone, keeping: paths.kept(of: kind), kind: kind, lang: lang, count: count) { PageImages.forget(src) }
   }
 
   /// The site split a kind's pages anew: that kind's kept pages come off the list (HandbookPaths), and their old files go.
   private func dropKeptOfOtherCounts() {
-    for d in paths.dropOtherCounts(shardCounts) { Task { await forget(d.paths, kind: d.kind, count: d.count) } }
+    let paths = paths, lang = lang
+    for d in paths.dropOtherCounts(shardCounts) {
+      Task { await forget(d.paths, kind: d.kind, count: d.count, paths: paths, lang: lang) }
+    }
   }
 
   func url(_ item: HandbookIndex.Item) -> URL { URL(string: item.path, relativeTo: site)!.absoluteURL }
 
-  /// The page of a fish or plant on a tank, once the index is here.
+  /// The page of a fish (species or breed) or plant on a tank, once the index is here: never another kind's of the same
+  /// id (`pages`).
   func page(_ contentId: String) -> HandbookIndex.Item? { pages[contentId] }
 
   /// The page a tank's entry without a page is shown as, once the index has one with its scientific name (PageMatcher).
   func page(for e: UnlistedEntry) -> HandbookIndex.Item? { matcher.page(kind: e.kind, sci: e.sci).flatMap { pages[$0] } }
+
+  /// Once the index shown is read, or its read failed: until then which pages there are isn't known (at launch, and
+  /// after a language picked, whose first read can take the network's time). A tank's entry saved meanwhile asks this
+  /// before it's said to have no page (Fable, Codex, 21 Nov).
+  /// Decided on the index of the language shown once it's read, as a save made then would be.
+  func settled() async {
+    while status == .loading {
+      // None on its way (none begun yet, at launch): one of the app's.
+      if reading == nil { Task { await load() } }
+      await withCheckedContinuation { settling.append($0) }
+    }
+  }
+
+  private func settle() {
+    let waiting = settling
+    settling = []
+    for w in waiting { w.resume() }
+  }
 
   /// The saved pages and the ones read last, of `kind` (all kinds for nil), as the index has them now.
   func saved(_ kind: HandbookIndex.Kind?) -> [HandbookIndex.Item] { paths.saved(kind) }
@@ -279,6 +334,38 @@ final class HandbookModel {
     search.find(query, limit: .max).filter { ($0.kind == .fish || $0.kind == .plant) && $0.contentId != nil }
   }
 
+  /// The app shown in another language (AquaTomeApp.speak), as opening it in that language would: its index read (the copy
+  /// kept on the phone first), and what the reader keeps in it, one set per language (pages saved and read last, pages kept
+  /// for offline). Keeps on their way stop, with what they kept so far whole; a read still on its way from the language
+  /// before lands nowhere (`generation`). The search's words stay: they're the reader's.
+  func speak(_ code: String) {
+    guard code != lang else { return }
+    for shelf in Array(runs.keys) { stopKeeping(shelf) }
+    short = [:]
+    generation += 1
+    lang = code
+    paths = HandbookPaths(lang: code, cache: drawn)
+    elsewhere = HandbookPaths.elsewhere(than: code, languages: SiteLanguage.served.map(\.code))
+    // Nothing of the old language's index, without `use`, whose look at the shard counts would drop the new language's
+    // kept pages as from another count.
+    search = HandbookSearch([])
+    searching.search = search
+    pages = ItemsByKey([]) { _ in nil }
+    matcher = PageMatcher([])
+    shardCounts = [:]
+    shelves = HandbookShelves(HandbookIndex(lang: code, items: []))
+    labels = HandbookIndex.Labels()
+    whatsNew = nil
+    count = 0
+    status = .loading
+    fetched = false
+    readAt = nil
+    // The old language's read lands nowhere (`generation`): stopped, not left to fetch.
+    reading?.cancel()
+    reading = nil
+    Task { await load() }
+  }
+
   /// When the tab shows: the index, unless this run already has the site's copy.
   func appear() async {
     if !fetched { await load() }
@@ -302,10 +389,29 @@ final class HandbookModel {
     await load()
   }
 
-  /// The kept copy first (instant, offline) if nothing is shown yet, then the site's current one.
+  /// The kept copy first (instant, offline) if nothing is shown yet, then the site's current one: the read on its way,
+  /// or a new one (`reading`).
   func load() async {
+    if let r = reading { return await r.value }
+    reads += 1
+    let n = reads
+    // Let go as it ends, in the same turn: one asked between its end and its starter's return would join it, ended, and
+    // read nothing (Fable, 21 Nov).
+    let r = Task {
+      await read()
+      if reads == n { reading = nil }
+    }
+    reading = r
+    await r.value
+  }
+
+  private func read() async {
+    let gen = generation, lang = lang
     if case .fixed(var ix) = source {
       #if DEBUG
+      // The UI tests' index in the language picked while the app runs (HandbookIndex.translatedFixture); the one it opened
+      // in has the fixture as it is, as the tests opening it in Indonesian have always had.
+      if gen > 0 { ix = HandbookIndex.translatedFixture(ix, to: lang) }
       // `-index-changes-after <s>`: a read that long after the one before finds the site's index changed, and so does every
       // read after it: a fish just added comes first on Khám phá's shelf ("Cá mới đến").
       let args = ProcessInfo.processInfo.arguments
@@ -322,8 +428,9 @@ final class HandbookModel {
       // slow site).
       if ProcessInfo.processInfo.arguments.contains("-index-kept-only") { return use(ix, .offline) }
       // `-index-later`: the index read a moment after the app opens, as the site's on a phone (a link opening the app
-      // waits for it: AppLink).
-      if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 { try? await Task.sleep(for: .seconds(2)) }
+      // waits for it: AppLink). With `-test-gates`, when the test opens `index-later`.
+      if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 { try? await TestGate.wait("index-later", or: .seconds(2)) }
+      guard gen == generation else { return }
       #endif
       use(ix, .ready)
       readAt = .now
@@ -333,19 +440,24 @@ final class HandbookModel {
       return
     }
     let file = Self.cacheFile(lang)
+    let news = latestFile(lang)
     if count == 0, let data = try? Data(contentsOf: file), let ix = try? JSONDecoder().decode(HandbookIndex.self, from: data) {
       use(ix, .offline)
-      if ix.latest != nil { whatsNew = latestFile.kept() }
+      if ix.latest != nil { whatsNew = news.kept() }
     }
     do {
       let (data, response) = try await URLSession.shared.data(from: site.appendingPathComponent("app/\(lang).json"))
       guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw URLError(.badServerResponse) }
       let ix = try JSONDecoder().decode(HandbookIndex.self, from: data)
       try? data.write(to: file, options: .atomic)
+      // Another language picked meanwhile: its own read shows it.
+      guard gen == generation else { return }
       use(ix, .ready)
       readAt = .now
       // What's new after it, the index shown without waiting; left for another tab, both are read again when it shows.
-      switch await latestFile.read(ix.latest) {
+      let latest = await news.read(ix.latest)
+      guard gen == generation else { return }
+      switch latest {
       case .noList: whatsNew = nil
       case .read(let l): whatsNew = l
       case .failed: break
@@ -353,18 +465,18 @@ final class HandbookModel {
       }
       fetched = true
     } catch {
-      // Left for another tab or page: tried again when the tab shows next, nothing to report.
-      if isInterruption(error) { return }
-      if count == 0 { status = .failed }
+      // Stopped for a language picked: its own read shows it, nothing to report.
+      if isInterruption(error) || gen != generation { return }
+      if count == 0 { status = .failed; settle() }
     }
   }
 
-  private var latestFile: LatestFile { LatestFile(file: Self.cacheFile("latest-\(lang)"), site: site, fetch: Self.fromSite) }
+  private func latestFile(_ lang: String) -> LatestFile { LatestFile(file: Self.cacheFile("latest-\(lang)"), site: site, fetch: Self.fromSite) }
 
   private func use(_ ix: HandbookIndex, _ s: Status) {
     search = HandbookSearch(ix.items)
     searching.search = search
-    pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
+    pages = HandbookIndex.tankPages(ix.items)
     matcher = PageMatcher(index: ix.items)
     paths.use(ix)
     shardCounts = ix.pages
@@ -374,6 +486,7 @@ final class HandbookModel {
     labels = ix.labels
     count = ix.items.count
     status = s
+    settle()
   }
 
   /// How many of its best a search lists at first, and then a page more: 200, except in UI tests (`-search-page N`),
@@ -408,6 +521,10 @@ final class HandbookModel {
       let latest = args.contains("-whats-new") ? "/app/latest/vi.json" : nil
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
       var items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      // `-kit`: the nine kinds of kit the site lists, as Tìm's grid of them shows them (OnePageFlowTests).
+      if args.contains("-kit") { items += HandbookIndex.fixtureKits }
+      // `-crab`: a crab among the fish pages, as the site lists about 90 that aren't fish (`fixtureCrab`).
+      if args.contains("-crab") { items.append(HandbookIndex.fixtureCrab) }
       // `-series N`: N video series, the fixture's own first (0: none, as the Indonesian and Thai sites have).
       if let n = args.firstIndex(of: "-series").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }) {
         let own = items.filter { $0.kind == .video }
@@ -418,6 +535,13 @@ final class HandbookModel {
       }
       // `-plan`: the editors have planned Hôm nay's days (`fixtureDays`).
       var home = f.home
+      // `-no-chips`: an index from before the site's chips, as a phone's kept one can be (Khám phá with no row).
+      if args.contains("-no-chips") { home?.chips = [] }
+      // `-breeds`: Dĩa's photo is the pigeon blood's, a breed with its own page, as the site's Dĩa has it (Design, 17 Nov).
+      if args.contains("-breeds"), let i = home?.chips.firstIndex(where: { $0.id == "dia" }) {
+        home?.chips[i] = .init(id: "dia", name: "Dĩa", order: 1, count: 2, members: ["symphysodon-aequifasciatus", "pigeon-blood-discus"],
+                               img: "https://media.aquatome.com/a/dia-large.webp", imgOf: "pigeon-blood-discus")
+      }
       // `-wide-pictures`: each fish and plant has a photo (a wide stand-in, `-fixed-pictures`) with its fish's box across
       // nearly all of it, and each group one: a photo the frame rule shows whole wherever it goes (WholePhotoFlowTests).
       if args.contains("-wide-pictures") {
@@ -431,6 +555,17 @@ final class HandbookModel {
         }
         if let groups = home?.groups {
           home?.groups = groups.map { .init(id: $0.id, img: "https://aquatome.com/img/wide-\($0.id)-480.webp", imgBox: box) }
+        }
+      }
+      // `-square-pictures`: each fish but the Cá thử has a photo, square (a stand-in, `-fixed-pictures`) and with no box, which
+      // a 3:2 card covers with some of it laid out above and below the card (Design, 17 Nov: the first card's took the taps
+      // of the photo line above it).
+      if args.contains("-square-pictures") {
+        items = items.map { i in
+          guard i.kind == .fish, i.img == nil, !(i.contentId ?? "").hasPrefix("ca-thu"),
+                var o = (try? JSONSerialization.jsonObject(with: JSONEncoder().encode(i))) as? [String: Any] else { return i }
+          o["img"] = "https://aquatome.com/img/square-\(i.contentId ?? i.name)-480.webp"
+          return (try? JSONSerialization.data(withJSONObject: o)).flatMap { try? JSONDecoder().decode(HandbookIndex.Item.self, from: $0) } ?? i
         }
       }
       // `-familiar N`: Khám phá's fish shelf runs long, N fish after the fixture's own, as the hobbyists' list does.
@@ -464,7 +599,8 @@ final class HandbookModel {
         : launch.contains("-long-page") ? HandbookIndex.fixturePagesLong
         : launch.contains("-long-part") ? HandbookIndex.fixturePagesWithLongParts
         : launch.contains("-long-guide") ? HandbookIndex.fixturePagesWithALongGuide
-        : launch.contains("-lead-in-gallery") ? HandbookIndex.fixturePagesLeadInGallery : HandbookIndex.fixturePages
+        : launch.contains("-lead-in-gallery") ? HandbookIndex.fixturePagesLeadInGallery
+        : launch.contains("-crab") ? HandbookIndex.fixturePagesWithACrab : HandbookIndex.fixturePages
       // `-slow-pages`: a page that takes its time to be read.
       let slow = launch.contains("-slow-pages")
       return PageCache(dir: dir, site: site, fetch: { _ in
@@ -512,6 +648,19 @@ extension HandbookIndex {
                        dek: "Đèn bật 6 đến 8 tiếng, trồng dày cây mọc nhanh ngay từ đầu, thay nước đều mỗi tuần và cho ăn vừa đủ cá ăn hết")),
   ]
 
+  /// UI tests' chips on Khám phá: one page alone (it opens that page), one with a guide and a video guide (a wide card and
+  /// both lists), two pages (wide cards), and the kit's many fish (`-equipment`: the grid; left out without them).
+  static let fixtureChips: [Home.Chip] = [
+    .init(id: "dia", name: "Dĩa", order: 1, count: 1, members: ["symphysodon-aequifasciatus"], img: "https://media.aquatome.com/a/dia-large.webp",
+          imgOf: "symphysodon-aequifasciatus"),
+    .init(id: "tetra", name: "Tetra", order: 2, count: 1, members: ["paracheirodon-innesi"], img: "https://media.aquatome.com/a/neon-large.webp", imgOf: "paracheirodon-innesi",
+          guides: ["/vi/huong-dan/nuoi-ca-neon/"], videos: ["/vi/huong-dan/cach-han-che-reu-hai/"]),
+    // Cá thử 1 has no photo: its wide card is its row alone (Design, 17 Nov).
+    .init(id: "nho", name: "Cá nhỏ", order: 3, count: 3, members: ["paracheirodon-innesi", "danio-rerio", "ca-thu-1"], img: "https://media.aquatome.com/a/danio-large.webp",
+          imgOf: "danio-rerio"),
+    .init(id: "ca-thu", name: "Cá thử", order: 4, count: 8, members: (1...8).map { "ca-thu-\($0)" }),
+  ]
+
   /// UI tests' index: a few pages of each kind, as the site writes them.
   static let fixture = HandbookIndex(lang: "vi", items: [
     .init(kind: .fish, contentId: "symphysodon-aequifasciatus", name: "Cá đĩa", sub: "Symphysodon aequifasciatus", aka: ["Discus"], path: "/vi/ca/ca-dia/",
@@ -544,7 +693,7 @@ extension HandbookIndex {
           words: ["Dự toán chi phí set bể thủy sinh: tiền mua đồ và tiền nuôi mỗi tháng"], short: "Dự toán chi phí"),
     .init(kind: .tool, name: "Đây là cá gì?", path: "/vi/cong-cu/nhan-dien-ca/", words: ["Nhận diện cá qua ảnh"], short: "Nhận diện cá"),
   ], home: .init(groups: [.init(id: "cichlids"), .init(id: "tetras"), .init(id: "danios")], fish: ["/vi/ca/ca-neon/", "/vi/ca/ca-dia/"],
-                 plants: [], guides: ["/vi/huong-dan/nuoi-ca-neon/"]),
+                 plants: [], guides: ["/vi/huong-dan/nuoi-ca-neon/"], chips: fixtureChips),
   labels: .init([
     "group": ["cichlids": "Cichlid", "tetras": "Cá tetra", "danios": "Danio", "other": "Loài khác"],
     "placement": ["foreground": "Tiền cảnh", "midground": "Trung cảnh", "background": "Hậu cảnh", "epiphyte": "Bám đá, lũa", "floating": "Thả nổi"],
@@ -571,6 +720,12 @@ extension HandbookIndex {
   /// UI tests' kit (`-equipment`): a kind of kit, and more fish needing it than its page lists in place.
   static let fixtureKit: [Item] = [.init(kind: .equipment, name: "Lọc", path: "/vi/thiet-bi/loc/")]
     + (1...40).map { .init(kind: .fish, contentId: "ca-thu-\($0)", name: "Cá thử \($0)", sub: "Piscis \($0)", path: "/vi/ca/ca-thu-\($0)/") }
+  /// UI tests' nine kinds of kit (`-kit`), as the site lists them, by the site's addresses (KitGrid.symbol's): Tìm's grid
+  /// of them full, three rows of three.
+  static let fixtureKits: [Item] = [("Bể cá", "be-ca"), ("Lọc, sủi khí và tạo dòng", "loc"), ("Sưởi và làm mát", "suoi"),
+                                    ("Đèn", "den"), ("Nền và lá", "phan-nen"), ("Cây thủy sinh", "cay-thuy-sinh"), ("CO2", "co2"),
+                                    ("Bộ test nước", "test-nuoc"), ("Thức ăn", "thuc-an")]
+    .map { .init(kind: .equipment, name: $0.0, path: "/vi/thiet-bi/\($0.1)/") }
 
   /// UI tests' what's new (`-whats-new`), as the site writes it: newest first, a page the index doesn't have (left out), the neon there
   /// twice, updated then new.
@@ -589,6 +744,20 @@ extension HandbookIndex {
           of: "symphysodon-aequifasciatus",
           card: .init(tempC: .init(min: 28, max: 30), ph: .init(min: 5.5, max: 7), sizeCm: 15, tankCm: 120, difficulty: 7)),
   ]
+
+  /// UI tests' crab among the fish pages (`-crab`; the owner's report of 15 Nov, the fiddler crab's page): its order a
+  /// crab's, and the neon's page under its address and name (`fixturePagesWithACrab`).
+  static let fixtureCrab = Item(kind: .fish, contentId: "austruca-annulipes", name: "Cua đồng hồ", sub: "Austruca annulipes",
+                                path: "/vi/ca/cua-dong-ho/", group: "other", tax: ["Decapoda", "Ocypodidae", "Austruca"])
+  static let fixturePagesWithACrab: Data = {
+    guard var o = try? JSONSerialization.jsonObject(with: fixturePages) as? [String: Any], var pages = o["pages"] as? [String: Any],
+          var page = pages["/vi/ca/ca-neon/"] as? [String: Any] else { return fixturePages }
+    page["path"] = fixtureCrab.path
+    page["title"] = fixtureCrab.name
+    pages[fixtureCrab.path] = page
+    o["pages"] = pages
+    return (try? JSONSerialization.data(withJSONObject: o)) ?? fixturePages
+  }()
 
   /// UI tests' page of a kind of kit (`-equipment`), as the site writes it.
   static let fixtureKitPages = Data(#"""
@@ -630,6 +799,29 @@ extension HandbookIndex {
   "/vi/cay/rotala-do/":{"v":1,"kind":"plant","path":"/vi/cay/rotala-do/","title":"Rotala đỏ","sub":"Rotala rotundifolia","aka":"Tên khác: Rotala tròn lá","lead":{"src":"https://media.aquatome.com/a/rotala.webp","w":1200,"h":900,"alt":"Rotala đỏ, Rotala rotundifolia","credit":{"text":"Ảnh: Tropica","licence":"","url":"https://example.org/photo/rotala"}},"talk":{"comments":"plant:rotala-rotundifolia"},"blocks":[{"t":"h","text":"Thông tin nhanh","id":"muc-quickFacts"},{"t":"p","c":["Cây thân mọc nhanh, lên đỏ dưới đèn mạnh."]},{"t":"h","text":"Trồng và chăm","id":"muc-care"},{"t":"p","c":["Cần ánh sáng mạnh để lên màu đỏ."]},{"t":"refs","title":"Nguồn","id":"nguon","items":[{"title":"Tropica","url":"https://example.org/rotala"}]}]},
   "/vi/thuat-ngu/dem-ph/":{"v":1,"kind":"glossary","path":"/vi/thuat-ngu/dem-ph/","title":"Đệm pH","blocks":[{"t":"p","c":["Tiếng Anh: pH buffer"]},{"t":"p","c":["Khả năng giữ pH của nước khi có thêm axit."]}]}}}
   """#.utf8)
+
+  /// UI tests' index in another language than Vietnamese, picked while the app runs: the same pages under that language's
+  /// addresses (its words for the sections the app reads, SiteLanguage), the fish, the plant and the fish groups named in
+  /// it. The rest keeps its Vietnamese words: a test reads the language off the names.
+  static func translatedFixture(_ ix: HandbookIndex, to lang: String) -> HandbookIndex {
+    guard lang != ix.lang, let language = SiteLanguage.served(lang) else { return ix }
+    let names: [String: [String: String]] = [
+      "th": ["Cá đĩa": "ปลาปอมปาดัวร์", "Cá neon": "ปลานีออน", "Cá ngựa vằn": "ปลาม้าลาย", "Rotala đỏ": "โรทาล่าแดง", "Cá tetra": "ปลาเตตร้า"],
+      "id": ["Cá đĩa": "Ikan discus", "Cá neon": "Ikan neon", "Cá ngựa vằn": "Ikan zebra", "Rotala đỏ": "Rotala merah", "Cá tetra": "Ikan tetra"],
+      "ms": ["Cá đĩa": "Ikan diskus", "Cá neon": "Ikan neon tetra", "Cá ngựa vằn": "Ikan zebra danio", "Rotala đỏ": "Rotala merah",
+             "Cá tetra": "Ikan tetra"],
+    ]
+    let e = JSONEncoder()
+    e.outputFormatting = .withoutEscapingSlashes
+    var json = String(decoding: try! e.encode(ix), as: UTF8.self).replacingOccurrences(of: #""lang":"\#(ix.lang)""#, with: #""lang":"\#(lang)""#)
+    for (vi, own) in names[lang] ?? [:] { json = json.replacingOccurrences(of: "\"\(vi)\"", with: "\"\(own)\"") }
+    let paths = try! NSRegularExpression(pattern: #""/vi/([^"]*)""#)
+    for m in paths.matches(in: json, range: NSRange(json.startIndex..., in: json)).reversed() {
+      let segments = (json as NSString).substring(with: m.range(at: 1)).split(separator: "/").map { language.word(String($0)) }
+      json = (json as NSString).replacingCharacters(in: m.range, with: "\"/\(([lang] + segments).joined(separator: "/"))/\"")
+    }
+    return try! JSONDecoder().decode(HandbookIndex.self, from: Data(json.utf8))
+  }
 
   /// UI tests (`-vi-at-root`): the fixture and its pages with the Vietnamese pages at the root, as the site has them
   /// once it takes "/vi" out of their addresses: every path and link that starts "/vi/" without it, but one. The video

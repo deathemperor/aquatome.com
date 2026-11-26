@@ -57,7 +57,9 @@ struct SpeciesPage: View {
   @State private var onSite: URL?
   /// Its parts opened past their fold ("thêm", or a chip to them).
   @State private var opened: Set<Int> = []
-  /// The page has been asked for: nil after this, it didn't come (offline, and not kept), or the app doesn't draw its kind.
+  /// The part it was opened at (a chat section's "Đọc tiếp"), until it's there.
+  @State private var openAt: String?
+  /// The page has been asked for. A missing document opens the web page.
   @State private var asked = false
   @Environment(\.dynamicTypeSize) private var size
   @State private var colour: Color
@@ -118,7 +120,7 @@ struct SpeciesPage: View {
   /// banner holds.
   private var wholeHead: CGSize? {
     guard hero != nil, let a = shape, a > 0, width > 0, viewport > 0,
-          PhotoFrame.of(aspect: a, box: heroBox, ratio: width / bannerHeight) == .whole else { return nil }
+          PhotoFrame.clear(aspect: a, box: heroBox, width: width, height: bannerHeight) == .whole else { return nil }
     let h = min(width / a, 420 - barFoot)
     return CGSize(width: h * a, height: h)
   }
@@ -141,7 +143,7 @@ struct SpeciesPage: View {
     // A page the app can't draw (its kind not drawn here, or it didn't come): the site's page, or its kept copy offline, as
     // v1 showed it, under v1's bar (the v2 Lab, 15 Nov: the old look's switch goes on Thu 19, and this was only v1's).
     if asked && doc == nil {
-      PageView(item: item, url: handbook.url(item))
+      PageView(item: item, url: handbook.url(item), webOnly: true)
     } else {
       drawn
     }
@@ -158,7 +160,7 @@ struct SpeciesPage: View {
           .accessibilityLabel(Text("Đóng"))
           .accessibilityIdentifier("v2-close-post")
       }
-      .v2Glass(inGlass)
+      .v2Glass(true)
     }
     // Over the photo and its colour, the bar and status bar in white. The page's own after them, never nil: iOS can keep the
     // dark one after nil, white words on the white band.
@@ -177,7 +179,7 @@ struct SpeciesPage: View {
         }
         .v2Glass(false)
       }
-      // Save and share in one ⋯, from the first screen, so the bar's items never change as the page scrolls (the owner,
+      // Save, share and browser in one ⋯, from the first screen, so the bar's items never change as the page scrolls (the owner,
       // 11 Nov: "2B", and "Save and share: go with your recommendation").
       ToolbarItem(placement: .topBarTrailing) {
         let saved = handbook.isSaved(item)
@@ -199,7 +201,7 @@ struct SpeciesPage: View {
           .accessibilityLabel(Text("Thêm"))
           .accessibilityIdentifier("page-more")
       }
-      .v2Glass(inGlass)
+      .v2Glass(true)
     }
     // The bookmark isn't in the bar to fill: a save from the ⋯ is felt.
     .sensoryFeedback(.success, trigger: savedFromMore)
@@ -214,10 +216,17 @@ struct SpeciesPage: View {
   /// The page asked for, and worked out into its parts once.
   private func come() async {
     guard doc == nil else { return }
-    doc = await handbook.doc(item)
-    whole = doc.map(WholeParts.init)
+    let loaded = await handbook.doc(item)
+    guard !Task.isCancelled else { return }
+    doc = loaded
+    whole = loaded.map(WholeParts.init)
     asked = true
-    if doc != nil { handbook.read(item) }
+    guard loaded != nil else { return }
+    if let at = handbook.openingAt, handbook.item(at: at.path)?.path == item.path {
+      handbook.openingAt = nil
+      openAt = at.heading
+    }
+    handbook.read(item)
   }
 
   /// The page under its bar: the shade behind the status bar, the edge swipe back, the band, the bar's title and the
@@ -227,8 +236,7 @@ struct SpeciesPage: View {
     .navigationBarTitleDisplayMode(.inline)
     // The band behind the bar is the page's own (`ClearUnderTopBar`), on iOS 18 too.
     .toolbarBackground(.hidden, for: .navigationBar)
-    // The page's own buttons, in the same places all the way down: on the photo and its colour, dark circles, as iOS 26's glass
-    // goes light on them, under white symbols (2.4:1); glass after the colour.
+    // The page's own buttons, in the same places all the way down, in iOS's glass as its back button is (`round`).
     // A shade behind the status bar and the bar until the band comes: iOS's back button and the owner's Mục lục stand on the
     // photo with no circle of ours, so it holds through the bar for them (Design, 12 Nov: iOS's back on a white photo from
     // 2.4:1 to 3.5:1; `PageTop`). Under Reduce Motion it goes at once.
@@ -287,6 +295,14 @@ struct SpeciesPage: View {
         .environment(\.openURL, OpenURLAction { follow($0, proxy) })
       }
       .onChange(of: player.asked) { withAnimation(reduceMotion ? nil : .default) { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
+      // Opened at a part: there once it's drawn, open, as a chip goes.
+      .task(id: whole != nil ? openAt : nil) {
+        guard let at = openAt, let whole else { return }
+        try? await Task.sleep(for: .milliseconds(150))
+        if let i = whole.ids.firstIndex(of: at) { opened.insert(i) }
+        jump(to: at, proxy)
+        openAt = nil
+      }
       .onChange(of: navigator.asked) { _, asked in go(to: asked, proxy) }
     }
     .environment(player)
@@ -363,7 +379,8 @@ struct SpeciesPage: View {
   /// just above; VoiceOver's do.
   private func quietAsk(_ route: ChatRoute) -> some View {
     NavigationLink(value: route) {
-      Label(item.kind == .plant ? "Hỏi về cây này" : "Hỏi về cá này", systemImage: "bubble.left.and.text.bubble.right.fill")
+      // A crab's, a shrimp's or a snail's page: "loài", not "cá" (the owner's report, 15 Nov).
+      Label(item.kind == .plant ? "Hỏi về cây này" : item.isFish ? "Hỏi về cá này" : "Hỏi về loài này", systemImage: "bubble.left.and.text.bubble.right.fill")
         .font(.body.weight(.semibold))
         .lineLimit(3)
         .foregroundStyle(.white)
@@ -386,7 +403,7 @@ struct SpeciesPage: View {
         if whole != nil { Color.clear.frame(height: barFoot) }
         // The taller banner, fading into the colour; or the whole photo under the bar, with a straight edge (`wholeHead`).
         // One photo either way, so it isn't drawn again when its shape comes.
-        let banner = V2Photo(src: hero, box: heroBox, ground: colour, onGround: true, colour: { colour = $0 }, shape: { heroShape = $0 })
+        let banner = V2Photo(src: hero, box: heroBox, ground: colour, onGround: true, clear: true, colour: { colour = $0 }, shape: { heroShape = $0 })
           .frame(width: whole?.width, height: whole?.height)
           .frame(maxWidth: .infinity)
           .containerRelativeFrame(.vertical) { h, _ in whole?.height ?? min(420, h * (size.isAccessibilitySize ? 0.34 : 0.46)) }
@@ -494,15 +511,12 @@ struct SpeciesPage: View {
   }
 
 
-  /// Whether the bar's buttons stand over the photo: there on dark circles of our own; once the band comes, on the page's
-  /// colour and past it, in iOS's glass, as iOS's back button is (Design's parity, 13 Nov: on the colour the ⋯ was bare
-  /// dots beside the back in its tinted glass).
+  /// Whether the bar stands over the photo, at rest on a page with a banner: the navigator's title takes a dark capsule there.
   private var overPhoto: Bool { hero != nil && !scrolled && wholeHead == nil }
-  /// Whether the bar's buttons are in iOS's glass: once the band comes, and on a page with no photo. Not over a photo, nor
-  /// on the colour above a whole head, where they're white with no circle and no glass (Design's mock of 11 Nov).
-  private var inGlass: Bool { hero == nil || scrolled }
-
-  /// White on a dark circle over the photo, in a 44-point tap area; once the band comes, in iOS's glass (`v2Glass`).
+  /// The bar's own buttons, in iOS's glass at rest too, over the photo and on the colour, as iOS's back button is beside
+  /// them (Design's parity of 14 Nov: the ⋯ was a dark circle of ours, or bare on a whole head's colour, beside the back's
+  /// glass). Before iOS 26, which has no glass, the dark circle of ours stays over the photo: white on a white photo
+  /// reads 8.6:1 on it, 3.5:1 on the shade alone. In a 44-point tap area.
   private func round(_ symbol: String) -> some View {
     Image(systemName: symbol)
       .font(.body.weight(.semibold))
@@ -511,8 +525,10 @@ struct SpeciesPage: View {
       .foregroundStyle(colourAt.top ? Color.white : Color.primary)
       .frame(width: 44, height: 44)
       .background {
-        Circle().fill(.black.opacity(overPhoto ? PageTop.ground(reduceTransparency: opaque) : 0))
-          .frame(width: PageTop.disc, height: PageTop.disc)
+        if #unavailable(iOS 26) {
+          Circle().fill(.black.opacity(overPhoto ? PageTop.ground(reduceTransparency: opaque) : 0))
+            .frame(width: PageTop.disc, height: PageTop.disc)
+        }
       }
       .contentShape(Circle())
   }

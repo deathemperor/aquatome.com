@@ -342,6 +342,13 @@
           "min": 21,
           "max": 26
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 22
+        }
       }
     ],
     "ph": [
@@ -366,6 +373,10 @@
       {
         "source": "seriouslyfish",
         "value": 15.2
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ],
     "tankCm": [
@@ -389,6 +400,12 @@
       "html": "<p>The zipper loach, Paracanthocobitis botia, is a nemacheilid loach from the Brahmaputra River in Assam, northeastern India. It was long thought to range from Pakistan to western Thailand, and several populations once included under the name are now treated as separate species. Relatively hardy and peaceful, it is one of the better choices for those new to nemacheilids, and its dark, eye-like ocellus at the top of the caudal peduncle is normally more intense in younger fish.</p><ul><li>Max size: 152 mm SL (6 in SL)</li><li>Aquarium size: 75 × 30 cm (30 × 12 in)</li><li>Temperature: 21–26°C (70–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 5–12 dGH</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/paracanthocobitis-botia-2/",
+      "html": "<p>A pretty loach imported from India, with a final length of 5-7 cm. It is an ideal bottom fish for moderately tempered (16-22°C) community aquariums with fish of this region.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acanthocobitis-botia",
@@ -399,6 +416,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acanthocobitis-botia",
       "html": "<p>Habitats vary to some extent and most are seasonal in nature, e.g., swelling in volume and flowing more rapidly during the annual monsoons.</p><p>However in general it shows a preference for stretches of streams and small rivers where leaf litter and other debris collects, areas of open sand or mixed cobbles, rocks, and boulders.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/paracanthocobitis-botia-2/",
+      "html": "<p>In nature, all these species are also occasionally found together, e.g. in the shore area of rivers and lakes over sandy-stony substrate, but only P. botia colonizes streams with stronger currents.</p>"
     },
     {
       "key": "aquariumSize",
@@ -431,6 +454,12 @@
       "html": "<p>Generally peaceful and can be maintained alongside many of the more popular species in the hobby although ideally fishes from one of its native countries or rivers should be selected.</p><p>Most small, peaceful schooling or shoaling cyprinids are excellent choices as are many other loaches such as Lepidocephalichthys and some Nemacheilus spp.</p><p>In a hill stream-style set-up it can also be housed with rheophilic loaches such as Gastromyzon, Pseudogastromyzon, Beaufortia and Sewellia spp., but more aggressive nemacheilids, e.g., similarly-sized Schistura spp. are best avoided.</p><p>It exists in loose aggregations in nature and can exhibit shy or skittish behaviour if kept singly or in small numbers so buy a group of six or more. You'll be rewarded with a more natural-looking display plus interesting behaviour from the fish as they interact with conspecifics.</p><p>Some specimens have been known to nip the fins of rivals.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/paracanthocobitis-botia-2/",
+      "html": "<p>In the aquarium, P. botia are adaptable and undemanding. In contrast to many Schistura species, which occasionally become quite aggressive towards other fish, Paracanthocobitis are completely peaceful fellows. Suitable tankmates include fish of this region, like zebra danios (Danio rerio), rosy barbs (Pethia conchonius) and dwarf gourami (Colisa lalia).</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acanthocobitis-botia",
@@ -458,25 +487,55 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/a7b6da8d21705d5d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a7b6da8d21705d5d-480.webp",
       "width": 805,
       "height": 604,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Martin Thoene / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acanthocobitis-botia",
       "caption": "A typically-patterned specimen of A. botia..",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/a7b6da8d21705d5d-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/e5ceec99b866809f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e5ceec99b866809f-480.webp",
       "width": 800,
       "height": 449,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acanthocobitis-botia",
       "caption": "...and another.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/e5ceec99b866809f-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2391d055026aae17.webp",
+      "thumb": "https://media.aquatome.com/glaser/2391d055026aae17-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/paracanthocobitis-botia-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0bd63815c1cbb681.webp",
+      "thumb": "https://media.aquatome.com/glaser/0bd63815c1cbb681-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/paracanthocobitis-botia-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c866198e35cab2f9.webp",
+      "thumb": "https://media.aquatome.com/glaser/c866198e35cab2f9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/paracanthocobitis-botia-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -509,5 +568,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-11-23"
 }

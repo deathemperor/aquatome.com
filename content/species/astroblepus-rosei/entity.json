@@ -1,0 +1,174 @@
+{
+  "id": "astroblepus-rosei",
+  "scientificName": "Astroblepus rosei",
+  "order": "Siluriformes",
+  "family": "Astroblepidae",
+  "genus": "Astroblepus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "rio-jequetepeque"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_rosei.htm",
+      "html": "<ul><li>Common name: none</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_rosei.htm",
+      "html": "<p>South America: Pacific coastal drainages of Cajamarca, Peru. Type locality: Río Jequetepeque, Llallán, Peru.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_rosei.htm",
+      "html": "<p>Not an easy family of catfishes to keep so they would have to have a large tank with rocks and some appropriate vegetation. The water would need to be fast flowing and provided with extra oxygen via an air tube fed into the powerhead flow. The tank should be set up with rocks so as to provide an area where the water current will be slower.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_rosei.htm",
+      "html": "<p>Invertebrates, insect larvae, spirulina tablets or paste, algae based foods and live bloodworm would probably be the staple diet but you may wish to try glassworm and blackworm (although these won’t tend to stay on the substrate unless the current takes them there).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_rosei.htm",
+      "html": "<p>Etymology: The specific name rosei: in honour of botanist Joseph Nelson Rose (1862-1928), United States National Museum, a “student of the flora of South America”.</p><p>Remarks: Eigenmann (1922: 55) stated that the type [= holotype] was a specimen deposited in the Indiana University collection, but eleven specimens were deposited there (now CAS 64649), and no indication was given in the publication as to which was the type. Therefore, all eleven, plus one specimen deposited in the Carnegie Museum collection (now FMNH 58640), must be considered syntypes.</p><p>IUCN Red List: The species is listed as Data Deficient due to the lack of data on its exact range, population size and threats, but needs updating (IUCN 2016).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_rosei.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2017. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 09/2018 ).</li><li>Sanchez-Duarte, P. 2016. Astroblepus rosei. The IUCN Red List of Threatened Species 2016.</li><li>Schaefer, S.A., 2003. Astroblepidae (Naked sucker-mouth catfishes). p. 312-317. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "bơm tạo dòng chảy cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21",
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Jequetepeque"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Pacific coastal drainages of Cajamarca, Peru. Type locality: Río Jequetepeque, Llallán, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Jequetepeque"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342107,
+      "total": 15,
+      "fetched": "2026-11-22",
+      "countries": [
+        [
+          "CO",
+          11
+        ],
+        [
+          "PE",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -78.75,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          5.625,
+          5,
+          0
+        ],
+        [
+          -74.53125,
+          2.8125,
+          5,
+          0
+        ]
+      ]
+    }
+  }
+}

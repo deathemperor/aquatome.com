@@ -1,6 +1,7 @@
 content/changelog.json merge=changelog
 engine-state/_photo-*.json merge=jsonmap
 engine-state/_wanted.json merge=jsonmap
+engine-state/_video-cut.json merge=jsonmap
 engine-state/_credit-reads.json merge=jsonmap
 engine-state/_credit-holds.json merge=jsonmap
 engine-state/_gbif-names.json merge=jsonmap
@@ -12,10 +13,14 @@ engine-state/_breed-links.json merge=jsonmap
 engine-state/_sources.json merge=jsonmap
 engine-state/_unsplash.json merge=jsonmap
 engine-state/_breed-photos.json merge=jsonmap
+engine-state/_glossary-photos.json merge=jsonmap
 engine-state/_variety-pages.json merge=jsonmap
 engine-state/_planting.json merge=jsonmap
 engine-state/_species-videos.json merge=jsonmap
 content/captions/*.json merge=jsonmap
+content/video-titles/*.json merge=jsonmap
+# A list, not a map: the map driver would turn it into an object the loader refuses. Merged as text.
+content/video-titles/on.json merge
 content/picture-hashes.json merge=jsonmap
 content/page-dates.json merge=jsonmap
 content/species/*/*.json merge=entity
@@ -23,6 +28,9 @@ content/plants/*/*.json merge=entity
 content/places/*/*.json merge=entity
 engine-state/_topic-check.json merge=jsonmap
 engine-state/_reader.json merge=jsonmap
+# The style rewrite's record, a page to its record: the pass's commit, marks and all, and a daily run meet in it (rewrite-marks.ts).
+engine-state/vi-rewrite.json merge=jsonmap
+engine-state/_priority-emptied.json merge=jsonmap
 engine-state/_depth-search.json merge=jsonmap
 engine-state/_product-reviews.json merge=jsonmap
 engine-state/_video-stills.json merge=jsonmap
@@ -38,3 +46,17 @@ engine-state/_cards-intl.json merge=jsonmap
 # Each run rewrites these reports, so either whole version can survive a merge.
 docs/review/fit.md merge=regenerated
 engine-state/fit-summary.json merge=regenerated
+# Files two engine jobs both write that no driver above merges: a guide's or a breed's pictures, an album, a playlist, a
+# page's summary card, the photo review page. Until 16 Nov they merged line by line, and the push fallback (`git pull
+# --rebase -X theirs`) gave a part photo another photo's credit, and a still another still's caption and "no one in it"
+# mark (8, 9, 15 and 16 Nov 2026). Now no picture is built from two versions: the file merges value by value, each
+# picture whole from one side; a picture either side took off the file stays off; a summary card is taken whole
+# (scripts/merge-main-whole.mjs). Only the engine's clones set this driver (the job
+# scripts); elsewhere (leads' checkouts, GitHub's merges) these merge as text, as before. Not the pages' language files:
+# main's file there would drop a hold the run added, and their holds follow main_holds (scripts/cycle-checks.sh).
+content/guides/*/entity.json merge=main-whole
+content/breeds/*/entity.json merge=main-whole
+content/gallery/*.json merge=main-whole
+content/series/*.json merge=main-whole
+content/summaries/*.json merge=main-whole
+docs/review/photo-subjects.md merge=main-whole

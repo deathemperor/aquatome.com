@@ -1,0 +1,36 @@
+{
+  "id": "aequidens-superomaculatum",
+  "native": {
+    "input": "07de0cdc855d597c",
+    "at": "2026-11-22T12:48:24.036Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Venezuela.",
+        "words": "Venezuela",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aequidens superomaculatum",
+    "status": "ACCEPTED",
+    "taxonKey": 10092114,
+    "datasets": [],
+    "native": [],
+    "requests": 2,
+    "at": "2026-11-22T12:48:24.036Z"
+  }
+}

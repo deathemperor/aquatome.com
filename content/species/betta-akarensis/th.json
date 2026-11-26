@@ -20,10 +20,10 @@
     "references:seriouslyfish": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Regan, C. T. (1910). The Asiatic fishes of the family Anabantidae. Proceedings of the Zoological Society of London 1909(4), 767-787</li><li>Tan, H. H. and P. K. L. Ng (2004). Two new species of freshwater fish (Teleostei: Balitoridae, Osphronemidae) from southern Sarawak. Sarawak Bau Limestone Biodiversity. Sarawak Museum Journal Special issue 6, 267-284</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6
+      "seriouslyfish": 0.85
     }
   }
 }

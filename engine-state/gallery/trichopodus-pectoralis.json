@@ -6,7 +6,11 @@
   "inat:178995707",
   "inat:313766693"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/1867fafca2728fe3.webp": "6806171b56be78c9",
+  "https://media.aquatome.com/glaser/bf2bd5c8d1091656.webp": "1d1f1f2f3306c1c0",
+  "https://media.aquatome.com/glaser/453cbd1c7a090a23.webp": "c0c73d611b13090f"
+ },
  "inat": {
   "taxon": 188582,
   "pass": "done",
@@ -18,6 +22,9 @@
  "commons": "2026-11-08",
  "gbif": {
   "key": 5211177,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

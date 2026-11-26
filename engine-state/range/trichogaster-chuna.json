@@ -1,0 +1,152 @@
+{
+  "id": "trichogaster-chuna",
+  "native": {
+    "input": "74d74fd6a65d9e10",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ganges River in northern India, including its floodplain and delta in Bangladesh, plus the Brahmaputra system in the states of Assam, Manipur, Meghalaya, and Arunachal Pradesh, with additional records from Nepal.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ganges River in northern India, including its floodplain and delta in Bangladesh, plus the Brahmaputra system in the states of Assam, Manipur, Meghalaya, and Arunachal Pradesh, with additional records from Nepal.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ganges River in northern India, including its floodplain and delta in Bangladesh, plus the Brahmaputra system in the states of Assam, Manipur, Meghalaya, and Arunachal Pradesh, with additional records from Nepal.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The honey gurami originates from India and Bangladesh.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The honey gurami originates from India and Bangladesh.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Trichogaster chuna comes from India and Bangladesh.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Trichogaster chuna comes from India and Bangladesh.",
+        "words": "Bangladesh",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ganges River in northern India, including its floodplain and delta in Bangladesh, plus the Brahmaputra system in the states of Assam, Manipur, Meghalaya, and Arunachal Pradesh, with additional records from Nepal.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ganges River in northern India, including its floodplain and delta in Bangladesh, plus the Brahmaputra system in the states of Assam, Manipur, Meghalaya, and Arunachal Pradesh, with additional records from Nepal.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trichogaster chuna",
+    "status": "ACCEPTED",
+    "taxonKey": 5211191,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        10
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        10
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ],
+      [
+        "bd0b1ffa-bf79-4a4b-8019-d907607ac887",
+        1
+      ],
+      [
+        "db5e874b-3e69-4380-bd61-f4cf5237e0f5",
+        1
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "BD",
+      "NP"
+    ],
+    "requests": 13,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

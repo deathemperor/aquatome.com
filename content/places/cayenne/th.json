@@ -1,0 +1,16 @@
+{
+  "slug": "cayenne",
+  "name": "กาแยน",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-22T00:33:36.500Z",
+    "why": "Thai atlases write Cayenne as \"กาแยน\" or more commonly \"กาเยน\"; the given form is a plausible transliteration, but the standard Thai spelling is \"กาแยนน์/กาเยน\", so it is only partly matching, and the region lacks a kind word."
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false
+  }
+}

@@ -10,6 +10,74 @@
     "china",
     "zhu-jiang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Zhu Jiang",
+        "Liu Jiang",
+        "Gui Jiang"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Kansu loach, Sinibotia robusta, is a botiid loach from the Zhu Jiang (Pearl River) system in Guangxi, southern China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Zhu Jiang"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "S. robusta has been recorded from several other tributary drainages of the Zhu Jiang system including the Liu Jiang and Gui Jiang.",
+          "countries": [],
+          "regions": [
+            "Liu Jiang",
+            "Gui Jiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367825,
+      "total": 3,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -163,7 +231,7 @@
       "width": 861,
       "height": 360,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Stan Sung / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sinibotia-robusta",
       "caption": "A typically-patterned subadult of the age and size at which this species is usually offered for sale.",
       "source": "seriouslyfish"
@@ -174,7 +242,7 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Choy Heng Wah / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sinibotia-robusta",
       "caption": "Subadult in which the body bars are beginning to bifurcate...",
       "source": "seriouslyfish"
@@ -196,12 +264,6 @@
       "youtubeId": "_Bo5JH9lIf0",
       "title": "Sinibotia robusta",
       "durationSec": 61,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "zC44quj1Dow",
-      "title": "Sinibotia robusta",
-      "durationSec": 37,
       "lang": "en"
     },
     {

@@ -1,0 +1,583 @@
+{
+  "id": "netuma-bilineata",
+  "scientificName": "Netuma bilineata",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Netuma",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "japan",
+    "india",
+    "pondicherry",
+    "myanmar",
+    "rangoon",
+    "oceania",
+    "australia",
+    "queensland"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU",
+        "JP"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Indo-West Pacific: Persian Gulf to the Indo-Malayan region, northern Australia, Queensland, and north to southern Japan.",
+          "countries": [
+            "AU",
+            "JP"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345423,
+      "total": 144,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "AU",
+          72
+        ],
+        [
+          "IN",
+          12
+        ],
+        [
+          "MY",
+          9
+        ],
+        [
+          "TH",
+          8
+        ],
+        [
+          "ID",
+          7
+        ],
+        [
+          "MM",
+          7
+        ],
+        [
+          "OM",
+          7
+        ],
+        [
+          "AE",
+          4
+        ],
+        [
+          "BD",
+          4
+        ],
+        [
+          "KW",
+          3
+        ],
+        [
+          "PK",
+          3
+        ],
+        [
+          "PH",
+          2
+        ],
+        [
+          "VN",
+          2
+        ],
+        [
+          "JP",
+          1
+        ],
+        [
+          "LK",
+          1
+        ],
+        [
+          "SA",
+          1
+        ],
+        [
+          "TW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          47.8125,
+          28.125,
+          3,
+          0
+        ],
+        [
+          49.21875,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          53.4375,
+          16.875,
+          1,
+          0
+        ],
+        [
+          54.84375,
+          23.90625,
+          4,
+          0
+        ],
+        [
+          56.25,
+          25.3125,
+          2,
+          0
+        ],
+        [
+          57.65625,
+          19.6875,
+          3,
+          0
+        ],
+        [
+          59.0625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          66.09375,
+          23.90625,
+          3,
+          0
+        ],
+        [
+          68.90625,
+          19.6875,
+          2,
+          0
+        ],
+        [
+          68.90625,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          74.53125,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          75.9375,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          77.34375,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          78.75,
+          5.625,
+          1,
+          0
+        ],
+        [
+          78.75,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          78.75,
+          11.25,
+          1,
+          0
+        ],
+        [
+          80.15625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          84.375,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          88.59375,
+          21.09375,
+          3,
+          0
+        ],
+        [
+          91.40625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          92.8125,
+          18.28125,
+          2,
+          0
+        ],
+        [
+          95.625,
+          14.0625,
+          4,
+          0
+        ],
+        [
+          97.03125,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          5.625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          11.25,
+          4,
+          0
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          4,
+          0
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          105.46875,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          109.6875,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          109.6875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          112.5,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -9.84375,
+          3,
+          0
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          115.3125,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          116.71875,
+          -22.5,
+          9,
+          9
+        ],
+        [
+          118.125,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          122.34375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          125.15625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          126.5625,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          127.96875,
+          -16.875,
+          9,
+          9
+        ],
+        [
+          129.375,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          129.375,
+          -11.25,
+          12,
+          12
+        ],
+        [
+          130.78125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          130.78125,
+          -11.25,
+          6,
+          6
+        ],
+        [
+          132.1875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          135,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          135,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          135,
+          33.75,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          -14.0625,
+          6,
+          6
+        ],
+        [
+          136.40625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          137.8125,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          142.03125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          142.03125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          146.25,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          151.875,
+          -28.125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 62
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_bilineata.htm",
+      "html": "<p>Family: Ariidae. Size: 62 cm. IUCN Red List: Not Evaluated.</p><p>Common names: Bronze catfish, Two-line sea catfish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_bilineata.htm",
+      "html": "<p>Indo-West Pacific: Persian Gulf to the Indo-Malayan region, northern Australia, Queensland, and north to southern Japan. Type locality: Pondichéry ... Rangoon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_bilineata.htm",
+      "html": "<p>Inhabits coastal waters, from estuaries onto the continental shelf. Found mostly on mudflats; males incubate eggs in the mouth. Has sharp and venomous dorsal and pectoral spines that can inflict extremely painful injuries. Marine; freshwater and brackish. An important food fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_bilineata.htm",
+      "html": "<p>Mainly opportunistic and carnivorous; feeding on sea urchins, crustaceans, fish, prawns, loose scales, and detritus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_bilineata.htm",
+      "html": "<p>Description: Dorsal spines (total): 1; Anal spines: 0; Anal soft rays: 17-21; Vertebrae: 53-58. Dorsomedian head groove bordered posteriorly by slightly raised frontals and forming a \"V\". Gill rakers usually absent on hind aspect of first 2 gill arches. Caudal fin lobes slender and tapered. Adipose fin short-based and located posteriorly.</p><p>Etymology: The genus name Netuma is a Tamil word that means \"dance\". The specific name bilineata refers to two lines (on the body).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_bilineata.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2019 ). Kailola, P.J., 1999. Ariidae (=Tachysuridae): sea catfishes (fork-tailed catfishes). p. 1827-1879. In K.E. Carpenter and V.H. Niem (eds.) FAO species identification guide for fishery purposes. The living marine resources of the Western Central Pacific. Vol. 3. Batoid fishes, chimaeras and bony fishes part 1 (Elopidae to Linophrynidae). FAO, Rome. Netuma bilineata in Fishes of Australia, accessed 04 Sep 2020. Fishes of Australia</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

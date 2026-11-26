@@ -8,7 +8,9 @@
   "places": [
     "south-america",
     "brazil",
-    "madeira"
+    "madeira",
+    "rio-madeira",
+    "peru"
   ],
   "range": {
     "native": {
@@ -132,6 +134,10 @@
       {
         "source": "seriouslyfish",
         "value": 10.5
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -155,6 +161,12 @@
       "html": "<ul><li>Max size: 105 mm SL (4 in SL)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 24–28°C (75–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-isalinae-2/",
+      "html": "<p>The barracuda tetras (Acestrorhynchus) are good aquarium fishes, although they are predators that prefer to feed on small other fish. Most species are medium sized – about 20-30 cm maximum length – but there are also dwarf species. Among the latter is A. isalineae. This species attains only 7.5 cm in standard length, about 10 cm total length. Usually in fishes the caudal fin is not included in reports of the length, because this fin is very often damaged in wild fish. A. isalineae is also a most attractive species. It has two black longitudinal stripes on the body and a yellow or red caudal spot.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-isalineae",
@@ -165,6 +177,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-isalineae",
       "html": "<p>Etymology: Acestrorhynchus: from the Greek akéstra (Gr. ἀκέστρα), meaning 'darning needle' and rhýnchos (Gr. ῥύγχος), meaning 'snout', in reference to the presence of sharp teeth on both jaws.</p><p>isalineae: named for Mrs. Isaline Drecq, wife of Mr. Guy van den Bossche, a participant in the expedition on which the species was discovered.</p><p>The type series was collected from 'tributary of Rio dos Marmelos, Rio Madeira basin, 110 kilometers east of Humaitá along rodovia Transamazônica, Amazonas State, Brazil' in the western Brazilian Amazon, and most official records pertain only to this locality although the species may be more widely-distributed within the Madeira system.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-isalinae-2/",
+      "html": "<p>Acestrorhynchus isalineae was described scientifically only in 1963 from the Rio Madeira basin. Exportations of Acestrorhynchus from that region do not appear, but there is a beautiful book on the fishes of the Rio Madeira. The fish illustrated there as A. isalineae is identical in all visible points with the fish exported regularly from Peru.</p>"
     },
     {
       "key": "aquariumSize",
@@ -215,13 +233,60 @@
       "html": "<p>This species is a member of the putative 'A. nasutus group' of closely-related species within the genus alongside A. nasutus, A. maculipinna and A. falcirostris.</p><p>These are all characterised by possession of two dark, longitudinal stripes, one running from the tip of the snout to the caudal-fin base and the other from the posterior edge of the lower maxilla to the underside of the caudal peduncle.</p><p>Similar patterning is present in juvenile specimens of A. falcirostris although it's clearly distinguishable by adult size with the other three species tending to grow no larger than 100 mm (3.9 in) SL and retaining the body stripes into adulthood.</p><p>The remainder of the genus is currently composed as follows:</p><p>A. microlepis group: A. britskii, A. grandoculis, A. microlepis, A. minimus A. nasutus group: A. falcirostris, A. nasutus, A. isalineae, possibly A. maculipinnis Not assignable to any group: A. heterolepis.</p><p>The family Acestrorhynchidae appears most closely-related to the Cynodontidae which contains the genera Cynodon, Hydrolycus and Rhaphiodon.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-isalinae-2/",
+      "html": "<p>In 1909 Eigenmann described a very similar species from British Guyana: A. nasutus. As the photo of the holotype shows, in A. nasutus the caudal spot is not a circular point but rectangular and spreads far into the caudal fin. Another difference between A. nasutus and A. isalineae is the black stripe along the belly, which ends above the anal fin in A. nasutus. A. nasutus has apparently never been imported as an aquarium fish. It attains the same maximum size as A. isalineae, about 7.5 cm standard length.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-isalineae",
       "html": "<ul><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>López-Fernández, H. and K. O. Winemiller (2003). Morphological variation in Acestrorhynchus microlepis and A. falcatus (Characiformes: Acestrorhynchidae), reassessment of A. apurensis and distribution of Acestrorhynchus in Venezuela. Ichthyological Exploration of Freshwaters 14(3), 193-208</li><li>Menezes, N. A. (1969). Systematics and evolution of the tribe Acestrorhynchini (Pisces, Characidae). Arquivos de Zoologia (São Paulo) 18(1-2), 1-150</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Prettia, V. Q., D. Calcagnottoa, M. Toledo-Piza and L. F. de Almeida-Toledo (2009). Phylogeny of the Neotropical genus Acestrorhynchus (Ostariophysi: Characiformes) based on nuclear and mitochondrial gene sequences and morphology: A total evidence approach. Molecular Phylogenetics and Evolution 52(2), 312–320</li><li>Toledo-Piza, M. (2007). Phylogenetic relationships among Acestrorhynchus species (Ostariophysi: Characiformes: Acestrorhynchidae). Zoological Journal of the Linnean Society 151(4), 691–757</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/955c6758ad6785d3.webp",
+      "thumb": "https://media.aquatome.com/glaser/955c6758ad6785d3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-isalinae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a4d6c27e45c1302b.webp",
+      "thumb": "https://media.aquatome.com/glaser/a4d6c27e45c1302b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-isalinae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a1302ebf2a09d0b2.webp",
+      "thumb": "https://media.aquatome.com/glaser/a1302ebf2a09d0b2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-isalinae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/65405ef75d64d61c.webp",
+      "thumb": "https://media.aquatome.com/glaser/65405ef75d64d61c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus-isalinae-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -250,5 +315,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-11-19"
 }

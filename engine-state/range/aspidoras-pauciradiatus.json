@@ -1,9 +1,17 @@
 {
   "id": "aspidoras-pauciradiatus",
   "native": {
-    "input": "4e5d537a63a3f4d8",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "433fbe45c216cc5f",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Aspidoras pauciradiatus is a small armoured catfish that appears restricted to the upper Araguaia basin in Goiás state, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
       {
         "code": "BR",
         "status": "native",
@@ -24,8 +32,9 @@
       {
         "name": "Rio Negro",
         "source": "glaser",
-        "quote": "The species originates from the Rio Negro basin.",
-        "ok": true
+        "quote": "Aspidoras pauciradiatus comes from the central Rio-Negro area.",
+        "ok": false,
+        "why": "its name is not in the quote"
       }
     ],
     "disputed": [],

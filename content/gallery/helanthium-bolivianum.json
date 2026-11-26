@@ -14,16 +14,15 @@
       "kind": "submersed"
     },
     {
-      "url": "https://media.aquatome.com/tropica/d7fda2889ce417a1.webp",
-      "thumb": "https://media.aquatome.com/tropica/d7fda2889ce417a1-480.webp",
+      "url": "https://media.aquatome.com/tropica/6e4dbf752b780964.webp",
+      "thumb": "https://media.aquatome.com/tropica/6e4dbf752b780964-480.webp",
       "width": 1200,
       "height": 1200,
       "licence": "dùng với sự cho phép",
       "author": "Tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Helanthiumbolivianum'Quadricostatus'(068TC)/18896",
       "source": "tropica",
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/tropica/f5ac9e94076fb761.webp",
@@ -39,20 +38,7 @@
       "author": "Tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Helanthiumbolivianum'Quadricostatus'(068TC)/18896",
       "source": "tropica",
-      "kind": "submersed",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/tropica/6e4dbf752b780964.webp",
-      "thumb": "https://media.aquatome.com/tropica/6e4dbf752b780964-480.webp",
-      "width": 1200,
-      "height": 1200,
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Helanthiumbolivianum'Quadricostatus'(068TC)/18896",
-      "source": "tropica",
-      "kind": "other",
-      "unchecked": true
+      "kind": "submersed"
     },
     {
       "url": "https://media.aquatome.com/tropica/f1b5a41482cc687c.webp",
@@ -63,8 +49,7 @@
       "author": "Tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Helanthiumbolivianum'Quadricostatus'(068TC)/18896",
       "source": "tropica",
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/b9d582097c8e036c.webp",
@@ -77,9 +62,61 @@
       "caption": "Hoa ba cánh trắng của Cây chân vịt lùn Quadricostatus",
       "best": true,
       "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/173313816.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/173313816-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC0",
+      "author": "Hugo Hulsberg",
+      "sourceUrl": "https://www.inaturalist.org/photos/173313816",
+      "caption": "Hoa trắng Cây chân vịt lùn mọc giữa đám lá ngoài tự nhiên",
+      "best": true,
+      "kind": "flower",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/582310752.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/582310752-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Jhonatan Matheus",
+      "sourceUrl": "https://www.inaturalist.org/photos/582310752",
+      "caption": "Cụm hoa trắng Cây chân vịt lùn nở rộ ngoài tự nhiên",
+      "best": true,
+      "kind": "flower",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/582310839.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/582310839-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Jhonatan Matheus",
+      "sourceUrl": "https://www.inaturalist.org/photos/582310839",
+      "caption": "Hoa trắng Cây chân vịt lùn nhìn cận cảnh giữa nụ và lá",
+      "best": true,
+      "kind": "flower",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/582310801.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/582310801-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Jhonatan Matheus",
+      "sourceUrl": "https://www.inaturalist.org/photos/582310801",
+      "caption": "Hoa và nụ Cây chân vịt lùn trong môi trường hoang dã",
+      "best": false,
+      "kind": "flower",
+      "setup": false
     }
   ],
-  "seen": 2,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-10"
+  "seen": 12,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

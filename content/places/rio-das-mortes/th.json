@@ -3,6 +3,12 @@
   "name": "ดัสมอร์ตีส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-18T18:26:57.693Z",
+    "why": "ดัสมอร์ตีส only transliterates \"das Mortes\" and omits the river name \"Rio\" and the Thai kind word แม่น้ำ, so it is cut short and unfinished."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

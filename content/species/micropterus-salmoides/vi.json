@@ -1,0 +1,24 @@
+{
+  "slug": "ca-vuoc-mieng-rong",
+  "name": "Cá vược miệng rộng",
+  "altNames": [
+    "Cá bass miệng rộng",
+    "Largemouth Bass"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Một loài cá đặc biệt cho hồ ngoài trời của bạn.</p><p>Xuất xứ: Mỹ</p>",
+    "distribution:glaser": "<p>Cá vược miệng rộng gốc ở miền đông nước Mỹ, từ biên giới Canada xuống tới Mexico. Người ta đã đem loài này thả ở nhiều nước để câu thể thao, nên giờ ở châu Âu cũng có.</p>",
+    "habitat:glaser": "<p>Chúng thích vùng nước tĩnh, không có dòng chảy, được nắng sưởi ấm và có nhiều cây thủy sinh mọc dày. Đám cây đó cho chúng chỗ trốn, cũng là chỗ nấp để rình mồi.</p>",
+    "notes:glaser": "<p>Loài này có thể dài tới 100 cm và nặng tới 15 kg.</p>",
+    "diet:glaser": "<p>Đây là cá săn mồi. Chúng ăn côn trùng sống dưới nước và ấu trùng của chúng, tôm hùm đất và cá.</p>",
+    "reproduction:glaser": "<p>Cá đẻ vào mùa xuân, sớm hay muộn tùy nhiệt độ nước. Con đực làm tổ, rồi cặp cá đẻ trong tổ đó. Con đực canh trứng và cá bột cho tới khoảng một tháng sau khi cá bột tự bơi được.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.7
+    },
+    "reason": "thin"
+  }
+}

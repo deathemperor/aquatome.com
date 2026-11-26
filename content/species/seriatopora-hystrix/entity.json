@@ -1,0 +1,1191 @@
+{
+  "id": "seriatopora-hystrix",
+  "scientificName": "Seriatopora hystrix",
+  "order": "Scleractinia",
+  "family": "Pocilloporidae",
+  "genus": "Seriatopora",
+  "group": "other",
+  "places": [
+    "oceania",
+    "fiji",
+    "solomon-islands",
+    "australia",
+    "great-barrier-reef"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "FJ",
+        "SB"
+      ],
+      "regions": [
+        "Great Barrier Reef"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "It can be found around islands of the Indo-Pacific such as Fiji, the Solomon Islands and the Great Barrier Reef.",
+          "countries": [
+            "FJ",
+            "SB"
+          ],
+          "regions": [
+            "Great Barrier Reef"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2259471,
+      "total": 1192,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "AU",
+          767
+        ],
+        [
+          "EG",
+          103
+        ],
+        [
+          "YT",
+          70
+        ],
+        [
+          "NC",
+          46
+        ],
+        [
+          "ID",
+          41
+        ],
+        [
+          "MH",
+          39
+        ],
+        [
+          "PH",
+          32
+        ],
+        [
+          "FM",
+          12
+        ],
+        [
+          "TF",
+          10
+        ],
+        [
+          "FJ",
+          9
+        ],
+        [
+          "PW",
+          8
+        ],
+        [
+          "JP",
+          6
+        ],
+        [
+          "SB",
+          6
+        ],
+        [
+          "MY",
+          5
+        ],
+        [
+          "MG",
+          3
+        ],
+        [
+          "MZ",
+          3
+        ],
+        [
+          "SA",
+          3
+        ],
+        [
+          "WF",
+          3
+        ],
+        [
+          "IN",
+          2
+        ],
+        [
+          "JO",
+          2
+        ],
+        [
+          "KI",
+          2
+        ],
+        [
+          "KM",
+          2
+        ],
+        [
+          "MV",
+          2
+        ],
+        [
+          "SC",
+          2
+        ],
+        [
+          "TW",
+          2
+        ],
+        [
+          "UM",
+          2
+        ],
+        [
+          "CC",
+          1
+        ],
+        [
+          "DE",
+          1
+        ],
+        [
+          "IL",
+          1
+        ],
+        [
+          "KE",
+          1
+        ],
+        [
+          "MP",
+          1
+        ],
+        [
+          "PG",
+          1
+        ],
+        [
+          "SD",
+          1
+        ],
+        [
+          "SG",
+          1
+        ],
+        [
+          "VN",
+          1
+        ],
+        [
+          "WS",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -177.1875,
+          -14.0625,
+          3,
+          0
+        ],
+        [
+          -174.375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -172.96875,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          11.25,
+          47.8125,
+          1,
+          0
+        ],
+        [
+          32.34375,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          32.34375,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          33.75,
+          23.90625,
+          11,
+          0
+        ],
+        [
+          33.75,
+          25.3125,
+          23,
+          0
+        ],
+        [
+          33.75,
+          26.71875,
+          51,
+          0
+        ],
+        [
+          33.75,
+          28.125,
+          3,
+          0
+        ],
+        [
+          33.75,
+          29.53125,
+          1,
+          0
+        ],
+        [
+          35.15625,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          35.15625,
+          22.5,
+          7,
+          0
+        ],
+        [
+          35.15625,
+          23.90625,
+          12,
+          0
+        ],
+        [
+          37.96875,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          39.375,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          39.375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          40.78125,
+          -21.09375,
+          2,
+          0
+        ],
+        [
+          42.1875,
+          -18.28125,
+          7,
+          0
+        ],
+        [
+          42.1875,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          43.59375,
+          -14.0625,
+          17,
+          0
+        ],
+        [
+          45,
+          -14.0625,
+          49,
+          0
+        ],
+        [
+          45,
+          -12.65625,
+          4,
+          0
+        ],
+        [
+          46.40625,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          47.8125,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          52.03125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          54.84375,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          73.125,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          73.125,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          92.8125,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          92.8125,
+          11.25,
+          1,
+          0
+        ],
+        [
+          95.625,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          108.28125,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          112.5,
+          -22.5,
+          9,
+          0
+        ],
+        [
+          112.5,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          -22.5,
+          2,
+          0
+        ],
+        [
+          113.90625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          115.3125,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          115.3125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          116.71875,
+          -8.4375,
+          5,
+          0
+        ],
+        [
+          118.125,
+          -18.28125,
+          4,
+          0
+        ],
+        [
+          118.125,
+          -5.625,
+          3,
+          0
+        ],
+        [
+          118.125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          118.125,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          119.53125,
+          4.21875,
+          9,
+          0
+        ],
+        [
+          119.53125,
+          11.25,
+          2,
+          0
+        ],
+        [
+          119.53125,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          14.0625,
+          6,
+          0
+        ],
+        [
+          119.53125,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          120.9375,
+          -15.46875,
+          14,
+          0
+        ],
+        [
+          120.9375,
+          -14.0625,
+          5,
+          0
+        ],
+        [
+          120.9375,
+          5.625,
+          5,
+          0
+        ],
+        [
+          120.9375,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          11.25,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          12.65625,
+          3,
+          0
+        ],
+        [
+          122.34375,
+          -16.875,
+          3,
+          0
+        ],
+        [
+          122.34375,
+          -12.65625,
+          9,
+          0
+        ],
+        [
+          122.34375,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          123.75,
+          -16.875,
+          3,
+          0
+        ],
+        [
+          123.75,
+          -15.46875,
+          13,
+          0
+        ],
+        [
+          123.75,
+          1.40625,
+          10,
+          0
+        ],
+        [
+          123.75,
+          23.90625,
+          3,
+          0
+        ],
+        [
+          125.15625,
+          -15.46875,
+          5,
+          0
+        ],
+        [
+          125.15625,
+          -14.0625,
+          9,
+          0
+        ],
+        [
+          125.15625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          125.15625,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          125.15625,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          126.5625,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          126.5625,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          126.5625,
+          0,
+          2,
+          0
+        ],
+        [
+          127.96875,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          127.96875,
+          26.71875,
+          1,
+          0
+        ],
+        [
+          129.375,
+          -5.625,
+          8,
+          0
+        ],
+        [
+          130.78125,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          130.78125,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          132.1875,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          133.59375,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          133.59375,
+          7.03125,
+          6,
+          0
+        ],
+        [
+          135,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          142.03125,
+          -11.25,
+          4,
+          0
+        ],
+        [
+          143.4375,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          143.4375,
+          -15.46875,
+          5,
+          0
+        ],
+        [
+          143.4375,
+          -14.0625,
+          15,
+          0
+        ],
+        [
+          143.4375,
+          -12.65625,
+          7,
+          0
+        ],
+        [
+          143.4375,
+          -11.25,
+          6,
+          0
+        ],
+        [
+          143.4375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          144.84375,
+          -18.28125,
+          42,
+          0
+        ],
+        [
+          144.84375,
+          -16.875,
+          159,
+          0
+        ],
+        [
+          144.84375,
+          -15.46875,
+          202,
+          0
+        ],
+        [
+          144.84375,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          146.25,
+          -19.6875,
+          93,
+          0
+        ],
+        [
+          146.25,
+          -18.28125,
+          23,
+          0
+        ],
+        [
+          147.65625,
+          -21.09375,
+          52,
+          0
+        ],
+        [
+          147.65625,
+          -19.6875,
+          6,
+          0
+        ],
+        [
+          149.0625,
+          -21.09375,
+          15,
+          0
+        ],
+        [
+          149.0625,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          149.0625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          150.46875,
+          -23.90625,
+          8,
+          0
+        ],
+        [
+          150.46875,
+          7.03125,
+          6,
+          0
+        ],
+        [
+          151.875,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          151.875,
+          -25.3125,
+          4,
+          0
+        ],
+        [
+          151.875,
+          -23.90625,
+          31,
+          0
+        ],
+        [
+          151.875,
+          -22.5,
+          2,
+          0
+        ],
+        [
+          153.28125,
+          -28.125,
+          2,
+          0
+        ],
+        [
+          154.6875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          154.6875,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          157.5,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          157.5,
+          5.625,
+          3,
+          0
+        ],
+        [
+          158.90625,
+          -32.34375,
+          6,
+          0
+        ],
+        [
+          158.90625,
+          -30.9375,
+          2,
+          0
+        ],
+        [
+          158.90625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          158.90625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          158.90625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          161.71875,
+          11.25,
+          4,
+          0
+        ],
+        [
+          163.125,
+          -21.09375,
+          8,
+          0
+        ],
+        [
+          163.125,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          164.53125,
+          -22.5,
+          2,
+          0
+        ],
+        [
+          164.53125,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          164.53125,
+          11.25,
+          16,
+          0
+        ],
+        [
+          165.9375,
+          -23.90625,
+          2,
+          0
+        ],
+        [
+          165.9375,
+          -22.5,
+          23,
+          0
+        ],
+        [
+          165.9375,
+          -21.09375,
+          7,
+          0
+        ],
+        [
+          165.9375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          165.9375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          165.9375,
+          9.84375,
+          13,
+          0
+        ],
+        [
+          165.9375,
+          11.25,
+          2,
+          0
+        ],
+        [
+          165.9375,
+          18.28125,
+          2,
+          0
+        ],
+        [
+          167.34375,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          167.34375,
+          11.25,
+          1,
+          0
+        ],
+        [
+          168.75,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          174.375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          175.78125,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          177.1875,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          178.59375,
+          -18.28125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "aquariumbreeder",
+    "quote": "Keep the temperature at 23–28°C and salinity at SG 1.023–1.025."
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 8.1,
+          "max": 8.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-birds-nest-corals/",
+      "html": "<ul><li>Other names: Finger Coral, Needle Coral, Bush Coral, Brush Coral, Thorns of Christ Coral, Birdsnest coral, Thin Bird's Nest Coral</li><li>Minimum tank size: 40 litres</li><li>Keeping: easy to moderate; propagation: easy</li><li>Lighting: moderate to high; water flow: moderate</li><li>Temperature: 23–28°C; salinity SG 1.023–1.025; pH 8.1–8.4; KH 8–12; nitrate below 10 ppm</li><li>Feeding: not required</li><li>Growth form: stem; growth rate: fast</li><li>Peaceful; not toxic; not invasive</li><li>Colours: purple, blue, green, brown, pink or yellow</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-birds-nest-corals/",
+      "html": "<p>There are 7 species of Seriatopora, with Seriatopora hystrix the most commonly seen in the hobby. It is a small polyp stony (SPS) coral with branches on a slender base; the branches may have spikes or be smooth, and the branches are arranged in neat rows. Some are solid pink, yellow or purple; a brown one often has green or pink highlights. Colonies can reach 25–30 cm.</p><p>Although among the hardiest and fastest growing SPS corals, they can be temperamental and need very mature, stable conditions. They may not suit new keepers or those who do not like testing their parameters often.</p><p>The coral can be brittle; if it breaks in transit, the pieces can be glued to frag plugs to make new colonies. It is sold in pet stores and online.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-birds-nest-corals/",
+      "html": "<p>Seriatopora hystrix inhabits shallow reef habitats in the Indo-Pacific. It can be found around islands of the Indo-Pacific such as Fiji, the Solomon Islands and the Great Barrier Reef.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-birds-nest-corals/",
+      "html": "<p>They may live between 1 and 30 m underwater. Depth makes the coral thicker or thinner and also affects how much water flow and light it can stand.</p><p>Seriatopora hystrix is on the IUCN Red List, as are several other species of the genus. It is labelled \"least concern\", while other species such as S. dendritica and S. aculeata are labelled vulnerable.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-birds-nest-corals/",
+      "html": "<p>Because the coral can grow quite large, a 40-litre tank is the minimum size. A larger tank is fine and gives extra room to space out corals.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-birds-nest-corals/",
+      "html": "<p>The coral needs an adjustment period but only moderate care. Keep it at least 7 cm from other types of coral; it is compatible with other Seriatopora. Place it at the top or middle of the tank. The tank should be well established before introducing the coral, which establishes rapidly once adapted.</p><p><strong>Lighting:</strong> the same species can live in different reef habitats and adapt to different light between locations and across depths, so some yellow colonies thrive in low light while others need moderate to high light. A coral from deeper water may bleach in too much light. In general it needs moderate to high light because it relies on zooxanthellae. T5 or metal halide lighting is recommended; metal halides should sit in the middle region of the tank, while T5 must be close to the top for good growth and colour. Modest light can cause colour fade.</p><p><strong>Water movement:</strong> it prefers moderate, turbulent flow. Thicker branches tolerate higher flow; with thinner branches, high flow may stop the coral adapting. Specimens from lower depths with lower flow have thinner branches. If hair algae start growing on the coral, increase the flow. Larger frags may also need higher flow. Corals develop a structural \"memory\" of the flow they grew in, which can cause problems in a new tank.</p><p><strong>Problems:</strong> it is very disease resistant; the biggest cause of disease is a dirty tank. Too little flow stops growth and leads to hair algae; too much is harmful. Bleaching can be caused by too much light, temperature changes, low salinity or lack of nutrients: check parameters, remove dead parts and correct light, flow and parameters. Adding coral to a tank too early is one of the biggest hazards. Amino acids may need to be fed. It does not like to grow downward.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-birds-nest-corals/",
+      "html": "<p>Water quality should be within the limits of any reef tank. Keep the temperature at 23–28°C and salinity at SG 1.023–1.025. Do water changes routinely, as this coral is very susceptible to environmental changes. If you prefer to clean less, do a 20% water change once a month, 10% twice a week or 5% weekly. Good flow keeps cyanobacteria and algae from overwhelming the coral.</p><p>Parameters must be stable and nitrate low. Keep calcium and alkalinity maintained, and phosphate at 0, as corals generally cannot tolerate phosphates.</p><ul><li>Calcium: 400–450 ppm</li><li>Alkalinity: 8–12 dKH, 10 recommended</li><li>Phosphate: close to 0</li><li>Magnesium: 1200–1350</li><li>Strontium: 8–10</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-birds-nest-corals/",
+      "html": "<p>Zooxanthellae, a type of marine algae, live in symbiosis with the coral and produce sustenance by photosynthesis; this is how it receives most of its nutrients. It can also capture small food particles and planktonic organisms from the water column and absorb dissolved organic matter, and can be fed fine particle foods weekly (such as Marine Snow). Calcium, magnesium, strontium and trace elements should be added as supplements when needed.</p><p>Basically, it needs a well-fed reef tank with some fish, snails, crabs, shrimp and so on producing organic matter.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-birds-nest-corals/",
+      "html": "<p>A mild-mannered coral that gets along with corals of its own genus, but it will be aggressive to corals outside the genus, so keep it away from other corals. It can coexist with well-fed fish, which drop food particles for the coral to catch, and with snails, shrimp and certain crabs. The crab Hapalocarcinus marsupialis can live in symbiosis with it: the female uses the branches to form a cage that is her permanent home and mating ground, and changes the coral's growth.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-birds-nest-corals/",
+      "html": "<p>In nature the coral breeds sexually and asexually.</p><ul><li>Sexual reproduction involves the fertilization of eggs released into the water column. Corals become sexually mature at 2 to 3 years old. Spawning is hard to observe as it depends on the moon cycle. Fertilized eggs produce planula larvae that settle on the sea floor and grow into a new coral by excreting calcium carbonate.</li><li>Asexual reproduction requires only one parent, for example when a colony is dying and polyps separate to form their own colonies. Aquarists use this to propagate the coral.</li></ul><p>Fragging is extremely easy compared with many other corals. Break off a piece, preferably with a clean cut, and glue it to a frag plug with underwater putty or 2-part epoxy. Cutting releases slime, which should not touch other corals. Glue the piece on its side rather than upright to encourage faster growth.</p><p>Items you may need: hammer and chisel, scissors, cyanoacrylate glue, containers, scalpel or razor blade, plug pebbles or coral frag disks.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/2918cb716ecd642f.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/2918cb716ecd642f-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/how-to-care-for-birds-nest-corals/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "As6CkFASoOk",
+      "title": "Seriatopora Bird's Nest Corals",
+      "durationSec": 271,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "CaVwfhwmlbU",
+      "title": "Seriatopora Hystrix vs Seriatopora Guttatus, Birdsnest corals",
+      "durationSec": 126,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ABVXP7bDHIw",
+      "title": "Coralli duri SPS - Seriatopora hystrix",
+      "durationSec": 102,
+      "lang": "it"
+    },
+    {
+      "youtubeId": "sKH-cvtl0TE",
+      "title": "Fragging an ORA Green Birdsnest Seriatopora Histryx with Coral Shears",
+      "durationSec": 274,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "den",
+      "keywords": [
+        "đèn T5 bể san hô",
+        "đèn bể nước mặn"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước bể san hô API Reef Master",
+        "test canxi kiềm bể biển"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn san hô Marine Snow",
+        "thức ăn san hô SPS"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo sóng bể san hô",
+        "máy bơm tạo dòng bể biển"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-18"
+}

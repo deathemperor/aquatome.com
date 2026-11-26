@@ -1,0 +1,28 @@
+{
+  "slug": "devario-annandalei",
+  "name": "ดานิโอบลัดเทล",
+  "altNames": [
+    "Blood Tail Danio",
+    "Bloodtail Danio",
+    "ดานิโอหางแดง",
+    "Annandale's Danio"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Devario annandalei โตได้ประมาณ 10 ซม. เป็นปลาที่อยู่รวมกันเป็นฝูง ครีบหางมีเนื้อเยื่อสีแดงเด่นชัดระหว่างก้านครีบ จึงเป็นที่มาของชื่อสามัญ \"blood tail\" (หางสีเลือด)</p>",
+    "distribution:glaser": "<p>Devario annandalei มีถิ่นกำเนิดในพม่า (เมียนมา) และในเขตกึ่งเขตร้อน</p>",
+    "maintenance:glaser": "<p>ในด้านการเลี้ยงและการเพาะพันธุ์ ไม่มีความแตกต่างที่สำคัญจาก Devario malabaricus ซึ่งเป็นปลาที่รู้จักกันดีอยู่แล้ว ข้อยกเว้นเพียงอย่างเดียวคืออุณหภูมิน้ำ เนื่องจาก D. annandalei มีถิ่นกำเนิดในเขตกึ่งเขตร้อน จึงแนะนำให้เลี้ยงในน้ำที่เย็นลงเล็กน้อย (อุณหภูมิห้อง) เป็นบางช่วง</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85
+    }
+  },
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-21"
+  }
+}

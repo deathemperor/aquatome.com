@@ -1,8 +1,8 @@
 {
   "id": "paracheirodon-innesi",
   "native": {
-    "input": "d6863181467a3b40",
-    "at": "2026-11-11T08:59:40.517Z",
+    "input": "5c4a8ee9ed6cdaec",
+    "at": "2026-11-23T01:48:47.136Z",
     "claims": [
       {
         "code": "CO",
@@ -61,11 +61,43 @@
         "ok": true
       },
       {
+        "code": "CO",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
+        "words": "Columbia",
+        "ok": true
+      },
+      {
         "code": "PE",
         "status": "native",
         "source": "sprucepets",
         "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
         "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type locality was originally given as 'near Iquitos', referring to the city of that name in the rainforest of Loreto region, Peru, although the specimens themselves derived from an aquarium import, and even today the true extent of its distribution remains unclear.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Confirmed records suggest it to occur in several geographically-disparate areas, the first of which is the area around Leticia, Colombia and Tabatinga, Brazil, an area known as the 'Três Fronteiras'.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás.",
+        "words": "Brazil",
         "ok": true
       },
       {
@@ -80,8 +112,8 @@
     "regions": [
       {
         "name": "Amazon",
-        "source": "seriouslyfish",
-        "quote": "The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams.",
+        "source": "sprucepets",
+        "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
         "ok": true
       },
       {
@@ -91,25 +123,26 @@
         "ok": true
       },
       {
-        "name": "Amazon",
-        "source": "sprucepets",
-        "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
-        "ok": true
-      },
-      {
-        "name": "Rio Putumayo",
+        "name": "Putumayo",
         "source": "seriouslyfish",
         "quote": "Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia.",
         "ok": true
       },
       {
-        "name": "Rio Purus",
+        "name": "Solimões",
         "source": "seriouslyfish",
-        "quote": "The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás.",
+        "quote": "Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia.",
         "ok": true
       },
       {
-        "name": "Río Ucayali",
+        "name": "Purus",
+        "source": "seriouslyfish",
+        "quote": "The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
         "source": "seriouslyfish",
         "quote": "These records include occurrences in Jenaro Herrera District, Requena province (Río Ucayali drainage) and the Río Marañon in Peru, rio Japurá (known as the Río Caquetá in Colombia) in Colombia and Brazil, rio Javary (aka Yavarí) in Brazil, plus the ríos Curaray and Mazán (both tributary drainages of the Río Napo in Ecuador and Peru, respectively).",
         "country": "PE",

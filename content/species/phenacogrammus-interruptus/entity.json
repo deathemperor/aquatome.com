@@ -17,12 +17,10 @@
         "CD"
       ],
       "regions": [
-        "River Congo",
-        "Congo River Basin"
+        "Congo"
       ],
       "sources": [
-        "seriouslyfish",
-        "sprucepets"
+        "seriouslyfish"
       ],
       "quotes": [
         {
@@ -32,15 +30,7 @@
             "CD"
           ],
           "regions": [
-            "River Congo"
-          ]
-        },
-        {
-          "source": "sprucepets",
-          "quote": "These African characin fish are found in the Congo River Basin.",
-          "countries": [],
-          "regions": [
-            "Congo River Basin"
+            "Congo"
           ]
         }
       ]
@@ -326,6 +316,12 @@
       "html": "<ul><li>Family: Alestidae</li><li>Origin: Congo River Basin</li><li>Social: peaceful schooling fish</li><li>Tank level: all levels</li><li>Minimum tank size: 30 gallons (about 114 litres)</li><li>Diet: omnivore</li><li>Breeding: egg layer</li><li>Care: moderate</li><li>Adult size: 2.5 to 3.5 inches (about 6 to 9 cm)</li><li>Life expectancy: 3 to 5 years</li><li>pH: 6.0 to 7.5</li><li>Hardness: 3 to 18 dGH</li><li>Temperature: 22.8 to 27.8 °C</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-interruptus-2/",
+      "html": "<p>The Congo Tetra, Phenacogrammus interruptus, sometimes also called the Blue Congo Tetra, is the only one of the approximately 350 tetra species in Africa that is always available in pet shops. This is due to its beautiful colouring, which shimmers differently on the flanks depending on the incidence of light, the reddish-brown back, and the long fins of the males. Nowadays, almost all Congo Tetras are bred ones, one of the breeding centres is Indonesia.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/phenacogrammus-interruptus",
@@ -356,6 +352,12 @@
       "html": "<p>Since they need to be kept in schools, a 30-gallon aquarium (about 114 litres) is the minimum size required for six to eight Congo tetras. For large schools or when mixed with other species, consider using a 55-gallon aquarium (about 208 litres). In a 55-gallon tank, you might keep up to 12 Congo tetras, provided they have sufficient space. Always consider the number of other species and the space taken up by plants when determining if a tank is large enough.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-interruptus-2/",
+      "html": "<p>Congo Tetras become sexually mature at a length of approximately 4-5 cm, but they can become almost twice as big, and with each centimetre the animals become more splendid. Congo Tetras are therefore kept in an aquarium as large as possible, where they can grow into splendid specimens.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/phenacogrammus-interruptus",
@@ -380,6 +382,12 @@
       "html": "<p>pH 6.0 to 7.5; hardness 3 to 18 dGH; temperature 22.8 to 27.8 °C (73 to 82 °F).</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-interruptus-2/",
+      "html": "<p>Any drinking water is suitable for maintenance, but males develop much more elongated fins in slightly acidic water (pH 6 – 6.5) than in slightly alkaline water with pH above 7.5.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/phenacogrammus-interruptus",
@@ -392,6 +400,12 @@
       "html": "<p>Congo tetras are omnivores, naturally feeding on insects, worms, plant matter, and algae. As pets, they are easy to feed and enjoy live, fresh, and flake foods, along with brine shrimp and bloodworms.</p><p>Feed these fish small amounts several times a day. If you don't see your Congo tetras eating, don't worry—they may be shy about feeding while being watched.</p><p>If your fish aren't getting enough food, consider a behavioral feeding ring. This device floats on the water's surface and keeps food together, making it easier for them to find.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-interruptus-2/",
+      "html": "<p>In nature, Congo Tetras are mainly insectivores that feed on small flies etc. that fall from the air onto the water surface. In the aquarium, they are greedy eaters, who readily accept any commercial ornamental fish food, be it flakes, granules, frozen or live food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/phenacogrammus-interruptus",
@@ -402,6 +416,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
       "html": "<p>Congo tetras are schooling fish that can become anxious if not part of a group of at least six of their species. When housed with fish of the same size or smaller, Congo tetras remain generally peaceful.</p><p>Ideal tankmates include:</p><ul><li>Other tetras, such as Neon and Cardinal tetras</li><li>Rainbowfish</li><li>Corydoras catfish</li><li>Mollies</li><li>Guppies</li><li>Platies</li><li>Harlequin rasbora</li><li>Swordtails</li><li>Celestial pearl danio</li><li>Dwarf cichlids</li></ul><p>Avoid aggressive species that will bully your Congo tetras. Do not keep Congo tetras with fin-nipping fish, such as tiger barbs, as the males' spectacular fins can be damaged. Avoid overcrowding the tank, as this can further stress them.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-interruptus-2/",
+      "html": "<p>The peaceful animals should always be kept in a group of at least eight or more individuals. The sex ratio is not important, but there should be at least two males, because the males display against each other and encourage courtship. So if you only have one male in the tank, you miss this wonderful spectacle.</p>"
     },
     {
       "key": "dimorphism",
@@ -438,6 +458,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
       "html": "<p>The Congo tetra is the African counterpart to the colorful tetras of South America. It shimmers with all the colors of the rainbow and uses this bright coloring for extravagant courtship displays by both males and females.</p><p>In the wild, the fish can grow up to 3 1/2 inches (about 9 cm). However, farm-raised varieties, while richly colored and full-finned, typically do not exceed 3 inches (about 7.5 cm). They have long, flat bodies with large scales.</p><p>This fish displays remarkable rainbow luminescence throughout its body. It is generally blue on top, red and gold in the middle, and blue on the belly.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-interruptus-2/",
+      "html": "<p>Plants are not harmed.</p>"
     }
   ],
   "photos": [
@@ -453,21 +479,6 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/commons/18393583f25f86e2.webp",
-      "thumb": "https://media.aquatome.com/commons/18393583f25f86e2-480.webp",
-      "width": 1200,
-      "height": 798,
-      "licence": "CC BY-SA 4.0",
-      "author": "7TP (Krzysztof Bartosik)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phenacogrammus_interruptus_1.jpg",
-      "caption": "Cá tetra Congo đực màu cam ánh tím trong bể thủy sinh",
-      "large": {
-        "url": "https://media.aquatome.com/commons/18393583f25f86e2-large.webp",
-        "width": 1805,
-        "height": 1200
-      }
-    },
-    {
       "url": "https://media.aquatome.com/sprucepets/44015ba473be96ea.webp",
       "thumb": "https://media.aquatome.com/sprucepets/44015ba473be96ea-480.webp",
       "width": 800,
@@ -477,9 +488,79 @@
       "sourceUrl": "https://www.thesprucepets.com/congo-tetra-1380990",
       "caption": "Congo Tetra Community Aquarium Fish",
       "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/18393583f25f86e2.webp",
+      "thumb": "https://media.aquatome.com/commons/18393583f25f86e2-480.webp",
+      "width": 1200,
+      "height": 798,
+      "large": {
+        "url": "https://media.aquatome.com/commons/18393583f25f86e2-large.webp",
+        "width": 1805,
+        "height": 1200
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "7TP (Krzysztof Bartosik)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phenacogrammus_interruptus_1.jpg",
+      "caption": "Cá tetra Congo đực màu cam ánh tím trong bể thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5af24243b4ae1c9a.webp",
+      "thumb": "https://media.aquatome.com/glaser/5af24243b4ae1c9a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-interruptus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/931e59f7cc947a7f.webp",
+      "thumb": "https://media.aquatome.com/glaser/931e59f7cc947a7f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-interruptus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b205ed898be9928d.webp",
+      "thumb": "https://media.aquatome.com/glaser/b205ed898be9928d-480.webp",
+      "width": 850,
+      "height": 1161,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-interruptus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "dpop5rE4z_k",
+      "title": "The Beauty of Congo Tetra Fish (Phenacogrammus interruptus) | Cinematic 4K Video",
+      "durationSec": 366,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uc64fFI7g0k",
+      "title": "Why You NEED The Congo Tetra! Care and Breeding",
+      "durationSec": 618,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jGPszQXY_NQ",
+      "title": "Congo Tetra Aquarium | Phenacogrammus Interruptus, Iridescent Colors and Planted Freshwater Display",
+      "durationSec": 11,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "-hnk5kbgUEQ",
+      "title": "Congo Tetra Care Guide! - Everything You Need to Know!",
+      "durationSec": 481,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -509,5 +590,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-21"
 }

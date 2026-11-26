@@ -3,6 +3,20 @@
  "judged": [
   "inat:204989692"
  ],
- "hashes": {},
- "commons": "2026-11-09"
+ "hashes": {
+  "https://media.aquatome.com/glaser/93db133bc9047918.webp": "f5db9d3d4f0ddace"
+ },
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 619734,
+  "pass": "done",
+  "after": {
+   "research": 121155414,
+   "agree": 362355327
+  }
+ },
+ "gbif": {
+  "key": 2352141,
+  "next": null
+ }
 }

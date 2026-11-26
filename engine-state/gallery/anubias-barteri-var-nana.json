@@ -23,5 +23,17 @@
   "https://media.aquatome.com/commons/27dfd019f2bcfada.webp": "7b3c3325d90c48f8",
   "https://media.aquatome.com/tropica/6927919b7e4520e5.webp": "8882e26060603030"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 604733,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 183384787
+  }
+ },
+ "gbif": {
+  "key": 2871878,
+  "next": null
+ }
 }

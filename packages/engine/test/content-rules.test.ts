@@ -3,9 +3,9 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
-  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
-  imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
-  renameStored, renameFishNames, renameSwapped, swappedNames, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
+  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countEvidence, countMismatch, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, emptySections, englishSentences, fixStored, fixTranslation, furniture,
+  hasEmail, mayHoldEmail, imperialUnits, isPermissionNote, isPhotoCaption, isThanks, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, photoCaptions, plainEntities, ratcheted, refCredits, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
+  renameStored, renameFishNames, renameSwapped, swappedNames, thanksLines, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
 import { phraseSlips } from '../src/phrases'
@@ -45,6 +45,44 @@ test('a title promising a count: a numbered run, a list or enough headings hold 
   expect(countMismatch('5 bước', '<h3>A</h3><ol><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ol>')).toBeUndefined()
   // A video's "10 mistakes" written as 7 sections.
   expect(countMismatch('10 sai lầm hay gặp khiến bể bị rêu', `${'<h3>X</h3><p>y</p>'.repeat(7)}<ul><li>a</li><li>b</li></ul>`)).toBe('title promises 10; 7 headings, none numbered, lists of 2')
+})
+
+// The chief of staff, 16 Nov 2026: the rule stripped true counts from 15 guides, whose texts say the number ("10 loài",
+// "cả mười loài") or set the fish out in a table of exactly that many, under fewer headings; and it let "8 lý do" stand
+// over a text that gives ten.
+test('a title count stands on what the text says of it, its table and its chapters, and falls to a larger count the text has', () => {
+  const seven = '<h3>A</h3><p>x</p>'.repeat(7)
+  // The text says it, in digits or in words, with the title's own noun.
+  expect(countMismatch('10 loài cá dễ nuôi cho người mới', `<p>Dưới đây là 10 loài dễ nuôi.</p>${seven}`)).toBeUndefined()
+  expect(countMismatch('10 loài cá chuột (Corydoras) đáng nuôi', `<p>Cả mười loài bên dưới đều hiền.</p>${seven}`)).toBeUndefined()
+  expect(countMismatch('6 loại rêu hại hay gặp', `<p>Có sáu loại rêu hại hay gặp.</p>${'<h3>A</h3><p>x</p>'.repeat(4)}`)).toBeUndefined()
+  expect(countMismatch('28 mẹo phòng rêu hại', '<p>Bài này gom hai mươi tám mẹo.</p><h3>A</h3><p>x</p>')).toBeUndefined()
+  // A table of exactly that many, or that many chapters besides the opening one.
+  const table = (n: number) => `<table><tr><th>Loài</th><th>Nhiệt độ</th></tr>${'<tr><td>Cá</td><td>24 °C</td></tr>'.repeat(n)}</table>`
+  expect(countMismatch('10 loài cá hợp nuôi trong bể 40 lít', `${seven}${table(10)}`)).toBeUndefined()
+  expect(countMismatch('10 lý do bể vẫn còn rêu hại', seven, ['Mục lục', ...Array.from({ length: 10 }, (_, i) => `Lý do ${i}`)])).toBeUndefined()
+  // Without them, the old answer: seven headings and a table of 9 aren't ten.
+  expect(countMismatch('10 loài cá hợp nuôi trong bể 40 lít', `${seven}${table(9)}`)).toBe('title promises 10; 7 headings, none numbered, tables of 9')
+  // "8 lý do" over a text that says ten and has ten chapters: eight headings don't save it.
+  const eight = '<h3>A</h3><p>x</p>'.repeat(8)
+  expect(countMismatch('8 lý do bể vẫn còn rêu hại', `<p>Bài này đi qua 10 lý do.</p>${eight}`, ['Mục lục', ...Array.from({ length: 10 }, (_, i) => `Lý do ${i}`)])).toBe('title promises 8; the text says 10 lý do and has that many')
+  // A larger number the text only mentions doesn't count against the title: five catfish, and the 20 species of a genus.
+  expect(countMismatch('5 loài cá da trơn phổ biến', `<p>Chi này có khoảng 20 loài.</p>${'<h3>A</h3><p>x</p>'.repeat(5)}`)).toBeUndefined()
+  // "Hơn 50 loại" wants more than 50: a table of 51, or the text saying so.
+  expect(countMismatch('Hơn 50 loại cây thủy sinh đỏ', `<h3>A</h3>${table(51)}`)).toBeUndefined()
+  expect(countMismatch('Hơn 30 loại cây chịu được nước lợ', `<p>Hơn 30 loại cây sống được.</p><h3>A</h3><p>x</p>`)).toBeUndefined()
+  expect(countMismatch('Hơn 50 loại cây thủy sinh đỏ', `<h3>A</h3>${table(40)}`)).toBe('title promises more than 50; 1 headings, none numbered, tables of 40')
+  expect(stripCount('Hơn 50 loại cây thủy sinh đỏ cho bể cá')).toBe('Loại cây thủy sinh đỏ cho bể cá')
+  // "Hơn"/"trên" counts only right before the count's own number and noun: a tank over 100 litres isn't "more than 5".
+  expect(countMismatch('Bể trên 100 lít: 5 loài cá nên nuôi', '<h3>A</h3><ul><li>a</li><li>b</li><li>c</li><li>d</li><li>e</li></ul>')).toBeUndefined()
+  expect(stripCount('5 loài cá cho bể hơn 60 lít')).toBe('Loài cá cho bể hơn 60 lít')
+  // Closing chapters ("Kết", "Kết thúc", "Lời cuối") and Thai frames aren't items; a chapter that only starts like one is.
+  const tenAnd = (open: string, close: string) => [open, ...Array.from({ length: 10 }, (_, i) => `Loài ${i}`), close]
+  expect(countMismatch('11 loài cá heo dễ nuôi', seven, tenAnd('Mở đầu', 'Kết'))).toBe('title promises 11; 7 headings, none numbered, 10 chapters')
+  expect(countMismatch('11 loài cá heo dễ nuôi', seven, tenAnd('บทนำ', 'สรุป'))).toBe('title promises 11; 7 headings, none numbered, 10 chapters')
+  expect(countMismatch('11 cách nuôi cá', seven, [...tenAnd('Giới thiệu', 'Lời cuối').slice(0, -1), 'Kết hợp cá với tép'])).toBeUndefined()
+  // What a model writing the title again is shown.
+  expect(countEvidence('8 lý do bể vẫn còn rêu hại', `<p>Bài này đi qua 10 lý do.</p>${table(10)}`, ['Mục lục', 'Cây yếu', 'Thiếu cây'])).toBe('The text says: 10 lý do\nIts tables have 10 rows\nIts chapters (2): Cây yếu; Thiếu cây')
 })
 
 /** Furniture the rule finds, whether or not the sweep may cut it (more than half a text). */
@@ -392,6 +430,206 @@ test('a sentence that only says the text is translated, adapted or used with per
   expect(dropPermissionNotes('<p>Nước <b>mềm</b>.</p>\n<p>Thay nước.</p>')).toBe('<p>Nước <b>mềm</b>.</p>\n<p>Thay nước.</p>')
 })
 
+// Page Recovery, 2026-11-12: 121 lines in 21 Vietnamese guides were a source's photo captions or credits, the photos
+// not on our page. The names here are invented.
+test('a source\'s photo caption or credit left as a block of its own: cut, in each language', () => {
+  const care = '<p>Thay 20% nước mỗi tuần.</p>'
+  for (const caption of [
+    'Ảnh: Nguyễn Văn A',
+    'Hình: Staurogyne repens.',
+    'Hình ảnh: Ảnh đầu tiên: Nguyễn Văn A. Các ảnh khác: Trần Thị B.',
+    'Y. splendida © Jane Example © J. Example',
+    'Maskaheros argenteus ©Example.dk',
+    'Ảnh: Jane Example / Wikimedia Commons / CC BY 3.0',
+    '(Ảnh: Nguyễn Văn A)',
+    'Foto: Jane Example',
+    'ภาพ: Jane Example',
+    'ภาพถ่าย: ปลาตัวผู้',
+    'Photo: Jane Example',
+  ]) {
+    expect(isPhotoCaption(caption), caption).toBe(true)
+    expect(dropPhotoCaptions(`${care}<p>${caption}</p>${care}`), caption).toBe(`${care}${care}`)
+  }
+  // A caption that says something keeps what it says, its label, credits and markup aside; one only of what its photo
+  // shows goes whole (two stand-in reads, 15 Nov 2026: a dozen captions carried a fact found nowhere else on the page).
+  for (const [caption, kept] of [
+    ['Chú thích ảnh: Một con suối được phục hồi. © Jane Example', 'Một con suối được phục hồi.'],
+    ['Lá mục cũng là thức ăn cho cá bột của một số loài © Jane Example', 'Lá mục cũng là thức ăn cho cá bột của một số loài'],
+    [`${'Hội thảo có người nuôi cá từ nhiều nơi trong vùng. '.repeat(8)}© Example Group`, 'Hội thảo có người nuôi cá từ nhiều nơi trong vùng. '.repeat(8).trim()],
+    ['Hình 1. Phức hợp này chia thành ba nhóm. © Jane Example', 'Phức hợp này chia thành ba nhóm.'],
+    ['P. partipentazona khá dễ nhận ra. © Jane Example © J. Example', 'P. partipentazona khá dễ nhận ra.'],
+    ['Jane Example mô tả loài này năm 1989 © J. Example', 'Jane Example mô tả loài này năm 1989'],
+    ['Hồ Malawi có hơn 400 loài cichlid đã được mô tả. Ảnh © Jane Example', 'Hồ Malawi có hơn 400 loài cichlid đã được mô tả.'],
+    ['Nhiều loài cá trong hồ này hiếm khi được chụp lại trong ảnh © Jane Example', 'Nhiều loài cá trong hồ này hiếm khi được chụp lại trong ảnh'],
+    ['(Ảnh: Cá đực có vây lưng dài hơn hẳn cá cái ở loài này.)', 'Cá đực có vây lưng dài hơn hẳn cá cái ở loài này.'],
+  ] as [string, string][]) {
+    expect(isPhotoCaption(caption), caption).toBe(true)
+    expect(dropPhotoCaptions(`${care}<p>${caption}</p>${care}`), caption).toBe(`${care}<p>${kept}</p>${care}`)
+  }
+  expect(dropPhotoCaptions('<p>Hình: <em>Cyrtocara moorii</em> là một trong hơn 400 loài cichlid được mô tả từ hồ Malawi. © Jane Example</p>')).toBe('<p><em>Cyrtocara moorii</em> là một trong hơn 400 loài cichlid được mô tả từ hồ Malawi.</p>')
+  // A list of what the photo shows, in lowercase once its label goes, isn't a sentence: it goes whole too.
+  for (const bare of ['Dạng vây đỏ của Y. modesta © Jane Example', 'Cá trong ảnh © Jane Example', 'Rêu java. © Jane Example', 'Gambar: ikan jantan di sebelah kiri.',
+    'Ảnh: hai cá đực (để ý màu đỏ quanh miệng), một cá đực khác, một cá cái (để ý phần bụng tròn), một cá cái chưa trưởng thành.'])
+    expect(dropPhotoCaptions(`${care}<p>${bare}</p>`), bare).toBe(care)
+  // In a list item, a div, or set in italics.
+  expect(dropPhotoCaptions(`${care}<ul><li>Ảnh: Nguyễn Văn A</li></ul><div>© Jane Example</div><p><em>Ảnh: Trần Thị B</em></p>`)).toBe(care)
+  expect(photoCaptions(`${care}<p><em>Ảnh: Trần Thị B</em></p>`)).toEqual(['Ảnh: Trần Thị B'])
+  // A caption inside a figure belongs to its image, and stays.
+  const figure = '<figure><img src="a.webp"><figcaption>Ảnh: Nguyễn Văn A</figcaption></figure>'
+  expect(dropPhotoCaptions(`${care}${figure}`)).toBe(`${care}${figure}`)
+  // Near misses: a word that starts like a label, a sentence about photos, a "©" with a sentence after it, a long block.
+  for (const near of [
+    'Ảnh hưởng của pH: cá yếu đi khi pH xuống dưới 6.',
+    'Hình dạng lá: dài và mảnh.',
+    'Khi chụp ảnh cá, hãy tắt đèn flash để cá không hoảng.',
+    'Ảnh chụp bể sau hai tuần cho thấy rêu đã phủ kín nền, nên tỉa bớt.',
+    'ภาพรวม: ปลาชนิดนี้เลี้ยงง่าย',
+    'Fotosintesis: tanaman butuh cahaya 8 jam sehari.',
+    'Hình 3 cho thấy cá đực có vây dài hơn cá cái.',
+    'Bài viết © Jane Example. Cá cần nước mềm và thay nước đều đặn mỗi tuần.',
+    `${'Cá cần nước mềm, thay nước đều. '.repeat(15)}© Jane Example`,
+    `Ảnh: ${'cá cần nước mềm, thay nước đều, '.repeat(7)}nhất là khi nuôi cá con.`,
+  ]) {
+    expect(isPhotoCaption(near), near).toBe(false)
+    expect(dropPhotoCaptions(`<p>${near}</p>`)).toBe(`<p>${near}</p>`)
+  }
+  // Nothing to cut: the text as it was, byte for byte.
+  expect(dropPhotoCaptions('<p>Nước <b>mềm</b>.</p>\n<p>Thay nước: mỗi tuần.</p>')).toBe('<p>Nước <b>mềm</b>.</p>\n<p>Thay nước: mỗi tuần.</p>')
+})
+
+// Page Recovery, 2026-11-12: 17 pages kept a source's thanks to the people who helped it. The names here are invented.
+test('a source\'s thanks to a named person or shop, as a block of its own: cut, in each language', () => {
+  const care = '<p>Cá cần nước mềm.</p>'
+  for (const thanks of [
+    'Cảm ơn Nguyễn Văn A.',
+    'Cảm ơn J. D. Example đã góp ý cho phần thông tin này.',
+    'Xin cảm ơn Jane Example đã góp ý và bổ sung, và John Example đã đưa ra gợi ý.',
+    'Xin chân thành cảm ơn Trần Thị B và Tiến sĩ Lê Văn C đã góp ý biên tập.',
+    'Cảm ơn Jane Example, John Example và các cộng tác viên thường xuyên Ann, Bob cùng Example.dk đã cho phép dùng ảnh.',
+    'Cảm ơn Toko-Contoh.com.',
+    'Cảm ơn Nguyễn Văn An. Cảm ơn Trần Thị Bình.',
+    'Terima kasih kepada Toko Contoh.',
+    'Penghargaan kepada Jane Example.',
+    'Terima kasih kepada Jane Example atas foto-fotonya.',
+    'ขอบคุณ Jane Example',
+    'Thanks to Jane Example for the photos.',
+  ]) {
+    expect(isThanks(thanks), thanks).toBe(true)
+    expect(dropThanks(`${care}<p>${thanks}</p>`), thanks).toBe(care)
+  }
+  expect(thanksLines(`${care}<p>Cảm ơn Nguyễn Văn A.</p>`)).toEqual(['Cảm ơn Nguyễn Văn A.'])
+  // Near misses: a thanks in care advice, a thanks to no one named, a thanks with another sentence, "cảm ơn" inside a
+  // sentence (a fish's behaviour), the reader thanked, a figure, and a Thai name in Thai letters (no capital to tell it).
+  for (const near of [
+    'Cảm ơn Seachem Prime giúp khử clo, bạn có thể thay nước máy ngay.',
+    'Cảm ơn Seachem Prime, amoniac được trung hòa ngay sau khi thay nước.',
+    'Cảm ơn lớp rêu dày, cá con có chỗ trốn.',
+    'Cảm ơn những người đã đăng các mẩu thông tin nhỏ làm nền cho bài này.',
+    'Cảm ơn Nguyễn Văn A vì những bức ảnh này. Chúng cho thấy suối nơi cá sống.',
+    'Cá không biết cảm ơn bạn, nhưng chúng sẽ khỏe hơn khi nước sạch.',
+    'Cảm ơn bạn đã đọc bài viết.',
+    'Cảm ơn Nguyễn Văn A đã đo pH 6,5 ở suối.',
+    'Terima kasih atas perhatian Anda.',
+    'ขอบคุณคุณสมชายที่ให้ภาพ',
+  ]) {
+    expect(isThanks(near), near).toBe(false)
+    expect(dropThanks(`<p>${near}</p>`)).toBe(`<p>${near}</p>`)
+  }
+})
+
+// The chief of staff, 16 Nov 2026: a translated article printed its author's email address in each letter's header. The
+// repository is public. Addresses here are the reserved example domains.
+test('an email address goes from a page\'s text with its brackets, a link to one keeps its words, a file name stays', () => {
+  expect(dropEmails('<p>Từ: Tác Giả (someone@example.org) Ngày: 5 tháng 8 năm 2002</p>')).toBe('<p>Từ: Tác Giả Ngày: 5 tháng 8 năm 2002</p>')
+  expect(dropEmails('<p>Viết cho tôi: <a href="mailto:someone@example.com">gửi thư</a>.</p>')).toBe('<p>Viết cho tôi: gửi thư.</p>')
+  expect(dropEmails('<p>Hỏi tại &lt;first.last+tag@mail.example.co.uk&gt; hoặc [x_y@example.net].</p>')).toBe('<p>Hỏi tại hoặc.</p>')
+  expect(dropEmails('<p>Liên hệ someone@example.org</p>')).toBe('<p>Liên hệ</p>')
+  expect(dropEmails("Bettas <O'Keeper@Example.ORG>")).toBe('Bettas')
+  // Thai runs its words together: the address goes, the words beside it stay whole.
+  expect(dropEmails('ติดต่อsomeone@example.orgได้เลย')).toBe('ติดต่อได้เลย')
+  // Not addresses: a photo's or a video's file name in a tag or in text, any case; a social handle; an "@" in prose; a
+  // link's user; a version.
+  for (const keep of [
+    '<p><img src="/img/ca@2x.png" alt="cá"> ảnh@2x.JPG</p>', 'Bettas 1080p@60fps.mov', 'Clip@60fps.ts', 'logo@2x.min.js', 'icon@3x.HEIC',
+    '<p>Tweet tới @seriouslyfish!</p>', '<p>Giá 50k @ tiệm</p>', 'https://user@example.net/x', 'https://medium.com/@keeper', 'react@18.3.1',
+  ]) {
+    expect(dropEmails(keep), keep).toBe(keep)
+    expect(hasEmail(keep), keep).toBe(false)
+  }
+  // What it finds, it cuts: nothing is left for the real-content test that the sweep can't mend.
+  for (const text of ['someone@example.org', 'A (someone@example.org) và [x@example.net]', 'mailto:a.b+c@mail.example.co.uk', 'Ông Tác Giả, tác.giả@example.org.', 'Gửi someone@example.org.5 con', 'Viết cho someone@example.org.Ở đây']) {
+    expect(hasEmail(text), text).toBe(true)
+    expect(hasEmail(dropEmails(text)), text).toBe(false)
+  }
+  // No string makes it slow: the sweep reads every file each cycle. Each of these took seconds before its parts were
+  // bounded (the second reader of #1476): a long word, separators in a row, a long run of spaces beside an address.
+  for (const slow of ['a'.repeat(1_000_000), `${'a='.repeat(80_000)}@`, `${'a'.repeat(100_000)}@example.org`, `x${' '.repeat(100_000)}y someone@example.org`, `${'a.'.repeat(50_000)}@b`]) {
+    const t0 = performance.now()
+    dropEmails(slow)
+    expect(performance.now() - t0, `${slow.slice(0, 6)}… (${slow.length})`).toBeLessThan(500)
+  }
+  // A link's user and password, and a "@" after an address's own limit, are no address.
+  for (const keep of ['https://u:p@example.com/x', `${'a'.repeat(65)}@example.org`]) expect(hasEmail(keep), keep.slice(0, 30)).toBe(false)
+  for (const keep of ['pic@2x.heif', 'clip@1x.M4V', 'cam@2x.jfif', 'x@96k.flac', 'subs@en.srt', '1080p@60fps.movไทย']) expect(dropEmails(keep), keep).toBe(keep)
+})
+
+// The chief of staff, 16 Nov 2026: an address written out so a program won't read it is the check's to catch too.
+test('an address written out in words or marks is found and cut; "at" in a sentence is not one', () => {
+  for (const [text, cut] of [
+    ['Liên hệ someone [at] example [dot] org', 'Liên hệ'],
+    ['Wild bettas (someone (at) example.org)', 'Wild bettas'],
+    ['Email: someone at mail dot example dot com', 'Email:'],
+    ['liên hệ người bán ở thư: a.keeper at example dot vn nhé', 'liên hệ người bán ở thư: nhé'],
+    ['Hỏi someone＠example.org nhé', 'Hỏi nhé'],
+    ['<p>Thư: someone&#64;example.net</p>', '<p>Thư:</p>'],
+    ['Gửi a.keeper {at} example {dot} co {dot} uk.', 'Gửi.'],
+  ] as [string, string][]) {
+    expect(hasEmail(text), text).toBe(true)
+    expect(dropEmails(text), text).toBe(cut)
+  }
+  for (const keep of [
+    'Available at example.com and at the shop.', 'Sold at aquatome.com', 'Feed at night, a dot of food', 'Polka dot plants grow at home',
+    'Meet (at) home (dot) X', 'Cá nhỏ, giá 50k at shop dot', 'look at this dot com bubble',
+    // No word saying an address follows: a site said aloud. A mark apart from the word before it: a handle.
+    'Find us at example dot com', 'Visit us at example dot com!', 'Line ＠example.com', 'Follow &#64;example.org for more',
+  ]) expect(hasEmail(keep), keep).toBe(false)
+  // Each address with its own word goes in one pass, however many.
+  const list = Array.from({ length: 200 }, (_, i) => `email: k${i} at example dot org`).join(' ')
+  expect(hasEmail(dropEmails(list))).toBe(false)
+  expect(mayHoldEmail('Liên hệ someone [at] example [dot] org')).toBe(true)
+  expect(mayHoldEmail('Cá chuột sống theo đàn.')).toBe(false)
+})
+
+test('every string of a stored file loses its addresses, its keys too; its shape stays', () => {
+  const data = { title: 'Wild bettas (someone@example.org)', photos: [{ caption: 'Ảnh của someone@example.org', w: 2 }], keyed: { 'x@example.com': 'Foto' }, n: 3, ok: true, none: null }
+  expect(dropEmailsDeep(data)).toEqual({ title: 'Wild bettas', photos: [{ caption: 'Ảnh của', w: 2 }], keyed: { '': 'Foto' }, n: 3, ok: true, none: null })
+  // A string that is one link stays whole: cut, it would no longer lead anywhere.
+  const clean = { a: ['b', { c: 'd@2x.png' }], link: 'https://example.net/?mail=someone@example.org' }
+  expect(dropEmailsDeep(clean)).toEqual(clean)
+})
+
+// Page Recovery, 2026-11-12: about 130 fish pages' references named a database's compiler after "©". The name is invented.
+test('"© <name>" after a work\'s title in the references: the name goes, the title and its link stay', () => {
+  const work = 'The ETYFish Project Fish Name Etymology Database'
+  expect(dropRefCredits(`<p>${work} © Jane Example.</p>`)).toBe(`<p>${work}.</p>`)
+  expect(dropRefCredits(`<ul><li>${work} © Jane Example.</li></ul>`)).toBe(`<ul><li>${work}.</li></ul>`)
+  expect(dropRefCredits(`<p>Factsheet no. 12. ${work} © Jane Example.</p><p>Example, J. 2009. A paper.</p>`)).toBe(`<p>Factsheet no. 12. ${work}.</p><p>Example, J. 2009. A paper.</p>`)
+  expect(dropRefCredits(`<p><a href="https://example.org/">${work}</a> © J. van Example</p>`)).toBe(`<p><a href="https://example.org/">${work}</a></p>`)
+  expect(dropRefCredits(`<p>${work} © Jane E.</p>`)).toBe(`<p>${work}.</p>`)
+  expect(refCredits(`<p>${work} © Jane Example.</p>`)).toEqual(['© Jane Example'])
+  // Near misses: no "©", a year, two names, the citation going on after the name: left as they are.
+  for (const near of [
+    `<p>${work}.</p>`,
+    '<p>Example, J. and A. Example. 2009. A paper. Zootaxa 12: 1–20.</p>',
+    `<p>${work} © 2010 Jane Example.</p>`,
+    `<p>${work} © Jane Example and John Example.</p>`,
+    `<p>${work} © Jane Example The IUCN Red List.</p>`,
+  ]) {
+    expect(dropRefCredits(near), near).toBe(near)
+    expect(refCredits(near), near).toEqual([])
+  }
+})
+
 test('the source site\'s comments, comment form and related posts: found as headings or lines of their own, and cut', () => {
   expect(detected('<h3>7 ý kiến về “Infusoria”</h3><ul><li>a</li></ul><h3>12 thoughts on “Lava rock”</h3><p>Bài viết liên quan:</p><ul><li>x</li></ul><p>Leave a Reply</p>'))
     .toEqual(['7 ý kiến về “Infusoria”', '12 thoughts on “Lava rock”', 'Bài viết liên quan:', 'Leave a Reply'])
@@ -627,18 +865,20 @@ test('the sweep leaves what the rule never lists, and text it has no name to cha
   const decomposed = 'Cá vàng đẹp.'.normalize('NFD')
   expect(renameSwapped(decomposed)).toBe(decomposed)
 })
-test('a stored page: its name, text, summary, FAQ and reviews are renamed; its other names, references and a name a person fixed stay', () => {
+test('a stored page: its name, text, summary, FAQ, chapters and reviews are renamed; its other names, references and a name a person fixed stay', () => {
   const page = {
     slug: 'ca-but-chi-nannostomus-eques', name: 'Cá bút chì Nannostomus eques', altNames: ['Cá bút chì Nannostomus eques'],
     sections: { 'quickFacts:glaser': '<p>Cá bút chì (Nannostomus eques).</p>', 'references:glaser': '<p>Cá bút chì (Nannostomus eques).</p>' },
     summary: ['Cá bút chì (pencilfish) hiền.'], faq: [{ q: 'Cá bút chì (pencilfish) ăn gì?', a: 'Cá cờ (Laetacara) ăn gì cũng được.' }],
     reviews: { agree: [{ text: 'Hợp cá bút chì (pencilfish).' }] }, tested: [{ text: 'Thử với cá cờ (Mesonauta).' }],
+    chapters: ['Cá bút chì (pencilfish)', 'Cá vàng'],
   }
   expect(renameStored(page)).toEqual({
     slug: 'ca-but-chi-nannostomus-eques', name: 'Cá chì Nannostomus eques', altNames: ['Cá bút chì Nannostomus eques'],
     sections: { 'quickFacts:glaser': '<p>Cá chì (Nannostomus eques).</p>', 'references:glaser': '<p>Cá bút chì (Nannostomus eques).</p>' },
     summary: ['Cá chì (pencilfish) hiền.'], faq: [{ q: 'Cá chì (pencilfish) ăn gì?', a: 'Cá Laetacara (Laetacara) ăn gì cũng được.' }],
     reviews: { agree: [{ text: 'Hợp cá chì (pencilfish).' }] }, tested: [{ text: 'Thử với cá Mesonauta (Mesonauta).' }],
+    chapters: ['Cá chì (pencilfish)', 'Cá vàng'],
   })
   expect(renameStored({ ...page, nameFixed: true }).name).toBe(page.name)
   const unchanged = { name: 'Cá vàng', sections: { 'quickFacts:glaser': '<p>Đẹp.</p>' } }
@@ -688,6 +928,21 @@ test.each([
   ['Cá cầu vồng đỏ (G. incisus) sống ở hồ Sentani.', 'Cá táo đỏ (G. incisus) sống ở hồ Sentani.'],
   // A longer name the row lists stays as written beside it (the sweep's "cá táo đỏ cá hồi", 13 Nov).
   ['Cá cầu vồng đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.', 'Cá táo đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.'],
+  // An old name with brackets in it is matched as written (16 Nov), a tag inside its brackets too.
+  ['Cá cuvieri (Boulengerella cuvieri) săn cá nhỏ ở tầng mặt.', 'Cá Boulengerella cuvieri săn cá nhỏ ở tầng mặt.'],
+  ['Cá killi đuôi đàn lia Gabon (Gabon lyretail), Aphyosemion gabunense, sống ở Gabon.', 'Cá killi đuôi đàn lia Gabon, Aphyosemion gabunense, sống ở Gabon.'],
+  ['<p>Cá killi đuôi đàn lia Gabon (<em>Gabon lyretail</em>) đẻ trứng trên rêu.</p>', '<p>Cá killi đuôi đàn lia Gabon đẻ trứng trên rêu.</p>'],
+  // The fish under its new genus, its genus misspelt, and an English name ending in a genus (a fresh read, 16 Nov).
+  ['Cá chuột panda (Hoplisoma panda), từ lâu quen gọi là Corydoras panda.', 'Cá chuột gấu trúc (Hoplisoma panda), từ lâu quen gọi là Corydoras panda.'],
+  ['Cá platy (Xiphorphorus maculatus): 3 đến 5 năm', 'Cá mún (Xiphorphorus maculatus): 3 đến 5 năm'],
+  ['<h3>8. Cá chuột panda (Panda corydoras)</h3>', '<h3>8. Cá chuột gấu trúc (Panda corydoras)</h3>'],
+  // A new name that holds the scientific name takes the same one in brackets after it along, tags and all.
+  ['Trai nước ngọt Corbicula (Corbicula fluminea) lọc nước.', 'Hến Corbicula fluminea lọc nước.'],
+  ['<p>Trai nước ngọt Corbicula (<em>Corbicula fluminea</em>) lọc nước.</p>', '<p>Hến Corbicula fluminea lọc nước.</p>'],
+  // Only in its own block: the next paragraph's bracket stays.
+  ['<h2>Trai nước ngọt Corbicula</h2><p>(Corbicula fluminea) là loài hến nhỏ.</p>', '<h2>Hến Corbicula fluminea</h2><p>(Corbicula fluminea) là loài hến nhỏ.</p>'],
+  // Keepers' "cá mún" is any platy; another species' name that begins with the old one stays whole.
+  ['Nuôi chung với cá platy đỏ, cá platy variatus hay cá kiếm.', 'Nuôi chung với cá mún đỏ, cá platy variatus hay cá kiếm.'],
 ])('a named fish or plant takes its name wherever written: %s', (before, after) => {
   expect(swappedNames(before)).not.toEqual([])
   expect(renameSwapped(before)).toBe(after)
@@ -709,6 +964,8 @@ test.each([
   'Người ta còn gọi nó là cá cầu vồng  đỏ cá hồi hay cá cầu vồng New Guinea.',
   // A name the row takes off its page because it is another animal's: in the text it is that one's (Curation, 13 Nov).
   'Cho cá bột ăn bo bo (rận nước) mỗi ngày.',
+  // A heading's last word and the next paragraph's first are no name (the platy guide's "Chọn mua cá", 16 Nov).
+  '<h3>Chọn mua cá</h3><p>Platy khá rẻ, giá cả tùy từng dạng.</p>',
 ])('a page\'s old name beside another species, or words that only begin it, stay: %s', text => {
   expect(swappedNames(text)).toEqual([])
   expect(renameSwapped(text)).toBe(text)

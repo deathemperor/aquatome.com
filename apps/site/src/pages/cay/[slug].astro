@@ -14,10 +14,12 @@ import { nameAndSci, sciBeside } from '../../lib/sci'
 import { getContent } from '../../lib/content'
 import { searchAliases } from '../../lib/search'
 import { PLANT_LABELS } from '../../lib/format'
-import { creditsFor } from '../../lib/credits'
+import { creditsFor, VIDEO_CARDS } from '../../lib/credits'
+import { shareImage } from '../../lib/gallery'
 import { plantParts } from '../../lib/plant-page'
 import { i18n, langOf } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
+import { articleLd, breadcrumbLd, firstPublished, taxonLd } from '../../lib/structured-data'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -27,7 +29,7 @@ const { p } = Astro.props as { p: Localized<PlantEntity> }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 // What the page shows, chosen in page order (lib/plant-page.ts, which the app's copy reads too).
-const { gallery, galleryPath, strip, figures, guides, videoGuides, videoPhotos } = plantParts(lang, c, p)
+const { gallery, strip, figures, guides, videoGuides, videoPhotos } = plantParts(lang, c, p)
 // The plant itself is always a shopping item (sold on Shopee/Lazada), even when the engine proposed none.
 const slots = p.productSlots.some(s => s.category === 'cay-thuy-sinh') ? p.productSlots : [{ category: 'cay-thuy-sinh', keywords: [p.t.name, p.scientificName] }, ...p.productSlots]
 const facts: [string, string][] = [
@@ -40,8 +42,19 @@ const facts: [string, string][] = [
 import RedirectNote from '../../components/RedirectNote.astro'
 import BackToTop from '../../components/BackToTop.astro'
 const alternates = await alternatesOf('plants', p.id)
+const description = `${withSci(p.t.name, p.scientificName)}: ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`
+const image = shareImage(p.photos)
+const jsonld = [
+  articleLd(Astro.site!, lang, Astro.url.pathname, {
+    headline: p.t.name,
+    alternativeHeadline: sciBeside(p.t.name, p.scientificName) ? p.scientificName : undefined,
+    datePublished: firstPublished(c.changelog, lang, 'plant', p.id), dateModified: p.updatedAt, description, image,
+    about: taxonLd(p.scientificName, p.t.name, p.t.altNames),
+  }),
+  breadcrumbLd(Astro.site!, lang, [['/vi/cay/', t('Cây thủy sinh')], [Astro.url.pathname, p.t.name]]),
+]
 ---
-<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${withSci(p.t.name, p.scientificName)}: ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor([...figures, ...strip].map(x => x ?? undefined))}>
+<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={description} image={image} jsonld={jsonld} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor([...figures, ...strip, ...videoPhotos.slice(0, VIDEO_CARDS)].map(x => x ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}><a href="/vi/cay/">{t('Cây thủy sinh')}</a></nav>
   <header class="wrap top">
@@ -54,7 +67,7 @@ const alternates = await alternatesOf('plants', p.id)
       <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
     </div>
   </header>
-  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={p.t.name} />}
+  {gallery.length > 0 && <GalleryStrip photos={gallery} shown={strip} name={p.t.name} />}
   <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={figures.map(photo => ({ photo }))} co2={p.co2} refs={p.refs} />
   {/* The guides that say more about it, then the shops (Vietnam's, Shopee/Lazada links: Vietnamese pages only). */}
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến cây này')} />

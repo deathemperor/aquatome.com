@@ -1,8 +1,8 @@
 {
   "id": "limnopilos-naiyanetri",
   "native": {
-    "input": "ff68cea58a83601b",
-    "at": "2026-11-09T16:24:16.651Z",
+    "input": "1f3f321b0cb9154e",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
       {
         "code": "TH",
@@ -11,9 +11,24 @@
         "quote": "Origin: Thailand",
         "words": "Thailand",
         "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Thai Micro Crab is native to Thailand.",
+        "words": "Thailand",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Tha Chin River",
+        "source": "aquariumbreeder",
+        "quote": "So far it has only been found in one river, the Tha Chin River, Nakhon Chai Si District, Nakhon Pathom Province, where it inhabits the roots of water plants (hyacinths).",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

@@ -17,10 +17,12 @@
       ],
       "regions": [
         "Amazon",
+        "Rio Negro",
         "Rio Tapajós"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -32,6 +34,14 @@
           "regions": [
             "Amazon",
             "Rio Tapajós"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Urumari, Rio Negro drainage, Amazonas State, Brazil, 0°03'S, 63°30'W'.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
           ]
         }
       ]
@@ -244,6 +254,10 @@
       {
         "source": "seriouslyfish",
         "value": 25.5
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "tankCm": [
@@ -267,6 +281,12 @@
       "html": "<ul><li>Difficulty: Difficult, because it needs a tank at least 2 m long.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-lilith-2/",
+      "html": "<p>This beautiful cichlid from Brazil is only very rarely imported. Despite the frightening name of the fish, Satanoperca lilith is a very peaceful and reserved species, it can be even a bit shy. Maximum length reported for the fish is around 20-25 cm.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/satanoperca-lilith",
@@ -285,6 +305,12 @@
       "html": "<p>Has been observed in black and clearwater main river channels, smaller tributaries, oxbows, and floodplain lakes, typically over substrates of sand or mud with patches of leaf litter and submerged tree branches.</p>"
     },
     {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-lilith-2/",
+      "html": "<p>S. lilith lives in black water, so it prefers soft and acidic milieu, which must be poor in bacteria.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/satanoperca-lilith",
@@ -295,6 +321,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/satanoperca-lilith",
       "html": "<p>The most essential item of décor is a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</p><p>Coarser materials such as gravel or small pebbles can inhibit feeding, damage gill filaments and even be ingested with the potential of internal damage or blockages.</p><p>Additional furnishings are as much a case of personal taste as anything else but the most favoured set-ups tend to feature relatively dim lighting plus some chunks of driftwood and scattered roots or branches.</p><p>Leaf litter is a typical feature of the natural environment but not really recommended in aquaria because the feeding behaviour of Satanoperca spp. tends to cause an excess of partially-decomposed material in suspension which not only looks unsightly but can block filter and pump mechanisms.</p><p>Water quality is of the utmost importance since these cichlids are extremely susceptible to deteriorating water quality and swings in chemical parameters so should never be introduced to a biologically immature aquarium. S. daemon also requires soft, acidic conditions and in most cases will not thrive in untreated tap water.</p><p>The best way to achieve the desired stability is to filter the tank using a combination of external canister filters and/or a sump system and perform minimum weekly water changes of 50-70%.</p><p>If the maintenance regime is insufficient health issues such as head and lateral line erosion or stunted growth can occur.</p><p>Mechanical filtration should also be tailored to trap small particles stirred up by the fish as sand can cause blockages and wearing issues with filter mechanisms if allowed to continually run through the system. High flow rates should be avoided so position filter returns accordingly.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-lilith-2/",
+      "html": "<p>All species of Satanoperca are closely associated to sandy bottom. The tank for these fish should contain fine sand under all circumstances. This substratum is chewed through the whole day for food particles.</p>"
     },
     {
       "key": "waterConditions",
@@ -321,10 +353,22 @@
       "html": "<p>Very few external differences have been observed, although adult males tend to grow somewhat larger than the slightly deeper-bodied females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-lilith-2/",
+      "html": "<p>The sexes look alike in respect of coloration. The best way to distinguish the sexes are the ventral fins which are in males much longer (in specimens of comparable size). Moreover, the attractive filaments of the dorsal fin are more developed in males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/satanoperca-lilith",
       "html": "<p>Unreported, but assumed to be a biparental substrate-spawner like its closest relative S. daemon.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-lilith-2/",
+      "html": "<p>Satanoperca has not been bred in aquaria yet. However, it is very likely that the fish are hollow breeders like their closest relative, S. daemon.</p>"
     },
     {
       "key": "notes",
@@ -333,14 +377,91 @@
       "html": "<p>Despite its extensive natural distribution S. lilith is uncommon in the ornamental trade, where it is sometimes referred to as 'one-spotted demon fish' or 'one spot eartheater'.</p><p>It can be distinguished from other members of the genus by possessing a single dark blotch on the flank and a prominent ocellus at the caudal-fin base. Among the named species it is most similar to S. daemon, but that species possesses two blotches on the flank.</p><p>Satanoperca was considered a synonym of Geophagus for a number of decades before being revalidated by Kullander (1986). It is separated from all other members of the putative cichlid subfamily Geophaginae by presence of a small ocellated spot at the upper caudal-fin base, and from Geophagus by a number of morphological characters.</p><p>The genus is likely to contain additional species, and has been separated into three groups with distinctive morphology, namely the S. jurupari group, the S. daemon group, and the monotypic S. acuticeps group.</p><p>The groups also differ in reproductive strategy, with the S. daemon and S. acuticeps assemblages being substrate spawners, and the S. jurupari group mouthbrooders.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-lilith-2/",
+      "html": "<p>Satanoperca means \"Devil perch\". lilith is the name of a female demon, the companion of the devil. daemon means \"demon\".</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/satanoperca-lilith",
       "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Kullander, S. O. (2012). A taxonomic review of Satanoperca (Teleostei: Cichlidae) from French Guiana, South America, with description of a new species. Cybium 36(1), 247-262</li><li>Willis S. C., H. López-Fernández, C. G. Montaña, I. P. Farias, and G. Ortí (2012). Species-level phylogeny of ‘Satan’s perches’ based on discordant gene trees (Teleostei: Cichlidae: Satanoperca Günther 1862). Molecular Phylogenetics and Evolution 63(3), 798-808</li><li>Kullander, S. O. (1986). Cichlid fishes of the Amazon River drainage of Peru. Swedish Museum of Natural History, 1-431</li><li>López-Fernández, H., R. L. Honeycutt, and K. O. Winemiller (2005). Molecular phylogeny and evidence for an adaptive radiation of geophagine cichlids from South America (Perciformes: Labroidei). Molecular Phylogenetics and Evolution 34(1), 227-244</li><li>Kullander, S. O. and E. J. G. Ferreira (1988). A new Satanoperca species (Teleostei, Cichlidae) from the Amazon River basin in Brazil. Cybium 12(4), 343-355</li><li>Kullander, S. O. (1998). A phylogeny and classification of the South American Cichlidae (Teleostei: Perciformes). In: Malabarba, L. R. , R. E. Reis, R. P. Vari, Z. M. S. de Lucena and C. A. S. Lucena (eds). Phylogeny and classification of Neotropical fishes. EDIPUCRS, Porto Alegre, 461-498</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/444944904.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/444944904-480.webp",
+      "width": 1024,
+      "height": 600,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/444944904-large.webp",
+        "width": 2048,
+        "height": 1199
+      },
+      "licence": "CC0",
+      "author": "Whaldener Endo",
+      "sourceUrl": "https://www.inaturalist.org/photos/444944904",
+      "caption": "Cá hải hồ lilith bơi trên nền đáy cát sỏi trong tự nhiên"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/96ee25b1335584ae.webp",
+      "thumb": "https://media.aquatome.com/glaser/96ee25b1335584ae-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-lilith-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/56bf2e995e5a8bdf.webp",
+      "thumb": "https://media.aquatome.com/glaser/56bf2e995e5a8bdf-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-lilith-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ff4d855ab9c165f3.webp",
+      "thumb": "https://media.aquatome.com/glaser/ff4d855ab9c165f3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-lilith-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "OjRRCeV1pSM",
+      "title": "180 gallon Aquarium- Satanoperca Lilith",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1ReGg9QJkJU",
+      "title": "Satanoperca lilith in the Wild",
+      "durationSec": 61,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "k-J0ZwcpTRQ",
+      "title": "Satanoperca Lilith",
+      "durationSec": 46,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "h5K3du4BKHU",
+      "title": "Satanoperca lilith - courtship",
+      "durationSec": 51,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -370,5 +491,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-20"
 }

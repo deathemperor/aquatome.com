@@ -1,5 +1,5 @@
 import { PictureSet, unmarked, type Content, type Photo } from '@aq/schema'
-import { cleanPhoto } from './home'
+import { cleanPhoto, type OffCards } from './home'
 
 /**
  * The pictures one page shows, so it never shows one twice (the same photo in two files counts: PictureSet). The page
@@ -22,16 +22,35 @@ export function photosOf(photos: Photo[]): Photo[] {
  * A photo carrying a source's banner is never a tile's next photo (the Design Lead, 13 Nov): where the head is shown
  * already and the page's only other photo has a banner, the tile has none. A banner head gives way to a person's pick
  * where the page has another photo (engine-state/_photo-head-picks.json); with none, it leads until one is found. Not for
- * what crops a photo as it is: a fish's round chip on an equipment page.
+ * what crops a photo as it is: a fish's round chip on an equipment page. With the calendar's `avoid` (a face for many
+ * fish: the home page's rows), none of its photos, the head or the next: a card whose head another card shows already
+ * takes its next photo, which may be one kept off cards (#1772's reader, 21 Nov).
  */
-export const tilePhotos = (photos: Photo[]): Photo[] => {
+export const tilePhotos = (photos: Photo[], avoid: OffCards = {}): Photo[] => {
   const head = photos.find(p => !p.generated)
-  return head ? [head, ...photosOf(photos).filter(p => p !== head && unmarked(p))] : []
+  return (head ? [head, ...photosOf(photos).filter(p => p !== head && unmarked(p))] : []).filter(p => !Object.hasOwn(avoid, p.url))
 }
 
 /** Each item's picture, in order: the first of its photos the page doesn't show yet, else none (null). */
 export const takeEach = <T>(pics: PictureSet, items: T[], photos: (x: T) => (Photo | undefined)[]): (Photo | null)[] =>
   items.map(x => pics.take(photos(x)) ?? null)
+
+/**
+ * A row's first `n` items with the picture each takes from `pics`, at most `bare` of them with none (the next with one
+ * takes its place): a card with none draws a cover, and a home row of four stays mostly photos (the Design Lead, 15 Nov
+ * 2026). An item passed by took nothing.
+ */
+export function takeRow<T>(pics: PictureSet, items: T[], photos: (x: T) => (Photo | undefined)[], n = 4, bare = 1): { items: T[]; photos: (Photo | null)[] } {
+  const row: T[] = [], got: (Photo | null)[] = []
+  for (const x of items) {
+    if (row.length === n) break
+    const p = pics.take(photos(x)) ?? null
+    if (!p && got.filter(q => !q).length >= bare) continue
+    row.push(x)
+    got.push(p)
+  }
+  return { items: row, photos: got }
+}
 
 const lists = new WeakMap<Content, Map<string, (Photo | null)[]>>()
 /**

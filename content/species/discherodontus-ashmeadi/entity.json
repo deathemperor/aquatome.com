@@ -10,7 +10,8 @@
     "thailand",
     "mekong",
     "laos",
-    "cambodia"
+    "cambodia",
+    "mae-klong"
   ],
   "range": {
     "native": {
@@ -21,10 +22,13 @@
       ],
       "regions": [
         "Mekong",
-        "Mae Klong"
+        "Mae Klong",
+        "Xe Bangfai",
+        "Meklong"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -38,6 +42,22 @@
           "regions": [
             "Mekong",
             "Mae Klong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Laos it's been collected from the Xe Bangfai river, a tributary of the Mekong that was due to be dammed in 2009/10.",
+          "countries": [],
+          "regions": [
+            "Xe Bangfai"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "They occur widespread in the Mekong and Meklong areas.",
+          "countries": [],
+          "regions": [
+            "Meklong"
           ]
         }
       ]
@@ -150,6 +170,10 @@
       {
         "source": "seriouslyfish",
         "value": 13.5
+      },
+      {
+        "source": "glaser",
+        "value": 14
       }
     ],
     "tankCm": [
@@ -173,16 +197,34 @@
       "html": "<p><em>Discherodontus ashmeadi</em> is a cyprinid apparently native to the Mae Klong and Mekong river basins in Thailand, Laos and Cambodia. The type species of its genus, it inhabits clear, fast-flowing minor rivers and forest streams. Like its congeners it is notoriously delicate and difficult to ship: it goes into shock and loses scales very easily when removed from the water, and damaged areas tend to become infected.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/discherodontus-ashmeadi-2/",
+      "html": "<p>The redtail barb Discherodontus ashmeadi originates from tropical Southeast Asia. It can reach an overall length of up to 14 cm. In its appearance the dark dorsal fin spot and the strong red markings of the caudal fin especially stand out.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/discherodontus-ashmeadi",
       "html": "<p>Apparently native to the Mae Klong and Mekong river basins in Thailand, Laos and Cambodia but oddly appears not to occur in the Chao Phraya drainage which separates the two. Rainboth (1996) concluded that it is endemic to the middle Mekong and tends to be found in disparate, localised populations.</p><p>Type locality is 'Kemrat, Siam', which corresponds to the Mekong river in Khemmarat district, Ubon Ratchathani province, north-eastern Thailand.</p><p>In Laos it's been collected from the Xe Bangfai river, a tributary of the Mekong that was due to be dammed in 2009/10. This project will destroy seasonal fish migrations between the Xe Bangfai and Mekong and is likely to have a deleterious impact on other animals living in the area including elephant, leopard and tiger.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/discherodontus-ashmeadi-2/",
+      "html": "<p>They occur widespread in the Mekong and Meklong areas.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/discherodontus-ashmeadi",
       "html": "<p>Inhabits clear, fast-flowing minor rivers and forest streams. The latter tend to have thick marginal vegetation with dense rainforest canopy above. There are almost no true aquatic plants but submerged roots and other parts of emergent species are common. Leaf litter and fallen branches tend to accumulate in the stiller zones and this is where the fish are most often found.</p><p>It's also been collected in more open areas where aquatic vegetation grows thickly but wherever it is found the substrate is composed of boulders, smaller stones, sand and/or gravel along with decomposing plant material. From images we've seen typical habitats are composed of short sections of rocky rapids interspersed by deeper pools with exposed bedrock.</p><p>Previously considered nocturnal, it's now known to be active during the day when it moves into deeper, fast-flowing water to feed before returning to rest in shallower, calmer areas at night. Collection is therefore much easier during the hours of darkness which is probably what led to the error.</p><p>In the Namnow National Park, Thailand sympatric species include <em>Crossocheilus reticulatus</em>, <em>Garra cambodgiensis</em>, <em>Acantopsis</em> sp., <em>Nemacheilus pallidus</em> and <em>Yasuhikotakia morleti</em>.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/discherodontus-ashmeadi-2/",
+      "html": "<p>In their native country they inhabit streams and rivers with clear water, a moderate to strong current and gravelly ground.</p>"
     },
     {
       "key": "aquariumSize",
@@ -209,10 +251,22 @@
       "html": "<p>According to stomach analyses of wild specimens it mostly preys on aquatic and terrestrial invertebrates.</p><p>In the aquarium it should be offered regular meals of live and frozen foods such as chironomid larvae (bloodworm), Daphnia and Artemia along with good quality dried flakes and granules. In a river-style set-up as described above it will often be seen browsing the biofilm that tends to form on exposed rockwork.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/discherodontus-ashmeadi-2/",
+      "html": "<p>In the wild they live on insects and other invertebrates that they look for in decomposing leaves at the bottom.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/discherodontus-ashmeadi",
       "html": "<p>Peaceful and an ideal resident of the larger, well-furnished community set-up where it will spend most of its time in the lower part of the tank and thrive when kept alongside other non-aggressive species that require well-oxygenated water.</p><p>There are plenty of suitable choices including many cyprinids, loaches, catfish and characins although substrate-dwelling cichlids are best omitted unless the tank is very large. A community based around one of its native river basins would also make a worthwhile project with some interesting alternatives.</p><p>It's a schooling species by nature and really should be kept in a group of at least half a dozen specimens. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/discherodontus-ashmeadi-2/",
+      "html": "<p>Lively shoaling fish of this size need spacious aquariums.</p>"
     },
     {
       "key": "dimorphism",
@@ -233,6 +287,12 @@
       "html": "<p><em>Discherodontus</em> species are poorly-documented in the aquarium hobby, a result of their relatively limited natural ranges but also because most are notoriously delicate and difficult to ship.</p><p><em>D. ashmeadi</em> tends to go into shock and lose scales very easily when removed from the water, for example, and should always be transferred to a bag or vessel underwater prior to transport. Areas of the body from which scales have been lost tend to become infected very easily.</p><p>The genus was erected by Roberts in 1989 in order to group together a trio of species previously included in the genera <em>Puntius</em> or <em>Acrossocheilus</em>, and has since been expanded to include the Chinese species <em>D. parvus</em>. The primary basis for the separation is that members possess two rows of pharyngeal teeth rather than the three found in almost all other related species.</p><p>They're most closely-related to members of the Indian genera <em>Chagunius</em> and <em>Hypselobarbus</em> and can be further defined by the following combination of characters: vent located relatively anteriorly on body, with additional scale rows between vent and anal-fin; dorsal-spine serrations small or absent; absence of demarcation between the lower lip and jaw; tips of dorsal-fin and caudal-fin lobes with dark pigmentation.</p><p><em>D. ashmeadi</em> is the type species and exhibits differences in dental morphology compared with other members of the genus. It can also be told apart from <em>D. halei</em> by the red/pink (vs. orange) colouration in the dorsal and caudal fins and serrated (vs. smooth) dorsal spine. <em>D. schroederi</em> is also similar-looking but as it matures the prominent dark dorsal blotch fades to a thin dark distal band whereas in <em>D. ashmeadi</em> it is retained throughout life.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/discherodontus-ashmeadi-2/",
+      "html": "<p>More robust representatives of the Asian fish fauna are suitable for a community tank with D. ashmeadi. Especially loaches (Botias in the broadest sense) or other barb species come into consideration.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/discherodontus-ashmeadi",
@@ -246,13 +306,56 @@
       "width": 700,
       "height": 435,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Nonn Panitvong / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/discherodontus-ashmeadi",
       "caption": "Adult of D. ashmeadi in its natural habitat, Namnow National Park, northeastern Thailand.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/46dc9fadb0e3a189.webp",
+      "thumb": "https://media.aquatome.com/glaser/46dc9fadb0e3a189-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/discherodontus-ashmeadi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1c998ccb02639ecc.webp",
+      "thumb": "https://media.aquatome.com/glaser/1c998ccb02639ecc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/discherodontus-ashmeadi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1080fa3531f6646d.webp",
+      "thumb": "https://media.aquatome.com/glaser/1080fa3531f6646d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/discherodontus-ashmeadi-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "eDaqFeBEiis",
+      "title": "Discherodontus Ashmeadi (Redtailed barbs)",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KhmFdNPdOIo",
+      "title": "แดงน้อย ปลาสวยจากอีสาน",
+      "durationSec": 1090,
+      "lang": "th"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -283,5 +386,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-21"
 }

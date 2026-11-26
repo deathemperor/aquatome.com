@@ -1,4 +1,5 @@
 import { denied } from './piece-admission'
+import { createHash } from 'node:crypto'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -23,9 +24,13 @@ test("tileTime: the second a still's tile shows, from its t (k ÷ yt-dlp's fps) 
 
 const solid = (background: string, width: number, height: number) => sharp({ create: { width, height, channels: 3, background } })
 
-/** A guide with two sections; its storyboard is one 2×2 sheet of 32×18 tiles, 11 tiles over 100 s, one every 10 s. */
+/**
+ * A guide with two sections; its storyboard is one 2×2 sheet of 32×18 tiles, 11 tiles over 100 s, one every 10 s. The
+ * content is in its own folder (`root`) under `base`, as the engine's is beside its state.
+ */
 async function guide(over: Partial<ImageDeps> = {}, durationSec = 100) {
-  const root = await mkdtemp(join(tmpdir(), 'vi-'))
+  const base = await mkdtemp(join(tmpdir(), 'vi-'))
+  const root = join(base, 'content')
   const dir = join(root, 'guides', 'youtube-a1')
   await mkdir(dir, { recursive: true })
   const entity = { id: 'youtube-a1', kind: 'plantCare', source: 'youtube', sourceUrl: 'https://www.youtube.com/watch?v=a1', html: '', photos: [], mentions: [], updatedAt: '2026-10-29',
@@ -52,7 +57,7 @@ async function guide(over: Partial<ImageDeps> = {}, durationSec = 100) {
     ...over,
   }
   const figures = async () => JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')).video.figures
-  return { root, d, puts, grabs, faced, figures }
+  return { base, root, d, puts, grabs, faced, figures }
 }
 
 test("videoImages: a picked still is the video's own frame at its tile's second, screened for faces; a Commons photo per section; done guides skipped", async () => {
@@ -123,4 +128,67 @@ test('item admission stops without model calls or content changes', async () => 
     expect(g.puts).toEqual([])
     expect(await readFile(join(g.root, 'guides/youtube-a1/entity.json'), 'utf8')).toBe(before)
   })
+})
+
+// Curation, 16 Nov 2026: part photos taken off by hand (an office ceiling light on a part about glass, sweets on a part
+// about an old tank, a canister filter on parts it isn't about). A guide written again starts with no parts, and the same
+// search would bring each one back, at an address the never-again list doesn't know.
+test("videoImages: a Commons file listed off a guide's parts isn't picked for that guide again, nor one listed off every guide", async () => {
+  const two = ['p', 'q'].map(x => ({ url: `https://commons/${x}.jpg`, width: 900, height: 600, licence: 'CC BY-SA 4.0', author: 'Ann', sourceUrl: `https://commons/File:${x}.jpg` }))
+  // The model picks the first photo on the sheet, whichever it is.
+  const picked = async (off?: unknown) => {
+    const g = await guide({ commons: async () => two })
+    if (off !== undefined) {
+      await mkdir(join(g.base, 'engine-state'), { recursive: true })
+      await writeFile(join(g.base, 'engine-state', '_part-photos-off.json'), typeof off === 'string' ? off : JSON.stringify(off))
+    }
+    await videoImages(g.root, g.d)
+    return (await g.figures())[0].photo?.sourceUrl
+  }
+  expect(await picked()).toBe('https://commons/File:p.jpg')
+  expect(await picked({ 'https://commons/File:p.jpg': { why: 'not what the part shows', guides: ['youtube-a1'] } })).toBe('https://commons/File:q.jpg')
+  expect(await picked({ 'https://commons/File:p.jpg': { why: 'not what the part shows', guides: ['youtube-b2'] } })).toBe('https://commons/File:p.jpg')
+  expect(await picked({ 'https://commons/File:p.jpg': { why: 'lettering is what it shows' } })).toBe('https://commons/File:q.jpg')
+  // A file whose page names what its lettering says is listed by the hash of its page.
+  const hashed = `sha256:${createHash('sha256').update('https://commons/File:p.jpg').digest('hex')}`
+  expect(await picked({ [hashed]: { why: 'lettering is what it shows' } })).toBe('https://commons/File:q.jpg')
+  expect(await picked('')).toBe('https://commons/File:p.jpg')
+  // A list that is there but can't be read stops the step: read as no list, every photo on it would come back.
+  await expect(picked('{"https://commons/File:p.jpg": ')).rejects.toThrow()
+  for (const wrong of ['null', '[]', '"https://commons/File:p.jpg"']) await expect(picked(wrong)).rejects.toThrow(/not a list/)
+  const g = await guide({ commons: async () => two })
+  await mkdir(join(g.base, 'engine-state', '_part-photos-off.json'), { recursive: true })
+  await expect(videoImages(g.root, g.d)).rejects.toThrow(/EISDIR/)
+  expect(await g.figures()).toBeUndefined()
+})
+
+// The chief of staff, 21 Nov 2026: a frame of two bettas lying flat in bottles, taken off by hand. A guide written again
+// starts with no frames, and a plan at 70 s cuts the tiles at 65, 70, 75 and 80 s again, at the same addresses.
+test("videoImages: a frame listed off a guide bars its seconds on that guide's video, and only there", async () => {
+  // A storyboard of 5 s tiles, 2×2 a sheet, over 100 s.
+  const sheets = Array.from({ length: 5 }, () => ({ url: 'sb0' }))
+  const cut = async (off?: unknown) => {
+    const g = await guide({
+      llm: async <T,>() => ({ sections: [{ times: [70], query: '' }, { times: [], query: '' }] }) as T,
+      faces: async files => files.map(() => 0),
+      frames: async () => ({ storyboard: { fps: 0.2, interval: 5, rows: 2, columns: 2, width: 32, height: 18, fragments: sheets }, stream: { url: 'https://stream/a1' } }),
+    })
+    if (off !== undefined) {
+      await mkdir(join(g.base, 'engine-state'), { recursive: true })
+      await writeFile(join(g.base, 'engine-state', '_part-photos-off.json'), JSON.stringify(off))
+    }
+    await videoImages(g.root, g.d)
+    return { moments: ((await g.figures())?.[0]?.moments ?? []).map((m: { t: number }) => m.t), grabs: g.grabs }
+  }
+  const frame = 'https://m/video/a1/at70-hd.webp'
+  const seconds = [70, 75, 80, 85, 90]
+  // Unlisted: the model's two picks, the tiles at 65 and 70 s.
+  expect((await cut()).moments).toEqual([65, 70])
+  const barred = await cut({ [frame]: { why: 'two fish lying flat in bottles', guides: ['youtube-a1'], seconds } })
+  expect(barred.moments).toEqual([65])
+  expect(barred.grabs.filter(s => seconds.includes(s))).toEqual([]) // no frame cut at a barred second
+  // Listed for another guide: nothing barred on this one.
+  expect((await cut({ [frame]: { why: 'two fish lying flat in bottles', guides: ['youtube-b2'], seconds } })).moments).toEqual([65, 70])
+  // Seconds with no guides would bar them on every video: the list stops the step instead.
+  await expect(cut({ [frame]: { why: 'two fish lying flat in bottles', seconds } })).rejects.toThrow(/names no guides/)
 })

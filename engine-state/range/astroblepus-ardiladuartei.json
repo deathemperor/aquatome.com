@@ -1,0 +1,43 @@
+{
+  "id": "astroblepus-ardiladuartei",
+  "native": {
+    "input": "f0bf7c40b70d54e8",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Colombia, Department of Santander, Dirty Creek, a tributary of the River Suratá, Municipality of Suratá.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Suratá",
+        "source": "scotcat",
+        "quote": "South America: Colombia, Department of Santander, Dirty Creek, a tributary of the River Suratá, Municipality of Suratá.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus ardiladuartei",
+    "status": "ACCEPTED",
+    "taxonKey": 9416656,
+    "datasets": [],
+    "native": [
+      "CO"
+    ],
+    "requests": 2,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

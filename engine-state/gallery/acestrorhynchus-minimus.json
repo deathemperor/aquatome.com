@@ -1,9 +1,15 @@
 {
  "queue": [],
  "judged": [
-  "File:Acestrorhynchus minimus.jpg"
+  "File:Acestrorhynchus minimus.jpg",
+  "flickr:5807039790"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/b45e10fbff43d47b.webp": "48420d03a0a41f5e",
+  "https://media.aquatome.com/glaser/7871131c5e74e695.webp": "333fbbb3fd1b7b33",
+  "https://media.aquatome.com/glaser/ec656d07a0546607.webp": "6c86c3f3f03c2603",
+  "https://media.aquatome.com/glaser/af12950aea58ee96.webp": "ee3c5e7abba9e8f2"
+ },
  "commons": "2026-11-04",
  "inat": {
   "taxon": 607822,
@@ -16,5 +22,13 @@
  "gbif": {
   "key": 2355565,
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-24"
 }

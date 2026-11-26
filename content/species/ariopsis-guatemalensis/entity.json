@@ -1,0 +1,280 @@
+{
+  "id": "ariopsis-guatemalensis",
+  "scientificName": "Ariopsis guatemalensis",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Ariopsis",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "mexico",
+    "colorado-river",
+    "costa-rica"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX",
+        "CR"
+      ],
+      "regions": [
+        "Colorado River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Eastern Pacific: Mexico (from the mouth of the Colorado River, Sonora) to Costa Rica.",
+          "countries": [
+            "MX",
+            "CR"
+          ],
+          "regions": [
+            "Colorado River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202948,
+      "total": 229,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MX",
+          191
+        ],
+        [
+          "SV",
+          16
+        ],
+        [
+          "EC",
+          7
+        ],
+        [
+          "PA",
+          6
+        ],
+        [
+          "HN",
+          5
+        ],
+        [
+          "GT",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -111.09375,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          -109.6875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -109.6875,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          -108.28125,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -106.875,
+          21.09375,
+          11,
+          11
+        ],
+        [
+          -106.875,
+          22.5,
+          7,
+          7
+        ],
+        [
+          -105.46875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          -105.46875,
+          21.09375,
+          10,
+          10
+        ],
+        [
+          -104.0625,
+          16.875,
+          7,
+          7
+        ],
+        [
+          -104.0625,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          -102.65625,
+          16.875,
+          8,
+          8
+        ],
+        [
+          -101.25,
+          16.875,
+          20,
+          20
+        ],
+        [
+          -99.84375,
+          15.46875,
+          13,
+          13
+        ],
+        [
+          -98.4375,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          -95.625,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          -94.21875,
+          14.0625,
+          33,
+          33
+        ],
+        [
+          -94.21875,
+          15.46875,
+          25,
+          25
+        ],
+        [
+          -92.8125,
+          14.0625,
+          40,
+          40
+        ],
+        [
+          -91.40625,
+          12.65625,
+          4,
+          0
+        ],
+        [
+          -90,
+          14.0625,
+          15,
+          0
+        ],
+        [
+          -88.59375,
+          12.65625,
+          4,
+          0
+        ],
+        [
+          -88.59375,
+          15.46875,
+          2,
+          0
+        ],
+        [
+          -81.5625,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -80.15625,
+          -2.8125,
+          6,
+          0
+        ],
+        [
+          -80.15625,
+          8.4375,
+          4,
+          0
+        ],
+        [
+          -78.75,
+          8.4375,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 54
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_guatemalensis.htm",
+      "html": "<ul><li>Common name: Blue sea catfish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_guatemalensis.htm",
+      "html": "<p>Eastern Pacific: Mexico (from the mouth of the Colorado River, Sonora) to Costa Rica.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_guatemalensis.htm",
+      "html": "<p>Description: This species is distinguished from its congeners by the following characters: mesethmoid median portion wide, medial notch of mesethmoid large and shallow mouth wide 13.0-15.2% SL; cephalic shield at frontal area wide, 10.0-11.5% SL; cephalic shield at lateral ethmoid area wide 14.3-15.3% SL; distance between anterior nostrils wide 7.1-8.6% SL; distance between posterior nostrils wide 7.2-8.7% SL; osseous medial groove absent; fleshy medial groove of neurocranium conspicuous or inconspicuous, but never surpassing posterior margin of eyes; lateral margin of sphenotic straight, as wide medially as anteriorly; pterotic lateral margin markedly convex, sometimes angled; pectoral spine long 18.2-20.5% SL; external posterior branch of lateral ethmoid columnar and thin; fenestra delimited by mesethmoid and lateral ethmoid conspicuous.</p><p>Etymology: The specific name guatemalensis: from Guatemala.</p><p>IUCN Red List: This species is widespread in the Eastern Pacific, and is common in at least parts of its range. It may be locally threatened by extensive disturbance of estuarine areas, but there is no current indication of widespread population decline. It is listed as Least Concern, but needs updating (IUCN 2010).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

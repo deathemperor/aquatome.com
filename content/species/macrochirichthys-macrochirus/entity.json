@@ -39,7 +39,8 @@
         "Java"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -58,8 +59,7 @@
             "Chao Phraya",
             "Mae Klong",
             "Borneo",
-            "Sumatra",
-            "Java"
+            "Sumatra"
           ]
         },
         {
@@ -68,7 +68,9 @@
           "countries": [
             "ID"
           ],
-          "regions": []
+          "regions": [
+            "Java"
+          ]
         }
       ]
     },
@@ -230,6 +232,10 @@
       {
         "source": "seriouslyfish",
         "value": 80
+      },
+      {
+        "source": "glaser",
+        "value": 70
       }
     ],
     "tankCm": [
@@ -253,16 +259,34 @@
       "html": "<ul><li>Difficulty: Difficult, because it needs a tank at least 2 m long.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/macrochirichthys-macrochirus-2/",
+      "html": "<p>Macrochirichthys macrochirus reaches a length of about 70 cm. Young fish eat insects, adult animals are fish eaters.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macrochirichthys-macrochirus",
       "html": "<p>Needs a tight-fitting lid as this species is known to jump. A tightly-fitting cover is essential as this species is a prodigious jumper, and it may also prove beneficial to cover the back and sides of the aquarium in order to reduce the chances of it swimming into the glass since it can be skittish, especially in confined surroundings.</p><p>The giant sword minnow, Macrochirichthys macrochirus, is a large pelagic cyprinid widespread in Southeast Asia, from the Mekong to Borneo and Sumatra. Growing to 600 to 800 mm and becoming increasingly piscivorous as it grows, it is unsuitable for the majority of private aquaria, although juveniles are traded on occasion. It is thought to have been extirpated from the Chao Phraya, Mae Klong, Lake Songkhla and Java, and the Mekong populations have been drastically reduced.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/macrochirichthys-macrochirus-2/",
+      "html": "<p>Specimens 18-22 cm long from Indonesia were imported under the name Rhaphiodon vulpinus, a predatory tetra from South America. They have neither an adipose fin, as is obligatory for the predatory tetras, nor teeth in their jaws, which are missing in all cyprinids. The similarity is amazing, so the keeper has to inspect them closely, also to detect early indications of a possible parasite infestation.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macrochirichthys-macrochirus",
       "html": "<p>Widespread in Southeast Asia, including the Mekong basin in southern China, Laos, Thailand, Cambodia, and Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, various smaller watersheds in southern Thailand and Peninsular Malaysia, and the Greater Sunda Islands of Borneo, Sumatra, and Java.</p><p>Type locality is 'Java, Indonesia'.</p><p>It is thought to have been extirpated from the Chao Phraya and Mae Klong rivers, Lake Songkhla, and the entire island of Java due to a variety of anthropogenic factors, and the Mekong populations have also been drastically reduced. In particular, it is sensitive to pollution and gillnetting, and is heavily overfished.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/macrochirichthys-macrochirus-2/",
+      "html": "<p>The widespread species occurs from Indonesia to Thailand. Like so many larger river fish in the region it is threatened by environmental changes and pollution.</p>"
     },
     {
       "key": "habitat",
@@ -275,6 +299,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macrochirichthys-macrochirus",
       "html": "<p>Standard length: 800 mm SL.</p><p>Suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/macrochirichthys-macrochirus-2/",
+      "html": "<p>Keep them in aquariums that are as large and rich in cover as possible.</p>"
     },
     {
       "key": "maintenance",
@@ -295,10 +325,22 @@
       "html": "<p>An obligate carnivore with juveniles feeding on aquatic and terrestrial invertebrates but becoming increasingly piscivorous as they grow.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/macrochirichthys-macrochirus-2/",
+      "html": "<p>Young fish eat insects, adult animals are fish eaters.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macrochirichthys-macrochirus",
       "html": "<p>Best kept alone, or with similarly-sized, non-aggressive fishes it cannot fit into its mouth since it's otherwise quite peaceful and easily-dominated.</p><p>It can also be maintained in a group in a suitably-sized aquarium but the purchase of at least three specimens is advisable.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/macrochirichthys-macrochirus-2/",
+      "html": "<p>The animals are peaceful among each other, but they are very shy and tend to panic, which makes photographing them hardly possible. It has proved very useful to cover the front glass of the aquariums largely with black foil, so that the sensitive animals are not constantly disturbed by passing care personnel.</p>"
     },
     {
       "key": "notes",
@@ -315,29 +357,72 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/0c824d6e385e47d6.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/0c824d6e385e47d6-480.webp",
-      "width": 600,
-      "height": 316,
+      "url": "https://media.aquatome.com/glaser/f4547ae82689d7d9.webp",
+      "thumb": "https://media.aquatome.com/glaser/f4547ae82689d7d9-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/macrochirichthys-macrochirus",
-      "caption": "Head detail of juvenile - note the wide mouth gape.",
-      "source": "seriouslyfish"
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/macrochirichthys-macrochirus-2/",
+      "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/94dbb26cd88f1255.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/94dbb26cd88f1255-480.webp",
-      "width": 600,
-      "height": 400,
+      "url": "https://media.aquatome.com/glaser/b62c86b7da0994b1.webp",
+      "thumb": "https://media.aquatome.com/glaser/b62c86b7da0994b1-480.webp",
+      "width": 850,
+      "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/macrochirichthys-macrochirus",
-      "caption": "Juvenile collected in Sumatra.",
-      "source": "seriouslyfish"
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/macrochirichthys-macrochirus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4baab206f3e893c3.webp",
+      "thumb": "https://media.aquatome.com/glaser/4baab206f3e893c3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/macrochirichthys-macrochirus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/58586a83f9f7dffb.webp",
+      "thumb": "https://media.aquatome.com/glaser/58586a83f9f7dffb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/macrochirichthys-macrochirus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Atf4wlOJvyM",
+      "title": "Macrochirichthys macrochirus: Ikan Lais Predator Sungai yang Jarang Dipelihara di Akuarium!",
+      "durationSec": 523,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "f8gOSBt9FDo",
+      "title": "カショーロバルブ　Long pectoral-fin minnow, Giant sword minnow　Macrochirichthys macrochirus",
+      "durationSec": 39,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cuqpbgFjb5s",
+      "title": "Macrochirrichthys macrohirus feeding. Forget the sound FX!",
+      "durationSec": 59,
+      "lang": "id"
+    },
+    {
+      "youtubeId": "CsjIajF8JEM",
+      "title": "My Macrochirichthys macrochirus eating shrimp",
+      "durationSec": 123,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -367,5 +452,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-19"
 }

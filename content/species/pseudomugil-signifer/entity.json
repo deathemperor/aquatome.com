@@ -8,7 +8,8 @@
   "places": [
     "oceania",
     "australia",
-    "cape-york-peninsula"
+    "cape-york-peninsula",
+    "queensland"
   ],
   "range": {
     "native": {
@@ -20,11 +21,12 @@
         "Torres Strait",
         "Embley",
         "Mission",
-        "Herbert River",
-        "Ross River"
+        "Cape York"
       ],
       "sources": [
-        "seriouslyfish"
+        "bwaquatics",
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -54,12 +56,11 @@
           ]
         },
         {
-          "source": "seriouslyfish",
-          "quote": "Those from northern and southern localities have been considered distinct by various authors, for example, and in Queensland forms originating north and south of the Herbert River also appear dissimilar, with an intermediate form apparently native to the area around Townsville (Ross River).",
+          "source": "bwaquatics",
+          "quote": "Pseudomugil signifer lives along the east coast of Australia, from Cape York to New South Wales.",
           "countries": [],
           "regions": [
-            "Herbert River",
-            "Ross River"
+            "Cape York"
           ]
         }
       ]
@@ -339,44 +340,48 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 22,
-          "max": 25
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 20,
           "max": 26
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 6.5,
-          "max": 7
+          "min": 22,
+          "max": 25
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 6.5,
           "max": 7.5
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 6
-      },
-      {
         "source": "seriouslyfish",
         "value": 7
+      },
+      {
+        "source": "glaser",
+        "value": 5
+      },
+      {
+        "source": "bwaquatics",
+        "value": 4
       }
     ],
     "gh": [
@@ -406,7 +411,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-signifer",
-      "html": "<ul><li>Schooling rainbowfish, yellowish orange with white accents on the fins and blue eyes.</li><li>Colours are best when breeding.</li><li>Size: 1.5 - 2.5 inches (about 4 - 6 cm).</li><li>Kept at around 22-25°C (72-77°F) and pH of roughly 6.5-7.</li></ul>"
+      "html": "<ul><li>Genus: Pseudomugil (blue-eye rainbowfish)</li><li>IUCN Red List: Least Concern</li><li>Temperament: peaceful</li><li>Usual maximum size: 3–4 cm; males of some populations grow to 5 cm or more</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -415,16 +420,46 @@
       "html": "<p>The Pacific blue-eye, Pseudomugil signifer, is the most widely-distributed blue-eye in Australia, found along most of the eastern coastline. Its habitats range from full marine conditions to pure fresh water, and northern populations often grow considerably larger than southern ones. Recent unpublished analyses apparently suggest it may comprise two or more distinct taxa, and wild fish from the northern and southern ends of its range would not hybridise in captive experiments.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil_signifer_en/",
+      "html": "<p>Species of the genus Pseudomugil are relatives of the rainbowfishes, but they stay much smaller and usually reach only 4-5 cm in length. This is also true for P. signifer, which looks a bit like a miniature edition of the Celebes rainbowfish (Marosatherina ladigesi). The males display the whole day through, which makes a fascinating picture.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil_signifer_en/",
+      "html": "<p>This charming schooling fish is available as bred specimens, since it originates from Australia and no wild-collected fish are exported from there. Available size: 3-4 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-signifer",
       "html": "<p>The type series was collected in the vicinity of Sydney, New South Wales state, eastern Australia, and following current knowledge P. signifer is the most widely-distributed blue-eye in Australia.</p><p>Its range extends along the majority of the country's eastern coastline, southwards from the Cape York Peninsula in northern Queensland state to Merimbula Lake in southern New South Wales, near the border with Victoria state.</p><p>There exist populations on some offshore islands, including those in the Torres Strait, while it's also known from the western side of the Cape York Peninsula in the Embley and Mission river systems.</p><p>It's remarkably variable throughout its range with numerous populations exhibiting localised differences in colour pattern, body size, and fin morphology.</p><p>Those from northern and southern localities have been considered distinct by various authors, for example, and in Queensland forms originating north and south of the Herbert River also appear dissimilar, with an intermediate form apparently native to the area around Townsville (Ross River).</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil_signifer_en/",
+      "html": "<p>Eastern coastal area of Queensland and New South Wales, Australia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-signifer",
+      "html": "<p>Pseudomugil signifer lives along the east coast of Australia, from Cape York to New South Wales. At least 15 regional forms have been recognized, and size and color vary a lot between them.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-signifer",
       "html": "<p>Generally found within 15-20 km of the sea but habitat-type is extremely variable. It's been recorded in full marine conditions as well as pure freshwater environments, and commonly inhabits coastal mangrove creeks, swamps, and salt marshes.</p><p>Freshwater habitats tend to comprise lowland swamps or forest streams with clear water but some populations inhabit acidic, tannin-stained, black waters.</p><p>It's also abundant in the artificial canals typical of residential zones in the Gold Coast, southern Queensland.</p><p>Water temperatures vary between 15–28°C, although lower values are applicable only to southern populations during winter. pH has been measured to range between 5.5-7.8 depending on locality.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-signifer",
+      "html": "<p>Coastal streams, lagoons, mangroves and estuaries, in both fresh and brackish water.</p>"
     },
     {
       "key": "aquariumSize",
@@ -445,16 +480,34 @@
       "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.5–7.5</li><li>Hardness: 5–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil_signifer_en/",
+      "html": "<p>Regarding water parameters the species is quite tolerant, but hard water (a bit of salt can also be added) is preferred.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-signifer",
+      "html": "<p>pH: currently kept at roughly 6.5 to 7.0.</p><p>Temperature: currently kept at around 22 to 25°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-signifer",
       "html": "<p>Feeds chiefly on floating or suspended zooplankton, phytoplankton, and invertebrates in nature, and in the aquarium must be offered items of a suitable size.</p><p>Ideally much of the diet should comprise live foods such as Daphnia, Moina, Artemia nauplii, micro worm, etc., although small/crushed floating dried foods are also accepted.</p>"
     },
     {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-signifer",
+      "html": "<p>Fine flakes, crushed pellets, baby brine shrimp, daphnia and other small live foods.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-signifer",
-      "html": "<p>Pseudomugil species can hybridize, so you may want to keep them with other types of small rainbowfish or tetras and rasboras of similar size. They also do well with Neocaridina and Caridina shrimps.</p>"
+      "html": "<p>A beautiful schooling rainbowfish with a peaceful temperament. Pseudomugil species can hybridize, so you may want to keep them with other types of small rainbows, or tetras and rasboras of similar size. They also do well with Neocaridina and Caridina shrimps.</p>"
     },
     {
       "key": "behaviour",
@@ -463,16 +516,40 @@
       "html": "<p>Most forms are peaceful and suitable for well-chosen community aquaria alongside fishes of comparable size, disposition, and requirements with many cyprinids, gobiids, eleotrids, and smaller melanotaeniids suitable.</p><p>P. signifer is a shoaling species and should be kept in a group of at least 8-10 specimens, ideally more. Maintaining it in such numbers will not only make the fish less nervous but result in a more effective, natural-looking display.</p><p>Males will also display their best colours and some fascinating behaviour as they compete with one other for female attention.</p><p>Mature males of the larger-growing northern populations are very intolerant of one another when in spawning condition and subdominant individuals may be killed in smaller aquaria.</p><p>These should be maintained in spacious surroundings alongside other pelagic fishes such as Melanotaenia spp. in order to disperse aggression.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil_signifer_en/",
+      "html": "<p>Males can be quite aggressive against each other, so it is recommended to keep only one male in smaller tanks or in breeding tanks. They should be combined with a number of females.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-signifer",
       "html": "<p>Males are more highly-patterned, colourful, and larger than females and the unpaired fins become noticeably extended as they mature.</p><p>Males of certain populations develop long, filamentous tips to the dorsal and anal-fins but these are usually lost upon capture and apparently never appear in captive fish.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-signifer",
+      "html": "<p>Males have enlarged dorsal and anal fins with white and black edges. The body is yellowish orange with bright blue eyes, and males turn more yellow-gold when breeding. Slim body with a large eye. Colors are best when breeding.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-signifer",
       "html": "<p>This species is an egg-scatterer exhibiting no parental care and will often consume its own eggs and fry given the opportunity, although in a well-decorated aquarium some may survive.</p><p>Spawning is more likely in temperatures towards the upper end of the range suggested above, with females capable of depositing a few eggs daily for a period of several days, these being attached to aquatic vegetation or other substrate by adhesive filaments.</p><p>An individual male may also mate with multiple females during a single day, and spawning usually continues throughout daylight hours during warmer periods.</p><p>In nature it displays a seasonal reproductive cycle coinciding with the onset of the wet season, around October-December, when food and aquatic vegetation are at their most plentiful.</p><p>Spawning occurs during daylight hours with a peak of activity in late morning/early afternoon when water temperature is 24–28°C, and in the aquarium breeding can occur throughout the year if temperature is raised to these values.</p><p>There exist two basic methods. The first involves isolating a small group of 6-8 individuals or single male and two or three females into a container with an air-powered sponge filter and spawning medium in the form of nylon mops or aquatic moss. The medium is checked on a daily basis and any eggs removed to a separate container for incubation and hatching.</p><p>The alternative is to maintain a colony of adults in a larger, fully-decorated set-up which if well-planted should allow some fry to survive.</p><p>Since the latter spend the early part of life close to the water surface aquatic mosses from the genus Taxiphylum attached to décor high in the water column apparently produce the most favourable results, but floating plants with trailing roots are also recommended.</p><p>The latter approach is normally less productive but simpler and more reliable as mature, planted aquaria facilitate relatively stable water conditions and the resident microfauna can constitute a valuable early food source for fish fry.</p><p>The incubation period is 10-21 days depending on temperature and the fry are able to accept Artemia nauplii, micro worm, and similarly-sized foods immediately. They can also be raised using good quality, powdered dry products of which some are available in incrementally-graded particle sizes.</p><p>Should eggs containing developed embryos fail to hatch they can apparently be stimulated to do so by putting them in a small vial or similar container with some water from the aquarium and shaking it vigorously, or placing it in your pocket and walking around with it. It appears the resultant change in pressure causes the eggs to hatch.</p><p>Small meals should be offered at least twice daily. Aged water can result in high mortality so regular, small water changes are essential and uneaten food should not be allowed to accumulate in the rearing tank.</p><p>Pseudomugil spp. are quite short-lived with females tending to survive for only a single reproductive season in nature.</p><p>Though lifespan tends to increase in well-maintained aquaria the fish will normally be less fecund once they reach an age of 12-18 months.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/pseudomugil_signifer_en/",
+      "html": "<p>The fish like to spawn in fine plant material (Java moss etc.). The eggs need 2-3 weeks to hatch. The offspring is already 5-6 mm long and can readily accept freshly hatched brine shrimp nauplii as food.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-signifer",
+      "html": "<p>Continuous spawner. Eggs are attached to fine plants, moss or spawning mops over many days. Move mops to a separate container; fry need infusoria or green water first.</p>"
     },
     {
       "key": "notes",
@@ -494,7 +571,7 @@
       "width": 819,
       "height": 594,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Rich Kuehn / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-signifer",
       "caption": "Adult male from the aquarium trade.",
       "source": "seriouslyfish"
@@ -505,7 +582,7 @@
       "width": 800,
       "height": 571,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Ricardo Kobe / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-signifer",
       "caption": "More sparring males.",
       "source": "seriouslyfish"
@@ -546,7 +623,7 @@
       "width": 800,
       "height": 590,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Ricardo Kobe / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-signifer",
       "caption": "Males will spar often if present in numbers.",
       "source": "seriouslyfish"
@@ -616,5 +693,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-20"
 }

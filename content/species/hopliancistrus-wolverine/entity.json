@@ -1,0 +1,217 @@
+{
+  "id": "hopliancistrus-wolverine",
+  "scientificName": "Hopliancistrus wolverine",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hopliancistrus",
+  "group": "catfish",
+  "lNumber": "L17",
+  "places": [
+    "south-america",
+    "brazil",
+    "xingu",
+    "rio-xingu"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 13
+      },
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1490",
+      "html": "<ul><li>Scientific name: Hopliancistrus wolverine Oliveira, Zuanon, Rapp Py-Daniel, Birindelli &amp; Sousa, 2021</li><li>Common names: L017, Wolverine Pleco</li><li>Breeding: unreported</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_wolverine.htm",
+      "html": "<p>This genus is similar to Ancistrus in appearance. They possess three stout odontodes concealed beneath the gill covers, which act as a defence mechanism.</p><ul><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1490",
+      "html": "<p>South America: Brazil: Rio Xingu, Amazon, Lower Amazon, Xingu. Type locality: Pimental Furo da Crente, Rio Xingu basin, Altamira, Pará, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_wolverine.htm",
+      "html": "<p>South America: Brazil, Pará, Rio Xingu (Altamira).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_wolverine.htm",
+      "html": "<p>Hopliancistrus wolverine is currently known from the middle Rio Xingu, from immediately downriver of the Belo Monte Village, throughout the Volta Grande do Xingu to the vicinity of São Félix do Xingu, and in the Rio Iriri, immediately upstream of its confluence with the Xingu until the mouth of the Rio Curu.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_wolverine.htm",
+      "html": "<p>Likes a current in the aquarium and is a peaceful inhabitant. Likes a higher temperature and needs frequent water changes to keep it in good health.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_wolverine.htm",
+      "html": "<p>Omnivore; vegetable foods such as lettuce, spinach, cucumber and vegetable tablets. Live and frozen foods such as Cyclops, Daphnia and brine shrimp.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1490",
+      "html": "<p>Male Hopliancistrus develop very stout recurved odontodes at the corners of the snout.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_wolverine.htm",
+      "html": "<p>Males possess a broad head region and more prominent bristling on the edge of the snout.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1490",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1490",
+      "html": "<p>The presence of three stout, strongly recurved odontodes in the cheek mass putatively separate Hopliancistrus from all other Ancistrini; however, the actual number of hypertrophied cheek odontodes is 1-16, with 1-5 of those being stout and recurved. The only other ancistrin that develops hypertrophied odontodes just in the corners of the snout is Lasiancistrus, but Lasiancistrus have the odontodes very thin, like long whiskers; also, Lasiancistrus has three rows of plates on the caudal peduncle vs. five in Hopliancistrus.</p><p>The L-number is confused: the L017 originally introduced was L067 (a Pseudancistrus), but this was not realised until much later, by which point L017 had settled on Hopliancistrus. It therefore does not have the snout odontodes or the hint of yellow in the dorsal found with L067. Both fishes have yellow in the caudal.</p><p>Also traded as LDA015.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_wolverine.htm",
+      "html": "<p>This species is referred to in some aquarium fish publications as L017 and LDA15, but the code L017 was coined to depict a Pseudancistrus (Stawikowski 174), today known as P. asurini. One individual of the lot INPA 40877 shows a hypertrophied membrane posterior to the last ray of the dorsal fin, covering four plates immediately behind it, but not reaching the preadipose plate, a similar but distinct condition to that observed in species of Baryancistrus Rapp Py-Daniel, 1989.</p><p>Etymology: The specific name alludes to the mustelid Gulo gulo, also known as wolverine, glutton, carcajou, skunk bear or quickhatch, because of its blunt stature, strong claws and ferocity. Name in apposition.</p><p>Remarks: The L-number L017 was originally given to a Pseudancistrus sp. (P. asurini) with the same yellow colouring in the tail fin from the same river system, but was later given the L-number L067, and this Hopliancistrus species (which didn't have an L-number at the time) was given the L-number 17.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1490",
+      "html": "<p>PLoS ONE v. 16 (no. 1): e0244894, pp 16, Figs. 1B, 5C, 6A-B, 7C, 10-12.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_wolverine.htm",
+      "html": "<p>de Oliveira RR, Zuanon J, Py-Daniel LHR, Birindelli JLO, Sousa LM (2021) Taxonomic revision of Hopliancistrus Isbrücker &amp; Nijssen, 1989 (Siluriformes, Loricariidae) with redescription of Hopliancistrus tricornis and description of four new species. PLoS ONE 16(1): e0244894.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/cddc57b9dc850564.webp",
+      "thumb": "https://media.aquatome.com/scotcat/cddc57b9dc850564-480.webp",
+      "width": 500,
+      "height": 196,
+      "licence": "dùng với sự cho phép",
+      "author": "Robin Warne / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_wolverine.htm",
+      "caption": "Hopliancistrus wolverine",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ce7b4291add16c28.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ce7b4291add16c28-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_wolverine.htm",
+      "caption": "Hopliancistrus wolverine",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8c9f8492f9d5f5ed.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8c9f8492f9d5f5ed-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_wolverine.htm",
+      "caption": "Hopliancistrus wolverine",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "tn279fOkdM4",
+      "title": "CASCUDO-WOLVERINE! Descoberta de novas espécies de Hopliancistrus!",
+      "durationSec": 661,
+      "lang": "pt-BR"
+    },
+    {
+      "youtubeId": "VFDIYbJOqTg",
+      "title": "O bagre Wolverine já tinha nome e já era bem conhecido aqui .",
+      "durationSec": 26,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên chìm cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

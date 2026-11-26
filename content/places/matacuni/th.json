@@ -3,6 +3,12 @@
   "name": "มาตากูนี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:50:40.876Z",
+    "why": "The Thai transliteration of Matacuni is plausible (มาตากูนี), but the place is a river basin/region, and the name lacks the Thai kind word \"แม่น้ำ\" for the river; the record's \"region\" and Vietnamese name aren't supported either."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

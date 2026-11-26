@@ -1,0 +1,122 @@
+{
+  "id": "youtube-GG6DUFZaYT8",
+  "kind": "discovery",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=GG6DUFZaYT8",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-24",
+  "video": {
+    "youtubeId": "GG6DUFZaYT8",
+    "title": "These Trends Are A problem In Fish Keeping",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 1101,
+    "publishedAt": "2021-07-04",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D33V3OclSs889bdwaBu8HN-",
+      "position": 19
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/GG6DUFZaYT8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Seachem",
+        "model": "Tidal",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "brand": "Sicce",
+        "model": "Shark ADV",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Guard",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Complete",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Dark Water",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Betta Guard",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Thấy người khác nuôi thì cũng mua theo",
+        "moments": [
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/GG6DUFZaYT8/at10-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Một con cá màu trắng hồng đang bơi trong bể nền tối.",
+            "sharpness": 303.8,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/GG6DUFZaYT8/p0-82NDU2NzgwLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/GG6DUFZaYT8/p0-82NDU2NzgwLmpwZw-480.webp",
+          "width": 960,
+          "height": 870,
+          "licence": "CC BY-SA 3.0",
+          "author": "Gourami Watcher",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_splendens_6456780.jpg",
+          "caption": "Cá betta xanh bơi trong bể tròn nhỏ có ít cây thủy sinh."
+        }
+      },
+      {
+        "heading": "Cho cá dùng thuốc khi chúng không cần",
+        "moments": [
+          {
+            "t": 20,
+            "url": "https://media.aquatome.com/video/GG6DUFZaYT8/at20-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá oscar albino thân trắng đốm đỏ đang bơi trong bể.",
+            "sharpness": 217.4,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Có vấn đề là bỏ tiền mua thêm đồ",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/GG6DUFZaYT8/p2-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/GG6DUFZaYT8/p2-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng đặt trong tủ bể, bên cạnh là xô và ống siphon thay nước."
+        }
+      }
+    ]
+  }
+}

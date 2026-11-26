@@ -1,6 +1,24 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:541288653"
+ ],
  "hashes": {},
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 188504,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2344333,
+  "next": null
+ },
+ "inatNc": {
+  "after": 300416718,
+  "done": true
+ }
 }

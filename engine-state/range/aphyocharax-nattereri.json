@@ -1,8 +1,8 @@
 {
   "id": "aphyocharax-nattereri",
   "native": {
-    "input": "39b91e52c1a96c42",
-    "at": "2026-11-09T23:57:44.132Z",
+    "input": "3d3a9b08d92aa840",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
       {
         "code": "BR",
@@ -29,7 +29,14 @@
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Confusion remains however, as the type locality for the latter is 'Villa Bella', now known as Parintins, a settlement on the main Amazon river channel between Manaus and Santarém and many kilometres away from the majority of confirmed localities.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

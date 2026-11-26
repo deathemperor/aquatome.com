@@ -3,6 +3,12 @@
   "name": "ตรังงัน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:42:20.852Z",
+    "why": "ตรังงัน is a plausible Thai transliteration of Trangan, but it lacks the Thai kind word for island (เกาะ), which an atlas would normally include, and the name is rare in Thai sources."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

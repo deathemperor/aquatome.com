@@ -25,35 +25,29 @@
         "VE",
         "GY",
         "SR",
+        "GF",
         "TT",
         "BB",
         "AG"
       ],
       "regions": [
         "Rio Morichal",
-        "Guayre River",
-        "Trinidad"
+        "Guayre River"
       ],
       "sources": [
-        "sprucepets",
         "seriouslyfish",
-        "glaser"
+        "glaser",
+        "aquariumbreeder"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad.",
-          "countries": [
-            "VE"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
           "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
           "countries": [
+            "VE",
             "GY",
             "SR",
+            "GF",
             "TT",
             "BB",
             "AG"
@@ -75,21 +69,13 @@
           "regions": [
             "Guayre River"
           ]
-        },
-        {
-          "source": "sprucepets",
-          "quote": "They are named for Robert John Lechmere Guppy who collected these fish on the island of Trinidad in 1866.",
-          "countries": [],
-          "regions": [
-            "Trinidad"
-          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2350050,
       "total": 8207,
-      "fetched": "2026-11-14",
+      "fetched": "2026-11-16",
       "countries": [
         [
           "BR",
@@ -1531,7 +1517,7 @@
           -53.4375,
           2.8125,
           3,
-          0
+          3
         ],
         [
           -52.03125,
@@ -3135,6 +3121,13 @@
           "min": 17,
           "max": 28
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
       }
     ],
     "ph": [
@@ -3150,6 +3143,13 @@
         "value": {
           "min": 7,
           "max": 8.5
+        }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8
         }
       }
     ],
@@ -3167,6 +3167,13 @@
           "min": 8,
           "max": 30
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 18
+        }
       }
     ],
     "sizeCm": [
@@ -3176,6 +3183,10 @@
       },
       {
         "source": "seriouslyfish",
+        "value": 6
+      },
+      {
+        "source": "aquariumbreeder",
         "value": 6
       }
     ],
@@ -3187,6 +3198,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 1
       }
     ],
     "tankCm": [
@@ -3198,6 +3213,13 @@
     "lifeYears": [
       {
         "source": "sprucepets",
+        "value": {
+          "min": 2,
+          "max": 3
+        }
+      },
+      {
+        "source": "aquariumbreeder",
         "value": {
           "min": 2,
           "max": 3
@@ -3217,6 +3239,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
       "html": "<p>The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad. One of the most popular aquarium fish in the world, it is available in many aquarium-bred varieties with elongated finnage, while the wild form is seldom seen for sale. Many commercially bred guppies are weakened by inbreeding and over-production, and introduced or feral populations exist in around fifty other countries.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/wild_guppy_rio_morichal_en/",
+      "html": "<p>Origin: bred.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "html": "<ul><li>Name: Guppy</li><li>Other names: Millionfish, Rainbow fish</li><li>Scientific name: Poecilia reticulata</li><li>Water type: freshwater</li><li>Minimum tank size: 20 litres</li><li>Breeding: very easy</li><li>Size: males up to 4 cm, females up to 6 cm</li><li>Dwellers: top and middle</li><li>Nitrate: less than 80</li><li>Diet: omnivore</li><li>Temperament: peaceful</li><li>Colour forms: dozens of colour morphs: red, blue, yellow, green, metallic, multicoloured, etc.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -3240,6 +3274,12 @@
       "html": "<p>Among specialists for wild forms of livebearers it is also known as \"orange line\". These fish are a very tiny and slender variety of wild guppy, but not an artificial sport. In contrast to other wild populations of the guppy, this one is known to be a bit sensitive. They are perfect nano fish for experienced hobbyists.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "html": "<p>When buying guppies:</p><ul><li>look for active fish with intact fins and bright colours,</li><li>avoid fish that are pale, lethargic, or have clamped fins,</li><li>ask the seller about the water parameters they were kept in – sudden changes can cause stress.</li></ul><p>It is best to buy guppies from a local breeder rather than a pet store, because store-bought fish often arrive stressed and may carry diseases.</p><p>Always quarantine new guppies for 2–3 weeks before adding them to your main tank.</p>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/guppy-fish-species-profile-5078901",
@@ -3258,10 +3298,22 @@
       "html": "<p>This wild guppy comes from the Rio Morichal in Venezuela.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "html": "<p>Guppies are native to Trinidad and Tobago, as well as to parts of Venezuela, Guyana, Barbados, and several other Caribbean islands.</p><p>In 1859 the German ichthyologist Wilhelm Peters received a few fish from Venezuela and, since they had not been described before, named them Poecilia reticulata. Meanwhile the schoolteacher Robert John Lechmere (1836-1916) sent fish from Trinidad to the British Museum, where they were named Girardinus guppyi. In 1963 German ichthyologists found the original record and confirmed the name Poecilia reticulata.</p><p>Because they eat mosquito larvae, they have been intentionally introduced to many tropical regions to help control malaria. As a result, poeciliids are established invasive species worldwide.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
       "html": "<p>An incredibly adaptable species that occurs in almost every imaginable biotope, from high-altitude streams to turbid swamps and ditches.</p><p>Some populations also exist in brackish conditions.</p><p>However it does tend to thrive best in habitats with lush growths of algae, marginal vegetation and/or aquatic plants.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "html": "<p>This species is not demanding and can live in clean, running water from small streams as well as drainage ditches and ponds. They can also tolerate brackish water, but not full seawater.</p>"
     },
     {
       "key": "aquariumSize",
@@ -3274,6 +3326,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
       "html": "<p>Standard length: 60 mm SL.</p><p>Aquarium base: 45 × 30 cm.</p><p>Volume: ~41 litres (45 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "html": "<p>A small aquarium of 20 litres is enough for 5 guppies. Some follow the rule \"1 litre per 1 cm of fish\", but the more space, the better.</p><p>Do not add fish to a tank that has not been cycled yet. Although they are hardy, high ammonia and nitrates will kill them.</p><p>They are known to be jumpers, so a tight-fitting lid is a good idea. Keeping them in a bowl is not recommended: bowls are hard to maintain, have poor gas exchange and cause stress. Use a rectangular aquarium.</p>"
     },
     {
       "key": "maintenance",
@@ -3291,9 +3349,10 @@
       "key": "maintenance",
       "source": "aquatome",
       "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
-      "html": "<p>Bạch tạng là một dị tật di truyền: con vật mất hết sắc tố. Người ta chọn lọc qua nhiều lứa để giữ dị tật này lại thành dòng albino. Cá albino yếu hơn và khó giữ dòng hơn nhiều. Người mới tập cho cá đẻ thì không nên bắt đầu bằng dòng này, để dành cho người đã có kinh nghiệm.</p>",
+      "html": "<p>Bạch tạng là một dị tật di truyền: con vật mất hết sắc tố. Người ta chọn lọc qua nhiều lứa để giữ dị tật này lại thành dòng albino. Cá albino yếu hơn và khó giữ dòng hơn nhiều. Người mới tập cho cá đẻ thì không nên bắt đầu bằng dòng này, để dành cho người đã có kinh nghiệm.</p>\n<p>Muốn giữ cá đẹp thì tách cá đực khỏi cá cái. Có cá cái trong bể thì cá đực đánh nhau và xé rách vây nhau. Cá cái đôi khi cũng khá dữ với cá đực, nhất là khi lúc nào cũng bị đòi phối. Khi vận chuyển, dù đi thi hay bán cho người khác, nên đóng túi riêng từng con trong cặp để cá cái không làm hỏng vây cá đực trên đường.</p>",
       "refs": [
-        0
+        0,
+        1
       ]
     },
     {
@@ -3303,16 +3362,34 @@
       "html": "<p>Take care that the bacterial content of the water column is as low as possible. Orange lines get sick very fast if this basic rule is neglected.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "html": "<p>Perform weekly water changes of 25% of the tank volume.</p><p>Live plants, artificial plants, driftwood, rocks, and caves are not essential but provide shelter for fry and reduce stress. Floating plants are especially beneficial. Guppies are completely plant-safe and do not eat healthy plants.</p><p>Acclimation: float the bag in the aquarium for 15–20 minutes to equalize temperature. Then add small amounts of tank water to the bag every 5–10 minutes for about 30–45 minutes. Finally, gently release the fish (do not pour the bag water into the aquarium).</p><h3>Common problems</h3><ul><li><strong>Shredded tails:</strong> old water with accumulated ammonia or nitrates (do regular water changes), sharp change in water parameters, injury from aggressive tankmates or decorations, poor feeding (lack of vitamins).</li><li><strong>Torn-off tail:</strong> find the culprit – either a fish or a sharp object. If the edges are ragged and white, it may be a bacterial infection (fin rot). Treat with appropriate medication and improve water quality.</li><li><strong>Clamped tail:</strong> old/dirty water, bacterial infection, or poor nutrition. Start with 20% weekly water changes and observe.</li><li><strong>Curved spine:</strong> birth defect, too small an aquarium with overcrowding, old age, or fish tuberculosis (mycobacteriosis), a serious disease. Isolate affected fish to prevent spread.</li><li><strong>Swimming at the surface:</strong> they are gasping for oxygen. Causes: high temperature, poor aeration, dirty water, or lack of surface movement. Turn on aeration, place the filter outlet near the surface, and do a partial water change.</li></ul><p>Guppies are freshwater fish and will die in full seawater; they tolerate only slightly brackish water.</p><p>Most common reasons for deaths: poor water quality (high ammonia and nitrates), sudden temperature changes, overfeeding, or disease.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
       "html": "<ul><li>Temperature: 17–28°C</li><li>pH: 7.0–8.5</li><li>Hardness: 8–30 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "html": "<ul><li>Temperature: 22–25 °C. They can tolerate 19–29 °C, but it will affect lifespan and breeding rate.</li><li>pH: 7.0–8.0 (range may be 5.8–8.5)</li><li>Hardness: 12–18 °GH (up to 25)</li></ul><p>Lifespan strongly depends on temperature: in warmer water (above 26 °C) metabolism speeds up, the fish grow smaller and live about a year or even less. In cooler water (20–22 °C) they live longer but are less active and may not breed as readily.</p>"
+    },
+    {
       "key": "equipment",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/guppy-fish-species-profile-5078901",
       "html": "<p><strong>Heater:</strong> As a general rule, you need a heater to keep your guppies healthy. They prefer water temperatures of about 21–26 °C, and few homes are warm enough to provide that without an immersible heater in the tank. Monitor water temperature daily and adjust the heater as needed.</p><p><strong>Filtration:</strong> Your aquarium needs a filter to remove impurities and harmful chemicals from the water. Without a filter, aquarium water tends to quickly become filled with pollutants from uneaten food and fish waste, and your fish can become ill or even die. There are many types of aquarium filters available to suit any budget.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "html": "<p>Guppies breathe oxygen dissolved in the water, so aeration and filtration are necessary. If you use a powerful filter, cover the intake with a fine net so fry won't be sucked in. A sponge filter is a very safe choice for guppy tanks.</p><p>Lighting is not critical. Guppies do well in any light, from bright to dim; moderate lighting helps plants grow and enhances the fish's colours.</p><p>If room temperature stays within normal parameters, a heater is not essential. However, a heater helps keep the temperature stable, which is healthier for the fish.</p>"
     },
     {
       "key": "diet",
@@ -3327,6 +3404,12 @@
       "html": "<p>Wild fish are primarily insectivorous, but today's tank-bred fish are far-removed from their ancestors and will accept most foods offered.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "html": "<p>Guppies are omnivores and feed on zooplankton, detritus, and even algae. In nature they feed on mosquito larvae, small insects, algae, and detritus.</p><p>In aquariums they eat dry, frozen, live and artificial food, including flakes and granules, spirulina, brine shrimp, Artemia nauplii, daphnia, fruit flies, moina, detritus worms, vinegar eels, mosquito larvae, cyclops, etc.</p><p>Because guppies have a small mouth and stomach, feed them 2–3 times a day in small portions that they can finish in 3–5 minutes. A varied diet (flakes, brine shrimp, daphnia, bloodworms, spirulina) improves colour and health. Once a week you can skip a feeding, but the fish will then actively hunt their own fry.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/guppy-fish-species-profile-5078901",
@@ -3337,6 +3420,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
       "html": "<p>A very peaceful fish. Do not keep with fin-nipping species such as tiger barbs, serpae tetras etc. Does well in a quiet community tank with other livebearers, rasboras, corydoras, small loricariids and tetras.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "html": "<p>Guppies are very active and curious fish. They are not a true schooling species, but they feel safer and look more impressive in a group. They are generally peaceful but can sometimes be nippy, especially if kept in too small a group or if the males get too excited chasing females. They are also jumpers.</p><h3>Tankmates</h3><p>Good tankmates: Danio rerio, Apistogramma agassizii, harlequin rasboras, dwarf ember barbs, neon tetras, pygmy corydoras, clown killifish, least killifish, otocinclus, etc.</p><p>Avoid: most crayfish and freshwater crabs; African dwarf frogs may also try to catch them. Bad tankmates: angelfish, cichlids, goldfish, tiger barbs, large barbs, bettas (may attack or be attacked), and any fish that can fit a guppy in its mouth.</p><p>Shrimp: breeding dwarf shrimp with guppies is almost impossible. Guppies usually do not touch adult shrimp but will eat all shrimplets. If you still want to keep them together, provide dense moss and hiding places, and be ready for losses.</p><p>Snails: guppies are perfectly compatible with any freshwater snails.</p>"
     },
     {
       "key": "dimorphism",
@@ -3354,10 +3443,17 @@
       "key": "dimorphism",
       "source": "aquatome",
       "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
-      "html": "<p>Ở dòng kohaku koi, con đực có hoa văn đỏ trên phần lớn thân, kể cả vây lưng và vây đuôi. Ngực và phần bụng phía sau thường màu vàng nhạt. Con đực đẹp nhất thì gần như cả thân vàng nhạt, chỉ có vây, vệt đỏ trên lưng và mõm là đỏ. Dòng này gần với dòng full red, nhưng khác ở chỗ gonopodium không được có màu đỏ. Con cái ít đỏ hơn hẳn, thường chỉ có màu ở vây đuôi, vệt trên lưng và mõm, còn vây lưng và vây hậu môn thường không có màu.</p>",
+      "html": "<p>Ở dòng kohaku koi, con đực có hoa văn đỏ trên phần lớn thân, kể cả vây lưng và vây đuôi. Ngực và phần bụng phía sau thường màu vàng nhạt. Con đực đẹp nhất thì gần như cả thân vàng nhạt, chỉ có vây, vệt đỏ trên lưng và mõm là đỏ. Dòng này gần với dòng full red, nhưng khác ở chỗ gonopodium không được có màu đỏ. Con cái ít đỏ hơn hẳn, thường chỉ có màu ở vây đuôi, vệt trên lưng và mõm, còn vây lưng và vây hậu môn thường không có màu.</p>\n<p>Ở cá đực trưởng thành, vây lưng thường dài phủ đúng 1/3 vây đuôi. Một người nuôi và cho đẻ dòng này lâu năm thấy cá đực trong dòng của mình hơi nhỏ con hơn các dòng khác. Cỡ nhỏ là một trong những điểm khiến cá dễ bị chấm thấp khi đi thi. Hình dáng vây đuôi cũng quan trọng ở các cuộc thi: người này đang chọn lọc để có đuôi delta với mép sau thẳng, bỏ kiểu mép sau tròn.</p>",
       "refs": [
-        0
+        0,
+        1
       ]
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "html": "<table><tr><th>Feature</th><th>Male</th><th>Female</th></tr><tr><td>Size</td><td>Smaller</td><td>Larger</td></tr><tr><td>Body shape</td><td>Slim</td><td>Fuller, with a rounded belly</td></tr><tr><td>Colour</td><td>Bright, multi-coloured</td><td>Pale, usually grey-olive</td></tr><tr><td>Tail fin</td><td>Large, colourful</td><td>Smaller, rounded</td></tr><tr><td>Anal fin</td><td>Modified into a pointed tube (gonopodium)</td><td>Normal triangular fin</td></tr></table><p>Males grow about 4 cm and stop growing at maturity; females reach about 6 cm and have a dark gravid spot near the anal fin. Even juveniles can be sexed early – the first fry to show colour are usually males.</p>"
     },
     {
       "key": "reproduction",
@@ -3370,6 +3466,21 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
       "html": "<p>Very easy. Livebearer. It is advisable to keep several females to each male as males can be quite vigorous in their constant pursuit of females. No real effort needs to be made to breed these fish although a densely planted species tank with lots of floating vegetation is the best way to ensure the survival of the fry.</p><p>A pregnant female can be identified by the gravid spot (darkened area) behind her anal fin just behind the belly. Between 5-100 young may be produced from a single female, and gestation takes between 4-6 weeks.</p><p>Excess viable sperm can be preserved in the female's oviduct for a long time.</p><p>This means that the females are still able to produce young for 6 months or more if no males are present. Adult fish will eat the young so it is better to remove them after the fry are born to ensure 100% survival. They are incredibly prolific so if you do not want a tank full of fry buy fish of only one sex.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Blue grass khó giữ dòng, vì mỗi lứa luôn ra ba kiểu cá. Theo một người nuôi và cho đẻ dòng này lâu năm:</p><ul><li><strong>Blue grass:</strong> khi cả bố lẫn mẹ đều xanh thì chỉ khoảng 40% cá đực ra blue grass.</li><li><strong>Red grass:</strong> khoảng 40% cá đực khác ra red grass. Đây là dòng gốc không mang gen Asian blue, blue grass được tạo ra từ nó. Muốn hay không thì gen này cũng không loại khỏi dòng được, lứa nào cũng có anh em red grass. Cá red grass rất đẹp và người chơi thích, nên không khó bán.</li><li><strong>Asian blue grass:</strong> khoảng 10–20% cá trong lứa ra màu xanh pha xám. Người cho đẻ thường loại những con này.</li></ul><p>Nhìn cá bột là phân biệt được ngay: cá bột blue grass và red grass có thân nâu xanh lục, còn Asian blue grass thì màu xám. Người nuôi kể trên nuôi những con xám tới khoảng tháng thứ ba, cho ăn nhiều đạm rồi đem cho bạn bè làm cá mồi.</p><p>Không nên thả chung cả đàn cho tự đẻ. Muốn giữ cá màu xanh đẹp thì phải chọn đực xanh phối với cái có hoa văn grass, như vậy mỗi lứa ra được ít nhất 40–50% blue grass. Cách làm là chọn những con đực và cái đẹp nhất cho đẻ, rồi khi cá con phân biệt được đực cái thì tách cá đực ra nuôi riêng.</p>",
+      "refs": [
+        1
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "html": "<p>Guppies are among the easiest fish to breed. They are ovoviviparous livebearers: the female carries fertilised eggs inside her body and gives birth to live, free-swimming fry.</p><p>Mating: keep one male per 3–5 females. The male uses his gonopodium to fertilise the female internally.</p><p>Gestation lasts about 21–35 days, depending on temperature. A few days before birth the female's belly becomes squared off and she may hide among plants. A dark gravid spot near the anus develops; the darker it is, the closer she is to giving birth. Guppies can eat their fry, so place the pregnant female in a separate breeding tank or floating breeding box with fine-leaved plants (e.g. Java moss), and return her to the main tank after birth.</p><p>A female usually gives birth to 12–60 fry, large females up to 100. Newborn fry are transparent or blackish. They grow very fast, reach sexual maturity at 8–10 weeks and full size in 6 months. Males mature at 2 months and females at 3 months. They start showing colour in about 1.5 months.</p><p>Fry care: in the first hours fry lie at the bottom or hide among plants, then start swimming and eating. Feed 4–5 times a day in tiny portions:</p><ul><li>First 2–3 days: infusoria, liquid fry food, or finely crushed egg yolk.</li><li>After that: microworms, baby brine shrimp (Artemia nauplii), and high-quality powdered fry food.</li><li>After 2 weeks: crushed flakes, small daphnia.</li></ul><p>Fry are sensitive to water changes: change 10% of the water daily or 25% once a week. Keep the water at 24–26.5 °C for optimal growth.</p>"
     },
     {
       "key": "notes",
@@ -3387,28 +3498,29 @@
       "key": "notes",
       "source": "aquatome",
       "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
-      "html": "<p>Bảy màu koi có nhiều biến thể, chẳng hạn tuxedo, red koi, platinum koi và kohaku koi. Đây là dòng khá mới. Không rõ ai lai ra nó và lai từ lúc nào, nhưng có lẽ nó ra đời ở Nhật. Bản albino kohaku koi có mắt đỏ của cá bạch tạng, thân lại ngả vàng nhạt và trắng hơn hẳn các dòng koi thường. Con cái dòng koi có mõm đỏ, người Nhật gọi là <em>kuchi beni</em>, nghĩa là \"son môi\". Cá chép koi mang kiểu hoa văn này cũng được gọi bằng tên đó.</p>",
+      "html": "<p>Bảy màu koi có nhiều biến thể, chẳng hạn tuxedo, red koi, platinum koi và kohaku koi. Đây là dòng khá mới. Không rõ ai lai ra nó và lai từ lúc nào, nhưng có lẽ nó ra đời ở Nhật. Bản albino kohaku koi có mắt đỏ của cá bạch tạng, thân lại ngả vàng nhạt và trắng hơn hẳn các dòng koi thường. Con cái dòng koi có mõm đỏ, người Nhật gọi là <em>kuchi beni</em>, nghĩa là \"son môi\". Cá chép koi mang kiểu hoa văn này cũng được gọi bằng tên đó.</p>\n<p>Blue grass là một trong những dòng bảy màu fancy lâu đời và quen thuộc nhất. Ở hầu hết các cuộc thi đều có cá dòng này, và chúng thường đạt kết quả rất tốt. Trong các dòng grass, blue grass là màu được ưa nhất. Dòng này cũng hợp để lai ra ngoài nhằm tạo đốm trên vây, nhất là lai với Japan blue hoặc Moscow, nên giờ có khá nhiều màu và nhiều kiểu lai.</p><p>Màu xanh của blue grass là do đột biến Asian blue, đột biến này đổi sắc đỏ thành xanh ánh kim. Thân cá mang màu xanh đậm đặc trưng của dòng. Cuối thân và đuôi có thể có chút vàng, nhưng chỗ vàng này thường mất dần khi cá lớn tuổi hơn.</p>",
       "refs": [
-        0
+        0,
+        1
       ]
-    },
-    {
-      "key": "references",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
-      "html": "<ul><li>Peters, W. (C. H.) (1859). Eine neue vom Herrn Jagor im atlantischen Meere gefangene Art der Gattung Leptocephalus, und über einige andere neue Fische des Zoologischen Museums. Monatsberichte der Königlichen Preussische Akademie des Wissenschaften zu Berlin, 411-413</li></ul>"
-    },
-    {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/wild_guppy_rio_morichal_en/",
-      "html": "<p>Origin: bred.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/wild_guppy_rio_morichal_en/",
       "html": "<p>The wild guppy from the Rio Morichal in Venezuela is also known as \"orange line\" among the specialists for wild forms of livebearers. These fish are a very tiny and slender variety of wild guppy, but not an artificial sport.</p><p>In contrast to other wild populations of the guppy this one is known to be a bit sensitive. One should always take care that the bacterial content of the water column is as low as possible. Orange lines will get very fast very sick if this basic rule is neglected!</p><p>These little jewels are perfect nano fish for experienced hobbyists.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "html": "<p>Guppies were named after Robert John Lechmere Guppy. The genus name Poecilia derives from the Greek poikilos, meaning 'variegated or variable'; the species name reticulata is Latin for 'net-like', referring to the reticulated scale pattern.</p><p>Wild-type guppies are small and not very flashy. Natural populations are highly polymorphic, with a mosaic of spots or patches varying in colour, size and position. Guppies have no spines; the dorsal fin has 7–8 soft rays and the anal fin 8–10. Through selective breeding, dozens of domestic strains have been created, differing in fin shape (round tail, lyretail, swordtail, etc.) and colour (red, blue, green, yellow, albino, cobra, snakeskin, mosaic, etc.).</p><p>Lifespan is about 2–3 years; some fish may live up to 5 years.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "html": "<ul><li>Peters, W. (C. H.) (1859). Eine neue vom Herrn Jagor im atlantischen Meere gefangene Art der Gattung Leptocephalus, und über einige andere neue Fische des Zoologischen Museums. Monatsberichte der Königlichen Preussische Akademie des Wissenschaften zu Berlin, 411-413</li></ul>"
     }
   ],
   "photos": [
@@ -3433,9 +3545,25 @@
       "sourceUrl": "https://www.thesprucepets.com/guppy-fish-species-profile-5078901",
       "caption": "Three guppy females and two males, with some young",
       "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/1e19abdd7ce0010b.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/1e19abdd7ce0010b-480.webp",
+      "width": 640,
+      "height": 387,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/guppy-guide-how-to-care/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [
+    {
+      "youtubeId": "eZ9yKYiueNA",
+      "title": "Fancy Guppy Strains (Blue Grass)",
+      "durationSec": 345,
+      "lang": "en"
+    },
     {
       "youtubeId": "-Ws7RudcQ4U",
       "title": "Fancy Guppy Strains (Albino Kohaku Koi)",
@@ -3496,11 +3624,15 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13",
+  "updatedAt": "2026-11-22",
   "refs": [
     {
       "url": "https://www.youtube.com/watch?v=-Ws7RudcQ4U",
       "title": "Fancy Guppy Strains (Albino Kohaku Koi)"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=eZ9yKYiueNA",
+      "title": "Fancy Guppy Strains (Blue Grass)"
     }
   ]
 }

@@ -16,7 +16,8 @@
     "karnaphuli",
     "myanmar",
     "ayeyarwady",
-    "china"
+    "china",
+    "thailand"
   ],
   "range": {
     "native": {
@@ -26,16 +27,18 @@
         "IN",
         "BD",
         "MM",
-        "CN"
+        "CN",
+        "TH"
       ],
       "regions": [],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The orangefin labeo, Labeo calbasu, is a large cyprinid from Pakistan, Nepal, India, Bangladesh, Myanmar and southern China.",
+          "quote": "This species is extremely widespread and has been recorded from major river systems in Pakistan, Nepal, most of India, Bangladesh, Myanmar and southern China.",
           "countries": [
             "PK",
             "NP",
@@ -45,17 +48,25 @@
             "CN"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Pakistan, India, Bangladesh, Myanmar, Nepal, Thailand and South West China.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 5206019,
-      "total": 224,
-      "fetched": "2026-11-09",
+      "total": 225,
+      "fetched": "2026-11-17",
       "countries": [
         [
           "IN",
-          194
+          195
         ],
         [
           "BD",
@@ -130,6 +141,12 @@
         [
           74.53125,
           12.65625,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          15.46875,
           1,
           1
         ],
@@ -395,19 +412,19 @@
           97.03125,
           16.875,
           1,
-          0
+          1
         ],
         [
           104.0625,
           14.0625,
           1,
-          0
+          1
         ],
         [
           105.46875,
           14.0625,
           2,
-          0
+          2
         ]
       ]
     }
@@ -417,6 +434,10 @@
       {
         "source": "seriouslyfish",
         "value": 80
+      },
+      {
+        "source": "glaser",
+        "value": 100
       }
     ],
     "tankCm": [
@@ -440,10 +461,28 @@
       "html": "<ul><li>Needs a tank at least 2 m long</li></ul><p>The orangefin labeo, Labeo calbasu, is a large cyprinid from Pakistan, Nepal, India, Bangladesh, Myanmar and southern China. Growing to 800 mm, it is an important food and game fish across its native range and is not a suitable subject for the home aquarium. It is known as 'black rohu' in parts of India and Bangladesh, and inhabits the lower reaches of major rivers, lakes and reservoirs.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_calbasu_en/",
+      "html": "<p>Labeo calbasu, the Orange-fin shark, is a real king sized labeo. Origin: South East Asia.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_calbasu_en/",
+      "html": "<p>With a size of up to 1 m it is not a fish for the \"normal\" aquarium. Aficionados of the East Asian fish fauna possessing really large aquariums can hold it together with Channa or Osphronemus species.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/labeo-calbasu",
       "html": "<p>This species is extremely widespread and has been recorded from major river systems in Pakistan, Nepal, most of India, Bangladesh, Myanmar and southern China.</p><p>Type locality is 'Bengal and western provinces, India'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_calbasu_en/",
+      "html": "<p>Pakistan, India, Bangladesh, Myanmar, Nepal, Thailand and South West China. In its homeland it is a food fish and therefore of importance in Asian aquaculture.</p>"
     },
     {
       "key": "habitat",
@@ -464,10 +503,28 @@
       "html": "<p>A large, mature filter system, rigorous maintenance regime comprising weekly water changes of 50-70% tank volume, and provision of highly-oxygenated water with a degree of movement should be considered mandatory.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_calbasu_en/",
+      "html": "<p>Owing to their large appetite they load the water very strongly, so they are grateful for regular large water changes.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_calbasu_en/",
+      "html": "<p>In their habitats they occur in diverse water types, so they have no special demands on water chemistry.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/labeo-calbasu",
       "html": "<p>Primarily a benthic feeder foraging on aquatic vegetation, organic detritus, small molluscs, filamentous algae, and diatoms.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_calbasu_en/",
+      "html": "<p>In the wild Labeo calbasu is selective in feeding. Juveniles show a positive selection for zooplanktonic organisms. Adults show a negative selection for zooplankton and a positive selection for decayed organic matter and molluscs.</p>"
     },
     {
       "key": "reproduction",
@@ -495,20 +552,9 @@
       "width": 800,
       "height": 519,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Nilanjan Mukherjee / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/labeo-calbasu",
       "caption": "Juvenile individual from the Brahmaputra River, northern India.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/d363f65815574713.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/d363f65815574713-480.webp",
-      "width": 640,
-      "height": 435,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-calbasu",
-      "caption": "Specimen from the Indus River, Pakistan.",
       "source": "seriouslyfish"
     }
   ],
@@ -529,5 +575,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-17"
 }

@@ -3,6 +3,12 @@
   "name": "Banyuasin",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T05:44:58.647Z",
+    "why": "The name \"Banyuasin\" is the official Indonesian spelling of the regency and river, but the place is the Banjuasin river basin, so the bare name drops the kind word \"Sungai\" or \"Daerah Aliran Sungai\", and the source's spelling \"Banjuasin\" is a variant."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

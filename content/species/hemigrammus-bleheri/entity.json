@@ -10,7 +10,9 @@
     "colombia",
     "meta",
     "brazil",
-    "rio-negro"
+    "rio-negro",
+    "rio-meta",
+    "peru"
   ],
   "range": {
     "native": {
@@ -166,6 +168,13 @@
           "min": 23,
           "max": 26
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -173,6 +182,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 5.5,
+          "max": 7
+        }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
           "max": 7
         }
       }
@@ -184,11 +200,22 @@
           "min": 2,
           "max": 15
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "seriouslyfish",
+        "value": 5
+      },
+      {
+        "source": "aquariumbreeder",
         "value": 5
       }
     ],
@@ -202,6 +229,19 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5,
+          "max": 5
+        }
       }
     ]
   },
@@ -213,10 +253,28 @@
       "html": "<p>The firehead tetra, Petitella bleheri (formerly Hemigrammus bleheri), is a characin from blackwater rivers of the Rio Meta and Rio Negro in Colombia and Brazil. Most fish sold as the 'rummy-nose tetra' are this species. Of the three look-alikes, with H. rhodostomus and Petitella georgiae, only P. bleheri has red extending beyond the gill covers, although the red fades in fish in poor condition. It should be kept in groups of 10 or more.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brilliant-rummynose-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Brilliant Rummynose Tetra</li><li>Scientific name: Hemigrammus bleheri</li><li>Minimum tank: 20 gallons (~80 litres)</li><li>Keeping: medium-difficult; breeding: difficult</li><li>Nitrate: less than 40</li><li>Diet: omnivore</li><li>Temperament: peaceful</li><li>Colour: red head with silvery-grey body</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brilliant-rummynose-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>This fish is highly sensitive to water quality and pathogens, does not handle transportation well, easily becomes stressed and is difficult to breed. It is not recommended for beginners.</p><p>Brilliant Rummynose Tetras are quite difficult to keep due to their high water quality requirements and the difficulty of adapting to new conditions. They are not hardy, are very demanding when it comes to water parameters, and do not tolerate mistakes.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/petitella-bleheri",
       "html": "<p>Rio Meta and Rio Negro in Colombia and Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brilliant-rummynose-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The Brilliant Rummynose Tetra occurs in the wild in the Amazon Basin, especially in Rio Meta and Rio Negro blackwater tributaries in Colombia and Brazil, and in Peru.</p>"
     },
     {
       "key": "habitat",
@@ -225,10 +283,22 @@
       "html": "<p>Blackwater rivers and tributaries. The water in these biotopes is typically stained brown with tannins from decaying organic material and is very acidic as a result.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brilliant-rummynose-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These fish usually inhabit the margins of streams and marginal floodplains with dense vegetation, submerged logs, and tangled roots.</p><p>They prefer shallow (less than 1.5 m), calm, shaded areas with slow water flow. They are often found near the bottom and rarely at the surface.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/petitella-bleheri",
       "html": "<p>This is a species that should be maintained in groups numbering 10 or preferably more, and its active swimming nature requires a tank length of 90 cm minimum.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brilliant-rummynose-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Despite their small size, a group of 8–10 fish requires an absolute minimum aquarium of 80 litres. These fish are highly active, so a long aquarium is recommended rather than a tall one. Larger aquariums also make it easier to keep water parameters stable and dilute fluctuations in water chemistry.</p><p>They are jumpers, so use a tank cover, lower the water level and use floating plants.</p>"
     },
     {
       "key": "maintenance",
@@ -237,10 +307,22 @@
       "html": "<p>A biotope setup would be very simple to arrange. Use a substrate of river sand and add a few driftwood branches (if you can't find driftwood of the desired shape, common beech is safe to use if thoroughly dried and stripped of bark) and twisted roots. A few handfuls of dried leaves (again beech can be used, or oak leaves are also suitable) would complete the natural feel. Aquatic plants are not a feature of this species' natural waters. Allow the wood and leaves to stain the water the colour of weak tea, removing old leaves and replacing them every few weeks so they don't rot and foul the water. A small net bag filled with aquarium-safe peat can be added to the filter to aid in the simulation of black water conditions. Use fairly dim lighting. Under these conditions the true beauty of the fish will be revealed.</p><p>Alternatively it also does well in a more standard, well-planted tank. A good maintenance regime is essential with this species as it will lose colour in unfavourable conditions. Weekly partial water changes are therefore a must.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brilliant-rummynose-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The aquarium must be fully established, not just cycled. These fish do not tolerate ammonia, nitrites or nitrates well.</p><p>Lighting: slightly subdued lighting is best; in planted tanks, adapt it to the plants.</p><p>Water flow: still or very slow currents are recommended.</p><p>Substrate: sand or smooth gravel; avoid coarse gravel, whose sharp edges can injure the fish. In planted tanks an active substrate can be used and helps keep pH low.</p><p>Filtration: powerful filtration with filter media that increase acidity is desirable. Soft water can be achieved with a reverse osmosis system.</p><p>Decorations: replicate their habitat with driftwood, leaf litter and vegetation. Floating plants, fake plants, driftwood, leaves and small rocks provide hiding places.</p><p>Acclimation: use the drip method; sudden changes can harm them.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/petitella-bleheri",
       "html": "<ul><li>Temperature: 23–26°C</li><li>pH: 5.5–7.0. Its colours will become faded if kept in alkaline conditions.</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brilliant-rummynose-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>If buying captive-bred fish, find out the water parameters they were bred in; otherwise presume they are wild-caught and keep them in parameters close to natural ones.</p><ul><li>Temperature: 24–28°C.</li><li>pH: 6.0–7.0. They live in acidic water in the wild.</li><li>GH: 1–8. They prefer soft water and do not do well in very hard water.</li><li>Ammonia 0, nitrite 0, nitrate below 40 ppm.</li></ul><p>In hard and alkaline water they lose their colours. Hemigrammus sp. is also very sensitive to copper: after 96 hours, LC50 values ranged from 12.8 to 40.5 mg Cu.</p>"
     },
     {
       "key": "diet",
@@ -249,10 +331,22 @@
       "html": "<p>Omnivorous and will accept just about anything offered. It does have a small mouth, though, so correspondingly sized foods are best. Feed a mixture of dried flakes and granules and small live and frozen foods. A varied diet such as this is essential for the best colour development.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brilliant-rummynose-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The species is omnivorous with a broad diet. In the wild it eats filamentous and conjugate algae, microcrustaceans (Cladocera, Copepoda, Ostracoda), detritus, animal protein, insect fragments, seeds and eggs. Stomach content analyses showed seasonal variation: microcrustaceans during the flood period, and mainly filamentous algae, chironomids and vegetal fragments in the dry season.</p><p>In aquariums they accept all kinds of food (live, dry or freeze-dried) sized to their mouths. A varied diet is recommended, for example brine shrimp, Artemia nauplii, cyclops, daphnia, fruit flies, mosquito larvae, moina, detritus worms, vinegar eels, grindal worms, bloodworms, blackworms, tubifex worms. They also accept frozen and commercial food such as Fluval Bug Bites, Hikari First Bites, TetraMin Crisps and very small crushed flakes.</p><p>This is a diurnal species, so feed in the morning, using the five-minute rule. Feed small portions several times a day rather than one large meal.</p><p>They are generally completely plant safe, though some reports describe nibbling of soft, small plants such as Utricularia graminifolia, Dwarf baby tears (Hemianthus callitrichoides) and Echinodorus tenellus, possibly triggered by stress combined with inadequate nutrition.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/petitella-bleheri",
       "html": "<p>It's a very peaceful species that won't compete well with very boisterous or much larger tankmates. Ideally keep it with other South American species, such as other Hemigrammus or Hyphessobrycon species, pencil fish, Apistogramma dwarf cichlids, Corydoras and small Loricariids. In a more general community it can be combined with smaller rasboras, barbs, Anabantoids and West African dwarf cichlids such as Pelvicachromis species. Many discus enthusiasts keep a shoal of rummy noses in their show tanks, too.</p><p>Always buy a group of at least 10 of these, preferably more. They are one of the more tightly shoaling small tetras, and will not do well if kept in insufficient numbers. Because they do shoal so closely, they actually look far more effective when maintained like this anyway.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brilliant-rummynose-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Brilliant Rummynose Tetras are generally peaceful and usually get along well with other fish. In too cramped or overcrowded conditions they may nip the fins of long-finned or slow-moving fish.</p><p>They are very easily scared. When stressed they lose colour on the head and tail, and they often play dead (swim upside down) once in the net. They also lose their red head at night and become almost completely silver.</p><p>They are schooling fish; keep them in groups of at least 8. They swim in a highly synchronized and polarized manner and rely on vision and flow sensing to school. They usually do not school with other species.</p><p>They are active and lively, alternating swift darting with gliding movements, and like areas with dense vegetation or hiding places. They are good jumpers, so cover the tank or lower the water level. They swim in the bottom and middle levels, so provide ample swimming space there.</p><p>Tankmates: small fish that are not big enough to eat or harass them and that prefer warm, acidic water, such as Danio rerio, Apistogramma agassizii, harlequin rasboras, dwarf ember barbs, smaller gouramis, neon tetras, pygmy corydoras, clown killifish, least killifish, guppies and Otocinclus. Keeping them with dwarf shrimp is a bad idea, as they may prey on small shrimp or harass molting shrimp. They can share a tank with freshwater snails, though most snails prefer hard water and do not tolerate acidic water well in the long term. Keep them away from most crayfish and freshwater crabs; even African dwarf frogs may try to catch them.</p>"
     },
     {
       "key": "dimorphism",
@@ -261,10 +355,22 @@
       "html": "<p>Mature females are noticeably rounder in the body than males.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brilliant-rummynose-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Brilliant Rummynose Tetras show secondary sexual dimorphism related to body size. Females are slightly rounder and larger (33.0–37.0 mm), whereas males are usually 30.0–32.0 mm.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/petitella-bleheri",
       "html": "<p>You'll need to set up a separate tank in which to do so if you want to raise any numbers of fry. Something around 45 x 30 x 30 cm in size is fine. This should be dimly lit and contain clumps of fine leaved plants such as java moss or spawning mops, to give the fish somewhere to deposit their adhesive eggs. You could also cover the base of the tank with some kind of mesh. This should be of a large enough grade so that the eggs can fall through it, but small enough so that the adults cannot reach them. It can be spawned in a group, with half a dozen specimens of each sex being a good number. Condition these with plenty of live and frozen foods and spawning should not present too many problems.</p><p>Alternatively it can be spawned in pairs. Under this technique the fish are conditioned in male and female groups in separate tanks on a high quality diet of frozen and live foods, at a temperature around 24–25.5°C. Keep the temperature of the spawning tank a few degrees higher than the main tank, say around 28–30°C, with a pH on the acidic side of neutral. When the females are noticeably full of eggs and the males are displaying their best colours, select the fattest female and best-coloured male and transfer them to the spawning tank. The pair should spawn the following morning.</p><p>In either situation the adults will eat the eggs given the chance and should be removed at the first opportunity ie. as soon as eggs are noticed. These will hatch in 24-36 hours, with the fry becoming free swimming a 3-4 days later. They should be fed on an infusoria-type food for the first few days, until they are large enough to accept microworm or brine shrimp nauplii. The eggs and fry are light sensitive in the early stages of life and the tank should be kept as dimly lit as possible.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brilliant-rummynose-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Breeding in captivity is challenging; most fish in shops are wild-caught.</p><p>Maturity: 5–7 months, at 2.8 cm for females and 2.6 cm for males. In the wild females mature during the flood season between December and May, and most spawning occurs at the end of the flood, between March and May.</p><p>The male has no gonopodium and fertilization is external. The pair swim actively in an open area, the male dives beneath the female, they spin together and 5–7 transparent eggs are released. This repeats about 25–30 times. The species has multiple spawning, with fecundity of 101–721 oocytes; in the second year a female can lay about 150–200 eggs.</p><p>They are egg scatterers with no parental care and will eat their own eggs. Incubation takes around 24–48 hours depending on temperature. The eggs and especially the fry are very sensitive to pathogens and require a clean environment.</p><ol><li>Condition the fish with live foods such as brine shrimp, blackworms and daphnia. They need constant good feeding with high-quality foods, not just before spawning.</li><li>Move the breeders to the spawning tank in the evening, catching them with a pocket flashlight, which is the safest method.</li><li>Use a separate breeding tank of 20–40 litres with appropriate water quality.</li><li>Set up a bare-bottom tank with a spawning mop, sponge filter or a few plants that need no substrate.</li><li>Provide very low lighting, as they usually spawn in the morning.</li><li>Gradually lower hardness and pH over at least 4–6 hours, for example from pH 7.0 to about 6.5, with hardness 3–6, and raise the temperature a few degrees, for example from 26°C to 29°C. Some aquarists report that an alder infusion helped stimulate spawning.</li><li>Check the tank every couple of hours for eggs or mating behaviour.</li><li>After spawning, move the adults back to their regular tank. Some aquarists cover the base with mesh so the eggs fall through.</li><li>Let the eggs hatch with dim lights, as the fry dislike bright light.</li><li>Once the yolk sac is consumed, feed infusoria until the fry can eat baby brine shrimp or other live foods. The fry swim after 3–4 days and lose the ability to catch prey after just a few hours of fasting, so feed small amounts 3–4 times a day.</li></ol><p>The first adult colouring appears after the 3rd week; white spots on the tail can be seen as early as 2 weeks, while the red head colour emerges slightly later.</p>"
     },
     {
       "key": "notes",
@@ -277,6 +383,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/petitella-bleheri",
       "html": "<p>This is the species most commonly sold as 'rummy-nose tetra' in aquatic outlets. A selectively-bred \"golden\" variant has also been produced by commercial breeders and is available from time-to-time. The natural form is very similar to both the \"true\" rummy-nose, Hemigrammus rhodostomus and the 'false' rummy-nose, Petitella georgiae in appearance. The 3 species can distinguished by several factors.</p><p>The first is by the extent to which the red colouration on the head of the fish extends into the body. H. bleheri is the only one of the 3 in which the red extends beyond the gill covers. The amount of red colouration on the other 2 species is comparable, although it tends to be a little lighter in tone in P. georgiae. This factor alone cannot be used to positively identify a species, though, as if the fish are not in good condition the red colour can fade considerably. This is particularly true for H. bleheri.</p><p>The second thing we should examine is the caudal peduncle of the fish. All 3 species possess a dark blotch at the top of the caudal peduncle, but only the Hemigrammus possess one at the bottom. If the bottom blotch is absent, you are probably looking at a Petitella.</p><p>The third factor to look at is the line extending laterally from the central caudal fin band into the body of the fish. This is quite broad in P. georgiae, narrow in H. rhodostomus and almost non-existent in H. bleheri. By a combination of these factors, you should be able to identify your fish. The species differ in a couple of other ways, too, such as the patterning of the caudal fin and at the base of the anal fin.</p><p>Bittencourt, et al. (2020) proposed the transfer of the rummynose tetras Hemigrammus rhodostomus and H. bleheri to the genus Petitella on the basis of molecular and morphological data. Petitella is defined therein as follows:</p><p>The genus Petitella is readily distinguished from all remaining characid genera by the possession of a distinctively bright red head, the presence of a black horizontal bar that extends from the end of the caudal peduncle to the middle rays of the caudal-fin, and the presence of an oblique black bar in each caudal-fin lobe, separated by white colored bands. Contact between frontals anterior to frontal fontanel present; posterodorsal margin of ethmoid cartilage and lateral ethmoids distant from lateral ethmoids; 17 or fewer branched anal-fin rays; only one or two anal-fin hooks on each ray of adult males; the presence of parallel longitudinal ridges on the posterior field of scales; scales covering one-third of the length of caudal-fin lobes; coloration of the head distinctively red, especially the snout.</p><p>The phylogenetic reconstruction also confirms Petitella georgiae as a sister-group of Petitella bleheri. The striking p-distance divergence (9.1%) between the Peruvian P. georgiae and our samples from the Purus River indicates the possibility of Petitella georgiae being a species complex. The monophyly of P. bleheri and P. georgiae was highly supported in our analyses — the first time Petitella georgiae was included in any molecular phylogeny — as well as by the morphological data of Mirande (2019), who reported seven morphological synapomorphies supporting the sister-taxon relationship between these two species.</p><p>Petitella bleheri is distinguished from its congeners by the much more intense and widespread red color of the head, extending up to the humeral region (vs. limited red coloration and not extending to humeral region in P. georgiae and P. rhodostomus); horizontal black bar on the end of the caudal peduncle is never prolonged forward (vs. prolonged up to the anal-fin in P. georgiae and P. rhodostomus); anal-fin hyaline (vs. a black bar on the base of the anterior part of the anal-fin, continuing obliquely on the branched rays in P. georgiae and P. rhodostomus). [Bittencourt, et al. 2020 changed the species epithet rhodostomus to rhodostoma, but the specific name is an indeclinable noun and thus remains rhodostomus (Eschmeyer's Catalog of Fishes, 2020).]</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brilliant-rummynose-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The genus name Hemigrammus comes from the Greek \"hemi\" (half) and \"grammus\" (line). The species name bleheri honours Heiko Bleher.</p><p>It is hard to tell Hemigrammus bleheri from Hemigrammus rhodostomus and Petitella georgiae. In H. bleheri the head colouring extends into the body beyond the gill covers, the colour is vibrant, there is a bottom blotch on the caudal peduncle, and the maxillary is very short and round. H. rhodostomus has colouring only on the head, medium intensity and a bottom blotch. P. georgiae has colouring only on the head, is a little lighter in tone and has no bottom blotch. In 2020 a study using molecular data proposed transferring H. bleheri and H. rhodostomus to the genus Petitella.</p><p>Typical lifespan is about 3–5 years; with proper care some can live up to 7 years or longer.</p>"
     },
     {
       "key": "references",
@@ -295,6 +407,16 @@
       "author": "🪶🐾☘️Nandan Sreejith🦌🍄🌍",
       "sourceUrl": "https://www.inaturalist.org/photos/758321304",
       "caption": "Đàn cá rummy-nose đầu lửa bơi giữa rêu và cây thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/e40f7975b27035af.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/e40f7975b27035af-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/brilliant-rummynose-tetra-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [
@@ -344,5 +466,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-23"
 }

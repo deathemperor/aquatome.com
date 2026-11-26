@@ -1,7 +1,15 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "inat:69546385",
+  "inat:476921175",
+  "inat:537488582"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/inaturalist/537488582.webp": "e9dae6d31d1f1eff",
+  "https://media.aquatome.com/inaturalist/69546385.webp": "7f7ffb617978ff11",
+  "https://media.aquatome.com/inaturalist/476921175.webp": "be9a069e1ec696c2"
+ },
  "commons": "2026-11-08",
  "inat": {
   "taxon": 622032,
@@ -10,5 +18,13 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2368766,
+  "next": null
+ },
+ "inatNc": {
+  "after": 298395835,
+  "done": true
  }
 }

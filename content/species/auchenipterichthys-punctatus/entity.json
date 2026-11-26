@@ -1,0 +1,362 @@
+{
+  "id": "auchenipterichthys-punctatus",
+  "scientificName": "Auchenipterichthys punctatus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Auchenipterichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco",
+    "brazil",
+    "amazon",
+    "rio-negro"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR"
+      ],
+      "regions": [
+        "Orinoco",
+        "Rio Negro",
+        "Amazon"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "So far it has been reported only from the upper Orinoco and the Rio Negro in Venezuela, and from the central portion of the Amazon river in Brazil.",
+          "countries": [
+            "VE",
+            "BR"
+          ],
+          "regions": [
+            "Orinoco",
+            "Rio Negro",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344723,
+      "total": 58,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "BR",
+          38
+        ],
+        [
+          "VE",
+          18
+        ],
+        [
+          "CO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          0,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          18,
+          18
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/auchenipterichthys-punctatus-2/",
+      "html": "<p>The maximum size the species can attain is about 15-20 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_punctatus.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/auchenipterichthys-punctatus-2/",
+      "html": "<p>So far it has been reported only from the upper Orinoco and the Rio Negro in Venezuela, and from the central portion of the Amazon river in Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_punctatus.htm",
+      "html": "<p>South America: Upper Orinoco River and Upper Amazon River basins, including the Negro River.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_punctatus.htm",
+      "html": "<p>At the northernmost collecting site (altitude of about 150 m) along upper Rio Negro, the water was blackish, over rocky bottoms.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_punctatus.htm",
+      "html": "<p>Stomach contents of four specimens indicate a diet consisting mainly of insect nymphs and adults (Soares-Porto, L.M. 1994).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/auchenipterichthys-punctatus-2/",
+      "html": "<p>It was believed for quite a long time that the genus Auchenipterichthys would contain only one or two, very widespread species. In 2005 Ferraris, Vari, and Raredon revised the genus and showed that in reality four different species are involved. The species that was thought to be the most common in the hobby turned out to be restricted in distribution to the upper Rio Madeira basin: A. thoracatus. The most often imported species from the Amazon river basin is A. coracoideus and the most widespread species of the genus is A. longimanus.</p><p>As early as 1840 a species of Auchenipterichthys was described by Cuvier and Valenciennes under the name of Auchenipterus punctatus. The species was forgotten for a long time; only in 1996 was it \"rediscovered\" and placed in the genus Auchenipterichthys. This is the only species in Auchenipterichthys with clearly visible round spots and so is quite easy to identify.</p><p>Auchenipterichthys punctatus collected in Venezuela have now been imported. It is quite astonishing that the females, although only 6-7 cm long, already show a belly swollen with eggs.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_punctatus.htm",
+      "html": "<p>Auchenipterichthys punctatus is most similar in appearance to A. longimanus, which differs primarily in lacking distinct, dark spots covering the head or body. It is readily distinguished from its other two congeners, A. coracoideus and A. thoracatus, which have coracoids covered ventrally only by a thin layer of integument and appear to be exposed to the surface, have the anterior teeth on the premaxilla visible in the closed mouth and, typically, eight (rarely nine) branched pelvic-fin rays (Ferraris et al. 2005).</p><p>Etymology: the specific name punctatus comes from the Latin punctatus = 'spotted'.</p><p>Despite there being little information available on this species, it is assessed as Least Concern by the IUCN due to its wide range and no direct threats (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_punctatus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ferraris, C.J. Jr., Vari, P. Richard and Raredon, J.Sandra; Catfishes of the genus Auchenipterichthys (Osteichthyes: Siluriformes: Auchenipteridae); a revisionary study. Neotropical Ichthyology, 3(1):89-106, 2005.</p><p>Frederico, R.G. 2023. Auchenipterichthys punctatus. The IUCN Red List of Threatened Species 2023.</p><p>Soares-Porto, L.M. 1994 Auchenipterichthys dantei, a new species of catfish from the Amazon Basin (Siluriformes: Auchenipteridae). Ichthyol. Explor. Freshwat. 5(3):281-287.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/17669ab86af07b9a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/17669ab86af07b9a-480.webp",
+      "width": 500,
+      "height": 260,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_punctatus.htm",
+      "caption": "Auchenipterichthys punctatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9608490705d051d3.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9608490705d051d3-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterichthys_punctatus.htm",
+      "caption": "Auchenipterichthys punctatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/450ef0e6eef1139a.webp",
+      "thumb": "https://media.aquatome.com/glaser/450ef0e6eef1139a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/auchenipterichthys-punctatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/47f54e53ef87f9b3.webp",
+      "thumb": "https://media.aquatome.com/glaser/47f54e53ef87f9b3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/auchenipterichthys-punctatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/01fa0e9a5131d980.webp",
+      "thumb": "https://media.aquatome.com/glaser/01fa0e9a5131d980-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/auchenipterichthys-punctatus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "tcf2aNDTkOA",
+      "title": "Auchenipterichthys Punctatus!",
+      "durationSec": 6,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UnVgbiW0KGA",
+      "title": "Auchenipterichthys Punctatus 龐克魔鯨",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Tx7kITabQ2A",
+      "title": "auchenipterichthys punctatus 2016 12 22 013729",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vvBGIVN1hQM",
+      "title": "Auchenipterichthys Punctatus 龐克魔鯨",
+      "durationSec": 26,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá thủy sinh lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

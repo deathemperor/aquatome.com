@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process'
-import { chmodSync, existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
+import { chmodSync, existsSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -269,8 +269,10 @@ else { console.error('unexpected ' + path); process.exit(1) }
   const summary = join(dir, 'summary.md')
   const out = execFileSync(process.execPath, [new URL('../../../scripts/cost-log-restore.mjs', import.meta.url).pathname, log], {
     encoding: 'utf8',
-    env: { PATH: `${bin}:${process.env.PATH}`, GITHUB_REPOSITORY: 'o/r', GITHUB_STEP_SUMMARY: summary },
+    env: { PATH: `${bin}:${process.env.PATH}`, GITHUB_REPOSITORY: 'o/r', GITHUB_STEP_SUMMARY: summary, TMPDIR: dir },
   })
+  // The artifacts' zips go with the run (1,118 folders were left in this Mac's /tmp, 15 Nov 2026).
+  expect(readdirSync(dir).filter(n => n.startsWith('aq-cost-log-'))).toEqual([])
   return { out, log: existsSync(log) ? readFileSync(log, 'utf8') : undefined, summary: existsSync(summary) ? readFileSync(summary, 'utf8') : '' }
 }
 

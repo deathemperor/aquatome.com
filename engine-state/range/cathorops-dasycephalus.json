@@ -1,0 +1,128 @@
+{
+  "id": "cathorops-dasycephalus",
+  "native": {
+    "input": "30f5ebc834792e9d",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and Central America, in eastern Pacific drainages: Colombia, Costa Rica, El Salvador, Ecuador and Panama.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and Central America, in eastern Pacific drainages: Colombia, Costa Rica, El Salvador, Ecuador and Panama.",
+        "words": "Costa Rica",
+        "ok": true
+      },
+      {
+        "code": "SV",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and Central America, in eastern Pacific drainages: Colombia, Costa Rica, El Salvador, Ecuador and Panama.",
+        "words": "El Salvador",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and Central America, in eastern Pacific drainages: Colombia, Costa Rica, El Salvador, Ecuador and Panama.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and Central America, in eastern Pacific drainages: Colombia, Costa Rica, El Salvador, Ecuador and Panama.",
+        "words": "Panama",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Gulf of Panama",
+        "source": "scotcat",
+        "quote": "Type locality: Gulf of Panama, Panama.",
+        "country": "PA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cathorops dasycephalus",
+    "status": "ACCEPTED",
+    "taxonKey": 2345162,
+    "datasets": [
+      [
+        "80c74ca6-f762-11e1-a439-00145eb45e9a",
+        39
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        9
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        9
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "14efaf3e-d053-4f50-8e44-d0d2c5ab48b7",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "CR",
+      "SV",
+      "EC",
+      "PA"
+    ],
+    "requests": 13,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

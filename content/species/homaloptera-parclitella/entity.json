@@ -15,15 +15,15 @@
   "range": {
     "native": {
       "countries": [
-        "MY",
-        "TH"
+        "TH",
+        "MY"
       ],
       "regions": [
         "Terengganu",
         "Perak",
         "Endau",
-        "Muar",
         "Sai Buri",
+        "Bang Nara",
         "Kolok"
       ],
       "sources": [
@@ -33,10 +33,10 @@
       "quotes": [
         {
           "source": "glaser",
-          "quote": "It inhabits Malaysia and Southern Thailand.",
+          "quote": "Homaloptera parclitella is an extraordinarily beautiful hillstream loach from the black water of South Thailand and Malaysia.",
           "countries": [
-            "MY",
-            "TH"
+            "TH",
+            "MY"
           ],
           "regions": []
         },
@@ -47,8 +47,7 @@
           "regions": [
             "Terengganu",
             "Perak",
-            "Endau",
-            "Muar"
+            "Endau"
           ]
         },
         {
@@ -57,6 +56,7 @@
           "countries": [],
           "regions": [
             "Sai Buri",
+            "Bang Nara",
             "Kolok"
           ]
         }
@@ -101,19 +101,15 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
+        "source": "seriouslyfish",
         "value": 8
       },
       {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": 8
       }
     ],
     "difficulty": [
-      {
-        "source": "glaser",
-        "value": 6
-      },
       {
         "source": "seriouslyfish",
         "value": 4
@@ -125,6 +121,13 @@
         "value": {
           "min": 20,
           "max": 25.5
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 25
         }
       }
     ],
@@ -157,20 +160,14 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
-      "html": "<p>Hillstream loaches are – in general – rather dull coloured fishes. However, there are exceptions and among the most beautiful species are those belonging to the genus Homaloptera. Several, closely related and quite similar species exist. In German they are called “saddle-back loaches”, a commonly used English name is “lizard loaches”.</p><p>The species attains a length of about 7-8 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera-parclitella-2/",
+      "html": "<p>Hillstream loaches belong to the family of loaches. Probably the most beautiful species can be found in the genus Homaloptera. There are several closely related and similar looking species. In German they are often called \"saddle-stain loaches\"; in English the animals are called \"lizard loaches\".</p>"
     },
     {
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-parclitella",
       "html": "<ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
-      "html": "<p>A perfect water quality is absolutely necessary for these pretty loaches, otherwise they quickly become sick. So the recommendable species is better suited for experienced hobbyists.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -181,8 +178,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
-      "html": "<p>It inhabits Malaysia and Southern Thailand.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera-parclitella-2/",
+      "html": "<p>Homaloptera parclitella is an extraordinarily beautiful hillstream loach from the black water of South Thailand and Malaysia. It is closely related to the Indonesian H. orthogoniata.</p>"
     },
     {
       "key": "distribution",
@@ -209,10 +206,22 @@
       "html": "<p>Most importantly the water must be clean and well-oxygenated so we suggest the use of an over-sized filter as a minimum requirement. Turnover should ideally be 10-15 times per hour so additional powerheads, airstones, etc., should be employed as necessary to achieve the desired flow and oxygenation if necessary.</p><p>Base substrate can either be of gravel, sand or a mixture of both to which should be added a layer of water-worn rocks and pebbles of varying sizes.</p><p>Driftwood roots and branches are also suitable and although rarely a feature of the natural habitat aquatic plants from adaptable genera such as Microsorum, Crinum and Anubias spp. can also be included. The latter are particularly useful as Homaloptera spp. appear to enjoy resting on their leaves.</p><p>Since it needs stable water conditions and feeds on biofilm this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass. While regular partial water changes are essential aufwuchs can be allowed to grow on all surfaces except perhaps the viewing pane.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera-parclitella-2/",
+      "html": "<p>In care, the animals, up to 8 cm long, are demanding.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-parclitella",
       "html": "<ul><li>Temperature: 20–25.5°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera-parclitella-2/",
+      "html": "<p>As black-water inhabitants, they require a low-bacterial environment; the water should absolutely be enriched with humic matter from peat, alder cones or leaves, otherwise the animals are very susceptible to parasites. In addition, these fish have a high oxygen demand as inhabitants of running water. The water should therefore not be too warm; 22-25°C is ideal.</p>"
     },
     {
       "key": "diet",
@@ -221,10 +230,16 @@
       "html": "<p>Homaloptera spp. are specialised grazers feeding on biofilm, small crustaceans, insect larvae and other invertebrates.</p><p>In captivity some sinking dried foods may be accepted but regular meals of live or frozen Daphnia, Artemia, bloodworm, etc., are essential for the maintenance of good health, and it's highly preferable if the tank contains rock and other solid surfaces with growths of algae and other aufwuchs.</p><p>Balitorids are often seen on sale in an emaciated state which can be difficult to correct. A good dealer will have done something about this prior to sale but if you decide to take a chance with severely weakened specimens they'll initially require a continual, easily-obtainable source of suitable foods in the absence of competitors if they're to recover.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera-parclitella-2/",
+      "html": "<p>Live food is preferred in the beginning; later the animals also accept frozen and dry food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
-      "html": "<p>The species is very peaceful, but they do very often harmless comment fights with conspecifics, which are very attractive to look at.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera-parclitella-2/",
+      "html": "<p>The beautiful fish are very peaceful, but like to show off to each other in harmless ranking fights, which are very interesting to watch.</p>"
     },
     {
       "key": "behaviour",
@@ -246,12 +261,6 @@
     },
     {
       "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
-      "html": "<p>Text &amp; photos: Frank Schäfer</p>"
-    },
-    {
-      "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-parclitella",
       "html": "<p>This species was previously considered to represent a form of H. orthogoniata and may be seen identified as such both online and in published literature.</p><p>H. parclitella can be told apart from all congeners by the following unique combination of characters: dorsal surface of body always with 2 large, saddle-shaped markings, the first posterior to the head, the second covering the base of the dorsal-fin, with the two sometimes continuous on flank, only rarely a third blotch between dorsal and caudal fins; base of caudal-fin dark; 5 simple and 12-13 branched pectoral-fin rays; 75-77 lateral line scales.</p><p>H. confuzona, H. orthogoniata and H. parclitella appear very similar at first glance but can be told apart by a few characters, the most useful of which to aquarists are the dark markings extending from the snout over the dorsal surface. These form a series of variable saddle-shaped blotches in all three species but there are some marked differences.</p><p>For example in H. orthogoniata and H. parclitella the 'saddles' are noticeably broader, more regularly-shaped and well-defined than in H. confuzona and usually extend into the lower half of the body.</p><p>Further, H. parclitella always has two saddles and H. orthogoniata three, whereas in H. confuzona there may be up to four irregularly shaped markings which are often restricted to the upper half of the body. One shared feature is an additional dark bar at the caudal peduncle.</p><p>Another feature shared by members of the H. ocellata group is keeled scales; for example in H. bilineata each scale has a single, wide keel orientated posteriorly. In H. confuzona the keels are rounded and in H. ogilviei elongate; in both cases they're positioned at the posterior edge of the scale.</p><p>In H. orthogoniata, H. ocellata and H. parclitella a central, broad keel is flanked by two smaller ones. Other defining characters for H. parclitella include 5 branched anal-fin rays, 2 simple and 8-9 branched pelvic-fin rays, 5 simple and 12-13 branched pectoral-fin rays and 12-14 scale rows above the pelvic-fin origin.</p><p>The genus Homaloptera van Hasselt, 1823 has long been considered a polyphyletic assemblage (Kottelat, 1998), and following Randall &amp; Page (2015) the majority of members have been moved into other genera as recognized therein:</p><ul><li>Homalopteroides Fowler, 1905 with 11 species (Homalopteroides wassinkii, H. modestus, H. rupicola, H. smithi, H. stephensoni, H. weberi, H. tweediei, H. indochinensis, H. nebulosus, H. yuwonoi, and H. avii), is the most diverse and widely distributed genus of species formerly in Homaloptera. It is known from northeast India, Myanmar, Thailand, Laos, Cambodia, Vietnam (? see Kottelat 2012:51), Peninsular Malaysia, Sumatra, Java, and Borneo.</li><li>Homalopterula Fowler, 1940 is only known to occur in Sumatra and consists of six species, five described from Aceh Province (H. heterolepis, H. ripleyi, H. modiglianii, H. amphisquamata, and H. vanderbilti) and H. gymnogaster from Sumatera Barat province.</li><li>Balitoropsis Smith, 1945 contains two species, B. zollingeri and B. ophiolepis. The original type species B. bartschi (Smith, 1945) is now considered synonymous with B. zollingeri.</li><li>Pseudohomaloptera Silas, 1953, which has not been valid since 1953, now contains six species (P. tatereganii, P. sexmaculata, P. leonardi, P. yunnanensis, P. vulgaris, and P. batek) and is known to occur in southern China, Thailand, Laos, Cambodia, Peninsular Malaysia, and Borneo.</li><li>Ghatsa Randall &amp; Page, 2015, contains the type species G. montana Herre, 1945, and four tentatively assigned species (G. pillaii, G. menoni, G. santhamparaiensis, and G. silasi).</li><li>Homaloptera van Hasselt, 1823, consists of six species (H. ocellata [type species], H. bilineata, H. orthogoniata, H. ogilviei, H. confuzona, and H. parclitella) found in Myanmar, Thailand, Cambodia, Peninsular Malaysia, Sumatra, Java, and Borneo.</li></ul><p>Homaloptera is distinguished by the following combination of characters: reddish tints on fins in life; dorsal-fin origin anterior to pelvic-fin origin; 7–8½, 8½ (M) branched dorsal-fin rays; 7 branched pelvic-fin rays; forked caudal fin; keeled scales; 20–27 predorsal scales; 59–73 total lateral-line scales; no adipose keel on caudal peduncle; anus closer to anal-fin origin than to pelvic-fin insertion; large rostral cap; 2 thick rostral barbels in close proximity to each other; thick triangular upper lip; fleshy pad between lateral portions of lower lip; absence of central furrow at isthmus.</p><p>All Homaloptera spp. make fascinating aquarium inhabitants and are often referred to as 'lizard' loaches due to their behaviour and appearance. Like all balitorids they have morphology specialised for life in fast-flowing water, i.e., the paired fins are orientated and extended horizontally, head and body flattened, belly depressed.</p><p>These features form a powerful sucking cup which allows the fish to cling tightly to solid surfaces. The ability to swim in open water is greatly reduced and they instead appear to crawl and hop their way over rocks and other surfaces.</p><p>The family Balitoridae as recognised by Kottelat (2012) is widely-distributed across much of the Indian subcontinent, Southeast Asia and China.</p>"
@@ -270,9 +279,20 @@
       "width": 800,
       "height": 536,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Charles König / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-parclitella",
       "caption": "This species always has two saddle-shaped body markings.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0cde1529d439626e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0cde1529d439626e-480.webp",
+      "width": 1024,
+      "height": 459,
+      "licence": "dùng với sự cho phép",
+      "author": "Martin Thoene / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-parclitella",
+      "caption": "Young specimen in the aquarium...",
       "source": "seriouslyfish"
     },
     {
@@ -281,20 +301,9 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
       "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/0cde1529d439626e.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/0cde1529d439626e-480.webp",
-      "width": 1024,
-      "height": 459,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-parclitella",
-      "caption": "Young specimen in the aquarium...",
-      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/a25224d8940f9679.webp",
@@ -302,13 +311,38 @@
       "width": 800,
       "height": 536,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Charles König / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-parclitella",
       "caption": "Head detail.",
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "mlOAjTU3w9M",
+      "title": "Homaloptera parclitella and microgeophagus altispinosa",
+      "durationSec": 164,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TT6BPmqI9rM",
+      "title": "Homaloptera parclitella at  super clear river in Terengganu, Malaysia Vlog #45",
+      "durationSec": 758,
+      "lang": "ms"
+    },
+    {
+      "youtubeId": "--oy_ELv4ZU",
+      "title": "Haltungsbedingungen und Infos zu Sattelfleck Prachtflossensauger Homaloptera parclitella| #Aquarium",
+      "durationSec": 279,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "JY6Ta-w9rrQ",
+      "title": "Homaloptera parclitella @ Malayan Saddle-back Loach/Puting Beliung (Malaysia)",
+      "durationSec": 64,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -331,5 +365,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-19"
 }

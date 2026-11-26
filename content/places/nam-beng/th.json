@@ -1,0 +1,16 @@
+{
+  "slug": "nam-beng",
+  "name": "น้ำแบ่ง",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-18T18:21:54.170Z",
+    "why": "The Lao river Nam Beng would be written น้ำเบ็ง (or น้ำเบง) in Thai, but น้ำแบ่ง uses the vowel แ and a tone mark, which reads \"baeng\" rather than \"beng\"."
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false
+  }
+}

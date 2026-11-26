@@ -1,0 +1,112 @@
+{
+  "id": "cetopsidium-minutum",
+  "scientificName": "Cetopsidium minutum",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Cetopsidium",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "essequibo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 4.9
+      },
+      {
+        "source": "scotcat",
+        "value": 4.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1455",
+      "html": "<ul><li><strong>Scientific name:</strong> Cetopsidium minutum (Eigenmann, 1912)</li><li><strong>Type locality:</strong> Amatuk Cataract, Guyana.</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2020).</li><li><strong>Etymology:</strong> The genus name Cetopsidium comes from Cetopsis, the first genus proposed in the Cetopsinae, and \"idium\", meaning diminutive, in reference to the relatively small body sizes of the members of the genus.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1455",
+      "html": "<p>South America: Guyana waters and the coastal rivers of the Guianas. Also photographed at Crique Margot near St Laurent du Maroni.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsidium_minutum.htm",
+      "html": "<p>South America: Potaro River and middle portion of the Essequibo River of Guyana. Type locality: Amatuk Cataract, British Guiana.</p><p>Cetopsidium minutum is known from the Potaro drainage at Kuribrong River, Cuyuni River, and the middle portion of the Essequibo River, in Guyana. The extent of occurrence (EOO) is 28,784 km2, and the area of occupancy (AOO) is 9,516 km2. Furthermore, it is expected that the species has a larger distribution than currently known, occurring in other tributaries of the basin in similar habitats of the rivers. Further survey work is needed to collect specimens in more localities in order to better understand its real range of distribution.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1455",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsidium_minutum.htm",
+      "html": "<p>Description: Dorsal soft rays (total): 6; anal soft rays: 23–24; vertebrae: 39–40. The combination of the presence of a dorsal fin with an ossified spinelet and the presence of pectoral and dorsal-fin spines distinguishes the species of Cetopsidium from all other genera in the Cetopsinae. The possession of a lateral line extending to over the posterior portion of the base of the anal fin but falling short of the caudal peduncle is also unique to Cetopsidium within the Cetopsinae. This species differs from all other species of Cetopsidium in the length of the pelvic fin (tip of fin reaching posteriorly to the anal-fin origin versus only reaching or falling short of the vent, respectively).</p><p>Etymology: The specific name minutum is Latin for very small, referring to the length of the type specimen, 22 mm long.</p><p>IUCN Red List: The only impact observed in the peripheral distributional region is related to gold mining in the Kuribrong and Potaro Rivers, but not in the localities of the specimens recorded. Due to the relatively expanded distribution of the species in the Essequibo River basin, these local impacts are unlikely to affect its long-term persistence. Nevertheless, the area should be monitored to assess the real habitat conditions and status of the population. Cetopsidium minutum is assessed as Least Concern (LC) due to its distribution and the lack of any known major threats. However, this species is not well known, as well as being uncommon, so further research should be carried out to ensure it is not in decline (IUCN 2022).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1455",
+      "html": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 211, Pl. 23 (fig. 2).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsidium_minutum.htm",
+      "html": "<ul><li>Calegari, B.B. 2022. Cetopsidium minutum. The IUCN Red List of Threatened Species 2022.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li><li>Vari, R. P., C. J. Ferraris Jr. &amp; M. C. C. de Pinna. 2005. The Neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotropical Ichthyology 3:127-238.</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test pH nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

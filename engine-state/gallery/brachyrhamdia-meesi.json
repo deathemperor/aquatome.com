@@ -5,7 +5,10 @@
   "https://media.aquatome.com/scotcat/4bd81e8664581d03.webp": "074343196c78fc78",
   "https://media.aquatome.com/scotcat/6038cf4e9ba0ef08.webp": "80c0d8e19cb1e707",
   "https://media.aquatome.com/scotcat/820511a7d2996255.webp": "c3c32280018c269d",
-  "https://media.aquatome.com/scotcat/4bb44171669efed0.webp": "ec6e1d230f1cdbe7"
+  "https://media.aquatome.com/scotcat/4bb44171669efed0.webp": "ec6e1d230f1cdbe7",
+  "https://media.aquatome.com/glaser/7bca9dd2d9c6ef3d.webp": "989e6d13980c941d",
+  "https://media.aquatome.com/glaser/c5cbb6ab97a6098a.webp": "c90487192127274e",
+  "https://media.aquatome.com/glaser/cae17e023a02eca4.webp": "cb6172939b360143"
  },
  "commons": "2026-11-06",
  "inat": {
@@ -18,6 +21,9 @@
  },
  "gbif": {
   "key": 2343648,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

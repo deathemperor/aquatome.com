@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/how-acclimate-corals/
 title: How and How Long Acclimate Corals? - Shrimp and Snail Breeder
 fetchedAt: 2026-11-09T06:16:38.284Z
-hash: 0dd9eef5a70fb2c1c454a95d039695701bf9e5a6899bfac643cd3d98933c2f71
+hash: 671d84bf96cc1e7a69658f3ef64f97c31b0f56dd9c17a14dc7033ba51747c1cc
 ---
 
 Acclimation is an indispensable practice that has long existed in the aquarium hobby. Before the introduction of newly acquired fish and corals, it’s important to first acclimate them to the new tank’s conditions.
@@ -82,6 +82,3 @@ Ensure to place them in areas with dim lighting and moderate water flow so they 
 Drip acclimation is a simple yet effective method that allows new arrivals to adjust fully to the new water conditions before moving them into the main tank.
 During this process, you are to wait out 30 – 45 minutes for the corals to adjust and slowly transition to the water parameters of their new aquatic home.
 Ultimately, acclimation will minimize shipping stress; hence aiding your new corals to settle in with ease, stay healthy, and thrive in the reef tank.
-## 2 thoughts on “How and How Long Acclimate Corals?”
-- Why not combine temperature and drip acclimation by placing the drip acclimation container in the sump? That is, if your setup contains sump. ReplyHi Kim Nilsson, Good point. Thank you! Best regards, Michael Reply
-### Leave a Reply Cancel reply

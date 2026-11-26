@@ -1,0 +1,221 @@
+{
+  "id": "nemapteryx-caelata",
+  "scientificName": "Nemapteryx caelata",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Nemapteryx",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "bay-of-bengal"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Estuaries of Bengal, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344888,
+      "total": 33,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "BD",
+          14
+        ],
+        [
+          "IN",
+          6
+        ],
+        [
+          "MY",
+          4
+        ],
+        [
+          "ID",
+          3
+        ],
+        [
+          "LK",
+          2
+        ],
+        [
+          "TH",
+          2
+        ],
+        [
+          "PK",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          66.09375,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          71.71875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          78.75,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          78.75,
+          11.25,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          21.09375,
+          14,
+          1
+        ],
+        [
+          91.40625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          112.5,
+          11.25,
+          1,
+          0
+        ],
+        [
+          118.125,
+          4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1409",
+      "html": "<ul><li>Scientific name: Kyataphisa nenga (Hamilton, 1822)</li><li>Common name: Spotfin Sea Catfish</li><li>Type locality: Estuaries of Bengal, India.</li><li>IUCN Red List category: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1409",
+      "html": "<p>Indo-west Pacific: Eastern Arabian Sea, Bay of Bengal and western central Pacific.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1409",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1409",
+      "html": "<p>Unfortunately, the only way you can reliably tell N. nenga from Arius maculatus is in the teeth. However, N. nenga frequently has a dorsal spine that is as long as the head (the dorsal spine in A. maculatus is always shorter than the head).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1409",
+      "html": "<p>An account of the fishes found in the river Ganges, pp 171, 376.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-21"
+}

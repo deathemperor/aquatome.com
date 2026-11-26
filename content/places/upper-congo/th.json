@@ -3,6 +3,12 @@
   "name": "คองโกตอนบน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:52:41.088Z",
+    "why": "คองโกตอนบน is readable Thai, but it translates \"Upper\" word by word and leaves out the river or province sense, so it is not how an atlas would write the name."
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

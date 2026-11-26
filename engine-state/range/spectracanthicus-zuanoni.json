@@ -1,0 +1,82 @@
+{
+  "id": "spectracanthicus-zuanoni",
+  "native": {
+    "input": "975548d507769039",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Spectracanthicus zuanoni L 354 originates from the Rio Xingu and the Rio Iriri in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Brazil: lower courses of the Rio Xingu.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Xingu",
+        "source": "glaser",
+        "quote": "Spectracanthicus zuanoni L 354 originates from the Rio Xingu and the Rio Iriri in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Iriri",
+        "source": "glaser",
+        "quote": "Spectracanthicus zuanoni L 354 originates from the Rio Xingu and the Rio Iriri in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Xingu",
+        "source": "scotcat",
+        "quote": "Brazil: lower courses of the Rio Xingu.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Spectracanthicus zuanoni",
+    "status": "ACCEPTED",
+    "taxonKey": 7658518,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        100
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-24T23:11:38.206Z",
+    "error": "claude failed (1): other"
+  }
+}

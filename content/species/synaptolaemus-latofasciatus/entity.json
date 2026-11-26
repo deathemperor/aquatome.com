@@ -12,6 +12,160 @@
     "brazil",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR"
+      ],
+      "regions": [
+        "Orinoco",
+        "Casiquiare Canal",
+        "Amazon",
+        "Negro",
+        "Madeira",
+        "Xingu"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Orinoco River, Venezuela', but this species is widely distributed throughout the upper Orinoco, Casiquiare Canal and middle-to-lower Amazon region in Venezuela and Brazil, with records from the rios Negro, Madeira, Trombetas, Xingu and Tapajós.",
+          "countries": [
+            "VE",
+            "BR"
+          ],
+          "regions": [
+            "Orinoco",
+            "Casiquiare Canal",
+            "Amazon",
+            "Negro",
+            "Madeira",
+            "Xingu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6165567,
+      "total": 25,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "VE",
+          15
+        ],
+        [
+          "BR",
+          9
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          0,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          -67.5,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -110,7 +264,7 @@
       "width": 900,
       "height": 387,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Leandro Sousa / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synaptolaemus-latofasciatus",
       "caption": "Individual collected from the rio Teles Pires drainage, rio Tapajós system, Brazil.",
       "source": "seriouslyfish"
@@ -121,7 +275,7 @@
       "width": 900,
       "height": 428,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Leandro Sousa / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synaptolaemus-latofasciatus",
       "caption": "Specimen from the rio Culuene, rio Xingu system, Brazil.",
       "source": "seriouslyfish"

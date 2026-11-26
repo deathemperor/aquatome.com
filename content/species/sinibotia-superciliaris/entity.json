@@ -10,6 +10,77 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Yangtze River",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the foot of Mount Emei (aka Omei Shan) in Sichuan province, western China and since recorded from Guizhou province which borders Sichuan to the south.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "All known localities lie within the middle section of the Yangtze River (aka Chiang Jiang) drainage.",
+          "countries": [],
+          "regions": [
+            "Yangtze River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Kottelat and Chu (1987)[2] identified specimens collected from the upper Mekong basin in Weixi County, Yunnan province as S. superciliaris though we've been unable to locate any additional records from the Mekong, and thus the full extent of its range remains unclear.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367821,
+      "total": 3,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          28.125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,19 +208,7 @@
       "html": "<ul><li>Kottelat, M. (2004). Botia kubotai, a new species of loach (Teleostei: Cobitidae) from the Ataran River basin (Myanmar), with comments on botiine nomenclature and diagnosis of a new genus. Zootaxa 401, 1-18</li><li>Kottelat, M. and X. Chu (1987). The botiine loaches (Osteichthyes: Cobitidae) of the Lancangjiang (Upper Mekong) with description of a new species. Zoological Research 8(4), 393-400</li><li>Yang, J.-X. and Y.-R. Chen (1992). Revision of the subgenus Botia (Sinibotia) with description of a new species (Cypriniformes: Cobitidae). Ichthyological Exploration of Freshwaters 2(4), 341-349</li></ul>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/0294f9511d245bbb.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/0294f9511d245bbb-480.webp",
-      "width": 846,
-      "height": 564,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/sinibotia-superciliaris",
-      "caption": "Freshly-collected wild specimen.",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

@@ -1,8 +1,10 @@
+import { execFileSync } from 'node:child_process'
+import { readFileSync } from 'node:fs'
 import { chmod, mkdir, mkdtemp, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { CEILINGS, ceilingMessage, costLog, handLog, leftYielding, machine, nameStep, spentToday, stepName, tableInForce, type CeilingTable, type Ceilings, type Place } from '../src/ceiling'
+import { CEILINGS, ceilingMessage, ceilingsAsMain, costLog, handLog, leftYielding, machine, nameStep, spentToday, stepFor, stepName, tableInForce, VIDEO_CHECK, type CeilingTable, type Ceilings, type Place } from '../src/ceiling'
 import { LlmError } from '../src/claude'
 import { accountsOut } from '../src/gate'
 import { errorKind } from '../src/state'
@@ -202,6 +204,24 @@ test('a call is counted under the engine\'s command, or the name of a script run
   expect(stepName(['node', '/repo/packages/engine/src/cli.ts', '--limit', '1', 'gate'])).toBe('cli')
 })
 
+test('the video job\'s photo check counts on its own line, told by its cost log; the photos runs\' check and every other step keep their names', async () => {
+  const videos = { ENGINE_COST_LOG: '/Users/x/Library/Logs/aquatome-cost-videos.jsonl' }
+  expect(stepFor('check-photos', videos)).toBe(VIDEO_CHECK)
+  expect(stepFor('check-photos', { ENGINE_COST_LOG: '/Users/x/Library/Logs/aquatome-cost-photos.jsonl' })).toBe('check-photos')
+  expect(stepFor('check-photos', {})).toBe('check-photos')
+  expect(stepFor('recheck-photos', videos)).toBe('recheck-photos')
+  expect(stepFor('dead-screen', videos)).toBe('dead-screen')
+  expect(stepFor(undefined, videos)).toBeUndefined()
+  // Counted apart: the video job's spend leaves the photos runs' line whole, and its own stops at its $4.
+  const dir = await logs({
+    'aquatome-cost-photos.jsonl': [{ at: TODAY, step: 'check-photos', usd: 10 }],
+    'aquatome-cost-videos.jsonl': [{ at: TODAY, step: VIDEO_CHECK, usd: 4 }],
+  })
+  const table = one(place({ 'check-photos': 12, [VIDEO_CHECK]: 4 }, { backstop: 100 }))
+  expect(ceilingMessage('check-photos', join(dir, 'aquatome-cost-photos.jsonl'), table, NOW, 'mac')).toBeUndefined()
+  expect(ceilingMessage(VIDEO_CHECK, join(dir, 'aquatome-cost-videos.jsonl'), table, NOW, 'mac')).toMatch(/daily limit reached for check-photos-videos \(\$4\.00 of \$4 today\)/)
+})
+
 test('every call has a cost log: the one a cycle names, else the hand runs\'; only the tests have none', () => {
   expect(costLog({ ENGINE_COST_LOG: '/logs/aquatome-cost-pages.jsonl' })).toBe('/logs/aquatome-cost-pages.jsonl')
   // A step or a script run by itself, with nothing named: counted like a cycle's, not let through.
@@ -233,28 +253,60 @@ test('ceilings.json: it names its clock, its tables are in order, one is always 
   }
 })
 
-test('ceilings.json: nothing until the third sign-in is back, then one, two and three sign-ins\' days', () => {
+test('ceilings.json: nothing until the third sign-in is back, then one, two and three sign-ins\' days', async () => {
   // Until 12 Nov 13:00 every sign-in is out, and nothing has a ceiling above $0.
   for (const where of ['mac', 'github'] as const) for (const step of ['run', 'localize', 'rewrite-vi', 'videos', 'anything-new']) expect(cap('2026-11-12T12:59:00+07:00', where, step)).toBe(0)
   const sum = (p: Place) => Object.values(p.steps).reduce<number>((n, x) => n + (x ?? 0), 0)
   // The ceilings follow the sign-ins that are back (the owner and the chief of staff, 11 Nov 2026): the third on
   // 12 Nov 13:00, the first on 13 Nov 08:00, the second on 14 Nov 08:00. `steps` is every named ceiling added up.
   // The troubleshooting board: $40 on the Mac on 14 Nov and $60 on 15 Nov, then the small line (the chief of staff, 13 Nov
-  // 2026), inside the backstop that was already there.
+  // 2026), inside the backstop that was already there. On 15 Nov its line came down to the $33.87 it had spent, the quota
+  // road's test had $1, and the backstop rose by the $34 and the test's room; on 16 Nov it has $37, and the backstop what
+  // that line needs to be whole (the chief of staff, 15 Nov 2026). On 17 Nov it has $8 and on 18 Nov $12, each with the
+  // backstop what that line needs to be whole (the chief of staff, 16 Nov 2026); on 19 Nov alone $30, with the Mac's
+  // backstop $30 higher, for the judges of the scoreboard's run-to-run spread and the chat's limits test; then the small
+  // line again from 20 Nov (the chief of staff, 19 Nov 2026).
+  // The photo check: $22 on the Mac from 15 Nov 06:00 to the end of 17 Nov, with the backstop $10 higher, while the photo
+  // job runs 80 sheets a run to judge the 621 page heads no check has seen; $12 again from 18 Nov (the chief of staff,
+  // 15 Nov 2026), but $20 on 18 Nov alone, with the backstop $8 higher, for Glaser's first hundred pages and the last 72
+  // heads judged by hand (the chief of staff, 17 Nov 2026); $30 on 20 Nov alone, with the backstop $18 higher, so Glaser's 290
+  // returned photos are judged the same evening, raised to $35 that afternoon, with the backstop $5 higher again, for a hand
+  // run on 24 plant pages beside them; and the glossary's $100 raised to $115 that afternoon, the backstop $15 higher again,
+  // so the night's glossary work runs by day (the chief of staff, 20 Nov 2026). $35 again on 21 and 22 Nov, from the first
+  // run after the check's two new sentences are on main, with the backstop $23 higher, then $12 from 23 Nov; and from 21 Nov
+  // the video job's check has its own $4 a day, with the backstop $4 higher (the chief of staff, 20 Nov 2026).
+  // FishLoft's hand runs: from 21 Nov 16:30 to midnight the fish pages' video step has $12 in place of the small line and
+  // the guides' video step $34 in place of $30, with the Mac's backstop $16 higher, so the Mac keeps its $59 room; both
+  // as before from 22 Nov (the chief of staff, 21 Nov 2026). In the same hours the Thai and
+  // Malay video titles' rewrite has $6 and their check $5 in place of the small line, with the backstop $11 higher again.
   const periods = [
-    { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 142, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1, board: 1 },
-    { from: '2026-11-13T08:00:00+07:00', to: '2026-11-13T21:59:00+07:00', steps: 278, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2 },
-    { from: '2026-11-13T22:00:00+07:00', to: '2026-11-14T02:59:00+07:00', steps: 288, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, glossary: 10 },
-    { from: '2026-11-14T03:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 303, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, glossary: 25 },
-    { from: '2026-11-14T08:00:00+07:00', to: '2026-11-14T23:59:00+07:00', steps: 466, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 40, glossary: 40, ask: 0 },
-    { from: '2026-11-15T00:00:00+07:00', to: '2026-11-15T23:59:00+07:00', steps: 492, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 60, glossary: 40, material: 5, ask: 0, ideas: 4 },
-    { from: '2026-11-16T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 434, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 5, ask: 2, ideas: 4 },
+    { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 142, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1, board: 1, photos: 6 },
+    { from: '2026-11-13T08:00:00+07:00', to: '2026-11-13T21:59:00+07:00', steps: 278, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, photos: 10 },
+    { from: '2026-11-13T22:00:00+07:00', to: '2026-11-14T02:59:00+07:00', steps: 288, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, glossary: 10, photos: 10 },
+    { from: '2026-11-14T03:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 303, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, glossary: 25, photos: 10 },
+    { from: '2026-11-14T08:00:00+07:00', to: '2026-11-14T23:59:00+07:00', steps: 466, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 40, glossary: 40, ask: 0, photos: 12 },
+    { from: '2026-11-15T00:00:00+07:00', to: '2026-11-15T05:59:00+07:00', steps: 470, backstop: 497, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 34, quota: 1, glossary: 40, material: 8, ask: 0, ideas: 4, photos: 12 },
+    { from: '2026-11-15T06:00:00+07:00', to: '2026-11-15T23:59:00+07:00', steps: 480, backstop: 507, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 34, quota: 1, glossary: 40, material: 8, ask: 0, ideas: 4, photos: 22 },
+    { from: '2026-11-16T00:00:00+07:00', to: '2026-11-16T23:59:00+07:00', whole: true, steps: 498, backstop: 508, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 37, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22 },
+    { from: '2026-11-17T00:00:00+07:00', to: '2026-11-17T23:59:00+07:00', whole: true, steps: 506, backstop: 516, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 8, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22, titles: 22, titlesCheck: 15 },
+    { from: '2026-11-18T00:00:00+07:00', to: '2026-11-18T23:59:00+07:00', whole: true, steps: 503, backstop: 562, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 12, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 20, recheck: 12 },
+    { from: '2026-11-19T00:00:00+07:00', to: '2026-11-19T12:59:00+07:00', whole: true, steps: 521, backstop: 580, writer: 14, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 6 },
+    { from: '2026-11-19T13:00:00+07:00', to: '2026-11-19T23:59:00+07:00', whole: true, steps: 540, backstop: 599, writer: 14, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 25 },
+    { from: '2026-11-20T00:00:00+07:00', to: '2026-11-20T23:59:00+07:00', whole: true, steps: 574, backstop: 633, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 115, material: 8, ask: 2, ideas: 4, judge: 24, photos: 35, recheck: 25 },
+    { from: '2026-11-21T00:00:00+07:00', to: '2026-11-21T16:29:00+07:00', whole: true, steps: 552, backstop: 625, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 35, videoCheck: 4, recheck: 25, guideVideos: 30 },
+    { from: '2026-11-21T16:30:00+07:00', to: '2026-11-21T23:59:00+07:00', whole: true, steps: 579, backstop: 652, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 35, videoCheck: 4, recheck: 25, fishVideos: 12, guideVideos: 34, titles: 6, titlesCheck: 5 },
+    { from: '2026-11-22T00:00:00+07:00', to: '2026-11-22T23:59:00+07:00', whole: true, steps: 557, backstop: 630, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 35, videoCheck: 4, recheck: 25, guideVideos: 30, read: 5, pass: 0 },
+    { from: '2026-11-23T00:00:00+07:00', to: '2026-11-24T23:59:00+07:00', whole: true, steps: 579, backstop: 652, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 12, videoCheck: 4, recheck: 25, read: 5, pass: 45 },
+    { from: '2026-11-25T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', whole: true, steps: 455, backstop: 528, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 12, videoCheck: 4, recheck: 6, read: 5, pass: 0 },
   ]
+  const fresh = await logs({ 'aquatome-cost-hand.jsonl': [] }).then(d => join(d, 'aquatome-cost-hand.jsonl'))
   for (const p of periods) for (const when of [p.from, p.to]) {
     const t = tableInForce(CEILINGS.tables, new Date(when))!
     expect(sum(t.mac) + sum(t.github)).toBe(p.steps)
     expect(t.mac.backstop + t.github.backstop).toBe(p.backstop)
     expect([t.mac.default, t.github.default]).toEqual([p.small, p.small])
+    // The Mac's run line: $65 on 18 and 19 Nov, $40 under its $105, so the first sign-in lasts to its reset on 20 Nov 08:00
+    // (the chief of staff, 17 Nov 2026).
     expect(cap(when, 'mac', 'run')).toBe(p.run)
     expect(cap(when, 'github', 'localize')).toBe(p.localize)
     // Second reads are split between the machines: video guides on the Mac, the rest on GitHub.
@@ -269,17 +321,43 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     // The card crops: $4 for their first day, 13 Nov, then $1.
     expect(cap(when, 'mac', 'card-crops')).toBe(p.crops)
     expect(cap(when, 'mac', 'chat-board')).toBe(p.board)
+    expect(cap(when, 'mac', 'check-photos')).toBe(p.photos)
+    expect(cap(when, 'mac', 'check-photos-videos')).toBe(p.videoCheck ?? p.small)
+    expect(cap(when, 'mac', 'species-videos')).toBe(p.fishVideos ?? p.small)
+    if (p.guideVideos !== undefined) {
+      expect(cap(when, 'mac', 'videos')).toBe(p.guideVideos)
+      expect(t.mac.backstop - sum(t.mac)).toBe(59)
+    }
+    expect(cap(when, 'mac', 'quota-road-test')).toBe(p.quota ?? p.small)
     expect(cap(when, 'github', 'chat-board')).toBe(p.small)
     // The glossary's fuller entries, run by hand on the Mac: $10 from 13 Nov 22:00, so Lũa's is written that night, then $40
     // a day from 14 Nov 08:00, about 7 terms a day (the chief of staff, 13 Nov 2026, after the owner found the pages bare).
     // $25 from 14 Nov 03:00 until 08:00, so Lũa's last pass can't run out partway (the chief of staff, 14 Nov 2026).
+    // $100 a day from 18 to 24 Nov, with the Mac's backstop $60 higher: 6 terms a day through 18 Nov and 8 from 19 Nov, so the
+    // 50 terms left after 17 Nov are in full by Tue 24; $40 again from 25 Nov (the chief of staff, 16 and 17 Nov 2026).
     expect(cap(when, 'mac', 'glossary-entry')).toBe(p.glossary ?? p.small)
     // The materials writer, run by hand on the Mac: $5 a day from 15 Nov, the two driftwood pages in turn (the chief of
-    // staff, 14 Nov 2026).
+    // staff, 14 Nov 2026); $8 from that same day, with the backstop $3 higher (the chief of staff, 15 Nov 2026).
     expect(cap(when, 'mac', 'material')).toBe(p.material ?? p.small)
     // The album ask: $2 a day on the Mac from 16 Nov, the first day with room under the backstop, and none before (the chief
     // of staff, 14 Nov 2026).
     expect(cap(when, 'mac', 'album-ask')).toBe(p.ask ?? p.small)
+    // The place-name judge: $24 a day on GitHub from 16 Nov to 20 Nov, about 1,200 names a day, with the translations at
+    // $65 in place of $75 so the named lines but the recheck's stay inside GitHub's $180 (the recheck's own on top, from 18
+    // Nov); the default line before and after (the chief of staff, 15 Nov 2026; Fri 20 added on 18 Nov, so the names are
+    // done by Sat 21).
+    expect(cap(when, 'github', 'judge-places')).toBe(p.judge ?? p.small)
+    expect(cap(when, 'mac', 'judge-places')).toBe(p.small)
+    // The video titles' full run and its per-title check: $22 and $15 on the Mac on 17 Nov alone, with the backstop $37
+    // higher. The video cycle's own titles stay on the default line under their own step (the chief of staff, 16 Nov 2026).
+    expect(cap(when, 'mac', 'video-titles-redo')).toBe(p.titles ?? p.small)
+    expect(cap(when, 'mac', 'video-titles-check')).toBe(p.titlesCheck ?? p.small)
+    expect(cap(when, 'mac', 'video-titles')).toBe(p.small)
+    // The $37 rise is the Mac's, with the board's $16 for its $8 on top: GitHub's backstop is as before.
+    // 17 Nov's own: 21 Nov's $6 and $5 keep the Mac's $59 room instead (above).
+    if (p.titles === 22) expect([t.mac.backstop, t.github.backstop]).toEqual([336, 180])
+    // From 16 Nov the board's line is whole when the day starts: the other lines' and the $10 it keeps spare leave all of it.
+    if (p.whole) expect(leftYielding('chat-board', fresh, 10, CEILINGS, new Date(when), 'mac')).toBe(p.board)
     // The ideas step: on 12 Nov its $1 line stopped it part way through its first guide, which costs about $1.30 (9
     // calls), and it wrote nothing. Now a guide starts only when its line covers one (pieces.ts), and the line is $3, two
     // guides, in the cloud, where the step runs; the Mac's is $0 (the chief of staff, 12 Nov 2026). A guide came to $1.51 on
@@ -287,8 +365,123 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     // (the chief of staff, 14 Nov 2026).
     expect(cap(when, 'github', 'write-ideas')).toBe(p.ideas ?? 3)
     expect(cap(when, 'mac', 'write-ideas')).toBe(0)
+    // The magazine's guide: $3 on the Mac from 21 Nov, its Archive work the Mac's alone (the chief of staff, 21 Nov 2026).
+    expect(cap(when, 'mac', 'magazine')).toBe(p.magazine ?? p.small)
+    // The two-model recheck: $25 a day on GitHub, where the rewrite part runs, to its last day, 24 Nov, with GitHub's
+    // backstop $25 higher, while the 699 pages out of search for their score have their reads; then $6 a day for the pages
+    // new translations leave under the bar, the backstop $6 over its $180 (the chief of staff, 16 Nov 2026). It starts at
+    // $12 on 18 Nov and $6 on 19 Nov until 13:00, about $18 on the second sign-in, and is at $25 once the third is back
+    // (the chief of staff, 17 Nov 2026).
+    expect(cap(when, 'github', 'recheck')).toBe(p.recheck ?? p.small)
+    expect(cap(when, 'mac', 'recheck')).toBe(p.small)
+    // The video writer's check rules: $14 on the Mac on 19 Nov alone, with the Mac's backstop $14 higher, for about ten of
+    // Wed 18's held video guides written again from the new instructions and read by the check, before the change merges
+    // (the chief of staff, 19 Nov 2026).
+    expect(cap(when, 'mac', 'writer-evidence')).toBe(p.writer ?? p.small)
+    expect(cap(when, 'github', 'writer-evidence')).toBe(p.small)
+    if (p.recheck) expect(t.github.backstop).toBe(180 + p.recheck + (p.read ?? 0))
+    // The pass over the open pages no read covers (fit-pass.ts): $45 on the Mac on its two nights' days, 23 and 24 Nov, with
+    // the Mac's backstop $45 higher, and $0 from 22 Nov but for those; the reader-fit read's own line on GitHub, $5 a day from
+    // 22 Nov, with GitHub's backstop $5 higher (the chief of staff, 21 Nov 2026).
+    expect(cap(when, 'mac', 'fit-pass')).toBe(p.pass ?? p.small)
+    expect(cap(when, 'github', 'fit-pass')).toBe(p.small)
+    expect(cap(when, 'github', 'fit')).toBe(p.read ?? p.small)
     // A step that runs on the other machine, or a new one, has the small ceiling, never none.
     expect(cap(when, 'github', 'run')).toBe(p.small)
     expect(cap(when, 'mac', 'anything-new')).toBe(p.small)
   }
+})
+
+// The chief of staff, 15 Nov 2026: after midnight the board ran from a checkout 178 commits behind main and spent $33.87 of
+// the day's room. The engine gets that back, the AI lead's test of the board's quota road (four calls, about 50 cents,
+// logged as quota-road-test) has its whole $1 as it yields with the $10 spare the board keeps, and Monday's board line of
+// $37 is whole when that day starts. Tuesday's $8 and Wednesday's $12 are whole when theirs start, and Thursday has nothing
+// (the chief of staff, 16 Nov 2026), until the Mac's $59 room from 18 Nov leaves the small line whole too (the chief of
+// staff, 17 Nov 2026). The day's spend is the Mac's cost logs at 01:33 on the 15th.
+// The materials writer's $8 from 15 Nov raises each day's backstop by its $3, so neither the test nor the board loses room.
+test('ceilings.json: the quota road test has its $1 after the board\'s $33.87 on 15 Nov, the board its $37 on 16 Nov, $8 on 17 Nov, $12 on 18 Nov, $30 on 19 Nov alone, its small $4 from 20 Nov', async () => {
+  const at = (lines: unknown[]) => logs({ 'aquatome-cost-hand.jsonl': lines }).then(d => join(d, 'aquatome-cost-hand.jsonl'))
+  const night = '2026-11-14T17:30:00.000Z'
+  const spent = await at([{ at: night, step: 'chat-board', usd: 33.87 }, { at: night, step: 'glossary-entry', usd: 1.26 }, { at: night, step: 'check-one', usd: 2.54 }])
+  const yielding = (step: string, log: string, when: string) => leftYielding(step, log, 10, CEILINGS, new Date(when), 'mac')
+  expect(yielding('quota-road-test', spent, '2026-11-15T01:40:00+07:00')).toBe(1)
+  expect(yielding('chat-board', spent, '2026-11-15T01:40:00+07:00')).toBeCloseTo(0.13, 2)
+  // The photo check's $10 more from 06:00 comes with $10 more backstop, so the test and the board keep the same room.
+  expect(yielding('quota-road-test', spent, '2026-11-15T06:00:00+07:00')).toBe(1)
+  expect(yielding('chat-board', spent, '2026-11-15T06:00:00+07:00')).toBeCloseTo(0.13, 2)
+  const none = await at([])
+  expect(yielding('chat-board', none, '2026-11-16T00:00:00+07:00')).toBe(37)
+  expect(yielding('chat-board', none, '2026-11-17T00:00:00+07:00')).toBe(8)
+  expect(yielding('chat-board', none, '2026-11-18T00:00:00+07:00')).toBe(12)
+  expect(yielding('chat-board', none, '2026-11-19T00:00:00+07:00')).toBe(30)
+  expect(yielding('chat-board', none, '2026-11-19T13:00:00+07:00')).toBe(30)
+  expect(yielding('chat-board', none, '2026-11-20T00:00:00+07:00')).toBe(4)
+})
+
+// The recheck starts on the second sign-in while the third is out, at about $18 in all: $12 on 18 Nov and $6 on 19 Nov until
+// 13:00, when the third is back; then $25 a day to its last day, 24 Nov, and $6 from 25 Nov. GitHub's backstop is $180 and
+// the recheck's line on top (the chief of staff, 17 Nov 2026), and from 22 Nov the reader-fit read's $5 too (21 Nov 2026).
+test('ceilings.json: the recheck\'s line and GitHub\'s backstop, day by day from 18 to 26 Nov', () => {
+  const days = [
+    { from: '2026-11-18T00:00', to: '2026-11-18T23:59', recheck: 12, backstop: 192 },
+    { from: '2026-11-19T00:00', to: '2026-11-19T12:59', recheck: 6, backstop: 186 },
+    { from: '2026-11-19T13:00', to: '2026-11-19T23:59', recheck: 25, backstop: 205 },
+    { from: '2026-11-20T00:00', to: '2026-11-20T23:59', recheck: 25, backstop: 205 },
+    { from: '2026-11-21T00:00', to: '2026-11-21T23:59', recheck: 25, backstop: 205 },
+    { from: '2026-11-22T00:00', to: '2026-11-22T23:59', recheck: 25, backstop: 210 },
+    { from: '2026-11-23T00:00', to: '2026-11-23T23:59', recheck: 25, backstop: 210 },
+    { from: '2026-11-24T00:00', to: '2026-11-24T23:59', recheck: 25, backstop: 210 },
+    { from: '2026-11-25T00:00', to: '2026-11-25T23:59', recheck: 6, backstop: 191 },
+    { from: '2026-11-26T00:00', to: '2026-11-26T23:59', recheck: 6, backstop: 191 },
+  ]
+  for (const d of days) for (const at of [d.from, d.to]) {
+    const when = `${at}:00+07:00`
+    expect(cap(when, 'github', 'recheck'), when).toBe(d.recheck)
+    expect(tableInForce(CEILINGS.tables, new Date(when))!.github.backstop, when).toBe(d.backstop)
+  }
+  // About $18 on the second sign-in before the third is back.
+  expect(days[0]!.recheck + days[1]!.recheck).toBe(18)
+})
+
+// The steps with no line of their own (the gate with the video mender, research, topics, the readers) spent about $59 a day
+// on the Mac with fewer mends, so every Mac table from 18 Nov keeps $59 over its named lines (the chief of staff, 17 Nov
+// 2026). A later table that drops it fails here.
+test('ceilings.json: every Mac table from 18 Nov keeps $59 over its named lines', () => {
+  const named = (p: Place) => Object.values(p.steps).reduce<number>((n, x) => n + (x ?? 0), 0)
+  const tables = CEILINGS.tables.filter(t => Date.parse(t.from) >= Date.parse('2026-11-18T00:00:00+07:00'))
+  expect(tables.length).toBeGreaterThan(0)
+  for (const t of tables) expect(t.mac.backstop - named(t.mac), t.from).toBe(59)
+})
+
+test('whatever yields to the engine runs only with main\'s ceilings: a checkout behind main, or with a change of its own, is refused', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'ceil-main-'))
+  const git = (cwd: string, ...a: string[]) => execFileSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@example.com', ...a], { cwd, stdio: 'pipe' })
+  const main = join(root, 'main')
+  await mkdir(join(main, 'packages/engine/src'), { recursive: true })
+  git(main, 'init', '-q', '-b', 'main')
+  await writeFile(join(main, 'packages/engine/src/ceilings.json'), '{"tables":[{"from":"a"}]}')
+  git(main, 'add', '-A')
+  git(main, 'commit', '-q', '-m', 'one')
+  git(root, 'clone', '-q', main, 'board')
+  const engine = join(root, 'board/packages/engine')
+  // The same table: it runs.
+  expect(() => ceilingsAsMain(engine)).not.toThrow()
+  // Main moves on (a lead gives the engine a new line): the checkout behind it is refused once it has fetched.
+  await writeFile(join(main, 'packages/engine/src/ceilings.json'), '{"tables":[{"from":"b"}]}')
+  git(main, 'commit', '-q', '-am', 'two')
+  expect(() => ceilingsAsMain(engine)).toThrow('not main\'s')
+  // Rebased: it runs again; a table changed here and not on main is refused too.
+  git(join(root, 'board'), 'pull', '-q', '--rebase')
+  expect(() => ceilingsAsMain(engine)).not.toThrow()
+  await writeFile(join(engine, 'src/ceilings.json'), '{"tables":[{"from":"c"}]}')
+  expect(() => ceilingsAsMain(engine)).toThrow('not main\'s')
+  // Main out of reach (offline, a lock, no sign-in): the last copy fetched may be old, so it is refused, not trusted.
+  await writeFile(join(engine, 'src/ceilings.json'), '{"tables":[{"from":"b"}]}')
+  expect(() => ceilingsAsMain(engine)).not.toThrow()
+  git(join(root, 'board'), 'remote', 'set-url', 'origin', join(root, 'gone'))
+  expect(() => ceilingsAsMain(engine)).toThrow('can\'t reach main')
+  // The board asks before any step that calls a model.
+  const board = readFileSync(new URL('../scripts/chat-board.ts', import.meta.url), 'utf8')
+  expect(board).toContain("if (positionals[0] !== 'report') ceilingsAsMain(")
+  expect(board.indexOf("ceilingsAsMain(fileURLToPath")).toBeLessThan(board.indexOf('await step()'))
 })

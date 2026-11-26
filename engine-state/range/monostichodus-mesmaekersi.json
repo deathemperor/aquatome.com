@@ -1,0 +1,46 @@
+{
+  "id": "monostichodus-mesmaekersi",
+  "native": {
+    "input": "3b25695a0ddc81e9",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "This tetra comes from the Congo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Monostichodus mesmaekersi",
+    "status": "ACCEPTED",
+    "taxonKey": 9296081,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        15
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

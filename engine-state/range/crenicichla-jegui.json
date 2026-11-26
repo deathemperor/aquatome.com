@@ -1,0 +1,50 @@
+{
+  "id": "crenicichla-jegui",
+  "native": {
+    "input": "9302eb182afce43f",
+    "at": "2026-11-22T12:48:24.036Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Rio Tocantins",
+        "source": "glaser",
+        "quote": "Rio Tocantins drainage.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Crenicichla jegui",
+    "status": "ACCEPTED",
+    "taxonKey": 2370936,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-22T12:48:24.036Z"
+  }
+}

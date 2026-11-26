@@ -60,6 +60,13 @@ test('the page and the app say the same, and a missing reason is an empty cell',
   expect(chatReportsPage({ total: 0, rows: [] }, NOW)).toContain('No reports yet.')
 })
 
+test('each report says who made it, the owner, the test account or a reader, and an older one without says nothing', () => {
+  const rows = [report('a', { role: 'owner' }), report('b', { role: 'tester' }), report('c', { role: 'reader' }), report('d')]
+  const t = chatReportsSection({ total: 4, rows }, NOW).blocks.find(b => b.kind === 'table') as { rows: { sub?: string }[][] }
+  expect(t.rows.map(r => r[0]!.sub)).toEqual(['by you', 'by the test account', 'by a reader', undefined])
+  expect(chatReportsPage({ total: 4, rows }, NOW)).toContain('by the test account')
+})
+
 test('the handbook\'s disagreements are their own list, each place its page and its passage, drawn as text, on the page and in the app', async () => {
   const clash = { at: '2026-11-09T10:00:00Z', lang: 'vi' as const, places: [{ path: '/vi/ca/a/', passage: '<b>nước cứng</b> là đủ' }, { path: '/vi/huong-dan/b/', passage: 'bắt buộc phải có nước mềm' }] as [{ path: string; passage: string }, { path: string; passage: string }] }
   const html = chatReportsPage({ total: 0, rows: [], clashes: [clash] }, NOW)

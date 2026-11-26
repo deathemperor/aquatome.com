@@ -1,0 +1,108 @@
+{
+  "id": "auchenipterus-demerarae",
+  "native": {
+    "input": "ab3a43d1645d6b2e",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Auchenipterus demerarae has a wide range of distribution and is known from the Demerara River, Essequibo River and its tributaries, the Rupununi River in Guyana, and the Botanamo River of the Rio Cuyuni system in Venezuela.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Auchenipterus demerarae has a wide range of distribution and is known from the Demerara River, Essequibo River and its tributaries, the Rupununi River in Guyana, and the Botanamo River of the Rio Cuyuni system in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Demerara River",
+        "source": "scotcat",
+        "quote": "Auchenipterus demerarae has a wide range of distribution and is known from the Demerara River, Essequibo River and its tributaries, the Rupununi River in Guyana, and the Botanamo River of the Rio Cuyuni system in Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo River",
+        "source": "scotcat",
+        "quote": "Auchenipterus demerarae has a wide range of distribution and is known from the Demerara River, Essequibo River and its tributaries, the Rupununi River in Guyana, and the Botanamo River of the Rio Cuyuni system in Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Rupununi River",
+        "source": "scotcat",
+        "quote": "Auchenipterus demerarae has a wide range of distribution and is known from the Demerara River, Essequibo River and its tributaries, the Rupununi River in Guyana, and the Botanamo River of the Rio Cuyuni system in Venezuela.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Rio Cuyuni",
+        "source": "scotcat",
+        "quote": "Auchenipterus demerarae has a wide range of distribution and is known from the Demerara River, Essequibo River and its tributaries, the Rupununi River in Guyana, and the Botanamo River of the Rio Cuyuni system in Venezuela.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Auchenipterus demerarae",
+    "status": "ACCEPTED",
+    "taxonKey": 2344569,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        19
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        8
+      ],
+      [
+        "2d74ce7a-a3c9-4045-b98d-7bb6cd043894",
+        6
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-23T01:48:47.136Z"
+  }
+}

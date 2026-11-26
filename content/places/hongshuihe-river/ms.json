@@ -3,6 +3,12 @@
   "name": "Sungai Hongshui",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T17:57:14.082Z",
+    "why": "The river is the Hongshui He, and Malay atlases write \"Sungai Hongshui\" with the kind word \"Sungai\", but the pinyin \"He\" (river) is dropped, so it is likely \"Sungai Hongshui He\" or the form \"Sungai Hongshuihe\" as one word, which makes this name uncertain."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

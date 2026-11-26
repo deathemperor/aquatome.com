@@ -33,8 +33,13 @@ export const REPORT_NAME = 'Daily reports'
 /** The product change log (daily/changelog.ts), which each merge adds to. */
 export const CHANGELOG_PATH = '/_ab/thay-doi/'
 export const CHANGELOG_NAME = 'Changelog'
-export type WebPath = AdminPath
-const PAGE_NAV: readonly (readonly [WebPath, string, string])[] = NAV
+/** The owner's asks, the chief of staff's list (admin/asks.ts): a page of the web dashboard, after Today. */
+export const ASKS_PATH = '/_ab/yeu-cau/'
+export const ASKS_NAME = 'Your asks'
+/** Pages of the web dashboard that the app's section list doesn't have (yet): the rail lists them, NAV doesn't. */
+const WEB_ONLY = [[ASKS_PATH, ASKS_NAME, '']] as const
+export type WebPath = AdminPath | (typeof WEB_ONLY)[number][0]
+const PAGE_NAV: readonly (readonly [WebPath, string, string])[] = [NAV[0], ...WEB_ONLY, ...NAV.slice(1)]
 /** Every page of the web dashboard. */
 export const WEB_PAGES: readonly WebPath[] = PAGE_NAV.map(([p]) => p)
 
@@ -78,11 +83,11 @@ const FONTS = ['latin', 'vietnamese'].flatMap(sub => [
  */
 const CSS = `${FONTS}
 :root{--paper:#f3eee3;--plate:#fbf8f1;--mat:#fff;--ink:#1d2a22;--ink-2:#3f4c44;--muted:#5a665e;--rule:#d9d0bd;--grid:#e7e0d0;--axis:#b3a88f;
---moss:#2f6b4f;--moss-wash:#e1eadf;--rust:#a0522d;--rust-wash:#f6e4d7;--water:#0a1a1d;--on-dark:#e4efed;--on-dark-soft:#9db7b3;--select:#e8d5b5;--focus:#c46a36;
+--moss:#2f6b4f;--moss-wash:#e1eadf;--rust:#a0522d;--rust-wash:#f6e4d7;--red:#b42318;--water:#0a1a1d;--on-dark:#e4efed;--on-dark-soft:#9db7b3;--select:#e8d5b5;--focus:#c46a36;
 --s1:#0c6944;--s2:#2d76a3;--s3:#a6552d;--whole:#d9e2d5;--mute:#a19c8e;--good:var(--moss);--bad:var(--rust);
 --sans:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--serif:'Newsreader',Georgia,'Times New Roman',serif;--r:12px;color-scheme:light}
 @media (prefers-color-scheme:dark){:root{--paper:#0b1a1e;--plate:#11262b;--mat:#16302f;--ink:#e6efec;--ink-2:#c3d4cf;--muted:#94ada7;--rule:#24423f;--grid:#1a3335;--axis:#3d5d5a;
---moss:#6fd6be;--moss-wash:#123631;--rust:#ff9b7f;--rust-wash:#3b2119;--water:#061013;--on-dark:#e6efec;--on-dark-soft:#9db7b3;--select:#2e5a52;--focus:#6fd6be;
+--moss:#6fd6be;--moss-wash:#123631;--rust:#ff9b7f;--rust-wash:#3b2119;--red:#ff5f57;--water:#061013;--on-dark:#e6efec;--on-dark-soft:#9db7b3;--select:#2e5a52;--focus:#6fd6be;
 --s1:#36a980;--s2:#359bd9;--s3:#cb7a5b;--whole:#244a45;--mute:#5d7a75;color-scheme:dark}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;background:var(--paper);scrollbar-color:var(--axis) transparent}
@@ -120,25 +125,6 @@ p{margin:0 0 12px;max-width:72ch}
 .badge{font:700 12px/1 var(--sans);background:var(--rust);color:var(--paper);border-radius:999px;padding:4px 8px}
 section>h2:first-child{margin-top:28px}
 .panel{background:var(--plate);border:1px solid var(--rule);border-radius:var(--r)}
-/* Needs you */
-/* One list in one card: each row its kind's icon (the triangle only for a fault), the thing, the pages it's on, and the
-   button that acts (filled for a review, outlined for a fault); on a phone, the whole row with a chevron */
-.todo{list-style:none;margin:0;padding:0;background:var(--plate);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
-.todo li+li{border-top:1px solid var(--rule)}
-.todo a{display:grid;grid-template-columns:32px minmax(0,1fr) auto;align-items:center;gap:2px 12px;padding:12px 14px;min-height:56px;color:inherit;text-decoration:none}
-.todo a:hover{background:color-mix(in srgb,var(--moss) 5%,var(--plate));color:inherit}
-.todo a:focus-visible{outline-offset:-3px}
-.todo .ic{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;align-self:start;background:color-mix(in srgb,var(--ink) 7%,var(--plate));color:var(--ink-2)}
-.todo .bad .ic{background:var(--rust-wash);color:var(--rust)}
-.todo .tx{min-width:0}
-/* A title is one line on any font: a source's name too long for the screen is cut ("…"), whole in the line under it. */
-.todo b{display:block;font-size:14.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.todo .sub{display:block;margin-top:2px;font-size:13.5px;color:var(--ink-2);line-height:1.4}
-.todo .act{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border:1px solid var(--rule);border-radius:9px;background:var(--mat);color:var(--ink);font-size:13.5px;font-weight:600;white-space:nowrap}
-.todo .wait .act{background:var(--moss);border-color:var(--moss);color:var(--paper)}
-.todo a:hover .act{border-color:var(--ink-2)}
-.todo .chev{display:none;color:var(--axis)}
-@media (max-width:480px){.todo a{grid-template-columns:24px minmax(0,1fr) 16px}.todo .ic,.todo .bad .ic{width:24px;background:none}.todo b{font-weight:500}.todo .act{display:none}.todo .chev{display:block}}
 .clear{display:flex;align-items:center;gap:10px;color:var(--ink-2);padding:12px 14px}
 .clear svg{color:var(--moss);flex:none}
 /* The overview before version 2's areas */
@@ -176,7 +162,6 @@ section>h2:first-child{margin-top:28px}
 .log li:before{content:'';position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 2px var(--axis)}
 .log p{margin:1px 0 0;font-size:14px}
 .log small{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
-.home-grid{display:grid;gap:8px 32px}
 /* Content and engine */
 .jump ul{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;padding:0;list-style:none}
 .jump a{display:inline-flex;align-items:center;min-height:36px;padding:6px 12px;border:1px solid var(--rule);border-radius:999px;font-size:13.5px;color:var(--ink-2);text-decoration:none;background:var(--plate)}
@@ -401,35 +386,67 @@ button.bad{color:var(--rust)}
 /* A report as it was mailed: its own colours, inline, on the white a mail reads on */
 .mail{background:#fff;color:#1d2a22;border:1px solid var(--rule);border-radius:var(--r);overflow-x:auto;margin:16px 0}
 i.sci{font-style:italic}
-/* Today: four tiles (two a row on a phone), the needs, then every page by its group */
-.tiles4{grid-template-columns:repeat(2,minmax(0,1fr))}
-.tiles4 .kpi dt a{text-decoration:none}
-.tiles4 .spk{margin:2px 0 4px}
-.kpi.wait .v{color:var(--rust)}
-.kpi.bad .v{color:var(--rust)}
-.todo .ph{display:flex;gap:4px;margin-top:6px}
-.todo .ph img{width:36px;height:36px;object-fit:cover;border-radius:6px}
-/* Readers who found an answer: one card, the week's figure and its change, the chart, then its three figures */
-.acard{padding:16px 16px 0}
-.acard .top{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0;max-width:none;color:var(--muted)}
-.acard .top b{font:600 2.4rem/1.05 var(--serif);letter-spacing:-.01em;color:var(--ink)}
-.acard .top .delta{margin-left:auto}
-.acard .chart{border:0;background:none;padding:0;margin-top:4px}
-.acard figcaption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-.acard .kpis{border:0;border-top:1px solid var(--rule);border-radius:0;background:none;margin:6px -16px 0;grid-template-columns:repeat(3,minmax(0,1fr))}
-/* Its figures as drawn: the number, then "readers +2%" under it. */
-.acard .kpi{box-shadow:none;padding:12px 16px 14px;display:flex;flex-direction:column-reverse;justify-content:flex-end}
-.acard .kpi .v{font-size:1.5rem;margin:0 0 2px}
-.acard .kpi .delta{margin:0}
-@media (max-width:480px){.acard .top .delta{margin-left:0;flex-basis:100%}.acard .kpi{padding:10px 8px 12px 16px}}
-.last{margin:8px 2px 0}
-.ship,.lines{list-style:none;margin:0;padding:0;background:var(--plate);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
-.ship li,.lines li{display:flex;gap:10px;align-items:baseline;padding:11px 14px}
-.ship li+li,.lines li+li{border-top:1px solid var(--rule)}
-.lines li{justify-content:space-between}
-.lines small{display:block;color:var(--muted);font-size:12.5px}
-.lines .fig{font-weight:600;white-space:nowrap}
-.lines .bad{color:var(--rust)}
+/* Today: the app's first screen (Design's board2, 14 Nov; the cards' parts, 15 Nov), five cards in the web's own colours,
+   then every page by its group. Each card but Needs you is one link to its page; two columns from 1000 px. */
+.first-screen{display:grid;gap:10px;margin-top:14px}
+.first-screen>div{display:grid;gap:10px;align-content:start}
+.card{position:relative;background:var(--plate);border:1px solid var(--rule);border-radius:14px;padding:12px 14px}
+.first-screen .card>h2{font:600 14.5px/1.35 var(--sans);margin:0 0 4px;display:flex;align-items:center;gap:6px}
+.card>h2>a{color:inherit;text-decoration:none;flex:1;min-width:0}
+.card>h2>a:after{content:'';position:absolute;inset:0;border-radius:inherit}
+.card>h2>a:focus-visible{outline:none}
+.card:has(>h2>a:focus-visible){outline:2px solid var(--focus);outline-offset:2px}
+.card:has(>h2>a:hover){border-color:var(--axis)}
+.card .chev{display:block;color:var(--axis);flex:none}
+.card .fig{font:600 1.9rem/1.15 var(--serif);letter-spacing:-.01em;margin:2px 0;font-variant-numeric:tabular-nums}
+.card .line{font-size:13px;color:var(--muted);margin:0}
+.card .line.bad,.card .line.wait{color:var(--rust)}
+.chg.good{color:var(--moss);font-weight:600}
+.chg.bad{color:var(--red);font-weight:600}
+.card .newest{font-size:13px;margin:6px 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+/* Needs you: the triangle in the text's colour, a green tick when all clear; a row a need, its dot in its tone, its title on
+   one line (a name too long is cut, whole in the line under it); three, the rest under "N more" */
+.needs>h2 .count{color:var(--muted);font-weight:500}
+.needs.good>h2 svg{color:var(--moss)}
+.nrows{list-style:none;margin:0;padding:0}
+.nrows li+li,.more .nrows{border-top:1px solid var(--rule)}
+.nrows a{display:grid;grid-template-columns:12px minmax(0,1fr) 16px;gap:10px;align-items:center;padding:6px 0;min-height:44px;color:inherit;text-decoration:none}
+.nrows .dot{background:var(--rust)}
+.nrows .bad .dot{background:var(--red)}
+.nrows .tx{min-width:0}
+.nrows b{display:block;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nrows .sub{display:block;font-size:13px;color:var(--muted);line-height:1.35}
+.nrows .chev{display:block;color:var(--axis)}
+.nrows a:hover b{text-decoration:underline}
+.more>summary{font-size:13px;color:var(--muted);padding:4px 0 4px 22px;min-height:32px;display:flex;align-items:center;cursor:pointer}
+.more>summary .chev{display:block;color:var(--axis);transform:rotate(90deg);margin-left:4px}
+.more[open]>summary .chev{transform:rotate(-90deg)}
+.needs .clear{padding:2px 0;font-size:14px}
+.needs .last{font-size:13px;color:var(--muted);margin:2px 0 0}
+/* New pages: the kinds' total and today's, then a line a kind: its name, its seven days, its total and today's */
+.card .top{display:flex;align-items:baseline;gap:6px;margin:0;color:var(--muted);font-weight:600;font-size:14px;max-width:none}
+.card .top .fig{color:var(--ink)}
+.card .today{margin-left:auto;font-weight:400;font-size:13px}
+.t{font-size:13px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums;min-width:28px}
+.t.good{color:var(--moss)}
+.kinds{display:grid;grid-template-columns:max-content minmax(0,1fr) max-content max-content;gap:6px 8px;align-items:end;margin-top:6px}
+.kinds .k{font-size:13px;color:var(--muted);white-space:nowrap}
+.kinds .n{font-size:14px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.kinds .cap,.kinds .days{font-size:11px;color:var(--muted)}
+.kinds .days{grid-column:2;display:flex;justify-content:space-between}
+.sb{display:flex;align-items:flex-end;gap:3px;height:26px}
+.sb i{flex:1;height:var(--h);min-height:2px;border-radius:2px;background:var(--mute)}
+.sb i.on{background:var(--s1)}
+.sb i.zero{height:2px;border-radius:1px;background:var(--red)}
+.sb i.zero.open{background:var(--mute)}
+.sb i.none{height:0;min-height:0;border-bottom:2px dotted var(--mute);border-radius:0;background:none}
+/* The cost: one row, its figure and what it's made of */
+.first-screen .cost>h2{margin:0}
+.cost>h2>a{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px}
+.cost b{font-variant-numeric:tabular-nums}
+.cost b.bad{color:var(--rust)}
+.cost .line{font-weight:400}
 .groups{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
 .groups h3{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 14px 2px}
 .groups section{background:var(--plate);border:1px solid var(--rule);border-radius:var(--r)}
@@ -442,6 +459,23 @@ details.fold>summary{display:flex;justify-content:space-between;gap:12px;align-i
 details.fold .fig{color:var(--muted);font-variant-numeric:tabular-nums}
 details.fold .scroll{margin:0 -14px;border-width:1px 0 0;border-radius:0 0 var(--r) var(--r)}
 td.bad,th.bad{color:var(--rust)}
+.asks-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;margin:14px 0 16px}
+.asks-tiles div{background:var(--plate);border:1px solid var(--rule);border-radius:var(--r);padding:10px 12px}
+.asks-tiles b{display:block;font-size:24px;line-height:1.1;font-variant-numeric:tabular-nums}
+.asks-tiles span{font-size:12px;color:var(--muted)}
+.asks-tiles .t-red b{color:var(--rust)}.asks-tiles .t-done b{color:var(--moss)}
+.asks-group{border-top:1px solid var(--rule);padding:2px 0 6px}
+.asks-group>summary{color:var(--ink);font-weight:600;font-size:1rem;min-height:44px;display:flex;align-items:center;gap:8px}
+.asks-group .n{color:var(--muted);font-weight:500;font-size:.85rem}
+.asks .ask{padding:10px 0;border-top:1px solid var(--grid);overflow-wrap:anywhere}
+.asks .ask p{margin:2px 0}
+.asks .top{display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
+.asks .what{font-weight:600}
+.asks .state{flex:none;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap;margin-top:2px;color:var(--muted)}
+.asks .s-late,.asks .s-nothing,.asks .s-unknown,.asks .x,.asks .stale{color:var(--rust)}.asks .s-you{color:var(--s3)}.asks .s-try{color:var(--s2)}.asks .s-done{color:var(--moss)}
+.asks .said,.asks .meta{color:var(--muted)}.asks .said{font-style:italic}.asks .meta{font-size:12.5px}
+.asks .x,.asks .stale{font-weight:600}.asks .where{font-size:13.5px}
+.asks .rules{padding-left:18px;margin:6px 0}.asks .rules li{margin:3px 0}
 @media (min-width:1000px){
 .frame{grid-template-columns:232px minmax(0,1fr);gap:0 8px}
 .rail,.home .rail{display:block;border:0;background:none;padding:20px 0 0 16px}
@@ -451,10 +485,8 @@ td.bad,th.bad{color:var(--rust)}
 .rail a[aria-current=page]{background:var(--plate);color:var(--ink);box-shadow:inset 0 0 0 1px var(--rule)}
 .rail .grp{display:block;padding:14px 12px 4px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 main{padding:24px 24px 64px}
-.tiles4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .groups{grid-template-columns:repeat(3,minmax(0,1fr))}
-.home-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
-.home-grid>.side h2:first-child{margin-top:28px}
+.first-screen{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
 }
 @media (max-width:420px){.masthead time span{display:none}th,td{padding:.55rem .6rem}.chart{padding:12px 12px 4px}.rank th{min-width:7rem}}`
 

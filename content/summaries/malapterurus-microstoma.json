@@ -1,15 +1,17 @@
 {
   "id": "malapterurus-microstoma",
-  "summary": "Cá trê điện lùn (Malapterurus microstoma) hợp với người chịu nuôi riêng một con vì cá có khả năng phóng điện. Cá lớn tới 55,5 cm, cần nước 23–30 °C, pH 6–7, bể để ánh sáng dịu và có chỗ trú vừa cỡ con cá. Độ khó 5/8 (mức vừa); điểm khó nhất là cá phóng điện nên không nuôi chung được, còn chuyện ăn thì dễ vì đồ đông lạnh hay mồi sống loại nào cũng nhận.",
+  "summary": "Cá trê điện lùn (Malapterurus microstoma) hợp với người nuôi đã có kinh nghiệm, có bể rất lớn và chịu nuôi riêng một con. Nước pH 6–7, nhiệt độ 23–30 °C, độ khó 5/8; cá dài tới 55,5 cm. Khó nhất là cá phóng điện giật người, nên bắt hay đụng vào phải hết sức cẩn thận.",
   "mistakes": [
-    "Thả chung nhiều con; nên nuôi riêng một con vì cá có khả năng phóng điện.",
-    "Cho ăn toàn thức ăn chế biến; nên cho đồ đông lạnh, mồi sống hoặc thịt đông lạnh, vì cá chỉ ăn đồ chế biến khi không có gì khác.",
-    "Bỏ chỗ trú hoặc để đèn sáng gắt; nên để ánh sáng dịu và đặt một chỗ trú vừa cỡ con cá, cá có vẻ thích chỗ trú bằng đá hơn lũa."
+    "Nuôi ghép nhiều con thì dễ có chuyện vì cá phóng điện; nên nuôi riêng một con.",
+    "Bắt hay đụng tay vào cá thiếu cẩn thận sẽ bị giật; phải hết sức cẩn thận mỗi khi thao tác.",
+    "Cho ăn toàn thức ăn chế biến sẵn thì cá chỉ ăn khi không có gì khác; nên cho đồ đông lạnh, mồi sống hoặc đồ giàu thịt."
   ],
-  "speciesUpdatedAt": "2026-10-30",
-  "generatedAt": "2026-10-31T18:15:59.436Z",
+  "speciesUpdatedAt": "2026-11-19",
+  "writtenFrom": "30668ebd697d0e62",
+  "generatedAt": "2026-11-19T19:55:45.927Z",
   "review": "pending",
   "problems": [
-    "\"điểm khó nhất là cá phóng điện nên không nuôi chung được\": the page only says \"tốt nhất là nuôi riêng một con\" (best to keep one alone). The summary turns that hedge into a flat claim that the fish cannot be kept with others."
+    "\"hợp với người nuôi đã có kinh nghiệm\": the page never says the fish needs experienced keepers, and the card difficulty 5/8 is only medium (vừa). This claim about who it suits is not supported.",
+    "\"có bể rất lớn\": the page gives no tank size requirement. It only mentions one fish kept in a 2.500 lít tank, so a \"very large tank\" requirement is only weakly implied."
   ]
 }

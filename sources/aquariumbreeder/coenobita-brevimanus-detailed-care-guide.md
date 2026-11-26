@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/coenobita-brevimanus-detailed-care-guide/
 title: Coenobita brevimanus – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T22:27:05.077Z
-hash: 9822a90e4003f355b10a6719d195e7cd956d4d54e13bfd948890548c424de902
+hash: 50a55282d20b4d7a6fb4b0780b6eeb59090af3187bfd79a3dddf0523e322eae8
 ---
 
 Coenobita brevimanus, commonly known as Indonesian crab, Brevi, Indo, or Purple hermit crab, is a species of coastal living terrestrial hermit crabs. These cute and sociable hermit crabs have a lot of personalities and are a load of fun to watch.
@@ -233,4 +233,3 @@ Lastly, instead of supporting the pet industry (remember, they are all wild-caug
 - Hamasaki, Katsuyuki, Saori Kato, Yu Murakami, Shigeki Dan, and Shuichi Kitada. “Larval growth, development and duration in terrestrial hermit crabs.” Sexuality and Early Development in Aquatic Organisms 1, no. 2 (2015): 93-107.
 - Hamasaki, Katsuyuki. “Effect of temperature on larval survival, development and duration of six terrestrial hermit crab species under laboratory conditions.” Aquatic Animals (2020): AA2020-6.
 - Hemolymph oxygen transport, acid-base status, and hydromineral regulation during dehydration in three terrestrial crabs, Cardisoma, Birgus, and Coenobita. Journal of Experimental Zoology, Volume 218, Issue 1, October 1981, pages 53-64
-### Leave a Reply Cancel reply

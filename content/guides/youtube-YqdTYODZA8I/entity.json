@@ -1,0 +1,112 @@
+{
+  "id": "youtube-YqdTYODZA8I",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=YqdTYODZA8I",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "astronotus-ocellatus"
+  ],
+  "updatedAt": "2026-11-24",
+  "video": {
+    "youtubeId": "YqdTYODZA8I",
+    "title": "This AQUARIUM Is DISGUSTING! How To Maintain A Fish Tank! T.O.O.L. Ep. 2",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 459,
+    "publishedAt": "2020-01-12",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D0ryKutiv7U8FCu9loq_PSI",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/YqdTYODZA8I/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Pterygoplichthys sp.",
+      "Astronotus ocellatus"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "brand": "Seachem",
+        "model": "Tidal",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "brand": "Sicce",
+        "model": "Shark ADV",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Guard",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Complete",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Dark Water",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Betta Guard",
+        "t": 0
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "t": 110
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 110
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vệ sinh lọc bao lâu một lần",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/YqdTYODZA8I/p3-JfZm9hbV8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/YqdTYODZA8I/p3-JfZm9hbV8xLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
+          "caption": "Miếng mút lọc màu đen, thấy rõ các lỗ xốp giữ cặn bẩn."
+        }
+      },
+      {
+        "heading": "Vì sao không rửa mút lọc dưới vòi nước",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/YqdTYODZA8I/p4-JfZm9hbV8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/YqdTYODZA8I/p4-JfZm9hbV8xLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
+          "caption": "Cận cảnh khối mút lọc đen với các lỗ xốp là nơi vi sinh có ích bám."
+        }
+      }
+    ]
+  }
+}

@@ -21,8 +21,8 @@
         "KH",
         "LA",
         "VN",
-        "MY",
         "CN",
+        "MY",
         "PH",
         "ID",
         "BN"
@@ -30,8 +30,7 @@
       "regions": [
         "Mekong",
         "Chao Phraya",
-        "Mae Klong",
-        "Sunda Islands"
+        "Mae Klong"
       ],
       "sources": [
         "seriouslyfish"
@@ -39,11 +38,15 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The red-tailed rasbora, Rasbora borapetensis, is a small cyprinid from the Mekong and Chao Phraya drainages and the Mae Klong in western Thailand.",
+          "quote": "Occurs in the great Mekong and Chao Phraya river drainages as well as the Mae Klong in western Thailand.",
           "countries": [
             "TH"
           ],
-          "regions": []
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -52,7 +55,6 @@
             "KH",
             "LA",
             "VN",
-            "MY",
             "CN"
           ],
           "regions": []
@@ -61,23 +63,12 @@
           "source": "seriouslyfish",
           "quote": "Its distribution extends further into the Philippines and Sunda Islands including parts of Malaysia, Indonesia, Brunei Darussalam and Singapore (introduced and non-native to the latter).",
           "countries": [
+            "MY",
             "PH",
             "ID",
             "BN"
           ],
-          "regions": [
-            "Sunda Islands"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Occurs in the great Mekong and Chao Phraya river drainages as well as the Mae Klong in western Thailand.",
-          "countries": [],
-          "regions": [
-            "Mekong",
-            "Chao Phraya",
-            "Mae Klong"
-          ]
+          "regions": []
         }
       ]
     },
@@ -378,10 +369,28 @@
       "html": "<p>The red-tailed rasbora, Rasbora borapetensis, is a small cyprinid from the Mekong and Chao Phraya drainages and the Mae Klong in western Thailand. One of the more commonly encountered rasboras in stores, it is also sold as the black-line or magnificent rasbora. The similar R. rubrodorsalis has a bright red blotch in the dorsal fin, whereas in R. borapetensis the dorsal is colourless and only the base of the caudal fin is red. Very peaceful, it often schools quite closely.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này thường bán rẻ. Một người nuôi mua ở tiệm cá với giá chưa tới một đô la Mỹ một con.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-borapetensis",
       "html": "<p>Occurs in the great Mekong and Chao Phraya river drainages as well as the Mae Klong in western Thailand. It thus has an enormous natural range and has also been recorded from Cambodia, Laos, Vietnam, Peninsular Malaysia and China. Its distribution extends further into the Philippines and Sunda Islands including parts of Malaysia, Indonesia, Brunei Darussalam and Singapore (introduced and non-native to the latter). Wild caught fish are increasingly rare in the hobby as it is being produced commercially in several countries.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Trong Sách Đỏ IUCN, loài này xếp hạng Ít quan ngại, nên chưa có gì phải lo chuyện tuyệt chủng ngoài tự nhiên.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "habitat",
@@ -396,6 +405,15 @@
       "html": "<p>A tank measuring 60 × 38 × 30 cm (~68 litres) is big enough to house a small group of these.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này thấy muốn đàn 12 con bơi sát nhau thì nên dùng bể dài hơn 60 cm. Bể nhỏ hơn vẫn nuôi được, chỉ cần thả đàn ít con hơn.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-borapetensis",
@@ -408,16 +426,43 @@
       "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này giữ cá ở pH 6–8 và nhiệt độ 22–28 °C, tức rộng hơn khoảng ghi trong bảng. Người này đoán cá chịu nóng tốt hơn chịu lạnh, và không muốn để cá lâu ngày ở khoảng 21 °C. Nước mềm đến cứng vừa có lẽ là hợp. Cá vẫn sống khỏe trong nước cứng, nhưng có thể không chịu đẻ.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-borapetensis",
       "html": "<p>Stomach analyses of wild specimens have revealed it to be a micropredator feeding on small insects, worms, crustaceans and other zooplankton. In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively. Daily meals of small live and frozen fare such as Daphnia, Artemia and suchlike will result in the best colouration and encourage the fish to come into breeding condition.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá có thể ăn thức ăn dạng mảnh làm nền, thêm đồ đông lạnh. Miệng cá nhỏ nên trùng huyết đông lạnh hơi to với chúng. Cá vẫn cố nuốt được, nhưng các loại đông lạnh cỡ nhỏ hơn thì hợp hơn.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-borapetensis",
       "html": "<p>This species is very peaceful indeed making it an ideal resident of the well-furnished community tank. As it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, rainbowfish, anabantoids, catfish and loaches. As always when selecting a compatible community of fish thorough research is essential and its small adult size must be a consideration. A community based around one of its native countries or river basins would also make an interesting project with possibilities from Thailand alone including various Badis, Betta, Trichogaster, Danio, Trigonostigma, Puntius, Crossocheilus, Pangio, Lepidocephalichthys and other Rasbora species amongst others.</p><p>It's a schooling species by nature and really should be kept in a group of at least 8-10 specimens. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này bơi ở tầng giữa, không lên sát mặt nước mà cũng không xuống sát nền. Trong bể thủy sinh, tầng giữa hay bị trống, nên một đàn rasbora đuôi đỏ lấp vào chỗ đó rất vừa.</p><p>Một người nuôi chưa thấy chúng đuổi hay không chịu được loài cá nào. Nhưng cá cũng không biết chống trả, gặp cá khác quấy là bỏ chạy đi trốn. Người này từng thả chung một nhóm cá tetra Paraguay hiếu động. Ngay sau đó đàn rasbora tan ra, màu đỏ ở đuôi biến mất và cá chỉ núp trong đám cây. Theo người này, đuôi nhạt màu đỏ là dấu hiệu cá đang bị stress hoặc không khỏe.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "dimorphism",
@@ -432,10 +477,28 @@
       "html": "<p>Like many small cyprinids this species is an egg-scattering, continuous spawner that exhibits no parental care. That is to say when the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without human intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required. The adult group can still be conditioned together but one or more long, shallow containers (for example 75 × 30 × 30 cm, 71 litres) should also be set up and half-filled with water. These should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through it but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works very well. The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. A small power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank.</p><p>When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container. Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding small amounts of live and frozen foods. Several spawning events will usually occur before a female is spent with 5 to 12 eggs being produced each time and a typical batch consisting of 30 to 50.</p><p>The adults will eat any eggs they find and are best removed after a couple of days at which point the power filter should be switched for a mature sponge-type unit in order to avoid fry being sucked into the mechanism. Incubation is temperature-dependant to an extent but usually takes between 18 and 48 hours with the young free-swimming 24 to 48 hours later. Initial food should be Paramecium or similar introducing Artemia nauplii and/or microworm once the fry are large enough to accept them.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi thấy cá vờn đẻ mấy lần chỉ trong khoảng ba tháng đầu nuôi. Trong bể của người này, cá vờn đẻ vào buổi chiều tối chứ không phải sáng sớm như người ta hay nghĩ. Trong bể đó có nuôi chung cá Garra panda. Trứng vừa rơi xuống cây là đám Garra lao vào ăn ngay.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-borapetensis",
       "html": "<p>R. borapetensis is one of the more commonly-encountered rasboras in stores and is particularly recommended for newcomers to the hobby. While it can appear a little plain or 'washed' of colour when seen on sale once settled and in good condition it is an eye-catching little fish that often schools quite closely. It's sometimes sold with the alternative trade names of black-line or magnificent rasbora.</p><p>R. rubrodorsalis is a very similar-looking congener that occurs sympatrically with R. borapetensis over some of its natural range and is occasionally available in the trade. The two are easily distinguishable from one another though as R. rubrodorsalis has a bright red blotch in the dorsal fin whilst in R. borapetensis the dorsal is colourless and only the base of the caudal fin is coloured red. R. borapetensis should also have an incomplete lateral line with 10-15 perforated scales, 9 soft dorsal rays, 8 soft anal rays and no black pigmentation in the fins.</p><p>Rainboth's 'Fishes of the Cambodian Mekong' characterised members of Rasbora by possession of an unbranched, non-spiny first dorsal fin ray and seven soft dorsal rays, origin of the dorsal fin in the middle of the body, five branched anal fin rays, a small mouth not extending below the eye and a lack of barbels. It's long been recognised as a polyphyletic lineage as noted by Kottelat (1999) amongst others, and in 2010 the results of a phylogenetic analysis by T. Y. Liao et al. suggested a number of changes in order to improve the taxonomy. The authors found species of rasborin genera to actually represent a monophyletic grouping existing in six clades and erected four new genera (all containing former members of Rasbora) in order to preserve monophyly of the existing groups i.e. Boraras, Horadandia, Rasbora, Rasboroides and Trigonostigma.</p><p>The fourth clade includes Rasbora semilineata, R. borapetensis, R. rubrodorsalis and an undescribed fish similar to R. beauforti. Liao et al. proposed the R. semilineata species group: R. semilineata, R. borapetensis, R. rubrodorsalis.</p><p>Shortly afterwards a paper investigating systematics of the subfamily Danioninae was published by Tang et al. (2010). Their results differed wildly from those of Liao et al. and the four new genera plus Boraras and Trigonostigma were synonymised with Rasbora based on an incomplete knowledge of relationships within the group, an approach they describe as 'more conservative'. The system of Liao et al. has been adopted pending future studies.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cái tên rasbora tuyệt đẹp (brilliant rasbora) còn được dùng cho một loài khác. Loài kia trông rất giống nhưng đuôi không có màu đỏ. Muốn tìm tài liệu cho đúng con thì nên tra bằng tên khoa học <em>Rasbora borapetensis</em>. Một người nuôi loài này thấy sọc vàng dọc thân lúc nào cũng sáng, gặp ánh đèn đúng góc thì đứng bên kia phòng vẫn nhìn thấy.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "references",
@@ -451,7 +514,7 @@
       "width": 671,
       "height": 437,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-borapetensis",
       "caption": "Adult male from the aquarium trade.",
       "source": "seriouslyfish"
@@ -462,13 +525,20 @@
       "width": 700,
       "height": 477,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Nonn Panitvong/Siamensis.org / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-borapetensis",
       "caption": "In its natural habitat, upper Kwae Noi river basin, Thailand.",
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "kQ32a_kRGOg",
+      "title": "red tail rasbora (Rasbora borapetensis) species profile",
+      "durationSec": 465,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -498,5 +568,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-18",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=kQ32a_kRGOg",
+      "title": "red tail rasbora (Rasbora borapetensis) species profile"
+    }
+  ]
 }

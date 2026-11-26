@@ -3,6 +3,12 @@
   "name": "Minjiang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-19T12:51:05.101Z",
+    "why": "Minjiang is the pinyin name of the Min River, and Indonesian usage normally adds the kind word, as in \"Sungai Min\" or \"Sungai Minjiang\", so the bare form leaves out \"Sungai\"."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

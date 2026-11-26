@@ -7,7 +7,10 @@
  ],
  "hashes": {
   "https://media.aquatome.com/commons/e21efd5ada54a064.webp": "0613030e02929686",
-  "https://media.aquatome.com/commons/01689bd394921786.webp": "23064c2c1f4e798e"
+  "https://media.aquatome.com/commons/01689bd394921786.webp": "23064c2c1f4e798e",
+  "https://media.aquatome.com/glaser/a38fef3d79573d9d.webp": "e363431f3f1fb3cb",
+  "https://media.aquatome.com/glaser/d12ea3f46b9e10b7.webp": "d9d39b0f0f1d3331",
+  "https://media.aquatome.com/glaser/c08ef695e532f9b6.webp": "96f2c8cd8c1a5a8a"
  },
  "inat": {
   "taxon": 617313,
@@ -24,6 +27,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
  },
  "exhausted": "2026-11-07"
 }

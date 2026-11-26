@@ -164,7 +164,7 @@ struct PhotoGrid: View {
     let source = PhotoRows.source(gallery.note)
     var out = AttributedString(source.isEmpty ? gallery.name : gallery.name + ", " + source)
     if readers > 0 {
-      var link = AttributedString(String(localized: "Xem \(readers) ảnh bạn đọc gửi ↓"))
+      var link = AttributedString(String(localized: "Xem \(readers) ảnh bạn đọc gửi ↓", bundle: .app))
       link.link = URL(string: "aquatome-grid:readers")
       out += AttributedString(" ") + link
     }
@@ -338,7 +338,7 @@ private struct PhotoGridRows: View {
 extension PageDoc.Image {
   /// A reader's photo, credited with their name.
   init(reader p: Readers.Photo) {
-    self.init(src: p.url, w: p.width, h: p.height, alt: String(localized: "Ảnh của \(p.name)"), thumb: p.thumb,
+    self.init(src: p.url, w: p.width, h: p.height, alt: String(localized: "Ảnh của \(p.name)", bundle: .app), thumb: p.thumb,
               credit: Credit(text: p.name, licence: "", url: nil))
   }
 }

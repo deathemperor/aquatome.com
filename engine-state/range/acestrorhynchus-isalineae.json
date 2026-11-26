@@ -1,8 +1,8 @@
 {
   "id": "acestrorhynchus-isalineae",
   "native": {
-    "input": "6d2c61e76618ea7b",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "3d5b94d0d55c3d7b",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "BR",
@@ -20,12 +20,20 @@
         "quote": "The type series was collected from 'tributary of Rio dos Marmelos, Rio Madeira basin, 110 kilometers east of Humaitá along rodovia Transamazônica, Amazonas State, Brazil' in the western Brazilian Amazon, and most official records pertain only to this locality although the species may be more widely-distributed within the Madeira system.",
         "country": "BR",
         "ok": true
+      },
+      {
+        "name": "Rio Madeira",
+        "source": "glaser",
+        "quote": "Acestrorhynchus isalineae was described scientifically only in 1963 from the Rio Madeira basin.",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "PE"
+      ],
       "sourcesOnly": []
     }
   },

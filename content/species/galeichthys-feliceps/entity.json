@@ -1,0 +1,276 @@
+{
+  "id": "galeichthys-feliceps",
+  "scientificName": "Galeichthys feliceps",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Galeichthys",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "south-africa"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ZA"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: around Cape Town [South Africa].",
+          "countries": [
+            "ZA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345208,
+      "total": 407,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "ZA",
+          377
+        ],
+        [
+          "NA",
+          23
+        ],
+        [
+          "MZ",
+          5
+        ],
+        [
+          "AO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          11.25,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          11.25,
+          -18.28125,
+          3,
+          0
+        ],
+        [
+          14.0625,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          14.0625,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          14.0625,
+          -23.90625,
+          19,
+          0
+        ],
+        [
+          16.875,
+          -33.75,
+          7,
+          7
+        ],
+        [
+          16.875,
+          -32.34375,
+          3,
+          3
+        ],
+        [
+          18.28125,
+          -35.15625,
+          65,
+          65
+        ],
+        [
+          18.28125,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          -35.15625,
+          22,
+          22
+        ],
+        [
+          21.09375,
+          -35.15625,
+          69,
+          69
+        ],
+        [
+          22.5,
+          -35.15625,
+          24,
+          24
+        ],
+        [
+          22.5,
+          -30.9375,
+          2,
+          2
+        ],
+        [
+          23.90625,
+          -35.15625,
+          36,
+          36
+        ],
+        [
+          25.3125,
+          -35.15625,
+          25,
+          25
+        ],
+        [
+          25.3125,
+          -33.75,
+          14,
+          14
+        ],
+        [
+          26.71875,
+          -35.15625,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -33.75,
+          65,
+          65
+        ],
+        [
+          28.125,
+          -33.75,
+          16,
+          16
+        ],
+        [
+          28.125,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -30.9375,
+          8,
+          8
+        ],
+        [
+          30.9375,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          -29.53125,
+          17,
+          17
+        ],
+        [
+          32.34375,
+          -26.71875,
+          3,
+          0
+        ],
+        [
+          36.5625,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          37.96875,
+          -18.28125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 55
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "html": "<p>Family: Ariidae. Size: 55 cm total length. Climate: subtropical, 41°N – 28°S. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "html": "<p>Africa: widely distributed in southern Africa; in freshwater, estuaries and coastal environments. Type locality: around Cape Town [South Africa].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "html": "<p>Generally found in large shoals on muddy bottoms in turbid waters, usually on the coastline and in estuaries. Also found in rivers.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "html": "<p>Feeds on crayfish, small fish and crabs.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "html": "<p>Dimorphism of the posterior (humeral) process of the cleithrum is obvious externally: fan-shaped in females, triangular in males. The maxillary barbel is longer in females.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "html": "<p>Description: vertebrae 51–52 (17 precaudal, 34–35 caudal). Head longer than, or nearly as long as, broad; relatively long and thin maxillary barbel, extending at least to the pectoral fin spine origin; deeply forked caudal fin with pointed lobes, the upper lobe longer; 11–14 gill rakers on the anterior face of the first arch; 10–12 pectoral fin rays; upper two-thirds of the body darkened, with some lateral speckling and a stark white belly.</p><p>Etymology: the specific name feliceps comes from felis, cat, and ceps, head, i.e. \"cathead\", a variation on the term \"catfish\", referring to the cat-like whiskers (barbels).</p><p>Remarks: considered a nuisance by shore and ski-boat anglers in southern Africa as little else is caught. The spines are poisonous and wounds should be treated immediately.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/03a336402930582a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/03a336402930582a-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Peter Southwood / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "caption": "Galeichthys feliceps: Glencairn barge wreck S.A.",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

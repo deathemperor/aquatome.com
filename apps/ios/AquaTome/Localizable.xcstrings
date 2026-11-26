@@ -353,6 +353,28 @@
         }
       }
     },
+    "%@, khác: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, berbeda: %2$@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, berbeza: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ ต่างกัน: %2$@"
+          }
+        }
+      }
+    },
     "%@, ảnh %lld": {
       "localizations": {
         "id": {
@@ -371,6 +393,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ ภาพที่ %lld"
+          }
+        }
+      }
+    },
+    "%lld bước": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld langkah"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld langkah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ขั้นตอน"
           }
         }
       }
@@ -595,6 +639,28 @@
         }
       }
     },
+    "%lld phần": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld bagian"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld bahagian"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ส่วน"
+          }
+        }
+      }
+    },
     "%lld trang": {
       "localizations": {
         "id": {
@@ -679,6 +745,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "งานที่ต้องทำ %lld รายการ"
+          }
+        }
+      }
+    },
+    "%lld ý": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld poin"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld perkara"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ข้อ"
+          }
+        }
+      }
+    },
+    "%lld đoạn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld paragraf"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld perenggan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ย่อหน้า"
           }
         }
       }
@@ -1277,6 +1387,28 @@
         }
       }
     },
+    "AquaTome sẽ xem lại câu trả lời này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome akan meninjau jawaban ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome akan menyemak jawapan ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome จะตรวจสอบคำตอบนี้อีกครั้ง"
+          }
+        }
+      }
+    },
     "AquaTome đã hết lượt hỏi Claude hôm nay": {
       "localizations": {
         "id": {
@@ -1427,6 +1559,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "รายงานรูปนี้ไหม?"
+          }
+        }
+      }
+    },
+    "Báo câu trả lời sai": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan jawaban yang salah"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan jawapan yang salah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งคำตอบที่ผิด"
+          }
+        }
+      }
+    },
+    "Báo sai": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan kesalahan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan kesilapan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งว่าผิด"
           }
         }
       }
@@ -2751,6 +2927,72 @@
         }
       }
     },
+    "cam": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "oranye"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "oren"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส้ม"
+          }
+        }
+      }
+    },
+    "cam vàng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "oranye kekuningan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "oren kekuningan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส้มเหลือง"
+          }
+        }
+      }
+    },
+    "chàm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "nila"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "nila"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คราม"
+          }
+        }
+      }
+    },
     "Cho ăn": {
       "localizations": {
         "id": {
@@ -2769,6 +3011,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "การให้อาหาร"
+          }
+        }
+      }
+    },
+    "Chưa gửi lệnh nào từ máy này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada perintah yang dikirim dari perangkat ini"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada arahan dihantar dari peranti ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้ส่งคำสั่งจากเครื่องนี้"
           }
         }
       }
@@ -3147,28 +3411,6 @@
         }
       }
     },
-    "Chưa gửi lệnh nào": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Belum ada perintah yang dikirim"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Belum ada arahan dihantar"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ยังไม่ได้ส่งคำสั่ง"
-          }
-        }
-      }
-    },
     "Chưa gửi lệnh: %@": {
       "localizations": {
         "id": {
@@ -3191,6 +3433,28 @@
         }
       }
     },
+    "Chưa gửi vì bạn đã đăng xuất.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dikirim karena Anda sudah keluar."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dihantar kerana anda telah log keluar."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้ส่ง เพราะคุณออกจากระบบแล้ว"
+          }
+        }
+      }
+    },
     "Chưa gửi được email: thử lại sau.": {
       "localizations": {
         "id": {
@@ -3209,6 +3473,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งอีเมลไม่สำเร็จ โปรดลองใหม่ภายหลัง"
+          }
+        }
+      }
+    },
+    "Chưa gửi được. Bấm Gửi lần nữa.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum terkirim. Ketuk Kirim sekali lagi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dihantar. Ketik Hantar sekali lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังส่งไม่ได้ กด “ส่ง” อีกครั้ง"
           }
         }
       }
@@ -7239,6 +7525,50 @@
         }
       }
     },
+    "Gửi %@ bị ngắt vì bạn rời ứng dụng.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pengiriman %@ terputus karena Anda meninggalkan aplikasi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Penghantaran %@ terputus kerana anda meninggalkan aplikasi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การส่ง %@ ถูกตัดเพราะคุณออกจากแอป"
+          }
+        }
+      }
+    },
+    "Gửi %@, %lld%% bị ngắt vì bạn rời ứng dụng.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pengiriman %1$@, %2$lld%% terputus karena Anda meninggalkan aplikasi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Penghantaran %1$@, %2$lld%% terputus kerana anda meninggalkan aplikasi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การส่ง %1$@, %2$lld%% ถูกตัดเพราะคุณออกจากแอป"
+          }
+        }
+      }
+    },
     "Gửi bình luận": {
       "localizations": {
         "id": {
@@ -7257,6 +7587,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งความคิดเห็น"
+          }
+        }
+      }
+    },
+    "Gửi lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kirim lagi"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hantar semula"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งอีกครั้ง"
           }
         }
       }
@@ -7459,6 +7811,72 @@
         }
       }
     },
+    "hôm qua %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kemarin %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "semalam %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เมื่อวาน %@"
+          }
+        }
+      }
+    },
+    "hồng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "merah muda"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "merah jambu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชมพู"
+          }
+        }
+      }
+    },
+    "hồng sen": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "merah muda teratai"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "merah jambu teratai"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชมพูบัว"
+          }
+        }
+      }
+    },
     "Hồng tím": {
       "localizations": {
         "id": {
@@ -7521,6 +7939,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยกเลิกการเปลี่ยนแปลง"
+          }
+        }
+      }
+    },
+    "hồng tím": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "magenta"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "magenta"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ม่วงแดง"
           }
         }
       }
@@ -7789,6 +8229,28 @@
         }
       }
     },
+    "Hỏi gì về loài này?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mau tanya apa tentang spesies ini?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apa soalan anda tentang spesies ini?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อยากถามอะไรเกี่ยวกับสายพันธุ์นี้"
+          }
+        }
+      }
+    },
     "Hỏi lại": {
       "localizations": {
         "id": {
@@ -8005,6 +8467,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "ถามเกี่ยวกับต้นไม้นี้…"
+          }
+        }
+      }
+    },
+    "Hỏi về loài này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanya tentang spesies ini"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanya tentang spesies ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถามเกี่ยวกับสายพันธุ์นี้"
+          }
+        }
+      }
+    },
+    "Hỏi về loài này…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanya tentang spesies ini…"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanya tentang spesies ini…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถามเกี่ยวกับสายพันธุ์นี้…"
           }
         }
       }
@@ -8291,6 +8797,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไม่"
+          }
+        }
+      }
+    },
+    "Không báo được câu trả lời này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jawaban ini tidak bisa dilaporkan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jawapan ini tidak dapat dilaporkan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งคำตอบนี้ไม่ได้"
+          }
+        }
+      }
+    },
+    "Không bắt buộc. AquaTome sẽ xem lại câu trả lời này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak wajib diisi. AquaTome akan meninjau jawaban ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak wajib. AquaTome akan menyemak jawapan ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่บังคับ AquaTome จะตรวจสอบคำตอบนี้อีกครั้ง"
           }
         }
       }
@@ -9461,6 +10011,50 @@
         }
       }
     },
+    "Lần cuối máy này gửi: %@ · %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terakhir dikirim dari perangkat ini: %1$@ · %2$@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terakhir dihantar dari peranti ini: %1$@ · %2$@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งจากเครื่องนี้ล่าสุด: %1$@ · %2$@"
+          }
+        }
+      }
+    },
+    "Lần cuối máy này gửi: %@, %lld%% · %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terakhir dikirim dari perangkat ini: %1$@, %2$lld%% · %3$@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terakhir dihantar dari peranti ini: %1$@, %2$lld%% · %3$@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งจากเครื่องนี้ล่าสุด: %1$@, %2$lld%% · %3$@"
+          }
+        }
+      }
+    },
     "Liên hệ": {
       "localizations": {
         "id": {
@@ -9479,6 +10073,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ติดต่อ"
+          }
+        }
+      }
+    },
+    "Loài": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spesies"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spesies"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สายพันธุ์"
           }
         }
       }
@@ -10121,6 +10737,50 @@
         }
       }
     },
+    "Màu khác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warna lain"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warna lain"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สีอื่น"
+          }
+        }
+      }
+    },
+    "màu tự chọn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "warna pilihan sendiri"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "warna pilihan sendiri"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สีที่เลือกเอง"
+          }
+        }
+      }
+    },
     "Miền Bắc vào đông": {
       "localizations": {
         "id": {
@@ -10715,6 +11375,50 @@
         }
       }
     },
+    "Mở": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิด"
+          }
+        }
+      }
+    },
+    "Mở %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิด %@"
+          }
+        }
+      }
+    },
     "Mở Cài đặt": {
       "localizations": {
         "id": {
@@ -10733,6 +11437,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปิดการตั้งค่า"
+          }
+        }
+      }
+    },
+    "Mở công cụ nuôi chung": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka alat cek kecocokan ikan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka alat semakan keserasian ikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดเครื่องมือตรวจการเลี้ยงปลารวม"
           }
         }
       }
@@ -10975,6 +11701,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตัดการเชื่อมต่อ"
+          }
+        }
+      }
+    },
+    "Ngừng kéo để gửi %@, %lld%%": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berhenti menggeser untuk mengirim %1$@, %2$lld%%"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berhenti menyeret untuk menghantar %1$@, %2$lld%%"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หยุดลากเพื่อส่ง %1$@, %2$lld%%"
+          }
+        }
+      }
+    },
+    "Ngừng kéo để gửi tới đèn. Càng vào giữa, màu càng nhạt.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berhenti menggeser untuk mengirim ke lampu. Makin ke tengah, makin pucat warnanya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berhenti menyeret untuk menghantar ke lampu. Makin ke tengah, makin pucat warnanya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หยุดลากเพื่อส่งไปยังไฟ ยิ่งเข้าใกล้ตรงกลาง สียิ่งอ่อน"
           }
         }
       }
@@ -11727,6 +12497,50 @@
         }
       }
     },
+    "Sai ở đâu?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salahnya di mana?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apa yang salah?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ผิดตรงไหน"
+          }
+        }
+      }
+    },
+    "Sai ở đâu? (không bắt buộc)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salahnya di mana? (tidak wajib)"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apa yang salah? (tidak wajib)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ผิดตรงไหน (ไม่บังคับ)"
+          }
+        }
+      }
+    },
     "Sao chép": {
       "localizations": {
         "id": {
@@ -11767,6 +12581,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "หลังเวลาปิดตามตารางเวลา เปิดไฟเพิ่มได้แค่ 1 หรือ 2 ชั่วโมง เพราะเปิดไฟข้ามคืนทำให้ตะไคร่ขึ้นง่าย"
+          }
+        }
+      }
+    },
+    "Sắc màu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rona"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rona"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เฉดสี"
           }
         }
       }
@@ -12365,6 +13201,28 @@
         }
       }
     },
+    "Thu gọn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciutkan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunjuk kurang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แสดงน้อยลง"
+          }
+        }
+      }
+    },
     "Thuật ngữ": {
       "localizations": {
         "id": {
@@ -12449,6 +13307,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่ม %@ ลงตู้"
+          }
+        }
+      }
+    },
+    "Thêm %@, chưa lưu vào bể.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah %@, belum disimpan ke akuarium."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah %@, belum disimpan ke tangki."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่ม %@ ยังไม่ได้บันทึกลงตู้"
           }
         }
       }
@@ -12937,6 +13817,50 @@
         }
       }
     },
+    "tím": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ungu"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ungu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ม่วง"
+          }
+        }
+      }
+    },
+    "tím hoa cà": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ungu kemerahan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ungu kemerahan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ม่วงอมชมพู"
+          }
+        }
+      }
+    },
     "Toàn màn hình": {
       "localizations": {
         "id": {
@@ -12977,6 +13901,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "เต็มจอ: %@"
+          }
+        }
+      }
+    },
+    "Trang gần nhất": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman terdekat"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman paling hampir"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หน้าที่ใกล้เคียงที่สุด"
+          }
+        }
+      }
+    },
+    "Trang loài": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman spesies"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman spesies"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หน้าปลา"
           }
         }
       }
@@ -14543,6 +15511,50 @@
         }
       }
     },
+    "vàng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kuning"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kuning"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหลือง"
+          }
+        }
+      }
+    },
+    "vàng chanh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kuning lemon"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kuning limau"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหลืองมะนาว"
+          }
+        }
+      }
+    },
     "Video": {
       "localizations": {
         "id": {
@@ -14785,6 +15797,28 @@
         }
       }
     },
+    "Vật liệu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bahan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bahan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วัสดุ"
+          }
+        }
+      }
+    },
     "Vị trí": {
       "localizations": {
         "id": {
@@ -14851,6 +15885,94 @@
         }
       }
     },
+    "xanh bạc hà": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hijau mint"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hijau pudina"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เขียวมิ้นต์"
+          }
+        }
+      }
+    },
+    "xanh biển": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "biru laut"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "biru laut"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ฟ้าทะเล"
+          }
+        }
+      }
+    },
+    "xanh cốm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hijau pupus"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hijau pucuk pisang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เขียวตองอ่อน"
+          }
+        }
+      }
+    },
+    "xanh da trời": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "biru langit"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "biru langit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ฟ้า"
+          }
+        }
+      }
+    },
     "Xanh dương": {
       "localizations": {
         "id": {
@@ -14869,6 +15991,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "น้ำเงิน"
+          }
+        }
+      }
+    },
+    "xanh dương": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "biru"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "biru"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "น้ำเงิน"
+          }
+        }
+      }
+    },
+    "xanh coban": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "biru kobalt"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "biru kobalt"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "น้ำเงินโคบอลต์"
           }
         }
       }
@@ -14895,6 +16061,50 @@
         }
       }
     },
+    "xanh lá": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hijau"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hijau"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เขียว"
+          }
+        }
+      }
+    },
+    "xanh lá tươi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hijau segar"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hijau segar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เขียวสด"
+          }
+        }
+      }
+    },
     "Xanh lơ": {
       "localizations": {
         "id": {
@@ -14913,6 +16123,72 @@
           "stringUnit": {
             "state": "translated",
             "value": "ฟ้าอมเขียว"
+          }
+        }
+      }
+    },
+    "xanh lơ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sian"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sian"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ฟ้าอมเขียว"
+          }
+        }
+      }
+    },
+    "xanh ngọc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hijau toska"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hijau firus"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เขียวเทอร์ควอยซ์"
+          }
+        }
+      }
+    },
+    "xanh nõn chuối": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hijau kekuningan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hijau kekuningan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เขียวอมเหลือง"
           }
         }
       }
@@ -15133,6 +16409,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดูตัวอย่างทั้งวันบนโคมไฟ"
+          }
+        }
+      }
+    },
+    "Xem trang": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat halaman"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat halaman"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูหน้า"
           }
         }
       }
@@ -15687,6 +16985,28 @@
         }
       }
     },
+    "ba loài kia": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tiga spesies lainnya"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tiga spesies lagi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อีกสามชนิด"
+          }
+        }
+      }
+    },
     "bằng %@": {
       "localizations": {
         "id": {
@@ -15775,6 +17095,28 @@
         }
       }
     },
+    "chưa có": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "belum ada"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "belum ada"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่มี"
+          }
+        }
+      }
+    },
     "chưa có trang": {
       "localizations": {
         "id": {
@@ -15841,6 +17183,28 @@
         }
       }
     },
+    "còn tiếp: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "masih ada: %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "bersambung: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังมีอีก: %@"
+          }
+        }
+      }
+    },
     "cạnh áp tường": {
       "localizations": {
         "id": {
@@ -15903,6 +17267,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ความยาวด้านที่ 2"
+          }
+        }
+      }
+    },
+    "hai loài kia": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dua spesies lainnya"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dua spesies lagi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อีกสองชนิด"
           }
         }
       }
@@ -16013,6 +17399,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "https://aquatome.com/th/privacy/#thong-ke-ung-dung"
+          }
+        }
+      }
+    },
+    "khác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "berbeda"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "berbeza"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ต่างกัน"
           }
         }
       }
@@ -16171,6 +17579,28 @@
         }
       }
     },
+    "thêm %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tambah %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tambah %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่ม %@"
+          }
+        }
+      }
+    },
     "tối dần": {
       "localizations": {
         "id": {
@@ -16189,6 +17619,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ค่อยๆ หรี่ลง"
+          }
+        }
+      }
+    },
+    "và %lld loài khác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dan %lld spesies lainnya"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dan %lld spesies lain"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "และอีก %lld ชนิด"
           }
         }
       }
@@ -16255,28 +17707,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "กำลังเตรียมภาพ…"
-          }
-        }
-      }
-    },
-    "Đứng gần đèn và giữ ứng dụng mở khi bấm. Đèn không báo lại trạng thái. Hẹn giờ của đèn vẫn đặt trong ứng dụng Fish lamp.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Berdirilah di dekat lampu dan biarkan aplikasi terbuka saat menekan. Lampu tidak melaporkan statusnya. Pengatur waktu lampu tetap diatur di aplikasi Fish lamp."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Berdiri dekat lampu dan biarkan aplikasi terbuka semasa menekan. Lampu tidak melaporkan keadaannya. Pemasa lampu masih ditetapkan dalam aplikasi Fish lamp."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ยืนใกล้ไฟและเปิดแอปไว้ขณะกด ไฟไม่รายงานสถานะกลับมา ตั้งเวลาของไฟยังตั้งในแอป Fish lamp"
           }
         }
       }
@@ -16391,6 +17821,50 @@
         }
       }
     },
+    "Đang gửi %@, %lld%%…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mengirim %1$@, %2$lld%%…"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menghantar %1$@, %2$lld%%…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังส่ง %1$@, %2$lld%%…"
+          }
+        }
+      }
+    },
+    "Đang gửi %@…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mengirim %@…"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menghantar %@…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังส่ง %@…"
+          }
+        }
+      }
+    },
     "Đang gửi lệnh…": {
       "localizations": {
         "id": {
@@ -16409,28 +17883,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "กำลังส่งคำสั่ง…"
-          }
-        }
-      }
-    },
-    "Đang gửi “%@”…": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mengirim “%@”…"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Menghantar “%@”…"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "กำลังส่ง “%@”…"
           }
         }
       }
@@ -16809,6 +18261,50 @@
         }
       }
     },
+    "Đã gửi %@ lúc %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terkirim %1$@ pukul %2$@."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dihantar %1$@ pada %2$@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่ง %1$@ แล้วเมื่อ %2$@"
+          }
+        }
+      }
+    },
+    "Đã gửi %@, %lld%% lúc %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terkirim %1$@, %2$lld%% pukul %3$@."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dihantar %1$@, %2$lld%% pada %3$@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่ง %1$@, %2$lld%% แล้วเมื่อ %3$@"
+          }
+        }
+      }
+    },
     "Đo lòng bể (trừ độ dày kính). Lượng nước thực tế tính bằng %@ thể tích, sau khi trải nền, đặt đá lũa và chừa mép trên. Độ dày kính tính cho kính thường (kính nổi, không phải kính cường lực), hệ số an toàn 3,8, chỉ áp dụng cho bể hộp; bể đặt làm nên hỏi thêm thợ.": {
       "localizations": {
         "id": {
@@ -16985,6 +18481,50 @@
         }
       }
     },
+    "Đã báo": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah dilaporkan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Telah dilaporkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งแล้ว"
+          }
+        }
+      }
+    },
+    "Đã báo. Cảm ơn bạn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah dilaporkan. Terima kasih."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Telah dilaporkan. Terima kasih."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งแล้ว ขอบคุณ"
+          }
+        }
+      }
+    },
     "Đã chỉnh giờ đèn: %@.": {
       "localizations": {
         "id": {
@@ -17091,28 +18631,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งรายงานแล้ว ขอบคุณ"
-          }
-        }
-      }
-    },
-    "Đã gửi “%@” lúc %@.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "“%1$@” terkirim pukul %2$@."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "“%1$@” dihantar pada %2$@."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ส่ง “%1$@” แล้วเมื่อ %2$@"
           }
         }
       }
@@ -17619,6 +19137,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ที่ดาวน์โหลดไว้อ่านออฟไลน์"
+          }
+        }
+      }
+    },
+    "Các trang đã lưu hoặc đã tải bằng ngôn ngữ khác vẫn còn trên máy, và sẽ hiện lại khi bạn chọn lại ngôn ngữ đó.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman yang disimpan atau diunduh dalam bahasa lain masih ada di ponsel, dan akan muncul lagi saat Anda memilih bahasa itu kembali."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman yang disimpan atau dimuat turun dalam bahasa lain masih ada pada telefon, dan akan muncul semula apabila anda memilih bahasa itu semula."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หน้าที่บันทึกหรือดาวน์โหลดไว้ในภาษาอื่นยังอยู่ในเครื่อง และจะกลับมาเมื่อคุณเลือกภาษานั้นอีกครั้ง"
           }
         }
       }
@@ -18943,6 +20483,72 @@
         }
       }
     },
+    "đỏ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "merah"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "merah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แดง"
+          }
+        }
+      }
+    },
+    "đỏ cam": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "merah jingga"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "merah oren"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แดงส้ม"
+          }
+        }
+      }
+    },
+    "đỏ hồng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "merah mawar"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "merah mawar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แดงกุหลาบ"
+          }
+        }
+      }
+    },
     "Đơn vị": {
       "localizations": {
         "id": {
@@ -18961,6 +20567,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "หน่วย"
+          }
+        }
+      }
+    },
+    "Độ đậm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saturasi"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ketepuan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความเข้มสี"
           }
         }
       }
@@ -19137,6 +20765,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "อ่านต่อ"
+          }
+        }
+      }
+    },
+    "Đọc tiếp trong “%@”": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baca selengkapnya di “%@”"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baca lanjut dalam “%@”"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อ่านต่อใน “%@”"
           }
         }
       }
@@ -19889,6 +21539,28 @@
         }
       }
     },
+    "Ảnh đại diện nhóm: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto utama kelompok: %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto utama kumpulan: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ภาพประจำกลุ่ม: %@"
+          }
+        }
+      }
+    },
     "Ấm, dịu mắt": {
       "localizations": {
         "id": {
@@ -20131,6 +21803,28 @@
         }
       }
     },
+    "Đứng gần đèn, giữ ứng dụng mở khi gửi. Đèn không báo lại, nên AquaTome chỉ biết những gì máy này đã gửi. Hẹn giờ vẫn đặt trong ứng dụng Fish lamp.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berdirilah di dekat lampu dan biarkan aplikasi terbuka saat mengirim. Lampu tidak melapor balik, jadi AquaTome hanya tahu apa yang dikirim perangkat ini. Pengatur waktu tetap diatur di aplikasi Fish lamp."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berdiri dekat lampu dan biarkan aplikasi terbuka semasa menghantar. Lampu tidak melapor balik, jadi AquaTome hanya tahu apa yang dihantar oleh peranti ini. Pemasa masih ditetapkan dalam aplikasi Fish lamp."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยืนใกล้ไฟและเปิดแอปไว้ขณะส่ง ไฟไม่รายงานกลับ AquaTome จึงรู้เพียงสิ่งที่เครื่องนี้ส่งไป การตั้งเวลายังตั้งในแอป Fish lamp"
+          }
+        }
+      }
+    },
     "“%@” có kết quả trong %@.": {
       "localizations": {
         "id": {
@@ -20307,24 +22001,1454 @@
         }
       }
     },
-    "Ứng dụng sẽ dùng %@ từ lần mở sau.": {
+    "Vài chữ do iOS hiện (nút Hủy khi tìm, bảng chia sẻ, màn đăng nhập, câu xin quyền) sẽ theo ngôn ngữ mới từ lần mở ứng dụng sau.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ akan dipakai saat aplikasi dibuka lagi."
+            "value": "Beberapa kata dari iOS (tombol Batal saat mencari, lembar berbagi, layar masuk, permintaan izin) akan mengikuti bahasa baru mulai saat aplikasi dibuka lagi."
           }
         },
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aplikasi akan menggunakan %@ apabila dibuka semula."
+            "value": "Beberapa perkataan daripada iOS (butang Batal semasa mencari, helaian kongsi, skrin log masuk, permintaan kebenaran) akan mengikut bahasa baharu apabila aplikasi dibuka semula."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "จะใช้%@เมื่อเปิดแอปครั้งถัดไป"
+            "value": "คำบางคำที่ iOS แสดงเอง (ปุ่มยกเลิกตอนค้นหา หน้าแชร์ หน้าลงชื่อเข้าใช้ และคำขออนุญาต) จะเปลี่ยนตามภาษาใหม่เมื่อเปิดแอปครั้งถัดไป"
+          }
+        }
+      }
+    },
+    "%@, nhóm cá": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, kelompok ikan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, kumpulan ikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, กลุ่มปลา"
+          }
+        }
+      }
+    },
+    "Nhóm cá, %lld mục": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kelompok ikan, %lld item"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kumpulan ikan, %lld item"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กลุ่มปลา, %lld รายการ"
+          }
+        }
+      }
+    },
+    "%lld trang · %lld bài viết": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld halaman · %2$lld artikel"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld halaman · %2$lld artikel"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld หน้า · %2$lld บทความ"
+          }
+        }
+      }
+    },
+    "Bài viết": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artikel"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artikel"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บทความ"
+          }
+        }
+      }
+    },
+    "%@ bật": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ menyala"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ hidup"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ เปิด"
+          }
+        }
+      }
+    },
+    "%@ tắt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ mati"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ mati"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ปิด"
+          }
+        }
+      }
+    },
+    "%lld giây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld detik"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld saat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld วินาที"
+          }
+        }
+      }
+    },
+    "%lld giờ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld jam"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld jam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ชั่วโมง"
+          }
+        }
+      }
+    },
+    "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome tidak menyalakan CO2 lagi dengan sendirinya. Jika perlu, nyalakan stopkontak CO2 di Akuarium saya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome tidak menghidupkan semula CO2 dengan sendiri. Jika perlu, hidupkan soket CO2 dalam Tangki saya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome ไม่เปิด CO2 กลับเอง หากต้องการ ให้เปิดปลั๊ก CO2 ใน ตู้ของฉัน"
+          }
+        }
+      }
+    },
+    "AquaTome đã trả ổ %@ về như cũ: lúc bấm, ổ chưa báo đã đổi. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome sudah mengembalikan stopkontak %@ seperti semula: saat tombol ditekan, stopkontak belum melaporkan perubahan. Periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome telah mengembalikan soket %@ seperti asal: semasa butang ditekan, soket belum melaporkan perubahan. Semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome คืนค่าปลั๊ก %@ ให้เหมือนเดิมแล้ว: ตอนกดปุ่ม ปลั๊กยังไม่รายงานว่าเปลี่ยนแล้ว ตรวจดูปลั๊กนี้"
+          }
+        }
+      }
+    },
+    "Ổ %@ đã về như cũ, có thể do lệnh trả lại của AquaTome. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ sudah kembali seperti semula, mungkin karena perintah pengembalian dari AquaTome. Periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ sudah kembali seperti asal, mungkin kerana arahan pengembalian daripada AquaTome. Semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ กลับเป็นเหมือนเดิมแล้ว อาจเป็นเพราะคำสั่งคืนค่าของ AquaTome ตรวจดูปลั๊กนี้"
+          }
+        }
+      }
+    },
+    "Bật với màu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyalakan dengan warna"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hidupkan dengan warna"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดพร้อมสี"
+          }
+        }
+      }
+    },
+    "Bắt đầu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mulai"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mula"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เริ่ม"
+          }
+        }
+      }
+    },
+    "Chưa có khóa Tuya trên máy này: thêm trong Bể của tôi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada kunci Tuya di ponsel ini: tambahkan di Akuarium saya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada kunci Tuya pada telefon ini: tambah dalam Tangki saya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่มีคีย์ Tuya ในเครื่องนี้: เพิ่มได้ใน ตู้ของฉัน"
+          }
+        }
+      }
+    },
+    "Khi bấm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saat ditekan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apabila ditekan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เมื่อกด"
+          }
+        }
+      }
+    },
+    "Khi kết thúc, AquaTome trả đèn và ổ cắm về như cũ nếu ứng dụng đang mở. Đèn cần điện thoại ở gần. Hết giờ lúc ứng dụng đóng thì mở lại cạnh bể rồi bấm Trả lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saat selesai, AquaTome mengembalikan lampu dan stopkontak seperti semula jika aplikasi sedang terbuka. Lampu perlu ponsel di dekatnya. Jika waktu habis saat aplikasi tertutup, buka lagi di dekat akuarium lalu tekan Kembalikan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apabila tamat, AquaTome mengembalikan lampu dan soket seperti asal jika aplikasi sedang dibuka. Lampu perlu telefon berada dekat. Jika masa tamat semasa aplikasi ditutup, buka semula berhampiran tangki kemudian tekan Kembalikan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เมื่อสิ้นสุด AquaTome จะคืนค่าไฟและปลั๊กไฟให้เหมือนเดิมหากแอปเปิดอยู่ ไฟต้องมีโทรศัพท์อยู่ใกล้ หากหมดเวลาขณะแอปปิดอยู่ ให้เปิดแอปอีกครั้งใกล้ตู้แล้วกด คืนค่า"
+          }
+        }
+      }
+    },
+    "Khi tôi bấm Kết thúc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saat saya menekan Selesai"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apabila saya menekan Tamat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เมื่อฉันกด สิ้นสุด"
+          }
+        }
+      }
+    },
+    "Không rõ ổ %@ đã đổi chưa: xem trong Bể của tôi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum jelas apakah stopkontak %@ sudah berubah: lihat di Akuarium saya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak pasti sama ada soket %@ sudah berubah: lihat dalam Tangki saya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่แน่ใจว่าปลั๊ก %@ เปลี่ยนแล้วหรือยัง: ดูได้ใน ตู้ของฉัน"
+          }
+        }
+      }
+    },
+    "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum jelas apakah lampu Love Ecology sudah menerima perintah. Periksa lampunya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak pasti sama ada lampu Love Ecology sudah menerima arahan. Semak lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่แน่ใจว่าไฟ Love Ecology ได้รับคำสั่งแล้วหรือยัง ตรวจดูไฟอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không rõ lệnh đã tới ổ %@ chưa, nên AquaTome để nguyên. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum jelas apakah perintah sudah sampai ke stopkontak %@, jadi AquaTome membiarkannya: periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak pasti sama ada arahan sudah sampai ke soket %@, jadi AquaTome membiarkannya: semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่แน่ใจว่าคำสั่งไปถึงปลั๊ก %@ หรือยัง AquaTome จึงปล่อยไว้ตามเดิม: ตรวจดูปลั๊กนี้"
+          }
+        }
+      }
+    },
+    "Không thấy ổ %@ trong dự án Tuya.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ tidak ditemukan di proyek Tuya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ tidak ditemui dalam projek Tuya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่พบปลั๊ก %@ ในโปรเจกต์ Tuya"
+          }
+        }
+      }
+    },
+    "Không tới được ổ %@: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak dapat menjangkau stopkontak %1$@: %2$@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak dapat mencapai soket %1$@: %2$@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ติดต่อปลั๊ก %1$@ ไม่ได้: %2$@"
+          }
+        }
+      }
+    },
+    "Không tới được ổ %@: kiểm tra mạng rồi thử lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak dapat menjangkau stopkontak %@: periksa jaringan lalu coba lagi"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak dapat mencapai soket %@: semak rangkaian kemudian cuba lagi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ติดต่อปลั๊ก %@ ไม่ได้: ตรวจสอบเครือข่ายแล้วลองใหม่"
+          }
+        }
+      }
+    },
+    "Kết thúc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selesai"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สิ้นสุด"
+          }
+        }
+      }
+    },
+    "Lọc ngừng lâu, nước thiếu khí và vi sinh trong lọc yếu đi. Nút sẽ bật lại lọc khi kết thúc.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jika filter lama berhenti, air kekurangan oksigen dan bakteri di filter melemah. Tombol akan menyalakan filter lagi saat selesai."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jika penapis lama berhenti, air kekurangan oksigen dan bakteria dalam penapis menjadi lemah. Butang akan menghidupkan semula penapis apabila tamat."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถ้ากรองหยุดนาน น้ำจะขาดออกซิเจนและจุลินทรีย์ในกรองจะอ่อนแอลง ปุ่มจะเปิดกรองอีกครั้งเมื่อสิ้นสุด"
+          }
+        }
+      }
+    },
+    "Một chạm bật đèn, tắt quạt và CO2… cùng lúc, rồi trả lại như cũ khi hết giờ. Bạn chọn nút làm gì.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sekali sentuh menyalakan lampu, mematikan kipas dan CO2… sekaligus, lalu mengembalikannya seperti semula saat waktunya habis. Anda yang memilih apa yang dilakukan tombol ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Satu sentuhan menghidupkan lampu, mematikan kipas dan CO2… serentak, kemudian mengembalikannya seperti asal apabila masa tamat. Anda pilih apa yang dilakukan butang ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แตะครั้งเดียวเปิดไฟ ปิดพัดลมและ CO2… พร้อมกัน แล้วคืนค่าให้เหมือนเดิมเมื่อหมดเวลา คุณเลือกได้ว่าปุ่มนี้ทำอะไร"
+          }
+        }
+      }
+    },
+    "Ngắm bể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menikmati akuarium"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menikmati tangki"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชมตู้ปลา"
+          }
+        }
+      }
+    },
+    "Nút chỉ tắt được CO2, chưa bật được: lỡ điện thoại khóa lúc hết giờ thì CO2 sẽ chạy cả đêm.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tombol hanya bisa mematikan CO2, belum bisa menyalakannya: jika ponsel terkunci saat waktunya habis, CO2 akan menyala sepanjang malam."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Butang hanya boleh mematikan CO2, belum boleh menghidupkannya: jika telefon terkunci semasa masa tamat, CO2 akan berjalan sepanjang malam."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปุ่มปิด CO2 ได้อย่างเดียว ยังเปิดไม่ได้: ถ้าโทรศัพท์ล็อกอยู่ตอนหมดเวลา CO2 จะทำงานทั้งคืน"
+          }
+        }
+      }
+    },
+    "Nút không bật tắt ổ %@ được trong bản này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tombol tidak bisa menyalakan atau mematikan stopkontak %@ di versi ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Butang tidak boleh menghidupkan atau mematikan soket %@ dalam versi ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปุ่มยังเปิดหรือปิดปลั๊ก %@ ไม่ได้ในเวอร์ชันนี้"
+          }
+        }
+      }
+    },
+    "Nút tổng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tombol utama"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Butang utama"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปุ่มรวม"
+          }
+        }
+      }
+    },
+    "Nước có thể thiếu khí, nhất là ban đêm. Nút sẽ bật lại sủi khí khi kết thúc.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Air bisa kekurangan oksigen, terutama malam hari. Tombol akan menyalakan aerator lagi saat selesai."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Air mungkin kekurangan oksigen, terutamanya pada waktu malam. Butang akan menghidupkan semula pam udara apabila tamat."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "น้ำอาจขาดออกซิเจน โดยเฉพาะตอนกลางคืน ปุ่มจะเปิดปั๊มออกซิเจนอีกครั้งเมื่อสิ้นสุด"
+          }
+        }
+      }
+    },
+    "Sau %lld giờ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setelah %lld jam"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selepas %lld jam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หลังจาก %lld ชั่วโมง"
+          }
+        }
+      }
+    },
+    "Thêm thiết bị": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah perangkat"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah peranti"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มอุปกรณ์"
+          }
+        }
+      }
+    },
+    "Thêm ổ cắm Tuya vào bể trong Bể của tôi để chọn ở đây.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambahkan stopkontak Tuya ke akuarium di Akuarium saya untuk memilihnya di sini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah soket Tuya pada tangki dalam Tangki saya untuk memilihnya di sini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มปลั๊ก Tuya ให้ตู้ใน ตู้ของฉัน เพื่อเลือกที่นี่"
+          }
+        }
+      }
+    },
+    "Trả lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kembalikan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kembalikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คืนค่า"
+          }
+        }
+      }
+    },
+    "Tạo nút tổng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buat tombol utama"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cipta butang utama"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สร้างปุ่มรวม"
+          }
+        }
+      }
+    },
+    "Tắt lọc trong lúc chạy nút?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matikan filter selama tombol berjalan?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matikan penapis semasa butang berjalan?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดกรองระหว่างที่ปุ่มทำงานไหม"
+          }
+        }
+      }
+    },
+    "Tắt sủi khí trong lúc chạy nút?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matikan aerator selama tombol berjalan?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matikan pam udara semasa butang berjalan?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดปั๊มออกซิเจนระหว่างที่ปุ่มทำงานไหม"
+          }
+        }
+      }
+    },
+    "Vẫn tắt lọc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tetap matikan filter"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tetap matikan penapis"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดกรองต่อไป"
+          }
+        }
+      }
+    },
+    "Vẫn tắt sủi khí": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tetap matikan aerator"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tetap matikan pam udara"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดปั๊มออกซิเจนต่อไป"
+          }
+        }
+      }
+    },
+    "Xóa nút": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus tombol"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Padam butang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบปุ่ม"
+          }
+        }
+      }
+    },
+    "Xóa nút “%@”?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus tombol “%@”?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Padam butang “%@”?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบปุ่ม “%@” ไหม"
+          }
+        }
+      }
+    },
+    "còn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sisa"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "baki"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหลือ"
+          }
+        }
+      }
+    },
+    "còn %lld giây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sisa %lld detik"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "baki %lld saat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหลือ %lld วินาที"
+          }
+        }
+      }
+    },
+    "còn %lld giờ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sisa %lld jam"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "baki %lld jam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหลือ %lld ชั่วโมง"
+          }
+        }
+      }
+    },
+    "còn %lld giờ %lld phút": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sisa %lld jam %lld menit"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "baki %lld jam %lld minit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหลือ %lld ชั่วโมง %lld นาที"
+          }
+        }
+      }
+    },
+    "còn %lld phút": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sisa %lld menit"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "baki %lld minit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหลือ %lld นาที"
+          }
+        }
+      }
+    },
+    "kết thúc lúc %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "selesai pukul %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tamat pada %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สิ้นสุดเวลา %@"
+          }
+        }
+      }
+    },
+    "từ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sejak"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sejak"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตั้งแต่"
+          }
+        }
+      }
+    },
+    "Đang chạy": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berjalan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sedang berjalan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังทำงาน"
+          }
+        }
+      }
+    },
+    "Đã hết giờ. Mở AquaTome cạnh bể để trả đèn và ổ cắm về như cũ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waktu sudah habis. Buka AquaTome di dekat akuarium untuk mengembalikan lampu dan stopkontak seperti semula."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masa sudah tamat. Buka AquaTome berhampiran tangki untuk mengembalikan lampu dan soket seperti asal."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หมดเวลาแล้ว เปิด AquaTome ใกล้ตู้เพื่อคืนค่าไฟและปลั๊กไฟให้เหมือนเดิม"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology đã bật nhưng chưa đổi màu vì bạn đã đăng xuất.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi warnanya belum diubah karena Anda sudah keluar."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi warnanya belum ditukar kerana anda telah log keluar."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ยังไม่ได้เปลี่ยนสี เพราะคุณออกจากระบบแล้ว"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology đã bật nhưng chưa đổi màu. Thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi warnanya belum diubah. Coba lagi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi warnanya belum ditukar. Cuba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ยังไม่ได้เปลี่ยนสี ลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology đã bật nhưng chưa đổi màu: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi warnanya belum diubah: %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi warnanya belum ditukar: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ยังไม่ได้เปลี่ยนสี: %@"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology đã bật, nhưng không rõ đã đổi màu chưa. Bạn xem lại đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi belum jelas apakah warnanya sudah berubah. Periksa lampunya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi tidak pasti sama ada warnanya sudah bertukar. Semak lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ไม่แน่ใจว่าเปลี่ยนสีแล้วหรือยัง ตรวจดูไฟอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu belum kembali seperti semula: berdirilah di dekat lampu lalu tekan Kembalikan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu belum kembali seperti asal: berdiri dekat lampu kemudian tekan Kembalikan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟยังไม่กลับเป็นเหมือนเดิม: ยืนใกล้ไฟแล้วกด คืนค่า"
+          }
+        }
+      }
+    },
+    "Đèn này không còn trên bể nào.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu ini sudah tidak ada di akuarium mana pun."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu ini sudah tiada pada mana-mana tangki."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟนี้ไม่อยู่ในตู้ใดแล้ว"
+          }
+        }
+      }
+    },
+    "Đèn sáng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu menyala"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu hidup"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟเปิด"
+          }
+        }
+      }
+    },
+    "đến khi bạn bấm Kết thúc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sampai Anda menekan Selesai"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sehingga anda menekan Tamat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "จนกว่าคุณจะกด สิ้นสุด"
+          }
+        }
+      }
+    },
+    "Ổ %@ chưa báo đã đổi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ belum melaporkan perubahan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ belum melaporkan perubahan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ ยังไม่รายงานว่าเปลี่ยนแล้ว"
+          }
+        }
+      }
+    },
+    "Ổ %@ đang mất kết nối.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ sedang terputus."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ sedang terputus."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ ขาดการเชื่อมต่ออยู่"
+          }
+        }
+      }
+    },
+    "Ổ %@ đang được bật tắt: thử lại sau.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ sedang dinyalakan atau dimatikan: coba lagi nanti."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ sedang dihidupkan atau dimatikan: cuba lagi nanti."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ กำลังถูกเปิดหรือปิดอยู่: ลองใหม่ภายหลัง"
+          }
+        }
+      }
+    },
+    "Ổ %@ đã đổi trong lúc chạy nên AquaTome để nguyên.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ berubah selama tombol berjalan, jadi AquaTome membiarkannya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ berubah semasa butang berjalan, jadi AquaTome membiarkannya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ ถูกเปลี่ยนระหว่างที่ปุ่มทำงาน AquaTome จึงปล่อยไว้ตามนั้น"
+          }
+        }
+      }
+    },
+    "Ổ %@ giờ được ghi là cắm sưởi nên AquaTome để nguyên. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ sekarang dicatat untuk pemanas, jadi AquaTome membiarkannya. Periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ kini direkodkan untuk pemanas, jadi AquaTome membiarkannya. Semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ ถูกระบุว่าใช้กับฮีตเตอร์แล้ว AquaTome จึงปล่อยไว้ตามเดิม ตรวจดูปลั๊กนี้"
+          }
+        }
+      }
+    },
+    "Ổ cắm này không còn trên bể nào.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak ini sudah tidak ada di akuarium mana pun."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket ini sudah tiada pada mana-mana tangki."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊กไฟนี้ไม่อยู่ในตู้ใดแล้ว"
           }
         }
       }

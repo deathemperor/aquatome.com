@@ -10,6 +10,77 @@
     "indonesia",
     "java"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Java",
+        "Code River",
+        "Brantas River",
+        "Cikeruh River",
+        "Pegunungan Sewu"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Sulcospira testudinaria is endemic to Indonesia, with a wide distribution across freshwater habitats, particularly on the island of Java.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Java"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "It can be observed in locations such as Central Java (Code River, Pegunungan Sewu), West Java (Bogor, Jakarta, Cikeruh River), and East Java (Meru Betiri National Park, the Brantas River).",
+          "countries": [],
+          "regions": [
+            "Code River",
+            "Brantas River",
+            "Cikeruh River",
+            "Pegunungan Sewu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4956626,
+      "total": 18,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          109.6875,
+          -8.4375,
+          11,
+          11
+        ],
+        [
+          127.96875,
+          -4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

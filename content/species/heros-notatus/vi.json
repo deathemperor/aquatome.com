@@ -15,13 +15,17 @@
     "behaviour:seriouslyfish": "<p>Loài này không dữ lắm, dù con đực có thể gây gổ với nhau. Có thể nuôi chung với các loài cichlid cỡ lớn khác, hoặc với những loài khỏe như cá characin và cá barb cỡ lớn. Cá nhỏ hơn nó nhiều thì gần như chắc chắn sẽ bị ăn.</p>",
     "dimorphism:seriouslyfish": "<p>Con đực to hơn, vệt đỏ trên nắp mang rõ hơn và thường có vây lưng, vây hậu môn kéo dài hơn.</p>",
     "reproduction:seriouslyfish": "<p>Hiếm có ai báo lại chuyện cho loài này đẻ trong bể, vì cá ít khi có bán. Có lẽ chúng đẻ giống Heros severus: cặp cá chọn một phiến đá phẳng, đôi khi đào một cái hố. Chuẩn bị chỗ xong thì cá cái đẻ trứng, rồi cá đực tưới tinh. Cả hai con cùng canh trứng. Sau hai đến ba ngày trứng nở, bố mẹ chuyển cá bột sang một cái hố và giữ ở đó tới khi chúng tự bơi được, thường là 3–4 ngày sau khi nở. Cá bố mẹ cùng chăm con nhưng dễ hoảng, và hoảng lên thì hay ăn luôn cá bột. Vì thế nên đặt bể đẻ ở chỗ yên tĩnh và hạn chế động vào bể. Cho cá bột ăn Artemia mới nở và thức ăn bột cho cá bột, tới khi đủ lớn thì chuyển sang mồi to hơn.</p>",
-    "notes:seriouslyfish": "<p>Đây là một loài severum đẹp nhưng hiếm gặp. Thỉnh thoảng mới thấy bán ở các tiệm chuyên cichlid hoặc chuyên cá Nam Mỹ.</p>"
+    "notes:seriouslyfish": "<p>Đây là một loài severum đẹp nhưng hiếm gặp. Thỉnh thoảng mới thấy bán ở các tiệm chuyên cichlid hoặc chuyên cá Nam Mỹ.</p>",
+    "quickFacts:glaser": "<p>Cá Heros notatus bắt tự nhiên ở Brazil. Dễ nhận ra loài này nhất qua các đốm đen ở nửa dưới thân.</p>",
+    "dimorphism:glaser": "<p>Như mọi loài Heros, cá đực và cá cái khác nhau ở màu đầu. Nhưng một con cái lên màu đậm với một con đực đứng rất thấp trong đàn thì không phải lúc nào cũng dễ phân biệt. Con đực yếu thế mang màu giống cá cái để khỏi bị con đực đầu đàn gây sự suốt. Kiểu này gọi là hành vi \"sneaker\" (đực lén), và cá cichlid hay có những con đực như vậy.</p>",
+    "reproduction:glaser": "<p>Ngoài tự nhiên, con đực sneaker \"trả thù\" con đực đầu đàn vì bị nó chèn ép. Con đực đầu đàn chiếm chỗ đẻ, còn con sneaker chờ lúc cặp cá đang đẻ thì chen vào và thụ tinh cho nhiều trứng. Cách này giúp nó truyền gen cho đời sau mà không phải tốn sức giành chỗ, giữ chỗ hay múa tán con cái.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.9
+      "seriouslyfish": 0.9,
+      "glaser": 0.85
     }
   }
 }

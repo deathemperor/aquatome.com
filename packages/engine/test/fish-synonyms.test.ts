@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { fetchFishSynonyms, fishOlderNames } from '../src/fish-synonyms'
+import { FISH_SYNONYMS_OFF, fetchFishSynonyms, fishOlderNames } from '../src/fish-synonyms'
 
 /** GBIF: an exact species match for each fish, and its synonyms (one a variety, which GBIF's helper leaves out). */
 const SYN: Record<string, { canonicalName: string; rank: string }[]> = {
@@ -34,7 +34,8 @@ test("each fish's older names are asked of GBIF once, a run's share at a time, a
     if (name) return { matchType: 'EXACT', rank: 'SPECIES', usageKey: Number(KEY[name]), species: name }
     return { results: SYN[/species\/(\d+)\/synonyms/.exec(u)![1]!], endOfRecords: true }
   }
-  const o = { gap: 0, sleep: async () => {} }
+  // The step as it was before it went off (20 Nov).
+  const o = { gap: 0, sleep: async () => {}, off: false as const }
   fail = 'Barbus bimaculatus'
   expect(await fetchFishSynonyms(r, http, { ...o, limit: 2 })).toEqual({ asked: 1, failed: ['Barbus bimaculatus: HTTP 503'], left: 2 })
   fail = ''
@@ -48,4 +49,16 @@ test("each fish's older names are asked of GBIF once, a run's share at a time, a
 
   // Another fish's own name, a plant's synonym, and a name two fish would share are left out.
   expect([...await fishOlderNames(r)]).toEqual([['acheilognathus-macropterus', ['Acanthorhodeus macropterus']]])
+})
+
+test('off until its fix: a cycle or a hand run asks GBIF for nothing and leaves the names file as it is (the chief of staff, 20 Nov)', async () => {
+  const r = await root()
+  const kept = '{"Danio rerio":[]}\n'
+  await mkdir(join(r, 'engine-state'), { recursive: true })
+  await writeFile(join(r, 'engine-state/_gbif-synonyms.json'), kept)
+  const asked: string[] = []
+  expect(await fetchFishSynonyms(r, async u => { asked.push(u); return {} }, { limit: 300 })).toEqual({ asked: 0, failed: [], left: 0, off: FISH_SYNONYMS_OFF })
+  expect(FISH_SYNONYMS_OFF).toBeTruthy()
+  expect(asked).toEqual([])
+  expect(await readFile(join(r, 'engine-state/_gbif-synonyms.json'), 'utf8')).toBe(kept)
 })

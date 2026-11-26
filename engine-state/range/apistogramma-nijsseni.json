@@ -1,17 +1,9 @@
 {
   "id": "apistogramma-nijsseni",
   "native": {
-    "input": "60e124936a72c0c9",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "3e85b8a72f82d1d7",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
-      {
-        "code": "PE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Known in the trade as the 'panda dwarf cichlid', Apistogramma nijsseni is from tributaries of the Río Ucayali in Loreto Region, northern Peru.",
-        "words": "Peru",
-        "ok": true
-      },
       {
         "code": "PE",
         "status": "native",
@@ -24,20 +16,6 @@
     "regions": [
       {
         "name": "Río Ucayali",
-        "source": "seriouslyfish",
-        "quote": "Known only from tributaries of the Río Ucayali in Loreto Region, northern Peru including the Río Carahuayte and Río Yavarí.",
-        "country": "PE",
-        "ok": true
-      },
-      {
-        "name": "Río Carahuayte",
-        "source": "seriouslyfish",
-        "quote": "Known only from tributaries of the Río Ucayali in Loreto Region, northern Peru including the Río Carahuayte and Río Yavarí.",
-        "country": "PE",
-        "ok": true
-      },
-      {
-        "name": "Río Yavarí",
         "source": "seriouslyfish",
         "quote": "Known only from tributaries of the Río Ucayali in Loreto Region, northern Peru including the Río Carahuayte and Río Yavarí.",
         "country": "PE",

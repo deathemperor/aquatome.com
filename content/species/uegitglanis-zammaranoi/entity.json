@@ -1,0 +1,63 @@
+{
+  "id": "uegitglanis-zammaranoi",
+  "scientificName": "Uegitglanis zammaranoi",
+  "order": "Siluriformes",
+  "family": "Clariidae",
+  "genus": "Uegitglanis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "somalia",
+    "uebi-shebeli"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 10.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1445",
+      "html": "<ul><li>Scientific name: Uegitglanis zammaranoi Gianferrari, 1923</li><li>Type locality: Pool in Uegit, El Uegit, Somalia.</li><li>Etymology: Eugit, a village in Southern Somalia, and glanis, Greek for catfish.</li><li>IUCN Red List category: Vulnerable (last assessed 2009).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1445",
+      "html": "<p>Africa: African waters, Uebi Shebeli.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1445",
+      "html": "<p>In the wild the physio-chemical features of the waters inhabited by the species show a wide variability, differences in water composition is clearly tolerated.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1445",
+      "html": "<p>The genital papilla, which is right below the anus, is elongated and pointy in males while it is round and relatively larger (and larger than the anus) in females. In ventral view especially, females are much broader in the body than males of equal age and rearing practices.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1445",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1445",
+      "html": "<p>Atti della Società Italiana di Scienze Naturali di Milano v. 62, pp 1, Pl. 1.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-22"
+}

@@ -1,6 +1,8 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:707790215"
+ ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/ea2718cf636f7548.webp": "7c7c268ec2a2266c"
  },
@@ -12,5 +14,17 @@
    "research": 0,
    "agree": 0
   }
- }
+ },
+ "gbif": {
+  "key": 2355402,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 386563396,
+  "done": true
+ },
+ "exhausted": "2026-11-16"
 }

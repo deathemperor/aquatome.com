@@ -3,6 +3,12 @@
   "name": "Sarstoon",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:38:46.761Z",
+    "why": "Sarstoon is a river (Sungai Sarstoon) forming the Belize–Guatemala border, and the bare name omits the Indonesian kind word \"Sungai\", so it is incomplete for an atlas."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

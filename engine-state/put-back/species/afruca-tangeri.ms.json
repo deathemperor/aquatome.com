@@ -1,0 +1,37 @@
+{
+ "at": "2026-11-19T01:18:48Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Ketam ini didapatkan dari Nigeria.",
+   "why": "States where the source's own stock was obtained, which is the original supplier's information rather than the reader's."
+  }
+ ],
+ "text": {
+  "slug": "african-fiddler-crab",
+  "name": "African fiddler crab",
+  "altNames": [
+   "fiddler crab",
+   "ketam rebab",
+   "ketam biola",
+   "Uca tangeri"
+  ],
+  "sections": {
+   "distribution:glaser": "<p>Ketam fiddler Uca tangeri berasal dari Atlantik timur, dari Portugal hingga Angola. Di sana ia menghuni pantai berpasir dan pantai bakau. Ketam ini didapatkan dari Nigeria.</p>",
+   "habitat:glaser": "<p>Habitatnya ditenggelami air dari semasa ke semasa. Di situ ketam ini tinggal dalam lubang di dalam lumpur, dan keluar dari lubang ketika air surut untuk mencari makan.</p>",
+   "maintenance:glaser": "<p>Semasa memeliharanya, cuba tiru habitat asalnya. Maksudnya, akuarium perlu ada bahagian darat berpasir dan berbatu kelikir serta bahagian air yang diisi air payau. Beberapa tempat bersembunyi memberi ketam ini tempat untuk berlindung.</p>",
+   "diet:glaser": "<p>Sebagai omnivor, ketam ini tidak memilih makanan dan memakan hampir apa sahaja bahan organik yang terdapat di laut. Dalam tangki, ia boleh diberi makanan beku dan makanan berbentuk butiran, serta pelbagai jenis buah-buahan dan sayur-sayuran.</p>",
+   "behaviour:glaser": "<p>Yang paling ketara ialah sepit utama ketam jantan yang membesar hingga saiz yang sangat besar. Sepit ini digunakan untuk menarik perhatian betina dan untuk bertarung dengan jantan lain yang menjadi saingan.</p>"
+  },
+  "quality": {
+   "score": 0.85,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.85
+   }
+  }
+ }
+}

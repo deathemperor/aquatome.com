@@ -1,7 +1,8 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { findPhotos, paperFigure, searchCommons, unfitCommons } from '../src/photos'
-import { findVideos } from '../src/videos'
+import { findPhotos, isRejected, paperFigure, searchCommons, unfitCommons } from '../src/photos'
+import { mirrorPlan } from '../src/mirror-photos'
+import { findVideos, videoTitle } from '../src/videos'
 
 const fixture = () => JSON.parse(readFileSync(new URL('./fixtures/commons/paracheirodon-axelrodi.json', import.meta.url), 'utf8'))
 
@@ -23,6 +24,20 @@ test('commons photos: open licences, ≥800px, plain-text author, 960px thumbs, 
   expect(photos.map(p => p.sourceUrl)).not.toContain(expect.stringContaining('Cardinal_Tetra_2.jpg')) // 656px original
 })
 
+// Codex's read, 17 Nov: a Commons file's description became a stored photo's caption with whatever address it held.
+test("a Commons file's description and its author keep no email address", async () => {
+  const data = fixture()
+  for (const page of Object.values(data.query.pages as Record<string, { imageinfo: { extmetadata: Record<string, { value: string }> }[] }>)) {
+    const meta = page.imageinfo[0]!.extmetadata
+    meta.ImageDescription = { value: 'Paracheirodon axelrodi in an aquarium, photo <a href="mailto:keeper@example.com">keeper@example.com</a>' }
+    meta.Artist = { value: 'A Keeper (keeper@example.com)' }
+  }
+  const photos = await findPhotos('Paracheirodon axelrodi', async () => data)
+  expect(photos.length).toBeGreaterThan(0)
+  expect(JSON.stringify(photos)).not.toMatch(/example\.com/)
+  for (const p of photos) expect(p).toMatchObject({ caption: 'Paracheirodon axelrodi in an aquarium, photo', author: 'A Keeper' })
+})
+
 test('videos are skipped without an API key', async () => {
   let called = false
   expect(await findVideos(['Paracheirodon axelrodi'], async () => { called = true; return {} as never }, async () => { called = true; return {} })).toEqual([])
@@ -40,6 +55,57 @@ test('videos: youtube search vetted by the llm', async () => {
   expect(await findVideos(['Paracheirodon axelrodi', 'Cardinal tetra'], llm, http, { apiKey: 'KEY' })).toEqual([{ youtubeId: 'aaaaaaaaaaa', title: 'Cardinal tetra care', durationSec: 303, lang: 'en' }])
   // A rejected video (engine-state/_video-rejected.json) is never picked, even when the model would keep it.
   expect(await findVideos(['Paracheirodon axelrodi'], llm, http, { apiKey: 'KEY', skip: { aaaaaaaaaaa: 'dead: a fish on a ruler' } })).toEqual([])
+})
+
+test("videos: an email address an uploader wrote into a title is never stored, nor the bracket it leaves; a title with none is kept as it is (the chief of staff, 16 Nov)", async () => {
+  // Made-up addresses on the example domains, in the two shapes found on 16 Nov: in the middle, and alone in a bracket.
+  expect(videoTitle('Petrochromis fishroom@example.com zum 2. Mal,  34 WF.AVI')).toBe('Petrochromis zum 2. Mal,  34 WF.AVI')
+  expect(videoTitle("LET'S PRESERVE WILD BETTA UBERIS. (a.keeper+tanks@mail.example.org)")).toBe("LET'S PRESERVE WILD BETTA UBERIS.")
+  expect(videoTitle('Cardinal tetra care  @ home [part 1]')).toBe('Cardinal tetra care  @ home [part 1]')
+  // What an address leaves, cleaned where it stood: a separator beside it, the space before a stop, a bracket or quotes
+  // around it, a label before it inside a bracket, a "mailto:"; two in a row; and an accented one, however its accents are written.
+  expect(videoTitle('Wild bettas | fishroom@example.com | part 2')).toBe('Wild bettas | part 2')
+  expect(videoTitle('Bettas | fishroom@example.com | a.keeper@example.org | part 2')).toBe('Bettas | part 2')
+  expect(videoTitle('Contact: fishroom@example.com')).toBe('Contact')
+  expect(videoTitle('Betta uberis fishroom@example.com.')).toBe('Betta uberis.')
+  expect(videoTitle('{fishroom@example.com} Bettas <fishroom@example.com>')).toBe('Bettas')
+  expect(videoTitle('«fishroom@example.com» Bettas 【fishroom@example.com】')).toBe('Bettas')
+  expect(videoTitle('Bettas (contact: fishroom@example.com) part 2')).toBe('Bettas (contact) part 2')
+  expect(videoTitle('Bettas (fishroom@example.com, part 2)')).toBe('Bettas (part 2)')
+  expect(videoTitle('mailto:fishroom@example.com Betta')).toBe('Betta')
+  expect(videoTitle('Apistogramma jürgen.müller@example.de')).toBe('Apistogramma')
+  expect(videoTitle('Apistogramma ju\u0308rgen.mu\u0308ller@example.de')).toBe('Apistogramma')
+  expect(videoTitle('Betta (fishroom@example.com) [a.keeper@example.org]')).toBe('Betta')
+  expect(videoTitle('「fishroom@example.com」 Betta')).toBe('Betta')
+  expect(videoTitle("Betta o'brien@example.com, a&b@example.org")).toBe('Betta')
+  expect(videoTitle('Betta, fishroom@example.com.')).toBe('Betta.')
+  expect(videoTitle('Betta -- fishroom@example.com -- Fish')).toBe('Betta -- Fish')
+  // An address with a word of another script or a digit right after it, a sign inside its name, a "mailto:" and its query.
+  expect(videoTitle('Betta fishroom@example.com野生')).toBe('Betta 野生')
+  expect(videoTitle('fishroom@example.comปลากัด')).toBe('ปลากัด')
+  expect(videoTitle('Betta fishroom@example.com2024')).toBe('Betta 2024')
+  expect(videoTitle('Betta fish!room@example.com')).toBe('Betta')
+  expect(videoTitle('Betta mailto:fishroom@example.com?subject=x')).toBe('Betta')
+  // Nothing away from the address changes: an accent written as a letter and a mark, a quote, an apostrophe, an arrow
+  // or a stop not right against it; and a file name with an "@" is no address.
+  expect(videoTitle('Temp: -2°C :-) -- Hello ! fishroom@example.com')).toBe('Temp: -2°C :-) -- Hello !')
+  expect(videoTitle('Ca\u0301 betta fishroom@example.com')).toBe('Ca\u0301 betta')
+  expect(videoTitle('Betta fishroom@example.com "wild" form')).toBe('Betta "wild" form')
+  expect(videoTitle('Betta "wild" fishroom@example.com "tame"')).toBe('Betta "wild" "tame"')
+  expect(videoTitle("Bettas' fishroom@example.com tank")).toBe("Bettas' tank")
+  expect(videoTitle('Part 2 > fishroom@example.com > next')).toBe('Part 2 > next')
+  expect(videoTitle('Betta <3 fishroom@example.com :)')).toBe('Betta <3 :)')
+  for (const t of ['Discus 4K@60fps.mp4', 'Rescape 1080p@60fps.mov HD', 'Clip@60fps.webp HD', 'Clip@60fps.ts HD', 'Discus 4K@60fps.HDR', 'Clip@60fps.flac', 'Koi@2.5kg', 'fish @ home w/@Some.Channel']) expect(videoTitle(t)).toBe(t)
+  // Thai and Chinese run their words together: the words beside an address stay.
+  expect(videoTitle('ปลากัดป่าfishroom@example.com')).toBe('ปลากัดป่า')
+  expect(videoTitle('野生斗鱼fishroom@example.com')).toBe('野生斗鱼')
+  expect(videoTitle(undefined as unknown as string)).toBeUndefined()
+  expect(videoTitle('')).toBe('')
+  const http = async (u: string) => u.includes('/search')
+    ? { items: [{ id: { videoId: 'aaaaaaaaaaa' } }] }
+    : { items: [{ id: 'aaaaaaaaaaa', snippet: { title: 'Wild bettas (fishroom@example.com)', description: 'x', defaultAudioLanguage: 'en' }, contentDetails: { duration: 'PT1M' } }] }
+  const llm = async <T,>() => ({ keep: ['aaaaaaaaaaa'] }) as T
+  expect((await findVideos(['Betta uberis'], llm, http, { apiKey: 'KEY' }))[0]!.title).toBe('Wild bettas')
 })
 
 /** The Java barb's Commons search (2026-11-07), in its order: what each file's own title, description and categories say. */
@@ -183,4 +249,28 @@ test("a file named as a paper's figure is no page's photo straight from the sear
   }] }])) } })
   expect((await findPhotos('Clarias leiacanthus', async () => search())).map(p => p.sourceUrl.split('File:')[1])).toEqual(['Betta_pair.jpg'])
   expect(await searchCommons('"Clarias leiacanthus"', async () => search(), 6)).toHaveLength(3)
+})
+
+test('the never-again list names a photo by any of its addresses, either way round: our copy listed and its source shown, its source listed and our copy shown, or the source at another size; another photo is not matched (19 Nov)', () => {
+  const thumb = (w: number) => `https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Example_fish.jpg/${w}px-Example_fish.jpg`
+  const ours = `https://media.aquatome.com/${mirrorPlan(thumb(960))!.key}`
+  // Listed by the source's address: our copy, the same file at another size, and the Flickr photo at another size go.
+  const bySource = isRejected({ [thumb(1280)]: 'rejected: another fish', 'https://live.staticflickr.com/65535/5550001_0123abcd45_o.jpg': 'people: a hand', 'not an address': 'rejected: x' })
+  expect([ours, thumb(960), thumb(1280), 'https://live.staticflickr.com/65535/5550001_0123abcd45_b.jpg'].map(bySource)).toEqual([true, true, true, true])
+  // Listed by our copy: its source's address goes, as before.
+  expect(isRejected({ [ours]: 'rejected: another fish' })(thumb(960))).toBe(true)
+  // Another file, another Flickr photo, an address that isn't one, and an Unsplash photo listed only by its own address.
+  expect(['https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Other_fish.jpg/960px-Other_fish.jpg', 'https://live.staticflickr.com/65535/5550002_0123abcd45_b.jpg', 'https://media.aquatome.com/commons/0000000000000000.webp', 'another, not an address', 'https://images.unsplash.com/photo-2'].map(bySource)).toEqual([false, false, false, false, false])
+  expect(bySource('not an address')).toBe(true)
+  expect(isRejected({ 'https://images.unsplash.com/photo-1': 'rejected: x' })('https://images.unsplash.com/photo-1')).toBe(true)
+  // An iNaturalist photo listed at one size is our copy and every other size; another iNaturalist photo is not.
+  const inat = isRejected({ 'https://inaturalist-open-data.s3.amazonaws.com/photos/4242/medium.jpg': 'people: a hand' })
+  expect(['https://media.aquatome.com/inaturalist/4242.webp', 'https://inaturalist-open-data.s3.amazonaws.com/photos/4242/large.jpeg', 'https://static.inaturalist.org/photos/4242/original.jpg', 'https://inaturalist-open-data.s3.amazonaws.com/photos/4243/medium.jpg'].map(inat)).toEqual([true, true, true, false])
+  // A GBIF image listed at one size is our copy and the other size; another image of the same occurrence is not.
+  const gbif = (size: string, media = '0123456789abcdef0123456789abcdef') => `https://api.gbif.org/v1/image/cache/fit-in/${size}/occurrence/77/media/${media}`
+  const byGbif = isRejected({ [gbif('500x')]: 'dead: on ice' })
+  expect([gbif('1200x'), `https://media.aquatome.com/gbif/77-0123456789abcdef.webp`, gbif('500x', 'fedcba9876543210fedcba9876543210')].map(byGbif)).toEqual([true, true, false])
+  // A host our store doesn't copy has no key: only its own address matches, and two of its photos never meet.
+  const other = isRejected({ 'https://example.org/fish/a.jpg': 'rejected: x' })
+  expect(['https://example.org/fish/a.jpg', 'https://example.org/fish/b.jpg', 'https://example.org/fish/a.jpg?size=2'].map(other)).toEqual([true, false, false])
 })

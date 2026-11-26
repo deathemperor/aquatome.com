@@ -3,6 +3,12 @@
   "name": "ยาบารี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T19:04:08.262Z",
+    "why": "The Thai transliteration ยาบารี fits the name Yavarí, but it omits the Thai kind word แม่น้ำ that an atlas in Thailand would normally put before a river's name."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

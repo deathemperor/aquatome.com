@@ -6,10 +6,19 @@
   "inat:242944021"
  ],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/5c63df38f91ea6b2.webp": "81a1c1c1e3c31f85",
-  "https://media.aquatome.com/seriouslyfish/4c018ce3b6b838b3.webp": "4f4f0d1d0d0d0c0e",
-  "https://media.aquatome.com/seriouslyfish/44b69167b2140e7b.webp": "329f676226263476",
-  "https://media.aquatome.com/inaturalist/242943987.webp": "0e3ac820c0309004"
+  "https://media.aquatome.com/seriouslyfish/5c63df38f91ea6b2.webp": "81a1c1c1e3c31f85"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 617976,
+  "pass": "done",
+  "after": {
+   "research": 141767043,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 6167727,
+  "next": null
+ }
 }

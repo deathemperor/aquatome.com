@@ -3,6 +3,12 @@
   "name": "Duc My",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-15T05:29:28.962Z",
+    "why": "Indonesian atlases would write \"Sungai Duc My\" (or \"Sungai Đức Mỹ\"), but the bare \"Duc My\" drops the kind word \"Sungai\", so it reads as a different place rather than a river."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

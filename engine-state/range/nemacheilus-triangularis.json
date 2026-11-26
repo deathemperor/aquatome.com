@@ -1,8 +1,8 @@
 {
   "id": "nemacheilus-triangularis",
   "native": {
-    "input": "cb25cc2679ef3aff",
-    "at": "2026-11-10T15:58:17.469Z",
+    "input": "6ad5b5a7e7ecff8b",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "IN",
@@ -11,19 +11,35 @@
         "quote": "The zodiac loach, Mesonoemacheilus triangularis, is a loach from the Western Ghats of Kerala and Tamil Nadu in southern India.",
         "words": "India",
         "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Zodiak Loach, Mesonoemacheilus triangularis, is a well recognizable loach from South India.",
+        "words": "India",
+        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Western Ghats",
         "source": "seriouslyfish",
-        "quote": "Mundakayam lies within the Western Ghats mountains and M. triangularis has since been recorded to occur in river systems draining both sides of that range in the states of Kerala and Tamil Nadu, where it's said to be locally abundant.",
+        "quote": "The zodiac loach, Mesonoemacheilus triangularis, is a loach from the Western Ghats of Kerala and Tamil Nadu in southern India.",
+        "country": "IN",
         "ok": true
       },
       {
         "name": "Manimala",
         "source": "seriouslyfish",
         "quote": "The type locality is given by Day as 'the hills at Mundikyum' which appears to correspond to the small town now known as Mundakayam, in Kottayam District of Kerala state, South India, through which runs the river Manimala.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Western Ghats",
+        "source": "glaser",
+        "quote": "The species occurs endemically in the Western Ghats of South India.",
         "country": "IN",
         "ok": true
       }

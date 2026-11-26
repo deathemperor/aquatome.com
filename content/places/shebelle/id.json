@@ -3,6 +3,12 @@
   "name": "Shebelle",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-20T07:09:26.157Z",
+    "why": "Indonesian atlases write the Somali regions as \"Shabeellaha Dhexe/Hoose\" or \"Shabelle Tengah/Hilir\", and the bare \"Shebelle\" is an ambiguous, unmarked form with no kind word such as \"Wilayah\"."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

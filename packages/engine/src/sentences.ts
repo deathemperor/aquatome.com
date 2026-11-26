@@ -74,12 +74,14 @@ export function sentences(html: string): Piece[] {
  * Each sentence's block (numbered from 0, one entry a sentence): a paragraph, a list item, a cell or a line, so a
  * neighbour across one is never in the same paragraph or list item (the Writing Lead, 13 Nov 2026).
  */
-export function blockOf(pieces: Piece[]): number[] {
+export function blockOf(pieces: Piece[], o: { lines?: boolean } = {}): number[] {
+  // `lines: false`: a line break or a rule doesn't end a block, so a paragraph is one ("Châm 5 ml<br> Seachem Prime…").
+  const ends = (t: string) => BLOCK.test(t) && (o.lines !== false || !/^<(br|hr)\b/i.test(t))
   let block = 0
   const out: number[] = []
   for (const p of pieces) {
     if (p.sentence) out.push(block)
-    else if (p.html.split(/(<[^>]*>)/).some(t => BLOCK.test(t))) block++
+    else if (p.html.split(/(<[^>]*>)/).some(ends)) block++
   }
   return out
 }
@@ -87,27 +89,54 @@ export function blockOf(pieces: Piece[]): number[] {
 export const plain = (html: string) => parse(html).text.replace(/\s+/g, ' ').trim()
 
 /**
- * The sentences (their places among the sentences, from 0) that a quote lies in; one that runs across sentences names
- * each. Nothing when the quote isn't in the part.
+ * Where a quote stands in a text, both as `norm` gives them: its first place, or, `whole`, every place where its ends that
+ * are a letter or a figure meet no letter or figure ("ADA" isn't in "Canada", "$5" is in "giá $5"; Codex's read of #1690).
  */
-export function quoted(pieces: Piece[], quote: string): number[] {
-  const texts = pieces.filter(p => p.sentence).map(p => norm(plain(p.html)))
-  const q = norm(quote)
-  if (!q) return []
-  const joined = texts.join(' ')
-  const at = joined.indexOf(q)
-  if (at < 0) return []
+export function places(text: string, q: string, whole = false): number[] {
+  const word = (c?: string) => !!c && /[\p{L}\p{N}]/u.test(c)
   const out: number[] = []
-  let start = 0
-  texts.forEach((t, i) => { const end = start + t.length; if (start < at + q.length && at < end) out.push(i); start = end + 1 })
+  for (let at = q ? text.indexOf(q) : -1; at >= 0; at = text.indexOf(q, at + 1)) {
+    if (!whole) return [at]
+    if ((word(q[0]) && word(text[at - 1])) || (word(q.at(-1)) && word(text[at + q.length]))) continue
+    out.push(at)
+  }
   return out
 }
 
 /**
+ * The sentences (their places among the sentences, from 0) that a quote lies in; one that runs across sentences names
+ * each. Nothing when the quote isn't in the part. `whole`: its words whole, at every place the part says it. `blocks`:
+ * within one block.
+ */
+export function quoted(pieces: Piece[], quote: string, o: { whole?: boolean; blocks?: number[] } = {}): number[] {
+  const texts = pieces.filter(p => p.sentence).map(p => norm(plain(p.html)))
+  const q = norm(quote)
+  const joined = texts.join(' ')
+  const out = new Set<number>()
+  for (const at of places(joined, q, o.whole)) {
+    const these: number[] = []
+    let start = 0
+    texts.forEach((t, i) => { const end = start + t.length; if (start < at + q.length && at < end) these.push(i); start = end + 1 })
+    // `blocks` (each sentence's, `blockOf`): a place that runs from one block into the next isn't the quote's.
+    if (o.blocks && these.some(i => o.blocks![i] !== o.blocks![these[0]!])) continue
+    these.forEach(i => out.add(i))
+  }
+  return [...out].sort((a, b) => a - b)
+}
+
+/**
  * The part with some of its sentences changed (by their places among the sentences) and every other piece as it was. An
- * empty sentence goes, with the space after it (or before it, at a block's end); a block left with nothing in it goes.
+ * empty sentence goes, with the space after it (or before it, at a block's end); a block left with nothing in it, or only
+ * a line break or a hard space, goes (Codex's read of #1690: "<p><br></p>" was a body).
  */
 export function splice(pieces: Piece[], changes: ReadonlyMap<number, string>): string {
+  // A sentence this splice empties is marked, so only a block it emptied goes: a separator or an empty block already in
+  // the part stays as it was (Codex's second read of #1690). The mark is a character neither the part nor a change holds
+  // (Codex's third read: a NUL already in a block).
+  const all = [...pieces.map(p => p.html), ...changes.values()].join('')
+  let code = 0xe000
+  while (all.includes(String.fromCharCode(code))) code++
+  const GONE = String.fromCharCode(code)
   const out = pieces.map(p => ({ ...p }))
   let n = -1
   out.forEach((p, i) => {
@@ -115,18 +144,22 @@ export function splice(pieces: Piece[], changes: ReadonlyMap<number, string>): s
     n++
     const next = changes.get(n)
     if (next === undefined) return
-    p.html = next
+    p.html = next || GONE
     if (next) return
     const after = out[i + 1]
     // The space before it, past any sentence already gone and its space: two going together at a paragraph's end leave
     // none ("Orinoco. </p>").
     let j = i - 1
-    while (j >= 0 && out[j]!.html === '') j--
+    while (j >= 0 && (out[j]!.html === '' || out[j]!.html === GONE)) j--
     const before = out[j]
     if (after && !after.sentence && /^\s+$/.test(after.html)) after.html = ''
     else if (before && !before.sentence && /\s$/.test(before.html)) before.html = before.html.replace(/\s+$/, '')
   })
   let html = out.map(p => p.html).join('')
-  for (let i = 0; i < 3; i++) html = html.replace(/<(p|li|h[1-6]|dd|dt|blockquote)>\s*<\/\1>/g, '').replace(/<(ul|ol)>\s*<\/\1>/g, '')
-  return html
+  const blank = `(?:\\s|&nbsp;|<br\\s*\\/?>|${GONE})*`
+  for (let i = 0; i < 3; i++) {
+    html = html.replace(new RegExp(`<(p|li|h[1-6]|dd|dt|blockquote)>${blank}${GONE}${blank}<\\/\\1>`, 'g'), GONE)
+      .replace(new RegExp(`<(ul|ol)>\\s*${GONE}[\\s${GONE}]*<\\/\\1>`, 'g'), GONE)
+  }
+  return html.replaceAll(GONE, '')
 }

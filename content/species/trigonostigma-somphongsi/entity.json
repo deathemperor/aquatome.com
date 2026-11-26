@@ -10,6 +10,57 @@
     "thailand",
     "mae-klong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mae Klong"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Trigonostigma somphongsi is a small rasbora, probably endemic to western Thailand and reckoned to occur somewhere in the Mae Klong basin.",
+          "countries": [],
+          "regions": [
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367619,
+      "total": 5,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "TH",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -188,7 +239,7 @@
       "width": 640,
       "height": 403,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Nonn Panitvong / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-somphongsi",
       "caption": "Well-conditioned adult male of Trigonostigma somphongsi.",
       "source": "seriouslyfish"
@@ -204,25 +255,25 @@
       "source": "panitvong"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/b2eb902f68f9f3af.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/b2eb902f68f9f3af-480.webp",
-      "width": 700,
-      "height": 440,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-somphongsi",
-      "caption": "Pair of T. somphongsi, male at top. These fish are newly-introduced and lack colour.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/6ea59ef2e3e7ec2e.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/6ea59ef2e3e7ec2e-480.webp",
       "width": 600,
       "height": 400,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Nonn Panitvong / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-somphongsi",
       "caption": "Pair of T. somphongsi in courtship ritual. Note the larger, less colourful female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b2eb902f68f9f3af.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b2eb902f68f9f3af-480.webp",
+      "width": 700,
+      "height": 440,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-somphongsi",
+      "caption": "Pair of T. somphongsi, male at top. These fish are newly-introduced and lack colour.",
       "source": "seriouslyfish"
     }
   ],

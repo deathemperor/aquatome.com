@@ -1,14 +1,14 @@
 {
   "id": "ageneiosus-ucayalensis",
   "native": {
-    "input": "231905b3e39b1855",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "e3815db2126e6da3",
+    "at": "2026-11-23T01:48:47.136Z",
     "claims": [
       {
         "code": "PE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Records currently exist from Ecuador, Colombia, Peru, Brazil, Venezuela, Guyana and Suriname, and encompass the majority of the rio Amazon drainage plus its tributaries, the Orinoco system, Atlantic river basins of the Guianas and the Río Paraná.",
+        "quote": "Described from the Río Ucayali in Peru but subsequently recorded across a large geographic area.",
         "words": "Peru",
         "ok": true
       },
@@ -59,6 +59,14 @@
         "quote": "Records currently exist from Ecuador, Colombia, Peru, Brazil, Venezuela, Guyana and Suriname, and encompass the majority of the rio Amazon drainage plus its tributaries, the Orinoco system, Atlantic river basins of the Guianas and the Río Paraná.",
         "words": "Suriname",
         "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Orinoco River basins; Guianas, and upper Paraná River basin. Type locality: un lac, près de l'Ucayale, et qui communiquait avec cette rivière [Peru].",
+        "words": "Peru",
+        "ok": true
       }
     ],
     "regions": [
@@ -86,12 +94,21 @@
         "quote": "Described from the Río Ucayali in Peru but subsequently recorded across a large geographic area.",
         "country": "PE",
         "ok": true
+      },
+      {
+        "name": "Guiana Shield",
+        "source": "seriouslyfish",
+        "quote": "Individuals collected from black water habitats tend to be noticeably darker in overall colouration, for example, with this being particularly evident among populations from the Guiana Shield.",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "GF",
+        "PY"
+      ],
       "sourcesOnly": []
     }
   },

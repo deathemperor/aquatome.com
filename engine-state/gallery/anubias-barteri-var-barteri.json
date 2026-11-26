@@ -31,9 +31,6 @@
   "File:An Aquascapist Adjusting Aquarium Hardscape with Mermaid Statue.jpg"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/15f69c8f1993b4aa.webp": "1323dd2935999e3e",
-  "https://media.aquatome.com/commons/eb3109ff112ceecd.webp": "176726441b3c7963",
-  "https://media.aquatome.com/commons/2dd2721ca073d2b8.webp": "1f2a0b2b4b7b1b62",
   "https://media.aquatome.com/commons/467a414d837f7446.webp": "2c2f4767b3f1e828",
   "https://media.aquatome.com/commons/231b6688a3b20577.webp": "61611b6727170719",
   "https://media.aquatome.com/commons/6d999f573f778012.webp": "7f676dcfcfe6e6f7",
@@ -48,5 +45,17 @@
   "https://media.aquatome.com/tropica/13cd2535e1746f5c.webp": "b071b894c8e9afb7",
   "https://media.aquatome.com/commons/d9d5b88701185c56.webp": "869bf38ba63a2cb3"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 805152,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 7228311,
+  "next": null
+ }
 }

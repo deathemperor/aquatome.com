@@ -6,5 +6,17 @@
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/5e374f614ea594a8.webp": "63c7070307b60828"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 618925,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 7193482,
+  "next": null
+ }
 }
