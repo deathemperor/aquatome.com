@@ -1049,10 +1049,11 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(credit.label.hasPrefix("Dịch và tổng hợp từ Seriously Fish"), "not the page's credit: \(credit.label)")
     XCTAssertGreaterThan(credit.frame.minY, card.frame.maxY, "the credit isn't under the figures")
     // The trust card exposes one accessibility label for the figures’ sources. The lifespan belongs there.
-    let hasLifespan = NSPredicate(format: "label CONTAINS %@", "Tuổi thọ")
-    let trust = app.staticTexts.matching(hasLifespan).firstMatch
+    let trust = app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@ AND label CONTAINS %@",
+                                                     "Các nguồn ghi khác nhau", "Tuổi thọ")).firstMatch
     XCTAssertTrue(trust.waitForExistence(timeout: 5), "the lifespan is missing from the sources")
-    XCTAssertFalse(card.descendants(matching: .any).matching(hasLifespan).firstMatch.exists, "the lifespan is on the figures card")
+    let onCard = card.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS %@", "Tuổi thọ")).firstMatch
+    XCTAssertFalse(onCard.exists, "the lifespan is on the figures card")
     let creditShot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
     creditShot.name = "shot-v2-fish-credit"
     creditShot.lifetime = .keepAlways
