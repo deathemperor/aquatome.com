@@ -37,3 +37,5 @@ export * from './devices'
 export { pageMatcher, sciKey, type MatchPage } from './unlisted'
 
 export { OWNER_CROPS, ownerCropApproved, ownerCropCanonical, ownerCropFitsPage, type OwnerCropApproval } from './owner-crops'
+
+export { KEPT_BY, KEPT_WORD, OWN_MARK_SHOPS, isOwnMarkShop, keptAuthorOk, ownMarkSite, retainedOwnMark, SCREENED_OWN_MARK, screenedShop, type OwnMarkShop } from './own-mark'

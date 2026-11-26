@@ -1459,7 +1459,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   }
   // Non-commercial photos off every album and page in one step: all of them with their switch off, all but iNaturalist's
   // album photos with it on (gallery.ts dropNonCommercial). Before the albums are ordered.
-  const nonCommercial = await dropNonCommercial(content, o.switches ?? IMAGE_SWITCHES)
+  const nonCommercial = await dropNonCommercial(content, o.switches ?? IMAGE_SWITCHES, await readPhotoWaits(root))
   nonCommercial.files.forEach(changed)
   report.nonCommercial = nonCommercial.photos
   // Every album in the album order, after every photo above has left: the check's screening order, photo-tank and ruler

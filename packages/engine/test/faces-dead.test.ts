@@ -7,6 +7,7 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { loadAll, mirrorPlan } from '@aq/schema'
 import { LlmError } from '../src/claude'
+import { galleries } from '../src/gallery'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { gitHistory, putBackCleared, waitingEntry } from '../src/last-photo'
 import { checkPagePhotos } from '../src/photo-check'
@@ -225,6 +226,13 @@ test('a rejected alteration keeps its held original in the entity and paired alb
   expect((await json(root, 'content/gallery/a.json')).photos).toEqual([altered])
   expect((await json(root, 'engine-state/_dead-screen.json'))[altered.url].dead).toBe(true)
   expect((await json(root, 'engine-state/_photo-rejected.json'))[altered.url]).toMatch(/^dead: /)
+
+  const unused = async () => { throw new Error('No source is needed for cleanup') }
+  await galleries(root, { get: unused, http: unused, look: unused, faces: unused, sleep: unused, now: () => new Date() }, { only: 'missing', sheets: 0 })
+  const marks = await json(root, 'engine-state/_photo-second-look.json')
+  marks[original.url].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  await writeFile(join(root, 'engine-state/_photo-second-look.json'), JSON.stringify(marks))
+  expect((await json(root, 'content/gallery/a.json')).photos).toEqual([altered])
 })
 
 test('an unreadable sibling does not remove the only previously passed photo', async () => {
@@ -825,11 +833,11 @@ test('the standalone screen also holds a passed head whose sibling is unjudged',
   expect(await urls(root, 'a')).toEqual([old.url, pending.url])
 })
 
-test('multiple non-commercial replacements cannot displace the last passed head', async () => {
+test.each([false, true])('multiple non-commercial replacements cannot displace the last passed head (same address: %s)', async sameAddress => {
   const head = photo('passed-dead')
   const nc = [41, 42].map(id => ({
     ...photo(`non-commercial-${id}`),
-    url: `https://media.aquatome.com/inaturalist/${id}.webp`,
+    url: `https://media.aquatome.com/inaturalist/${sameAddress ? 41 : id}.webp`,
     sourceUrl: `https://www.inaturalist.org/photos/${id}`,
     licence: 'CC BY-NC 4.0',
   }))
@@ -888,4 +896,45 @@ test('the photo check cannot replace a clear on the mirror with a first refusal 
   expect(check.blocked).toEqual([])
   expect(await json(root, 'engine-state/_photo-second-look.json')).toEqual(marks)
   expect((await publicView()).galleries.alpha?.map(p => p.url)).toEqual([mirror.url])
+})
+
+test('an agreed watermark rejection keeps a fallback original off the page and album', async () => {
+  const original = photo('marked-original')
+  const stored = {
+    ...photo('alteration'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  }
+  const { root, state, publicView } = await publicFixture([stored], [stored], [stored.url, original.url])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [stored.url]: { dead: false }, [original.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [stored.url]: 0, [original.url]: 0 }))
+  await writeFile(join(state, '_photo-watermarks.json'), JSON.stringify({ [stored.url]: { ocr: [] }, [original.url]: { ocr: [], watermark: true } }))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [original.url]: { why: 'watermark: withheld', pages: ['species/alpha'], at: '2026-11-26', step: 'the watermark screen',
+      look: { said: 'agree', by: 'reviewer', on: '2026-11-26' } },
+  }))
+
+  await sweep(root, { history: async () => [] })
+
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^watermark: /)
+  const view = await publicView()
+  expect(view.species.find(page => page.id === 'alpha')?.photos).toEqual([])
+  expect(view.galleries.alpha).toBeUndefined()
+  expect(view.photoWaits!(original.url)).toBe(true)
+})
+
+test('a non-commercial replacement survives licence cleanup while its sibling waits for the watermark screen', async () => {
+  const head = photo('passed-dead'), pending = photo('pending-mark')
+  const nc = {
+    ...photo('non-commercial'), url: 'https://media.aquatome.com/inaturalist/42.webp',
+    sourceUrl: 'https://www.inaturalist.org/photos/42', licence: 'CC BY-NC 4.0',
+  }
+  const { root, state, publicView } = await publicFixture([head, pending, nc], [], [head.url, nc.url])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [nc.url]: { dead: false }, [pending.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [head.url]: 0, [nc.url]: 0, [pending.url]: 0 }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [head.url]: { ok: 'yes', person: false } }))
+
+  await run(root, deps().d)
+  await sweep(root, { history: async () => [] })
+
+  expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([nc.url])
 })
