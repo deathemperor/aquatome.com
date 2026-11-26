@@ -620,3 +620,18 @@ test('an existing whole-photo source rejection also excludes its mirror as a rep
   expect(checked.heads.held).toContain(`species/aaa: ${url('a-dead')}`)
   expect(await photosOf(r, 'aaa')).toContain('a-dead')
 })
+
+test('a held mirror also suppresses a new watermark refusal at its source', async () => {
+  const r = await store({ aaa: [], bbb: [] }, { 'a-live': { aaa: oldPass } })
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const photoAt = (address: string) => ({ ...photo('sample'), url: address, source: undefined, licence: 'CC BY 4.0' })
+  await writeFile(join(r, 'content/species/aaa/entity.json'), JSON.stringify(fish('aaa', [photoAt(mirror)])))
+  await writeFile(join(r, 'content/species/bbb/entity.json'), JSON.stringify(fish('bbb', [photoAt(source), photo('a-live')])))
+  const checked = await checkPagePhotos(r, model({ [name(source)]: { logo: true }, [name(mirror)]: { logo: true } }), { limit: 10 })
+
+  expect(checked.heads.held).toContain(`species/aaa: ${mirror}`)
+  const listed = await json(r, 'engine-state/_photo-rejected.json')
+  expect(listed[mirror]).toBeUndefined()
+  expect(listed[source]).toBeUndefined()
+})

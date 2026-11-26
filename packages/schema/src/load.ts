@@ -5,7 +5,7 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type PhotoScreenEntry } from './photo-screen'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, isVersionRejection, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type PhotoScreenEntry } from './photo-screen'
 import { photoRejections } from './own-mark'
 import { ownerCropFitsPage } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
@@ -319,6 +319,11 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
       return valid && !veto ? [p] : []
     }
     const shown = publicPhotoVersion(p, images, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
+    const storedReason = shown && shown.url !== p.url ? rejectedForDead?.(p.url)?.[1] : undefined
+    if (shown && storedReason && !isVersionRejection(storedReason)) {
+      for (const url of [shown.url, shown.thumb, shown.large?.url]) if (url) waiting.add(url)
+      return []
+    }
     return shown ? [shown] : []
   }).filter(p => {
     if (publicBuild && setsCookies(p.url)) return false

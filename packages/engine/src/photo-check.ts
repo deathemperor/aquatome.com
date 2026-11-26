@@ -973,9 +973,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const heldBefore = await readJson<unknown>(heldFile).catch(() => undefined)
   const heldKeys = heldBefore && typeof heldBefore === 'object' && !Array.isArray(heldBefore) ? Object.keys(heldBefore) : []
   await writeHeld({ ...Object.fromEntries(heldKeys.map(k => [k, true as const])), ...heldNow })
-  // Not onto the never-again list either, or a later run would take them off through that, unseen.
-  for (const file of held) for (const url of await blockedVersions(file)) {
-    if (!(url in added) || first(url)) continue
+  // A hold protects the photo at every address, including a separately judged source or mirror.
+  const heldAddress = photoAddressSet(holding.keys())
+  for (const url of Object.keys(added)) {
+    if (!heldAddress(url) || first(url)) continue
     delete added[url]
     report.blocked = report.blocked.filter(x => !x.startsWith(`${url}: `))
   }
