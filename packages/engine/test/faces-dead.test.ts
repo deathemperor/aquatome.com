@@ -1,11 +1,13 @@
 import { expectControlledRejections } from './photo-privacy-assertions'
-import { chmod, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { chmod, cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
+import { loadAll } from '@aq/schema'
 import { LlmError } from '../src/claude'
-import type { DeadScreenDeps } from '../src/dead-screen'
+import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
+import { putBackCleared } from '../src/last-photo'
 import { NEW_PHOTO_SHEETS, screenNewPhotos } from '../src/faces'
 
 // The faces step screens the photos new to it for dead fish too, before the push (the chief of staff, 21 Nov 2026).
@@ -213,9 +215,10 @@ test('a rejected alteration keeps its held original in the entity and paired alb
   const { d } = deps()
   const out = await run(root, d)
   expect(out.dead!.held).toEqual([`${original.url}: species/a`])
-  expect((await json(root, 'content/species/a/entity.json')).photos).toEqual([original])
-  expect((await json(root, 'content/gallery/a.json')).photos).toEqual([original])
-  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [altered.url]: 'dead' })
+  expect((await json(root, 'content/species/a/entity.json')).photos).toEqual([altered])
+  expect((await json(root, 'content/gallery/a.json')).photos).toEqual([altered])
+  expect((await json(root, 'engine-state/_dead-screen.json'))[altered.url].dead).toBe(true)
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[altered.url]).toBeUndefined()
 })
 
 test('an unreadable sibling does not remove the only previously passed photo', async () => {
@@ -242,4 +245,67 @@ test('a failed rejection write does not release an original with a dead verdict'
   await rm(rejected, { recursive: true })
   expect((await run(root, deps().d)).dead!.dead).toEqual([`${original.url}: dead screen dead`])
   expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [original.url]: 'dead' })
+})
+
+async function publicFixture(photos: object[], albums: object[], urls: string[]) {
+  const root = await mkdtemp(join(tmpdir(), 'faces-dead-public-'))
+  const content = join(root, 'content')
+  const state = join(root, 'engine-state')
+  await cp(new URL('../../schema/test/fixtures/store/', import.meta.url), content, { recursive: true })
+  const file = join(content, 'species/alpha/entity.json')
+  const entity = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, JSON.stringify({ ...entity, photos, videos: [] }))
+  await mkdir(join(content, 'gallery'), { recursive: true })
+  await writeFile(join(content, 'gallery/alpha.json'), JSON.stringify({ id: 'alpha', photos: albums, seen: albums.length, updatedAt: '2026-11-26' }))
+  await mkdir(state, { recursive: true })
+  await writeFile(join(state, '_photo-watermarks.json'), JSON.stringify(Object.fromEntries(urls.map(u => [u, { ocr: [] }]))))
+  const publicView = () => loadAll({ root: content, lang: 'vi', publicBuild: true })
+  return { root, state, file, publicView }
+}
+
+test('a rejection write failure cannot release the album copy on retry', async () => {
+  const live = photo('live'), dead = photo('second-dead')
+  const { root, state, file, publicView } = await publicFixture([live, dead], [dead], [live.url, dead.url])
+  const rejected = join(state, '_photo-rejected.json')
+  await mkdir(rejected)
+  expect((await run(root, deps().d)).deadFailed).toBeDefined()
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([live, dead])
+  await rm(rejected, { recursive: true })
+  expect((await publicView()).galleries.alpha).toBeUndefined()
+  const retry = await run(root, deps().d)
+  expect(retry.dead?.dead).toContain(`${dead.url}: dead screen dead`)
+  const content = await publicView()
+  expect(content.species.find(s => s.id === 'alpha')!.photos.map(p => p.url)).toEqual([live.url])
+  expect(content.galleries.alpha).toBeUndefined()
+})
+
+test('a first-off original stays recoverable in both copies when its alteration also fails', async () => {
+  const original = photo('original-dead')
+  const altered = {
+    ...original, url: m('altered-dead'),
+    original: { url: original.url, width: original.width, height: original.height },
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }],
+  }
+  const { root, state, publicView } = await publicFixture([altered], [altered], [altered.url, original.url])
+  const flagged = await run(root, deps().d)
+  expect(flagged.dead?.firstOff).toContain(`${original.url}: species/alpha`)
+  expect((await publicView()).galleries.alpha).toBeUndefined()
+  const looksFile = join(state, '_photo-second-look.json')
+  const marks = JSON.parse(await readFile(looksFile, 'utf8'))
+  marks[original.url].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  await writeFile(looksFile, JSON.stringify(marks))
+  await putBackCleared(root, async () => [])
+  const restored = await publicView()
+  expect(restored.species.find(s => s.id === 'alpha')!.photos[0]).toMatchObject({ url: original.url, author: original.author })
+  expect(restored.galleries.alpha![0]).toMatchObject({ url: original.url, author: original.author })
+  expect(restored.photoWaits!(altered.url)).toBe(true)
+})
+
+test('the standalone screen also holds a passed head whose sibling is unjudged', async () => {
+  const old = photo('head-dead'), pending = photo('unjudged')
+  const root = await onePage([old, pending])
+  await writeFile(join(root, 'engine-state/_photo-check.json'), JSON.stringify({ [old.url]: { ok: 'yes', typical: true } }))
+  const out = await screenDead(root, deps().d.dead, { limit: 1 })
+  expect(out.held).toEqual([`${old.url}: species/a`])
+  expect(await urls(root, 'a')).toEqual([old.url, pending.url])
 })

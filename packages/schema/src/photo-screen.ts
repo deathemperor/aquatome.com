@@ -146,6 +146,23 @@ export function deadLooked(r: DeadLookRecords): (url: string) => boolean {
   return url => Object.hasOwn(r.screen, url) || asked.has(url) || (!!r.secondLook && Object.hasOwn(r.secondLook, url) && person(url))
 }
 /**
+ * A waiting rejection remains in force when its mark is missing. A recorded dead verdict holds its URL even if the
+ * file it came from still needs to preserve a different fallback version. A last-photo hold or a person's clear can
+ * keep a dead verdict from taking effect.
+ */
+export function deadPhotoOff(url: string, screen?: Record<string, unknown>, secondLook?: Record<string, unknown>, rejected?: Record<string, unknown>): boolean {
+  const why = rejected?.[url]
+  const mark = secondLook?.[url] as { why?: unknown; off?: boolean; look?: { said?: string; by?: string; on?: string } } | undefined
+  if (typeof why === 'string' && (why.startsWith('dead:') || why.startsWith('waiting:'))) return true
+  const look = mark?.look
+  if (look?.said === 'clear' && typeof look?.by === 'string' && look.by.trim() !== '' &&
+      typeof look.on === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(look.on)) return false
+  if (mark?.off === true && typeof mark.why === 'string' && mark.why.startsWith('dead:')) return true
+  const verdict = screen?.[url] as { dead?: unknown } | undefined
+  return verdict?.dead === true && !(typeof mark?.why === 'string' && mark.why && mark.off !== true && !mark.look)
+}
+
+/**
  * More own photos of fish and plant pages than this with no dead-fish look is a lost or damaged record, not a run's new
  * photos: the site's build fails rather than publish its pages without them (the chief of staff's number for the face
  * finder's record, 21 Nov, taken for this on 22 Nov). A run leaves none once its faces step has run; on 22 Nov 111 came

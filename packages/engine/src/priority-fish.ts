@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, hashDistance, isAllowedLicence, isGenerated, isOwnerCrop, mayPublish, PHOTO_SCREEN_FILE, pictureOf, SAME_PICTURE, setsCookies, unmarked, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOff, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, hashDistance, isAllowedLicence, isGenerated, isOwnerCrop, mayPublish, PHOTO_SCREEN_FILE, pictureOf, SAME_PICTURE, setsCookies, unmarked, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { diskOwners, EMPTIED_FILE, readList, showingPhotos } from './emptied-pages'
 import { isRejected } from './photos'
 
@@ -50,6 +50,7 @@ async function deadWaiting(root: string): Promise<Set<string>> {
   const waits = new Set(Object.keys(owed ?? {}))
   if (!screen) return waits
   const looked = deadLooked({ screen, check, subjects, secondLook })
+  for (const u of new Set([...Object.keys(screen), ...Object.keys(secondLook ?? {})])) if (deadPhotoOff(u, screen, secondLook)) waits.add(u)
   for (const u of await ownDeadPhotoUrls(join(root, 'content'))) if (!looked(u)) waits.add(u)
   return waits
 }
