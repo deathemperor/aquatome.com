@@ -830,7 +830,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const p = photo as ContentPhoto
     return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   }
-  const shownPhotos = async (file: string) => (await ownPhotos(file)).flatMap(stored => {
+  const shownPhotos = async (file: string) => (await ownPhotos(file)).flatMap(photo => {
+    const stored = photo as ContentPhoto
     const served = versionOf(stored)
     return served ? [{ stored, served }] : []
   })
