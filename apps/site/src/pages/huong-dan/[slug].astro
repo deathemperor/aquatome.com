@@ -34,7 +34,7 @@ const c = await getContent(lang)
 const { m, species, plants, ph, lead, gear, toc, prose, minutes, series, inSeries, pos, next, refs, covers, cardSpecies, cardPlants, speciesPhotos, plantPhotos, credited } = guideParts(lang, c, g)
 const uncarded = species.length + plants.length - cardSpecies.length - cardPlants.length
 const v = g.video
-const description = excerpt(g.t.body ?? '')
+const description = excerpt(g.t.body ?? '', undefined, lang)
 const jsonld: object[] = []
 if (v) {
   jsonld.push({

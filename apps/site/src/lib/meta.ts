@@ -3,6 +3,36 @@ import { fmt } from './format'
 import { translator, type Lang } from './i18n'
 import { saysSci } from './sci'
 
+const TITLE_LENGTH = 70
+const DESCRIPTION_LENGTH = 160
+const length = (text: string) => [...text].length
+const segmenters = new Map<string, Intl.Segmenter>()
+function segments(text: string, lang: Lang, granularity: 'word' | 'sentence' | 'grapheme') {
+  const key = `${lang}:${granularity}`
+  let segmenter = segmenters.get(key)
+  if (!segmenter) {
+    segmenter = new Intl.Segmenter(lang, { granularity })
+    segmenters.set(key, segmenter)
+  }
+  return segmenter.segment(text)
+}
+
+function clip(text: string, lang: Lang, max: number, granularity: 'word' | 'sentence' | 'grapheme'): string {
+  let end = 0
+  let count = 0
+  for (const part of segments(text, lang, granularity)) {
+    count += length(part.segment)
+    if (count > max) break
+    if (granularity !== 'word' || part.isWordLike) end = part.index + part.segment.length
+  }
+  return text.slice(0, end).trimEnd()
+}
+
+export function descriptionForSearch(lang: Lang, text: string, max = DESCRIPTION_LENGTH): string {
+  if (length(text) <= max) return text
+  return clip(text, lang, max, 'sentence') || clip(text, lang, max, 'word') || clip(text, lang, max, 'grapheme')
+}
+
 /** The name, then its scientific name in brackets, unless the name says it already. */
 export const withSci = (name: string, sci: string) => (saysSci(name, sci) ? name : `${name} (${sci})`)
 
@@ -20,8 +50,18 @@ const lower = (s: string, lang: Lang, sci: string) =>
  */
 const SCI = '\u0000'
 const named = (lang: Lang, key: string, name: string, sci: string) => {
-  const title = translator(lang)(key, { name: lower(name, lang, sci), sci: SCI })
-  return saysSci(name, sci) ? title.replace(` (${SCI})`, '') : title.replace(SCI, sci)
+  const template = translator(lang)(key, { name: lower(name, lang, sci), sci: SCI })
+  const nameIncluded = saysSci(name, sci)
+  const title = nameIncluded ? template.replace(` (${SCI})`, '') : template.replace(SCI, sci)
+  if (length(title) <= TITLE_LENGTH) return title
+
+  // The search topic can go first, then the opening phrase. Keep the scientific name for long trade names.
+  const core = title.slice(0, title.lastIndexOf(': '))
+  if (core && length(core) <= TITLE_LENGTH) return core
+  const label = withSci(name, sci)
+  if (length(label) <= TITLE_LENGTH) return label
+  const shortened = !nameIncluded && clip(name, lang, TITLE_LENGTH - length(sci) - 3, 'word')
+  return shortened ? withSci(shortened, sci) : clip(sci, lang, TITLE_LENGTH, 'grapheme')
 }
 export const speciesTitle = (lang: Lang, name: string, sci: string) => named(lang, 'Cách nuôi {name} ({sci}): bể, nước, nuôi chung', name, sci)
 export const plantTitle = (lang: Lang, name: string, sci: string) => named(lang, 'Cách trồng {name} ({sci}): ánh sáng, CO₂, vị trí', name, sci)
@@ -46,10 +86,9 @@ export function speciesDescription(lang: Lang, name: string, sci: string, card: 
 const plain = (html: string) => html.replace(/<a class="cite[^"]*"[^>]*>[\s\S]*?<\/a>/g, '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim()
 
 /** The first real paragraph (skipping photo captions and credits), cut at a word boundary. */
-export function excerpt(html: string, max = 155): string {
-  const paras = [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)].map(m => plain(m[1]!))
-  const text = paras.find(p => p.length >= 60 && !p.includes('©')) ?? plain(html)
-  if (text.length <= max) return text
-  const cut = text.slice(0, max)
-  return `${cut.slice(0, cut.lastIndexOf(' '))}…`
+export function excerpt(html: string, max = 155, lang: Lang = 'vi'): string {
+  const body = html.replace(/<figure\b[^>]*>[\s\S]*?<\/figure>/g, '')
+  const paras = [...body.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)].map(m => plain(m[1]!))
+  const text = paras.find(p => p.length >= 60 && !p.includes('©')) ?? plain(body)
+  return descriptionForSearch(lang, text, max)
 }

@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { robotsTxt } from '../src/lib/seo'
 import { createHash } from 'node:crypto'
+import { parse } from 'node-html-parser'
 import { DIST, page, sitemapText } from './dist'
 import { missingAddresses } from '../scripts/check-addresses'
 import { VI_SECTIONS } from '../worker/paths'
@@ -30,6 +31,14 @@ test('every page has one non-empty h1', () => {
     return h1.length !== 1 || !h1[0]!.replace(/<[^>]+>/g, '').trim()
   })
   expect(bad.map(f => f.slice(DIST.length))).toEqual([])
+})
+
+test('search descriptions fit 160 characters in all served languages', () => {
+  for (const file of LANGS.flatMap(langFiles)) {
+    const dom = parse(readFileSync(file, 'utf8'))
+    const description = dom.querySelector('meta[name="description"]')?.getAttribute('content')
+    if (description) expect([...description].length, file).toBeLessThanOrEqual(160)
+  }
 })
 
 test('sitemap lists indexable pages and omits noindex ones', () => {
@@ -184,6 +193,6 @@ test('excerpt skips captions and credits, cuts at a word', async () => {
   const html = '<figure><figcaption>Ảnh © Ai đó</figcaption></figure><p>Ngắn.</p><p>Ảnh © Nonn Panitvong, dạng vây đỏ của loài cá chạch này rất hiếm gặp</p><p>Từng bị xem nhẹ như đội dọn dẹp của bể cộng đồng, nhóm cá này thật ra có tập tính xã hội phức tạp và thú vị hơn nhiều người nghĩ, đặc biệt khi nuôi theo đàn lớn.</p>'
   const e = excerpt(html, 80)
   expect(e.startsWith('Từng bị xem nhẹ')).toBe(true)
-  expect(e.endsWith('…')).toBe(true)
-  expect(e.length).toBeLessThanOrEqual(81)
+  expect(e.endsWith('…')).toBe(false)
+  expect(e.length).toBeLessThanOrEqual(80)
 })
