@@ -383,7 +383,7 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
     if (!k || typeof k.url !== 'string' || !day(k.at) || typeof k.why !== 'string') continue
     const mark = marks[k.url], here = local[k.url]
     const restored = mark?.back && here?.back && mark.at === k.at && mark.why === k.why && here.at === k.at && here.why === k.why &&
-      mark.settled?.some(p => p.file === k.file && p.index === k.index)
+      mark.settled?.some(p => p.file === k.file)
     const agreed = !mark && !here && rejected[k.url] === k.why
     if (restored || agreed) await rm(path, { force: true })
   }
@@ -589,6 +589,8 @@ export async function putBackCleared(root: string, history: History, at = today(
       out.unread.push(u)
       continue
     }
+    // A named capture is the checkout's exact entry. An older Git entry can have different metadata.
+    if (own.some(p => p.capture && !captures.has(p.file))) { out.unread.push(u); continue }
     const historyPlaces = own.map(p => {
       const url = captures.get(p.file)?.photo.url
       return typeof url === 'string' && url !== u ? { ...p, photoUrl: url } : p
@@ -596,10 +598,6 @@ export async function putBackCleared(root: string, history: History, at = today(
     const read = await history(u, sl[u]!.at, historyPlaces).catch(() => undefined)
     if (!read) { out.unread.push(u); continue }
     const fromHistory = new Map(read.map(p => [p.file, p]))
-    if (own.some(p => p.capture && !captures.has(p.file) && !fromHistory.has(p.file))) {
-      out.unread.push(u)
-      continue
-    }
     const mine: LeftPlace[] = []
     const missing: string[] = []
     for (const p of own) {

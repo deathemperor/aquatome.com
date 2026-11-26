@@ -930,13 +930,17 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const stood = new Map<string, Stood[]>()
   const edits = new Map<string, string>()
   for (const file of [...new Set(shown.map(x => x.file))]) {
+    const capture = (url: string) => {
+      const reason = blockedAs(file, url)
+      return reason && first(reason) ? reason : undefined
+    }
     if (held.has(file)) {
       // A held page keeps what passed before; a first verdict comes off it all the same.
       const raw = await readFile(file, 'utf8')
       const data = JSON.parse(raw) as { photos?: Photo[] }
       const removed: string[] = []
-      placesIn(root, file, data, first, stood)
-      stripPhotos(data, first, removed, [], preservesOriginal)
+      placesIn(root, file, data, capture, stood)
+      stripPhotos(data, url => !!capture(url), removed, [], preservesOriginal)
       if (!removed.length) continue
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
       edits.set(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
@@ -946,7 +950,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const data = JSON.parse(raw) as { photos?: Photo[] }
     const before = real(data.photos)[0]?.url
     const removed: string[] = []
-    placesIn(root, file, data, first, stood)
+    placesIn(root, file, data, capture, stood)
     stripPhotos(data, blocked(file), removed, [], preservesOriginal)
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
     const gallery = /\/gallery\/([^/]+)\.json$/.exec(file)?.[1]

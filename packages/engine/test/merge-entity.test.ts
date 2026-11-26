@@ -38,6 +38,8 @@ test('a restored lead keeps its position when main added a photo during the rest
     .toEqual({ photos: [head, tail, added] })
   expect(mergeFile({ photos: [] }, { photos: [tail] }, { photos: [head, tail] }))
     .toEqual({ photos: [head, tail] })
+  expect(mergeFile({ photos: [tail] }, { photos: [tail, head] }, { photos: [head, tail] }))
+    .toEqual({ photos: [head, tail] })
 })
 
 test('changes on an existing page: each side\'s edit lands, a removal stands, a clash goes to theirs', () => {

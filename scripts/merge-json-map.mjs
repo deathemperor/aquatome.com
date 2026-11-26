@@ -18,19 +18,19 @@ import { pathToFileURL } from 'node:url'
 // and main's unmarked records won: the chief of staff, 20 Nov 2026); else ours.
 const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && typeof v.step === 'string' && Array.isArray(v.pages) && typeof v.at === 'string'
 const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
-const placesOf = r => Array.isArray(r?.left) ? r.left.filter(p => typeof p?.file === 'string' && Number.isSafeInteger(p.index) && p.index >= 0) : []
+const placesOf = (r, field = 'left') => Array.isArray(r?.[field]) ? r[field].filter(p => typeof p?.file === 'string' && Number.isSafeInteger(p.index) && p.index >= 0) : []
 function mergePlaces(chosen, base, ours, theirs) {
   if (ours.off !== true || theirs.off !== true || ours.at !== theirs.at || ours.why !== theirs.why) return chosen
   const other = chosen === ours ? theirs : ours
-  const from = placesOf(other)
-  if (!from.length) return chosen
-  const settled = new Set((Array.isArray(chosen.settled) ? chosen.settled : []).map(p => p.file))
-  const added = from.filter(p => !settled.has(p.file) && (!chosen.back || !placesOf(base).some(q => q.file === p.file)))
-  const places = new Map(placesOf(chosen).map(p => [p.file, p]))
-  for (const p of added) if (!places.has(p.file)) places.set(p.file, p)
-  if (!places.size) return chosen
-  const { back: _back, ...pending } = chosen
-  return { ...pending, left: [...places.values()] }
+  const settled = new Map([...placesOf(other, 'settled'), ...placesOf(chosen, 'settled')].map(p => [p.file, p]))
+  const added = placesOf(other).filter(p => !chosen.back || !placesOf(base).some(q => q.file === p.file))
+  const pending = new Map(placesOf(chosen).filter(p => !settled.has(p.file)).map(p => [p.file, p]))
+  for (const p of added) if (!settled.has(p.file) && !pending.has(p.file)) pending.set(p.file, p)
+  const { back, left, ...merged } = chosen
+  if (settled.size) merged.settled = [...settled.values()]
+  if (pending.size) return { ...merged, left: [...pending.values()] }
+  const completed = back ?? other.back
+  return completed ? { ...merged, back: completed } : merged
 }
 
 function bothChanged(base, ours, theirs, k) {

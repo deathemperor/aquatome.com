@@ -39,6 +39,18 @@ test('a clear keeps recovery places added for the same mark in a concurrent chec
   expect(mergeMaps(base, checked, { u: { ...captured.u, why: 'people: withheld' } })).toEqual({ u: { ...captured.u, why: 'people: withheld' } })
 })
 
+test('a pending album capture keeps a concurrent page settlement from Git history', () => {
+  const mark = { why: 'dead: withheld', step: 'the photo check', pages: ['species/x'], at: '2026-11-20', off: true }
+  const look = { said: 'clear', by: 'reviewer', on: '2026-11-21' }
+  const page = { file: 'content/species/x/entity.json', index: 0 }
+  const album = { file: 'content/gallery/x.json', index: 1, capture: 'later-capture' }
+  const restoring = { u: { ...mark, look, back: '2026-11-22', settled: [page] } }
+  const pending = { u: { ...mark, look, left: [album] } }
+  const merged = { u: { ...mark, look, settled: [page], left: [album] } }
+  expect(mergeMaps({ u: { ...mark, look } }, pending, restoring)).toEqual(merged)
+  expect(mergeMaps({ u: { ...mark, look } }, restoring, pending)).toEqual(merged)
+})
+
 test('as a git merge driver: two engine jobs that both append to a photo cache rebase cleanly', async () => {
   const dir = await mkdtemp(join(tmpdir(), 'jm-'))
   const git = (...a: string[]) => execFileSync('git', a, { cwd: dir, encoding: 'utf8' })
