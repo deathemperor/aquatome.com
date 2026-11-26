@@ -1394,7 +1394,7 @@ test('an opted-in owner app can receive one safe equipment proposal, only on the
   let offTopic = false
   const c = claude([() => answers({ offTopic, text: 'Bạn xác nhận tắt CO₂ trên ứng dụng nhé.', equipment: pick })])
 
-  const askAs = (token: string, extra = {}, h = headers) => run(ask(bearer(token), { ...body, ...extra }, h), e, deps(c.fetch), now)
+  const askAs = (token: string, extra = {}, h: Record<string, string> = headers) => run(ask(bearer(token), { ...body, ...extra }, h), e, deps(c.fetch), now)
   const withNewTurn = () => ({ ...headers, 'Idempotency-Key': crypto.randomUUID() })
   expect((await askAs(owner.token)).body).not.toHaveProperty('equipment')
   expect(JSON.stringify(c.bodies.at(-1))).not.toContain('Switch options for this turn')
