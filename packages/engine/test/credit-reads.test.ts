@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import { expect, test, vi } from 'vitest'
 import { applyCreditReads, CREDIT_HOLDS, creditReadKind, HOLD_NOTE, holdForCreditRead, pageCredits, PHOTO_CREDITS, recordCredits, releaseCreditHolds, type PhotoCredit } from '../src/credit-reads'
 import { writePhotoState } from '../src/photo-state'
+import { compactRejection } from '../src/photo-observations'
 import { photoKey } from '../src/source-photos'
 
 // The real write, which a test can make fail once.
@@ -220,6 +221,41 @@ test("a credit refusal on a guide alteration holds the fish page's bare original
   expect(await applyCreditReads(r)).toEqual({ removed: [], held: [stored.url] })
   expect(await json(join(r, 'engine-state/_photo-rejected.json'))).toEqual({})
   expect((await json(join(r, 'engine-state/_photo-second-look.json')))[stored.url].pages).toEqual(['species/fish-a'])
+})
+
+test.each([false, true])('a credit release lifts the inherited original hold (independent refusal: %s)', async independent => {
+  const original = photo('held-original')
+  const wrapper = photo('held-alteration', { original, altered: [{ method: 'lanczos3-upscale' }] })
+  const file = 'content/species/fish-e/entity.json'
+  const r = await root({ [file]: { id: 'fish-e', photos: [wrapper] } })
+  await holdForCreditRead(r, [wrapper.url], 'the chief of staff', '2026-11-14', 'credits unread')
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  expect(await json(rejected)).toEqual({ [wrapper.url]: HOLD_NOTE, [original.url]: HOLD_NOTE })
+  if (independent) await writeFile(rejected, JSON.stringify({ [wrapper.url]: HOLD_NOTE, [original.url]: compactRejection('people: withheld') }))
+  const reason = independent ? (await json(rejected))[original.url] : undefined
+  const read = { [wrapper.url]: { page: PAGE, kind: 'own', at: '2026-11-28' } satisfies PhotoCredit }
+
+  expect(await releaseCreditHolds(r, read)).toEqual({ back: [wrapper.url], off: [], stuck: [] })
+  expect((await json(join(r, file))).photos).toEqual([wrapper])
+  expect(await json(rejected)).toEqual(reason ? { [original.url]: reason } : {})
+})
+
+test('an agency credit refusal supersedes a waived shop watermark', async () => {
+  const marked = photo('shop', { url: 'https://media.aquatome.com/glaser/a.webp', source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/example/' })
+  const spare = photo('spare', { source: undefined, licence: 'CC BY 4.0' })
+  const r = await root({
+    'content/species/fish-a/entity.json': { id: 'fish-a', photos: [marked, spare] },
+    'content/sources.json': { glaser: { publish: true } },
+    'engine-state/_photo-rejected.json': { [marked.url]: 'watermark: withheld' },
+    'engine-state/_photo-watermarks.json': {
+      [marked.url]: { ocr: [], watermark: true, retainedOwnMark: { owner: 'source', source: 'glaser', sourceUrl: marked.sourceUrl } },
+      [spare.url]: { ocr: [] },
+    },
+  })
+  await recordCredits(r, { [marked.url]: { page: marked.sourceUrl, kind: 'agency', at: '2026-11-26' } })
+
+  expect((await applyCreditReads(r)).held).toEqual([])
+  expect((await json(join(r, 'engine-state/_photo-rejected.json')))[marked.url]).toMatch(/^rejected:/)
 })
 
 test('the credit check excludes a bare original already refused through another placement', async () => {

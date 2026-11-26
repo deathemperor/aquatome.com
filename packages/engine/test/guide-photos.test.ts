@@ -387,6 +387,28 @@ test('a guide refusing an alteration holds the bare original on a fish page unti
   expect((await json(root, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^watermark:/)
 })
 
+test('a guide logo refusal replaces the stored alteration’s version refusal and follows its bare original', async () => {
+  const original = photo('original')
+  const wrapper = { ...photo('alteration'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const root = await store({ guide: { photos: [wrapper] } })
+  const fish = join(root, 'content/species/sample')
+  await mkdir(fish, { recursive: true })
+  await writeFile(join(fish, 'entity.json'), JSON.stringify({ id: 'sample', photos: [original, photo('spare')] }))
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [wrapper.url]: 'dead: withheld' }))
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({
+    [wrapper.url]: { person: false, mark: false, brand: true, note: '' },
+  }))
+  const { d } = model({})
+
+  const report = await screenGuidePhotos(root, d, { limit: 1 })
+
+  expect(report.held).toEqual([])
+  const rejected = await json(root, 'engine-state/_photo-rejected.json')
+  expect(rejected[wrapper.url]).toMatch(/^logo:/)
+  expect(rejected[original.url]).toBe(rejected[wrapper.url])
+  expect((await json(root, 'content/guides/guide/entity.json')).photos).toEqual([])
+})
+
 test('all whole-photo refusals on alterations sharing a sole bare original wait for a second look', async () => {
   const original = photo('shared-bare')
   const wrappers = ['alteration-one', 'alteration-two'].map(id => ({ ...photo(id), altered: [{ method: 'lanczos3-upscale' }], original }))

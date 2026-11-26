@@ -324,7 +324,13 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   // `missed`: the picture pages (ScotCat's) whose request failed. The page then stays on the list for its own turn, so
   // those pictures' lines are read then; what this read named stays named.
   const lineRead = async (source: SourceId, url: string, images: PageImage[], missed: readonly string[]) => {
-    const n = await namePictureLines(root, source, sourceNames[source]?.name ?? source, images, url, k => deps.media.urlFor(k), sourceNames[source]?.permission ?? {})
+    let n: number
+    try {
+      n = await namePictureLines(root, source, sourceNames[source]?.name ?? source, images, url, k => deps.media.urlFor(k), sourceNames[source]?.permission ?? {})
+    } finally {
+      // A line read can update several files, including copies of photos already in the inventory.
+      stored = undefined
+    }
     if (n) console.log(`line read: ${url}: ${n} photo places named from its pictures' lines`)
     if (missed.length) {
       await lineTurn(url)
