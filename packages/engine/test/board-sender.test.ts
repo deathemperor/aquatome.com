@@ -25,7 +25,8 @@ const opening = ev('message_start', { message: { id: 'm', type: 'message', role:
 const ending = ev('content_block_delta', { index: 0, delta: { type: 'text_delta', text: ' theo đàn."}' } }) + ev('content_block_stop', { index: 0 })
   + ev('message_delta', { delta: { stop_reason: 'end_turn', stop_sequence: null }, usage: { output_tokens: 20 } }) + ev('message_stop', {})
 const sse = (body: BodyInit) => new Response(body, { headers: { 'content-type': 'text/event-stream' } })
-const send = (billed: Billed, fetch: typeof globalThis.fetch) => boardSender({ billed, healthy: KEYS, store: memoryHealth(), clientFor: k => clientFor(k, fetch) })
+const send = (billed: Billed, fetch: typeof globalThis.fetch, onCost?: (usd: number) => void, healthy = KEYS) =>
+  boardSender({ billed, healthy, store: memoryHealth(), clientFor: k => clientFor(k, fetch), onCost })
 
 test('with no allowance left no request leaves: the run stops at the line before any key is asked', async () => {
   const log = await logIn()
@@ -42,7 +43,8 @@ test('every key it tries is a billed call: held before its request, settled afte
   let asked = 0
   // The first key: overloaded (529), refused before anything ran; the next answers.
   const fetch = vi.fn(async () => (++asked === 1 ? Response.json({ type: 'error', error: { type: 'overloaded_error', message: 'Overloaded' } }, { status: 529 }) : sse(opening + ending)))
-  const m = await send(new Billed(BILLED_STEP, log, line(10), () => NOW), fetch)(BODY, OPTS)
+  const reported: number[] = []
+  const m = await send(new Billed(BILLED_STEP, log, line(10), () => NOW), fetch, cost => reported.push(cost))(BODY, OPTS)
   expect(m.content).toMatchObject([{ type: 'text', text: '{"text":"Nuôi theo đàn."}' }])
   const r = await rows(log)
   // Whichever key the rotation tries first (its order isn't fixed), each try is held, then settled, in turn.
@@ -51,6 +53,7 @@ test('every key it tries is a billed call: held before its request, settled afte
   expect(r.map(x => [x.held ? 'held' : 'settles', x.key])).toEqual([['held', first], ['settles', first], ['held', second], ['settles', second]])
   expect(r.filter(x => x.held).map(x => x.usd)).toEqual([billedWorst(BODY), billedWorst(BODY)])
   expect(r.filter(x => x.settles).map(x => [x.cost, x.error])).toEqual([[0, true], [billedCost(BODY.model, { input: 1000, output: 20, cacheRead: 0, cacheWrite: 0 }), false]])
+  expect(reported).toEqual(r.filter(x => x.settles).map(x => x.cost))
   expect(fetch).toHaveBeenCalledTimes(2)
 })
 
@@ -61,8 +64,8 @@ test('a stream keeps its hold until it ends, or fails, and only then is settled'
     let sent!: () => void
     const begun = new Promise<void>(r => { sent = r })
     const fetch = vi.fn(async () => sse(new ReadableStream<Uint8Array>({ start: c => { ctl = c; c.enqueue(new TextEncoder().encode(opening)); sent() } })))
-    const call = send(new Billed(BILLED_STEP, log, line(10), () => NOW), fetch)({ ...BODY }, { ...OPTS, timeoutMs: 1_000 }).catch((e: unknown) => e)
-    await begun
+    const call = send(new Billed(BILLED_STEP, log, line(10), () => NOW), fetch, undefined, KEYS.slice(0, 1))(BODY, OPTS).catch((e: unknown) => e)
+    await Promise.race([begun, call.then(cause => { throw new Error('The call ended before it opened the stream', { cause }) })])
     await new Promise(r => setTimeout(r, 50))
     // Writing: held, not settled.
     expect((await rows(log)).map(x => (x.held ? 'held' : 'settles'))).toEqual(['held'])

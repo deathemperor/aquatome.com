@@ -48,8 +48,6 @@ import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
-import { costOf as mainCost } from '../../../apps/site/worker/fishid/claude'
-import type { KeyEntry } from '../../../apps/site/worker/fishid/keys'
 import { Billed, BilledLimit } from '../src/billed'
 import { ceilingsAsMain, costLog, leftYielding, nameStep, stepName } from '../src/ceiling'
 import { claudeCli, claudeTools } from '../src/claude'
@@ -163,7 +161,6 @@ async function answer() {
   const store = memoryHealth()
   // As the Worker sends: every call goes through the keys in turn, a key that fails rotated past, each try billed
   // (board-stream.ts `boardSender`). Each call's start, length and output, so the time rule can be set from its own times.
-  const sender = (healthy: KeyEntry[], log: CallLog[] = [], t0 = Date.now()) => boardSender({ billed, healthy, store, clientFor, log, t0 })
   const { done, jobs } = await todo(args.arm)
   console.log(`${args.arm}: ${jobs.length} to answer, ${done.size} kept`)
   let n = 0
@@ -171,24 +168,26 @@ async function answer() {
     // Stopped at the billed line: what's left is asked on the next run.
     if (billed.stopped) return
     const began = Date.now()
-    const timing: any[] = []
+    const timing: CallLog[] = []
+    let paid = done.get(id)?.usd ?? 0
+    const onCost = (usd: number) => { paid += usd }
     const tanks = f === 'post' ? [] : [savedTank(p.tank)]
     const found = given.get(`${p.id}-${f === 'tank' ? 'tank' : 'post'}`)
     try {
       const run = await answerQuestion({
-        send: sender(await healthyKeys(keys, store, Date.now()), timing, began), model: args.model, lang: 'vi', question: asked(p, f), earlier: [], start: {}, handbook: hb, tanks: async () => tanks,
+        send: boardSender({ billed, healthy: await healthyKeys(keys, store, Date.now()), store, clientFor, log: timing, t0: began, onCost }), model: args.model, lang: 'vi', question: asked(p, f), earlier: [], start: {}, handbook: hb, tanks: async () => tanks,
         // As the Worker: the handover is asked whenever there's a tank (handoverFor decides), its search what --given found.
         ...(tanks.length && handoverFor ? { handover: () => handoverFor({ question: asked(p, f), start: {}, tanks, hb, lang: 'vi', search: async () => found ?? [] }) } : {}),
         onText: () => undefined,
       })
       // Stopped at the billed line (the agent's loop hands back what its send threw): asked again on the next run, and
       // an answer that came is kept, since it was paid for.
-      if (!run.answer?.text && (run.error instanceof BilledLimit || billed.stopped)) return
+      if (!run.answer?.text && (run.error instanceof BilledLimit || billed.stopped) && !paid) return
       const toolUses = run.history.flatMap((m: any) => (Array.isArray(m.content) ? m.content : []).filter((b: any) => b.type === 'tool_use').map((b: any) => `${b.name} ${JSON.stringify(b.input)}`))
-      done.set(id, { id, post: p.id, topic: p.topic, form: f, text: run.answer?.text, blocks: run.blocks, suggestions: run.answer?.suggestions, stopped: run.stopped, calls: run.calls, asked: toolUses, timing, ms: Date.now() - began, usd: mainCost(args.model, run.spent), ...(run.answer ? {} : { failed: String(run.error?.message ?? run.stopped).slice(0, 160) }) })
+      done.set(id, { id, post: p.id, topic: p.topic, form: f, text: run.answer?.text, blocks: run.blocks, suggestions: run.answer?.suggestions, stopped: run.stopped, calls: run.calls, asked: toolUses, timing, ms: Date.now() - began, usd: paid, ...(run.answer ? {} : { failed: String(run.error?.message ?? run.stopped).slice(0, 160) }) })
     } catch (e: any) {
-      if (billed.stopped) return
-      done.set(id, { id, post: p.id, topic: p.topic, form: f, ms: Date.now() - began, usd: 0, failed: String(e?.message ?? e).slice(0, 160) })
+      if (billed.stopped && !paid) return
+      done.set(id, { id, post: p.id, topic: p.topic, form: f, ms: Date.now() - began, usd: paid, failed: String(e?.message ?? e).slice(0, 160) })
     }
     if (++n % 10 === 0) await writeTurns(args.arm!, done)
   }), Number(args.concurrency))
@@ -282,22 +281,22 @@ async function plain() {
   const { done, jobs } = await todo(args.arm)
   console.log(`${args.arm}: ${jobs.length} to answer, ${done.size} kept`)
   const cli = !args.model!.includes('haiku')
-  let send: ((q: string) => Promise<{ text: string; usd: number }>) | undefined
+  let send: ((q: string, onCost: (usd: number) => void) => Promise<string>) | undefined
   if (!cli) {
     // The chat's own model with no system prompt, no tools and no handbook, as chat-vs-plain.ts asked it on 8 Nov.
     const { clientFor } = await import('../../../apps/site/worker/fishid/claude')
     const { loadKeys } = await import('../../../apps/site/worker/fishid/keys')
     const { keys } = await loadKeys(await readFile(args.keys!, 'utf8'))
     const client = await clientFor(keys[0]!)
-    send = async q => {
+    send = async (q, onCost) => {
       const body = { model: args.model!, max_tokens: 8192, messages: [{ role: 'user', content: q }], output_config: { effort: 'medium' } }
-      const m: any = await billed.call({ body, key: keys[0]!.hash }, async () => {
+      const m: any = await billed.call({ body, key: keys[0]!.hash, onCost }, async () => {
         const r: any = await client.messages.create(body as any, { timeout: 120_000 })
         return { value: r, tokens: tokensOf(r.usage) }
       })
       // A cut-off answer is a failure, asked again on the next run, never judged as whole.
       if (m.stop_reason !== 'end_turn') throw new Error(`stopped: ${m.stop_reason}`)
-      return { text: m.content.filter((b: any) => b.type === 'text').map((b: any) => b.text).join(''), usd: mainCost(args.model!, tokensOf(m.usage) ?? { input: 0, output: 0 }) }
+      return m.content.filter((b: any) => b.type === 'text').map((b: any) => b.text).join('')
     }
   }
   let n = 0
@@ -305,16 +304,17 @@ async function plain() {
     if (billed.stopped) return
     const began = Date.now()
     const q = plainQuestion(p, f)
+    let paid = done.get(id)?.usd ?? 0
     try {
       // Through the CLI: on the owner's subscription, a general assistant's one line for a system prompt, no tools.
       if (cli) mayCall()
-      const r = cli
-        ? { text: (await retry(() => claudeCli<{ answer: string }>({ system: 'You are Claude, a helpful AI assistant.', prompt: q, schema: { type: 'object', additionalProperties: false, required: ['answer'], properties: { answer: { type: 'string' } } }, model: args.model }))).answer, usd: 0 }
-        : await send!(q)
-      done.set(id, { id, post: p.id, topic: p.topic, form: f, text: r.text, ms: Date.now() - began, usd: r.usd })
+      const text = cli
+        ? (await retry(() => claudeCli<{ answer: string }>({ system: 'You are Claude, a helpful AI assistant.', prompt: q, schema: { type: 'object', additionalProperties: false, required: ['answer'], properties: { answer: { type: 'string' } } }, model: args.model }))).answer
+        : await send!(q, usd => { paid += usd })
+      done.set(id, { id, post: p.id, topic: p.topic, form: f, text, ms: Date.now() - began, usd: paid })
     } catch (e: any) {
-      if (billed.stopped) return
-      done.set(id, { id, post: p.id, topic: p.topic, form: f, ms: Date.now() - began, usd: 0, failed: String(e?.message ?? e).slice(0, 160) })
+      if (billed.stopped && !paid) return
+      done.set(id, { id, post: p.id, topic: p.topic, form: f, ms: Date.now() - began, usd: paid, failed: String(e?.message ?? e).slice(0, 160) })
     }
     if (++n % 10 === 0) await writeTurns(args.arm!, done)
   }), Number(args.concurrency))

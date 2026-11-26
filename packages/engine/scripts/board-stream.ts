@@ -52,14 +52,14 @@ export type CallLog = { call: number; at: number; ms: number; out?: number; tool
  * key a billed call (billed.ts), held to the line before its request leaves and settled once its stream ends or fails.
  * Stopped at the line, no request leaves. Each call's timing goes to `log`.
  */
-export function boardSender(o: { billed: Billed; healthy: KeyEntry[]; store: HealthStore; clientFor: (k: KeyEntry) => Promise<any>; log?: CallLog[]; t0?: number }) {
+export function boardSender(o: { billed: Billed; healthy: KeyEntry[]; store: HealthStore; clientFor: (k: KeyEntry) => Promise<any>; log?: CallLog[]; t0?: number; onCost?: (usd: number) => void }) {
   const log = o.log ?? [], t0 = o.t0 ?? Date.now()
   return async (b: any, opts: any) => {
     if (o.billed.stopped) throw new BilledLimit(o.billed.stopped)
     const at = Date.now(), cut: Cut = {}
     const r = await rotate(o.healthy, o.store, async (k, left) => {
       const c = await o.clientFor(k)
-      return o.billed.call({ body: b, key: k.hash }, async () => {
+      return o.billed.call({ body: b, key: k.hash, onCost: o.onCost }, async () => {
         const timeout = Math.min(left, opts.timeoutMs)
         const m = await streamOnce<any>(signal => c.messages.stream(b, { timeout, signal }), timeout, opts, cut)
         return { value: m, tokens: tokensOf(m.usage) }

@@ -3,6 +3,7 @@ import { existsSync, readdirSync, readFileSync, utimesSync } from 'node:fs'
 import { chmod, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { DatabaseSync } from 'node:sqlite'
 import { describe, expect, test } from 'vitest'
 import { PRICES } from '../../../apps/site/worker/fishid/claude'
 import { Billed, BilledLimit, BILLED_STEP, billedCost, billedLine, billedLog, billedPrice, billedWorst, unbilled, worstOf } from '../src/billed'
@@ -194,37 +195,81 @@ describe('Codex\'s read of the billed line (17 Nov)', () => {
     expect(billedCost('claude-haiku-5-5', { input: 60_000, output: 1000, cacheRead: 30_000, cacheWrite: 0 })).toBeCloseTo((60_000 * 0.1 + 1000 * 0.5 + 30_000 * 0.01) / 1e6, 12)
     // Through a call: held at the long rate, settled at it.
     const log = join(await dirOf(), 'aquatome-billed.jsonl')
-    await new Billed(BILLED_STEP, log, LINE, () => NOW).call({ body: haiku(100_000) }, async () => ({ value: 'ok', tokens: { input: 101_000, output: 1000 } }))
+    const counted: number[] = []
+    await new Billed(BILLED_STEP, log, LINE, () => NOW).call({ body: haiku(100_000), onCost: usd => counted.push(usd) }, async () => ({ value: 'ok', tokens: { input: 101_000, output: 1000 } }))
     const [held, settled] = await lines(log)
     expect([held.usd, settled.cost]).toEqual([worstOf(haiku(100_000), LONG), (101_000 * 0.5 + 1000 * 2.5) / 1e6])
+    expect(counted).toEqual([settled.cost])
   })
 
-  test('the line\'s check and the hold are one process\'s at a time: a run waits while another holds the lock, then sees its hold', async () => {
+  test('a live process keeps the ledger lock even with an old lock file, and its exit releases it', async () => {
     const log = join(await dirOf(), 'aquatome-billed.jsonl')
-    const lock = `${log}.lock`
-    // Another run, in its own process: takes the lock, writes a hold of $9.50 300 ms later, and lets the lock go.
-    const other = spawn(process.execPath, ['-e', `const fs = require('fs'); fs.writeFileSync(${JSON.stringify(lock)}, 'x', { flag: 'wx' }); setTimeout(() => { fs.appendFileSync(${JSON.stringify(log)}, JSON.stringify({ at: ${JSON.stringify(TODAY)}, step: ${JSON.stringify(BILLED_STEP)}, model: 'claude-sonnet-5-5', usd: 9.5, held: 'other' }) + '\\n'); fs.unlinkSync(${JSON.stringify(lock)}) }, 300)`], { stdio: 'ignore' })
-    const ended = new Promise(r => other.on('exit', r))
-    for (let i = 0; i < 500 && !existsSync(lock); i++) await new Promise(r => setTimeout(r, 10))
-    expect(existsSync(lock)).toBe(true)
-    const b = new Billed(BILLED_STEP, log, LINE, () => NOW)
-    // $1 would fit what the log says now, but not once the other's $9.50 is held.
-    await expect(b.call({ body: ask(1) }, answer(0))).rejects.toThrow(/\$9\.50 of \$10\.00/)
-    await ended
-    expect(existsSync(lock)).toBe(false)
-    // A lock left by a run killed while it held it is taken once it's stale.
-    await writeFile(lock, 'x')
-    utimesSync(lock, new Date(Date.now() - 60_000), new Date(Date.now() - 60_000))
+    const lock = `${log}.lock.sqlite`
+    const hold = JSON.stringify({ at: TODAY, step: BILLED_STEP, usd: 9.5, held: 'other' }) + '\n'
+    const other = spawn(process.execPath, ['-e', `
+      const db = new (require('node:sqlite').DatabaseSync)(${JSON.stringify(lock)});
+      db.exec('BEGIN IMMEDIATE');
+      process.on('message', () => {
+        require('node:fs').appendFileSync(${JSON.stringify(log)}, ${JSON.stringify(hold)});
+        process.exit(0);
+      });
+      process.send('locked');
+    `], { stdio: ['ignore', 'ignore', 'ignore', 'ipc'] })
+    const exited = new Promise<void>(resolve => other.once('exit', () => resolve()))
+    try {
+      await Promise.race([
+        new Promise<void>(resolve => other.once('message', () => resolve())),
+        exited.then(() => { throw new Error('lock holder exited before acquiring the lock') }),
+      ])
+      const old = new Date(Date.now() - 60_000)
+      utimesSync(lock, old, old)
+      const b = new Billed(BILLED_STEP, log, LINE, () => NOW)
+      let ran = false
+      const attempt = b.call({ body: ask(1) }, async () => { ran = true; return answer(0)() })
+      const refused = expect(attempt).rejects.toThrow(/\$9\.50 of \$10\.00/)
+      await new Promise(r => setTimeout(r, 25))
+      expect(ran).toBe(false)
+      expect(existsSync(log)).toBe(false)
+      other.send('finish')
+      await refused
+      await exited
+    } finally {
+      if (other.exitCode === null && other.signalCode === null) other.kill()
+      await exited
+    }
     expect(await new Billed(BILLED_STEP, log, LINE, () => NOW).call({ body: ask(0.1) }, answer(0))).toBe('ok')
+  })
+
+  test('an admission that waits across midnight uses the new day’s allowance', async () => {
+    const log = join(await dirOf(), 'aquatome-billed.jsonl')
+    const lock = new DatabaseSync(`${log}.lock.sqlite`)
+    lock.exec('BEGIN IMMEDIATE')
+    let now = new Date('2026-11-17T16:59:59Z')
+    const ceilings = { ...LINE, api: { tables: [...LINE.api!.tables, { from: '2026-11-18T00:00:00+07:00', default: 0, backstop: 0, steps: {} }] } }
+    const billed = new Billed(BILLED_STEP, log, ceilings, () => now)
+    let ran = false
+    const attempt = billed.call({ body: ask(0.1) }, async () => { ran = true; return answer(0)() })
+    now = new Date('2026-11-17T17:00:00Z')
+    lock.close()
+    await expect(attempt).rejects.toThrow(/\$0\.00 of \$0\.00/)
+    expect([ran, existsSync(log)]).toEqual([false, false])
   })
 
   test('a billed log it can\'t read whole stops the run before the call, where $0 would let it spend past its line; the engine\'s reader keeps skipping what it can\'t read', async () => {
     const hold = { at: TODAY, step: BILLED_STEP, model: 'claude-sonnet-5-5', usd: 2, held: 'h1' }
+    const settlement = { ...hold, held: undefined, settles: 'h1', usd: -1, cost: 1 }
+    const jsonl = (...rows: unknown[]) => rows.map(row => JSON.stringify(row) + '\n').join('')
     const bad: [string, string, RegExp][] = [
       ['a line that isn\'t JSON', `${JSON.stringify(hold)}\n{"at": "${TODAY}", "st\n`, /isn't JSON \(line 2\)/],
       ['a last line cut short', `${JSON.stringify(hold)}\n{"at":"${TODAY}"`, /cut short/],
       ['a settle with no hold', `${JSON.stringify({ ...hold, held: undefined, settles: 'nowhere', usd: -1 })}\n`, /never held \(line 1\)/],
       ['a line with no dollars', `${JSON.stringify({ ...hold, usd: 'two' })}\n`, /isn't a billed call's \(line 1\)/],
+      ['a replayed refund', jsonl(hold, settlement, settlement), /settles a call twice/],
+      ['a duplicate hold', jsonl(hold, hold), /repeated hold/],
+      ['a refund on a different day', jsonl(hold, { ...settlement, at: YESTERDAY }), /doesn't match its hold/],
+      ['a refund on a different step', jsonl(hold, { ...settlement, step: 'other' }), /doesn't match its hold/],
+      ['a refund larger than the hold', jsonl(hold, { ...settlement, usd: -3, cost: -1 }), /doesn't match its hold/],
+      ['a standalone negative amount', jsonl({ ...hold, held: undefined, usd: -4 }), /negative charge/],
     ]
     for (const [what, text, why] of bad) {
       const log = join(await dirOf(), 'aquatome-billed.jsonl')
