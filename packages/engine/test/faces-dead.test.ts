@@ -1193,13 +1193,20 @@ test('a confirmed dead verdict takes effect before the sweep copies the mark to 
   expect(sent).toEqual([])
 })
 
-test('a failed breed write leaves its album entry available for retry and one report', async () => {
+test.each([false, true])('a failed breed write leaves its album entry available for retry (watermark hold: %s)', async held => {
   const dead = photo('known-dead')
   const { root, state, file } = await albumFixture([dead])
   const breed = join(root, 'content/breeds/beta/entity.json')
   await mkdir(join(breed, '..'), { recursive: true })
   await writeFile(breed, JSON.stringify({ id: 'beta', photos: [dead] }))
   await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))
+  if (held) {
+    vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+    onTestFinished(() => { vi.unstubAllEnvs() })
+    await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+      [dead.url]: { why: 'watermark: withheld', pages: ['breeds/beta'], at: '2026-11-26', step: 'the watermark screen' },
+    }))
+  }
   const replace = imageWrites.replacePhotoDocument
   const failing = vi.spyOn(imageWrites, 'replacePhotoDocument').mockImplementation(async (path, bytes) => {
     if (path === breed) throw new Error('simulated breed write failure')
@@ -1388,4 +1395,58 @@ test('a retained shop watermark does not exclude an unjudged fallback original f
   const view = await publicView()
   expect(view.species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([original.url])
   expect(view.galleries.alpha?.map(p => p.url)).toEqual([original.url])
+})
+
+
+test('a failed second album write preserves both applied take-offs for the next report', async () => {
+  const first = photo('first-dead'), second = photo('second-dead')
+  const { root, state, file } = await albumFixture([first])
+  const other = join(root, 'content/gallery/b.json')
+  await writeFile(other, JSON.stringify({ id: 'b', photos: [second] }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [first.url]: { dead: true }, [second.url]: { dead: true } }))
+  const replace = imageWrites.replacePhotoDocument
+  const failing = vi.spyOn(imageWrites, 'replacePhotoDocument').mockImplementation(async (path, bytes) => {
+    if (path === other) throw new Error('simulated second album write failure')
+    await replace(path, bytes)
+  })
+  const { d } = deps()
+  try {
+    await expect(screenDead(root, d.dead, { limit: 0, albums: true })).rejects.toThrow('simulated second album write failure')
+  } finally { failing.mockRestore() }
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
+  expect(JSON.parse(await readFile(other, 'utf8')).photos).toEqual([second])
+
+  const retry = await screenDead(root, d.dead, { limit: 0, albums: true })
+  expect(retry.dead).toEqual([expect.stringContaining(first.url), expect.stringContaining(second.url)])
+  expect(JSON.parse(await readFile(other, 'utf8')).photos).toEqual([])
+  expect((await screenDead(root, d.dead, { limit: 0, albums: true })).dead).toEqual([])
+})
+
+test('an album take-off keeps a waiting guide stock slot through the sweep and human clear', async () => {
+  const dead = photo('held-dead')
+  const { root, state, file, publicView } = await publicFixture([dead], [dead], [dead.url])
+  const guide = join(root, 'content/guides/sample/entity.json')
+  await mkdir(join(guide, '..'), { recursive: true })
+  const figures = [{ heading: 'Sample part', photo: dead, moments: [] }]
+  await writeFile(guide, JSON.stringify({ id: 'sample', photos: [], video: { figures } }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [dead.url]: 0 }))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [dead.url]: { why: 'dead: withheld', pages: ['species/alpha'], at: '2026-11-26', step: 'the dead-fish screen' },
+  }))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
+  const { d } = deps()
+
+  expect((await screenDead(root, d.dead, { limit: 0, albums: true })).dead).toHaveLength(1)
+  await sweep(root, { history: async () => [] })
+  expect(JSON.parse(await readFile(guide, 'utf8')).video.figures).toEqual(figures)
+  const marks = await json(root, 'engine-state/_photo-second-look.json')
+  marks[dead.url].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(marks))
+  await sweep(root, { history: async () => [] })
+
+  expect(JSON.parse(await readFile(guide, 'utf8')).video.figures).toEqual(figures)
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([dead])
+  expect((await publicView()).galleries.alpha?.map(p => p.url)).toEqual([dead.url])
 })

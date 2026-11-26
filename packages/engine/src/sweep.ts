@@ -1150,12 +1150,15 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment')), ...glossaryFiles]) {
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
-    const data = JSON.parse(raw) as { photos?: unknown }
+    const data = JSON.parse(raw) as { photos?: unknown; video?: { figures?: { photo?: { url?: string }; moments?: { url?: string }[] }[] } }
+    const protectedParts = new Set(file.includes('/guides/') ? (data.video?.figures ?? []).flatMap(part => [part.photo, ...(part.moments ?? [])])
+      .flatMap(photo => photo?.url && rejectedAt(photo.url)?.[1].startsWith('waiting:') ? [photo.url] : []) : [])
     const places = new Map<string, Stood[]>()
     const canCapture = !!entriesDir()
     const remove = (url: string) => {
       const entry = rejectedAt(url)
-      return listed(url) && (!entry || entry[0] in active) && (canCapture || !remember(url))
+      return listed(url) && !protectedParts.has(url) && (!entry || entry[0] in active) &&
+        (!entry?.[1].startsWith('waiting:') || (canCapture && !!remember(url)))
     }
     const before = { ...data }
     const removed: string[] = []
