@@ -1,5 +1,5 @@
 import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, photoLookAnswer, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoClears, photoKey, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
-import { createHash } from 'node:crypto'
+import { albumReceipts, completeAlbumReceipts, recordAlbumTakeOffs, type TakeOffReceipt } from './album-takeoffs'
 import { replacePhotoDocument } from './image-cache-write'
 import { compactRejection, compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -51,24 +51,7 @@ export const DEAD_SCREEN_PROMPT = `Each numbered tile is what an aquarium handbo
 Answer every tile, by its number.`
 export const PER_SHEET = 12
 const ALBUM_RETRY_FILE = '_photo-album-dead-retry.json'
-const ALBUM_TAKEOFFS_FILE = '_photo-album-dead-takeoffs.json'
-const ALBUM_ACK_DIR = 'album-takeoff-acks'
-type TakeOffReceipt = true | { batch: string; acknowledged?: true }
-
-export async function acknowledgeAlbumTakeOffs(root: string, batch: string): Promise<number> {
-  if (!/^[a-f0-9]{64}$/.test(batch)) throw new Error('Invalid album take-off batch ID')
-  const state = join(root, 'engine-state')
-  const receipts = await readJson<Record<string, TakeOffReceipt>>(join(state, ALBUM_TAKEOFFS_FILE)) ?? {}
-  const count = Object.values(receipts).filter(r => r !== true && r.batch === batch && !r.acknowledged).length
-  if (!count) return 0
-  const dir = join(state, ALBUM_ACK_DIR)
-  await mkdir(dir, { recursive: true })
-  // Each acknowledged batch has its own receipt, independent of the writer currently screening albums.
-  return writeFile(join(dir, batch), '', { flag: 'wx' }).then(() => count, (error: NodeJS.ErrnoException) => {
-    if (error.code === 'EEXIST') return 0
-    throw error
-  })
-}
+export { acknowledgeAlbumTakeOffs } from './album-takeoffs'
 
 export const thumbnail = (youtubeId: string) => `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`
 /** A video's thumbnail, then the frames YouTube publishes from about a quarter, half and three quarters through. */
@@ -82,7 +65,7 @@ async function readJson<T>(path: string): Promise<T | undefined> {
   })
   return raw === undefined ? undefined : JSON.parse(raw) as T
 }
-type PhotoDocument = { photos?: Photo[]; video?: { figures?: { photo?: Photo; moments?: unknown[] }[] }; videos?: { youtubeId: string }[] }
+type PhotoDocument = { photos?: Photo[]; kinds?: { photo?: Photo }[]; video?: { figures?: { photo?: Photo; moments?: unknown[] }[] }; videos?: { youtubeId: string }[] }
 const indentOf = (raw: string) => /^\{\n( +)"/.exec(raw)?.[1]?.length ?? 0
 
 /** A video's pictures on one tile, two by two, each without the black bars YouTube pads it to 4:3 with. */
@@ -125,7 +108,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   // `firstOff`: a page's last photo the hold doesn't keep, its first verdict on a photo that never passed the check (last-photo.ts).
   const report = { sheets: 0, judged: 0, dead: [] as string[], pendingTakeOffs: 0, albumBatches: [] as { id: string; urls: string[] }[], held: [] as string[], firstOff: [] as string[], failed: [] as string[], left: 0, stopped: '' }
 
-  const receipts = o.albums ? (await readJson<Record<string, TakeOffReceipt>>(state(ALBUM_TAKEOFFS_FILE))) ?? {} : {}
+  const receipts: Record<string, TakeOffReceipt> = o.albums ? await albumReceipts(root) : {}
   const applied = new Map<string, string>()
   const deferred = new Set<string>()
   const reportDead = (url: string, note: string) => {
@@ -134,41 +117,12 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     else report.dead.push(line)
   }
   const reportAlbumTakeOffs = async () => {
-    const completed: string[] = []
-    let changed = false
-    for (const [url, receipt] of Object.entries(receipts)) {
-      if (receipt !== true || deferred.has(url)) continue
-      if (initialClears(url) && !isListed(url)?.[1].startsWith('dead:')) {
-        delete receipts[url]
-        changed = true
-      } else {
-        completed.push(url)
-      }
-    }
-    completed.sort()
-    for (let start = 0; start < completed.length; start += 30) {
-      const urls = completed.slice(start, start + 30)
-      const batch = createHash('sha256').update(JSON.stringify(urls)).digest('hex')
-      for (const url of urls) {
-        receipts[url] = { batch }
-        report.dead.push(applied.get(url) ?? `${url}: dead screen dead`)
-      }
-      changed = true
-    }
-    // The same batch is available if the process stops before the CLI reports it.
-    if (changed) await writePhotoState(state(ALBUM_TAKEOFFS_FILE), receipts)
-    const acknowledged = new Set(await readdir(state(ALBUM_ACK_DIR)).catch((error: NodeJS.ErrnoException) => {
-      if (error.code !== 'ENOENT') throw error
-      return [] as string[]
-    }))
-    const batches = new Map<string, string[]>()
-    for (const [url, receipt] of Object.entries(receipts)) {
-      if (receipt === true || receipt.acknowledged || acknowledged.has(receipt.batch)) continue
-      const urls = batches.get(receipt.batch) ?? []
-      urls.push(url)
-      batches.set(receipt.batch, urls)
-    }
-    report.albumBatches = [...batches].map(([id, urls]) => ({ id, urls: urls.sort() }))
+    const completed = Object.keys(receipts).filter(url => receipts[url] === true && !deferred.has(url))
+    const ignored = completed.filter(url => initialClears(url) && !isListed(url)?.[1].startsWith('dead:'))
+    const ready = completed.filter(url => !ignored.includes(url))
+    const batches = await completeAlbumReceipts(root, ready, ignored)
+    report.dead.push(...ready.map(url => applied.get(url) ?? `${url}: dead screen dead`))
+    report.albumBatches = batches
   }
 
   // Videos first (the owner's find), then main photos; each picture once, with every page that shows it.
@@ -209,6 +163,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         take.set(url, it)
       }
     }
+    for (const [url, receipt] of Object.entries(receipts)) {
+      if (receipt !== true || knownDead.has(url) || (cleared(url) && !isListed(url)?.[1].startsWith('dead:'))) continue
+      knownDead.set(url, { key: url, url, files: [], rejection: isListed(url)?.[1] })
+    }
     if (!knownDead.size && (!o.limit || !photos.size)) {
       await reportAlbumTakeOffs()
       return { ...report, left: photos.size }
@@ -219,7 +177,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       const key = photoKey(item.url) ?? item.url
       byPhoto.set(key, [...(byPhoto.get(key) ?? []), item])
     }
-    for (const kind of ['species', 'plants', 'breeds', 'guides']) {
+    for (const kind of ['species', 'plants', 'breeds', 'guides', 'glossary']) {
       const dir = join(content, kind)
       const pages = await readdir(dir, { withFileTypes: true }).catch((error: NodeJS.ErrnoException) => {
         if (error.code === 'ENOENT') return []
@@ -229,7 +187,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         const file = join(dir, page.name, 'entity.json')
         const entity = JSON.parse(await readFile(file, 'utf8')) as PhotoDocument
         const stock = (entity.video?.figures ?? []).flatMap(figure => figure.photo ? [figure.photo] : [])
-        const keys = new Set([...(entity.photos ?? []), ...stock].flatMap(deadScreenPhotoUrls).map(url => photoKey(url) ?? url))
+        const glossary = (entity.kinds ?? []).flatMap(kind => kind.photo ? [kind.photo] : [])
+        const keys = new Set([...(entity.photos ?? []), ...stock, ...glossary].flatMap(deadScreenPhotoUrls).map(url => photoKey(url) ?? url))
         for (const key of keys) for (const it of byPhoto.get(key) ?? []) it.files.push(file)
       }
     }
@@ -429,6 +388,11 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
             .filter(f => f.photo || f.moments?.length) }
           removed = true
         }
+        if (o.albums && !reviewUrl && page.kinds?.some(k => k.photo && remove(k.photo))) {
+          page.kinds = page.kinds.filter(k => !k.photo || !remove(k.photo))
+          if (!page.kinds.length) delete page.kinds
+          removed = true
+        }
       }
     }
     if (it.rejection && !it.agreement && !removed) continue
@@ -464,10 +428,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   }, left)
   const save = (f: string, data: object) => writePhotoState(state(f), data)
   // Record the planned take-off before either a rejection or an off mark could cause another step to strip it.
-  if (applied.size) {
-    for (const url of applied.keys()) receipts[url] ??= true
-    await save(ALBUM_TAKEOFFS_FILE, receipts)
-  }
+  if (applied.size) Object.assign(receipts, await recordAlbumTakeOffs(root, applied.keys()))
   await holdForSecondLook(root, holding, 'the dead-fish screen', undefined, left)
   if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)
   if (off.some(x => !x.video && going.has(x.url) && !heldByAddress(x.url))) await save('_photo-rejected.json', photoRejected)

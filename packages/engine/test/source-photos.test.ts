@@ -1,10 +1,13 @@
 import { readFileSync } from 'node:fs'
+import { mkdir, mkdtemp, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { ArchiveRefused } from '../src/archive'
 import { LockBusy } from '../src/mac-lock'
 import { htmlToOutline } from '../src/outline'
-import { linkedPhotos, mayTake, photoKey, pickSourcePhotos, storeSourcePhotos } from '../src/source-photos'
+import { linkedPhotos, mayTake, photoKey, pickSourcePhotos, storedSourcePhotos, storeSourcePhotos } from '../src/source-photos'
 
 const jpeg = (width = 800, height = 600) => sharp({ create: { width, height, channels: 3, background: 'gray' } }).jpeg().toBuffer()
 
@@ -576,4 +579,24 @@ test('a source reread reuses an original already stored in a credited wrapper', 
   const unused = async () => { throw new Error('the stored original must not be fetched or overwritten') }
   const deps = { bytes: unused, media: { urlFor: (key: string) => `https://media.test/${key}`, put: unused } }
   expect(await storeSourcePhotos(source, 'Source', page, [{ src, alt: '', width: 1000, height: 700 }], deps, [stored])).toEqual([stored])
+})
+
+test('a different source page reuses the bytes and credit of an already stored original', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'source-original-'))
+  const earlier = join(root, 'species/earlier')
+  await mkdir(earlier, { recursive: true })
+  const source = 'glaser'
+  const src = 'https://source.example/shared.jpg'
+  const mediaUrl = (key: string) => `https://media.test/${key}`
+  const original = { url: mediaUrl(photoKey(source, src)), width: 1000, height: 700 }
+  const credit = { licence: 'CC BY 4.0', author: 'Sample credited owner', sourceUrl: 'https://source.example/earlier', source }
+  await writeFile(join(earlier, 'entity.json'), JSON.stringify({ photos: [{
+      ...credit, url: 'https://media.test/upscaled.webp', width: 2000, height: 1400,
+      altered: [{ method: 'lanczos3-upscale' }], original,
+    }] }))
+  const stored = await storedSourcePhotos(root)
+  const unused = async () => { throw new Error('an address shared by another page must keep its bytes') }
+  const fresh = await storeSourcePhotos(source, 'Source', 'https://source.example/new', [{ src, alt: '', width: 1000, height: 700 }],
+    { bytes: unused, media: { urlFor: mediaUrl, put: unused }, stored }, [])
+  expect(fresh).toEqual([{ ...original, ...credit, sourceUrl: 'https://source.example/new' }])
 })

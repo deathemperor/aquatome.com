@@ -1,3 +1,4 @@
+import { recordListedAlbumTakeOffs } from './album-takeoffs'
 import { piece } from './pieces'
 import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -837,6 +838,7 @@ async function dropRejected(root: string, content: string, rejected: ReturnType<
     const removed = new Set(g.photos.filter(p => !keep.includes(p)).map(p => p.url))
     placesIn(root, file, g, url => removed.has(url) ? waiting(url) : undefined, stood)
     await notePlaces(root, stood)
+    await recordListedAlbumTakeOffs(root, removed, rejected)
     await replacePhotoDocument(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
   }
 }

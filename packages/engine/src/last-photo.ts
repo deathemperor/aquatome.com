@@ -1,4 +1,4 @@
-import { isNonCommercial, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, setsCookies, settledWaiting, type Photo } from '@aq/schema'
+import { isNonCommercial, isVersionRejection, originalPhotoRefusals, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, setsCookies, settledWaiting, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { createHash, randomUUID } from 'node:crypto'
 import { link, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
@@ -44,7 +44,7 @@ export type Look = { said: 'agree' | 'clear'; by: string; on: string }
  * `left`: on a photo marked off, the places the step that took it off took it from, as they were just before: the file
  * and its place there, its entry being kept on the Mac alone (`notePlaces`).
  */
-export type SecondLook = { why: string; step: string; pages: string[]; at: string; off?: true; look?: Look; back?: string; left?: Place[]; settled?: Place[]; parts?: string[] }
+export type SecondLook = { why: string; step: string; pages: string[]; at: string; off?: true; look?: Look; back?: string; left?: Place[]; settled?: Place[]; parts?: string[]; originals?: string[] }
 export type SecondLooks = Record<string, SecondLook>
 export const SECOND_LOOK_FILE = '_photo-second-look.json'
 
@@ -135,7 +135,7 @@ export function lastPhotos(pages: PageShows[], off: (url: string, ref: string) =
 /** Attribute a page's loss to the address that received the verdict, even when it serves a mirror. */
 export function lastPhotoVerdicts(
   pages: PageShows[], unavailable: (url: string, ref: string) => boolean, verdicts: Iterable<string>,
-  removesWrapper?: (verdictUrl: string) => boolean,
+  removesWrapper?: (verdictUrl: string) => boolean, originals?: ReadonlyMap<string, ReadonlySet<string>>,
 ): Map<string, string[]> {
   const addresses = new Map<string, string>()
   for (const url of verdicts) {
@@ -143,6 +143,13 @@ export function lastPhotoVerdicts(
     if (!addresses.has(key)) addresses.set(key, url)
   }
   const byVerdict = (url: string) => addresses.get(photoKey(url) ?? url)
+  const linked = new Map<string, Set<string>>()
+  for (const [url, causes] of originals ?? []) {
+    const key = photoKey(url) ?? url
+    const group = linked.get(key) ?? new Set<string>()
+    for (const cause of causes) group.add(byVerdict(cause) ?? cause)
+    linked.set(key, group)
+  }
   const out = new Map<string, Set<string>>()
   for (const page of pages) {
     const unavailableHere = (url: string) => unavailable(url, page.ref)
@@ -150,7 +157,7 @@ export function lastPhotoVerdicts(
       const wrapper = stored?.[i]
       const verdict = byVerdict(url)
       const onWrapper = wrapper && wrapper !== url ? byVerdict(wrapper) : undefined
-      return { url, verdicts: [verdict, onWrapper && removesWrapper?.(onWrapper) ? onWrapper : undefined] }
+      return { url, verdicts: [verdict, ...linked.get(photoKey(url) ?? url) ?? [], onWrapper && removesWrapper?.(onWrapper) ? onWrapper : undefined] }
     })
     const own = versions(page.own, page.ownStored), album = versions(page.album, page.albumStored)
     const off = (p: typeof own[number]) => p.verdicts.some(Boolean) || unavailableHere(p.url)
@@ -197,6 +204,9 @@ export const waitingEntry = (why: string) => compactRejection(why).replace(/^[^:
 export async function holdForSecondLook(root: string, held: Map<string, { why: string; pages: string[]; off?: true; parts?: string[] }>, step: string, at = today(), places?: Map<string, Stood[]>): Promise<string[]> {
   if (!held.size && !places?.size) return []
   const sl = await readSecondLook(root)
+  const whole = rejectedEntry(Object.fromEntries([...held].filter(([, h]) => !isVersionRejection(h.why)).map(([url, h]) => [url, h.why])))
+  const originals = [...held.values()].some(h => !isVersionRejection(h.why))
+    ? await originalPhotoRefusals(join(root, 'content'), url => whole(url)?.[0]) : new Map<string, Set<string>>()
   const added: string[] = []
   let extended = false
   for (const [url, h] of held) {
@@ -210,7 +220,8 @@ export async function holdForSecondLook(root: string, held: Map<string, { why: s
     }
     // A first verdict's mark takes the place of a hold on another reason that has no answer yet (photo-check.ts spared).
     if (has(sl, url) && !(h.off && !sl[url]!.off && !lookOf(sl[url]))) continue
-    sl[url] = { why: compactRejection(h.why), step, pages: [...new Set(h.pages)].sort(), at, ...(h.off ? { off: true as const } : {}), ...(h.parts?.length ? { parts: [...new Set(h.parts)].sort() } : {}) }
+    const linked = [...originals].filter(([, causes]) => causes.has(url)).map(([original]) => original).sort()
+    sl[url] = { ...(linked.length ? { originals: linked } : {}), why: compactRejection(h.why), step, pages: [...new Set(h.pages)].sort(), at, ...(h.off ? { off: true as const } : {}), ...(h.parts?.length ? { parts: [...new Set(h.parts)].sort() } : {}) }
     added.push(url)
   }
   const dir = places?.size ? entriesDir() : undefined
@@ -276,6 +287,10 @@ export async function listAgreed(root: string): Promise<string[]> {
         partsChanged = true
       }
     }
+    for (const original of sl[url]!.originals ?? []) {
+      const previous = active(original)?.[1]
+      if (!previous || isVersionRejection(previous)) rejected[original] = sl[url]!.why
+    }
     delete sl[url]
   }
   if (partsChanged) await writeImageCache(partsFile, `${JSON.stringify(partsOff, null, 2)}\n`)
@@ -324,8 +339,8 @@ export async function unlistCleared(root: string, deferred: ReadonlySet<string> 
 
 /** A place a photo stood: its page's, album's or guide's file (from the repository's root) and its place in `photos`. */
 type GuideSlot = ['video', 'figures', number, 'photo' | 'moments']
-export type Place = { file: string; index: number; path?: GuideSlot; capture?: string; captureDay?: string }
-const placeKey = (p: Pick<Place, 'file' | 'path'>) => `${p.file}:${JSON.stringify(p.path ?? [])}`
+export type Place = { file: string; index: number; occurrence?: number; path?: GuideSlot; capture?: string; captureDay?: string }
+const placeKey = (p: Pick<Place, 'file' | 'path' | 'occurrence'>) => `${p.file}:${JSON.stringify(p.path ?? [])}:${p.occurrence ?? 0}`
 const validPlace = (p: Place) => PLACE.test(p.file) && Number.isSafeInteger(p.index) && (p.path === undefined
   ? p.index >= 0
   : p.file.startsWith('content/guides/') && Array.isArray(p.path) && p.path.length === 4 &&
@@ -367,9 +382,12 @@ function photoSlots(data: unknown, guide: boolean): PhotoSlot[] {
   const add = (photos: unknown, path?: GuideSlot, heading?: string, partOrder?: string[], partImages?: string[][]) => {
     if (!Array.isArray(photos)) return
     const order = photos.map(p => typeof p?.url === 'string' ? p.url : '')
+    const occurrences = new Map<string, number>()
     photos.forEach((p, index) => {
       if (typeof p?.url !== 'string') return
-      out.push({ index: path?.[3] === 'photo' ? -1 : index, photo: p, order, ...(path ? { path } : {}), ...(heading !== undefined ? { heading, partOrder, partImages } : {}) })
+      const occurrence = occurrences.get(p.url) ?? 0
+      occurrences.set(p.url, occurrence + 1)
+      out.push({ ...(occurrence ? { occurrence } : {}), index: path?.[3] === 'photo' ? -1 : index, photo: p, order, ...(path ? { path } : {}), ...(heading !== undefined ? { heading, partOrder, partImages } : {}) })
     })
   }
   add(doc?.photos)
@@ -471,9 +489,13 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
       if (earlierPlace) {
         const earlier = await readKept(dir, url, r, earlierPlace)
         if (!earlier) throw new Error('Photo take-off is waiting for an existing private capture')
-        if (byHost(p) || !byHost(earlier)) continue
+        if (byHost(p) > byHost(earlier)) continue
+        const sameEntry = JSON.stringify(p.photo) === JSON.stringify(earlier.photo)
+        const sameOrder = !p.order || JSON.stringify(p.order) === JSON.stringify(earlier.order?.filter(url => p.order!.includes(url)))
+        if ((!p.order || p.index === earlier.index) && sameEntry && sameOrder) continue
+        if (p.photo.url !== earlier.photo.url && byHost(p) === byHost(earlier)) continue
       }
-      const place = { file: p.file, index: p.index, ...(p.path ? { path: p.path } : {}), capture: randomUUID() }
+      const place = { file: p.file, index: p.index, ...(p.occurrence ? { occurrence: p.occurrence } : {}), ...(p.path ? { path: p.path } : {}), capture: randomUUID() }
       const order = p.order ? [...p.order] : undefined
       if (order) {
         for (const prior of previous.get(placeKey(p)) ?? []) {
@@ -532,7 +554,8 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
     const mark = marks[k.url], here = local[k.url]
     const restored = mark?.back && here?.back && mark.why === k.why && here.why === k.why &&
       mark.settled?.some(p => placeKey(p) === placeKey(k) && (p.capture === k.capture || !k.replaces || p.capture !== k.replaces))
-    const agreed = !mark && !here && rejected[k.url] === k.why
+    const refusal = rejected[k.url]
+    const agreed = !mark && !here && typeof refusal === 'string' && !refusal.startsWith('waiting:')
     if (restored || agreed) await rm(path, { force: true })
   }
 }
@@ -725,28 +748,30 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks) {
       const guide = place.file.startsWith('content/guides/')
       const departure = historyPlaces.find(p => placeKey(p) === placeKey(place) && p.times >= 2)
       const at = (data: unknown) => photoSlots(data, guide).filter(slot =>
-        sameGuideSlot(departure ?? place, slot) && typeof slot.photo.url === 'string' && matches(slot.photo.url) && !setsCookies(slot.photo.url))
+        sameGuideSlot(departure ?? place, slot) && slot.occurrence === place.occurrence && typeof slot.photo.url === 'string' && matches(slot.photo.url) && !setsCookies(slot.photo.url))
       const publicSlots = at(publishedJson(root, place.file, main))
       const previousSlots = at(publishedJson(root, place.file, before))
       const currentSlots = at(doc)
       const returned = publicSlots[0]
-      if (departure && !returned) {
+      if (restoredHere.includes(place) && (departure || returned)) {
         const landed = localStates.find(state => state.marks?.[url]?.settled?.some(p => placeKey(p) === placeKey(place)))
         if (!landed) throw new Error('Could not verify the original entry restored before pulling main')
-        const old = new Set(at(publishedJson(root, place.file, landed.sha)).map(slot => JSON.stringify(slot.photo)))
-        const stale = currentSlots.filter(slot => old.has(JSON.stringify(slot.photo)) &&
-          previousSlots.some(previous => JSON.stringify(previous.photo) === JSON.stringify(slot.photo)))
-        if (!stale.length) continue
-        for (const slot of stale.toReversed()) {
-          if (!slot.path) doc.photos!.splice(slot.index, 1)
-          else {
-            const figure = doc.video!.figures![slot.path[2]]!
-            if (slot.path[3] === 'photo') delete figure.photo
-            else figure.moments!.splice(slot.index, 1)
-          }
+        const old = at(publishedJson(root, place.file, landed.sha))[0]?.photo
+        const merged = currentSlots[0]
+        const former = previousSlots[0]
+        if (!old || !merged || JSON.stringify(merged.photo) !== JSON.stringify(old) || JSON.stringify(former?.photo) !== JSON.stringify(old)) continue
+        if (returned && JSON.stringify(returned.photo) === JSON.stringify(old)) continue
+        const replacement = returned ? [returned.photo] : []
+        if (!merged.path) doc.photos!.splice(merged.index, 1, ...replacement)
+        else {
+          const figure = doc.video!.figures![merged.path[2]]!
+          if (merged.path[3] === 'photo') {
+            if (returned) figure.photo = returned.photo
+            else delete figure.photo
+          } else figure.moments!.splice(merged.index, 1, ...replacement)
         }
         await replacePhotoDocument(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
-        out.off.push(`${url}: it left ${place.file} again on main, and that removal stands`)
+        if (!returned) out.off.push(`${url}: it left ${place.file} again on main, and that removal stands`)
         continue
       }
       if (!returned || !prior.settled?.some(p => placeKey(p) === placeKey(place)) || lookOf(pending) ||
@@ -851,7 +876,7 @@ export async function putBackCleared(root: string, history: History, at = today(
       const settled = new Map((mark.settled ?? []).map(p => [placeKey(p), p]))
       for (const p of recovered) {
         const key = placeKey(p)
-        if (!settled.has(key)) settled.set(key, { file: p.file, index: p.index, ...(p.path ? { path: p.path } : {}) })
+        if (!settled.has(key)) settled.set(key, { file: p.file, index: p.index, ...(p.occurrence ? { occurrence: p.occurrence } : {}), ...(p.path ? { path: p.path } : {}) })
       }
       for (const p of mark.left ?? []) settled.set(placeKey(p), p)
       mark.settled = [...settled.values()]
@@ -860,6 +885,7 @@ export async function putBackCleared(root: string, history: History, at = today(
     mark.back = at
   }
   const earlierOrders = new Map<string, string[][]>()
+  const recoveredOrders = new Map<string, LeftPlace[]>()
   restore: for (const u of due) {
     const entry = rejected[u]
     if (entry !== undefined && entry !== waitingEntry(sl[u]!.why)) {
@@ -876,6 +902,7 @@ export async function putBackCleared(root: string, history: History, at = today(
     try {
       for (const p of own) {
         if (!validPlace(p) ||
+            (p.occurrence !== undefined && (!Number.isSafeInteger(p.occurrence) || p.occurrence < 1)) ||
             (p.captureDay !== undefined && !day(p.captureDay)) ||
             (p.capture !== undefined && !/^[a-f0-9-]{36}$/.test(p.capture))) throw new Error('Invalid photo recovery place')
         const kept = await readKept(dir!, u, sl[u]!, p)
@@ -976,21 +1003,35 @@ export async function putBackCleared(root: string, history: History, at = today(
         into.photo = p.photo
       } else {
         const photos = Array.isArray(into[slot]) ? into[slot]! : (into[slot] = [])
-        const earlier = earlierOrders.get(placeKey(p)) ?? []
+        const orderKey = placeKey({ ...p, occurrence: undefined })
+        const earlier = earlierOrders.get(orderKey) ?? []
         const current = photos.map(photo => String(photo?.url))
-        const order = earlier.find(order => order.includes(address) && order.some(url => url !== address && current.includes(url))) ?? p.order ?? []
+        const orders = [...earlier, ...(p.order ? [p.order] : [])]
+        const fits = (order: string[]) => order.includes(address) && order.some(url => url !== address && current.includes(url))
+        if (!orders.some(fits)) for (const shown of current) {
+          const previous = sl[shown]
+          if (!previous?.back || !previous.settled?.some(place => place.file === p.file)) continue
+          if (!recoveredOrders.has(shown)) {
+            const found = await history(shown, previous.at, previous.settled).catch(() => undefined)
+            if (!found) { out.unread.push(u); continue restore }
+            recoveredOrders.set(shown, found)
+          }
+          for (const prior of recoveredOrders.get(shown) ?? []) if (prior.file === p.file && sameGuideSlot(p, prior) && prior.order) orders.push(prior.order)
+        }
+        const order = orders.find(fits) ?? p.order ?? []
         if (p.order?.length) {
           earlier.push(p.order)
-          earlierOrders.set(placeKey(p), earlier)
+          earlierOrders.set(orderKey, earlier)
         }
         const blockedHost = setsCookies(address)
-        if (current.some(url => samePhoto(url) && (blockedHost || !setsCookies(url)))) continue
+        if (current.filter(url => samePhoto(url) && (blockedHost || !setsCookies(url))).length > (p.occurrence ?? 0)) continue
         if (!blockedHost) {
           for (let i = photos.length - 1; i >= 0; i--) {
             if (samePhoto(current[i]!) && setsCookies(current[i]!)) photos.splice(i, 1)
           }
         }
-        const position = order.indexOf(address)
+        let occurrence = p.occurrence ?? 0
+        const position = order.findIndex(url => url === address && occurrence-- === 0)
         const index = photoPosition(photos.map(photo => String(photo.url)), order, position >= 0 ? position : p.index, p.index)
         photos.splice(index, 0, p.photo)
       }

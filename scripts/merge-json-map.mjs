@@ -18,7 +18,7 @@ import { pathToFileURL } from 'node:url'
 // and main's unmarked records won: the chief of staff, 20 Nov 2026); else ours.
 const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && typeof v.step === 'string' && Array.isArray(v.pages) && typeof v.at === 'string'
 const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
-const placeKey = p => `${p.file}:${JSON.stringify(p.path ?? [])}`
+const placeKey = p => `${p.file}:${JSON.stringify(p.path ?? [])}:${p.occurrence ?? 0}`
 const placesOf = (r, field = 'left') => Array.isArray(r?.[field]) ? r[field].filter(p => typeof p?.file === 'string' && Number.isSafeInteger(p.index) && (p.index >= 0 || p.index === -1 && p.path?.[3] === 'photo')) : []
 function mergePlaces(chosen, base, ours, theirs) {
   if (ours.off !== true || theirs.off !== true || ours.why !== theirs.why) return chosen

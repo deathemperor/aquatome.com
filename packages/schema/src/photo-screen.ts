@@ -107,7 +107,7 @@ export function deadScreenPhotoUrls(p: PhotoVersions): string[] {
   return p.altered?.length && !p.generated && !isOwnerCrop(p) && mayFallBack(p) ? [p.url, p.original!.url] : [p.url]
 }
 
-async function* entityPhotos(root: string, kinds: readonly string[], includeFigures = false): AsyncGenerator<PhotoVersions> {
+async function* entityPhotos(root: string, kinds: readonly string[], includeFigures = false): AsyncGenerator<Photo> {
   for (const kind of kinds) {
     const ids = await readdir(join(root, kind)).catch((error: NodeJS.ErrnoException) => {
       if (error.code !== 'ENOENT') throw error
@@ -119,11 +119,40 @@ async function* entityPhotos(root: string, kinds: readonly string[], includeFigu
         throw e
       })
       if (raw === undefined) continue
-      const page = JSON.parse(raw) as { photos?: PhotoVersions[]; video?: { figures?: { photo?: PhotoVersions }[] } }
+      const page = JSON.parse(raw) as { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } }
       yield* page.photos ?? []
       if (includeFigures) for (const f of page.video?.figures ?? []) if (f.photo) yield f.photo
     }
   }
+}
+
+/** Photos shared across page, album, and guide placements. */
+export async function* photoPlacements(root: string): AsyncGenerator<Photo> {
+  yield* entityPhotos(root, ['species', 'plants', 'breeds', 'guides'], true)
+  const galleries = join(root, 'gallery')
+  const files = await readdir(galleries).catch((error: NodeJS.ErrnoException) => {
+    if (error.code !== 'ENOENT') throw error
+    return [] as string[]
+  })
+  for (const file of files.filter(f => f.endsWith('.json')).sort()) {
+    const album = JSON.parse(await readFile(join(galleries, file), 'utf8')) as { photos?: Photo[] }
+    yield* album.photos ?? []
+  }
+}
+
+/** Attribute a bare original to the whole-photo refusal on its altered placement. */
+export async function originalPhotoRefusals(root: string, refused: (url: string) => string | undefined): Promise<Map<string, Set<string>>> {
+  const originals = new Map<string, Set<string>>()
+  for await (const p of photoPlacements(root)) {
+    const [, original] = deadScreenPhotoUrls(p)
+    if (!original) continue
+    const cause = refused(p.url)
+    if (!cause) continue
+    const causes = originals.get(original) ?? new Set<string>()
+    causes.add(cause)
+    originals.set(original, causes)
+  }
+  return originals
 }
 
 /** A whole-photo refusal also follows its original when another placement stores that original separately. */
@@ -132,23 +161,15 @@ export async function expandWholePhotoRejections(
 ): Promise<Record<string, string>> {
   if (!Object.values(rejections).some(why => why && !isVersionRejection(why))) return rejections
   const effective = photoRejections(rejections, marks)
-  const added: Record<string, string> = {}
-  const consider = (p: PhotoVersions) => {
-    const [, original] = deadScreenPhotoUrls(p)
-    if (!original) return
-    const why = effective(p.url)?.[1]
-    const prior = effective(original)?.[1]
-    if (why && !isVersionRejection(why) && (!prior || isVersionRejection(prior))) added[original] ??= why
-  }
-  for await (const p of entityPhotos(root, ['species', 'plants', 'breeds', 'guides'], true)) consider(p)
-  const galleries = join(root, 'gallery')
-  const files = await readdir(galleries).catch((error: NodeJS.ErrnoException) => {
-    if (error.code !== 'ENOENT') throw error
-    return [] as string[]
+  const originals = await originalPhotoRefusals(root, url => {
+    const entry = effective(url)
+    return entry && !isVersionRejection(entry[1]) ? entry[0] : undefined
   })
-  for (const file of files.filter(f => f.endsWith('.json')).sort()) {
-    const album = JSON.parse(await readFile(join(galleries, file), 'utf8')) as { photos?: PhotoVersions[] }
-    for (const p of album.photos ?? []) consider(p)
+  const added: Record<string, string> = {}
+  for (const [url, causes] of originals) {
+    const prior = effective(url)?.[1]
+    const cause = causes.values().next().value
+    if (cause && (!prior || isVersionRejection(prior))) added[url] = rejections[cause]!
   }
   return Object.keys(added).length ? { ...rejections, ...added } : rejections
 }
