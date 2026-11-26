@@ -1781,11 +1781,13 @@ test('an orphaned waiting receipt preserves linked glossary entries after the al
   expect(JSON.parse(await readFile(glossary, 'utf8'))).toEqual(record)
 })
 
-test('an alias removed after its failed tile is excluded from the same run’s album debt', async () => {
+test.each([false, true])('a failed alias is removed before reporting the batch (separate albums: %s)', async separate => {
   const source = 'https://live.staticflickr.com/123/456_abc.jpg'
   const dead = { ...photo('dead'), url: source }
   const mirror = { ...dead, url: `https://media.aquatome.com/${mirrorPlan(source)!.key}` }
-  const { root, state, file } = await albumFixture([dead, mirror])
+  const { root, state, file } = await albumFixture(separate ? [dead] : [dead, mirror])
+  const other = join(root, 'content/gallery/b.json')
+  if (separate) await writeFile(other, JSON.stringify({ id: 'b', photos: [mirror] }))
   await writeFile(join(state, '_photo-album-dead-retry.json'), JSON.stringify({ [mirror.url]: 1 }))
   const base = deps().d.dead
 
@@ -1795,8 +1797,48 @@ test('an alias removed after its failed tile is excluded from the same run’s a
   }, { limit: 12, albums: true })
 
   expect(report).toMatchObject({ sheets: 1, judged: 1, left: 0, pendingTakeOffs: 0, failed: [expect.stringContaining(mirror.url)] })
+  expect(report.albumBatches).toEqual([{ id: expect.any(String), urls: [dead.url] }])
   expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
+  if (separate) expect(JSON.parse(await readFile(other, 'utf8')).photos).toEqual([])
   expect(await json(root, 'engine-state/_photo-album-dead-retry.json')).toEqual({})
+})
+
+test.each(['gallery', 'screen'])('the %s step honors a competing waiting hash when recording an album take-off', async via => {
+  const dead = photo('waiting-version')
+  const { root, state, file } = await albumFixture([dead])
+  const marked = waitingEntry('dead: earlier look')
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [dead.url]: marked }))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [dead.url]: { why: 'people: later look', waitingReasons: ['dead: earlier look'], off: true, pages: ['species/a'], step: 'face detection', at: '2026-11-26' },
+  }))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
+  if (via === 'gallery') {
+    const unused = async () => { throw new Error('gallery cleanup needs no source calls') }
+    await galleries(root, { get: unused, http: unused, look: unused, faces: unused, sleep: unused, now: () => new Date() }, { only: 'missing', sheets: 0 })
+    expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
+  }
+
+  const report = await screenDead(root, deps().d.dead, { limit: 0, albums: true })
+  expect(report).toMatchObject({ sheets: 0, left: 0, pendingTakeOffs: 0, albumBatches: [{ id: expect.any(String), urls: [dead.url] }] })
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[dead.url]).toBe(marked)
+})
+
+test('an already-refused album version is reported once while its credited original remains', async () => {
+  const original = photo('eligible-original')
+  const wrapper = { ...photo('refused-version'), original, altered: [{ method: 'lanczos3-upscale' }] }
+  const { root, state, file } = await albumFixture([wrapper])
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [wrapper.url]: 'dead: earlier look' }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+
+  const d = deps().d.dead
+  const report = await screenDead(root, d, { limit: 0, albums: true })
+  expect(report).toMatchObject({ sheets: 0, left: 0, pendingTakeOffs: 0, albumBatches: [{ id: expect.any(String), urls: [wrapper.url] }] })
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([wrapper])
+  expect(await acknowledgeAlbumTakeOffs(root, report.albumBatches[0]!.id)).toBe(1)
+  expect((await screenDead(root, d, { limit: 0, albums: true })).albumBatches).toEqual([])
 })
 
 test('a bare original whose alteration is already refused contributes no album look debt', async () => {

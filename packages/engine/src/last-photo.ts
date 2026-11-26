@@ -196,7 +196,7 @@ export async function readPassedBefore(root: string): Promise<Set<string>> {
 export const waitingEntry = (why: string) => compactRejection(why).replace(/^[^:]+:/, 'waiting:')
 
 /** A merged first refusal may hold captures written for another verdict on the same photo. */
-function ownsWaiting(mark: SecondLook | undefined, entry: string | undefined): boolean {
+export function ownsWaiting(mark: SecondLook | undefined, entry: string | undefined): boolean {
   return !!mark && !!entry?.startsWith('waiting:') && (entry === waitingEntry(mark.why) ||
     mark.waitingReasons?.some(why => entry === waitingEntry(why)) ||
     [...(mark.left ?? []), ...(mark.settled ?? [])].some(p => p.captureWhy && entry === waitingEntry(p.captureWhy)))
@@ -336,12 +336,21 @@ export function placesIn(root: string, file: string, data: { photos?: unknown },
   })
 }
 
+export function waitingReview(marks: SecondLooks, url: string, entry: string | undefined): [string, SecondLook] | undefined {
+  if (!entry?.startsWith('waiting:')) return undefined
+  if (ownsWaiting(marks[url], entry)) return [url, marks[url]!]
+  const same = photoAddressSet([url])
+  const address = Object.keys(marks).find(key => same(key) && ownsWaiting(marks[key], entry))
+  return address === undefined ? undefined : [address, marks[address]!]
+}
+
 /** Find the unanswered mark for a removal, including a source URL's mirrored copy. */
 export function captureWaiting(marks: SecondLooks, entry: (url: string) => [string, string] | undefined): (url: string) => string | undefined {
   const off = looks(marks).off
   return url => {
     const rejection = entry(url)
-    return rejection && off(rejection[0]) && ownsWaiting(marks[rejection[0]], rejection[1]) ? rejection[0] : undefined
+    const review = rejection && waitingReview(marks, rejection[0], rejection[1])
+    return review && off(review[0]) ? review[0] : undefined
   }
 }
 
