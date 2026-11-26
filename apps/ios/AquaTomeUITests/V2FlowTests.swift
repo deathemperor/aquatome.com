@@ -1033,7 +1033,7 @@ final class V2FlowTests: XCTestCase {
     card.tap()
     XCTAssertTrue(app.staticTexts["page-status"].waitForExistence(timeout: 10), "no failed web page")
     app.leavePage()
-    app.openTab("Tìm")
+    app.openTab("Tìm kiếm")
     XCTAssertTrue(app.buttons["tool-fish-id"].waitForExistence(timeout: 8), "not on Tìm")
     XCTAssertFalse(app.descendants(matching: .any)["recent"].exists, "the failed page was counted as read")
   }
