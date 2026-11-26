@@ -197,6 +197,12 @@ export const FIRST_OFF = /^(?:dead|people): /
 /** The never-again entry of a photo off at its first verdict: `waiting:` and its record's hash (above). */
 export const waitingEntry = (why: string) => compactRejection(why).replace(/^[^:]+:/, 'waiting:')
 
+/** A merged first refusal may hold captures written for another verdict on the same photo. */
+function ownsWaiting(mark: SecondLook | undefined, entry: string | undefined): boolean {
+  return !!mark && !!entry?.startsWith('waiting:') && (entry === waitingEntry(mark.why) ||
+    [...(mark.left ?? []), ...(mark.settled ?? [])].some(p => p.captureWhy && entry === waitingEntry(p.captureWhy)))
+}
+
 /**
  * Puts each photo a step holds on the second look, once. An entry already there, with its look, is kept as it is; the
  * record is read again first, so what another step wrote meanwhile stays. Returns the photos newly put there.
@@ -275,7 +281,7 @@ export function withoutSettledWaits(rejected: Record<string, string>, marks: Sec
 /** Leave a waiting copy in place once a valid clear has arrived, even before recovery completes. */
 export function withoutClearedWaits(rejected: Record<string, string>, marks: SecondLooks): Record<string, string> {
   for (const [url, mark] of Object.entries(marks)) {
-    if (mark.off === true && lookOf(mark)?.said === 'clear' && rejected[url] === waitingEntry(mark.why)) delete rejected[url]
+    if (mark.off === true && lookOf(mark)?.said === 'clear' && ownsWaiting(mark, rejected[url])) delete rejected[url]
   }
   return rejected
 }
@@ -294,7 +300,7 @@ export async function unlistCleared(root: string, deferred: ReadonlySet<string> 
   // A later checkout can add a pending place after an earlier place has published. A URL-wide waiting entry
   // would take that earlier copy off again even though the clear still applies to it.
   const waits = (u: string) => !sl[u]!.settled?.length && (deferred.has(u) || (!!sl[u]!.left?.length && !sl[u]!.back))
-  const out = Object.keys(sl).filter(u => sl[u]!.off === true && l.cleared(u) && rejected[u] === waitingEntry(sl[u]!.why) && !waits(u))
+  const out = Object.keys(sl).filter(u => sl[u]!.off === true && l.cleared(u) && ownsWaiting(sl[u], rejected[u]) && !waits(u))
   if (!out.length) return []
   for (const u of out) delete rejected[u]
   await writePhotoState(rejectedFile, rejected)
@@ -333,7 +339,7 @@ export function captureWaiting(marks: SecondLooks, entry: (url: string) => [stri
   const off = looks(marks).off
   return url => {
     const rejection = entry(url)
-    return rejection && off(rejection[0]) && rejection[1] === waitingEntry(marks[rejection[0]]!.why) ? rejection[0] : undefined
+    return rejection && off(rejection[0]) && ownsWaiting(marks[rejection[0]], rejection[1]) ? rejection[0] : undefined
   }
 }
 
@@ -604,7 +610,12 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
           const key = placeKey(placement)
           const had = out.get(key)
           if (had) had.times++
-          else out.set(key, { ...placement, photo: entry.photo, times: wasPresent ? 1 : 2, order })
+          else {
+            const existed = saved.length === 1
+              ? starting.some(rev => urls(at(rev, file)).some(photo => JSON.stringify(photo) === JSON.stringify(entry.photo)))
+              : wasPresent
+            out.set(key, { ...placement, photo: entry.photo, times: existed ? 1 : 2, order })
+          }
         }
       }
     }
@@ -705,13 +716,15 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks) {
         const localEntry = copy(priorPhotos)
         const merged = copy(photos)
         const old = entry && JSON.stringify(entry)
-        const sameRestore = old && JSON.stringify(localEntry) === old && JSON.stringify(merged) === old
+        const mergedEntry = JSON.stringify(merged)
+        const publicEntry = JSON.stringify(returned)
+        const sameRestore = old && JSON.stringify(localEntry) === old && (mergedEntry === old || mergedEntry === publicEntry)
         const anchors = new Set(savedPhotos.map(p => String(p.url)).filter(u => !matches(u) && publicPhotos.some(main => main.url === u)))
         const position = (ps: Record<string, unknown>[], p: Record<string, unknown> | undefined) =>
           ps.slice(0, p ? ps.indexOf(p) : 0).map(photo => String(photo.url)).filter(url => anchors.has(url)).sort().join('\n')
         const orderStillLocal = position(savedPhotos, entry) === position(priorPhotos, localEntry)
         const orderDiffers = returned && position(photos, merged) !== position(publicPhotos, returned)
-        if (sameRestore && merged && (returned ? JSON.stringify(returned) !== old || (orderStillLocal && orderDiffers) : departure)) {
+        if (sameRestore && merged && (returned ? publicEntry !== mergedEntry || (orderStillLocal && orderDiffers) : departure)) {
           const index = photos.indexOf(merged)
           photos.splice(index, 1)
           if (returned) {
@@ -792,7 +805,7 @@ export async function putBackCleared(root: string, history: History, at = today(
   const recoveredOrders = new Map<string, LeftPlace[]>()
   restore: for (const u of due) {
     const entry = rejected[u]
-    if (entry !== undefined && entry !== waitingEntry(sl[u]!.why)) {
+    if (entry !== undefined && !ownsWaiting(sl[u], entry)) {
       out.off.push(`${u}: on the never-again list as ${entry.split(':')[0]}`)
       complete(sl[u]!)
       continue
@@ -845,7 +858,7 @@ export async function putBackCleared(root: string, history: History, at = today(
       const page = id?.[1] ?? id?.[2]
       const address = typeof p.photo.url === 'string' ? p.photo.url : u
       const aliasRejection = address === u ? undefined : rejected[address]
-      if (aliasRejection && aliasRejection !== waitingEntry(sl[u]!.why)) {
+      if (aliasRejection && !ownsWaiting(sl[u], aliasRejection)) {
         out.off.push(`${u}: its copy on ${p.file} is on the never-again list as ${aliasRejection.split(':')[0]}`)
         continue
       }
@@ -899,7 +912,7 @@ export async function putBackCleared(root: string, history: History, at = today(
           if (samePhoto(current[i]!) && setsCookies(current[i]!)) photos.splice(i, 1)
         }
       }
-      let occurrence = p.occurrence ?? 0
+      let occurrence = p.order?.slice(0, p.index).filter(url => url === address).length ?? p.occurrence ?? 0
       const position = order.findIndex(url => url === address && occurrence-- === 0)
       const index = photoPosition(photos.map(photo => String(photo.url)), order, position >= 0 ? position : p.index, p.index)
       photos.splice(index, 0, p.photo)
@@ -936,7 +949,7 @@ export async function mendWaiting(root: string, deferred: ReadonlySet<string> = 
     if (have === undefined || have.startsWith('waiting:')) { rejected[u] = want; out.back.push(u) }
     else out.other.push(`${u}: its never-again entry is another kind's, left in force`)
   }
-  for (const [u, why] of Object.entries(rejected)) if (why.startsWith('waiting:') && !(sl[u]?.off && !sl[u].back && why === waitingEntry(sl[u].why))) out.alone.push(`${u}: no second-look record marked for it, kept off`)
+  for (const [u, why] of Object.entries(rejected)) if (why.startsWith('waiting:') && !(sl[u]?.off && !sl[u].back && ownsWaiting(sl[u], why))) out.alone.push(`${u}: no second-look record marked for it, kept off`)
   if (out.back.length) await writePhotoState(rejectedFile, rejected)
   return out
 }

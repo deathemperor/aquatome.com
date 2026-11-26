@@ -585,6 +585,11 @@ test('a source reread reuses an original already stored in a credited wrapper', 
   expect(await storeSourcePhotos(source, 'Source', nextPage, picked, deps, [])).toEqual([
     { ...original, source, author: stored.author, licence: stored.licence, sourceUrl: nextPage },
   ])
+  const corrected = { ...stored, author: 'Corrected photographer' }
+  await storeSourcePhotos(source, 'Source', page, picked, deps, [corrected])
+  expect(await storeSourcePhotos(source, 'Source', nextPage, picked, deps, [])).toMatchObject([
+    { url: original.url, author: corrected.author, sourceUrl: nextPage },
+  ])
 })
 
 test('a different source page reuses the bytes and credit of an already stored original', async () => {
@@ -628,13 +633,17 @@ test.each([
   await writeFile(file, JSON.stringify(doc(old)))
   expect((await sourcePhotoInventory(root)).stored.get(url)).toEqual(old)
   git('add', '-A'); git('commit', '-qm', 'credited image')
+  const corrected = { ...old, author: 'Corrected photographer' }
+  await writeFile(file, JSON.stringify(doc(corrected)))
+  git('add', '-A'); git('commit', '-qm', 'credited photographer')
   await writeFile(file, JSON.stringify(doc()))
-  git('add', '-A'); git('commit', '-qm', 'placement removed')
   await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify({ [url]: { dead: false } }))
   const inventory = await sourcePhotoInventory(root)
+  expect(inventory.recover(url)).toEqual(corrected)
+  git('add', file); git('commit', '-qm', 'placement removed')
   const unused = async () => { throw new Error('a screened image must not be fetched through the publisher or overwritten') }
   const page = 'https://source.example/new'
   const photos = await storeSourcePhotos(source, 'Site', page, [{ src, alt: '', width: 1000, height: 700 }],
     { ...inventory, bytes: unused, media: { urlFor: mediaUrl, put: unused } }, [])
-  expect(photos).toMatchObject([{ ...old, sourceUrl: page }])
+  expect(photos).toMatchObject([{ ...corrected, sourceUrl: page }])
 })

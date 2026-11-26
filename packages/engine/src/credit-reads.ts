@@ -1,12 +1,12 @@
 import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
-import { isVersionRejection, photoAddressSet, type Photo, type SourceId } from '@aq/schema'
+import { deadScreenPhotoUrls, photoAddressSet, type Photo, type SourceId } from '@aq/schema'
 import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import type { PageImage } from './outline'
 import { creditKind } from './photo-credit'
 import { compactRejection } from './photo-observations'
-import { writePhotoState } from './photo-state'
+import { recordPhotoRefusals, writePhotoState } from './photo-state'
 import { holdablePhotoVerdicts } from './photo-visibility'
 import { dedupeKey, photoKey, refusedCredit, type CreditTerms, type Media } from './source-photos'
 import { stripPhotos } from './watermarks'
@@ -115,13 +115,9 @@ export async function applyCreditReads(root: string, step = 'the credit read'): 
   await holdForSecondLook(root, new Map([...held].map(([u, pages]) => [u, { why: `rejected: ${credits[u]!.kind} credit ${credits[u]!.line ?? ''}`, pages }])), step)
   const heldAddress = photoAddressSet(held.keys())
   const gone = (u: string) => off(u) && !heldAddress(u)
-  for (const u of Object.keys(credits).filter(gone)) {
-    const refusal = compactRejection(`rejected: ${credits[u]!.kind} credit ${credits[u]!.line ?? ''}`)
-    const addresses = photoAddressSet([u])
-    for (const key of [u, ...Object.keys(rejected).filter(addresses)]) {
-      if (!rejected[key] || isVersionRejection(rejected[key])) rejected[key] = refusal
-    }
-  }
+  await recordPhotoRefusals(rejectedFile, rejected, new Map(Object.keys(credits).filter(gone).map(u =>
+    [u, `rejected: ${credits[u]!.kind} credit ${credits[u]!.line ?? ''}`],
+  )))
   await writePhotoState(rejectedFile, rejected)
   const removed: string[] = []
   for (const f of (await readdir(content, { recursive: true })).filter(f => f.endsWith('.json')).map(f => join(content, f))) {
@@ -255,7 +251,13 @@ export async function releaseCreditHolds(root: string, credits: Record<string, P
   const stay = (u: string) => left.get(u) ?? (left.set(u, { places: [], calendar: [] }), left.get(u)!)
   // Off the never-again list first, then back on the pages, then out of the holds: a failure at any point leaves no
   // photo shown while barred, and the hold still names what the next read's release finishes.
-  for (const u of back) if (rejected[u] === HOLD_NOTE) delete rejected[u]
+  const returned = new Set(back)
+  const ownedAddresses = (url: string, hold: CreditHold) => [url, ...hold.places.flatMap(p => deadScreenPhotoUrls(p.photo))]
+  const stillHeld = photoAddressSet(Object.entries(holds).flatMap(([url, hold]) => returned.has(url) ? [] : ownedAddresses(url, hold)))
+  const lifted = photoAddressSet(back.flatMap(url => ownedAddresses(url, holds[url]!)))
+  for (const url of Object.keys(rejected)) {
+    if (rejected[url] === HOLD_NOTE && lifted(url) && !stillHeld(url)) delete rejected[url]
+  }
   await writePhotoState(join(root, REJECTED), rejected)
   for (const file of new Set([...places.map(p => p.file), ...cards.map(x => x.c.file)])) {
     const f = join(root, file), raw = await readFile(f, 'utf8').catch(() => undefined)

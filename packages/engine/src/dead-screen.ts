@@ -328,6 +328,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const firstOff = new Map([...last].filter(([u]) => !passed(u)))
   const heldByAddress = photoAddressSet(held.keys())
   const markedByAddress = photoAddressSet(firstOff.keys())
+  const canCapture = !!entriesDir()
   const albumHolds = rejectedEntry(o.albums
     ? Object.fromEntries(Object.entries(secondLook).filter(([url]) => sl.waiting(url)).map(([url, record]) => [url, record.why]))
     : {})
@@ -364,7 +365,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       continue
     }
     const reviewUrl = it.agreement || it.rejection?.startsWith('dead:') ? undefined : albumHold(it.url)
-    if (reviewUrl && !entriesDir()) {
+    if (reviewUrl && !canCapture) {
       report.pendingTakeOffs++
       deferred.add(it.url)
       report.failed.push(`${it.key}: take-off waits for its recovery capture`)
@@ -373,7 +374,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const matches = o.albums ? photoAddressSet([it.url]) : (url: string) => url === it.url
     const remove = (photo: Photo) => matches(photo.url) && !retainFallback(photo)
     let removed = false
-    for (const file of new Set(it.files)) {
+    if (canCapture || !markedByAddress(it.url)) for (const file of new Set(it.files)) {
       const { page } = await readPage(file)
       if (it.video) page.videos = (page.videos ?? []).filter(v => v.youtubeId !== it.video)
       else {

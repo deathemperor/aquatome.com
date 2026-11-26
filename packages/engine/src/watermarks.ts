@@ -10,7 +10,7 @@ import { contactSheet } from './video-images'
 import { deadScreenPhotoUrls, expandWholePhotoRejections, IMAGE_SWITCHES, isVersionRejection, LOGO_FOLDERS, logoFolder, ocrHit, originalPhotoRefusals, photoAddressSet, photoRejections, publicPhotoVersion, rejectedEntry, type Photo } from '@aq/schema'
 import { rememberMarkedPhotos } from './marked-photos'
 import { compactScreen, summarizeOcr, PHOTO_MARK_KINDS, PHOTO_POSITIONS, photoFailure, photoModelStop, type CompactScreen } from './photo-observations'
-import { writePhotoState } from './photo-state'
+import { recordPhotoRefusals, writePhotoState } from './photo-state'
 import { permittedPhotoSource, readPhotoSources, readPhotoWaits } from './photo-visibility'
 import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readSecondLook } from './last-photo'
 
@@ -257,15 +257,12 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   const originals = newMarks.length ? await originalPhotoRefusals(content, url => newByAddress(url)?.[0]) : undefined
   const held = lastPhotoVerdicts(pages, u => !!listed(u) || waits(u), newMarks, () => true, originals)
   const heldByAddress = photoAddressSet(held.keys())
-  const refused = newMarks.filter(url => !heldByAddress(url))
-  const refusedByAddress = rejectedEntry(Object.fromEntries(refused.map(url => [url, `watermark: ${cache[url]!.kind ?? 'unknown'}`])))
+  const refused = new Map(newMarks.filter(url => !heldByAddress(url)).map(url => [url, `watermark: ${cache[url]!.kind ?? 'unknown'}`]))
+  const refusedByAddress = photoAddressSet(refused.keys())
   const marked = (u: string) => !heldByAddress(u) && (markedNow(u) || !!refusedByAddress(u))
   for (const [u, pages] of held) report.held.push(`${u}: ${pages.join(', ')}`)
   await holdForSecondLook(root, new Map([...held].map(([u, pages]) => [u, { why: `watermark: ${cache[u]!.kind ?? 'unknown'}`, pages }])), 'the watermark screen')
-  for (const u of new Set([...refused, ...Object.keys(rejected)])) {
-    const reason = refusedByAddress(u)?.[1]
-    if (reason && (!rejected[u] || isVersionRejection(rejected[u]))) rejected[u] = reason
-  }
+  await recordPhotoRefusals(rejectedFile, rejected, refused, cache)
   report.confirmed.push(...[...urls].filter(marked))
   await writePhotoState(rejectedFile, rejected)
   await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
