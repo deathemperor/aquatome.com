@@ -820,15 +820,17 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const first = (url: string) => sl.off(url) || (FIRST_OFF.test(added[url] ?? '') && freshBad.has(url))
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
-  const pendingGlobal = photoRejections(Object.fromEntries(Object.entries(added)
-    .filter(([, why]) => FIRST_OFF.test(why) || why.startsWith('watermark:'))), marks)
+  const pendingGlobal = photoRejections(added, marks)
+  const existingGlobal = photoRejections(rejected, marks)
   const blockedAs = (file: string, url: string) => {
     const waiting = waitingAt(url)
     if (waiting) return waiting
     if (url in added) return url
     const pending = pendingGlobal(url)?.[0]
     if (pending && pending in added) return pending
-    if ((url in rejected && !keepLogo(url)) || offAt.has(`${file}\n${url}`) || sl.off(url)) return url
+    const existing = existingGlobal(url)
+    if (existing) return existing[0]
+    if (offAt.has(`${file}\n${url}`) || sl.off(url)) return url
     return undefined
   }
   const blocked = (file: string) => (url: string) => blockedAs(file, url) !== undefined
@@ -870,12 +872,15 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   const blockedVersions = async (file: string) => {
     const urls = new Set<string>()
+    const firstByAddress = rejectedEntry(Object.fromEntries(Object.entries(added).filter(([url]) => first(url))))
     for (const photo of await ownPhotos(file)) {
-      const stored = blockedAs(file, photo.url)
-      if (stored) urls.add(stored)
-      const served = versionOf(photo)
-      const reason = served && blockedAs(file, served.url)
-      if (reason) urls.add(reason)
+      const served = versionOf(photo)?.url
+      for (const version of new Set([photo.url, ...(served ? [served] : [])])) {
+        const blocked = blockedAs(file, version)
+        if (blocked) urls.add(blocked)
+        const firstAt = firstByAddress(version)?.[0]
+        if (firstAt) urls.add(firstAt)
+      }
     }
     return urls
   }
@@ -938,8 +943,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       firstOff.delete(url)
     } else firstByPhoto.set(key, url)
   }
-  for (const [url, why] of Object.entries(added)) {
-    if (firstOff.has(url) || !FIRST_OFF.test(why)) continue
+  for (const url of Object.keys(added)) {
+    if (firstOff.has(url)) continue
     const canonical = firstByPhoto.get(photoKey(url) ?? url)
     if (canonical) firstAliases.set(url, canonical)
   }
@@ -952,7 +957,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // Each photo a held page would have lost goes on the second look, with its reason (last-photo.ts).
   const holding = new Map<string, { why: string; pages: string[] }>()
   for (const file of heldPages) for (const f of [file, galleryOf(file)]) for (const url of await blockedVersions(f)) {
-    if (url in rejected || first(url)) continue
+    if (url in rejected || first(url) || firstAliases.has(url)) continue
     const id = file.split('/').at(-2)!
     const h = holding.get(url) ?? { why: added[url] ?? `not ${label(id)}: ${verdict(url, id)?.note ?? ''}`, pages: [] }
     h.pages.push(pageOf(file))
@@ -970,9 +975,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const heldBefore = await readJson<unknown>(heldFile).catch(() => undefined)
   const heldKeys = heldBefore && typeof heldBefore === 'object' && !Array.isArray(heldBefore) ? Object.keys(heldBefore) : []
   await writeHeld({ ...Object.fromEntries(heldKeys.map(k => [k, true as const])), ...heldNow })
-  // Not onto the never-again list either, or a later run would take them off through that, unseen.
-  for (const file of held) for (const url of await blockedVersions(file)) {
-    if (!(url in added) || first(url)) continue
+  // A hold protects the photo at every address, including a separately judged source or mirror.
+  const heldAddress = photoAddressSet(holding.keys())
+  for (const url of Object.keys(added)) {
+    if (!heldAddress(url) || first(url)) continue
     delete added[url]
     report.blocked = report.blocked.filter(x => !x.startsWith(`${url}: `))
   }

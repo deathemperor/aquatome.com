@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto'
 import sharp from 'sharp'
-import type { Photo, SourceId } from '@aq/schema'
+import { deadScreenPhotoUrls, type Photo, type SourceId } from '@aq/schema'
 import { parse } from 'node-html-parser'
 import { archiveStops } from './archive'
 import { dropEmails, type PageImage } from './outline'
@@ -175,14 +175,14 @@ export type Take = 'yes' | 'shown' | 'no'
  * For `pickSourcePhotos` (Paraphanius mento, 2026-11-13: four photos taken off for a mark held its four places at every
  * read, so its six others were never tried and the page stayed empty) and the store.
  */
-export const mayTake = (source: SourceId, sourceName: string, deps: CreditTerms & { media: Pick<Media, 'urlFor'>; blocked?: Record<string, string> }, existing: readonly { url: string }[] = []) => (img: Picked): Take => {
+export const mayTake = (source: SourceId, sourceName: string, deps: CreditTerms & { media: Pick<Media, 'urlFor'>; blocked?: Record<string, string> }, existing: readonly Parameters<typeof deadScreenPhotoUrls>[0][] = []) => (img: Picked): Take => {
   const copies = [img, ...(img.alternatives ?? [])]
   const urls = copies.map(i => deps.media.urlFor(photoKey(source, i.src)))
   if (urls.some(u => deps.blocked?.[u])) return 'no'
   const cover = copies.flatMap(i => [i.credit ?? i.author, ...(i.credits ?? [])]).map(c => creditCover(c, sourceName, deps))
   if (cover.includes('never')) return 'no'
   if (!cover.includes('not yet')) return 'yes'
-  return existing.some(p => urls.includes(p.url)) ? 'shown' : 'no'
+  return existing.some(p => deadScreenPhotoUrls(p).some(url => urls.includes(url))) ? 'shown' : 'no'
 }
 
 /** A stored photo and the source heading it sat under (guide-sections.ts turns that into the guide's own heading). */
@@ -204,7 +204,8 @@ export async function storeSourcePhotos(
   // (publisher-credits.ts pictureCredit), so a photo is stored with it (the chief of staff, 10 and 17 Nov 2026).
   const line = (img: Picked) => img.author ?? pictureCredit(img.credit, sourceName, deps)
   const take = mayTake(source, sourceName, deps, existing)
-  const shows = (img: Picked) => existing.some(p => p.url === deps.media.urlFor(keyFor(img.src)))
+  const existingByUrl = new Map(existing.flatMap(p => deadScreenPhotoUrls(p).map(url => [url, p] as const)))
+  const shows = (img: Picked) => existingByUrl.has(deps.media.urlFor(keyFor(img.src)))
   // A photo held back is known before any request: none is made for it, nor for a copy the page doesn't show of one it
   // keeps only as it shows it.
   const groups = picked.map(first => {
@@ -220,7 +221,7 @@ export async function storeSourcePhotos(
       if (extraRequest !== extraTurn) continue
       const key = keyFor(img.src)
       if (deps.blocked?.[deps.media.urlFor(key)]) { group.done = true; break }
-      const known = existing.find(p => p.url === deps.media.urlFor(key))
+      const known = existingByUrl.get(deps.media.urlFor(key))
       // A photo stored already keeps its credit here: only the sweep and the line-read list name a stored one, since they
       // read every copy of it first (publisher-credits.ts; found in Codex's read, 20 Nov 2026).
       if (known) { out.push(img.heading ? { ...known, heading: img.heading } : known); group.done = true; break }

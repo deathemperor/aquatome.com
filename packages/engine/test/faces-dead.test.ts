@@ -1569,3 +1569,20 @@ test('a batch acknowledged during the next judgment does not appear again', asyn
   expect(after.albumBatches).toEqual([{ id: expect.any(String), urls: [next.url] }])
   expect(await acknowledgeAlbumTakeOffs(root, acknowledged)).toBe(0)
 })
+
+test.each([['rejected:', false], ['logo:', false], ['rejected:', true], ['logo:', true]] as const)(
+  'a %s refusal hides a fallback original (refusal at the stored URL: %s)', async (reason, stored) => {
+  const original = photo('original'), live = photo('live')
+  const altered = { ...photo('upscaled'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
+  const { root, state, publicView } = await publicFixture([altered, live], [altered, original], [altered.url, original.url, live.url])
+  const before = await publicView()
+  expect(before.species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toContain(original.url)
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [stored ? altered.url : original.url]: `${reason} withheld` }))
+  const after = await publicView()
+  expect(after.species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([live.url])
+  expect(after.galleries.alpha?.map(p => p.url) ?? []).not.toContain(original.url)
+  expect(after.photoWaits!(original.url)).toBe(true)
+  await sweep(root)
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toHaveProperty(original.url)
+  expect((await publicView()).photoWaits!(original.url)).toBe(true)
+})
