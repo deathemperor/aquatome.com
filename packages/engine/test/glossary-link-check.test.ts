@@ -2,7 +2,8 @@ import { mkdir, mkdtemp, readdir, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { checkLinks, linkCheckText, type Page, type Term, writeLinkCheck } from '../src/glossary-link-check'
+import { readFile } from 'node:fs/promises'
+import { checkLinks, glossaryLinkCheck, linkCheckText, type Page, READER_ORDER, type Term, writeLinkCheck } from '../src/glossary-link-check'
 
 // The standing check on link phrases, its half with no model (the chief of staff, 21 Nov 2026): "oxy" linked "oxy già"
 // and "lãnh thổ" linked "Lãnh thổ Bắc Úc". Each is flagged where the linker links it; a term's own use isn't.
@@ -66,4 +67,34 @@ test('the check writes only its page for the chief of staff, no .json beside it'
   await mkdir(out)
   await writeLinkCheck(root, out, '2026-11-22')
   expect(await readdir(out)).toEqual(['glossary-link-check.md'])
+})
+
+// The outside read of 22 Nov: the site links a term once a page, where it first comes as the page is read, and a fish page's
+// file has its habitat before its water while the page shows water first. The check reads the sections in the page's order.
+test('a page\'s sections are read in the order the site shows them, so the place checked is the one the site links', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-link-order-'))
+  await mkdir(join(root, 'content/glossary/luu-vuc'), { recursive: true })
+  await writeFile(join(root, 'content/glossary/luu-vuc/vi.json'), JSON.stringify({ name: 'Lưu vực', altNames: [], linkNames: ['lưu vực sông'] }))
+  await mkdir(join(root, 'content/species/ca-a'), { recursive: true })
+  await writeFile(join(root, 'content/species/ca-a/vi.json'), JSON.stringify({ sections: { 'habitat:glaser': '<p>Sống ở vùng lưu vực sông lớn.</p>', 'waterConditions:sf': '<p>Nước của lưu vực sông thì chua.</p>' } }))
+  const { reports } = await glossaryLinkCheck(root)
+  const around = reports[0]!.places.map(p => p.around)
+  expect(around).toHaveLength(1)
+  expect(around[0]).toContain('Nước của [lưu vực sông] thì chua.')
+  expect(around[0]).toContain('Sống ở vùng lưu vực sông lớn.')
+})
+
+test('the check\'s section order is the site\'s', async () => {
+  const site = await readFile(new URL('../../../apps/site/src/lib/sections.ts', import.meta.url), 'utf8')
+  const list = /export const DISPLAY_ORDER: SectionKey\[\] = \[([^\]]+)\]/.exec(site)![1]!.match(/'([^']+)'/g)!.map(x => x.slice(1, -1))
+  expect(READER_ORDER).toEqual(list)
+})
+
+// Two spellings of one name: which one a page writes first doesn't decide whether a name after it is the term's own use.
+test('a term\'s own use after one spelling holds for the other, whatever order the pages come in', () => {
+  const t: Term = { id: 'luu-vuc', name: 'Lưu vực', altNames: [], linkNames: ['thủy vực', 'thuỷ vực'], text: '<p>Cá ở thủy vực Mekong.</p>' }
+  const ps = [page('a', '<p>Cá sống ở thuỷ vực Amazon.</p>'), page('b', '<p>Cá sống ở thủy vực Mekong.</p>')]
+  const flags = (xs: Page[]) => checkLinks([t], xs).flatMap(r => r.places.map(p => [p.page, p.flagged]))
+  expect(flags(ps)).toEqual([['guides/a', false], ['guides/b', false]])
+  expect(flags([...ps].reverse()).sort()).toEqual([['guides/a', false], ['guides/b', false]])
 })
