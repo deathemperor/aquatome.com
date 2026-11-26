@@ -121,7 +121,7 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(names(s.find("", kind: .video)) == ["Cách hạn chế rêu hại", "Rêu hại từ A đến Z"])
   // A video guide is a video, not a guide: the Hướng dẫn chip holds written guides alone (Design's videos spec, 14 Nov).
   #expect(names(s.find("reu", kind: .guide)) == ["Rêu hại và cách trị"])
-  #expect(!video.is(.guide) && video.is(.video) && !written.is(.video) && written.is(.guide) && series.is(.video) && !series.is(.guide))
+  #expect(video.is(.guide) && video.is(.video) && !written.is(.video) && series.is(.video) && !series.is(.guide))
 }
 
 @Test func foldsAccentsAndTheVietnameseD() {

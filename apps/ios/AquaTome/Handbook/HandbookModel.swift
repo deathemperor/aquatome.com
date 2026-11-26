@@ -312,7 +312,7 @@ final class HandbookModel {
   /// Guides that name these fish and plants (a tank's), the most of them first, then in name order: the written ones,
   /// and the ones made from videos apart, as a species page on the site lists them.
   func guides(about ids: [String]) -> (written: [HandbookIndex.Item], videos: [HandbookIndex.Item]) {
-    let all = search.find("", kind: .guide)
+    let all = search.find("").filter { $0.kind == .guide }
     return (HandbookIndex.guides(about: ids, in: all.filter { $0.video == nil }), HandbookIndex.guides(about: ids, in: all.filter { $0.video != nil }))
   }
 

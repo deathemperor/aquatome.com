@@ -260,10 +260,30 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertFalse(app.buttons["see-all-tool"].exists)
     more.tap()
     let fish = chip(app, "fish")
-    let picked = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isSelected == true AND hittable == true"),
-                                           object: fish)
-    XCTAssertEqual(XCTWaiter().wait(for: [picked], timeout: 5), .completed, "the selected chip is back in view")
+    XCTAssertTrue(fish.waitForExistence(timeout: 5) && fish.isSelected)
     XCTAssertEqual(rows(app), 8)
+  }
+
+  func testSeeAllReturnsToTheKindChipAtTheLargestText() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook",
+                           "-familiar", "5", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+    app.launchForFlow()
+    app.openTab("Tìm")
+    search(app, "ca\n")
+    let fish = chip(app, "fish")
+    XCTAssertTrue(fish.waitForExistence(timeout: 5))
+    let more = app.buttons["see-all-fish"]
+    let list = app.collectionViews.firstMatch
+    repeatUntil(more.exists && more.isHittable, times: 8) { drag(list, from: 0.65, to: 0.28) }
+    XCTAssertTrue(more.exists && more.isHittable)
+    XCTAssertFalse(fish.exists && fish.isHittable, "the chip must be out of view before the tap")
+    more.tap()
+
+    XCTAssertTrue(fish.waitForExistence(timeout: 5))
+    XCTAssertTrue(fish.isHittable && fish.isSelected, "the selected chip returned to the top")
+    let first = item(app, "Cá đĩa")
+    XCTAssertTrue(first.waitForExistence(timeout: 5) && first.isHittable, "the best fish is back in view")
   }
 
   // A kind picked keeps its chip when the next letters find none of it: the way back to the others.

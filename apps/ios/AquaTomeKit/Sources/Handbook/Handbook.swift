@@ -106,7 +106,8 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     /// The kind used for search counts and results. A video guide appears with videos.
     var searchKind: Kind { kind == .guide && video != nil ? .video : kind }
 
-    public func `is`(_ kind: Kind) -> Bool { searchKind == kind }
+    /// A video guide belongs to both kinds in reading lists.
+    public func `is`(_ kind: Kind) -> Bool { self.kind == kind || (kind == .video && video != nil) }
 
     enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, imgBox, section, about, group, plant, video, parts, words, tax, from, of, card, short }
 
@@ -724,7 +725,7 @@ public struct HandbookSearch: Sendable {
   /// a page named what was searched for (its name, scientific name or another name, compared as `nameKey` makes them, as
   /// the site's search puts it first: "bảy màu" finds Cá bảy màu before Bảy màu Koi), the name itself, a name that starts
   /// with it, a word of the name that starts with it, the name containing it, then other names, then a tool page's words.
-  /// An empty query lists everything of `kind` (Item.is) in name order, all of it (`limit` is for searches).
+  /// An empty query lists every matching item in name order. The limit applies to ranked searches.
   public func find(_ query: String, kind: HandbookIndex.Kind? = nil, limit: Int = 200) -> [HandbookIndex.Item] {
     findAndCount(query, kind: kind, limit: limit).items
   }

@@ -98,9 +98,9 @@ private let index = HandbookSearch((0..<700).map { HandbookIndex.Item(kind: .fis
     .init(kind: .video, name: "Lọc từ A đến Z", path: "/vi/video/loc/", parts: 5),
   ]))
   s.query = "lọc"
-  #expect(s.sections.map(\.kind) == [.guide, .video])
+  #expect(s.sections.map(\.kind) == [.video, .guide])
   let videos = s.sections.first { $0.kind == .video }
   #expect(videos?.items.map(\.name) == ["Lọc từ A đến Z", "Lọc thùng cho bể 60 lít"])
-  #expect(videos?.count == 2 && s.sections.first?.count == 1)
+  #expect(videos?.count == 2 && s.sections.last?.count == 1)
   #expect(s.counts[.guide] == 1 && s.counts[.video] == 2)
 }
