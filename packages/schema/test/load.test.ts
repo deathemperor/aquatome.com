@@ -402,6 +402,16 @@ test("a public build shows no guide photo or stock photo the guides' own look ha
     return { own: g.photos.map(p => short(p.url)), stock: (g.video?.figures ?? []).flatMap(f => (f.photo ? [short(f.photo.url)] : [])) }
   }
   expect(await shown(true)).toEqual({ own: ['guide-looked'], stock: ['stock-looked'] })
+  const guideCache = {
+    [photo('guide-looked').url]: { person: false, mark: false, brand: false, dead: true },
+    [photo('stock-looked').url]: { person: false, mark: false, brand: false },
+  }
+  await state('_photo-guides.json', guideCache)
+  expect((await shown(true)).own).toEqual([])
+  await state('_photo-check.json', { [photo('guide-looked').url]: { ok: 'yes', logo: false, person: false } })
+  expect((await shown(true)).own).toEqual(['guide-looked'])
+  await rm(join(site, 'engine-state', '_photo-check.json'))
+  await looked(['guide-looked', 'stock-looked'])
   // The engine's own reads see every photo.
   expect(await shown(false)).toEqual({ own: ['guide-looked', 'guide-new'], stock: ['stock-looked', 'stock-new'] })
   const c = await loadAll({ root: store, lang: 'vi', publicBuild: true })

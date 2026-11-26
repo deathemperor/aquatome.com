@@ -149,10 +149,12 @@ test('an interrupted exclusion write replays the saved flag without judging the 
   }
   const u = m('stock-dead')
   expect((await json(root, 'engine-state/_dead-screen.json'))[u]).toMatchObject({ dead: true })
-  expect((await json(root, 'engine-state/_photo-second-look.json'))[u]).toMatchObject({ off: true })
+  await expect(json(root, 'engine-state/_photo-second-look.json')).rejects.toMatchObject({ code: 'ENOENT' })
+  expect((await json(root, 'content/guides/g/entity.json')).video.figures[0].photo.url).toBe(u)
   const next = deps()
   expect(await screenGuidesDead(root, next.d, { limit: 0 })).toMatchObject({ judged: 0, off: expect.arrayContaining([`${u}: guides/g`]) })
   expect(next.sent).toEqual([])
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[u]).toMatchObject({ off: true })
   expect((await json(root, 'content/guides/g/entity.json')).video.figures[0].photo).toBeUndefined()
   const parts = await readPartPhotosOff(join(root, 'content'))
   expect(Object.values(parts)).toContainEqual(expect.objectContaining({ guides: ['g'] }))
