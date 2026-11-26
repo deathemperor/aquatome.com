@@ -58,7 +58,17 @@ const offPage = p => typeof p.t === 'number' && p.person !== false
 const keyOf = x => (isPicture(x) ? `url:${x.url}` : isObj(x) && typeof x.heading === 'string' ? `heading:${x.heading}` : undefined)
 const keyed = (...lists) => lists.every(l => l.every(x => keyOf(x) !== undefined))
 /** Each item's key in its list, with its count among items of the same key (a guide can repeat a heading). */
-const keysOf = list => { const n = new Map(); return list.map(x => { const k = keyOf(x), i = n.get(k) ?? 0; n.set(k, i + 1); return `${k}#${i}` }) }
+const pictureVariant = p => JSON.stringify([p.altered ?? null, p.original?.url ?? null, p.ownerCrop !== undefined])
+function keysOf(list, variants) {
+  const seen = new Map()
+  return list.map(x => {
+    const id = keyOf(x)
+    const key = variants.has(id) && isPicture(x) ? JSON.stringify([id, pictureVariant(x)]) : id
+    const occurrence = seen.get(key) ?? 0
+    seen.set(key, occurrence + 1)
+    return `${key}#${occurrence}`
+  })
+}
 
 /** Three-way merge of a value: `base` undefined when both sides added it. `gone`: addresses either side took off the file. */
 export function merge3(base, ours, theirs, gone = new Set()) {
@@ -81,7 +91,22 @@ export function merge3(base, ours, theirs, gone = new Set()) {
 
 /** A list of pictures or figures, item by item. */
 function mergeList(base, ours, theirs, gone) {
-  const kb = keysOf(base), inBase = new Set(kb)
+  const variants = new Set()
+  for (const list of [base, ours, theirs]) {
+    const seen = new Map()
+    for (const p of list.filter(isPicture)) {
+      const id = keyOf(p), variant = pictureVariant(p)
+      if (seen.has(id) && seen.get(id) !== variant) variants.add(id)
+      seen.set(id, variant)
+    }
+  }
+  const before = new Set(base.map(keyOf))
+  const local = new Map(theirs.filter(isPicture).map(p => [keyOf(p), p]))
+  for (const p of ours.filter(isPicture)) {
+    const id = keyOf(p), other = local.get(id)
+    if (!before.has(id) && other && pictureVariant(p) !== pictureVariant(other)) variants.add(id)
+  }
+  const kb = keysOf(base, variants), inBase = new Set(kb)
   // A figure under a heading new on one side is the base figure it shares a picture with, if that side has no figure
   // under the base one's heading: the heading was renamed.
   const renamed = (list, ks) => {
@@ -95,7 +120,7 @@ function mergeList(base, ours, theirs, gone) {
       return kb[j]
     })
   }
-  const [ko, kt] = [renamed(ours, keysOf(ours)), renamed(theirs, keysOf(theirs))]
+  const [ko, kt] = [renamed(ours, keysOf(ours, variants)), renamed(theirs, keysOf(theirs, variants))]
   const b = new Map(base.map((x, i) => [kb[i], x])), t = new Map(theirs.map((x, i) => [kt[i], x])), o = new Set(ko)
   const out = [], at = []
   ours.forEach((x, i) => {

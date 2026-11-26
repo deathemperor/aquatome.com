@@ -1,4 +1,5 @@
 ---
+import { TOOL_DESCRIPTIONS } from '../../lib/tools'
 import Browse from '../../layouts/Browse.astro'
 import ShopPicker from '../../components/ShopPicker.astro'
 import { goLink } from '../../lib/format'
@@ -25,7 +26,7 @@ const date = readDate(locale)
 const litres = (l: number, w: number, h: number) => new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(litresOf({ l, w, h }))
 const countries: Country[] = ['vn', 'id', 'th']
 ---
-<Browse title={t('Dự toán chi phí set bể thủy sinh: tiền mua đồ và tiền nuôi mỗi tháng')} heading={t('Set một bể hết bao nhiêu tiền?')} intro={t('Chọn cỡ bể và mức đầu tư. Công cụ cộng giá từng món, rồi tính tiền điện, CO₂, phân và thức ăn mỗi tháng, tất cả là khoảng giá.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Dự toán chi phí set bể cá, bể thủy sinh 30–120 cm: giá bể, chân, lọc, sưởi, đèn, phân nền, CO₂, bộ test và ổ cắm thông minh theo ba mức đầu tư, cộng tiền điện và tiền nuôi mỗi tháng.')}>
+<Browse title={t('Dự toán chi phí set bể thủy sinh: tiền mua đồ và tiền nuôi mỗi tháng')} heading={t('Set một bể hết bao nhiêu tiền?')} intro={t('Chọn cỡ bể và mức đầu tư. Công cụ cộng giá từng món, rồi tính tiền điện, CO₂, phân và thức ăn mỗi tháng, tất cả là khoảng giá.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t(TOOL_DESCRIPTIONS['/vi/cong-cu/du-toan-be/'])}>
   <div id="db-tool" data-locale={locale}>
     <form id="db" class="calc">
       <fieldset class="sizes">

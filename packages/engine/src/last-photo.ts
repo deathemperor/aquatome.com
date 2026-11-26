@@ -1,4 +1,4 @@
-import { isNonCommercial, isVersionRejection, originalPhotoRefusals, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, setsCookies, settledWaiting, type Photo } from '@aq/schema'
+import { CREDIT_HOLD_REJECTION, isNonCommercial, isVersionRejection, originalPhotoRefusals, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, setsCookies, settledWaiting, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { createHash, randomUUID } from 'node:crypto'
 import { link, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
@@ -253,13 +253,13 @@ export async function listAgreed(root: string): Promise<string[]> {
     // after that night's seven). On one marked off, a mark's entry does too, which a shop's own kept mark could otherwise
     // lift (the independent reader, 20 Nov).
     const prior = rejected[url]
-    if (!prior || prior.startsWith('waiting:') || (isVersionRejection(prior) && !isVersionRejection(sl[url]!.why)) ||
+    if (!prior || prior === CREDIT_HOLD_REJECTION || prior.startsWith('waiting:') || (isVersionRejection(prior) && !isVersionRejection(sl[url]!.why)) ||
         (prior.startsWith('watermark:') && (sl[url]!.off || !active(url)))) {
       rejected[url] = sl[url]!.why
     }
     for (const original of sl[url]!.originals ?? []) {
       const previous = active(original)?.[1]
-      if (!previous || isVersionRejection(previous)) rejected[original] = sl[url]!.why
+      if (!previous || previous === CREDIT_HOLD_REJECTION || isVersionRejection(previous)) rejected[original] = sl[url]!.why
     }
     delete sl[url]
   }
@@ -428,10 +428,18 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
           if (!earlier?.includes(String(p.photo.url))) continue
           // Add neighbors a preceding pass removed from the same file. The current file keeps its own order.
           for (const [i, neighbor] of earlier.entries()) {
-            if (order.includes(neighbor)) continue
-            const at = photoPosition(order, earlier, i, order.length)
+            const earlierKeys = saved?.orderKeys
+            const key = earlierKeys?.[i]
+            let at: number
+            if (orderKeys && earlierKeys && key) {
+              const wanted = earlierKeys.slice(0, i + 1).filter(other => other === key).length
+              if (orderKeys.filter(other => other === key).length >= wanted) continue
+              at = photoPosition(orderKeys, earlierKeys, i, order.length)
+            } else {
+              if (order.includes(neighbor)) continue
+              at = photoPosition(order, earlier, i, order.length)
+            }
             order.splice(at, 0, neighbor)
-            const key = saved?.orderKeys?.[i]
             if (orderKeys && key) {
               orderKeys.splice(at, 0, key)
               if (at <= orderKeyIndex) orderKeyIndex++
@@ -562,7 +570,6 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
     const places = [...new Set([...previous, ...captured.map(p => p.file).filter(f => PLACE.test(f))])]
     if (!places.length) return []
     const byFile = new Map(captured.map(p => [p.file, p.photoUrl ?? url]))
-    const hasCaptures = captured.some(p => p.capture)
     const captureCommits = new Map<string, string>()
     for (const place of captured) {
       if (!place.capture) continue
@@ -584,7 +591,6 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
       const files = git('diff', '--name-only', '--no-renames', ...search, `${sha}^`, sha, '--', ...places)
       if (files.status !== 0) return undefined
       for (const file of files.stdout.split('\n').filter(Boolean)) {
-        if (hasCaptures && !byFile.has(file) && sha !== mark) continue
         const capturedAt = captureCommits.get(file)
         if (capturedAt && capturedAt !== mark && capturedAt !== sha) {
           const afterCapture = git('merge-base', '--is-ancestor', capturedAt, sha)
@@ -625,6 +631,8 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
           const key = placeKey(placement)
           const had = out.get(key)
           const previous = saved[0] ?? captured.find(p => placeKey(p) === key) ?? had
+          // A named take-off identifies the removed occurrences. Other copies in its file may have stayed on.
+          if (namedAtMark && !previous) continue
           const former = previous?.photo
           if (former && (!photoAddressSet([String(former.url)])(String(entry.photo.url)) ||
             JSON.stringify(former.altered ?? null) !== JSON.stringify(entry.photo.altered ?? null))) continue

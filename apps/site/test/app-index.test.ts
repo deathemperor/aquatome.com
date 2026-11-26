@@ -7,7 +7,9 @@ import { appBreeds, appEquipment, appGlossary, appGuideImage, appGuides, appInde
 import { glossaryParts } from '../src/lib/glossary-page'
 import { easyPlants, groupTiles, leadGuides } from '../src/lib/home'
 import { getContent } from '../src/lib/content'
-import { appPath, LANGS, localizePath, OTHER_LANGS } from '../src/lib/i18n'
+import { descriptionForSearch } from '../src/lib/meta'
+import { TOOL_DESCRIPTIONS } from '../src/lib/tools'
+import { appPath, LANGS, localizePath, OTHER_LANGS, toVi, translator } from '../src/lib/i18n'
 import { appHref, appPage, DIST, page } from './dist'
 import { slow } from '@aq/schema/test-time'
 
@@ -431,15 +433,25 @@ test('every series /video/ lists is listed, one whose guides are all out of sear
 
 test('a tool carries its page\'s own title, the line under its heading and its description, all of them, so a search finds it by them', () => {
   for (const lang of LANGS) {
+    const t = translator(lang)
     for (const tool of index(lang).items.filter(i => i.kind === 'tool')) {
       const { dom } = appPage(tool.path)
-      const said = [
-        dom.querySelector('title')?.text.replace(/ — AquaTome$/, ''),
-        dom.querySelector('p.intro')?.text,
-        dom.querySelector('meta[name="description"]')?.getAttribute('content'),
-      ]
-      // Each once, and not the name it's listed by.
-      expect(tool.words, tool.path).toEqual([...new Set(said.filter((s): s is string => !!s && s !== tool.name))])
+      const descriptionKey = TOOL_DESCRIPTIONS[toVi(tool.path)]
+      expect(descriptionKey, tool.path).toBeDefined()
+      const fullDescription = t(descriptionKey!)
+      const title = dom.querySelector('title')?.text.replace(/ — AquaTome$/, '')
+      const intro = dom.querySelector('p.intro')?.text
+      const meta = dom.querySelector('meta[name="description"]')
+      const snippet = meta?.getAttribute('content')
+
+      expect(snippet, tool.path).toBe(descriptionForSearch(lang, fullDescription))
+      const clipped = snippet !== fullDescription
+      expect(meta?.getAttribute('data-pagefind-meta'), tool.path).toBe(clipped
+        ? 'description[content], full_description[data-full-description]'
+        : 'description[content]')
+      expect(meta?.getAttribute('data-full-description'), tool.path).toBe(clipped ? fullDescription : undefined)
+      const expected = [...new Set([title, intro, fullDescription].filter((s): s is string => !!s && s !== tool.name))]
+      expect(tool.words, tool.path).toEqual(expected)
     }
   }
   expect(index('vi').items.find(i => i.path === '/vi/cong-cu/the-tich-be/')?.words).toContain('Tính thể tích bể cá: lít, gallon, độ dày kính')
