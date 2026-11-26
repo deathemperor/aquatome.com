@@ -1184,7 +1184,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const sources = JSON.parse(await readFile(join(content, 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, SourceInfo>
     const shown = (p: Photo) => publicPhotoVersion(p, o.switches ?? IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
     const own = (data: Doc, context?: { ref: string; name: string; album?: boolean }) => (data.photos ?? []).flatMap(p => {
-      const version = !p.generated && !(context?.album && p.unchecked) && (!context || permittedPhotoSource(p, sources, context.ref, context.name)) && shown(p)
+      const version = !p.generated && !(context?.album && p.unchecked) && (!context || permittedPhotoSource(p, sources, context.ref, context.name, (o.switches ?? IMAGE_SWITCHES).inatNonCommercial)) && shown(p)
       return version ? [version] : []
     })
     // A photo held for a second look, or one it cleared, stays (last-photo.ts).

@@ -573,8 +573,10 @@ async function checkUnpublishedRestores(root: string, local: SecondLooks, histor
     const matches = photoAddressSet([url])
     for (const p of historyPlaces) {
       if (p.times < 2 || !settled.has(p.file)) continue
+      const blockedHost = setsCookies(typeof p.photo.url === 'string' ? p.photo.url : url)
+      const matchesRestored = (address: string) => matches(address) && (blockedHost || !setsCookies(address))
       const main = publishedJson(root, p.file)
-      if (Array.isArray(main?.photos) && main.photos.some(photo => typeof photo?.url === 'string' && matches(photo.url))) continue
+      if (Array.isArray(main?.photos) && main.photos.some(photo => typeof photo?.url === 'string' && matchesRestored(photo.url))) continue
       const file = join(root, p.file)
       const raw = await readFile(file, 'utf8').catch((error: NodeJS.ErrnoException) => {
         if (error.code === 'ENOENT') return undefined
@@ -583,7 +585,7 @@ async function checkUnpublishedRestores(root: string, local: SecondLooks, histor
       if (raw === undefined) continue
       const data = JSON.parse(raw) as { photos?: { url: string }[] }
       if (!data.photos) continue
-      const keep = data.photos.filter(photo => !matches(photo.url))
+      const keep = data.photos.filter(photo => !matchesRestored(photo.url))
       if (keep.length === data.photos.length) continue
       await replacePhotoDocument(file, `${JSON.stringify({ ...data, photos: keep }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       undone.push(`${url}: it left ${p.file} again on main, and that removal stands`)
@@ -715,7 +717,8 @@ export async function putBackCleared(root: string, history: History, at = today(
         earlier.push(p.order)
         earlierOrders.set(p.file, earlier)
       }
-      if (current.some(samePhoto)) continue
+      const blockedHost = setsCookies(address)
+      if (current.some(url => samePhoto(url) && (blockedHost || !setsCookies(url)))) continue
       const position = order.indexOf(address)
       const index = photoPosition(current, order, position >= 0 ? position : p.index, p.index)
       photos.splice(index, 0, p.photo)
