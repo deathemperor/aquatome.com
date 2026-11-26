@@ -5,11 +5,10 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { keptMarks } from './own-mark'
 import { captureWaiting, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
 import { permittedPhotoSource } from './photo-visibility'
 
@@ -41,12 +40,11 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const rejected: Record<string, string> = rejectedFile
     ? withoutClearedWaits(JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')), before)
     : {}
-  const rejectedAt = rejectedEntry(rejected)
-  const keepMark = await keptMarks(root)
-  const listed = (url: string) => {
-    const entry = rejectedAt(url)
-    return entry?.[1].startsWith('watermark:') && (keepMark(url) || keepMark(entry[0])) ? undefined : entry
-  }
+  const marks = await readFile(join(root, 'engine-state', PHOTO_SCREEN_FILE), 'utf8').then(
+    raw => JSON.parse(raw) as Record<string, PhotoScreenEntry>,
+    (error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return undefined },
+  )
+  const listed = photoRejections(rejected, marks)
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
   for (const kind of ['species', 'plants', 'guides']) {
     for (const id of await readdir(join(contentRoot, kind)).catch(() => [] as string[])) {
@@ -89,8 +87,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const sources: Record<string, SourceInfo> = waitingForDead
     ? JSON.parse(await readFile(join(contentRoot, 'sources.json'), 'utf8').catch(() => '{}'))
     : {}
-  const watermarks = waitingForDead && await readFile(join(root, 'engine-state', PHOTO_SCREEN_FILE), 'utf8')
-    .then(raw => JSON.parse(raw) as Record<string, PhotoScreenEntry>, () => undefined)
+  const watermarks = waitingForDead ? marks : undefined
   const version = (p: Photo) =>
     publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   // A stored alteration and its original can have separate decisions. Keep the credited wrapper for its other version.
@@ -139,8 +136,9 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   if (firstOff.size || refusedNow.length) {
     const file = rejectedFile ?? join(root, 'engine-state', '_photo-rejected.json')
     const now = withoutSettledWaits(JSON.parse(await readFile(file, 'utf8').catch(() => '{}')), secondLook)
-    for (const u of firstOff.keys()) now[u] ??= waitingEntry(why)
-    for (const u of refusedNow) now[u] ??= why
+    const active = photoRejections(now, marks)
+    for (const u of firstOff.keys()) if (!active(u)) now[u] = waitingEntry(why)
+    for (const u of refusedNow) if (!active(u)) now[u] = why
     await writePhotoState(file, now)
   }
   const held = [...last].map(([u, ps]) => `${u}: ${ps.join(', ')}`)
@@ -184,11 +182,11 @@ const readPhotoRecord = async (root: string, name: string): Promise<Record<strin
  */
 async function unjudged(root: string, contentRoot: string): Promise<string[]> {
   const read = (name: string) => readPhotoRecord(root, name)
-  const [shown, screen, check, subjects, secondLook, rejected] = await Promise.all([
-    ownDeadPhotoUrls(contentRoot), read(DEAD_SCREEN_FILE), read(PHOTO_CHECK_FILE), read(PHOTO_SUBJECTS_FILE), read(SECOND_LOOK_RECORD), read(PHOTO_REJECTED_FILE),
+  const [shown, screen, check, subjects, secondLook, rejected, marks] = await Promise.all([
+    ownDeadPhotoUrls(contentRoot), read(DEAD_SCREEN_FILE), read(PHOTO_CHECK_FILE), read(PHOTO_SUBJECTS_FILE), read(SECOND_LOOK_RECORD), read(PHOTO_REJECTED_FILE), read(PHOTO_SCREEN_FILE),
   ])
   const looked = deadLooked({ screen, check, subjects, secondLook })
-  const listed = rejectedEntry(rejected as Record<string, string>)
+  const listed = photoRejections(rejected as Record<string, string>, marks as Record<string, PhotoScreenEntry>)
   return [...shown].filter(u => !looked(u) && !listed(u))
 }
 
