@@ -1,2 +1,5 @@
 https://dashboard.aquatome.com/*
   X-Robots-Tag: noindex, nofollow
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
