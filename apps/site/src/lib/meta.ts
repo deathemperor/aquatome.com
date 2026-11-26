@@ -65,9 +65,8 @@ const named = (lang: Lang, key: string, name: string, sci: string) => {
   if (core && length(core) <= TITLE_LENGTH) return core
   const label = withSci(name, sci)
   if (length(label) <= TITLE_LENGTH) return label
-  const common = nameIncluded
-    ? name.replace(sciWords(sci, 'giu'), ' ').replace(/[()]/g, '').replace(/\s*,\s*/g, ', ').replace(/^,\s*|,\s*$/g, '').replace(/\s+/g, ' ').trim()
-    : name
+  const withoutSci = nameIncluded ? name.replace(sciWords(sci, 'giu'), ' ') : name
+  const common = withoutSci.replace(/[()]/g, ' ').replace(/\s*,\s*/g, ', ').replace(/^,\s*|,\s*$/g, '').replace(/\s+/g, ' ').trim()
   const shortened = clip(common, lang, TITLE_LENGTH - length(sci) - 3, 'word')
   return shortened ? withSci(shortened, sci) : clip(sci, lang, TITLE_LENGTH, 'grapheme')
 }

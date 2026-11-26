@@ -70,7 +70,7 @@ const speculation = JSON.stringify({ prefetch: [{ where, eagerness: 'eager' }], 
     <script is:inline type="speculationrules" set:html={speculation} />
     <title>{title}</title>
     {/* Pagefind uses the full description to confirm query matches. */}
-    {searchDescription && <meta name="description" content={searchDescription} data-pagefind-meta={descriptionClipped ? 'description[data-full-description]' : 'description[content]'} data-full-description={descriptionClipped ? description : undefined} />}
+    {searchDescription && <meta name="description" content={searchDescription} data-pagefind-meta={descriptionClipped ? 'description[content], full_description[data-full-description]' : 'description[content]'} data-full-description={descriptionClipped ? description : undefined} />}
     {(noindex || isStaging()) && <meta name="robots" content="noindex, follow" />}
     {/* Safari's own Smart App Banner, no script of ours (lib/app.ts). Not before the launch: Safari shows none until the store has the app. */}
     {APP_STATE === 'on' && <meta name="apple-itunes-app" content={`app-id=${APP_STORE_ID}, app-argument=${canonical}`} />}

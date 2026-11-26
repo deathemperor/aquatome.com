@@ -445,8 +445,11 @@ test('a tool carries its page\'s own title, the line under its heading and its d
       const snippet = meta?.getAttribute('content')
 
       expect(snippet, tool.path).toBe(descriptionForSearch(lang, fullDescription))
-      const pagefindAttribute = meta?.getAttribute('data-pagefind-meta')?.match(/^description\[([\w-]+)\]$/)?.[1]
-      expect(pagefindAttribute && meta?.getAttribute(pagefindAttribute), tool.path).toBe(fullDescription)
+      const clipped = snippet !== fullDescription
+      expect(meta?.getAttribute('data-pagefind-meta'), tool.path).toBe(clipped
+        ? 'description[content], full_description[data-full-description]'
+        : 'description[content]')
+      expect(meta?.getAttribute('data-full-description'), tool.path).toBe(clipped ? fullDescription : undefined)
       const expected = [...new Set([title, intro, fullDescription].filter((s): s is string => !!s && s !== tool.name))]
       expect(tool.words, tool.path).toEqual(expected)
     }

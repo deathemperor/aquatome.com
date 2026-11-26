@@ -67,3 +67,12 @@ test('a long name containing its scientific name keeps the common name that fits
   expect(inTheMiddle).toContain(sci)
   expect([...inTheMiddle].length).toBeLessThanOrEqual(70)
 })
+
+test('shortening a common name with a trade description leaves balanced parentheses', () => {
+  const sci = 'Melanotaenia praecox'
+  const title = speciesTitle('vi', 'Cá cầu vồng (dòng xanh được chọn qua nhiều thế hệ, nuôi trong hồ thủy sinh)', sci)
+  expect(title).toContain('Cá cầu vồng')
+  expect(title).toContain(`(${sci})`)
+  expect(title.replace(`(${sci})`, '')).not.toMatch(/[()]/)
+  expect([...title].length).toBeLessThanOrEqual(70)
+})
