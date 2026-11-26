@@ -157,11 +157,13 @@ test('a photo off at its first verdict, waiting for its second look, is not copi
 
 test("a second look's clear follows its photo to our bucket, so the verdict copied with it doesn't take it off there", async () => {
   const r = await root()
-  const rec = { why: 'dead: withheld [sha256:' + 'c'.repeat(64) + ']', step: 'the photo check', pages: ['species/astronotus-ocellatus'], at: '2026-11-20', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-20' } }
+  const rec = { why: 'dead: withheld [sha256:' + 'c'.repeat(64) + ']', step: 'the photo check', pages: ['species/astronotus-ocellatus'], at: '2026-11-20', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-20' }, left: [{ file: 'content/species/astronotus-ocellatus/entity.json', index: 0, capture: '08e5e8b4-0eb7-41d7-b0ec-583bc495cdac' }] }
   await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [INAT]: rec }))
   const { d, put } = deps()
   await mirrorPhotos(r, d)
   expect(put).toContain('inaturalist/617421644.webp')
   const sl = JSON.parse(await readFile(join(r, 'engine-state/_photo-second-look.json'), 'utf8'))
-  expect(sl['https://media.aquatome.com/inaturalist/617421644.webp']).toEqual(rec)
+  const mirror = 'https://media.aquatome.com/inaturalist/617421644.webp'
+  expect(sl).toEqual({ [INAT]: rec })
+  expect(photoWaitsFor({ deadScreen: { [mirror]: { dead: true } }, secondLook: sl })(mirror)).toBe(false)
 })

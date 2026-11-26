@@ -3,7 +3,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
-import { looks, readSecondLook, writeSecondLook } from './last-photo'
+import { looks, readSecondLook } from './last-photo'
 
 type Photo = { url: string; thumb?: string; width: number; height: number; licence: string; author: string; sourceUrl: string }
 type Stored = Awaited<ReturnType<Media['put']>>
@@ -52,7 +52,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
   const edits = new Map<string, string>()
   // A photo off at its first verdict is coming off every page: it isn't copied, so its waiting entry and its record keep
   // one address (last-photo.ts; the independent reader, 20 Nov).
-  const marked = looks(await readSecondLook(root)).off
+  const marked = looks(await readSecondLook(root)).pendingOff
   for (const file of await files(join(root, 'content'))) {
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
@@ -95,16 +95,13 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     const cache = JSON.parse(raw) as Record<string, unknown> | null
     if (!cache) continue
     let n = 0
-    for (const [from, to] of moved) if (from in cache && !(to in cache)) { cache[to] = cache[from]; n++ }
+    for (const [from, to] of moved) if (from in cache && !(to in cache)) {
+      const value = cache[from]
+      if (f === '_photo-rejected.json' && typeof value === 'string' && value.startsWith('waiting:')) continue
+      cache[to] = value
+      n++
+    }
     if (n) await writePhotoState(path, cache)
-  }
-  // A second look's "clear" follows its photo to our bucket, so the cleared verdict copied above doesn't take it off there.
-  if (moved.length) {
-    const sl = await readSecondLook(root)
-    const cleared = looks(sl).cleared
-    let n = 0
-    for (const [from, to] of moved) if (sl[from] && cleared(from) && !(to in sl)) { sl[to] = sl[from]; n++ }
-    if (n) await writeSecondLook(root, sl)
   }
   // Keep a source reference available for retry until its transferred records are durable.
   for (const [file, raw] of edits) await writeFile(file, raw)
