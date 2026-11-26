@@ -2,17 +2,17 @@ import { piece, PieceAdmissionError } from './pieces'
 import { errorKind } from './state'
 import { compactRejection, compactVerdict, modelFailureKind, photoHints, photoReason, deadNote, peopleNote, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { writeImageCache } from './image-cache-write'
+import { replacePhotoDocument, writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoFitsHead, photoKey, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto, type SourceInfo } from '@aq/schema'
+import { deadScreenPhotoUrls, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
 import { galleryPlan } from './gallery-plan'
 import { pickStands, readPersonYes } from './person-yes'
-import { FIRST_OFF, holdForSecondLook, looks, passedBefore, readSecondLook, waitingEntry } from './last-photo'
+import { entriesDir, FIRST_OFF, holdForSecondLook, looks, passedBefore, placesIn, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, shouldStripPhoto, stripPhotos, type WatermarkEntry } from './watermarks'
 import { keptLast, screenedShop } from './own-mark'
@@ -20,7 +20,7 @@ import { ageOf, ageUnasked, grownFirst, grownHead, headAsksAge, youngUnasked } f
 import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
 import { readAvoid } from './curation'
 import { priorityFish } from './priority-fish'
-import { permittedPhotoSource, readPhotoWaits } from './photo-visibility'
+import { permittedPhotoSource, readPhotoSources, readPhotoWaits } from './photo-visibility'
 
 type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; licence?: string; generated?: unknown; unchecked?: boolean }
 /**
@@ -464,9 +464,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const legacy=Object.fromEntries(Object.entries(rawLegacy).map(([u,v])=>[u,compactVerdict(v)]))
   // The photos that passed the check before this run (last-photo.ts): its verdicts as the run found them.
   const passed = passedBefore(cache, legacy)
-  const rejected = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict (last-photo.ts).
   const secondLook = await readSecondLook(root)
+  const rejected = withoutClearedWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, secondLook)
   const sl = looks(secondLook)
   const rejectedAt = rejectedEntry(rejected)
   const markedAt = rejectedEntry(Object.fromEntries(Object.entries(secondLook)
@@ -820,7 +820,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const first = (url: string) => sl.off(url) || (FIRST_OFF.test(added[url] ?? '') && freshBad.has(url))
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
-  const pendingGlobal = rejectedEntry(Object.fromEntries(Object.entries(added).filter(([, why]) => FIRST_OFF.test(why))))
+  const pendingGlobal = photoRejections(Object.fromEntries(Object.entries(added)
+    .filter(([, why]) => FIRST_OFF.test(why) || why.startsWith('watermark:'))), marks)
   const blockedAs = (file: string, url: string) => {
     const waiting = waitingAt(url)
     if (waiting) return waiting
@@ -835,7 +836,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const real = (ps: Photo[] | undefined) => (ps ?? []).filter(p => !p.generated)
   const ownPhotos = async (file: string) => real((await readJson<{ photos?: Photo[] }>(file))?.photos)
   const waitsFor = await readPhotoWaits(root, { check: legacy, subjects: cache, rejected })
-  const sources = (await readJson<Record<string, SourceInfo>>(join(content, 'sources.json'))) ?? {}
+  const sources = await readPhotoSources(content)
   const firstOff = new Map<string, { why: string; pages: string[]; off: true }>()
   const firstAliases = new Map<string, string>()
   const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) => {
@@ -947,7 +948,6 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const url = x.slice(0, x.indexOf(': '))
     return !firstOff.has(url) && !firstAliases.has(url)
   })
-  await holdForSecondLook(root, firstOff, 'the photo check')
   for (const file of heldPages) report.heads.held.push(`${pageOf(file)}: ${((await ownPhotos(file))[0] ?? (await ownPhotos(galleryOf(file)))[0])!.url}`)
   // Each photo a held page would have lost goes on the second look, with its reason (last-photo.ts).
   const holding = new Map<string, { why: string; pages: string[] }>()
@@ -976,24 +976,44 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     delete added[url]
     report.blocked = report.blocked.filter(x => !x.startsWith(`${url}: `))
   }
+  // Where each one marked off stood, for its record: the put-back's only trace of one this run brought (last-photo.ts).
+  const stood = new Map<string, Stood[]>()
   const edits = new Map<string, string>()
+  const canCapture = !!entriesDir()
+  const recoverableEdit = (url: string) => {
+    const at = waitingAt(url)
+    if (!at) return true
+    const entry = rejectedAt(url)
+    return canCapture && sl.off(at) && (!entry || entry[1] === waitingEntry(secondLook[at]!.why))
+  }
   for (const file of [...new Set(shown.map(x => x.file))]) {
+    const capture = (url: string) => {
+      const reason = blockedAs(file, url)
+      return reason && first(reason) ? (firstAliases.get(reason) ?? reason) : undefined
+    }
+    const raw = await readFile(file, 'utf8')
+    const data = JSON.parse(raw) as { photos?: Photo[]; video?: { figures?: { photo?: Photo; moments?: { url: string }[] }[] } }
+    // Waiting guide slots remain in the document until recovery can capture those slots.
+    const nested = photoAddressSet((data.video?.figures ?? []).flatMap(f => [
+      ...(f.photo ? deadScreenPhotoUrls(f.photo) : []), ...(f.moments ?? []).map(m => m.url),
+    ]))
+    const canRemove = (url: string) => recoverableEdit(url) && !(nested(url) && (waitingAt(url) || capture(url)))
     if (held.has(file)) {
       // A held page keeps what passed before; a first verdict comes off it all the same.
-      const raw = await readFile(file, 'utf8')
-      const data = JSON.parse(raw) as { photos?: Photo[] }
       const removed: string[] = []
-      stripPhotos(data, first, removed, [], preservesOriginal)
+      const before = { ...data }
+      stripPhotos(data, url => canRemove(url) && !!capture(url), removed, [], preservesOriginal)
+      placesIn(root, file, before, url => removed.includes(url) ? capture(url) : undefined, stood)
       if (!removed.length) continue
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
       edits.set(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       continue
     }
-    const raw = await readFile(file, 'utf8')
-    const data = JSON.parse(raw) as { photos?: Photo[] }
     const before = real(data.photos)[0]?.url
     const removed: string[] = []
-    stripPhotos(data, blocked(file), removed, [], preservesOriginal)
+    const beforeEdit = { ...data }
+    stripPhotos(data, url => canRemove(url) && blocked(file)(url), removed, [], preservesOriginal)
+    placesIn(root, file, beforeEdit, url => removed.includes(url) ? capture(url) : undefined, stood)
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
     const gallery = galleryId(file)
     if (gallery) for (const p of data.photos ?? []) {
@@ -1064,6 +1084,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
     edits.set(file, out)
   }
+  await holdForSecondLook(root, firstOff, 'the photo check', undefined, stood)
 
   // 3. Verdicts, the blocklist (re-read, so entries another step added meanwhile stay) and the review file.
   // A photo this run lists as another fish, whose answer named a kind we have a page for, keeps that page's id beside
@@ -1075,13 +1096,13 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const kinded = Object.keys(added).filter(u => !(u in listedBefore) && added[u]!.startsWith('not ') && namedKinds.has(u) && !(u in kinds))
   for (const u of kinded) kinds[u] = namedKinds.get(u)!
   if (kinded.length) await writeKinds()
-  const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
+  const now = withoutSettledWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, await readSecondLook(root))
   // One off at its first verdict waits there marked, and isn't counted refused (last-photo.ts).
   for (const [u, why] of Object.entries(added)) if (!(u in now) && !firstAliases.has(u)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
   await writePhotoState(rejectedFile, now)
   // Keep the rejection durable during the page edits. A subject verdict may release the dead-fish wait, so
   // publish it only after every edit has succeeded.
-  for (const [file, out] of edits) await writeFile(file, out)
+  for (const [file, out] of edits) await replacePhotoDocument(file, out)
   await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   // One another step listed meanwhile keeps that step's reason, and no id from this run.
   if (kinded.length) {

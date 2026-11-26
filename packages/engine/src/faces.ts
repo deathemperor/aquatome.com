@@ -1,15 +1,16 @@
 import { execFile } from 'node:child_process'
+import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
-import { permittedPhotoSource } from './photo-visibility'
+import { captureWaiting, entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
+import { permittedPhotoSource, readPhotoSources } from './photo-visibility'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
 
@@ -35,8 +36,15 @@ export async function visionFaces(files: string[]): Promise<number[]> {
  */
 export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..'), enrol?: (fresh: string[]) => Promise<ReadonlySet<string>>): Promise<{ checked: number; fresh: string[]; screened: string[]; removed: string[]; held: string[]; firstOff: string[]; failed: string[] }> {
   const cache: Record<string, number> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
-  const rejected: Record<string, string> = rejectedFile ? JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) : {}
-  const listed = rejectedEntry(rejected)
+  const before = await readSecondLook(root)
+  const rejected: Record<string, string> = rejectedFile
+    ? withoutClearedWaits(JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')), before)
+    : {}
+  const marks = await readFile(join(root, 'engine-state', PHOTO_SCREEN_FILE), 'utf8').then(
+    raw => JSON.parse(raw) as Record<string, PhotoScreenEntry>,
+    (error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return undefined },
+  )
+  const listed = photoRejections(rejected, marks)
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
   for (const kind of ['species', 'plants', 'guides']) {
     for (const id of await readdir(join(contentRoot, kind)).catch(() => [] as string[])) {
@@ -76,16 +84,13 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const passed = photoAddressSet(await readPassedBefore(root))
   const face = (u: string) => cache[u]! > 0 && !sl.clearedPhoto(u) && !sl.pendingOff(u) && (sl.open(u) || ((sl.waiting(u) || sl.held(u)) && screened.has(u) && !passed(u)))
   const screen = waitingForDead && await readPhotoRecord(root, DEAD_SCREEN_FILE)
-  const sources: Record<string, SourceInfo> = waitingForDead
-    ? JSON.parse(await readFile(join(contentRoot, 'sources.json'), 'utf8').catch(() => '{}'))
-    : {}
-  const watermarks = waitingForDead && await readFile(join(root, 'engine-state', PHOTO_SCREEN_FILE), 'utf8')
-    .then(raw => JSON.parse(raw) as Record<string, PhotoScreenEntry>, () => undefined)
+  const sources = waitingForDead ? await readPhotoSources(contentRoot) : {}
+  const watermarks = waitingForDead ? marks : undefined
   const version = (p: Photo) =>
     publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   // A stored alteration and its original can have separate decisions. Keep the credited wrapper for its other version.
   const keepsOriginal = (p: Photo) => {
-    const original = photoUrls(p)[1]
+    const original = deadScreenPhotoUrls(p)[1]
     const why = listed(p.url)?.[1]
     const versionRejection = !why || /^(?:dead|people|waiting): /.test(why)
     const originalRejection = original && listed(original)?.[1]
@@ -112,7 +117,17 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const markedByAddress = photoAddressSet(firstOff.keys())
   const why = 'people: a face (face detection)'
   await holdForSecondLook(root, new Map([...last].map(([u, pages]) => [u, { why, pages }])), 'face detection')
-  await holdForSecondLook(root, new Map([...firstOff].map(([u, pages]) => [u, { why, pages, off: true as const }])), 'face detection')
+  const left = new Map<string, Stood[]>()
+  const waiting = captureWaiting(secondLook, listed)
+  const canCapture = !!entriesDir()
+  const removes = (p: Photo) => dropsStored(p) && !heldByAddress(p.url) &&
+    (!listed(p.url)?.[1].startsWith('waiting:') || (canCapture && !!waiting(p.url)))
+  const newFirst = rejectedEntry(Object.fromEntries([...firstOff.keys()].map(url => [url, why])))
+  for (const { file, e } of pages) {
+    const removed = new Set((e.photos ?? []).filter(removes).map(p => p.url))
+    placesIn(root, file, e, url => removed.has(url) && (waiting(url) ?? newFirst(url)?.[0]), left)
+  }
+  await holdForSecondLook(root, new Map([...firstOff].map(([u, pages]) => [u, { why, pages, off: true as const }])), 'face detection', undefined, left)
   // A face found now, on a photo that never passed, takes it off every page and album, as the check's verdict of a person
   // does: off a page that keeps other photos, it goes on the never-again list as refused, so the sweep takes its album
   // copies and no step brings it back (the independent reader, 20 Nov).
@@ -120,24 +135,29 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const refusedNow = rejectedFile ? [...screened].filter(u => face(u) && !passed(u) && !markedByAddress(u) && !heldByAddress(u)) : []
   if (firstOff.size || refusedNow.length) {
     const file = rejectedFile ?? join(root, 'engine-state', '_photo-rejected.json')
-    const now = JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Record<string, string>
-    for (const u of firstOff.keys()) now[u] ??= waitingEntry(why)
-    for (const u of refusedNow) now[u] ??= why
+    const now = withoutSettledWaits(JSON.parse(await readFile(file, 'utf8').catch(() => '{}')), secondLook)
+    const active = photoRejections(now, marks)
+    for (const u of firstOff.keys()) if (!active(u)) now[u] = waitingEntry(why)
+    for (const u of refusedNow) if (!active(u)) now[u] = why
     await writePhotoState(file, now)
   }
   const held = [...last].map(([u, ps]) => `${u}: ${ps.join(', ')}`)
   const offFirst = [...firstOff].map(([u, ps]) => `${u}: ${ps.join(', ')}`)
   const removed: string[] = []
   for (const { file, e } of pages) {
-    const keep = (e.photos ?? []).filter(p => !dropsStored(p) || heldByAddress(p.url))
+    const keep = (e.photos ?? []).filter(p => !removes(p))
     // A video section's photo the owner rejected (the images pass screened it for faces when it picked it).
-    const figures = (e.video?.figures ?? []).filter(f => f.photo && listed(f.photo.url))
+    const figures = (e.video?.figures ?? []).filter(f => {
+      if (!f.photo) return false
+      const entry = listed(f.photo.url)
+      return !!entry && !entry[1].startsWith('waiting:') && !keepsOriginal(f.photo)
+    })
     if (keep.length === (e.photos ?? []).length && !figures.length) continue
     const at = file.slice(contentRoot.length + 1)
     removed.push(...(e.photos ?? []).filter(p => !keep.includes(p)).map(p => `${at}: ${p.url}`), ...figures.map(f => `${at}: ${f.photo!.url}`))
     if (e.photos) e.photos = keep
     for (const f of figures) delete f.photo
-    await writeFile(file, `${JSON.stringify(e, null, 2)}\n`)
+    await replacePhotoDocument(file, `${JSON.stringify(e, null, 2)}\n`)
   }
   await writeFile(cacheFile, `${JSON.stringify(Object.fromEntries(Object.entries(cache).sort()), null, 2)}\n`)
   return { checked: todo.length - failed.length, fresh: todo, screened: [...screened], removed, held, firstOff: offFirst, failed }
@@ -145,6 +165,13 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
 
 /** Sheets of 12 the dead-fish screen takes in one faces step: a pages run's new photos made 11 or 12 (20 to 21 Nov 2026). */
 export const NEW_PHOTO_SHEETS = 14
+/**
+ * Sheets of 12 album photos the screen takes in one faces step, after the photos it owes (`screenDead` `albums`). None
+ * until the chief of staff sets the pace: the 12,500 no look had judged on 22 Nov 2026 are a hand run's (`faces --sheets
+ * <n>`), on a dated raise of the step's line. The albums took in 2,760 new photos in the week to 22 Nov, about 390 a day:
+ * 4 sheets a step, about 960 a day over about 20 faces steps at about $0.02 a sheet, would keep ahead of them.
+ */
+export const ALBUM_SHEETS = 0
 
 const readPhotoRecord = async (root: string, name: string): Promise<Record<string, unknown>> =>
   JSON.parse(await readFile(join(root, 'engine-state', name), 'utf8').catch(() => '{}'))
@@ -155,11 +182,11 @@ const readPhotoRecord = async (root: string, name: string): Promise<Record<strin
  */
 async function unjudged(root: string, contentRoot: string): Promise<string[]> {
   const read = (name: string) => readPhotoRecord(root, name)
-  const [shown, screen, check, subjects, secondLook, rejected] = await Promise.all([
-    ownDeadPhotoUrls(contentRoot), read(DEAD_SCREEN_FILE), read(PHOTO_CHECK_FILE), read(PHOTO_SUBJECTS_FILE), read(SECOND_LOOK_RECORD), read(PHOTO_REJECTED_FILE),
+  const [shown, screen, check, subjects, secondLook, rejected, marks] = await Promise.all([
+    ownDeadPhotoUrls(contentRoot), read(DEAD_SCREEN_FILE), read(PHOTO_CHECK_FILE), read(PHOTO_SUBJECTS_FILE), read(SECOND_LOOK_RECORD), read(PHOTO_REJECTED_FILE), read(PHOTO_SCREEN_FILE),
   ])
   const looked = deadLooked({ screen, check, subjects, secondLook })
-  const listed = rejectedEntry(rejected as Record<string, string>)
+  const listed = photoRejections(rejected as Record<string, string>, marks as Record<string, PhotoScreenEntry>)
   return [...shown].filter(u => !looked(u) && !listed(u))
 }
 
@@ -191,7 +218,7 @@ async function stillOwed(root: string, contentRoot: string, owed: Record<string,
  * failing leaves the face pass as written (the chief of staff, 21 Nov 2026: the screen sees every new photo before it
  * can show).
  */
-export async function screenNewPhotos(contentRoot: string, cacheFile: string, d: FaceDeps & { dead: DeadScreenDeps }, rejectedFile?: string, root = join(contentRoot, '..')): Promise<{ faces: Awaited<ReturnType<typeof dropFacePhotos>>; dead?: Awaited<ReturnType<typeof screenDead>>; deadFailed?: string; owed: number }> {
+export async function screenNewPhotos(contentRoot: string, cacheFile: string, d: FaceDeps & { dead: DeadScreenDeps }, rejectedFile?: string, root = join(contentRoot, '..'), o: { albumSheets?: number } = {}): Promise<{ faces: Awaited<ReturnType<typeof dropFacePhotos>>; dead?: Awaited<ReturnType<typeof screenDead>>; deadFailed?: string; owed: number; albums?: Awaited<ReturnType<typeof screenDead>>; albumsFailed?: string }> {
   const owedFile = join(root, 'engine-state', DEAD_OWED_FILE)
   const before = JSON.parse(await readFile(owedFile, 'utf8').catch(() => '{}')) as Record<string, string>
   const today = new Date().toISOString().slice(0, 10)
@@ -205,13 +232,24 @@ export async function screenNewPhotos(contentRoot: string, cacheFile: string, d:
   })
   const owed = await stillOwed(root, contentRoot, enrolled, today)
   await write(owed)
-  if (!Object.keys(owed).length) return { faces, owed: 0 }
-  try {
-    const dead = await screenDead(root, d.dead, { limit: NEW_PHOTO_SHEETS * 12, photos: new Set(Object.keys(owed)) })
-    const left = await stillOwed(root, contentRoot, owed, today)
-    await write(left)
-    return { faces, dead, owed: Object.keys(left).length }
-  } catch (err) {
-    return { faces, deadFailed: photoFailure(err), owed: Object.keys(owed).length }
+  const out: Awaited<ReturnType<typeof screenNewPhotos>> = { faces, owed: Object.keys(owed).length }
+  if (out.owed) {
+    try {
+      out.dead = await screenDead(root, d.dead, { limit: NEW_PHOTO_SHEETS * 12, photos: new Set(Object.keys(owed)) })
+      const left = await stillOwed(root, contentRoot, owed, today)
+      await write(left)
+      out.owed = Object.keys(left).length
+    } catch (err) {
+      out.deadFailed = photoFailure(err)
+    }
   }
+  // Report the album queue even while page photos still have priority.
+  const pagesWaiting = out.owed || out.deadFailed || out.dead?.stopped || out.dead?.failed.length
+  try {
+    const limit = pagesWaiting ? 0 : (o.albumSheets ?? ALBUM_SHEETS) * 12
+    out.albums = await screenDead(root, d.dead, { limit, albums: true })
+  } catch (err) {
+    out.albumsFailed = photoFailure(err)
+  }
+  return out
 }

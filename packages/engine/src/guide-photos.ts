@@ -1,17 +1,18 @@
 import { piece } from './pieces'
 import { compactVerdict, photoReason, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { writePhotoState } from './photo-state'
+import { holdablePhotoVerdicts, versionRejection } from './photo-visibility'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
 import sharp from 'sharp'
-import { deadScreenPhotoUrls, guideLooked, GUIDE_LOOKS_FILE, rejectedEntry, stillShown, subjectForGuide, type Photo } from '@aq/schema'
+import { deadScreenPhotoUrls, guideLooked, GUIDE_LOOKS_FILE, photoAddressSet, rejectedEntry, stillShown, subjectForGuide, type Photo } from '@aq/schema'
 export { guideSubject } from '@aq/schema'
 import { LlmError } from './claude'
 import { contactSheet, stillDone } from './video-images'
 import type { StillsState } from './video-stills'
 import { stripPhotos } from './watermarks'
-import { holdForSecondLook, lastPhotos, looks, pagesShowing, readSecondLook } from './last-photo'
+import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 
 /**
  * No people and no logos in the pictures the subject check (photo-check.ts) doesn't look at: every guide's photos (the
@@ -199,15 +200,20 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   // A guide's photo that is also the last photo of a species, plant or breed page doesn't go on the list, which would
   // take it off that page too: it waits for a second look (last-photo.ts). It still leaves the guides.
   const sl = looks(await readSecondLook(root))
-  const listing = new Set([...items.values()].filter(x => !!guidePhotoOff(cache[x.url], x.equipment || x.still) && sl.open(x.url)).map(x => x.url))
-  const last = new Map([...lastPhotos(await pagesShowing(content), u => listing.has(u) || u in now)].filter(([u]) => listing.has(u) && !(u in now)))
+  const listing = new Map([...items.values()].flatMap(x => {
+    const why = guidePhotoOff(cache[x.url], x.equipment || x.still)
+    return why && sl.open(x.url) ? [[x.url, why] as const] : []
+  }))
+  const removesWrapper = photoAddressSet([...listing].flatMap(([url, reason]) => versionRejection(reason) ? [] : [url]))
+  const last = await holdablePhotoVerdicts(root, now, new Set(listing.keys()), removesWrapper)
+  const heldAddress = photoAddressSet(last.keys())
   const holding = new Map<string, { why: string; pages: string[] }>()
   for (const x of items.values()) {
     const why = guidePhotoOff(cache[x.url], x.equipment || x.still)
     if (!why) continue
     report.off.push(`${x.url}: ${why}`)
     if (last.has(x.url)) { holding.set(x.url, { why, pages: last.get(x.url)! }); report.held.push(`${x.url}: ${last.get(x.url)!.join(', ')}`); continue }
-    if (sl.open(x.url)) now[x.url] ??= why
+    if (sl.open(x.url) && !heldAddress(x.url)) now[x.url] ??= why
   }
   await holdForSecondLook(root, holding, 'the guide photo check')
   for (const file of files) {

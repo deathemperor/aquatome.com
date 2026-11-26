@@ -2,7 +2,7 @@ import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, onTestFinished, test, vi } from 'vitest'
 import { mirrorPlan } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { dropFacePhotos } from '../src/faces'
@@ -25,6 +25,8 @@ const oldPass = { ok: 'yes', typical: true, note: 'a live fish' }
 
 async function store(pages: Record<string, string[]>, subjects: Record<string, Record<string, object>> = {}) {
   const root = await mkdtemp(join(tmpdir(), 'aq-first-off-'))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
   const c = join(root, 'content')
   await mkdir(join(root, 'engine-state'), { recursive: true })
   await mkdir(join(root, 'docs/review'), { recursive: true })
@@ -533,6 +535,7 @@ test("an agree on an unmarked record whose never-again entry is a waiting one gi
 
 test("a clear takes the waiting entry off the never-again list, and where a step puts the photo back no verdict takes it off again; an agree gives the entry the verdict's own reason and the record leaves", async () => {
   const r = await store({ mmm: ['m-dead'], nnn: ['n-dead'] })
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', 'off')
   await checkPagePhotos(r, model({ 'm-dead': dead, 'n-dead': dead }), { limit: 10 })
   const file = join(r, 'engine-state/_photo-second-look.json')
   const sl = await json(r, 'engine-state/_photo-second-look.json')
@@ -559,7 +562,8 @@ test("a photo marked off at its first verdict with no waiting entry: the sweep w
   // p-dead's entry is missing, so a step put it back on its page; s-dead's waits for another reason; w-mark is listed for a mark.
   const mark = compactRejection('watermark: a logo bottom left')
   await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('o-listed')]: compactRejection('dead: on ice'), [url('s-dead')]: waitingEntry('people: another reason'), [url('w-mark')]: mark }))
-  const out = await sweep(r)
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(r, 'private-put-back'))
+  const out = await sweep(r).finally(() => vi.unstubAllEnvs())
   expect(out.waitingBack.sort()).toEqual([url('p-dead'), url('s-dead')])
   const listed = await json(r, 'engine-state/_photo-rejected.json')
   expect(listed[url('p-dead')]).toBe(waitingEntry(p.why))
@@ -576,14 +580,14 @@ test("a photo marked off at its first verdict with no waiting entry: the sweep w
   expect((await sweep(r)).waitingBack).toEqual([])
 })
 
-test("a waiting entry with no second-look record stays in force: its photo comes off and stays off, and the sweep says so", async () => {
+test("a waiting entry with no second-look record stays in force while the raw entry waits for recovery", async () => {
   const r = await store({ qqq: ['q-wait', 'q-fish'], ooo: ['o-listed', 'o-fish'] })
   const waiting = waitingEntry(compactRejection('dead: a fish on a board'))
   await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('q-wait')]: waiting, [url('o-listed')]: compactRejection('dead: on ice') }))
   const out = await sweep(r)
   expect(out.waitingOdd).toEqual([`${url('q-wait')}: no second-look record marked for it, kept off`])
   expect(out.waitingBack).toEqual([])
-  expect(await photosOf(r, 'qqq')).toEqual(['q-fish'])
+  expect(await photosOf(r, 'qqq')).toEqual(['q-wait', 'q-fish'])
   expect(await photosOf(r, 'ooo')).toEqual(['o-fish'])
   expect((await json(r, 'engine-state/_photo-rejected.json'))[url('q-wait')]).toBe(waiting)
   // A record whose answer is "clear" doesn't lift an entry that isn't its own waiting entry.
@@ -592,4 +596,18 @@ test("a waiting entry with no second-look record stays in force: its photo comes
   expect(again.unlisted).toEqual([])
   expect((await json(r, 'engine-state/_photo-rejected.json'))[url('q-wait')]).toBe(waiting)
   expect(again.waitingOdd).toEqual([`${url('q-wait')}: no second-look record marked for it, kept off`])
+})
+
+test('a pending source watermark cannot count its mirror as a replacement for a passed last photo', async () => {
+  const r = await store({ aaa: [], bbb: [] }, { 'a-dead': { aaa: oldPass } })
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const photoAt = (address: string) => ({ ...photo('sample'), url: address, source: undefined, licence: 'CC BY 4.0' })
+  await writeFile(join(r, 'content/species/aaa/entity.json'), JSON.stringify(fish('aaa', [photo('a-dead'), photoAt(mirror)])))
+  await writeFile(join(r, 'content/species/bbb/entity.json'), JSON.stringify(fish('bbb', [photoAt(source), photo('b-live')])))
+  const checked = await checkPagePhotos(r, model({ 'a-dead': dead, [name(source)]: { logo: true } }), { limit: 10, emptyCap: 0 })
+
+  expect(checked.heads.held).toContain(`species/aaa: ${url('a-dead')}`)
+  expect(await photosOf(r, 'aaa')).toEqual(['a-dead', name(mirror)])
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[source]).toBeUndefined()
 })

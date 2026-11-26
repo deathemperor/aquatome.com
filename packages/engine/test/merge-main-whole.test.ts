@@ -301,6 +301,13 @@ test("a still both sides changed: the side that keeps it off the page until it's
   expect(mergeMainWhole({ m: [s(10)] }, { m: [s(12)] }, { m: [s(10, false)] })).toEqual({ m: [s(12)] })
 })
 
+test('an album merge gives a concurrent restoration its saved position', () => {
+  const lead = photo('lead', 'lead'), tail = photo('tail', 'tail')
+  const album = (photos: Photo[]) => ({ id: 'alpha', photos })
+  expect(mergeMainWhole(album([tail]), album([tail, lead]), album([lead, tail]), {}, 'content/gallery/alpha.json'))
+    .toEqual(album([lead, tail]))
+})
+
 test('the script runs as the driver through a symlinked folder too', () => {
   const dir = mkdtempSync(join(tmpdir(), 'aq-main-whole-link-'))
   symlinkSync(join(ROOT, 'scripts'), join(dir, 'scripts'))

@@ -158,6 +158,7 @@ verify() {
   : >"$TEST_LOG"
   TIMED_OUT=
   if [ -n "${MIGRATE_FAILED:-}" ]; then log "photo records not migrated: not tested, not published"; return 1; fi
+  if [ -n "${SWEEP_FAILED:-}" ]; then log "the sweep on main did not finish: not tested, not published"; return 1; fi
   calm
   export AQ_TEST_TIME_SCALE
   for step in "$@"; do
@@ -224,9 +225,11 @@ keep_unpublished() {
   when=$(date -u +%Y%m%dT%H%M%S)
   if [ -n "${TIMED_OUT:-}" ]; then
     keep_branch "kept/$1/$when-out1" && log "tests ran out of time: this run's work is kept on kept/$1/$when-out1 for the next run"
-  elif [ -n "${MIGRATE_FAILED:-}" ]; then
+  elif [ -n "${MIGRATE_FAILED:-}${SWEEP_FAILED:-}" ]; then
     # The line the run's failure is reported with (engine-cycle.sh finish), as its callers then stop the run.
-    FAILED="photo records not migrated: this run's work is kept on kept/$1/$when for the next run"
+    local reason="photo records not migrated"
+    [ -z "${SWEEP_FAILED:-}" ] || reason="the sweep on main did not finish"
+    FAILED="$reason: this run's work is kept on kept/$1/$when for the next run"
     keep_branch "kept/$1/$when" && log "$FAILED"
   else
     # Off main at once: a next run that couldn't fetch would carry on from this commit, and could publish it.
@@ -483,6 +486,7 @@ publish_kept() {
       log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run$as"
       # Kept work held back by its records goes on to the next run, never silently: the run reports it when it ends, as
       # a failed run is reported (FAULT, engine-cycle.sh finish; the chief of staff, 13 Nov).
+      [ -z "${SWEEP_FAILED:-}" ] || FAULT="${FAULT:+$FAULT; }$branch isn't published: the sweep on main did not finish, and it stays kept"
       [ -z "${MIGRATE_FAILED:-}" ] || FAULT="${FAULT:+$FAULT; }$branch isn't published: its photo records couldn't be migrated, and it stays kept"
     fi
     net git fetch -q origin || true
@@ -491,7 +495,7 @@ publish_kept() {
   # On the Mac too since 14 Nov: until then a held batch there sat until someone renamed it by hand (13 Nov, three).
   retry_held "$1"
   # Kept work's failed migration is that work's: the run's own goes on to its own (video-cycle.sh tests with no merge).
-  MIGRATE_FAILED=
+  MIGRATE_FAILED= SWEEP_FAILED=
 }
 # A video job's EXIT trap, last: a fault the job went on past (FAULT: kept work its photo records held back) fails the
 # job and is reported on GitHub as a part's failed cycle is (engine-mac.yml), as engine-cycle.sh's finish does for the
@@ -608,7 +612,7 @@ main_holds() {
 push_kept() {
   local check=1 clash main head swept run
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
-  KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
+  KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= SWEEP_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   for _ in 1 2 3; do
     main=$(git rev-parse origin/main 2>/dev/null || true) run=$(git rev-parse HEAD) swept=
     if ! net git pull -q --rebase origin main; then
@@ -648,6 +652,7 @@ push_kept() {
       if ! verify_cycle; then
         if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
         elif [ -n "${MIGRATE_FAILED:-}" ]; then KEPT_WHY="its photo records couldn't be migrated"
+        elif [ -n "${SWEEP_FAILED:-}" ]; then KEPT_WHY="the sweep on main did not finish"
         else KEPT_FAILED=1; fi
         return 1
       fi
@@ -781,10 +786,14 @@ verify_cycle() {
 # older code turned main red. So they're rewritten here first, with no model and no decision changed, before the sweep and
 # the tests see them. A migration that fails publishes nothing, and the work is kept for the next run, which migrates and
 # tests it again, never held for it (MIGRATE_FAILED; the Image Lead and the chief of staff, 13 Nov).
+sweep_for_publish() {
+  SWEEP_FAILED=
+  pnpm engine sweep || { SWEEP_FAILED=1; log "sweep: failed, so nothing is published"; }
+}
 sweep_merged() {
   MIGRATE_FAILED=
   pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
-  pnpm engine sweep || log "sweep: failed"
+  sweep_for_publish
   git add content sources engine-state docs/review
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
 }
@@ -828,7 +837,7 @@ swept_pull() {
 # files, on content that loads.
 SWEPT_REPORTS='content/page-dates\.json|docs/review/photo-subjects\.md|engine-state/_photo-no-animal-heads\.json'
 swept_clean() {
-  [ -z "${MIGRATE_FAILED:-}" ] || return 1
+  [ -z "${MIGRATE_FAILED:-}${SWEEP_FAILED:-}" ] || return 1
   if ! git diff --quiet "$2" "$3" -- content/curation.json && ! git diff --quiet "$3" "$1" -- content/curation.json; then
     log "the calendar changed on main and in this run: checked again"
     return 1

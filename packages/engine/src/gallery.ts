@@ -1,8 +1,9 @@
 import { piece } from './pieces'
+import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
+import { GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -13,7 +14,7 @@ import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, rejectedEntry, unfitCommons } from './photos'
-import { CLEARED_VERDICT, looks, readSecondLook } from './last-photo'
+import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutClearedWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -493,8 +494,18 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
       return b
     },
   }
+  const sl = await readSecondLook(root)
   const rejected = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
-  // A Commons, iNaturalist, Flickr or GBIF photo rejected after it moved to our bucket is known there by its key (mirror-photos.ts).
+  const cleanupRejected = withoutClearedWaits({ ...rejected }, sl)
+  const pendingPlaces = new Map<string, string[]>()
+  for (const [url, mark] of Object.entries(sl)) {
+    if (mark.back) continue
+    for (const { file } of mark.left ?? []) {
+      const id = /^content\/gallery\/([^/]+)\.json$/.exec(file)?.[1]
+      if (id) pendingPlaces.set(id, [...(pendingPlaces.get(id) ?? []), url])
+    }
+  }
+  // Keep the intake hold until recovery restores the saved entry. Cleanup can leave an existing cleared copy in place.
   const rejectedPhoto = isRejected(rejected)
   // A photo the photo check took off a page (another fish, none, dead), by its address in our bucket: never back in that
   // page's gallery, from a search or from the queue. A hand seed (gallery-seed.ts) queued a bred discus the owner had
@@ -506,7 +517,6 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   // off at its first verdict, the clear answers only the dead fish there: another fish, nothing of the subject or "no" on
   // its own page still keeps it out, as in the put-back (CLEARED_VERDICT; the chief of staff, 21 Nov). The record names
   // pages as kind/id, the verdicts by id.
-  const sl = await readSecondLook(root)
   const cleared = looks(sl).cleared
   const clearedOn = (url: string, id: string, ok: PhotoVerdict['ok']) => cleared(url) && sl[url]!.pages.some(p => p.slice(p.indexOf('/') + 1) === id) && (sl[url]!.off !== true || ok === CLEARED_VERDICT)
   for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok) && !clearedOn(url, id, v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
@@ -520,12 +530,12 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   let openverseFailures = 0
   const today = d.now().toISOString().slice(0, 10)
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
-  const rejection = rejectedEntry(rejected)
-  const why = (url: string) => {
-    const entry = rejection(url)
-    return entry?.[1].startsWith('watermark:') && (markKept(url) || markKept(entry[0])) ? undefined : entry?.[1]
+  const listed = rejectedEntry(cleanupRejected)
+  const effectiveRejection: typeof listed = url => {
+    const entry = listed(url)
+    return entry?.[1].startsWith('watermark:') && (markKept(url) || markKept(entry[0])) ? undefined : entry
   }
-  await dropRejected(content, why)
+  await dropRejected(root, content, effectiveRejection, captureWaiting(sl, effectiveRejection))
   // `shard` [i, n]: every n-th page from the i-th, so n runs can share the work (each still most popular first).
   const plan = (await galleryPlan(root)).filter((t, i) => (!o.only || t.id === o.only) && (!o.shard || i % o.shard[1] === o.shard[0]))
   // Each source's requests: counted against the run's budget, at the pace the source asks for (shared by n shards).
@@ -632,11 +642,13 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
       const seen = new Set([...[...e.photos, ...gallery].flatMap(p => [p.url, p.sourceUrl]), ...other.urls])
       const judged = new Set(st.judged)
       const offHere = isRejected(offBy.get(t.id) ?? {})
+      const awaitingRecovery = photoAddressSet(pendingPlaces.get(t.id) ?? [])
+      const offIntake = (url: string) => offHere(url) || rejectedPhoto(url) || awaitingRecovery(url)
       // A candidate queued before it joined the never-again list (by any address) never reaches the screen.
-      st.queue = st.queue.filter(c => !offHere(c.url) && !rejectedPhoto(c.url))
+      st.queue = st.queue.filter(c => !offIntake(c.url))
       // Its switch off, a non-commercial candidate queued while it was on is never screened.
       if (!nc) st.queue = st.queue.filter(c => !isNonCommercial(c.licence))
-      const isNew = (c: Candidate) => !rejectedPhoto(c.url) && !offHere(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !judged.has(c.key) && !st.queue.some(q => q.key === c.key)
+      const isNew = (c: Candidate) => !offIntake(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !judged.has(c.key) && !st.queue.some(q => q.key === c.key)
       for (const p of [...e.photos, ...gallery]) {
         if (!st.hashes[p.url]) st.hashes[p.url] = await d.get(p.thumb ?? p.url).then(dhash).catch(() => '')
       }
@@ -798,14 +810,25 @@ async function pageOf(root: string, id: string): Promise<Photo[]> {
 }
 
 /** Photos the owner rejected (engine-state/_photo-rejected.json) leave every gallery, the next run after they are listed. */
-async function dropRejected(content: string, why: (url: string) => string | undefined) {
+async function dropRejected(root: string, content: string, rejected: ReturnType<typeof rejectedEntry>, waiting: (url: string) => string | undefined) {
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const file = join(content, 'gallery', f)
     const g = JSON.parse(await readFile(file, 'utf8')) as { photos: Photo[] }
-    const keep = g.photos.filter(p => !shouldStripPhoto(p, url => !!why(url), (url, original, blocked) =>
-      /^(?:dead|people|waiting): /.test(why(url) ?? '') && (!blocked || why(original)?.startsWith('waiting:') === true),
+    const canCapture = !!entriesDir()
+    const blocked = (url: string) => {
+      const reason = rejected(url)?.[1]
+      return !!reason && (!reason.startsWith('waiting:') || (canCapture && !!waiting(url)))
+    }
+    const keep = g.photos.filter(p => !shouldStripPhoto(p, blocked, (url, original, blockedOriginal) =>
+      /^(?:dead|people|waiting): /.test(rejected(url)?.[1] ?? '') &&
+      (!blockedOriginal || rejected(original)?.[1].startsWith('waiting:') === true),
     ))
-    if (keep.length < g.photos.length) await writeFile(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
+    if (keep.length === g.photos.length) continue
+    const stood = new Map<string, Stood[]>()
+    const removed = new Set(g.photos.filter(p => !keep.includes(p)).map(p => p.url))
+    placesIn(root, file, g, url => removed.has(url) ? waiting(url) : undefined, stood)
+    await notePlaces(root, stood)
+    await replacePhotoDocument(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
   }
 }
 
@@ -815,7 +838,7 @@ async function dropRejected(content: string, why: (url: string) => string | unde
  * stay (isInatNonCommercial); off, none does. A source's photo shows by its permission and is left alone. The files
  * changed, and `file: url` for each photo taken off.
  */
-export async function dropNonCommercial(content: string, switches: Readonly<ImageSwitches> = IMAGE_SWITCHES, withheld: (url: string) => boolean = () => false): Promise<{ files: string[]; photos: string[] }> {
+export async function dropNonCommercial(content: string, switches: Readonly<ImageSwitches> = IMAGE_SWITCHES, withheld: (photo: Photo, ref: string, scientificName: string) => boolean = () => false): Promise<{ files: string[]; photos: string[] }> {
   const out = { files: [] as string[], photos: [] as string[] }
   const files: string[] = []
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) files.push(`gallery/${f}`)
@@ -823,12 +846,13 @@ export async function dropNonCommercial(content: string, switches: Readonly<Imag
   for (const f of files.sort()) {
     const raw = await readFile(join(content, f), 'utf8').catch(() => null)
     if (!raw) continue
-    const data = JSON.parse(raw) as { photos?: Photo[] }
+    const data = JSON.parse(raw) as { photos?: Photo[]; scientificName?: string }
     if (!Array.isArray(data.photos)) continue
     const album = f.startsWith('gallery/')
+    const ref = f.replace(/\/entity\.json$/, '')
     // A fish's page keeps one only as its head with no other real photo, where it's the one way to show that fish (the
     // chief of staff's rule, 17 Nov; lead-photo.ts puts it there); a guide never. With the switch off, heads go too.
-    const head = (i: number) => !f.startsWith('guides/') && data.photos!.every((photo, j) => i === j || photo.generated || withheld(photo.url))
+    const head = (i: number) => !f.startsWith('guides/') && data.photos!.every((photo, j) => i === j || photo.generated || withheld(photo, ref, data.scientificName ?? ''))
     const off = data.photos.filter((p, i) => !p.source && isNonCommercial(p.licence) && !((album || head(i)) && switches.inatNonCommercial && isInatNonCommercial(p)))
     if (!off.length) continue
     await writeFile(join(content, f), `${JSON.stringify({ ...data, photos: data.photos.filter(p => !off.includes(p)) }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)

@@ -1,12 +1,13 @@
 import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
-import type { Photo, SourceId } from '@aq/schema'
-import { holdForSecondLook, lastPhotos, looks, pagesShowing, readSecondLook } from './last-photo'
+import { photoAddressSet, type Photo, type SourceId } from '@aq/schema'
+import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import type { PageImage } from './outline'
 import { creditKind } from './photo-credit'
 import { compactRejection } from './photo-observations'
 import { writePhotoState } from './photo-state'
+import { holdablePhotoVerdicts } from './photo-visibility'
 import { dedupeKey, photoKey, refusedCredit, type CreditTerms, type Media } from './source-photos'
 import { stripPhotos } from './watermarks'
 
@@ -110,9 +111,10 @@ export async function applyCreditReads(root: string, step = 'the credit read'): 
   const sl = looks(await readSecondLook(root))
   const off = (u: string) => (credits[u]?.kind === 'agency' || credits[u]?.kind === 'other') && sl.open(u)
   const content = join(root, 'content')
-  const held = new Map([...lastPhotos(await pagesShowing(content), u => off(u) || u in rejected)].filter(([u]) => off(u) && !(u in rejected)))
+  const held = await holdablePhotoVerdicts(root, rejected, new Set(Object.keys(credits).filter(off)), () => true)
   await holdForSecondLook(root, new Map([...held].map(([u, pages]) => [u, { why: `rejected: ${credits[u]!.kind} credit ${credits[u]!.line ?? ''}`, pages }])), step)
-  const gone = (u: string) => off(u) && !held.has(u)
+  const heldAddress = photoAddressSet(held.keys())
+  const gone = (u: string) => off(u) && !heldAddress(u)
   for (const u of Object.keys(credits)) if (gone(u) && !(u in rejected)) rejected[u] = compactRejection(`rejected: ${credits[u]!.kind} credit ${credits[u]!.line ?? ''}`)
   const removed: string[] = []
   for (const f of (await readdir(content, { recursive: true })).filter(f => f.endsWith('.json')).map(f => join(content, f))) {

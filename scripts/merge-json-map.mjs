@@ -18,16 +18,52 @@ import { pathToFileURL } from 'node:url'
 // and main's unmarked records won: the chief of staff, 20 Nov 2026); else ours.
 const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && typeof v.step === 'string' && Array.isArray(v.pages) && typeof v.at === 'string'
 const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
+const placesOf = (r, field = 'left') => Array.isArray(r?.[field]) ? r[field].filter(p => typeof p?.file === 'string' && Number.isSafeInteger(p.index) && p.index >= 0) : []
+function mergePlaces(chosen, base, ours, theirs) {
+  if (ours.off !== true || theirs.off !== true || ours.why !== theirs.why) return chosen
+  const other = chosen === ours ? theirs : ours
+  const at = ours.at < theirs.at ? ours.at : theirs.at
+  const datedPlaces = (mark, field) => placesOf(mark, field).map(p => {
+    const { captureDay, ...place } = p
+    const captured = captureDay ?? mark.at
+    return captured === at ? place : { ...place, captureDay: captured }
+  })
+  const settled = new Map([...datedPlaces(other, 'settled'), ...datedPlaces(chosen, 'settled')].map(p => [p.file, p]))
+  const original = new Map(datedPlaces(base).map(p => [p.file, p]))
+  const pending = new Map(datedPlaces(chosen).map(p => [p.file, p]))
+  const sameCapture = (p, q) => !!p && !!q && p.capture === q.capture && p.index === q.index && p.captureDay === q.captureDay
+  for (const place of datedPlaces(other)) {
+    const before = original.get(place.file)
+    const selected = pending.get(place.file)
+    if (chosen.back && sameCapture(place, before)) continue
+    if (!selected || (sameCapture(selected, before) && !sameCapture(place, before))) pending.set(place.file, place)
+  }
+  for (const [file, receipt] of settled) {
+    const next = pending.get(file)
+    if (!next) continue
+    // The completed receipt wins over a competing first capture. Only a replacement of that receipt reopens it.
+    if (sameCapture(receipt, original.get(file)) && !sameCapture(receipt, next)) settled.delete(file)
+    else pending.delete(file)
+  }
+  const { back, left, settled: _settled, ...merged } = chosen
+  merged.at = at
+  if ((settled.size || pending.size) && record(ours) && record(theirs)) merged.pages = [...new Set([...ours.pages, ...theirs.pages])].sort()
+  if (settled.size) merged.settled = [...settled.values()]
+  if (pending.size) return { ...merged, left: [...pending.values()] }
+  const completed = back ?? other.back
+  return completed ? { ...merged, back: completed } : merged
+}
+
 function bothChanged(base, ours, theirs, k) {
   if (!(k in ours) || !(k in theirs)) return k in base ? undefined : (k in ours ? ours : theirs)
   const [o, t] = [ours[k], theirs[k]]
   if (answered(o) !== answered(t)) {
     const [a, m] = answered(o) ? [o, t] : [t, o]
     if (m.off === true && a.look.said === 'clear' && a.why !== m.why) return { [k]: m }
-    return { [k]: m.off === true && a.off !== true ? { ...m, look: a.look } : a }
+    return { [k]: m.off === true && a.off !== true ? { ...m, look: a.look } : mergePlaces(a, base[k], o, t) }
   }
   if ((o.off === true) !== (t.off === true)) return o.off === true ? ours : theirs
-  return ours
+  return { [k]: mergePlaces(o, base[k], o, t) }
 }
 
 // A never-again entry (engine-state/_photo-rejected.json) both sides changed, one a waiting entry (last-photo.ts

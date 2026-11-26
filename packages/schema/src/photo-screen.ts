@@ -166,6 +166,12 @@ export function deadLooked(r: DeadLookRecords): (url: string) => boolean {
   return url => completedDeadVerdict(r.screen[url]) || asked.has(url) || cleared(url) ||
     (!!r.secondLook && Object.hasOwn(r.secondLook, url) && !!photoLookAnswer(r.secondLook[url]))
 }
+/** Album vetting counts only a verdict from the dead-fish screen or a person's second look. */
+export function albumLooked(r: Pick<DeadLookRecords, 'screen' | 'secondLook'>): (url: string) => boolean {
+  const cleared = photoClears(r.secondLook)
+  return url => completedDeadVerdict(r.screen[url]) || cleared(url) || !!photoLookAnswer(r.secondLook?.[url])
+}
+
 /** A second look is answered only with a decision, a reviewer and a dated record. */
 export function photoLookAnswer(record: unknown): { said: 'agree' | 'clear'; by: string; on: string } | undefined {
   const look = (record as { look?: { said?: unknown; by?: unknown; on?: unknown } } | undefined)?.look
@@ -183,7 +189,7 @@ export function photoClears(records: Record<string, unknown> = {}): (url: string
   }
 }
 
-type LookMark = { why?: unknown; off?: boolean }
+type LookMark = { why?: unknown; off?: boolean; settled?: unknown }
 
 function unansweredHold(record: unknown): boolean {
   const mark = record as LookMark | undefined
@@ -211,6 +217,14 @@ export function facePhotoOff(url: string, faces?: Record<string, unknown>, secon
   return typeof count === 'number' && count > 0 && !cleared(url) && !held(url)
 }
 
+/** One place has already published its clear. A later pending place must not put the whole URL back on the list. */
+export function settledWaiting(reason: unknown, record: unknown): boolean {
+  const mark = record as LookMark | undefined
+  return typeof reason === 'string' && reason.startsWith('waiting:') && typeof mark?.why === 'string' &&
+    reason === mark.why.replace(/^[^:]+:/, 'waiting:') && Array.isArray(mark.settled) && mark.settled.length > 0 &&
+    photoLookAnswer(mark)?.said === 'clear'
+}
+
 /**
  * A waiting rejection remains in force when its mark is missing. A recorded dead verdict holds its URL even if the
  * file it came from still needs to preserve a different fallback version. A last-photo hold or a person's clear can
@@ -219,6 +233,8 @@ export function facePhotoOff(url: string, faces?: Record<string, unknown>, secon
 export function deadPhotoOff(url: string, screen?: Record<string, unknown>, secondLook?: Record<string, unknown>, rejected?: PhotoRejection, cleared = photoClears(secondLook), held = photoHolds(secondLook), firstOff = photoFirstOff(secondLook)): boolean {
   const rejection = rejected?.(url)
   const why = rejection?.[1]
+  const mark = secondLook?.[rejection?.[0] ?? url] as LookMark | undefined
+  if (settledWaiting(why, mark)) return false
   if (typeof why === 'string' && (why.startsWith('dead:') || why.startsWith('people:') || why.startsWith('waiting:'))) return true
   if (cleared(rejection?.[0] ?? url)) return false
   if (firstOff(url)) return true
