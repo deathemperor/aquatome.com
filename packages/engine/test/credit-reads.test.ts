@@ -3,6 +3,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test, vi } from 'vitest'
 import { applyCreditReads, CREDIT_HOLDS, creditReadKind, HOLD_NOTE, holdForCreditRead, pageCredits, PHOTO_CREDITS, recordCredits, releaseCreditHolds, type PhotoCredit } from '../src/credit-reads'
+import { listAgreed, unlistCleared, waitingEntry } from '../src/last-photo'
+import { compactRejection } from '../src/photo-observations'
 import { writePhotoState } from '../src/photo-state'
 import { photoKey } from '../src/source-photos'
 
@@ -288,4 +290,66 @@ test('a whole credit refusal holds a fallback original even when the alteration 
   expect(await applyCreditReads(r)).toEqual({ removed: [], held: [stored.url] })
   expect((await json(join(r, 'content/species/fish-a/entity.json'))).photos).toEqual([wrapper])
   expect((await json(join(r, 'engine-state/_photo-second-look.json')))[stored.url].originals).toEqual([original.url])
+})
+
+test('credit release cannot erase a human agreement recorded during the hold', async () => {
+  const held = photo('agreed')
+  const file = 'content/species/fish-e/entity.json'
+  const r = await root({ [file]: { id: 'fish-e', photos: [held] } })
+  const why = 'people: a face (face detection)'
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({
+    [held.url]: { why, pages: ['species/fish-e'], step: 'face detection', at: '2026-11-26' },
+  }))
+  await holdForCreditRead(r, [held.url], 'reviewer', '2026-11-26', 'credit unread')
+  expect((await json(join(r, 'engine-state/_photo-rejected.json')))[held.url]).toBe(HOLD_NOTE)
+  const marks = await json(join(r, 'engine-state/_photo-second-look.json'))
+  marks[held.url].look = { said: 'agree', by: 'reviewer', on: '2026-11-26' }
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify(marks))
+  await listAgreed(r)
+  const read = { [held.url]: { page: PAGE, kind: 'own', at: '2026-11-26' } satisfies PhotoCredit }
+
+  expect(await releaseCreditHolds(r, read)).toEqual({ back: [], off: [held.url], stuck: [] })
+  expect((await json(join(r, file))).photos).toEqual([])
+  expect(await json(join(r, 'engine-state/_photo-rejected.json'))).toEqual({ [held.url]: compactRejection(why) })
+})
+
+test('a release by the original never copies a wrapper-only wait to the other version', async () => {
+  const image = 'https://www.example-pets.test/waiting-alteration.jpg'
+  const original = photo('held-original', { url: media.urlFor(photoKey('sprucepets', image)) })
+  const wrapper = photo('held-alteration', { original, altered: [{ method: 'lanczos3-upscale' }] })
+  const file = 'content/species/fish-e/entity.json'
+  const why = 'dead: withheld'
+  const r = await root({ [file]: { id: 'fish-e', photos: [wrapper] },
+    'engine-state/_photo-rejected.json': { [wrapper.url]: waitingEntry(why) } })
+  await holdForCreditRead(r, [wrapper.url], 'reviewer', '2026-11-26', 'credit unread')
+  const read = pageCredits([{ src: image, alt: '', credit: SITE }], PAGE, 'sprucepets', SITE, terms, media, '2026-11-26')
+  expect(await releaseCreditHolds(r, read)).toEqual({ back: [wrapper.url], off: [], stuck: [] })
+  expect((await json(join(r, file))).photos).toEqual([wrapper])
+  expect(await json(join(r, 'engine-state/_photo-rejected.json'))).toEqual({ [wrapper.url]: waitingEntry(why) })
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({
+    [wrapper.url]: { why, pages: ['species/fish-e'], step: 'the photo check', at: '2026-11-26', off: true,
+      look: { said: 'clear', by: 'reviewer', on: '2026-11-26' } },
+  }))
+  expect(await unlistCleared(r)).toEqual([wrapper.url])
+  expect(await json(join(r, 'engine-state/_photo-rejected.json'))).toEqual({})
+})
+
+test('the publisher original releases an owner crop and remains available for a calendar retry', async () => {
+  const image = 'https://www.example-pets.test/owner-crop.jpg'
+  const original = photo('crop-original', { url: media.urlFor(photoKey('sprucepets', image)) })
+  const crop = photo('owner-crop', { original, ownerCrop: { by: 'reviewer' } })
+  const guide = 'content/guides/list/entity.json', calendar = 'content/curation.json'
+  const day = { date: '2026-11-27', guide: 'guides/list' }
+  const r = await root({ [guide]: { id: 'list', photos: [crop] }, [calendar]: { days: [{ ...day, guideImg: crop.url }] } })
+  await holdForCreditRead(r, [crop.url], 'reviewer', '2026-11-26', 'credit unread')
+  const read = pageCredits([{ src: image, alt: '', credit: SITE }], PAGE, 'sprucepets', SITE, terms, media, '2026-11-26')
+  await writeFile(join(r, calendar), JSON.stringify({ days: [{ ...day, guideImg: photo('other').url }] }))
+
+  expect(await releaseCreditHolds(r, read)).toEqual({ back: [crop.url], off: [], stuck: [crop.url] })
+  expect((await json(join(r, guide))).photos).toEqual([crop])
+  expect((await json(join(r, CREDIT_HOLDS)))[crop.url]).toMatchObject({ places: [], originals: [original.url], released: true })
+  await writeFile(join(r, calendar), JSON.stringify({ days: [day] }))
+  expect(await releaseCreditHolds(r, read)).toEqual({ back: [crop.url], off: [], stuck: [] })
+  expect((await json(join(r, calendar))).days).toEqual([{ ...day, guideImg: crop.url }])
+  expect(await json(join(r, CREDIT_HOLDS))).toEqual({})
 })

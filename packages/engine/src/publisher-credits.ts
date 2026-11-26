@@ -1,6 +1,6 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
-import { deadScreenPhotoUrls, type Photo, type SourceId } from '@aq/schema'
+import { type Photo, type SourceId } from '@aq/schema'
 import type { PageImage } from './outline'
 import { creditKind } from './photo-credit'
 import { snapshotName } from './snapshot'
@@ -159,7 +159,7 @@ export async function namePublisherCredits(root: string, sources: readonly Sourc
   // First every copy of each photo, tied where its own caption ties it: one photo (one address in our store) is one
   // picture, credited one way wherever it is. A copy that can't tie by itself (an album copy with no caption) takes the
   // line its other copies tie to; copies that tie to different lines keep the publisher alone.
-  const creditAddress = (photo: Record<string, unknown>) => deadScreenPhotoUrls(photo as unknown as Photo).at(-1)!
+  const creditAddress = (photo: Record<string, unknown>) => (photo as unknown as Photo).original?.url ?? String(photo.url)
   const found: { file: string; data: unknown; photos: { p: PhotoLike & Record<string, unknown>; key: string; t: ReturnType<typeof tiedCredit> }[] }[] = []
   const lines = new Map<string, Set<string>>()
   const vetoed = new Map<string, Untied>()
@@ -271,7 +271,7 @@ export async function namePictureLines(root: string, source: SourceId, sourceNam
   // A photo one of whose copies is named already, by another line: its copies credited to the publisher alone stay so.
   const files: { file: string; raw: string; data: unknown }[] = []
   const addressOf = (photo: Record<string, unknown>) =>
-    deadScreenPhotoUrls(photo as unknown as Photo).findLast(url => named.has(url))
+    [(photo as unknown as Photo).original?.url, String(photo.url)].find(url => url && named.has(url))
   const suffix = ` / ${sourceName}`
   for (const file of await photoFiles(join(root, 'content'))) {
     const raw = await readFile(file, 'utf8').catch(() => '')

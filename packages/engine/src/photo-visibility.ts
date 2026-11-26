@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { lastPhotoVerdicts, looks, pagesShowing, readSecondLook } from './last-photo'
-import { CREDIT_HOLD_FILE, creditHoldPhotoUrls } from '@aq/schema'
+import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, type CreditHoldPhotos } from '@aq/schema'
 import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, facePhotoStatus, FACES_FILE, IMAGE_SWITCHES, isOwnerCrop, isVersionRejection, mayPublish, mayPublishLicence, ownDeadPhotoUrls, originalPhotoRefusals, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, rejectedEntry, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 
 const read = async <T>(root: string, name: string): Promise<Record<string, T> | undefined> => {
@@ -29,16 +29,20 @@ export const permittedPhotoSource = (photo: Photo, sources: Record<string, Sourc
   return !isOwnerCrop(photo) || (source?.permission?.markRemoval?.allowed !== false && ownerCropFitsPage(photo, ref, scientificName))
 }
 
+export async function readCreditHoldWait(root: string): Promise<(url: string) => boolean> {
+  return photoAddressSet(creditHoldPhotoUrls(await read<CreditHoldPhotos>(root, CREDIT_HOLD_FILE)))
+}
+
 /** Use the public screen predicates before removing a photo that might leave its page empty. */
 export async function readPhotoWaits(
   root: string,
   overrides: { check?: Record<string, unknown>; subjects?: Record<string, unknown>; rejected?: Record<string, string>; watermarks?: Record<string, PhotoScreenEntry>; freshOwn?: boolean } = {},
 ): Promise<(url: string) => boolean> {
-  const [watermarks, owed, faces, deadScreen, secondLook, rejected, check, subjects, creditHolds] = await Promise.all([
+  const [watermarks, owed, faces, deadScreen, secondLook, rejected, check, subjects, creditHeld] = await Promise.all([
     overrides.watermarks ?? read<PhotoScreenEntry>(root, PHOTO_SCREEN_FILE), read(root, DEAD_OWED_FILE), read(root, FACES_FILE),
     read(root, DEAD_SCREEN_FILE), read(root, SECOND_LOOK_RECORD), overrides.rejected ?? read<string>(root, PHOTO_REJECTED_FILE),
     overrides.check ?? read(root, PHOTO_CHECK_FILE), overrides.subjects ?? read(root, PHOTO_SUBJECTS_FILE),
-    read<NonNullable<Parameters<typeof creditHoldPhotoUrls>[0]>[string]>(root, CREDIT_HOLD_FILE),
+    readCreditHoldWait(root),
   ])
   const content = join(root, 'content')
   const { unread, altered: flaggedAlterations } = await facePhotoStatus(content, faces)
@@ -50,7 +54,6 @@ export async function readPhotoWaits(
   const effective = await expandWholePhotoRejections(content, rejected ?? {}, watermarks)
   const waits = photoWaitsFor({ watermarks, owed, unread, flaggedAlterations, faces, unjudged, deadScreen, secondLook,
     rejected: photoRejections(effective, watermarks) })
-  const creditHeld = photoAddressSet(creditHoldPhotoUrls(creditHolds))
   return url => setsCookies(url) || creditHeld(url) || waits(url) ||
     (overrides.freshOwn === true && ((!!looked && !looked(url)) || (!!faces && !Object.hasOwn(faces, url))))
 }

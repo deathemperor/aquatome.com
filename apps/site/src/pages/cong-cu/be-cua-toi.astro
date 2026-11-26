@@ -1,4 +1,5 @@
 ---
+import { TOOL_DESCRIPTIONS } from '../../lib/tools'
 import Browse from '../../layouts/Browse.astro'
 import AccountPanel from '../../components/AccountPanel.astro'
 import { i18n } from '../../lib/i18n'
@@ -6,7 +7,7 @@ import { SUBSTRATE_LABELS } from '../../scripts/my-tanks'
 
 const { t } = i18n(Astro.url)
 ---
-<Browse title={t('Bể của tôi: sổ ghi bể cá, cây và lịch đèn')} heading={t('Bể của tôi')} intro={t('Ghi lại từng bể: kích thước, nền, cá, cây và đèn với lịch đã đặt. Lưu ngay trên máy này, không cần đăng ký.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Sổ bể cá miễn phí: lưu kích thước, thể tích, loại nền, cá, cây, ghi chú và lịch đèn Chihiros của từng bể ngay trên trình duyệt, không cần tài khoản.')}>
+<Browse title={t('Bể của tôi: sổ ghi bể cá, cây và lịch đèn')} heading={t('Bể của tôi')} intro={t('Ghi lại từng bể: kích thước, nền, cá, cây và đèn với lịch đã đặt. Lưu ngay trên máy này, không cần đăng ký.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t(TOOL_DESCRIPTIONS['/vi/cong-cu/be-cua-toi/'])}>
   <div class="bar">
     <button id="mt-add" type="button" class="primary">{t('Thêm bể')}</button>
     <p class="where">{t('Lưu trên trình duyệt này.')} <a href="#du-lieu">{t('Dữ liệu ở đâu?')}</a></p>

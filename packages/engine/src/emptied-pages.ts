@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process'
 import { access, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, LANGS, loadAll, mirrorSearchTerms, PHOTO_BOXES_FILE, photoAddressSet, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate, type Photo } from '@aq/schema'
+import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, type CreditHoldPhotos, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, LANGS, loadAll, mirrorSearchTerms, PHOTO_BOXES_FILE, photoAddressSet, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate, type Photo } from '@aq/schema'
 
 /**
  * Fish pages our removals left with no photo, first for new photos (the chief of staff, 21 Nov): every page a run's own
@@ -83,7 +83,7 @@ const commitOwners = (
  */
 export const LOADER_FILES = {
   content: ['sources.json', 'one-voice.json', 'image-approvals.json', 'picture-hashes.json'],
-  records: [PHOTO_SCREEN_FILE, '_photo-faces.json', '_photo-dead-owed.json', DEAD_SCREEN_FILE, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, PHOTO_REJECTED_FILE],
+  records: [PHOTO_SCREEN_FILE, '_photo-faces.json', '_photo-dead-owed.json', DEAD_SCREEN_FILE, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, PHOTO_REJECTED_FILE, CREDIT_HOLD_FILE],
   pages: ['gallery'],
   elsewhere: ['captions', 'cards', 'changelog.json', 'equipment', 'materials', 'page-dates.json', 'products', 'series', 'video-generated.json', 'video-titles', PHOTO_BOXES_FILE],
 } as const
@@ -192,9 +192,13 @@ export async function listEmptied(root: string, at = vnDate(new Date())): Promis
   const rejected = `engine-state/${PHOTO_REJECTED_FILE}`
   const prior = JSON.parse(await then(rejected) ?? '{}') as Record<string, string>
   const updated = JSON.parse(await now(rejected) ?? '{}') as Record<string, string>
-  const rejectedUrls = Object.keys(updated).filter(url => updated[url] !== prior[url])
-  const affected = rejectedUrls.length
-    ? await commitOwners(root, base, then, ['content/species/*/entity.json', 'content/breeds/*/entity.json', 'content/gallery/*.json'])(rejectedUrls)
+  const record = `engine-state/${CREDIT_HOLD_FILE}`
+  const wasHeld = photoAddressSet(creditHoldPhotoUrls(JSON.parse(await then(record) ?? '{}') as Record<string, CreditHoldPhotos>))
+  const newlyHeld = creditHoldPhotoUrls(JSON.parse(await now(record) ?? '{}') as Record<string, CreditHoldPhotos>)
+    .filter(url => !wasHeld(url))
+  const blocked = [...newlyHeld, ...Object.keys(updated).filter(url => updated[url] !== prior[url])]
+  const affected = blocked.length
+    ? await commitOwners(root, base, then, ['content/species/*/entity.json', 'content/breeds/*/entity.json', 'content/gallery/*.json'])(blocked)
     : []
   for (const f of new Set([...diff.stdout.split('\n'), ...affected])) {
     const page = f.match(/^content\/(species|breeds)\/([a-z0-9-]+)\/entity\.json$/)

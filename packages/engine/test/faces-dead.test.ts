@@ -289,6 +289,23 @@ async function publicFixture(photos: object[], albums: object[], urls: string[])
   return { root, state, file, publicView }
 }
 
+test.each(['face', 'dead'])('a credit-held original cannot replace a head with a %s verdict', async verdict => {
+  const held = photo('credit-held'), head = photo(`head-${verdict}`)
+  const wrapper = { ...photo('wrapper'), altered: [{ method: 'lanczos3-upscale' }], original: held }
+  const { root, state, publicView } = await publicFixture([head, held], [], [head.url, held.url])
+  const guide = join(root, 'content/guides/sample/entity.json')
+  await mkdir(join(guide, '..'), { recursive: true })
+  await writeFile(guide, JSON.stringify({ id: 'sample', photos: [wrapper] }))
+  await holdForCreditRead(root, [wrapper.url], 'reviewer', '2026-11-26', 'credit unread')
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [head.url]: { ok: 'yes', person: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [held.url]: 0, ...(verdict === 'dead' ? { [head.url]: 0 } : {}) }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [held.url]: { dead: false } }))
+
+  const report = await run(root, deps().d)
+  expect(verdict === 'face' ? report.faces.held : report.dead?.held).toEqual([`${head.url}: species/alpha`])
+  expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([head.url])
+})
+
 test('clearing an independent review leaves the bare original hidden until its rights hold releases', async () => {
   const original = photo('original')
   const wrapper = { ...photo('wrapper'), altered: [{ method: 'lanczos3-upscale' }], original }
