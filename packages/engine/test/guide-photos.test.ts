@@ -489,7 +489,7 @@ test("a photo asked again for its subject keeps its verdict: that look's dead an
 test("a still whose verdict says dead isn't cleared to show until its second look clears it", async () => {
   const root = await store({ 'youtube-b1': videoGuide([], [{ heading: 'x', moments: [still(20, true)] }]) })
   vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
-  onTestFinished(() => vi.unstubAllEnvs())
+  onTestFinished(() => { vi.unstubAllEnvs() })
   const frame = url('video/b1/at20-hd')
   await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [frame]: { person: false, mark: false, brand: false, note: '', dead: true } }))
   const person = async () => (await json(root, 'content/guides/youtube-b1/entity.json')).video.figures[0].moments[0].person
