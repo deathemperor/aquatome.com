@@ -1,4 +1,4 @@
-import { mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, setsCookies, type Photo } from '@aq/schema'
+import { isNonCommercial, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, setsCookies, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -68,25 +68,27 @@ export function looks(sl: SecondLooks) {
     waiting: (url: string) => has(sl, url) && !lookOf(sl[url]),
     /** A still-visible hold, including one on another address of the photo. */
     held,
+    clearedPhoto: cleared,
     /** Off its pages at its first verdict, and on the never-again list as waiting, until its look (above). */
     off,
     /** A source and its mirror share an unanswered first refusal. */
     pendingOff,
     /** Neither waiting nor cleared: a step's verdict may act on it. */
-    open: (url: string) => has(sl, url) ? lookOf(sl[url])?.said === 'agree' : !cleared(url) && !held(url) && !pendingOff(url),
+    open: (url: string) => !cleared(url) && (has(sl, url) ? lookOf(sl[url])?.said === 'agree' : !held(url) && !pendingOff(url)),
   }
 }
 
 /** A species, plant or breed page: its own photos and its album's, generated ones left out. */
-export type PageShows = { ref: string; own: string[]; album: string[] }
+export type PageShows = { ref: string; own: string[]; album: string[]; nonCommercial?: Set<string> }
 
 /** Every species, plant and breed page, as the site shows it now. */
 export async function pagesShowing(content: string, version: (p: Photo, ref: string, scientificName: string) => string | undefined = p => p.url): Promise<PageShows[]> {
   type Doc = { photos?: (Photo & { unchecked?: boolean })[]; scientificName?: string }
-  const urls = (d: Doc | null, ref: string, scientificName: string, album = false) => [...new Set((d?.photos ?? []).flatMap(p => {
+  const urls = (d: Doc | null, ref: string, scientificName: string, album = false, nonCommercial?: Set<string>) => (d?.photos ?? []).flatMap(p => {
     const url = p?.url && !p.generated && !(album && p.unchecked) ? version(p, ref, scientificName) : undefined
+    if (url && isNonCommercial(p.licence ?? '')) nonCommercial?.add(url)
     return url ? [url] : []
-  }))]
+  })
   const read = async (f: string) => JSON.parse(await readFile(f, 'utf8').catch(() => 'null')) as Doc | null
   const out: PageShows[] = []
   for (const kind of ['species', 'plants', 'breeds']) {
@@ -96,7 +98,8 @@ export async function pagesShowing(content: string, version: (p: Photo, ref: str
       const ref = `${kind}/${id}`
       const name = own.scientificName ?? ''
       const album = await read(join(content, 'gallery', `${id}.json`))
-      out.push({ ref, own: urls(own, ref, name), album: urls(album, kind === 'species' ? ref : '', name, true) })
+      const nonCommercial = new Set<string>()
+      out.push({ ref, own: urls(own, ref, name, false, nonCommercial), album: urls(album, kind === 'species' ? ref : '', name, true), nonCommercial })
     }
   }
   return out
@@ -128,16 +131,23 @@ export function lastPhotoVerdicts(
     if (!addresses.has(key)) addresses.set(key, url)
   }
   const byVerdict = (url: string) => addresses.get(photoKey(url) ?? url)
-  // Keep the last own-photo decision, and check the album as well when no own photo could have shown.
-  const candidates = pages.flatMap(page => page.own.length && page.album.length && page.own.every(url => unavailable(url, page.ref))
-    ? [page, { ...page, own: [] }]
-    : [page])
+  const hasOwn = (page: PageShows, off: (url: string) => boolean) => {
+    const remaining = page.own.filter(url => !off(url))
+    return remaining.some(url => !page.nonCommercial?.has(url)) || remaining.length === 1
+  }
   const out = new Map<string, Set<string>>()
-  for (const [url, refs] of lastPhotos(candidates, (url, ref) => byVerdict(url) !== undefined || unavailable(url, ref))) {
-    const verdict = byVerdict(url)
-    if (verdict) {
+  for (const page of pages) {
+    const unavailableHere = (url: string) => unavailable(url, page.ref)
+    const off = (url: string) => byVerdict(url) !== undefined || unavailableHere(url)
+    const ownEmpties = page.own.length && !hasOwn(page, off)
+    // A page that already has no eligible own photo can depend on the album.
+    const albumEmpties = !hasOwn(page, unavailableHere) && page.album.every(off)
+    const removed = [...(ownEmpties ? page.own : []), ...(albumEmpties ? page.album : [])]
+    for (const url of removed) {
+      const verdict = byVerdict(url)
+      if (!verdict) continue
       const existing = out.get(verdict) ?? new Set<string>()
-      for (const ref of refs) existing.add(ref)
+      existing.add(page.ref)
       out.set(verdict, existing)
     }
   }
@@ -379,8 +389,11 @@ export async function putBackCleared(root: string, history: History, at = today(
       const doc = JSON.parse(raw) as { photos?: Record<string, unknown>[] }
       const photos = Array.isArray(doc.photos) ? doc.photos : (doc.photos = [])
       const samePhoto = photoAddressSet([u, address])
-      if (photos.some(x => typeof x?.url === 'string' && samePhoto(x.url))) continue
-      photos.splice(Math.min(p.index, photos.length), 0, p.photo)
+      const blockedHost = setsCookies(address)
+      if (photos.some(x => typeof x?.url === 'string' && samePhoto(x.url) && (blockedHost || !setsCookies(x.url)))) continue
+      const blockedAlias = blockedHost ? -1 : photos.findIndex(x => typeof x?.url === 'string' && samePhoto(x.url) && setsCookies(x.url))
+      if (blockedAlias >= 0) photos.splice(blockedAlias, 1, p.photo)
+      else photos.splice(Math.min(p.index, photos.length), 0, p.photo)
       await writeFile(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       out.back.push(`${p.file}: ${address}`)
     }

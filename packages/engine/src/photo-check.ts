@@ -6,7 +6,7 @@ import { writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { IMAGE_SWITCHES, isNonCommercial, photoAddressSet, photoFitsHead, photoKey, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto, type SourceInfo } from '@aq/schema'
+import { IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoFitsHead, photoKey, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto, type SourceInfo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -806,7 +806,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const freshBad = new Set([...judgedNow].flatMap(k => { const i = k.indexOf(' '), u = k.slice(i + 1), v = cache[u]?.[k.slice(0, i)]; return v && (v.ok === 'dead' || v.person === true) && !passedPhoto(u) ? [u] : [] }))
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict; but a hold on another reason doesn't
   // keep a photo from its first verdict of dead or a person (the independent reader, 20 Nov).
-  const spared = (url: string) => !sl.open(url) && !((sl.waiting(url) || sl.held(url)) && freshBad.has(url))
+  const spared = (url: string) => sl.clearedPhoto(url) || (!sl.open(url) && !((sl.waiting(url) || sl.held(url)) && freshBad.has(url)))
   for (const url of everywhere.keys()) {
     const why = unavailable(url) || spared(url) ? undefined : blockedFor(cache[url], keepLogo(url) || ownMarkWaits.has(url))
     if (why) { added[url] = why; report.blocked.push(`${url}: ${why}`) }
@@ -878,24 +878,26 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     }
     return urls
   }
-  const takenOff = async (file: string): Promise<string[]> => {
+  const takenOff = async (file: string): Promise<{ removed: string[]; visible: boolean }> => {
     const photos = await shownPhotos(file)
     const removes = blocked(file)
     const removed = new Set<string>()
+    const remaining: ContentPhoto[] = []
     for (const { stored, served } of photos) {
       const dropsStored = shouldStripPhoto(stored, removes, preservesOriginal)
       const dropsServed = blockedAs(file, served.url)
       if (dropsStored) removed.add(blockedAs(file, stored.url) ?? stored.url)
       if (dropsServed) removed.add(dropsServed)
-      if (!dropsStored && !dropsServed && !waitsFor(served.url)) return []
+      if (!dropsStored && !dropsServed && !waitsFor(served.url)) remaining.push(served)
     }
-    return [...removed]
+    const visible = (galleryId(file) ? remaining : ncAlone(remaining)).length > 0
+    return { removed: visible ? [] : [...removed], visible }
   }
   const pageFiles = [...new Set(shown.filter(x => !x.guide && x.file.endsWith('entity.json')).map(x => x.file))]
   const emptying: string[] = []
   const emptyBy = new Map<string, string[]>()
   for (const file of pageFiles) {
-    const removed = await takenOff(file)
+    const { removed } = await takenOff(file)
     if (removed.length) { emptying.push(file); emptyBy.set(file, removed) }
   }
   // A page with none of its own whose album would go whole is left with nothing too (the chief of staff, 2026-11-14).
@@ -904,10 +906,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const s = byId.get(g.split('/').at(-1)!.replace(/\.json$/, ''))
     if (!s) continue
     const file = join(content, s.kind, s.id, 'entity.json')
-    const removes = blocked(file)
-    if (emptying.includes(file) || (await shownPhotos(file)).some(({ stored, served }) =>
-      !shouldStripPhoto(stored, removes, preservesOriginal) && !removes(served.url) && !waitsFor(served.url))) continue
-    const removed = await takenOff(g)
+    if (emptying.includes(file) || (await takenOff(file)).visible) continue
+    const { removed } = await takenOff(g)
     if (removed.length) { emptying.push(file); emptyBy.set(file, removed) }
   }
   // A cap that isn't a whole number (a typo) is the usual one: it never lets a run through unheld.

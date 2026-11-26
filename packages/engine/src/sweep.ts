@@ -3,7 +3,7 @@ import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { IMAGE_SWITCHES, isNonCommercial, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches } from '@aq/schema'
+import { IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -1169,7 +1169,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const sources = JSON.parse(await readFile(join(content, 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, SourceInfo>
     const shown = (p: Photo) => publicPhotoVersion(p, o.switches ?? IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
     const own = (data: Doc, context?: { ref: string; name: string; album?: boolean }) => (data.photos ?? []).flatMap(p => {
-      const version = !p.generated && !(context?.album && p.unchecked) && (!context || permittedPhotoSource(p, sources, context.ref, context.name)) && shown(p)
+      const version = !p.generated && !(context?.album && p.unchecked) && (!context || permittedPhotoSource(p, sources, context.ref, context.name, (o.switches ?? IMAGE_SWITCHES).inatNonCommercial)) && shown(p)
       return version ? [version] : []
     })
     // A photo held for a second look, or one it cleared, stays (last-photo.ts).
@@ -1189,14 +1189,16 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       const album = x.file.endsWith(`gallery/${x.id}.json`)
       const kind = kindOf.get(x.id)
       const ref = !album || kind === 'species' ? `${kind}/${x.id}` : ''
-      return !own(x.data, { ref, album, name: names.get(x.id) ?? '' }).some(p => !x.off.has(p.url) && !waitsFor(p.url))
+      const remaining = own(x.data, { ref, album, name: names.get(x.id) ?? '' }).filter(p => !x.off.has(p.url) && !waitsFor(p.url))
+      return (album ? remaining : ncAlone(remaining)).length === 0
     }
     const emptying = plan.filter(x => x.file.endsWith('entity.json') && losesEveryPhoto(x))
     // A page with none of its own whose album would go whole is left with nothing too (the chief of staff, 2026-11-14).
     for (const x of plan) {
       if (!x.file.endsWith(`gallery/${x.id}.json`) || !losesEveryPhoto(x)) continue
       const page = JSON.parse(await readFile(join(content, kindOf.get(x.id)!, x.id, 'entity.json'), 'utf8').catch(() => '{}')) as Doc
-      if (!own(page, { ref: `${kindOf.get(x.id)}/${x.id}`, name: names.get(x.id) ?? '' }).some(p => !waitsFor(p.url))) emptying.push(x)
+      const remaining = own(page, { ref: `${kindOf.get(x.id)}/${x.id}`, name: names.get(x.id) ?? '' }).filter(p => !waitsFor(p.url))
+      if (!ncAlone(remaining).length) emptying.push(x)
     }
     // The pages the check's last run held (photo-check.ts writes them, page → true), and this run's own past the cap. A
     // held file the sweep can't read holds every page: nothing comes off until a run of the check writes it again.
@@ -1457,7 +1459,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   }
   // Non-commercial photos off every album and page in one step: all of them with their switch off, all but iNaturalist's
   // album photos with it on (gallery.ts dropNonCommercial). Before the albums are ordered.
-  const nonCommercial = await dropNonCommercial(content, o.switches ?? IMAGE_SWITCHES)
+  const nonCommercial = await dropNonCommercial(content, o.switches ?? IMAGE_SWITCHES, await readPhotoWaits(root))
   nonCommercial.files.forEach(changed)
   report.nonCommercial = nonCommercial.photos
   // Every album in the album order, after every photo above has left: the check's screening order, photo-tank and ruler
