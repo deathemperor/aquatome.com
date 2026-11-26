@@ -516,6 +516,48 @@ test.each(['face detection', 'the dead-fish screen'])('a sibling from a withdraw
   expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([flagged.url])
 })
 
+test('a vetoed owner crop cannot replace a previously passed photo', async () => {
+  const flagged = photo('passed-dead')
+  const crop = { ...photo('crop'), source: 'glaser', ownerCrop: { id: 'sample', pixelHash: 'a'.repeat(64) } }
+  const { root, state, publicView } = await publicFixture([flagged, crop], [], [flagged.url, crop.url])
+  const sources = await json(root, 'content/sources.json')
+  sources.glaser = {
+    name: 'Sample source', homepage: 'https://example.org', publish: 'photos',
+    permission: { date: '2026-11-26', file: 'fixture', scope: [], markRemoval: { allowed: false } },
+  }
+  await writeFile(join(root, 'content/sources.json'), JSON.stringify(sources))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [crop.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [crop.url]: 0, [flagged.url]: 0 }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [flagged.url]: { ok: 'yes', person: false } }))
+
+  await run(root, deps().d)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[flagged.url]).toMatchObject({ pages: ['species/alpha'] })
+  expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([flagged.url])
+})
+
+test('a first people refusal hides both addresses even if its rejection write fails', async () => {
+  const source = { ...photo('source'), url: 'https://live.staticflickr.com/123/456_abc.jpg' }
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
+  const { root, state, publicView } = await publicFixture([source], [mirror], [source.url, mirror.url])
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [source.url]: 0, [mirror.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [source.url]: { dead: false }, [mirror.url]: { dead: false } }))
+  const rejected = join(state, '_photo-rejected.json')
+  await mkdir(rejected)
+  const { d } = deps()
+  await expect(checkPagePhotos(root, {
+    get: d.dead.get, look: async () => ({ photos: [{ n: 1, ok: 'yes', typical: false, person: true, logo: false, note: 'sample' }] }),
+  }, { only: 'alpha', limit: 1 })).rejects.toThrow()
+  await rm(rejected, { recursive: true })
+
+  const mark = (await json(root, 'engine-state/_photo-second-look.json'))[source.url]
+  expect(mark).toMatchObject({ off: true, why: expect.stringMatching(/^people:/) })
+  const view = await publicView()
+  expect(view.species.find(page => page.id === 'alpha')?.photos).toEqual([])
+  expect(view.galleries.alpha).toBeUndefined()
+  expect(view.photoWaits!(source.url)).toBe(true)
+  expect(view.photoWaits!(mirror.url)).toBe(true)
+})
+
 test('a rejection for the stored URL on another page preserves the cleared original across retries and sweep', async () => {
   const original = photo('original-clear')
   const stored = photo('stored-dead')
