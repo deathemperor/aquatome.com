@@ -1,4 +1,4 @@
-import { mirrorSearchTerms, photoAddressSet, photoKey, photoLookAnswer as lookOf, type Photo } from '@aq/schema'
+import { mirrorSearchTerms, photoAddressSet, photoClears, photoKey, photoLookAnswer as lookOf, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -55,9 +55,10 @@ export async function readSecondLook(root: string): Promise<SecondLooks> {
 
 /** The second look's answers, as each step asks them. */
 export function looks(sl: SecondLooks) {
+  const cleared = photoClears(sl)
   return {
     /** Cleared: no automatic verdict takes it off. */
-    cleared: (url: string) => has(sl, url) && lookOf(sl[url])?.said === 'clear',
+    cleared,
     /** Agreed: off as the step's verdict says, and onto the never-again list (the sweep). */
     agreed: (url: string) => has(sl, url) && lookOf(sl[url])?.said === 'agree',
     /** Held with no answer yet: it stays on every page. */
@@ -65,7 +66,7 @@ export function looks(sl: SecondLooks) {
     /** Off its pages at its first verdict, and on the never-again list as waiting, until its look (above). */
     off: (url: string) => has(sl, url) && sl[url]!.off === true && !lookOf(sl[url]),
     /** Neither waiting nor cleared: a step's verdict may act on it. */
-    open: (url: string) => !has(sl, url) || lookOf(sl[url])?.said === 'agree',
+    open: (url: string) => has(sl, url) ? lookOf(sl[url])?.said === 'agree' : !cleared(url),
   }
 }
 
@@ -109,16 +110,21 @@ export function lastPhotos(pages: PageShows[], off: (url: string, ref: string) =
 
 /** Attribute a page's loss to the address that received the verdict, even when it serves a mirror. */
 export function lastPhotoVerdicts(
-  pages: PageShows[], off: (url: string, ref: string) => boolean, verdicts: Iterable<string>,
+  pages: PageShows[], unavailable: (url: string, ref: string) => boolean, verdicts: Iterable<string>,
 ): Map<string, string[]> {
   const addresses = new Map<string, string[]>()
   for (const url of verdicts) {
     const key = photoKey(url) ?? url
     addresses.set(key, [...(addresses.get(key) ?? []), url])
   }
+  const byVerdict = (url: string) => addresses.get(photoKey(url) ?? url) ?? []
+  // Keep the last own-photo decision, and check the album as well when no own photo could have shown.
+  const candidates = pages.flatMap(page => page.own.length && page.album.length && page.own.every(url => unavailable(url, page.ref))
+    ? [page, { ...page, own: [] }]
+    : [page])
   const out = new Map<string, Set<string>>()
-  for (const [url, refs] of lastPhotos(pages, off)) {
-    for (const verdict of addresses.get(photoKey(url) ?? url) ?? []) {
+  for (const [url, refs] of lastPhotos(candidates, (url, ref) => byVerdict(url).length > 0 || unavailable(url, ref))) {
+    for (const verdict of byVerdict(url)) {
       const existing = out.get(verdict) ?? new Set<string>()
       for (const ref of refs) existing.add(ref)
       out.set(verdict, existing)

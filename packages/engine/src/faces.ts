@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -93,15 +93,15 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const dropsStored = (p: Photo) => !keepsOriginal(p) && (!!listed(p.url) || face(p.url))
   const pagesToKeep = await pagesShowing(contentRoot, p => {
     if (!waitingForDead || dropsStored(p)) return p.url
-    return version(p)?.url
+    const shown = version(p)?.url
+    return shown && !setsCookies(shown) ? shown : undefined
   })
   const unread = photoAddressSet(todo.filter(u => !Object.hasOwn(cache, u)))
   const owesLook = photoAddressSet(waitingForDead ?? [])
   const flagVerdicts = Object.keys(cache).filter(u => face(u) && !listed(u))
-  const flagged = photoAddressSet(flagVerdicts)
-  const offPage = (u: string) => flagged(u) || !!listed(u) || owesLook(u) ||
-    (!!waitingForDead && (unread(u) || deadPhotoOff(u, screen, secondLook) || (!!watermarks && awaitsScreen(u, watermarks[u]))))
-  const last = lastPhotoVerdicts(pagesToKeep, offPage, flagVerdicts)
+  const unavailable = (u: string) => !!listed(u) || owesLook(u) ||
+    (!!waitingForDead && (unread(u) || deadPhotoOff(u, screen, secondLook, undefined, sl.cleared) || (!!watermarks && awaitsScreen(u, watermarks[u]))))
+  const last = lastPhotoVerdicts(pagesToKeep, unavailable, flagVerdicts)
   // Only one that passed the check before is held; a face found now, on one that never did, takes it off, marked on both
   // lists (last-photo.ts).
   const firstOff = new Map([...last].filter(([u]) => screened.has(u) && !passed(u)))

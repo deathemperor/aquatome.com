@@ -1,4 +1,4 @@
-import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -174,7 +174,9 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       pagesShowing(content, p => {
         const reason = isListed(p.url)?.[1]
         // The sweep removes the whole wrapper for a rejection that applies to the photo as a whole.
-        return reason && !/^(?:dead|people|waiting): /.test(reason) ? p.url : version(p)?.url
+        if (reason && !/^(?:dead|people|waiting): /.test(reason)) return p.url
+        const shown = version(p)?.url
+        return shown && !setsCookies(shown) ? shown : undefined
       }),
       ownDeadPhotoUrls(content),
       o.photos ? undefined : readJson<Record<string, string>>(state(DEAD_OWED_FILE)),
@@ -185,9 +187,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const { unread, altered: flaggedAlterations } = await facePhotoStatus(content, faces)
     const unjudged = new Set([...owned].filter(url => !looked(url)))
     const waits = photoWaitsFor({ watermarks, owed: listed, unread, flaggedAlterations, faces, unjudged, deadScreen: oldCache, secondLook })
-    const goesOff = photoAddressSet(going)
-    const offPage = (u: string) => goesOff(u) || !!isListed(u) || waits(u)
-    for (const [url, refs] of lastPhotoVerdicts(pages, offPage, going)) last.set(url, refs)
+    const unavailable = (u: string) => !!isListed(u) || waits(u)
+    for (const [url, refs] of lastPhotoVerdicts(pages, unavailable, going)) last.set(url, refs)
   }
   // Only one that passed the check before is held; this verdict, on one that never did, takes it off, marked (last-photo.ts).
   const held = new Map([...last].filter(([u]) => passed(u)))
