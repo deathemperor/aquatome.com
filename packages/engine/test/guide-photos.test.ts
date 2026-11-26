@@ -39,15 +39,22 @@ function model(table: Record<string, Partial<Omit<GuidePhotoVerdict, 'other'>> &
       const photos = sheet.filter(p => !p.includes('html'))
       sheet = []
       seen.push({ prompt, photos })
-      return { photos: photos.map((p, i) => { const { other, ...rest } = table[p] ?? {}; return { n: i + 1, person: false, mark: false, brand: false, note: p, ...rest, other: typeof other === 'function' ? other(prompt) : other } }) }
+      return { photos: photos.map((p, i) => {
+        const { other, ...rest } = table[p] ?? {}
+        const asked = prompt.includes(`- Photo ${i + 1} (`)
+        return { n: i + 1, person: false, mark: false, brand: false, note: p, ...rest,
+          other: typeof other === 'function' ? other(prompt) : other ?? (asked ? false : undefined) }
+      }) }
     },
   }
   return { d, seen }
 }
 
-test('a guide alteration needs a complete look on its fallback original', async () => {
+test.each(['own photo', 'stock photo'])('a guide %s alteration needs a complete look on its fallback original', async place => {
   const altered = { ...photo('altered'), altered: [{ method: 'lanczos3-upscale' }], original: photo('original') }
-  const root = await store({ guide: { photos: [altered] } })
+  const root = await store({ guide: place === 'stock photo'
+    ? { video: { figures: [{ photo: altered, moments: [] }] } }
+    : { photos: [altered] } })
   await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({
     [altered.url]: { person: false, mark: false, brand: false },
     [altered.original.url]: { person: false },
@@ -55,7 +62,8 @@ test('a guide alteration needs a complete look on its fallback original', async 
   const { d, seen } = model({ original: { person: true } })
   await screenGuidePhotos(root, d, { limit: 1 })
   expect(seen.map(s => s.photos)).toEqual([['original']])
-  expect((await json(root, 'content/guides/guide/entity.json')).photos[0].original).toBeUndefined()
+  const guide = await json(root, 'content/guides/guide/entity.json')
+  expect(place === 'stock photo' ? guide.video.figures[0].photo.original : guide.photos[0].original).toBeUndefined()
   expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [altered.original.url]: 'people' })
 })
 
@@ -301,6 +309,22 @@ test('a photo on two guides is asked about each subject, and leaves only the gui
   expect(seen.map(s => s.photos)).toEqual([['lead-a', 'lead-p', 'both'], ['both']])
   expect(urls((await json(root, 'content/guides/aquariumcoop-arowana-care/entity.json')).photos)).toEqual(['lead-a', 'both'])
   expect(urls((await json(root, 'content/guides/aquariumcoop-platy-care/entity.json')).photos)).toEqual(['lead-p'])
+})
+
+test('a missing guide subject answer leaves that question queued', async () => {
+  const root = await store({ 'platy-care': { kind: 'care', photos: [photo('shared')] } })
+  const { seen, d } = model({ shared: { other: false } })
+  let calls = 0
+  const partial: GuidePhotoDeps = { ...d, look: async (file, prompt) => {
+    const answer = await d.look(file, prompt)
+    if (calls++ === 0) for (const tile of answer.photos) delete tile.other
+    return answer
+  } }
+  await screenGuidePhotos(root, partial, { limit: 1 })
+  expect((await json(root, 'engine-state/_photo-guides.json'))[url('shared')].other?.platy).toBeUndefined()
+  await screenGuidePhotos(root, partial, { limit: 1 })
+  expect(seen.map(s => s.photos)).toEqual([['shared'], ['shared']])
+  expect((await json(root, 'engine-state/_photo-guides.json'))[url('shared')].other).toEqual({ platy: false })
 })
 
 test('a photo judged before the subject was asked is asked once, ahead of photos not judged, and keeps its verdict; a still is not asked', async () => {

@@ -417,6 +417,10 @@ test("a public build shows no guide photo or stock photo the guides' own look ha
     await state('_photo-faces.json', Object.fromEntries(named.map(n => [`https://media.test/${n}.webp`, 0])))
     await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new'), ...many]))
     await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(`vi: ${GUIDE_UNJUDGED_LIMIT + 1} guide photos and stock photos the guides' own look hasn't judged`)
+    await state('_photo-rejected.json', { [many[0]!.url]: 'dead: withheld' })
+    const retryable = await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
+    expect(retryable.photoWaits!(many[0]!.url)).toBe(true)
+    await rm(join(site, 'engine-state', '_photo-rejected.json'))
     await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new'), ...many.slice(1)]))
     await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
   } finally {
@@ -426,6 +430,17 @@ test("a public build shows no guide photo or stock photo the guides' own look ha
   await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new')]))
   await looked(all)
   expect(await shown(true)).toEqual({ own: ['guide-looked', 'guide-new'], stock: ['stock-looked', 'stock-new'] })
+  await write('guides/g/vi.json', { ...alphaVi, slug: 'trang-g', name: 'Hướng dẫn nuôi cá platy' })
+  const passed = { person: false, mark: false, brand: false }
+  await state('_photo-guides.json', {
+    [photo('guide-looked').url]: { ...passed, other: { arowana: false, platy: false } },
+    [photo('guide-new').url]: { ...passed, other: { arowana: false } },
+    [photo('stock-looked').url]: { ...passed, other: { platy: true } },
+    [photo('stock-new').url]: { ...passed, other: { platy: false } },
+  })
+  expect(await shown(true)).toEqual({ own: ['guide-looked'], stock: ['stock-new'] })
+  await write('guides/g/vi.json', { ...alphaVi, slug: 'trang-g' })
+  await looked(all)
   // With an alteration withdrawn the served original needs its own verdict.
   const original = photo('original')
   const altered = {
