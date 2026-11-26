@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto'
 import sharp from 'sharp'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { DEAD_SCREEN_FILE, deadScreenPhotoUrls, FACES_FILE, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoPlacements, type Photo, type SourceId } from '@aq/schema'
+import { DEAD_SCREEN_FILE, deadScreenPhotoUrls, documentPhotos, FACES_FILE, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoPlacements, type Photo, type SourceId } from '@aq/schema'
 import { parse } from 'node-html-parser'
 import { archiveStops } from './archive'
 import { dropEmails, type PageImage } from './outline'
@@ -212,19 +212,17 @@ export async function storedSourcePhotos(content: string): Promise<Map<string, P
 /** Recover the credit of an unplaced image from the last revision that carried it. */
 function publishedSourcePhoto(root: string, url: string): Photo | undefined {
   const git = (...args: string[]) => spawnSync('git', ['-C', root, ...args], { encoding: 'utf8', maxBuffer: 8 << 20 })
-  const scopes = ['content/species', 'content/plants', 'content/breeds', 'content/guides', 'content/gallery']
+  const scopes = ['content/species', 'content/plants', 'content/breeds', 'content/guides', 'content/glossary', 'content/gallery', 'content/equipment']
   const rev = git('log', '-1', '--first-parent', '--diff-merges=first-parent', '--no-patch', '--format=%H', '-S', url, '--', ...scopes).stdout?.trim()
   if (!rev) return undefined
   const changed = git('rev-parse', '--verify', '-q', `${rev}^`).status === 0
     ? git('diff', '--name-only', '-z', `${rev}^`, rev, '--', ...scopes)
     : git('diff-tree', '--root', '-r', '--no-commit-id', '--name-only', '-z', rev, '--', ...scopes)
-  for (const file of (changed.stdout ?? '').split('\0').filter(path => path.endsWith('/entity.json') || path.startsWith('content/gallery/'))) {
+  for (const file of (changed.stdout ?? '').split('\0').filter(path => path.endsWith('/entity.json') || /^content\/(gallery|equipment)\/.*\.json$/.test(path))) {
     for (const version of [`${rev}^`, rev]) {
       const result = git('show', `${version}:${file}`)
       if (result.status !== 0) continue
-      const doc = JSON.parse(result.stdout) as { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } }
-      const photos = [...(doc.photos ?? []), ...(doc.video?.figures ?? []).flatMap(f => f.photo ? [f.photo] : [])]
-      for (const p of photos) {
+      for (const p of documentPhotos(JSON.parse(result.stdout))) {
         const record = storedSourcePhoto(p)
         if (record?.url === url) return record
       }
@@ -290,7 +288,8 @@ export async function storeSourcePhotos(
       // read every copy of it first (publisher-credits.ts; found in Codex's read, 20 Nov 2026).
       if (known) {
         const placed = nearby ? known : { ...known, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}) }
-        deps.stored?.set(url, known)
+        const shared = nearby ? storedSourcePhoto(nearby) : known
+        if (shared?.url === url && !deps.stored?.has(url)) deps.stored?.set(url, shared)
         out.push(img.heading ? { ...placed, heading: img.heading } : placed)
         group.done = true
         break

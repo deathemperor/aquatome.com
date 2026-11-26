@@ -575,11 +575,16 @@ test('a source reread reuses an original already stored in a credited wrapper', 
   const page = 'https://x.test/fish'
   const src = 'https://x.test/known.jpg'
   const original = { url: `https://media.test/${photoKey(source, src)}`, width: 1000, height: 700 }
-  const stored = { ...original, url: 'https://media.test/upscaled.webp', licence: 'CC BY 4.0',
+  const stored = { ...original, source, url: 'https://media.test/upscaled.webp', licence: 'CC BY 4.0',
     author: 'Sample credited owner', sourceUrl: page, altered: [{ method: 'lanczos3-upscale' as const, date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
   const unused = async () => { throw new Error('the stored original must not be fetched or overwritten') }
-  const deps = { bytes: unused, media: { urlFor: (key: string) => `https://media.test/${key}`, put: unused } }
-  expect(await storeSourcePhotos(source, 'Source', page, [{ src, alt: '', width: 1000, height: 700 }], deps, [stored])).toEqual([stored])
+  const deps = { stored: new Map(), bytes: unused, media: { urlFor: (key: string) => `https://media.test/${key}`, put: unused } }
+  const picked = [{ src, alt: '', width: 1000, height: 700 }]
+  expect(await storeSourcePhotos(source, 'Source', page, picked, deps, [stored])).toEqual([stored])
+  const nextPage = 'https://x.test/another'
+  expect(await storeSourcePhotos(source, 'Source', nextPage, picked, deps, [])).toEqual([
+    { ...original, source, author: stored.author, licence: stored.licence, sourceUrl: nextPage },
+  ])
 })
 
 test('a different source page reuses the bytes and credit of an already stored original', async () => {
@@ -602,7 +607,11 @@ test('a different source page reuses the bytes and credit of an already stored o
   expect(fresh).toEqual([{ ...original, ...credit, sourceUrl: 'https://source.example/new' }])
 })
 
-test('an unplaced publisher image recovers the credit belonging to the stored bytes', async () => {
+test.each([
+  ['species/sample/entity.json', (p?: object) => ({ photos: p ? [p] : [] })],
+  ['equipment/id/example.json', (p?: object) => ({ types: p ? [{ photo: p }] : [] })],
+  ['glossary/sample/entity.json', (p?: object) => ({ kinds: p ? [{ photo: p }] : [] })],
+] as const)('an unplaced publisher image recovers its credit from %s', async (path, doc) => {
   const root = await mkdtemp(join(tmpdir(), 'source-verdict-'))
   const git = (...args: string[]) => execFileSync('git', args, { cwd: root, encoding: 'utf8' })
   git('init', '-q')
@@ -614,11 +623,12 @@ test('an unplaced publisher image recovers the credit belonging to the stored by
   const mediaUrl = (key: string) => `https://media.test/${key}`
   const url = mediaUrl(photoKey(source, src))
   const old = { url, source, sourceUrl: 'https://source.example/earlier', width: 1000, height: 700, licence: 'CC BY 4.0', author: 'Sample Original Credit' }
-  const file = join(root, 'content/species/sample/entity.json')
+  const file = join(root, 'content', path)
   await mkdir(join(file, '..'), { recursive: true })
-  await writeFile(file, JSON.stringify({ photos: [old] }))
+  await writeFile(file, JSON.stringify(doc(old)))
+  expect((await sourcePhotoInventory(root)).stored.get(url)).toEqual(old)
   git('add', '-A'); git('commit', '-qm', 'credited image')
-  await writeFile(file, JSON.stringify({ photos: [] }))
+  await writeFile(file, JSON.stringify(doc()))
   git('add', '-A'); git('commit', '-qm', 'placement removed')
   await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify({ [url]: { dead: false } }))
   const inventory = await sourcePhotoInventory(root)

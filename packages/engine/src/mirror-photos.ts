@@ -6,8 +6,8 @@ import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, THUMB
 import type { Media } from './source-photos'
 import { looks, readSecondLook, writeSecondLook } from './last-photo'
 
-type Photo = { url: string; thumb?: string; width: number; height: number; licence: string; author: string; sourceUrl: string }
 type Stored = Awaited<ReturnType<Media['put']>>
+type Photo = Stored & { licence: string; author: string; sourceUrl: string; original?: Stored }
 export type MirrorDeps = { bytes: (url: string) => Promise<Uint8Array>; media: Media; sleep: (ms: number) => Promise<void> }
 
 export { mirrorPlan } from '@aq/schema'
@@ -23,8 +23,8 @@ function photosIn(x: unknown, out: Photo[] = []): Photo[] {
 /** Content files that hold photos: species, plant and breed pages, guides, galleries, equipment guides. */
 async function files(content: string) {
   const out: string[] = []
-  for (const kind of ['species', 'plants', 'breeds', 'guides']) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) out.push(join(content, kind, id, 'entity.json'))
-  for (const kind of ['gallery', 'equipment']) for (const f of await readdir(join(content, kind)).catch(() => [] as string[])) if (f.endsWith('.json')) out.push(join(content, kind, f))
+  for (const kind of ['species', 'plants', 'breeds', 'guides', 'glossary']) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) out.push(join(content, kind, id, 'entity.json'))
+  for (const kind of ['gallery', 'equipment']) for (const f of await readdir(join(content, kind), { recursive: kind === 'equipment' }).catch(() => [] as string[])) if (f.endsWith('.json')) out.push(join(content, kind, f))
   return out
 }
 
@@ -75,7 +75,10 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     if (!raw) continue
     const data = JSON.parse(raw) as unknown
     docs.set(file, { raw, data })
-    for (const { url, thumb, width, height } of photosIn(data)) {
+    for (const p of photosIn(data)) for (const version of [p, p.original]) {
+      if (!version?.url) continue
+      const { url, thumb, width, height } = version
+      recorded.add(url)
       if (width && height) placed.set(url, { url, ...(thumb ? { thumb } : {}), width, height })
     }
   }

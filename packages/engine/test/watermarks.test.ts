@@ -191,6 +191,30 @@ test('the watermark pass holds the last served original of an already rejected a
   expect((await read(r, 'engine-state/_photo-rejected.json'))[original.url]).toBeUndefined()
 })
 
+test.each([false, true])('a watermark on a dead-screened alteration considers its credited original (spare photo: %s)', async spare => {
+  const r = await site()
+  const original = photo('fish2')
+  const stored = { ...photo('glaser'), altered: [{ method: 'lanczos3-upscale' }],
+    original: { url: original.url, width: original.width, height: original.height } }
+  const file = 'content/species/a/entity.json'
+  await writeFile(join(r, file), JSON.stringify({ id: 'a', photos: [stored, ...(spare ? [photo('box')] : [])] }))
+  await writeFile(join(r, 'content/gallery/a.json'), JSON.stringify({ id: 'a', photos: [] }))
+  const cache = join(r, 'engine-state/_photo-watermarks.json')
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  await writeFile(rejected, JSON.stringify({ [stored.url]: 'dead: withheld' }))
+
+  const { d, calls } = deps()
+  const result = await screenWatermarks(r, cache, rejected, d, { limit: 10 })
+  const refusals = await read(r, 'engine-state/_photo-rejected.json')
+
+  expect(calls.get).toContain(original.url)
+  expect((await read(r, 'engine-state/_photo-watermarks.json'))[original.url]).toEqual({ ocr: [] })
+  expect(result.held.includes(`${stored.url}: species/a`)).toBe(!spare)
+  expect((await read(r, file)).photos).toEqual(spare ? [photo('box')] : [stored])
+  expect(refusals[stored.url]).toMatch(spare ? /^watermark:/ : /^dead:/)
+  expect(refusals[original.url]).toBe(spare ? refusals[stored.url] : undefined)
+})
+
 test('item admission stops without model calls or content changes', async () => {
   const root = await site()
   const { d, calls } = deps()

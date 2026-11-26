@@ -90,6 +90,22 @@ test('hot-linked photos move to our bucket once each; credit, licence, source li
   expect(again.put).toEqual([])
 })
 
+test('a mirror used only as a fallback original keeps the stored bytes and dimensions', async () => {
+  const r = await root()
+  const { d, fetched, put } = deps()
+  const key = mirrorPlan(C1280)!.key
+  const original = { url: d.media.urlFor(key), width: 1000, height: 720 }
+  await writeFile(join(r, 'content/equipment/co2.json'), JSON.stringify({ hero: photo(OURS, {
+    altered: [{ method: 'lanczos3-upscale' }], original,
+  }) }))
+
+  await mirrorPhotos(r, d)
+
+  expect(put).not.toContain(key)
+  expect(fetched).not.toContain(C1280)
+  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0]).toMatchObject(original)
+})
+
 test('dry run counts what would move; limit caps the uploads in one run', async () => {
   const r = await root()
   const dry = deps()
