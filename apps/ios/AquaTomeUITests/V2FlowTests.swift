@@ -1048,7 +1048,20 @@ final class V2FlowTests: XCTestCase {
     reveal(app, credit)
     XCTAssertTrue(credit.label.hasPrefix("Dịch và tổng hợp từ Seriously Fish"), "not the page's credit: \(credit.label)")
     XCTAssertGreaterThan(credit.frame.minY, card.frame.maxY, "the credit isn't under the figures")
-    app.swipeDown()
+    // The trust card exposes one accessibility label for the figures’ sources. The lifespan belongs there.
+    let hasLifespan = NSPredicate(format: "label CONTAINS %@", "Tuổi thọ")
+    let trust = app.staticTexts.matching(hasLifespan).firstMatch
+    XCTAssertTrue(trust.waitForExistence(timeout: 5), "the lifespan is missing from the sources")
+    XCTAssertFalse(card.descendants(matching: .any).matching(hasLifespan).firstMatch.exists, "the lifespan is on the figures card")
+    let creditShot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    creditShot.name = "shot-v2-fish-credit"
+    creditShot.lifetime = .keepAlways
+    add(creditShot)
+    credit.tap()
+    let sources = app.staticTexts["Nguồn"].firstMatch
+    let visible = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isHittable == true"), object: sources)
+    XCTAssertEqual(XCTWaiter().wait(for: [visible], timeout: 5), .completed, "the credit jumps to the sources")
+
     let more = app.navigationBars.buttons["page-more"]
     XCTAssertTrue(more.waitForExistence(timeout: 5), "no ⋯")
     more.tap()
@@ -1056,19 +1069,12 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(web.waitForExistence(timeout: 3), "no “Mở trong trình duyệt” in the ⋯")
     XCTAssertTrue(share.exists, "no “Chia sẻ” in the ⋯")
     XCTAssertLessThan(share.frame.minY, web.frame.minY, "the browser before share")
+    let menuShot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    menuShot.name = "shot-v2-fish-browser-menu"
+    menuShot.lifetime = .keepAlways
+    add(menuShot)
     app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.9)).tap()
     XCTAssertTrue(web.waitForNonExistence(timeout: 3), "the ⋯ didn't close")
-    // Its lifespan, off the card (the mock's six figures), is read in the figures' sources at the page's end, as v1's
-    // sheet behind the figures had it.
-    let life = app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS %@", "Tuổi thọ")).firstMatch
-    reveal(app, life)
-    XCTAssertTrue(life.exists, "the lifespan nowhere on the page")
-    repeatUntil(credit.exists && credit.isHittable, times: 8) { app.swipeDown() }
-    XCTAssertTrue(credit.exists && credit.isHittable, "the credit remains in reach")
-    credit.tap()
-    let sources = app.staticTexts["Nguồn"].firstMatch
-    let visible = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isHittable == true"), object: sources)
-    XCTAssertEqual(XCTWaiter().wait(for: [visible], timeout: 5), .completed, "the credit jumps to the sources")
   }
 
   /// The search tab shows its screen, not the tab that was in front.
