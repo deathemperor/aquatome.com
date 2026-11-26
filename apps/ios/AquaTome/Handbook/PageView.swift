@@ -38,6 +38,7 @@ struct PageView: View {
   @State private var width: CGFloat = 0
   @State private var offline = false
   @State private var failed = false
+  @State private var readFallback = false
   @State private var putting = false
   /// The tank to open once the put sheet has closed.
   @State private var openAfter: String?
@@ -92,7 +93,8 @@ struct PageView: View {
           .accessibilityIdentifier("page-head")
       } else {
         // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
-        WebPage(url: atHeading, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
+        WebPage(url: atHeading, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(),
+                saved: { tanks.mergeFromPage($0) }, open: openScreen, loaded: webOnly ? readWhenLoaded : nil)
           // On the page alone: on the whole screen, it would take the place of the facts' own (an outer id wins).
           .accessibilityIdentifier("page")
           .ignoresSafeArea(edges: .bottom)
@@ -183,13 +185,19 @@ struct PageView: View {
           .background(.bar)
         }
       }
-      .onAppear { handbook.read(item) }
+      .onAppear { if !webOnly { handbook.read(item) } }
       .ownerShows(item.path, as: "\(item.kind.rawValue) page")
       .sheet(isPresented: $putting, onDismiss: {
         if let id = openAfter { openAfter = nil; openScreen(.tanks(id)) }
       }) {
         if let life = Life(item) { NavigationStack { PutOnTank(life: life, open: { openAfter = $0; putting = false }) } }
       }
+  }
+
+  private func readWhenLoaded() {
+    guard !readFallback else { return }
+    readFallback = true
+    handbook.read(item)
   }
 
   /// A guide's or a kind of kit's page the app draws in v2, with a photo at its head: a fish page's lighter top (the photo
@@ -360,6 +368,7 @@ private struct WebPage: UIViewRepresentable {
   let saved: (Data) -> Void
   /// A link to a page the app has as its own screen.
   let open: (AppScreen) -> Void
+  var loaded: (() -> Void)? = nil
 
   func makeCoordinator() -> Coordinator { Coordinator(self) }
 
@@ -383,11 +392,15 @@ private struct WebPage: UIViewRepresentable {
       #if DEBUG
       // UI tests (`-fixed-handbook`) read no network: a stand-in, at the page's own address.
       if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") {
+        if ProcessInfo.processInfo.arguments.contains("-unavailable-web-page") {
+          context.coordinator.page.failed = true
+          return
+        }
         web.loadHTMLString(Self.standIn(url), baseURL: url)
         return
       }
       #endif
-      web.load(URLRequest(url: url))
+      context.coordinator.load(web, url: url)
     }
     return web
   }
@@ -423,10 +436,16 @@ private struct WebPage: UIViewRepresentable {
     /// The load of the kept copy, shown offline: not kept again, and it doesn't clear the offline note.
     private var archive: WKNavigation?
     private var archiveHeading: String?
+    /// The request made when this view opened, identified by its WebKit navigation.
+    private var firstRequest: (navigation: WKNavigation, url: URL)?
     /// Whether the site answered the page now loading with a page (2xx), not an error page to keep over a good copy.
     private var answered = true
 
     init(_ page: WebPage) { self.page = page }
+
+    func load(_ web: WKWebView, url: URL) {
+      if let navigation = web.load(URLRequest(url: url)) { firstRequest = (navigation, url) }
+    }
 
     /// The tanks script for the pages to come, with the app's store as it is now.
     func bridge(_ content: WKUserContentController) {
@@ -473,12 +492,16 @@ private struct WebPage: UIViewRepresentable {
                                   arguments: ["heading": archiveHeading], in: nil, in: .page, completionHandler: nil)
         }
         archiveHeading = nil
+        page.loaded?()
         return
       }
+      if navigation === firstRequest?.navigation { firstRequest = nil }
       // Online again: the notes go, and the page is kept for next time.
       page.offline = false
       page.failed = false
-      guard let u = web.url, PageRoute.of(u, site: page.url, mainFrame: true, newWindow: false) == .app, answered else { return }
+      guard answered else { return }
+      page.loaded?()
+      guard let u = web.url, PageRoute.of(u, site: page.url, mainFrame: true, newWindow: false) == .app else { return }
       #if DEBUG
       // The stand-in isn't the page: not kept as its offline copy, which would outlast the test run.
       if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") { return }
@@ -490,12 +513,21 @@ private struct WebPage: UIViewRepresentable {
     }
 
     func webView(_ web: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-      // Another load took its place (the reader tapped on, or went back): nothing failed.
+      let requested = navigation === firstRequest?.navigation ? firstRequest?.url : nil
+      if requested != nil { firstRequest = nil }
+      // Another load took its place (the reader tapped on, or went back).
       if isInterruption(error) { return }
-      let u = (error as NSError).userInfo[NSURLErrorFailingURLErrorKey] as? URL ?? page.url
-      // The failed HTTP request may have dropped the fragment on the original page's URL.
-      let samePage = PageStore.address(u, site: page.url) == PageStore.address(page.url, site: page.url)
-      let address = samePage && u.fragment == nil ? page.url : u
+      guard let u = (error as NSError).userInfo[NSURLErrorFailingURLErrorKey] as? URL ?? requested else {
+        page.failed = true
+        return
+      }
+      // A redirect can drop the fragment from the error URL for this same navigation.
+      let address: URL
+      if u.fragment == nil, let requested, PageStore.address(u, site: page.url) == PageStore.address(requested, site: page.url) {
+        address = requested
+      } else {
+        address = u
+      }
       if let data = PageStore.archive(for: address, site: page.url) {
         page.offline = true
         archiveHeading = address.fragment(percentEncoded: false)

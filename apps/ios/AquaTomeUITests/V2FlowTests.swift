@@ -1025,6 +1025,19 @@ final class V2FlowTests: XCTestCase {
     XCTAssertFalse(app.descendants(matching: .any)["v2-species"].exists, "v2's fish page behind it")
   }
 
+  func testAFishWhoseWebFallbackFailsIsNotInRecentReads() {
+    let app = launch("-pages-count", "1", "-unavailable-web-page", "-v2", "YES")
+    app.launchForFlow()
+    let card = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(card.waitForExistence(timeout: 10))
+    card.tap()
+    XCTAssertTrue(app.staticTexts["page-status"].waitForExistence(timeout: 10), "no failed web page")
+    app.leavePage()
+    app.openTab("Tìm")
+    XCTAssertTrue(app.buttons["tool-fish-id"].waitForExistence(timeout: 8), "not on Tìm")
+    XCTAssertFalse(app.descendants(matching: .any)["recent"].exists, "the failed page was counted as read")
+  }
+
   /// What only v1's fish page had, on v2's (the v2 Lab, 15 Nov, before the old look's switch goes): whose text the page
   /// is under its figures, and "Mở trong trình duyệt" in the ⋯ after "Chia sẻ".
   func testAFishsPageHasWhatOnlyV1sHad() {
