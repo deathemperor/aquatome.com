@@ -35,6 +35,13 @@ test('guide descriptions keep the full opening paragraph for search and shorten 
   expect(descriptionForSearch('vi', description, 100)).toBe(first)
 })
 
+test('a short guide introduction stays separate from a long list or table', () => {
+  const intro = 'Chọn bể phù hợp với chỗ đặt.'
+  const html = `<p>Ảnh © tác giả</p><p>${intro}</p><ul><li>${'Đo chiều dài và chiều cao bể. '.repeat(20)}</li></ul>`
+  expect(guideDescription(html)).toBe(intro)
+  expect(guideDescription('<p>Ảnh © tác giả</p><ul><li>Bể nhỏ</li></ul>')).toBe('')
+})
+
 
 test('a sentence under 80 characters leaves room for a word-boundary excerpt', () => {
   const sentence = 'Bể cần nước sạch và đủ chỗ để cá bơi.'

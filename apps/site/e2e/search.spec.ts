@@ -99,6 +99,23 @@ test('site search shows the short description and confirms matches beyond its en
   await expect(page.locator('[data-none]')).toBeHidden()
 })
 
+test('Pagefind retrieves the Indonesian tank tool for a term that occurs only in its full description', async ({ page }) => {
+  await page.goto('/id/cari/')
+  const path = '/id/alat/volume-akuarium/'
+  const tool = await page.evaluate(async url => {
+    const src = '/pagefind/pagefind.js'
+    const pf = await import(src)
+    await pf.options({ ranking: { metaWeights: { title: 5, aka: 5, description: 0, full_description: 0 } } })
+    type Doc = { url: string; meta: Record<string, string> }
+    const { results } = await pf.search('ketebalan kaca disarankan') as { results: Array<{ data: () => Promise<Doc> }> }
+    const hits = await Promise.all(results.map(hit => hit.data()))
+    return hits.find(hit => hit.url === url)
+  }, path)
+  expect(tool?.url).toBe(path)
+  expect(tool?.meta.full_description).toContain('ketebalan kaca yang disarankan')
+  expect(tool?.meta.description).not.toContain('disarankan')
+})
+
 for (const [path, all] of [['/tim-kiem/', '/ca/'], ['/id/cari/', '/id/ikan/'], ['/th/search/', '/th/fish/'], ['/ms/cari/', '/ms/ikan/']] as const) {
   test(`a nonsense word says there is nothing, with a way on (${path})`, async ({ page, errors }) => {
     await page.goto(`${path}?q=xyzzyq`)

@@ -95,6 +95,7 @@ const plain = (html: string) => html.replace(/<a class="cite[^"]*"[^>]*>[\s\S]*?
 /** The first real paragraph, skipping photo captions and credits. */
 export function guideDescription(html: string): string {
   const body = html.replace(/<figure\b[^>]*>[\s\S]*?<\/figure>/g, '')
-  const paras = [...body.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)].map(m => plain(m[1]!))
-  return paras.find(p => p.length >= 60 && !p.includes('©')) ?? plain(body)
+  const paras = [...body.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)]
+    .map(m => plain(m[1]!)).filter(p => p && !p.includes('©'))
+  return paras.find(p => p.length >= 60) ?? paras[0] ?? ''
 }
