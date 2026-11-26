@@ -5,7 +5,7 @@ import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
 import sharp from 'sharp'
-import { stillShown } from '@aq/schema'
+import { deadScreenPhotoUrls, guideLooked, GUIDE_LOOKS_FILE, stillShown, type Photo } from '@aq/schema'
 import { LlmError } from './claude'
 import { contactSheet, stillDone } from './video-images'
 import type { StillsState } from './video-stills'
@@ -89,7 +89,7 @@ export function guideSubject(kind: string | undefined, title: string, also = '')
 
 type About = { subject: string; title: string }
 type Item = { url: string; lead: boolean; equipment: boolean; still: boolean; wanted: boolean; subjects: About[] }
-type Guide = { kind?: string; source?: string; photos?: { url: string }[]; video?: { title?: string; figures?: { photo?: { url: string }; moments?: { t: number; url: string; width: number; height: number; sharpness?: number; person?: boolean }[] }[] } }
+type Guide = { kind?: string; source?: string; photos?: Photo[]; video?: { title?: string; figures?: { photo?: { url: string }; moments?: { t: number; url: string; width: number; height: number; sharpness?: number; person?: boolean }[] }[] } }
 type Equipment = { hero?: { url: string }; types?: { photo?: { url: string } }[] }
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
 
@@ -122,8 +122,8 @@ export async function judgeGuidePhotos(images: Buffer[], sheet: string, look: Gu
 export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { limit: number; parallel?: number; only?: string[] }) {
   const content = join(root, 'content')
   const state = (f: string) => join(root, 'engine-state', f)
-  const oldCache = (await readJson<Record<string, GuidePhotoVerdict>>(state('_photo-guides.json'))) ?? {}
-  const cache = Object.fromEntries(Object.entries(oldCache).map(([u,v])=>[u,compactVerdict(v)]))
+  const oldCache = (await readJson<Record<string, GuidePhotoVerdict>>(state(GUIDE_LOOKS_FILE))) ?? {}
+  const cache = Object.fromEntries(Object.entries(oldCache).filter(([, v]) => guideLooked(v)).map(([u,v])=>[u,compactVerdict(v)]))
   const rejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
   const done = (await readJson<StillsState>(state('_video-stills.json'))) ?? {}
   const report = { sheets: 0, judged: 0, cleared: 0, off: [] as string[], removed: [] as string[], kept: [] as string[], held: [] as string[], failed: [] as string[], left: 0, waiting: 0, stopped: '', subject: [] as string[] }
@@ -148,7 +148,9 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     const subject = guideSubject(g.kind, title, [g.video?.title, g.source === 'youtube' || g.source === 'glaser' ? '' : id].filter(Boolean).join(' '))
     const about = subject ? { subject, title } : undefined
     if (subject) subjectOf.set(file, subject)
-    for (const [i, p] of (g.photos ?? []).entries()) add(p.url, i === 0, false, false, about)
+    for (const [i, p] of (g.photos ?? []).entries()) {
+      for (const url of deadScreenPhotoUrls(p)) add(url, i === 0, false, false, about)
+    }
     for (const f of g.video?.figures ?? []) if (f.photo) add(f.photo.url, false, false, false, about)
     // A tile video-stills.ts will replace with the video's frame waits for that frame; a still the other bars keep off
     // the page needs no verdict.
@@ -231,7 +233,14 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     const equipment = file.startsWith(join(content, 'equipment'))
     const subject = subjectOf.get(file)
     const another = (url: string) => !!subject && cache[url]?.other?.[subject] === true
-    stripPhotos(data, url => sl.open(url) && (!!guidePhotoOff(cache[url], equipment || !!items.get(url)?.still) || another(url)), removed, report.kept)
+    const remove = (url: string) => sl.open(url) && (!!guidePhotoOff(cache[url], equipment || !!items.get(url)?.still) || another(url))
+    stripPhotos(data, remove, removed, report.kept)
+    for (const p of data.photos ?? []) {
+      if (p.original && deadScreenPhotoUrls(p).includes(p.original.url) && remove(p.original.url)) {
+        removed.push(p.original.url)
+        delete p.original
+      }
+    }
     report.subject.push(...removed.filter(another).map(u => `${relative(root, file)}: ${u}: ${cache[u]!.note}`))
     // What's left of a guide's stills carries its verdict, which they need to show.
     let cleared = 0
@@ -246,7 +255,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     report.removed.push(...removed.map(u => `${relative(root, file)}: ${u}`))
     await writeFile(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
-  await writePhotoState(state('_photo-guides.json'), Object.fromEntries(Object.entries(cache).sort()))
+  await writePhotoState(state(GUIDE_LOOKS_FILE), Object.fromEntries(Object.entries(cache).sort()))
   await writePhotoState(state('_photo-rejected.json'), now)
   return report
 }

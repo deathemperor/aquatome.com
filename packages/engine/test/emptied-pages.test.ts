@@ -223,6 +223,17 @@ test('the replay finds the owner of the original an album alteration would show'
   expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
 })
 
+test('an unjudged guide stock photo also waits in a fish album when the sweep replays the site', async () => {
+  const { r, put } = await store({ species: { x: [] }, albums: { x: ['stock'] } })
+  await put('content/guides/g/entity.json', { photos: [], video: { figures: [{ photo: photo('stock') }] } })
+  await put(`engine-state/${schema.FACES_FILE}`, { [url('stock')]: 0 })
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [url('stock')]: { dead: false } })
+  await put(`engine-state/${schema.GUIDE_LOOKS_FILE}`, { [url('stock')]: { person: false } })
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', false]]))
+  await put(`engine-state/${schema.GUIDE_LOOKS_FILE}`, { [url('stock')]: { person: false, mark: false, brand: false } })
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
+})
+
 test("a page emptied by this run's removal and main's together is listed on main as it is now, after the run caught up", async () => {
   const { r, put } = await store({ species: { pair: ['p1'] }, albums: { pair: ['a1'] } })
   const git = (...a: string[]) => execFileSync('git', a, { cwd: r, encoding: 'utf8' })

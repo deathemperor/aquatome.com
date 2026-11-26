@@ -246,3 +246,40 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
  * screen record fails the site's build by itself.
  */
 export const UNJUDGED_DEAD_LIMIT = 300
+
+/**
+ * The guides' own look's record, in engine-state (address → verdict: person, mark, brand, and another kind of fish or
+ * plant; the engine's guide-photos.ts): every own photo of a guide and every stock photo of a video guide's parts it has
+ * judged. A public build shows neither until it has (load.ts), as a video guide's stills wait for theirs: a new guide
+ * photo or stock photo showed for hours before its look until 22 Nov 2026 (the chief of staff: the look first).
+ */
+export const GUIDE_LOOKS_FILE = '_photo-guides.json'
+
+/** Guide photos and stock photos have their own look. Video frames have a separate verdict. */
+export function guidePhotoUrls(guide: { photos?: PhotoVersions[]; video?: { figures?: { photo?: { url: string } }[] } }): string[] {
+  return [...(guide.photos ?? []).flatMap(deadScreenPhotoUrls), ...(guide.video?.figures ?? []).flatMap(f => f.photo ? [f.photo.url] : [])]
+}
+export async function guidePhotoUrlsIn(root: string): Promise<Set<string>> {
+  const urls = new Set<string>()
+  for (const id of await readdir(join(root, 'guides')).catch(() => [] as string[])) {
+    const raw = await readFile(join(root, 'guides', id, 'entity.json'), 'utf8').catch((e: NodeJS.ErrnoException) => {
+      if (e.code === 'ENOENT') return undefined
+      throw e
+    })
+    if (raw === undefined) continue
+    for (const url of guidePhotoUrls(JSON.parse(raw) as Parameters<typeof guidePhotoUrls>[0])) urls.add(url)
+  }
+  return urls
+}
+
+export function guideLooked(verdict: unknown): boolean {
+  if (!verdict || typeof verdict !== 'object') return false
+  const v = verdict as Record<string, unknown>
+  return typeof v.person === 'boolean' && typeof v.mark === 'boolean' && typeof v.brand === 'boolean'
+}
+/**
+ * More guide photos and stock photos than this with no look of the guides is a lost or damaged record, not a run's new
+ * ones: the site's build fails rather than publish the guides without them. At most 54 waited at once from 21 Nov, and a
+ * 12-hour stop of the look would add about 57 (the chief of staff's yes to 200, 22 Nov 2026).
+ */
+export const GUIDE_UNJUDGED_LIMIT = 200
