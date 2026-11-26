@@ -3,7 +3,7 @@ import { photoAddressSet, type PhotoRejection } from './photo-address'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { isOwnerCrop, type ImageSwitches } from './image-policy'
-import { retainedOwnMark } from './own-mark'
+import { photoRejections, retainedOwnMark } from './own-mark'
 import type { Photo } from './types'
 
 /**
@@ -99,23 +99,58 @@ export function publicPhotoVersion<P extends Photo>(p: P, images: Readonly<Image
   return { ...rest, ...original } as P
 }
 
+/** These refusals apply to the version that received the verdict. */
+export const isVersionRejection = (reason: string): boolean => /^(?:dead|people|waiting): /.test(reason)
+
 /** The stored URL and any original the public loader can use if it withdraws an alteration. */
 export function deadScreenPhotoUrls(p: PhotoVersions): string[] {
   return p.altered?.length && !p.generated && !isOwnerCrop(p) && mayFallBack(p) ? [p.url, p.original!.url] : [p.url]
 }
 
-async function* entityPhotos(root: string, kinds: readonly string[]): AsyncGenerator<PhotoVersions> {
+async function* entityPhotos(root: string, kinds: readonly string[], includeFigures = false): AsyncGenerator<PhotoVersions> {
   for (const kind of kinds) {
-    for (const id of (await readdir(join(root, kind)).catch(() => [] as string[])).sort()) {
+    const ids = await readdir(join(root, kind)).catch((error: NodeJS.ErrnoException) => {
+      if (error.code !== 'ENOENT') throw error
+      return [] as string[]
+    })
+    for (const id of ids.sort()) {
       const raw = await readFile(join(root, kind, id, 'entity.json'), 'utf8').catch((e: NodeJS.ErrnoException) => {
         if (e.code === 'ENOENT') return undefined
         throw e
       })
       if (raw === undefined) continue
-      const page = JSON.parse(raw) as { photos?: PhotoVersions[] }
+      const page = JSON.parse(raw) as { photos?: PhotoVersions[]; video?: { figures?: { photo?: PhotoVersions }[] } }
       yield* page.photos ?? []
+      if (includeFigures) for (const f of page.video?.figures ?? []) if (f.photo) yield f.photo
     }
   }
+}
+
+/** A whole-photo refusal also follows its original when another placement stores that original separately. */
+export async function expandWholePhotoRejections(
+  root: string, rejections: Record<string, string>, marks?: Record<string, { retainedOwnMark?: unknown }>,
+): Promise<Record<string, string>> {
+  if (!Object.values(rejections).some(why => why && !isVersionRejection(why))) return rejections
+  const effective = photoRejections(rejections, marks)
+  const added: Record<string, string> = {}
+  const consider = (p: PhotoVersions) => {
+    const [, original] = deadScreenPhotoUrls(p)
+    if (!original) return
+    const why = effective(p.url)?.[1]
+    const prior = effective(original)?.[1]
+    if (why && !isVersionRejection(why) && (!prior || isVersionRejection(prior))) added[original] ??= why
+  }
+  for await (const p of entityPhotos(root, ['species', 'plants', 'breeds', 'guides'], true)) consider(p)
+  const galleries = join(root, 'gallery')
+  const files = await readdir(galleries).catch((error: NodeJS.ErrnoException) => {
+    if (error.code !== 'ENOENT') throw error
+    return [] as string[]
+  })
+  for (const file of files.filter(f => f.endsWith('.json')).sort()) {
+    const album = JSON.parse(await readFile(join(galleries, file), 'utf8')) as { photos?: PhotoVersions[] }
+    for (const p of album.photos ?? []) consider(p)
+  }
+  return Object.keys(added).length ? { ...rejections, ...added } : rejections
 }
 
 export async function ownDeadPhotoUrls(root: string, kinds: readonly string[] = ['species', 'plants', 'breeds']): Promise<Set<string>> {
@@ -273,11 +308,11 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
     ...[...(r.flaggedAlterations ?? [])].filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)),
   ])
   return url => {
+    const entry = r.rejected?.(url)
+    if (entry && !entry[1].startsWith('watermark:')) return true
     if (r.watermarks) {
       if (awaitsScreen(url, r.watermarks[url])) return true
-      const entry = r.rejected?.(url)
-      if (entry?.[1].startsWith('watermark:') &&
-          !retainedOwnMark(url, r.watermarks[url]) && !retainedOwnMark(entry[0], r.watermarks[entry[0]])) return true
+      if (entry && !retainedOwnMark(url, r.watermarks[url]) && !retainedOwnMark(entry[0], r.watermarks[entry[0]])) return true
     }
     return owesLook(url) || faceWaits(url) ||
       deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected, cleared, held, firstOff)

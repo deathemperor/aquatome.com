@@ -252,6 +252,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     if (sl.open(x.url) && !heldAddress(x.url)) now[x.url] ??= why
   }
   await holdForSecondLook(root, holding, 'the guide photo check')
+  await writePhotoState(state('_photo-rejected.json'), now)
   for (const file of files) {
     const raw = await readFile(file, 'utf8')
     const data = JSON.parse(raw) as Guide
@@ -282,6 +283,5 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     report.removed.push(...removed.map(u => `${relative(root, file)}: ${u}`))
     await writeFile(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
-  await writePhotoState(state('_photo-rejected.json'), now)
   return report
 }

@@ -522,8 +522,7 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
     if (!k || typeof k.url !== 'string' || !day(k.at) || typeof k.why !== 'string') continue
     const mark = marks[k.url], here = local[k.url]
     const restored = mark?.back && here?.back && mark.why === k.why && here.why === k.why &&
-      mark.settled?.some(p => placeKey(p) === placeKey(k) && (!k.replaces ||
-        ((p.captureDay ?? mark.at) === k.at && (p.capture === k.capture || p.capture !== k.replaces))))
+      mark.settled?.some(p => placeKey(p) === placeKey(k) && (p.capture === k.capture || !k.replaces || p.capture !== k.replaces))
     const agreed = !mark && !here && rejected[k.url] === k.why
     if (restored || agreed) await rm(path, { force: true })
   }
@@ -672,7 +671,7 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks) {
   const git = (...args: string[]) => spawnSync('git', ['-C', root, ...args], { encoding: 'utf8' })
   const done = Object.entries(local).filter(([, mark]) => mark.settled?.length && lookOf(mark)?.said === 'clear')
   if (!done.length) return out
-  const before = git('rev-parse', '--verify', '-q', 'ORIG_HEAD').stdout.trim()
+  const before = process.env.AQ_PHOTO_PRE_REBASE ?? git('rev-parse', '--verify', '-q', 'ORIG_HEAD').stdout.trim()
   if (!before) return out
   const common = git('merge-base', before, main)
   if (common.status !== 0) {
@@ -690,6 +689,11 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks) {
   if (diff.status !== 0) throw new Error('Could not compare restored photos with main')
   const changed = new Set(diff.stdout.split('\0'))
   const history = gitHistory(root, main)
+  const commits = git('log', '--first-parent', '--reverse', '--format=%H', `${base}..${before}`, '--', records)
+  if (commits.status !== 0) throw new Error('Could not read the pre-rebase photo recovery history')
+  const localStates = commits.stdout.split('\n').filter(Boolean).map(sha => ({
+    sha, marks: publishedJson(root, records, sha) as SecondLooks | undefined,
+  }))
   for (const [url, mark] of done) {
     const prior = published[url], pending = previous[url]
     if (!prior?.off || !pending?.off || prior.why !== mark.why || pending.why !== mark.why) continue
@@ -712,14 +716,17 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks) {
       const guide = place.file.startsWith('content/guides/')
       const departure = historyPlaces.find(p => placeKey(p) === placeKey(place) && p.times >= 2)
       const at = (data: unknown) => photoSlots(data, guide).filter(slot =>
-        sameGuideSlot(departure ?? place, slot) && typeof slot.photo.url === 'string' && matches(slot.photo.url))
+        sameGuideSlot(departure ?? place, slot) && typeof slot.photo.url === 'string' && matches(slot.photo.url) && !setsCookies(slot.photo.url))
       const publicSlots = at(publishedJson(root, place.file, main))
       const previousSlots = at(publishedJson(root, place.file, before))
       const currentSlots = at(doc)
-      const returned = publicSlots.find(p => !setsCookies(String(p.photo.url))) ?? publicSlots[0]
+      const returned = publicSlots[0]
       if (departure && !returned) {
-        const old = new Set(previousSlots.map(slot => JSON.stringify(slot.photo)))
-        const stale = currentSlots.filter(slot => old.has(JSON.stringify(slot.photo)))
+        const landed = localStates.find(state => state.marks?.[url]?.settled?.some(p => placeKey(p) === placeKey(place)))
+        if (!landed) throw new Error('Could not verify the original entry restored before pulling main')
+        const old = new Set(at(publishedJson(root, place.file, landed.sha)).map(slot => JSON.stringify(slot.photo)))
+        const stale = currentSlots.filter(slot => old.has(JSON.stringify(slot.photo)) &&
+          previousSlots.some(previous => JSON.stringify(previous.photo) === JSON.stringify(slot.photo)))
         if (!stale.length) continue
         for (const slot of stale.toReversed()) {
           if (!slot.path) doc.photos!.splice(slot.index, 1)

@@ -582,7 +582,7 @@ test('history-only recovery restores the original order even for clears sorted b
   expect(await photosOf(r, 'aaa')).toEqual(sequence)
 })
 
-test.each(['pending', 'settled', 'album reopened'])('an unpublished restore defers to independent removal with %s recovery', async scenario => {
+test.each(['pending', 'settled', 'album reopened', 'edited after restore'])('an unpublished restore defers to independent removal with %s recovery', async scenario => {
   const { r, git, clear } = await runRepo({ aaa: [] })
   const u = url('a-dead')
   const driver = fileURLToPath(new URL('../../../scripts/merge-json-map.mjs', import.meta.url))
@@ -597,6 +597,12 @@ test.each(['pending', 'settled', 'album reopened'])('an unpublished restore defe
   await putBackCleared(r, gitHistory(r))
   expect(await photosOf(r, 'aaa')).toEqual(['a-dead'])
   git('add', '-A'); git('commit', '-qm', 'unpublished restore')
+  if (scenario === 'edited after restore') {
+    const doc = await json(r, A)
+    doc.photos[0].caption = 'Later editor’s entry'
+    await writeFile(join(r, A), JSON.stringify(doc))
+    git('add', '-A'); git('commit', '-qm', 'later independent edit')
+  }
 
   git('switch', '-qc', 'concurrent-main', 'refs/remotes/origin/main')
   if (scenario === 'album reopened') {
@@ -623,9 +629,46 @@ test.each(['pending', 'settled', 'album reopened'])('an unpublished restore defe
 
   const result = await putBackCleared(r, gitHistory(r))
 
+  if (scenario === 'edited after restore') {
+    expect(result.off).toEqual([])
+    expect((await json(r, A)).photos).toEqual([{ ...photo('a-dead'), caption: 'Later editor’s entry' }])
+    return
+  }
   expect(result.off).toContain(`${u}: it left ${A} again on main, and that removal stands`)
   expect(await photosOf(r, 'aaa')).toEqual([])
   if (scenario === 'album reopened') expect(await albumOf(r, 'aaa')).toEqual(['a-dead'])
+})
+
+test('a stale mirror restores neither off a retained hotlink nor over an independent removal', async () => {
+  const { r, git, clear } = await runRepo()
+  const source = { ...photo('hotlink'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Example.jpg' }
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
+  const write = async (photos: object[]) => writeFile(join(r, A), JSON.stringify({ ...await json(r, A), photos }))
+  const driver = fileURLToPath(new URL('../../../scripts/merge-json-map.mjs', import.meta.url))
+  git('config', 'merge.jsonmap.driver', `node "${driver}" %O %A %B`)
+  await writeFile(join(r, '.gitattributes'), 'engine-state/_photo-*.json merge=jsonmap\n')
+  await write([source, mirror])
+  git('add', '-A'); git('commit', '-qm', 'hotlink and mirror on main')
+  await screenDead(r, deadModel(), { limit: 48, photos: new Set([mirror.url]) })
+  git('add', '-A'); git('commit', '-qm', 'first verdict takes off the mirror')
+  await clear()
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+  await putBackCleared(r, gitHistory(r))
+  await writeFile(join(r, 'engine-state/fixture-local-work.json'), '{}')
+  git('add', '-A'); git('commit', '-qm', 'unpublished mirror restore')
+  git('switch', '-qc', 'concurrent-main', 'refs/remotes/origin/main')
+  await putBackCleared(r, gitHistory(r))
+  git('add', '-A'); git('commit', '-qm', 'published mirror restore')
+  await write([source])
+  git('add', '-A'); git('commit', '-qm', 'the mirror left again')
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+  git('switch', '-q', 'main')
+  git('rebase', '-X', 'theirs', 'refs/remotes/origin/main')
+
+  expect(JSON.parse(git('show', `refs/remotes/origin/main:${A}`)).photos).toEqual([source])
+  expect((await json(r, A)).photos).toContainEqual(mirror)
+  expect((await putBackCleared(r, gitHistory(r))).off).toContain(`${mirror.url}: it left ${A} again on main, and that removal stands`)
+  expect((await json(r, A)).photos).not.toContainEqual(mirror)
 })
 
 test('a competing late first refusal cannot remove the copy already cleared and published on main', async () => {
@@ -896,6 +939,33 @@ test('the published capture identifies its own metadata when checkouts mark the 
   second.git('update-ref', 'refs/remotes/origin/main', 'HEAD')
   await putBackCleared(second.r, gitHistory(second.r))
   expect(await keptFor(u)).toEqual([])
+})
+
+test('a different captured mirror can settle an earlier checkout’s replacement across UTC dates', async () => {
+  const chosen = await runRepo(), earlier = await runRepo()
+  const source = { ...photo('source'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Example.jpg' }
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
+  const hold = { why, pages: ['species/aaa'], off: true as const }
+  const yesterday = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10)
+  await holdForSecondLook(earlier.r, new Map([[source.url, hold]]), 'the photo check', yesterday)
+  await notePlaces(earlier.r, new Map([[source.url, [{ file: A, index: 0, photo: source }]]]))
+  const old = (await json(earlier.r, SL))[source.url].left[0].capture
+  await notePlaces(earlier.r, new Map([[source.url, [{ file: A, index: 0, photo: mirror }]]]))
+  expect((await json(earlier.r, SL))[source.url].left[0].capture).not.toBe(old)
+  await holdForSecondLook(chosen.r, new Map([[source.url, hold]]), 'the photo check', today())
+  const winner = { ...mirror, caption: 'Published caption' }
+  await notePlaces(chosen.r, new Map([[source.url, [{ file: A, index: 0, photo: winner }]]]))
+  await writeFile(join(chosen.r, 'engine-state/_photo-rejected.json'), '{}')
+  chosen.git('add', '-A'); chosen.git('commit', '-qm', 'the published capture')
+  await chosen.clear()
+  await putBackCleared(chosen.r, gitHistory(chosen.r))
+  chosen.git('add', '-A'); chosen.git('commit', '-qm', 'the published restore')
+  chosen.git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+  expect(await keptFor(source.url)).toHaveLength(3)
+
+  await putBackCleared(chosen.r, gitHistory(chosen.r))
+  expect((await json(chosen.r, A)).photos).toEqual([winner])
+  expect(await keptFor(source.url)).toEqual([])
 })
 
 test('the face pass captures a newly added mirror on an existing waiting mark', async () => {
