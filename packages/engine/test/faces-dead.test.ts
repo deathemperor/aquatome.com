@@ -515,6 +515,19 @@ test.each(['face detection', 'the dead-fish screen'])('a sibling from a withdraw
   expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([flagged.url])
 })
 
+test('a photo with a no-derivatives licence cannot replace a previously passed photo', async () => {
+  const flagged = photo('passed-dead'), withheld = { ...photo('withheld'), licence: 'CC BY-ND 4.0' }
+  const { root, state, publicView } = await publicFixture([flagged, withheld], [], [flagged.url, withheld.url])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [withheld.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [flagged.url]: 0, [withheld.url]: 0 }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [flagged.url]: { ok: 'yes', person: false } }))
+
+  await run(root, deps().d)
+
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[flagged.url]).toMatchObject({ pages: ['species/alpha'] })
+  expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([flagged.url])
+})
+
 test.each([false, true])('an unapproved owner crop cannot replace a passed photo (veto: %s)', async veto => {
   const flagged = photo('passed-dead')
   const crop = { ...photo('crop'), source: 'glaser', ownerCrop: { id: 'sample', pixelHash: 'a'.repeat(64) } }
@@ -623,10 +636,10 @@ test('a retry under the other address does not create a second first-refusal mar
   expect((await publicView()).photoWaits!(mirror.url)).toBe(true)
 })
 
-test('Git recovery follows the credited mirror even if the hotlink leaves in a later commit', async () => {
+test.each([false, true])('Git recovery restores the credited mirror (hotlink remains: %s)', async keepHotlink => {
   const source = { ...photo('source'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Example.jpg' }
   const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
-  const { root, state, file } = await publicFixture([source, mirror], [], [source.url, mirror.url])
+  const { root, state, file, publicView } = await publicFixture([source, mirror], [], [source.url, mirror.url])
   const entity = await json(root, 'content/species/alpha/entity.json')
   const git = (...args: string[]) => execFileSync('git', args, { cwd: root, encoding: 'utf8' })
   git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
@@ -638,10 +651,17 @@ test('Git recovery follows the credited mirror even if the hotlink leaves in a l
   }))
   await writeFile(file, JSON.stringify({ ...entity, photos: [source] }))
   git('add', '.'); git('commit', '-qm', 'marked off and removed the mirror')
-  await writeFile(file, JSON.stringify({ ...entity, photos: [] }))
-  git('add', '.'); git('commit', '-qm', 'removed the hotlink later')
-
-  expect(await gitHistory(root)(source.url, day)).toMatchObject([{ index: 1, photo: mirror, times: 1 }])
+  if (!keepHotlink) {
+    await writeFile(file, JSON.stringify({ ...entity, photos: [] }))
+    git('add', '.'); git('commit', '-qm', 'removed the hotlink later')
+  }
+  const history = gitHistory(root)
+  expect(await history(source.url, day)).toMatchObject([{ index: 1, photo: mirror, times: 1 }])
+  const marks = await json(root, 'engine-state/_photo-second-look.json')
+  marks[source.url].look = { said: 'clear', by: 'reviewer', on: day }
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(marks))
+  await putBackCleared(root, history)
+  expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([mirror.url])
 })
 
 test('a first dead verdict on a mirror takes effect through a watermark hold at the source', async () => {

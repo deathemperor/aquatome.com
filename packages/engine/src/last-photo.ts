@@ -379,7 +379,8 @@ export async function putBackCleared(root: string, history: History, at = today(
       const doc = JSON.parse(raw) as { photos?: Record<string, unknown>[] }
       const photos = Array.isArray(doc.photos) ? doc.photos : (doc.photos = [])
       const samePhoto = photoAddressSet([u, address])
-      if (photos.some(x => typeof x?.url === 'string' && samePhoto(x.url))) continue
+      const blockedHost = setsCookies(address)
+      if (photos.some(x => typeof x?.url === 'string' && samePhoto(x.url) && (blockedHost || !setsCookies(x.url)))) continue
       photos.splice(Math.min(p.index, photos.length), 0, p.photo)
       await writeFile(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       out.back.push(`${p.file}: ${address}`)
