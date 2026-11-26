@@ -409,9 +409,12 @@ export async function notePlaces(root: string, left: Map<string, Stood[]>, dir =
   if (await capturePlaces(sl, left, dir)) await writeSecondLook(root, sl)
 }
 
-function publishedJson(root: string, file: string): Record<string, unknown> | undefined {
-  const read = spawnSync('git', ['-C', root, 'show', `refs/remotes/origin/main:${file}`], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
-  if (read.status !== 0) return undefined
+function publishedJson(root: string, file: string, rev = 'refs/remotes/origin/main'): Record<string, unknown> | undefined {
+  const read = spawnSync('git', ['-C', root, 'show', `${rev}:${file}`], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+  if (read.status !== 0) {
+    if (/path .+ (?:does not exist in|exists on disk, but not in)|invalid object name|not a git repository/.test(read.stderr ?? '')) return undefined
+    throw new Error('Could not read the published photo recovery records')
+  }
   const value: unknown = JSON.parse(read.stdout)
   if (!object(value)) throw new Error('Invalid published photo recovery record')
   return value
@@ -432,8 +435,8 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
     if (!k || typeof k.url !== 'string' || !day(k.at) || typeof k.why !== 'string') continue
     const mark = marks[k.url], here = local[k.url]
     const restored = mark?.back && here?.back && mark.why === k.why && here.why === k.why &&
-      mark.settled?.some(p => p.file === k.file && (p.captureDay ?? mark.at) === k.at &&
-        (p.capture === k.capture || !k.replaces || p.capture !== k.replaces))
+      mark.settled?.some(p => p.file === k.file && (!k.replaces ||
+        ((p.captureDay ?? mark.at) === k.at && (p.capture === k.capture || p.capture !== k.replaces))))
     const agreed = !mark && !here && rejected[k.url] === k.why
     if (restored || agreed) await rm(path, { force: true })
   }
@@ -461,7 +464,7 @@ const PLACE = /^content\/(?:(?:species|plants|breeds|guides)\/[^/]+\/entity\.jso
  * Each merge is read as its change to main, so a removal made in a merge counts and one made on both sides of a merge
  * counts once. A page renamed as it left keeps its old file, which the put-back reports gone.
  */
-export function gitHistory(root: string): History {
+export function gitHistory(root: string, tip = 'HEAD'): History {
   const git = (...args: string[]) => spawnSync('git', ['-C', root, ...args], {
     encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, env: { ...process.env, LC_ALL: 'C' },
   })
@@ -485,7 +488,7 @@ export function gitHistory(root: string): History {
   const find: History = async (url, since, captured = []) => {
     const shallow = git('rev-parse', '--is-shallow-repository')
     if (shallow.status !== 0 || shallow.stdout.trim() !== 'false') return undefined
-    const marks = git('log', ...line, '--reverse', '--format=%H', `--since=${since}T00:00:00Z`, '--', `engine-state/${SECOND_LOOK_FILE}`)
+    const marks = git('log', ...line, '--reverse', '--format=%H', `--since=${since}T00:00:00Z`, tip, '--', `engine-state/${SECOND_LOOK_FILE}`)
     if (marks.status !== 0) return undefined
     const states = marks.stdout.split('\n').filter(Boolean)
     const mark = states.find(sha => recordAt(sha)?.[url]?.off === true)
@@ -521,7 +524,7 @@ export function gitHistory(root: string): History {
     const addresses = new Set([url, ...byFile.values()])
     const search = mirrors.length || addresses.size > 1 ? [] : ['-S', url]
     const served = new Set(places.filter(file => urls(at(parent, file)).some(publishable)))
-    const log = git('log', ...line, '--reverse', '--format=%H', ...search, `${parent}..HEAD`, '--', ...places)
+    const log = git('log', ...line, '--reverse', '--format=%H', ...search, `${parent}..${tip}`, '--', ...places)
     if (log.status !== 0) return undefined
     const out = new Map<string, LeftPlace>()
     // Oldest first: the first leaving gives the place and the entry; every leaving counts.
@@ -576,46 +579,75 @@ function photoPosition(current: string[], order: string[], at: number, fallback:
   return prev >= 0 ? prev + 1 : Math.min(fallback, current.length)
 }
 
-/** After a push rebase, honor a new removal on main before publishing a completed local restore. */
-async function checkUnpublishedRestores(root: string, local: SecondLooks, history: History): Promise<string[]> {
+/** Reconcile photo removals and restorations that were replayed over a newer main. */
+async function reconcileRebasedPlaces(root: string, local: SecondLooks) {
+  const out = { back: [] as string[], off: [] as string[] }
+  const main = 'refs/remotes/origin/main'
+  const git = (...args: string[]) => spawnSync('git', ['-C', root, ...args], { encoding: 'utf8' })
   const done = Object.entries(local).filter(([, mark]) => mark.settled?.length && lookOf(mark)?.said === 'clear')
-  if (!done.length) return []
-  const published = publishedJson(root, `engine-state/${SECOND_LOOK_FILE}`) as SecondLooks | undefined
-  if (!published) return []
-  const diff = spawnSync('git', ['-C', root, 'diff', '--name-only', '-z', 'refs/remotes/origin/main', '--', 'content'], { encoding: 'utf8' })
+  if (!done.length) return out
+  const before = git('rev-parse', '--verify', '-q', 'ORIG_HEAD').stdout.trim()
+  if (!before) return out
+  const common = git('merge-base', before, main)
+  if (common.status !== 0) {
+    if (git('rev-parse', '--verify', '-q', main).status !== 0) return out
+    throw new Error('Could not verify the original base of a rebased photo recovery')
+  }
+  const base = common.stdout.trim()
+  if (base === before || base === git('rev-parse', main).stdout.trim()) return out
+  const records = `engine-state/${SECOND_LOOK_FILE}`
+  const published = publishedJson(root, records, main) as SecondLooks | undefined
+  const previous = publishedJson(root, records, before) as SecondLooks | undefined
+  const original = publishedJson(root, records, base) as SecondLooks | undefined
+  if (!published || !previous) return out
+  const diff = git('diff', '--name-only', '-z', main, '--', 'content')
   if (diff.status !== 0) throw new Error('Could not compare restored photos with main')
   const changed = new Set(diff.stdout.split('\0'))
-  const undone: string[] = []
+  const history = gitHistory(root, main)
+  const urls = (doc: Record<string, unknown> | undefined): Record<string, unknown>[] =>
+    Array.isArray(doc?.photos) ? doc.photos as Record<string, unknown>[] : []
   for (const [url, mark] of done) {
-    const prior = published[url]
-    if (!prior?.off || prior.why !== mark.why || (prior.at !== mark.at && !mark.settled?.some(p => p.captureDay === prior.at))) continue
-    const unpublished = mark.settled!.filter(place => changed.has(place.file))
-    if (!unpublished.length) continue
-    const historyPlaces = await history(url, mark.at, unpublished)
+    const prior = published[url], pending = previous[url]
+    if (!prior?.off || !pending?.off || prior.why !== mark.why || pending.why !== mark.why) continue
+    const places = mark.settled!.filter(place => changed.has(place.file))
+    if (!places.length) continue
+    const restoredHere = places.filter(place => pending.settled?.some(p => p.file === place.file) &&
+      !original?.[url]?.settled?.some(p => p.file === place.file))
+    const historyPlaces = restoredHere.length ? await history(url, mark.at, restoredHere) : []
     if (!historyPlaces) throw new Error('Could not verify an unpublished photo restore after pulling main')
-    const settled = new Set(unpublished.map(p => p.file))
     const matches = photoAddressSet([url])
-    for (const p of historyPlaces) {
-      if (p.times < 2 || !settled.has(p.file)) continue
-      const blockedHost = setsCookies(typeof p.photo.url === 'string' ? p.photo.url : url)
-      const matchesRestored = (address: string) => matches(address) && (blockedHost || !setsCookies(address))
-      const main = publishedJson(root, p.file)
-      if (Array.isArray(main?.photos) && main.photos.some(photo => typeof photo?.url === 'string' && matchesRestored(photo.url))) continue
-      const file = join(root, p.file)
+    for (const place of places) {
+      const file = join(root, place.file)
       const raw = await readFile(file, 'utf8').catch((error: NodeJS.ErrnoException) => {
         if (error.code === 'ENOENT') return undefined
         throw error
       })
       if (raw === undefined) continue
-      const data = JSON.parse(raw) as { photos?: { url: string }[] }
-      if (!data.photos) continue
-      const keep = data.photos.filter(photo => !matchesRestored(photo.url))
-      if (keep.length === data.photos.length) continue
-      await replacePhotoDocument(file, `${JSON.stringify({ ...data, photos: keep }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
-      undone.push(`${url}: it left ${p.file} again on main, and that removal stands`)
+      const doc = JSON.parse(raw) as Record<string, unknown>
+      const photos = urls(doc)
+      const same = (photo: Record<string, unknown>) => typeof photo?.url === 'string' && matches(photo.url)
+      const publicPhotos = urls(publishedJson(root, place.file, main))
+      const priorPhotos = urls(publishedJson(root, place.file, before))
+      const returned = publicPhotos.find(p => same(p) && !setsCookies(p.url as string)) ?? publicPhotos.find(same)
+      const departure = historyPlaces.find(p => p.file === place.file && p.times >= 2)
+      if (departure && !returned) {
+        const old = new Set(priorPhotos.filter(same).map(p => JSON.stringify(p)))
+        const keep = photos.filter(p => !same(p) || !old.has(JSON.stringify(p)))
+        if (keep.length === photos.length) continue
+        await replacePhotoDocument(file, `${JSON.stringify({ ...doc, photos: keep }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
+        out.off.push(`${url}: it left ${place.file} again on main, and that removal stands`)
+        continue
+      }
+      if (!returned || !prior.settled?.some(p => p.file === place.file) || lookOf(pending) ||
+          !pending.left?.some(p => p.file === place.file) || priorPhotos.some(same) || photos.some(same) ||
+          !urls(publishedJson(root, place.file, base)).some(same)) continue
+      const index = photoPosition(photos.map(p => String(p.url)), publicPhotos.map(p => String(p.url)), publicPhotos.indexOf(returned), place.index)
+      photos.splice(index, 0, returned)
+      await replacePhotoDocument(file, `${JSON.stringify({ ...doc, photos }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
+      out.back.push(`${place.file}: ${returned.url}`)
     }
   }
-  return undone
+  return out
 }
 
 /**
@@ -646,8 +678,10 @@ async function checkUnpublishedRestores(root: string, local: SecondLooks, histor
 export async function putBackCleared(root: string, history: History, at = today(), refused: (id: string, url: string, aside?: typeof CLEARED_VERDICT) => boolean = () => false, dir = entriesDir()): Promise<{ back: string[]; off: string[]; unread: string[] }> {
   const out = { back: [] as string[], off: [] as string[], unread: [] as string[] }
   const sl = await readSecondLook(root)
+  const rebased = await reconcileRebasedPlaces(root, sl)
+  out.off.push(...rebased.off)
+  out.back.push(...rebased.back)
   if (dir) await pruneKept(root, dir, sl)
-  out.off.push(...await checkUnpublishedRestores(root, sl, history))
   const l = looks(sl)
   const due = Object.keys(sl).filter(u => sl[u]!.off === true && l.cleared(u) && !sl[u]!.back)
   if (!due.length) return out

@@ -1195,7 +1195,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       if (!raw) continue
       const data = JSON.parse(raw) as Doc
       if (file.endsWith('entity.json')) names.set(id, data.scientificName ?? '')
-      const off = new Map(own(data).flatMap(p => { const w = why(id, p.url); return w && sl.open(p.url) ? [[p.url, w] as const] : [] }))
+      const off = new Map(own(data).flatMap(p => { const w = why(id, p.url); return w && sl.open(p.url) && !rejectedAt(p.url)?.[1].startsWith('waiting:') ? [[p.url, w] as const] : [] }))
       if (off.size) plan.push({ file, id, raw, data, off })
     }
     const waitsFor = plan.length ? await readPhotoWaits(root) : () => false

@@ -625,6 +625,70 @@ test.each(['pending', 'settled', 'album reopened'])('an unpublished restore defe
   if (scenario === 'album reopened') expect(await albumOf(r, 'aaa')).toEqual(['a-dead'])
 })
 
+test('a competing late first refusal cannot remove the copy already cleared and published on main', async () => {
+  const { r, git, clear } = await runRepo()
+  const u = url('a-dead')
+  const driver = fileURLToPath(new URL('../../../scripts/merge-json-map.mjs', import.meta.url))
+  git('config', 'merge.jsonmap.driver', `node "${driver}" %O %A %B`)
+  await writeFile(join(r, '.gitattributes'), 'engine-state/_photo-*.json merge=jsonmap\n')
+  await page(r, 'aaa', ['a-dead'])
+  git('add', '-A'); git('commit', '-qm', 'photo on main')
+  const base = git('rev-parse', 'HEAD').trim()
+  await screenDead(r, deadModel(), { limit: 48 })
+  git('add', '-A'); git('commit', '-qm', 'first capture')
+  await clear()
+  await putBackCleared(r, gitHistory(r))
+  git('add', '-A'); git('commit', '-qm', 'the restored photo on main')
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+  git('switch', '-qc', 'late-refusal', base)
+  const raw = await json(r, A)
+  raw.photos[0].caption = 'Separate reading'
+  await writeFile(join(r, A), JSON.stringify(raw))
+  await screenDead(r, deadModel(), { limit: 48 })
+  git('add', '-A'); git('commit', '-qm', 'a competing capture')
+  git('rebase', 'refs/remotes/origin/main')
+  expect(await photosOf(r, 'aaa')).toEqual([])
+  expect((await json(r, SL))[u].back).toBeDefined()
+
+  expect((await sweep(r, { history: gitHistory(r) })).putBack).toEqual([`${A}: ${u}`])
+  expect((await json(r, A)).photos).toEqual([photo('a-dead')])
+})
+
+test('a fresh addition after a published removal keeps its new entry', async () => {
+  const { r, git, clear } = await runRepo()
+  await page(r, 'aaa', ['a-dead'])
+  git('add', '-A'); git('commit', '-qm', 'photo on main')
+  await screenDead(r, deadModel(), { limit: 48 })
+  git('add', '-A'); git('commit', '-qm', 'the mark')
+  await clear()
+  await putBackCleared(r, gitHistory(r))
+  git('add', '-A'); git('commit', '-qm', 'the restored photo on main')
+  await page(r, 'aaa', [])
+  git('add', '-A'); git('commit', '-qm', 'independent removal')
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+  git('switch', '-qc', 'fresh-addition')
+  const doc = await json(r, A)
+  const added = { ...photo('a-dead'), caption: 'Updated description' }
+  await writeFile(join(r, A), JSON.stringify({ ...doc, photos: [added] }))
+  git('add', '-A'); git('commit', '-qm', 'new editorial entry')
+  git('update-ref', 'ORIG_HEAD', 'HEAD')
+
+  const result = await putBackCleared(r, gitHistory(r))
+  expect(result.off).toEqual([])
+  expect((await json(r, A)).photos).toEqual([added])
+})
+
+test('the subject sweep preserves a same-cycle copy while its waiting mark is missing', async () => {
+  const { r } = await runRepo()
+  const u = url('a-dead')
+  await page(r, 'aaa', ['a-dead', 'b-live'])
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [u]: waitingEntry(why) }))
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [u]: { aaa: { ok: 'dead', logo: false } } }))
+
+  await sweep(r, { history: gitHistory(r) })
+  expect(await photosOf(r, 'aaa')).toEqual(['a-dead', 'b-live'])
+})
+
 test('gallery cleanup leaves a same-cycle album copy while a valid clear is waiting for sweep', async () => {
   const { r, git, clear } = await runRepo({ aaa: [] })
   const albumFile = 'content/gallery/aaa.json'
