@@ -13,7 +13,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
-import { readPhotoWaits } from './photo-visibility'
+import { permittedPhotoSource, readPhotoWaits } from './photo-visibility'
 import { CAPTIONED } from './captions'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, mayHoldEmail, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
@@ -1168,8 +1168,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     type Doc = { photos?: (Photo & { unchecked?: boolean })[] }
     const sources = JSON.parse(await readFile(join(content, 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, SourceInfo>
     const shown = (p: Photo) => publicPhotoVersion(p, o.switches ?? IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
-    const own = (data: Doc, album = false) => (data.photos ?? []).flatMap(p => {
-      const version = !p.generated && !(album && p.unchecked) && shown(p)
+    const own = (data: Doc, album = false, showing = false) => (data.photos ?? []).flatMap(p => {
+      const version = !p.generated && !(album && p.unchecked) && (!showing || permittedPhotoSource(p, sources)) && shown(p)
       return version ? [version] : []
     })
     // A photo held for a second look, or one it cleared, stays (last-photo.ts).
@@ -1183,13 +1183,13 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       if (off.size) plan.push({ file, id, raw, data, off })
     }
     const waitsFor = plan.length ? await readPhotoWaits(root) : () => false
-    const losesEveryPhoto = (x: (typeof plan)[number]) => !own(x.data, x.file.endsWith(`gallery/${x.id}.json`)).some(p => !x.off.has(p.url) && !waitsFor(p.url))
+    const losesEveryPhoto = (x: (typeof plan)[number]) => !own(x.data, x.file.endsWith(`gallery/${x.id}.json`), true).some(p => !x.off.has(p.url) && !waitsFor(p.url))
     const emptying = plan.filter(x => x.file.endsWith('entity.json') && losesEveryPhoto(x))
     // A page with none of its own whose album would go whole is left with nothing too (the chief of staff, 2026-11-14).
     for (const x of plan) {
       if (!x.file.endsWith(`gallery/${x.id}.json`) || !losesEveryPhoto(x)) continue
       const page = JSON.parse(await readFile(join(content, kindOf.get(x.id)!, x.id, 'entity.json'), 'utf8').catch(() => '{}')) as Doc
-      if (!own(page).some(p => !waitsFor(p.url))) emptying.push(x)
+      if (!own(page, false, true).some(p => !waitsFor(p.url))) emptying.push(x)
     }
     // The pages the check's last run held (photo-check.ts writes them, page → true), and this run's own past the cap. A
     // held file the sweep can't read holds every page: nothing comes off until a run of the check writes it again.

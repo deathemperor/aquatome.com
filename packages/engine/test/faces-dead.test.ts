@@ -224,7 +224,7 @@ test('a rejected alteration keeps its held original in the entity and paired alb
   expect((await json(root, 'content/species/a/entity.json')).photos).toEqual([altered])
   expect((await json(root, 'content/gallery/a.json')).photos).toEqual([altered])
   expect((await json(root, 'engine-state/_dead-screen.json'))[altered.url].dead).toBe(true)
-  expect((await json(root, 'engine-state/_photo-rejected.json'))[altered.url]).toBeUndefined()
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[altered.url]).toMatch(/^dead: /)
 })
 
 test('an unreadable sibling does not remove the only previously passed photo', async () => {
@@ -495,6 +495,24 @@ test.each(['face detection', 'the dead-fish screen'])('a sibling waiting on its 
   expect((await json(root, 'engine-state/_photo-second-look.json'))[flagged.url]).toMatchObject({ step, pages: ['species/alpha'] })
 })
 
+test.each(['face detection', 'the dead-fish screen'])('a sibling from a withdrawn source cannot displace the last passed photo in %s', async step => {
+  const flagged = photo(step === 'face detection' ? 'passed-face' : 'passed-dead')
+  const withdrawn = { ...photo('withdrawn'), source: 'glaser' }
+  const { root, state, publicView } = await publicFixture([flagged, withdrawn], [], [flagged.url, withdrawn.url])
+  const sources = await json(root, 'content/sources.json')
+  sources.glaser = { name: 'Sample source', homepage: 'https://example.org', publish: false }
+  await writeFile(join(root, 'content/sources.json'), JSON.stringify(sources))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [withdrawn.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [withdrawn.url]: 0, ...(step === 'face detection' ? {} : { [flagged.url]: 0 }) }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [flagged.url]: {
+    ok: 'yes', person: false, ...(step === 'face detection' ? { logo: false } : {}),
+  } }))
+
+  await run(root, deps().d)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[flagged.url]).toMatchObject({ step, pages: ['species/alpha'] })
+  expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([flagged.url])
+})
+
 test('a rejection for the stored URL on another page preserves the cleared original across retries and sweep', async () => {
   const original = photo('original-clear')
   const stored = photo('stored-dead')
@@ -614,6 +632,30 @@ test('an incomplete cached verdict waits on the site and gets a fresh screen', a
   expect((await run(root, d)).owed).toBe(0)
   expect(sent).toEqual([candidate.url])
   expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([candidate.url])
+})
+
+test('the sweep finishes a direct removal when the rejected URL still carries an original on another page', async () => {
+  const original = photo('fallback-live'), stored = photo('stored-dead'), live = photo('sibling-live')
+  const altered = {
+    ...stored,
+    original: { url: original.url, width: original.width, height: original.height },
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }],
+  }
+  const { root, state, file, publicView } = await publicFixture([altered, live], [altered], [stored.url, original.url, live.url])
+  const entity = await json(root, 'content/species/alpha/entity.json')
+  const direct = join(root, 'content/species/direct')
+  await mkdir(direct)
+  await writeFile(join(direct, 'entity.json'), JSON.stringify({ ...entity, id: 'direct', photos: [stored, live] }))
+
+  await run(root, deps().d)
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[stored.url]).toMatch(/^dead: /)
+  // A checkout can still have the direct entry when the verdict has been saved and its page write interrupted.
+  await writeFile(join(direct, 'entity.json'), JSON.stringify({ ...entity, id: 'direct', photos: [stored, live] }))
+  await sweep(root)
+
+  expect(await urls(root, 'direct')).toEqual([live.url])
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toContainEqual(altered)
+  expect((await publicView()).galleries.alpha?.map(p => p.url)).toContain(original.url)
 })
 
 test('a rejection write failure cannot release the album copy on retry', async () => {
