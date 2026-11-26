@@ -79,15 +79,17 @@ export function looks(sl: SecondLooks) {
 }
 
 /** A species, plant or breed page: its own photos and its album's, generated ones left out. */
-export type PageShows = { ref: string; own: string[]; album: string[]; nonCommercial?: Set<string> }
+export type PageShows = { ref: string; own: string[]; album: string[]; nonCommercial?: Set<string>; ownStored?: string[]; albumStored?: string[] }
 
 /** Every species, plant and breed page, as the site shows it now. */
 export async function pagesShowing(content: string, version: (p: Photo, ref: string, scientificName: string) => string | undefined = p => p.url): Promise<PageShows[]> {
   type Doc = { photos?: (Photo & { unchecked?: boolean })[]; scientificName?: string }
-  const urls = (d: Doc | null, ref: string, scientificName: string, album = false, nonCommercial?: Set<string>) => (d?.photos ?? []).flatMap(p => {
+  const urls = (d: Doc | null, ref: string, scientificName: string, album = false, nonCommercial?: Set<string>, stored?: string[]) => (d?.photos ?? []).flatMap(p => {
     const url = p?.url && !p.generated && !(album && p.unchecked) ? version(p, ref, scientificName) : undefined
-    if (url && isNonCommercial(p.licence ?? '')) nonCommercial?.add(url)
-    return url ? [url] : []
+    if (!url) return []
+    stored?.push(p.url)
+    if (isNonCommercial(p.licence ?? '')) nonCommercial?.add(url)
+    return [url]
   })
   const read = async (f: string) => JSON.parse(await readFile(f, 'utf8').catch(() => 'null')) as Doc | null
   const out: PageShows[] = []
@@ -99,7 +101,8 @@ export async function pagesShowing(content: string, version: (p: Photo, ref: str
       const name = own.scientificName ?? ''
       const album = await read(join(content, 'gallery', `${id}.json`))
       const nonCommercial = new Set<string>()
-      out.push({ ref, own: urls(own, ref, name, false, nonCommercial), album: urls(album, kind === 'species' ? ref : '', name, true), nonCommercial })
+      const ownStored: string[] = [], albumStored: string[] = []
+      out.push({ ref, own: urls(own, ref, name, false, nonCommercial, ownStored), album: urls(album, kind === 'species' ? ref : '', name, true, undefined, albumStored), nonCommercial, ownStored, albumStored })
     }
   }
   return out
@@ -124,6 +127,7 @@ export function lastPhotos(pages: PageShows[], off: (url: string, ref: string) =
 /** Attribute a page's loss to the address that received the verdict, even when it serves a mirror. */
 export function lastPhotoVerdicts(
   pages: PageShows[], unavailable: (url: string, ref: string) => boolean, verdicts: Iterable<string>,
+  removesWrapper?: (verdictUrl: string) => boolean,
 ): Map<string, string[]> {
   const addresses = new Map<string, string>()
   for (const url of verdicts) {
@@ -131,20 +135,23 @@ export function lastPhotoVerdicts(
     if (!addresses.has(key)) addresses.set(key, url)
   }
   const byVerdict = (url: string) => addresses.get(photoKey(url) ?? url)
-  const hasOwn = (page: PageShows, off: (url: string) => boolean) => {
-    const remaining = page.own.filter(url => !off(url))
-    return remaining.some(url => !page.nonCommercial?.has(url)) || remaining.length === 1
-  }
   const out = new Map<string, Set<string>>()
   for (const page of pages) {
     const unavailableHere = (url: string) => unavailable(url, page.ref)
-    const off = (url: string) => byVerdict(url) !== undefined || unavailableHere(url)
-    const ownEmpties = page.own.length && !hasOwn(page, off)
-    // A page that already has no eligible own photo can depend on the album.
-    const albumEmpties = !hasOwn(page, unavailableHere) && page.album.every(off)
-    const removed = [...(ownEmpties ? page.own : []), ...(albumEmpties ? page.album : [])]
-    for (const url of removed) {
+    const versions = (displayed: string[], stored?: string[]) => displayed.map((url, i) => {
+      const wrapper = stored?.[i]
       const verdict = byVerdict(url)
+      const onWrapper = wrapper && wrapper !== url ? byVerdict(wrapper) : undefined
+      return { url, verdicts: [verdict, onWrapper && removesWrapper?.(onWrapper) ? onWrapper : undefined] }
+    })
+    const own = versions(page.own, page.ownStored), album = versions(page.album, page.albumStored)
+    const off = (p: typeof own[number]) => p.verdicts.some(Boolean) || unavailableHere(p.url)
+    const hasOwn = (photos: typeof own) => photos.some(p => !page.nonCommercial?.has(p.url)) || photos.length === 1
+    const ownEmpties = own.length && !hasOwn(own.filter(p => !off(p)))
+    // A page that already has no eligible own photo can depend on the album.
+    const albumEmpties = !hasOwn(own.filter(p => !unavailableHere(p.url))) && album.every(off)
+    const removed = [...(ownEmpties ? own : []), ...(albumEmpties ? album : [])]
+    for (const { verdicts: hits } of removed) for (const verdict of hits) {
       if (!verdict) continue
       const existing = out.get(verdict) ?? new Set<string>()
       existing.add(page.ref)

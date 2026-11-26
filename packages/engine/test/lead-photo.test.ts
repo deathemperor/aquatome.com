@@ -6,7 +6,7 @@ import { expect, test } from 'vitest'
 import { createHash } from 'node:crypto'
 import { ownerCropCanonical, type OwnerCropApproval, type Photo } from '@aq/schema'
 import { cardCrop, HEAD_IN_CROP, leadChoice, screenLeads, TRIES, type LeadDeps } from '../src/lead-photo'
-import { approvedCrop, hiddenFromReaders, mergePhotos, mergeRead, waitsForScreen } from '../src/run'
+import { approvedCrop, hiddenFromReaders, mergePhotos, mergeRead, readKeeps, waitsForScreen } from '../src/run'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -426,4 +426,19 @@ test("a photo its source names only to its genus or as another fish doesn't lead
   // It never replaces a head named to the species, small as that is, and a page with none takes one named to the species first.
   expect(leadChoice([photo('head', 500, 400)], [big('genus-1')], yes, {}, undefined, named)).toBeUndefined()
   expect(leadChoice([], [{ ...big('genus-1'), best: true }, photo('plain', 500, 400)], yes, {}, undefined, named)).toEqual({ lead: photo('plain', 500, 400) })
+})
+
+test('a reread keeps a waiting original and does not count a rejected wrapper as a replacement', () => {
+  const ref = 'species/example'
+  const source = 'bwaquatics'
+  const page = 'https://x/fish'
+  const names = { [source]: { publish: true as const } }
+  const original = { ...photo('original'), licence: 'CC BY 4.0' }
+  const stored: Photo = { ...photo('stored'), licence: 'CC BY 4.0', source, sourceUrl: page,
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
+  const passed = { ...photo('head'), source, sourceUrl: page }
+  const keeps = readKeeps(ref, 'Sample fish', { [original.url]: 'waiting: withheld' }, names)
+  expect(mergeRead([stored], source, page, [], keeps)).toEqual({ photos: [stored], held: [] })
+  const blocked = readKeeps(ref, 'Sample fish', { [stored.url]: 'watermark: withheld' }, names)
+  expect(mergeRead([passed], source, page, [stored], blocked)).toEqual({ photos: [passed], held: [passed] })
 })

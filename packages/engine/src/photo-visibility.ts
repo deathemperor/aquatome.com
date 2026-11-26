@@ -52,7 +52,7 @@ export async function readPhotoWaits(
 }
 
 /** Attribute a page's last visible photo to the pending guide or credit verdict. */
-export async function holdablePhotoVerdicts(root: string, rejected: Record<string, string>, verdicts: Set<string>) {
+export async function holdablePhotoVerdicts(root: string, rejected: Record<string, string>, verdicts: Set<string>, removesWrapper: (url: string) => boolean) {
   if (!verdicts.size) return new Map<string, string[]>()
   const content = join(root, 'content')
   const [waits, sources, marks] = await Promise.all([
@@ -64,5 +64,7 @@ export async function holdablePhotoVerdicts(root: string, rejected: Record<strin
     if (!shown || !permittedPhotoSource(shown, sources, ref, name)) return undefined
     return shown.url
   })
-  return lastPhotoVerdicts(pages, url => waits(url) || !!listed(url), [...verdicts].filter(url => !listed(url)))
+  return lastPhotoVerdicts(pages, url => waits(url) || !!listed(url), [...verdicts].filter(url => !listed(url)), removesWrapper)
 }
+
+export const versionRejection = (reason: string) => /^(?:dead|people|waiting): /.test(reason)

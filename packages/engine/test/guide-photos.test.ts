@@ -1,3 +1,4 @@
+import { mirrorPlan } from '@aq/schema'
 import { denied } from './piece-admission'
 import { expectControlledRejections } from './photo-privacy-assertions'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
@@ -333,4 +334,19 @@ test("a guide's photo with a person in it that is also a fish page's last photo 
   expect(urls((await json(root, 'content/guides/how-to-net/entity.json')).photos)).toEqual(['tank'])
   expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json').catch(() => ({})))).not.toContain(url('netted'))
   expect((await json(root, 'engine-state/_photo-second-look.json'))[url('netted')]).toMatchObject({ step: 'the guide photo check', pages: ['species/a'] })
+})
+
+test('the guide check holds all addresses when a marked upscale carries a fish page’s last original', async () => {
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const original = photo('credited-original')
+  const stored = { ...photo('alteration'), url: mirror, altered: [{ method: 'lanczos3-upscale' }], original }
+  const root = await store({ guide: { photos: [{ ...photo('source'), url: source }, { ...photo('mirror'), url: mirror }] } })
+  const file = join(root, 'content/species/a/entity.json')
+  await mkdir(join(file, '..'), { recursive: true })
+  await writeFile(file, JSON.stringify({ id: 'a', photos: [stored] }))
+  const out = await screenGuidePhotos(root, model({ [name(source)]: { mark: true }, [name(mirror)]: { mark: true } }).d, { limit: 2 })
+  expect(out.held).toEqual([`${source}: species/a`])
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
+  expect((await json(root, 'content/species/a/entity.json')).photos).toEqual([stored])
 })
