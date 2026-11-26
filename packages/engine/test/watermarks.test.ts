@@ -4,9 +4,15 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
+import { writePhotoState } from '../src/photo-state'
 import { ocrHit, screenWatermarks, type TextLine, type WatermarkDeps } from '../src/watermarks'
+
+vi.mock('../src/photo-state', async importOriginal => {
+  const native = await importOriginal<typeof import('../src/photo-state')>()
+  return { ...native, writePhotoState: vi.fn(native.writePhotoState) }
+})
 
 const line = (t: string, c = 1): TextLine => ({ t, c, x: 0.1, y: 0.9, w: 0.3, h: 0.03 })
 
@@ -229,4 +235,16 @@ test('a newly refused alteration records the bare original before its wrapper le
   await screenWatermarks(r, cache, rejected, d, { limit: 0 })
   expect((await read(r, 'content/species/a/entity.json')).photos).toEqual([live])
   expect((await read(r, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^watermark:/)
+})
+
+test('a failed rejection save leaves a newly refused watermark waiting', async () => {
+  const r = await site()
+  const { d } = deps()
+  const cache = join(r, 'engine-state/_photo-watermarks.json')
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  await writeFile(cache, '{}')
+  vi.mocked(writePhotoState).mockRejectedValueOnce(new Error('fixture state write failure'))
+  await expect(screenWatermarks(r, cache, rejected, d, { limit: 10 })).rejects.toThrow('fixture state write failure')
+  expect(await read(r, 'engine-state/_photo-watermarks.json')).toEqual({})
+  expect((await read(r, 'content/species/a/entity.json')).photos.map((p: { url: string }) => p.url)).toContain(url('glaser'))
 })

@@ -139,13 +139,16 @@ export async function* photoPlacements(root: string): AsyncGenerator<Photo> {
 }
 
 /** Attribute a bare original to the whole-photo refusal on its altered placement. */
-export async function originalPhotoRefusals(root: string, refused: (url: string) => string | undefined): Promise<Map<string, string>> {
-  const originals = new Map<string, string>()
+export async function originalPhotoRefusals(root: string, refused: (url: string) => string | undefined): Promise<Map<string, Set<string>>> {
+  const originals = new Map<string, Set<string>>()
   for await (const p of photoPlacements(root)) {
     const [, original] = deadScreenPhotoUrls(p)
-    if (!original || originals.has(original)) continue
+    if (!original) continue
     const cause = refused(p.url)
-    if (cause) originals.set(original, cause)
+    if (!cause) continue
+    const causes = originals.get(original) ?? new Set<string>()
+    causes.add(cause)
+    originals.set(original, causes)
   }
   return originals
 }
@@ -161,9 +164,10 @@ export async function expandWholePhotoRejections(
     return entry && !isVersionRejection(entry[1]) ? entry[0] : undefined
   })
   const added: Record<string, string> = {}
-  for (const [url, cause] of originals) {
+  for (const [url, causes] of originals) {
     const prior = effective(url)?.[1]
-    if (!prior || isVersionRejection(prior)) added[url] = rejections[cause]!
+    const cause = causes.values().next().value
+    if (cause && (!prior || isVersionRejection(prior))) added[url] = rejections[cause]!
   }
   return Object.keys(added).length ? { ...rejections, ...added } : rejections
 }

@@ -653,3 +653,15 @@ test('a first dead verdict reaches the page using its mirror despite a different
     [source]: expect.stringMatching(/^waiting:/),
   })
 })
+
+test("a logo refusal on an alteration holds another page's sole bare original", async () => {
+  const r = await store({ aaa: ['a-altered', 'a-live'], bbb: ['b-original'] })
+  const original = photo('b-original')
+  const altered = { ...photo('a-altered'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
+  await writeFile(join(r, 'content/species/aaa/entity.json'), JSON.stringify(fish('aaa', [altered, photo('a-live')])))
+  const checked = await checkPagePhotos(r, model({ 'a-altered': { logo: true } }), { limit: 10 })
+  expect(checked.heads.held).toContain(`species/bbb: ${original.url}`)
+  expect(await photosOf(r, 'bbb')).toEqual(['b-original'])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).not.toHaveProperty(original.url)
+  expect((await json(r, 'engine-state/_photo-second-look.json'))[altered.url].originals).toEqual([original.url])
+})

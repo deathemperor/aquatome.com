@@ -598,5 +598,5 @@ test('a different source page reuses the bytes and credit of an already stored o
   const unused = async () => { throw new Error('an address shared by another page must keep its bytes') }
   const fresh = await storeSourcePhotos(source, 'Source', 'https://source.example/new', [{ src, alt: '', width: 1000, height: 700 }],
     { bytes: unused, media: { urlFor: mediaUrl, put: unused }, stored }, [])
-  expect(fresh).toEqual([{ ...original, ...credit }])
+  expect(fresh).toEqual([{ ...original, ...credit, sourceUrl: 'https://source.example/new' }])
 })

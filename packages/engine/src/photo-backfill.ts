@@ -55,9 +55,10 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
   const names: Record<string, { name?: string; publish?: boolean | 'photos'; permission?: CreditTerms & { markRemoval?: { allowed?: boolean } } }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
   const blocked: Record<string, string> = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}'))
   const screen: Record<string, PhotoScreenEntry> | undefined = JSON.parse(await readFile(join(root, 'engine-state', PHOTO_SCREEN_FILE), 'utf8').catch(() => 'null')) ?? undefined
-  const [photoWaits, pendingRefusal, storedPhotos] = await Promise.all([
-    readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root), storedSourcePhotos(join(root, 'content')),
+  const [photoWaits, pendingRefusal] = await Promise.all([
+    readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root),
   ])
+  let inventory: ReturnType<typeof storedSourcePhotos> | undefined
   const last = new Map<SourceId, number>()
   // Every request to a source (its page, photo pages, images) at the engine's pace for it.
   const polite = <A extends unknown[], R>(source: SourceId, f: (...a: A) => Promise<R>) => async (...a: A) => {
@@ -102,9 +103,11 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
           const name = names[source]?.name ?? source
           const terms = names[source]?.permission
-          const photoDeps = { bytes: polite(source, d.bytes), media: d.media, blocked, stored: storedPhotos, refusedCredits: terms?.refusedCredits, coveredCredits: terms?.coveredCredits }
+          const photoDeps = { bytes: polite(source, d.bytes), media: d.media, blocked, refusedCredits: terms?.refusedCredits, coveredCredits: terms?.coveredCredits }
           const picked = pickSourcePhotos(images, url, e.scientificName ? [e.scientificName] : [], max, kind === 'guides' ? 'guide' : 'subject', src.minPhotoWidth, mayTake(source, name, photoDeps, e.photos))
-          const stored = await storeSourcePhotos(source, name, url, picked, photoDeps, e.photos, max)
+          const stored = picked.length ? await storeSourcePhotos(source, name, url, picked, {
+            ...photoDeps, stored: await (inventory ??= storedSourcePhotos(join(root, 'content'))),
+          }, e.photos, max) : []
           if (stored.length && kind === 'guides') {
             const body = async (l: string) => (JSON.parse(await readFile(join(root, 'content', kind, id, `${l}.json`), 'utf8').catch(() => '{}')) as { body?: string }).body
             e.photos = [...withSections(stored, { vi: (await body('vi')) ?? '', ...Object.fromEntries(await Promise.all(WRITTEN_OTHER_LANGS.map(async l => [l, await body(l)]))) }), ...e.photos.filter(p => p.sourceUrl !== url)]

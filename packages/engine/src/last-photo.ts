@@ -127,7 +127,7 @@ export function lastPhotos(pages: PageShows[], off: (url: string, ref: string) =
 /** Attribute a page's loss to the address that received the verdict, even when it serves a mirror. */
 export function lastPhotoVerdicts(
   pages: PageShows[], unavailable: (url: string, ref: string) => boolean, verdicts: Iterable<string>,
-  removesWrapper?: (verdictUrl: string) => boolean, originals?: ReadonlyMap<string, string>,
+  removesWrapper?: (verdictUrl: string) => boolean, originals?: ReadonlyMap<string, ReadonlySet<string>>,
 ): Map<string, string[]> {
   const addresses = new Map<string, string>()
   for (const url of verdicts) {
@@ -135,7 +135,13 @@ export function lastPhotoVerdicts(
     if (!addresses.has(key)) addresses.set(key, url)
   }
   const byVerdict = (url: string) => addresses.get(photoKey(url) ?? url)
-  const linked = new Map([...originals ?? []].map(([url, cause]) => [photoKey(url) ?? url, byVerdict(cause) ?? cause]))
+  const linked = new Map<string, Set<string>>()
+  for (const [url, causes] of originals ?? []) {
+    const key = photoKey(url) ?? url
+    const group = linked.get(key) ?? new Set<string>()
+    for (const cause of causes) group.add(byVerdict(cause) ?? cause)
+    linked.set(key, group)
+  }
   const out = new Map<string, Set<string>>()
   for (const page of pages) {
     const unavailableHere = (url: string) => unavailable(url, page.ref)
@@ -143,7 +149,7 @@ export function lastPhotoVerdicts(
       const wrapper = stored?.[i]
       const verdict = byVerdict(url)
       const onWrapper = wrapper && wrapper !== url ? byVerdict(wrapper) : undefined
-      return { url, verdicts: [verdict, linked.get(photoKey(url) ?? url), onWrapper && removesWrapper?.(onWrapper) ? onWrapper : undefined] }
+      return { url, verdicts: [verdict, ...linked.get(photoKey(url) ?? url) ?? [], onWrapper && removesWrapper?.(onWrapper) ? onWrapper : undefined] }
     })
     const own = versions(page.own, page.ownStored), album = versions(page.album, page.albumStored)
     const off = (p: typeof own[number]) => p.verdicts.some(Boolean) || unavailableHere(p.url)
@@ -192,12 +198,12 @@ export async function holdForSecondLook(root: string, held: Map<string, { why: s
   const sl = await readSecondLook(root)
   const whole = rejectedEntry(Object.fromEntries([...held].filter(([, h]) => !isVersionRejection(h.why)).map(([url, h]) => [url, h.why])))
   const originals = [...held.values()].some(h => !isVersionRejection(h.why))
-    ? await originalPhotoRefusals(join(root, 'content'), url => whole(url)?.[0]) : new Map<string, string>()
+    ? await originalPhotoRefusals(join(root, 'content'), url => whole(url)?.[0]) : new Map<string, Set<string>>()
   const added: string[] = []
   for (const [url, h] of held) {
     // A first verdict's mark takes the place of a hold on another reason that has no answer yet (photo-check.ts spared).
     if (has(sl, url) && !(h.off && !sl[url]!.off && !lookOf(sl[url]))) continue
-    const linked = [...originals].filter(([, cause]) => cause === url).map(([original]) => original).sort()
+    const linked = [...originals].filter(([, causes]) => causes.has(url)).map(([original]) => original).sort()
     sl[url] = { ...(linked.length ? { originals: linked } : {}), why: compactRejection(h.why), step, pages: [...new Set(h.pages)].sort(), at, ...(h.off ? { off: true as const } : {}) }
     added.push(url)
   }

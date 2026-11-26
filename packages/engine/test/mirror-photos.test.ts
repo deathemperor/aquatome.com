@@ -1,3 +1,4 @@
+import sharp from 'sharp'
 import { mkdir, mkdtemp, readFile, rmdir, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -114,7 +115,7 @@ test('an unanswered source hold still applies to the copied mirror verdict', asy
   expect(Object.keys(secondLook)).toEqual([C1280])
 })
 
-test('a failed mirror verdict transfer leaves the source available on retry', async () => {
+test('an interrupted mirror transfer reuses bytes already attached to the destination verdict', async () => {
   const r = await root()
   const file = join(r, 'engine-state/_dead-screen.json')
   const staged = await readFile(file, 'utf8')
@@ -124,9 +125,15 @@ test('a failed mirror verdict transfer leaves the source available on retry', as
   await expect(mirrorPhotos(r, deps().d)).rejects.toThrow()
   expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(C1280)
   await rmdir(file)
-  await writeFile(file, staged)
-  await mirrorPhotos(r, deps().d)
   const mirrored = `https://media.aquatome.com/${mirrorPlan(C1280)!.key}`
+  await writeFile(file, JSON.stringify({ ...JSON.parse(staged), [mirrored]: { dead: false } }))
+  const replay = deps()
+  const fetch = replay.d.bytes
+  replay.d.bytes = async url => url === mirrored
+    ? sharp({ create: { width: 1200, height: 900, channels: 3, background: '#468' } }).webp().toBuffer()
+    : fetch(url)
+  await mirrorPhotos(r, replay.d)
+  expect(replay.put).not.toContain(mirrorPlan(C1280)!.key)
   expect(JSON.parse(await readFile(file, 'utf8'))[mirrored]).toMatchObject({ dead: false })
   expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(mirrored)
 })

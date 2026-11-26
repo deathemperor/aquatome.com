@@ -240,7 +240,7 @@ export async function storeSourcePhotos(
       // A photo stored already keeps its credit here: only the sweep and the line-read list name a stored one, since they
       // read every copy of it first (publisher-credits.ts; found in Codex's read, 20 Nov 2026).
       if (known) {
-        const placed = !nearby && img.alt ? { ...known, caption: img.alt.slice(0, 200) } : known
+        const placed = nearby ? known : { ...known, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}) }
         out.push(img.heading ? { ...placed, heading: img.heading } : placed)
         group.done = true
         break
