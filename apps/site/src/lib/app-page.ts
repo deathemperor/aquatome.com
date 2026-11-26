@@ -117,8 +117,7 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
         blocks.push({ t: 'p', c: [`${t('Thông số ở đầu trang ghi khác đoạn này:')} ${figures}.`] })
       }
     }
-    const f = figAfter.get(i)
-    if (f) prose(figureHtml(lang, f))
+    for (const f of figAfter.get(i) ?? []) prose(figureHtml(lang, f))
   })
   if (wild && wildAt === groups.length) wildBlocks(wild)
   if (refs.length) {
