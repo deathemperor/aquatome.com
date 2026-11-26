@@ -20,13 +20,32 @@ const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof 
 const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
 const placesOf = (r, field = 'left') => Array.isArray(r?.[field]) ? r[field].filter(p => typeof p?.file === 'string' && Number.isSafeInteger(p.index) && p.index >= 0) : []
 function mergePlaces(chosen, base, ours, theirs) {
-  if (ours.off !== true || theirs.off !== true || ours.at !== theirs.at || ours.why !== theirs.why) return chosen
+  if (ours.off !== true || theirs.off !== true || ours.why !== theirs.why) return chosen
   const other = chosen === ours ? theirs : ours
-  const settled = new Map([...placesOf(other, 'settled'), ...placesOf(chosen, 'settled')].map(p => [p.file, p]))
-  const added = placesOf(other).filter(p => !chosen.back || !placesOf(base).some(q => q.file === p.file))
-  const pending = new Map(placesOf(chosen).filter(p => !settled.has(p.file)).map(p => [p.file, p]))
-  for (const p of added) if (!settled.has(p.file) && !pending.has(p.file)) pending.set(p.file, p)
-  const { back, left, ...merged } = chosen
+  const at = ours.at < theirs.at ? ours.at : theirs.at
+  const datedPlaces = (mark, field) => placesOf(mark, field).map(p => {
+    const { captureDay, ...place } = p
+    const captured = captureDay ?? mark.at
+    return captured === at ? place : { ...place, captureDay: captured }
+  })
+  const settled = new Map([...datedPlaces(other, 'settled'), ...datedPlaces(chosen, 'settled')].map(p => [p.file, p]))
+  const original = new Map(datedPlaces(base).map(p => [p.file, p]))
+  const pending = new Map(datedPlaces(chosen).map(p => [p.file, p]))
+  const sameCapture = (p, q) => !!p && !!q && p.capture === q.capture && p.index === q.index && p.captureDay === q.captureDay
+  for (const place of datedPlaces(other)) {
+    const before = original.get(place.file)
+    const selected = pending.get(place.file)
+    if (chosen.back && sameCapture(place, before)) continue
+    if (!selected || (sameCapture(selected, before) && !sameCapture(place, before))) pending.set(place.file, place)
+  }
+  for (const [file, receipt] of settled) {
+    const next = pending.get(file)
+    if (!next) continue
+    if (sameCapture(receipt, next) || sameCapture(original.get(file), next)) pending.delete(file)
+    else settled.delete(file)
+  }
+  const { back, left, settled: _settled, ...merged } = chosen
+  merged.at = at
   if ((settled.size || pending.size) && record(ours) && record(theirs)) merged.pages = [...new Set([...ours.pages, ...theirs.pages])].sort()
   if (settled.size) merged.settled = [...settled.values()]
   if (pending.size) return { ...merged, left: [...pending.values()] }

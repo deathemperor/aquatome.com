@@ -270,7 +270,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const clearedAlbum = photoClears(secondLook)
   const going = new Set(off.filter(x => !x.video && (o.albums
     ? !!x.agreement || x.rejection?.startsWith('dead:') || !clearedAlbum(x.url)
-    : !sl.pendingOff(x.url) && (sl.open(x.url) || ((sl.waiting(x.url) || sl.held(x.url)) && !passed(x.url))))).map(x => x.url))
+    : !sl.clearedPhoto(x.url) && !sl.pendingOff(x.url) && (sl.open(x.url) || ((sl.waiting(x.url) || sl.held(x.url)) && !passed(x.url))))).map(x => x.url))
   // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
   const last = new Map<string, string[]>()
   if (!o.albums && going.size) {
