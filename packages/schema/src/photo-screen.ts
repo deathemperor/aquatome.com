@@ -172,10 +172,13 @@ export function photoLookAnswer(record: unknown): { said: 'agree' | 'clear'; by:
   return { said: look.said, by: look.by, on: look.on }
 }
 
-/** A clear applies to both source and mirror. A review recorded under the requested URL takes precedence. */
+/** A clear applies to both addresses. A completed decision at the requested address takes precedence. */
 export function photoClears(records: Record<string, unknown> = {}): (url: string) => boolean {
   const clears = photoAddressSet(Object.keys(records).filter(url => photoLookAnswer(records[url])?.said === 'clear'))
-  return url => Object.hasOwn(records, url) ? photoLookAnswer(records[url])?.said === 'clear' : clears(url)
+  return url => {
+    const decision = Object.hasOwn(records, url) ? photoLookAnswer(records[url]) : undefined
+    return decision ? decision.said === 'clear' : clears(url)
+  }
 }
 
 type LookMark = { why?: unknown; off?: boolean; settled?: unknown }

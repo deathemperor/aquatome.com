@@ -411,7 +411,8 @@ test.each(['face detection', 'the dead-fish screen'])('a mirror being rejected b
 
 test.each([
   ['face detection', false], ['the dead-fish screen', false],
-  ['face detection', true], ['the dead-fish screen', true],
+  ['face detection', 'pending'], ['the dead-fish screen', 'pending'],
+  ['face detection', 'non-commercial'], ['the dead-fish screen', 'non-commercial'],
 ] as const)('%s records a page that only serves the verdict’s mirror (album lead: %s)', async (step, albumLead) => {
   const byFace = step === 'face detection'
   const name = byFace ? 'prior-face.jpg' : 'prior-dead.jpg'
@@ -424,14 +425,20 @@ test.each([
     ...photo('generated'),
     generated: { model: 'sample', driverModel: 'sample', date: '2026-11-26', prompt: 'example', referenceHash: 'e'.repeat(64) },
   }
-  const { root, state, file, publicView } = await publicFixture(albumLead ? [pending, generated] : [mirror], albumLead ? [mirror, unchecked] : [], [mirror.url, source.url, sibling.url, pending.url, generated.url, unchecked.url])
+  const nc = [41, 42].map(id => ({
+    ...photo(`non-commercial-${id}`), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${id}`,
+    url: `https://media.aquatome.com/inaturalist/${id}.webp`,
+  }))
+  const own = albumLead === 'non-commercial' ? [...nc, generated] : albumLead ? [pending, generated] : [mirror]
+  const { root, state, file, publicView } = await publicFixture(own, albumLead ? [mirror, unchecked] : [],
+    [mirror.url, source.url, sibling.url, pending.url, generated.url, unchecked.url, ...nc.map(p => p.url)])
   const entity = JSON.parse(await readFile(file, 'utf8'))
   const other = join(root, 'content/species/second')
   await mkdir(other)
   await writeFile(join(other, 'entity.json'), JSON.stringify({ ...entity, id: 'second', photos: [source, sibling] }))
   await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [mirror.url]: { ok: 'yes', person: false, ...(byFace ? { logo: false } : {}) } }))
-  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [mirror.url]: { dead: false }, [sibling.url]: { dead: false }, [generated.url]: { dead: false } }))
-  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0, [sibling.url]: 0, [generated.url]: 0, ...(byFace ? {} : { [source.url]: 0 }) }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [mirror.url]: { dead: false }, [sibling.url]: { dead: false }, [generated.url]: { dead: false }, ...Object.fromEntries(nc.map(p => [p.url, { dead: false }])) }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0, [sibling.url]: 0, [generated.url]: 0, ...Object.fromEntries(nc.map(p => [p.url, 0])), ...(byFace ? {} : { [source.url]: 0 }) }))
 
   await run(root, deps({ unreadable: albumLead ? pending.url : undefined }).d)
   expect((await json(root, 'engine-state/_photo-second-look.json'))[source.url]).toMatchObject({ step, pages: ['species/alpha'] })
@@ -639,9 +646,13 @@ test('a retry under the other address does not create a second first-refusal mar
   expect((await publicView()).photoWaits!(mirror.url)).toBe(true)
 })
 
-test.each([false, true])('Git recovery restores the credited mirror (hotlink remains: %s)', async keepHotlink => {
-  const source = { ...photo('source'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Example.jpg' }
-  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
+test.each([
+  { keepHotlink: false, nonCommercial: false }, { keepHotlink: true, nonCommercial: false }, { keepHotlink: true, nonCommercial: true },
+])('Git recovery restores the credited mirror (%j)', async ({ keepHotlink, nonCommercial }) => {
+  const source = nonCommercial
+    ? { ...photo('source'), url: 'https://static.inaturalist.org/photos/42/large.jpg', licence: 'CC BY-NC 4.0', sourceUrl: 'https://www.inaturalist.org/photos/42' }
+    : { ...photo('source'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Example.jpg' }
+  const mirror = { ...source, url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}`, author: 'Sample mirror credit' }
   const { root, state, file, publicView } = await publicFixture([source, mirror], [], [source.url, mirror.url])
   const entity = await json(root, 'content/species/alpha/entity.json')
   const git = (...args: string[]) => execFileSync('git', args, { cwd: root, encoding: 'utf8' })
@@ -663,7 +674,8 @@ test.each([false, true])('Git recovery restores the credited mirror (hotlink rem
   const marks = await json(root, 'engine-state/_photo-second-look.json')
   marks[source.url].look = { said: 'clear', by: 'reviewer', on: day }
   await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(marks))
-  await putBackCleared(root, history)
+  await sweep(root, { history })
+  expect(await urls(root, 'alpha')).toEqual([mirror.url])
   expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([mirror.url])
 })
 
@@ -814,4 +826,69 @@ test('the standalone screen also holds a passed head whose sibling is unjudged',
   const out = await screenDead(root, deps().d.dead, { limit: 1 })
   expect(out.held).toEqual([`${old.url}: species/a`])
   expect(await urls(root, 'a')).toEqual([old.url, pending.url])
+})
+
+test('multiple non-commercial replacements cannot displace the last passed head', async () => {
+  const head = photo('passed-dead')
+  const nc = [41, 42].map(id => ({
+    ...photo(`non-commercial-${id}`),
+    url: `https://media.aquatome.com/inaturalist/${id}.webp`,
+    sourceUrl: `https://www.inaturalist.org/photos/${id}`,
+    licence: 'CC BY-NC 4.0',
+  }))
+  const { root, state, publicView } = await publicFixture([head, ...nc], [], [head.url, ...nc.map(p => p.url)])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify(Object.fromEntries(nc.map(p => [p.url, { dead: false }]))))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify(Object.fromEntries([head, ...nc].map(p => [p.url, 0]))))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [head.url]: { ok: 'yes', person: false } }))
+
+  const result = await run(root, deps().d)
+
+  expect(result.dead?.held).toEqual([`${head.url}: species/alpha`])
+  expect((await publicView()).species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([head.url])
+})
+
+test('an unanswered source hold cannot replace a clear on its mirror', async () => {
+  const source = { ...photo('source'), url: 'https://live.staticflickr.com/123/456_abc.jpg' }
+  const mirror = { ...source, url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
+  const { root, state, publicView } = await publicFixture([source, mirror], [mirror], [source.url, mirror.url])
+  const marks = {
+    [source.url]: { why: 'watermark: logo', pages: ['species/alpha'], at: '2026-11-25', step: 'the watermark screen' },
+    [mirror.url]: { why: 'dead: withheld', pages: ['species/alpha'], at: '2026-11-26', step: 'the dead-fish screen', off: true, back: '2026-11-26',
+      look: { said: 'clear', by: 'reviewer', on: '2026-11-26' } },
+  }
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [source.url]: 0, [mirror.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), '{}')
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(marks))
+  const { d, sent } = deps()
+  d.dead.look = async () => { throw new Error('The photo already received a human clear') }
+
+  await run(root, d)
+
+  expect(sent).toEqual([])
+  expect(await json(root, 'engine-state/_photo-second-look.json')).toEqual(marks)
+  expect((await publicView()).galleries.alpha?.map(p => p.url)).toEqual([mirror.url])
+})
+
+test('the photo check cannot replace a clear on the mirror with a first refusal at an unanswered source hold', async () => {
+  const source = { ...photo('source'), url: 'https://live.staticflickr.com/123/456_abc.jpg' }
+  const mirror = { ...source, url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
+  const { root, state, publicView } = await publicFixture([source, mirror], [mirror], [source.url, mirror.url])
+  const marks = {
+    [source.url]: { why: 'watermark: logo', pages: ['species/alpha'], at: '2026-11-25', step: 'the watermark screen' },
+    [mirror.url]: { why: 'dead: withheld', pages: ['species/alpha'], at: '2026-11-26', step: 'the dead-fish screen', off: true, back: '2026-11-26',
+      look: { said: 'clear', by: 'reviewer', on: '2026-11-26' } },
+  }
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [source.url]: 0, [mirror.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), '{}')
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(marks))
+  let fetched = 0
+  const check = await checkPagePhotos(root, {
+    get: async () => { fetched++; return new Uint8Array(await sharp({ create: { width: 80, height: 60, channels: 3, background: '#468' } }).png().toBuffer()) },
+    look: async () => ({ photos: Array.from({ length: fetched }, (_, i) => ({ n: i + 1, ok: 'dead' as const, typical: false, person: false, logo: false, note: '' })) }),
+  }, { limit: 1 })
+
+  expect(check.judged).toBeGreaterThan(0)
+  expect(check.blocked).toEqual([])
+  expect(await json(root, 'engine-state/_photo-second-look.json')).toEqual(marks)
+  expect((await publicView()).galleries.alpha?.map(p => p.url)).toEqual([mirror.url])
 })

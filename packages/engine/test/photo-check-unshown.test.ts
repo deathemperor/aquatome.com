@@ -97,6 +97,26 @@ test.each(['dead-fish look', 'public host'])('the photo check and sweep keep a l
   expect(await photosOf(independent, 'aaa')).toContain('a-dead')
 })
 
+test.each(['photo check', 'sweep'])('the %s holds the last visible photo if multiple non-commercial siblings would remain', async step => {
+  const r = await store({ aaa: ['a-dead'] }, { 'a-dead': { aaa: step === 'sweep' ? { ...dead, logo: false, person: false } : oldPass } })
+  const nc = [41, 42].map(id => ({
+    url: `https://media.aquatome.com/inaturalist/${id}.webp`, width: 1200, height: 800,
+    sourceUrl: `https://www.inaturalist.org/photos/${id}`, licence: 'CC BY-NC 4.0', author: 'Sample Tester',
+  }))
+  const own = [photo('a-dead'), ...nc]
+  await writeFile(join(r, 'content/species/aaa/entity.json'), JSON.stringify(fish('aaa', own)))
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify(Object.fromEntries(own.map(p => [p.url, { dead: false }]))))
+  await writeFile(join(r, 'engine-state/_photo-faces.json'), JSON.stringify(Object.fromEntries(own.map(p => [p.url, 0]))))
+  if (step === 'photo check') {
+    const out = await checkPagePhotos(r, model({ 'a-dead': dead }), { limit: 1, emptyCap: 0 })
+    expect(out.heads.held).toContain(`species/aaa: ${url('a-dead')}`)
+  } else {
+    const out = await sweep(r, { history: async () => [] })
+    expect(out.refusedHeld.some(row => row.startsWith('species/aaa'))).toBe(true)
+  }
+  expect((await photosOf(r, 'aaa'))[0]).toBe('a-dead')
+})
+
 test('a verdict on the stored photo holds the last visible original if the edit would delete both', async () => {
   const r = await store({ aaa: ['altered'] })
   const original = photo('original')
