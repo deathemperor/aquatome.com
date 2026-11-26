@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process'
 import { access, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, LANGS, loadAll, PHOTO_BOXES_FILE, photoAddressSet, photoKey, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate, type Photo } from '@aq/schema'
+import { DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, guideLooked, guidePhotoUrls, GUIDE_LOOKS_FILE, LANGS, loadAll, PHOTO_BOXES_FILE, photoAddressSet, photoKey, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate, type Photo } from '@aq/schema'
 
 /**
  * Fish pages our removals left with no photo, first for new photos (the chief of staff, 21 Nov): every page a run's own
@@ -49,6 +49,12 @@ const MIRROR_HOSTS: Partial<Record<string, string[]>> = {
 }
 const mirrorHosts = (key: string | undefined) => key && MIRROR_HOSTS[key.split('/')[0]!]
 
+function ownedAddresses(file: string, raw: string): string[] {
+  const page = JSON.parse(raw) as Parameters<typeof guidePhotoUrls>[0] & { photos?: Photo[] }
+  return file.startsWith('content/guides/') ? guidePhotoUrls(page) : (page.photos ?? []).flatMap(deadScreenPhotoUrls)
+}
+
+
 /** Owners as the working tree at `root` holds them: each page whose own photos hold one of the addresses. */
 export const diskOwners = (root: string): Owners => async urls => {
   const want = photoAddressSet(urls), out: string[] = []
@@ -56,7 +62,7 @@ export const diskOwners = (root: string): Owners => async urls => {
     for (const id of await readdir(join(root, 'content', kind)).catch(() => [] as string[])) {
       const f = `content/${kind}/${id}/entity.json`
       const s = await readFile(join(root, f), 'utf8').catch(() => undefined)
-      if (s !== undefined && ((JSON.parse(s) as { photos?: Photo[] }).photos ?? []).flatMap(deadScreenPhotoUrls).some(want)) out.push(f)
+      if (s !== undefined && ownedAddresses(f, s).some(want)) out.push(f)
     }
   }
   return out
@@ -80,7 +86,7 @@ const commitOwners = (
   const candidates = r.stdout.split('\n').filter(Boolean).map(l => l.slice(at.length + 1))
   const found = await Promise.all(candidates.map(async file => {
     const raw = await read(file)
-    return raw && ((JSON.parse(raw) as { photos?: Photo[] }).photos ?? []).flatMap(deadScreenPhotoUrls).some(want) ? file : undefined
+    return raw && ownedAddresses(file, raw).some(want) ? file : undefined
   }))
   return found.filter((file): file is string => file !== undefined)
 }
@@ -91,14 +97,18 @@ const commitOwners = (
  * about other pages, or about how a photo shows, not whether. A test holds this to every file load.ts reads, so a new one
  * is placed here before it can make the engine's answer differ from the site's. The face record and the dead-fish
  * screen's list are read once the face rule is on main, and the looks for a dead fish (the screen's record, the photo
- * check's two, the second look's) once the dead-look rule is. Another page's own entity file can decide whether a photo
- * shows too, when the face finder hasn't read it or no look has judged it for a dead fish (load.ts): those are copied by
- * their address (`Owners`).
+ * check's two, the second look's) once the dead-look rule is, and the guides' own look's once the look-first rule is.
+ * Another page's own entity file can decide whether a photo shows too, when the face finder hasn't read it, no look has
+ * judged it for a dead fish, or the guides' look hasn't judged a guide's own photo (load.ts): those are copied by their
+ * address (`Owners`).
  */
 export const LOADER_FILES = {
   content: ['sources.json', 'one-voice.json', 'image-approvals.json', 'picture-hashes.json'],
-  records: [PHOTO_SCREEN_FILE, '_photo-faces.json', '_photo-dead-owed.json', DEAD_SCREEN_FILE, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, PHOTO_REJECTED_FILE],
+  records: [PHOTO_SCREEN_FILE, '_photo-faces.json', '_photo-dead-owed.json', DEAD_SCREEN_FILE, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, PHOTO_REJECTED_FILE, GUIDE_LOOKS_FILE],
   pages: ['gallery'],
+  // A guide's entity file decides a fish page's photo only when the guide owns one the page's album shows that waits:
+  // it is copied by its address then (`Owners`), as any owner is.
+  owners: ['guides'],
   elsewhere: ['captions', 'cards', 'changelog.json', 'equipment', 'materials', 'page-dates.json', 'products', 'series', 'video-generated.json', 'video-titles', PHOTO_BOXES_FILE],
 } as const
 
@@ -149,6 +159,11 @@ export async function showingPhotos(refs: string[], read: Read, owners: Owners):
       const state = async (f: string) => { const s = await read(`engine-state/${f}`); return s === undefined ? undefined : JSON.parse(s) as Record<string, unknown> }
       const looked = deadLooked({ screen: JSON.parse(screen) as Record<string, unknown>, check: await state(PHOTO_CHECK_FILE), subjects: await state(PHOTO_SUBJECTS_FILE), secondLook: await state(SECOND_LOOK_RECORD) })
       for (const u of urls) if (!looked(u)) waits.add(u)
+    }
+    const guideLooks = await read(`engine-state/${GUIDE_LOOKS_FILE}`)
+    if (guideLooks !== undefined) {
+      const seen = JSON.parse(guideLooks) as Record<string, unknown>
+      for (const u of urls) if (!guideLooked(seen[u])) waits.add(u)
     }
     if (waits.size) for (const f of await owners([...waits])) await put(f)
     const album = (photos: unknown[]) => photos.length >= SITE_GALLERY_MIN

@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test, vi } from 'vitest'
-import { cardShownIn, loadAll, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, type Section, type Translation } from '../src/index'
+import { cardShownIn, GUIDE_UNJUDGED_LIMIT, loadAll, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, type Section, type Translation } from '../src/index'
 import { oneVoice, withLocalNote } from '../src/load'
 
 const root = fileURLToPath(new URL('./fixtures/store', import.meta.url))
@@ -321,6 +321,7 @@ test("a public build shows no own photo of a species or plant page that no look 
   await state('_photo-watermarks.json', Object.fromEntries(all.map(n => [`https://media.test/${n}.webp`, { ocr: [] }])))
   await state('_photo-faces.json', Object.fromEntries(all.map(n => [`https://media.test/${n}.webp`, 0])))
   await state('_photo-dead-owed.json', {})
+  await state('_photo-guides.json', {})
   // Judged: by the screen, by the photo check (a verdict that asked about dead fish has `logo`), by a person's clear.
   await state('_dead-screen.json', { 'https://media.test/by-screen.webp': { dead: false } })
   await state('_photo-subjects.json', { 'https://media.test/by-check.webp': { alpha: { ok: 'yes', logo: false } }, 'https://media.test/by-none.webp': { alpha: { ok: 'yes' } } })
@@ -368,6 +369,84 @@ test("a public build shows no own photo of a species or plant page that no look 
   expect((await shown(true)).fish).toEqual(['by-screen', 'by-check', 'by-person', 'by-none'])
 })
 
+test("a public build shows no guide photo or stock photo the guides' own look hasn't judged: it waits there and by address, shows once judged, and the site's build counts them, fails past the limit and without the record", async () => {
+  // The chief of staff, 22 Nov 2026: a new guide photo or stock photo showed for hours before its look. The look first,
+  // as a video guide's stills already wait for theirs.
+  const { mkdir, rm } = await import('node:fs/promises')
+  const site = await mkdtemp(join(tmpdir(), 'aq-guide-look-'))
+  const store = join(site, 'content')
+  await cp(root, store, { recursive: true })
+  const photo = (name: string) => ({ url: `https://media.test/${name}.webp`, width: 960, height: 640, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${name}` })
+  const alpha = JSON.parse(await readFile(join(store, 'species', 'alpha', 'entity.json'), 'utf8'))
+  const alphaVi = JSON.parse(await readFile(join(store, 'species', 'alpha', 'vi.json'), 'utf8'))
+  const guide = (photos: object[]) => ({ id: 'g', kind: 'care', source: alpha.sections[0].source, sourceUrl: 'https://x/g', html: '<p>x</p>', photos, mentions: [], updatedAt: '2026-11-21', video: { youtubeId: 'abcdefghijk', title: 't', channel: 'Sample channel', channelUrl: 'https://example.org/c', durationSec: 300, publishedAt: '2026-11-01', chapters: [], thumb: { url: 'https://i.ytimg.com/vi/abcdefghijk/maxresdefault.jpg', width: 1280, height: 720 }, figures: [{ heading: 'One', photo: photo('stock-looked'), moments: [] }, { heading: 'Two', photo: photo('stock-new'), moments: [] }] } })
+  await mkdir(join(store, 'guides', 'g'), { recursive: true })
+  const write = (file: string, x: unknown) => writeFile(join(store, file), JSON.stringify(x))
+  await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new')]))
+  await write('guides/g/vi.json', { ...alphaVi, slug: 'trang-g' })
+  const all = ['guide-looked', 'guide-new', 'stock-looked', 'stock-new']
+  const state = (f: string, x: unknown) => writeFile(join(site, 'engine-state', f), JSON.stringify(x))
+  await mkdir(join(site, 'engine-state'))
+  await state('_photo-watermarks.json', Object.fromEntries(all.map(n => [`https://media.test/${n}.webp`, { ocr: [] }])))
+  await state('_photo-faces.json', Object.fromEntries(all.map(n => [`https://media.test/${n}.webp`, 0])))
+  await state('_dead-screen.json', {})
+  const looked = (names: string[]) => state('_photo-guides.json', Object.fromEntries(names.map(n => [`https://media.test/${n}.webp`, { person: false, mark: false, brand: false, note: '' }])))
+  await state('_photo-guides.json', {
+    'https://media.test/guide-looked.webp': { person: false, mark: false, brand: false },
+    'https://media.test/stock-looked.webp': { person: false, mark: false, brand: false },
+    'https://media.test/stock-new.webp': { person: false },
+  })
+  const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')
+  const shown = async (publicBuild: boolean) => {
+    const g = (await loadAll({ root: store, lang: 'vi', publicBuild })).guides.find(x => x.id === 'g')!
+    return { own: g.photos.map(p => short(p.url)), stock: (g.video?.figures ?? []).flatMap(f => (f.photo ? [short(f.photo.url)] : [])) }
+  }
+  expect(await shown(true)).toEqual({ own: ['guide-looked'], stock: ['stock-looked'] })
+  // The engine's own reads see every photo.
+  expect(await shown(false)).toEqual({ own: ['guide-looked', 'guide-new'], stock: ['stock-looked', 'stock-new'] })
+  const c = await loadAll({ root: store, lang: 'vi', publicBuild: true })
+  expect(['guide-new', 'guide-new-480', 'stock-new-large', 'guide-looked'].filter(n => c.photoWaits!(`https://media.test/${n}.webp`))).toEqual(['guide-new', 'guide-new-480', 'stock-new-large'])
+  const said = vi.spyOn(console, 'log').mockImplementation(() => {})
+  try {
+    await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
+    expect(said.mock.calls.map(a => String(a[0])).filter(l => l.includes("guides' own look"))).toEqual(["vi: 2 guide photos and stock photos wait, the guides' own look hasn't judged them"])
+    // Past the limit the site's build fails; at it, it builds.
+    const many = Array.from({ length: GUIDE_UNJUDGED_LIMIT - 1 }, (_, i) => photo(`many-${i}`))
+    const named = [...all, ...many.map(p => short(p.url))]
+    await state('_photo-watermarks.json', Object.fromEntries(named.map(n => [`https://media.test/${n}.webp`, { ocr: [] }])))
+    await state('_photo-faces.json', Object.fromEntries(named.map(n => [`https://media.test/${n}.webp`, 0])))
+    await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new'), ...many]))
+    await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(`vi: ${GUIDE_UNJUDGED_LIMIT + 1} guide photos and stock photos the guides' own look hasn't judged`)
+    await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new'), ...many.slice(1)]))
+    await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
+  } finally {
+    said.mockRestore()
+  }
+  // Judged: each shows by itself in the next build.
+  await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new')]))
+  await looked(all)
+  expect(await shown(true)).toEqual({ own: ['guide-looked', 'guide-new'], stock: ['stock-looked', 'stock-new'] })
+  // With an alteration withdrawn the served original needs its own verdict.
+  const original = photo('original')
+  const altered = {
+    ...photo('guide-looked'), original: { url: original.url, width: original.width, height: original.height },
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-10', originalHash: 'a'.repeat(64) }],
+  }
+  await write('guides/g/entity.json', guide([altered]))
+  await state('_photo-watermarks.json', Object.fromEntries([...all, 'original'].map(n => [photo(n).url, { ocr: [] }])))
+  await state('_photo-faces.json', Object.fromEntries([...all, 'original'].map(n => [photo(n).url, 0])))
+  expect((await shown(true)).own).toEqual([])
+  await looked([...all, 'original'])
+  expect((await shown(true)).own).toEqual(['original'])
+  await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new')]))
+  // With no record beside the real content the site's build fails; a root with none (the fixture build) has no rule.
+  await rm(join(site, 'engine-state', '_photo-guides.json'))
+  await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow("the guides' own look's record is missing")
+  await state('_photo-guides.json', {})
+  await rm(join(site, 'engine-state', '_photo-guides.json'))
+  expect(await shown(true)).toEqual({ own: ['guide-looked', 'guide-new'], stock: ['stock-looked', 'stock-new'] })
+})
+
 test("a public build shows no own photo of a species, plant or guide page the face finder has never read: it waits there, in an album and by address, shows once read, and the site's build counts them and fails past the limit", async () => {
   const { mkdir } = await import('node:fs/promises')
   const site = await mkdtemp(join(tmpdir(), 'aq-unread-'))
@@ -400,6 +479,8 @@ test("a public build shows no own photo of a species, plant or guide page the fa
   // And the dead-fish screen has judged every one: only the face finder's record holds them here.
   const judgedAll = (names: string[]) => writeFile(join(site, 'engine-state', '_dead-screen.json'), JSON.stringify(Object.fromEntries(names.map(n => [`https://media.test/${n}.webp`, { dead: false }]))))
   await judgedAll(all)
+  // And the guides' own look has judged the guide's photos.
+  await writeFile(join(site, 'engine-state', '_photo-guides.json'), JSON.stringify(Object.fromEntries(['guide-read', 'guide-unread'].map(n => [`https://media.test/${n}.webp`, { person: false, mark: false, brand: false, note: '' }]))))
   const facesFile = join(site, 'engine-state', '_photo-faces.json')
   await writeFile(facesFile, JSON.stringify({ 'https://media.test/fish-read.webp': 0, 'https://media.test/guide-read.webp': 0 }))
   const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')

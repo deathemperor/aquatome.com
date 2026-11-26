@@ -45,6 +45,20 @@ function model(table: Record<string, Partial<Omit<GuidePhotoVerdict, 'other'>> &
   return { d, seen }
 }
 
+test('a guide alteration needs a complete look on its fallback original', async () => {
+  const altered = { ...photo('altered'), altered: [{ method: 'lanczos3-upscale' }], original: photo('original') }
+  const root = await store({ guide: { photos: [altered] } })
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({
+    [altered.url]: { person: false, mark: false, brand: false },
+    [altered.original.url]: { person: false },
+  }))
+  const { d, seen } = model({ original: { person: true } })
+  await screenGuidePhotos(root, d, { limit: 1 })
+  expect(seen.map(s => s.photos)).toEqual([['original']])
+  expect((await json(root, 'content/guides/guide/entity.json')).photos[0].original).toBeUndefined()
+  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [altered.original.url]: 'people' })
+})
+
 test('hands or a person on a guide\'s photos, a mark on a video section\'s photo and a brand on a packshot take them off the guides and onto the blocklist; a brand stays on an equipment guide', async () => {
   // Found by a design review (2026-11-07): hands planting led "Cách trồng cây…", a person siphoning led "Bao lâu phải
   // vệ sinh…", and the betta setup guide showed an Aquarium Co-op test-strip bottle. None had had a model look.

@@ -5,7 +5,7 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type PhotoScreenEntry } from './photo-screen'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, guideLooked, guidePhotoUrlsIn, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type PhotoScreenEntry } from './photo-screen'
 import { rejectedEntry } from './photo-address'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
@@ -266,7 +266,20 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
       if (retryable > UNJUDGED_DEAD_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species and plant pages that no look has judged for a dead fish (${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)} and the photo check's records). More than ${UNJUDGED_DEAD_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) screens them.`)
     }
   }
-  const waitsFor = photoWaitsFor({ watermarks: screen, owed, unread, flaggedAlterations, faces, unjudged, deadScreen, secondLook, rejected: rejectedForDead })
+  // And a guide's own photo or a video guide's part's stock photo the guides' own look hasn't judged (photo-screen.ts
+  // GUIDE_LOOKS_FILE), wherever it shows, as its stills wait for theirs (the chief of staff, 22 Nov 2026: the look first).
+  // With no record beside the root none waits for it; the site's build of the real content needs the record.
+  const guideLooks = screen ? await stateRecord<Record<string, unknown>>(root, GUIDE_LOOKS_FILE) : undefined
+  if (screen && !guideLooks && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', GUIDE_LOOKS_FILE)}: the guides' own look's record is missing, so no guide photo can be shown as looked at`)
+  const unlooked = new Set<string>()
+  if (guideLooks) {
+    for (const url of await guidePhotoUrlsIn(root)) if (!guideLooked(guideLooks[url])) unlooked.add(url)
+    if (opts.photoScreen === 'required') {
+      console.log(`${lang}: ${unlooked.size} guide photos and stock photos wait, the guides' own look hasn't judged them`)
+      if (unlooked.size > GUIDE_UNJUDGED_LIMIT) throw new Error(`${lang}: ${unlooked.size} guide photos and stock photos the guides' own look hasn't judged (${join(dirname(root), 'engine-state', GUIDE_LOOKS_FILE)}). More than ${GUIDE_UNJUDGED_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the guides without them. A photos run's guide look (pnpm engine guide-photos) judges them.`)
+    }
+  }
+  const waitsFor = photoWaitsFor({ watermarks: screen, owed, unread, flaggedAlterations, faces, unjudged: new Set([...unjudged, ...unlooked]), deadScreen, secondLook, rejected: rejectedForDead })
   // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
   // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,
   // for what names a picture by address alone (the calendar: `photoWaits`).
