@@ -8,7 +8,7 @@ import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOf
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
+import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, type Stood } from './last-photo'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
 
@@ -108,7 +108,9 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   for (const u of firstOff.keys()) last.delete(u)
   const why = 'people: a face (face detection)'
   await holdForSecondLook(root, new Map([...last].map(([u, pages]) => [u, { why, pages }])), 'face detection')
-  await holdForSecondLook(root, new Map([...firstOff].map(([u, pages]) => [u, { why, pages, off: true as const }])), 'face detection')
+  const left = new Map<string, Stood[]>()
+  for (const { file, e } of pages) placesIn(root, file, e, u => firstOff.has(u), left)
+  await holdForSecondLook(root, new Map([...firstOff].map(([u, pages]) => [u, { why, pages, off: true as const }])), 'face detection', undefined, left)
   // A face found now, on a photo that never passed, takes it off every page and album, as the check's verdict of a person
   // does: off a page that keeps other photos, it goes on the never-again list as refused, so the sweep takes its album
   // copies and no step brings it back (the independent reader, 20 Nov).

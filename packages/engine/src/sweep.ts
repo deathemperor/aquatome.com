@@ -40,7 +40,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { rejectedEntry } from './photos'
-import { gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, putBackCleared, readSecondLook, unlistCleared, type History } from './last-photo'
+import { gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readSecondLook, unlistCleared, waitingEntry, type History, type Stood } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
@@ -967,9 +967,10 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // counts none of them as a photo its page keeps. Counted as kept, a photo a guide's check had listed while the page
   // still had another let the unwell rule take that other, and the page was left with none (the guard's read, 14 Nov).
   report.agreed.push(...await listAgreed(root))
-  report.unlisted.push(...await unlistCleared(root))
+  const deferred = new Set(report.putBackUnread)
+  report.unlisted.push(...await unlistCleared(root, deferred))
   // Where the two lists disagree, the record wins and the photo stays off (last-photo.ts mendWaiting).
-  const mended = await mendWaiting(root)
+  const mended = await mendWaiting(root, deferred)
   report.waitingBack.push(...mended.back)
   report.waitingOdd.push(...mended.other, ...mended.alone)
   const credit = await refusedByCredit(root, content)
@@ -1139,17 +1140,23 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // The glossary's too: a term shows a photo from a fish page, and one refused there stayed on the term (the independent
   // reader, 20 Nov). A kind left with no photo has no record (GlossarySchema `kinds`).
   const glossaryFiles = (await readdir(join(content, 'glossary')).catch(() => [] as string[])).sort().map(id => join(content, 'glossary', id, 'entity.json'))
+  const marked = await readSecondLook(root)
+  const waiting = looks(marked)
+  const remember = (url: string) => waiting.off(url) && listed(url) && listedWhy(url) === waitingEntry(marked[url]!.why)
   const keepsVersion = (url: string, original: string, blockedOriginal: boolean) =>
     /^(?:dead|people|waiting): /.test(listedWhy(url)) && (!blockedOriginal || listedWhy(original).startsWith('waiting:'))
   for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment')), ...glossaryFiles]) {
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
-    const data = JSON.parse(raw) as unknown
+    const data = JSON.parse(raw) as { photos?: unknown }
+    const places = new Map<string, Stood[]>()
+    placesIn(root, file, data, remember, places)
     const removed: string[] = []
     stripPhotos(data, listed, removed, [], keepsVersion)
     if (!removed.length) continue
     const g = data as { kinds?: { photo?: unknown }[] }
     if (glossaryFiles.includes(file) && Array.isArray(g.kinds)) { g.kinds = g.kinds.filter(k => k.photo); if (!g.kinds.length) delete g.kinds }
+    await notePlaces(root, places)
     for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(listedWhy(url))})`)
     await write(file, raw, data)
     changed(file.slice(content.length + 1))

@@ -1,7 +1,10 @@
 import { mirrorSearchTerms, photoAddressSet, photoKey, photoLookAnswer as lookOf, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
-import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
-import { dirname, join } from 'node:path'
+import { createHash, randomUUID } from 'node:crypto'
+import { link, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
+import { homedir } from 'node:os'
+import { dirname, join, relative } from 'node:path'
+import { machine } from './ceiling'
 import { compactRejection } from './photo-observations'
 import { writeImageCache } from './image-cache-write'
 import { writePhotoState } from './photo-state'
@@ -14,8 +17,8 @@ import { writePhotoState } from './photo-state'
  * independent look (another model, or a person) and stays where it is until that look agrees.
  *
  * The record: photo → { why (the step's reason as the never-again list keeps it, a category and a hash: no model
- * prose), step, the pages it would have emptied, the day }. A look's answer is written by a pull request, never by the
- * engine: `look: { said, by, on }`.
+ * prose), step, the pages it would have emptied, the day, and on one marked off the places it was taken from }. A look's
+ * answer is written by a pull request, never by the engine: `look: { said, by, on }`.
  * - "agree": the sweep moves it to the never-again list, and it leaves every page.
  * - "clear": it stays, and no automatic verdict takes it off any page again.
  * - Any other look, or one that isn't well formed, is no answer: the photo waits.
@@ -36,13 +39,18 @@ import { writePhotoState } from './photo-state'
  * is reported (`mendWaiting`). No disagreement loosens the list for any other kind.
  */
 export type Look = { said: 'agree' | 'clear'; by: string; on: string }
-/** `back`: the day the sweep put a cleared photo back where it was, or found another reason keeps it off (`putBackCleared`). */
-export type SecondLook = { why: string; step: string; pages: string[]; at: string; off?: true; look?: Look; back?: string }
+/**
+ * `back`: the day the sweep put a cleared photo back where it was, or found another reason keeps it off (`putBackCleared`).
+ * `left`: on a photo marked off, the places the step that took it off took it from, as they were just before: the file
+ * and its place there, its entry being kept on the Mac alone (`notePlaces`).
+ */
+export type SecondLook = { why: string; step: string; pages: string[]; at: string; off?: true; look?: Look; back?: string; left?: Place[]; settled?: Place[] }
 export type SecondLooks = Record<string, SecondLook>
 export const SECOND_LOOK_FILE = '_photo-second-look.json'
 
 const fileOf = (root: string) => join(root, 'engine-state', SECOND_LOOK_FILE)
 const object = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x)
+const day = (x: unknown): x is string => typeof x === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(x)
 const has = (sl: SecondLooks, url: string) => Object.hasOwn(sl, url)
 
 /** The record. One that can't be read stops the step that reads it: it takes nothing off rather than guess. */
@@ -152,8 +160,8 @@ export const waitingEntry = (why: string) => compactRejection(why).replace(/^[^:
  * Puts each photo a step holds on the second look, once. An entry already there, with its look, is kept as it is; the
  * record is read again first, so what another step wrote meanwhile stays. Returns the photos newly put there.
  */
-export async function holdForSecondLook(root: string, held: Map<string, { why: string; pages: string[]; off?: true }>, step: string, at = today()): Promise<string[]> {
-  if (!held.size) return []
+export async function holdForSecondLook(root: string, held: Map<string, { why: string; pages: string[]; off?: true }>, step: string, at = today(), places?: Map<string, Stood[]>): Promise<string[]> {
+  if (!held.size && !places?.size) return []
   const sl = await readSecondLook(root)
   const added: string[] = []
   for (const [url, h] of held) {
@@ -162,7 +170,9 @@ export async function holdForSecondLook(root: string, held: Map<string, { why: s
     sl[url] = { why: compactRejection(h.why), step, pages: [...new Set(h.pages)].sort(), at, ...(h.off ? { off: true as const } : {}) }
     added.push(url)
   }
-  if (added.length) await writeSecondLook(root, sl)
+  const dir = places?.size ? entriesDir() : undefined
+  const captured = dir && places ? await capturePlaces(sl, places, dir) : false
+  if (added.length || captured) await writeSecondLook(root, sl)
   return added
 }
 
@@ -198,25 +208,141 @@ export async function listAgreed(root: string): Promise<string[]> {
 
 /**
  * The sweep's part for a photo off at its first verdict that the look cleared: its waiting entry leaves the never-again
- * list, so the step that found it can bring it back. Returns them.
+ * list, so the step that found it can bring it back. Returns them. Not one whose record has places while the private
+ * folder can't be read here (GitHub's run): the put-back waits for the Mac to put it back, and until then everything,
+ * its waiting entry too, stays as it was (the chief of staff, 22 Nov 2026).
  */
-export async function unlistCleared(root: string): Promise<string[]> {
+export async function unlistCleared(root: string, deferred: ReadonlySet<string> = new Set()): Promise<string[]> {
   const sl = await readSecondLook(root)
   const l = looks(sl)
   const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
   const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
-  const out = Object.keys(sl).filter(u => sl[u]!.off === true && l.cleared(u) && rejected[u] === waitingEntry(sl[u]!.why))
+  const waits = (u: string) => deferred.has(u) || (!!sl[u]!.left?.length && !sl[u]!.back)
+  const out = Object.keys(sl).filter(u => sl[u]!.off === true && l.cleared(u) && rejected[u] === waitingEntry(sl[u]!.why) && !waits(u))
   if (!out.length) return []
   for (const u of out) delete rejected[u]
   await writePhotoState(rejectedFile, rejected)
   return out
 }
 
+/** A place a photo stood: its page's, album's or guide's file (from the repository's root) and its place in `photos`. */
+export type Place = { file: string; index: number }
+/** The same, with its entry there, as the step that takes it off holds it. */
+export type Stood = Place & { photo: Record<string, unknown>; order?: string[] }
+/** A place a photo's mark took it off, as it was just before it first left from the mark on; and how many times it left. */
+export type LeftPlace = Stood & { times: number }
+
 /**
- * A place a photo's mark took it off: its page's, album's or guide's file (from the repository's root), its place in the
- * list and its entry there, as they were just before it first left from the mark on; and how many times it left.
+ * The places in `data`, a page's, album's or guide's file at `file` read just before a step writes it without them, of
+ * each photo `marked` names, added to `into` (url → places, with the entry).
  */
-export type LeftPlace = { file: string; index: number; photo: Record<string, unknown>; times: number }
+export function placesIn(root: string, file: string, data: { photos?: unknown }, marked: (url: string) => boolean, into: Map<string, Stood[]>) {
+  const photos = Array.isArray(data.photos) ? (data.photos as Record<string, unknown>[]) : []
+  const order = photos.map(p => typeof p?.url === 'string' ? p.url : '')
+  photos.forEach((p, index) => {
+    if (typeof p?.url !== 'string' || !marked(p.url)) return
+    into.set(p.url, [...(into.get(p.url) ?? []), { file: relative(root, file), index, photo: JSON.parse(JSON.stringify(p)), order }])
+  })
+}
+
+/**
+ * Where a photo's entry is kept while it waits off its pages: a private folder on the Mac, outside any checkout, beside
+ * the Internet Archive's rest and the magazine's ledger. An entry names its photographer, and a name written into the
+ * public record for a photo no commit ever showed would stay in the repository's past for good. Each mark and place
+ * gets its own immutable file, so concurrent Mac checkouts can record different places without overwriting one another.
+ * `AQ_PUT_BACK_ENTRIES` names another folder, or `off`. Undefined where none can be read: on GitHub, or off.
+ */
+export function entriesDir(env: NodeJS.ProcessEnv = process.env): string | undefined {
+  if (env.AQ_PUT_BACK_ENTRIES === 'off') return undefined
+  if (env.AQ_PUT_BACK_ENTRIES) return env.AQ_PUT_BACK_ENTRIES
+  return machine(env) === 'mac' ? join(homedir(), '.cache/aquatome/put-back') : undefined
+}
+
+type Kept = Stood & { url: string; at: string; why: string }
+const keptFile = (dir: string, url: string, mark: SecondLook, p: Place) =>
+  join(dir, `${createHash('sha256').update(JSON.stringify([url, mark.at, mark.why, p.file, p.index])).digest('hex')}.json`)
+
+async function readKept(dir: string, url: string, mark: SecondLook, p: Place): Promise<Kept | undefined> {
+  const raw = await readFile(keptFile(dir, url, mark, p), 'utf8').catch(async (e: NodeJS.ErrnoException) => {
+    if (e.code !== 'ENOENT' || !(await stat(dir)).isDirectory()) throw e
+    return undefined
+  })
+  if (raw === undefined) return undefined
+  const v = JSON.parse(raw) as Kept
+  if (v?.url !== url || v.at !== mark.at || v.why !== mark.why || v.file !== p.file || v.index !== p.index || v.photo?.url !== url ||
+      (v.order !== undefined && (!Array.isArray(v.order) || v.order.some(u => typeof u !== 'string')))) {
+    throw new Error('Unrecognized private photo recovery entry')
+  }
+  return v
+}
+
+/** Publish the entry only if absent. Readers see a complete file and repeat writers preserve the first capture. */
+async function writeKept(dir: string, url: string, mark: SecondLook, p: Stood) {
+  await mkdir(dir, { recursive: true, mode: 0o700 })
+  const file = keptFile(dir, url, mark, p)
+  const temporary = `${file}.${randomUUID()}.next`
+  try {
+    await writeFile(temporary, JSON.stringify({ ...p, url, at: mark.at, why: mark.why }), { mode: 0o600, flag: 'wx' })
+    try { await link(temporary, file) } catch (e) {
+      if ((e as NodeJS.ErrnoException).code !== 'EEXIST' || !(await readKept(dir, url, mark, p))) throw e
+    }
+  } finally { await rm(temporary, { force: true }) }
+}
+
+/** Keep the private entry before naming its place on the public record. Updates are published together with the mark. */
+async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: string): Promise<boolean> {
+  let changed = false
+  for (const [url, places] of left) {
+    const r = has(sl, url) ? sl[url]! : undefined
+    if (!r || r.off !== true || lookOf(r) || r.back) continue
+    const named = new Set((r.left ?? []).map(p => p.file))
+    for (const p of places) {
+      if (named.has(p.file) || !PLACE.test(p.file)) continue
+      await writeKept(dir, url, r, p)
+      named.add(p.file)
+      r.left = [...(r.left ?? []), { file: p.file, index: p.index }]
+      changed = true
+    }
+  }
+  return changed
+}
+
+/** Capture a further removal under an existing waiting mark before the sweep writes the page or album. */
+export async function notePlaces(root: string, left: Map<string, Stood[]>, dir = entriesDir()) {
+  if (!left.size || !dir) return
+  const sl = await readSecondLook(root)
+  if (await capturePlaces(sl, left, dir)) await writeSecondLook(root, sl)
+}
+
+/** Private recovery entries outlive an unpublished restore or agree. Prune only against a matching published outcome. */
+async function pruneKept(root: string, dir: string, local: SecondLooks) {
+  const files = (await readdir(dir).catch(() => [] as string[])).filter(f => /^[a-f0-9]{64}\.json$/.test(f))
+  if (!files.length) return
+  const tip = spawnSync('git', ['-C', root, 'rev-parse', '--verify', 'refs/remotes/origin/main'], { encoding: 'utf8' })
+  if (tip.status !== 0) return
+  const sha = tip.stdout.trim()
+  const published = (file: string) => {
+    const got = spawnSync('git', ['-C', root, 'show', `${sha}:engine-state/${file}`], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+    if (got.status !== 0) return undefined
+    try { const value: unknown = JSON.parse(got.stdout); return object(value) ? value : undefined } catch { return undefined }
+  }
+  const marks = published(SECOND_LOOK_FILE) as SecondLooks | undefined
+  const rejected = published('_photo-rejected.json')
+  if (!marks || !rejected) return
+  for (const file of files) {
+    const path = join(dir, file)
+    const raw = await readFile(path, 'utf8').catch(() => undefined)
+    let k: Kept | undefined
+    try { k = raw === undefined ? undefined : JSON.parse(raw) as Kept } catch { continue }
+    if (!k || typeof k.url !== 'string' || !day(k.at) || typeof k.why !== 'string') continue
+    const mark = marks[k.url], here = local[k.url]
+    const restored = mark?.back && here?.back && mark.at === k.at && mark.why === k.why && here.at === k.at && here.why === k.why &&
+      mark.settled?.some(p => p.file === k.file && p.index === k.index)
+    const agreed = !mark && !here && rejected[k.url] === k.why
+    if (restored || agreed) await rm(path, { force: true })
+  }
+}
+
 /**
  * The repository's history, as the put-back reads it: each page, album or guide file that showed a photo just before
  * the commit that marked it off, and that it left from that commit on, with its place and its entry as they were just
@@ -224,7 +350,7 @@ export type LeftPlace = { file: string; index: number; photo: Record<string, unk
  * dated) whose record has it `off`. None if no commit since marked it. Undefined where there's no history to read here
  * (not a repository, or a shallow clone): nothing is put back, and a full clone does it later.
  */
-export type History = (url: string, since: string) => Promise<LeftPlace[] | undefined>
+export type History = (url: string, since: string, captured?: readonly Place[]) => Promise<LeftPlace[] | undefined>
 
 /** The pages, albums and guides a photo shows on. */
 const PLACE = /^content\/(?:(?:species|plants|breeds|guides)\/[^/]+\/entity\.json|gallery\/[^/]+\.json)$/
@@ -239,20 +365,27 @@ const PLACE = /^content\/(?:(?:species|plants|breeds|guides)\/[^/]+\/entity\.jso
  * counts once. A page renamed as it left keeps its old file, which the put-back reports gone.
  */
 export function gitHistory(root: string): History {
-  const git = (...args: string[]) => spawnSync('git', ['-C', root, ...args], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
+  const git = (...args: string[]) => spawnSync('git', ['-C', root, ...args], {
+    encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, env: { ...process.env, LC_ALL: 'C' },
+  })
+  const at = (rev: string, file: string): unknown => {
+    const r = git('show', `${rev}:${file}`)
+    if (r.status === 0) return JSON.parse(r.stdout) as unknown
+    if (/path .+ (?:does not exist in|exists on disk, but not in)/.test(r.stderr ?? '')) return undefined
+    throw new Error('Could not read the photo recovery history')
+  }
   const line = ['--first-parent', '--diff-merges=first-parent', '--no-patch', '--no-renames']
   // The record as each commit had it, read once for every photo the sweep asks about.
   const records = new Map<string, SecondLooks | undefined>()
   const recordAt = (sha: string) => {
     if (!records.has(sha)) {
-      const r = git('show', `${sha}:engine-state/${SECOND_LOOK_FILE}`)
-      let v: unknown
-      try { v = r.status === 0 ? JSON.parse(r.stdout) : undefined } catch { v = undefined }
-      records.set(sha, object(v) ? (v as SecondLooks) : undefined)
+      const value = at(sha, `engine-state/${SECOND_LOOK_FILE}`)
+      if (value !== undefined && !object(value)) throw new Error('Invalid photo recovery history record')
+      records.set(sha, value as SecondLooks | undefined)
     }
     return records.get(sha)
   }
-  return async (url, since) => {
+  const find: History = async (url, since, captured = []) => {
     const shallow = git('rev-parse', '--is-shallow-repository')
     if (shallow.status !== 0 || shallow.stdout.trim() !== 'false') return undefined
     const marks = git('log', ...line, '--reverse', '--format=%H', `--since=${since}T00:00:00Z`, '--', `engine-state/${SECOND_LOOK_FILE}`)
@@ -261,8 +394,10 @@ export function gitHistory(root: string): History {
     if (!mark) return []
     const parent = git('rev-parse', '--verify', '-q', `${mark}^`).stdout.trim()
     if (!parent) return []
-    const at = (rev: string, file: string) => { const r = git('show', `${rev}:${file}`); try { return r.status === 0 ? JSON.parse(r.stdout) as { photos?: unknown } : undefined } catch { return undefined } }
-    const urls = (d: { photos?: unknown } | undefined) => (Array.isArray(d?.photos) ? d.photos as Record<string, unknown>[] : [])
+    const urls = (data: unknown) => {
+      const photos = object(data) ? data.photos : undefined
+      return Array.isArray(photos) ? photos as Record<string, unknown>[] : []
+    }
     // The places that showed it just before its mark (grep's status is 1 when none does).
     const mirrors = mirrorSearchTerms(url)
     const samePhoto = photoAddressSet([url])
@@ -270,7 +405,8 @@ export function gitHistory(root: string): History {
     const terms = [url, ...mirrors].flatMap(s => ['-e', s])
     const held = git('grep', '-l', '-F', ...terms, parent, '--', 'content/species', 'content/plants', 'content/breeds', 'content/gallery', 'content/guides')
     if (held.status !== 0 && held.status !== 1) return undefined
-    const places = held.stdout.split('\n').map(l => l.slice(parent.length + 1)).filter(f => PLACE.test(f) && urls(at(parent, f)).some(shown))
+    const previous = new Set(held.stdout.split('\n').map(l => l.slice(parent.length + 1)).filter(f => PLACE.test(f) && urls(at(parent, f)).some(shown)))
+    const places = [...new Set([...previous, ...captured.map(p => p.file).filter(f => PLACE.test(f))])]
     if (!places.length) return []
     const search = mirrors.length ? [] : ['-S', url]
     const log = git('log', ...line, '--reverse', '--format=%H', ...search, `${parent}..HEAD`, '--', ...places)
@@ -285,11 +421,14 @@ export function gitHistory(root: string): History {
         if (index < 0 || urls(at(sha, file)).some(shown)) continue
         const had = out.get(file)
         if (had) had.times++
-        else out.set(file, { file, index, photo: before[index]!, times: 1 })
+        else out.set(file, { file, index, photo: before[index]!, times: previous.has(file) ? 1 : 2,
+          order: before.map(p => typeof p?.url === 'string' ? p.url : ''),
+        })
       }
     }
     return [...out.values()]
   }
+  return (url, since, captured) => find(url, since, captured).catch(() => undefined)
 }
 
 /**
@@ -302,8 +441,12 @@ export const CLEARED_VERDICT = 'dead' as const
 /**
  * The sweep's part, before anything else reads a page: each photo off at its first verdict that the look cleared goes
  * back where it was, once (the chief of staff, 20 Nov 2026). Every page, album and guide that showed it when it was
- * marked off and that it left from then on, at its place there and as its entry was, from the repository's history; one
- * that already shows it is left as it is.
+ * marked off and that it left from then on, at its place there and as its entry was: first the places its record holds,
+ * which the step that took it off wrote (`notePlaces`), with their entries from the Mac's private folder, then any other
+ * the repository's history shows; one that already shows it is left as it is. Where its record has places, a run that
+ * can't read that folder waits, unmarked; a place whose entry the folder doesn't hold, and that history doesn't show, is
+ * reported and stays off, as before places were noted. An unreadable place waits for retry. An entry leaves the folder
+ * only after the matching restore, refusal or agreement reaches main (`pruneKept`).
  * Its own waiting entry leaves the never-again list with it, so nothing later in the pass takes it off on that.
  *
  * Only the removal its mark made comes back, and nothing another reason took off (the independent reader, 21 Nov):
@@ -316,28 +459,60 @@ export const CLEARED_VERDICT = 'dead' as const
  *   album step does;
  * - a file that's gone (a page renamed or folded) is passed over and reported.
  * The sweep's own rules (the credit rule, the cap, the captions) still act on what returns. Its record takes `back` (the
- * day), so a later removal, on any step's word, stands. Where there's no history to read, it waits, unmarked (`unread`).
+ * day), so a later removal, on any step's word, stands, and its places leave it. Where there's no history to read, it
+ * waits, unmarked (`unread`).
  * Returns `file: url` for each place it went back to, `url: why` for each place or photo kept off, and `unread`.
  */
-export async function putBackCleared(root: string, history: History, at = today(), refused: (id: string, url: string, aside?: typeof CLEARED_VERDICT) => boolean = () => false): Promise<{ back: string[]; off: string[]; unread: string[] }> {
+export async function putBackCleared(root: string, history: History, at = today(), refused: (id: string, url: string, aside?: typeof CLEARED_VERDICT) => boolean = () => false, dir = entriesDir()): Promise<{ back: string[]; off: string[]; unread: string[] }> {
   const out = { back: [] as string[], off: [] as string[], unread: [] as string[] }
   const sl = await readSecondLook(root)
+  if (dir) await pruneKept(root, dir, sl)
   const l = looks(sl)
   const due = Object.keys(sl).filter(u => sl[u]!.off === true && l.cleared(u) && !sl[u]!.back)
   if (!due.length) return out
   const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
   const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
   let unlisted = false
-  for (const u of due) {
+  const complete = (mark: SecondLook) => {
+    if (mark.left?.length) {
+      const settled = new Map((mark.settled ?? []).map(p => [p.file, p]))
+      for (const p of mark.left) settled.set(p.file, p)
+      mark.settled = [...settled.values()]
+      delete mark.left
+    }
+    mark.back = at
+  }
+  restore: for (const u of due) {
     const entry = rejected[u]
     if (entry !== undefined && entry !== waitingEntry(sl[u]!.why)) {
       out.off.push(`${u}: on the never-again list as ${entry.split(':')[0]}`)
-      sl[u]!.back = at
+      complete(sl[u]!)
       continue
     }
-    const places = await history(u, sl[u]!.at)
-    if (!places) { out.unread.push(u); continue }
-    if (!places.length) out.off.push(`${u}: it left no page or album that showed it when it was marked off`)
+    // Its record's places first: a run that brought it and took it off made one commit, which history never shows it in.
+    // Their entries are kept on the Mac alone (`entriesDir`): a run that can't read them waits, unmarked, as one with no
+    // history to read does.
+    const own = sl[u]!.left ?? []
+    if (own.length && !dir) { out.unread.push(u); continue }
+    const read = await history(u, sl[u]!.at, own).catch(() => undefined)
+    if (!read) { out.unread.push(u); continue }
+    const fromHistory = new Map(read.map(p => [p.file, p]))
+    const mine: LeftPlace[] = []
+    const missing: string[] = []
+    try {
+      for (const p of own) {
+        if (!PLACE.test(p.file) || !Number.isSafeInteger(p.index) || p.index < 0) throw new Error('Invalid photo recovery place')
+        const kept = await readKept(dir!, u, sl[u]!, p)
+        if (kept) mine.push({ ...p, photo: kept.photo, order: kept.order, times: fromHistory.get(p.file)?.times ?? 1 })
+        else if (!fromHistory.has(p.file)) missing.push(`${u}: its entry on ${p.file} wasn't kept here`)
+      }
+    } catch {
+      out.unread.push(u)
+      continue
+    }
+    out.off.push(...missing)
+    const places = [...mine, ...read.filter(p => !mine.some(o => o.file === p.file))]
+    if (!places.length && !own.length) out.off.push(`${u}: it left no page or album that showed it when it was marked off`)
     const named = new Set(sl[u]!.pages.map(x => x.split('/')[1]))
     for (const p of places) {
       if (p.times > 1) { out.off.push(`${u}: it left ${p.file} again after it came back, and that removal stands`); continue }
@@ -352,18 +527,30 @@ export async function putBackCleared(root: string, history: History, at = today(
       const aside = page && named.has(page) ? CLEARED_VERDICT : undefined
       if (page && (refused(page, u, aside) || (u !== address && refused(page, address, aside)))) { out.off.push(`${u}: the check refused it on ${page}`); continue }
       const file = join(root, p.file)
-      const raw = await readFile(file, 'utf8').catch(() => undefined)
-      if (raw === undefined) { out.off.push(`${u}: ${p.file} is gone`); continue }
-      const doc = JSON.parse(raw) as { photos?: Record<string, unknown>[] }
+      let raw: string, doc: { photos?: Record<string, unknown>[] }
+      try {
+        raw = await readFile(file, 'utf8')
+        doc = JSON.parse(raw) as typeof doc
+      } catch (e) {
+        if ((e as NodeJS.ErrnoException).code === 'ENOENT') { out.off.push(`${u}: ${p.file} is gone`); continue }
+        out.unread.push(u)
+        continue restore
+      }
       const photos = Array.isArray(doc.photos) ? doc.photos : (doc.photos = [])
       const samePhoto = photoAddressSet([u, address])
       if (photos.some(x => typeof x?.url === 'string' && samePhoto(x.url))) continue
-      photos.splice(Math.min(p.index, photos.length), 0, p.photo)
+      // The original neighbors give a stable position even when multiple photos come back in different cycles.
+      const following = new Set(p.order?.slice(p.index + 1))
+      const preceding = new Set(p.order?.slice(0, p.index))
+      const next = photos.findIndex(x => following.has(String(x?.url)))
+      const prev = photos.findLastIndex(x => preceding.has(String(x?.url)))
+      const index = next >= 0 ? next : prev >= 0 ? prev + 1 : Math.min(p.index, photos.length)
+      photos.splice(index, 0, p.photo)
       await writeFile(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       out.back.push(`${p.file}: ${address}`)
     }
     if (entry !== undefined) { delete rejected[u]; unlisted = true }
-    sl[u]!.back = at
+    complete(sl[u]!)
   }
   if (unlisted) await writePhotoState(rejectedFile, rejected)
   await writeSecondLook(root, sl)
@@ -379,20 +566,20 @@ export async function putBackCleared(root: string, history: History, at = today(
  * - A waiting entry with no record marked for it stays in force, so the photo stays off, and is reported (`alone`).
  * Nothing leaves the never-again list here.
  */
-export async function mendWaiting(root: string): Promise<{ back: string[]; other: string[]; alone: string[] }> {
+export async function mendWaiting(root: string, deferred: ReadonlySet<string> = new Set()): Promise<{ back: string[]; other: string[]; alone: string[] }> {
   const sl = await readSecondLook(root)
   const l = looks(sl)
   const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
   const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
   const out = { back: [] as string[], other: [] as string[], alone: [] as string[] }
   for (const u of Object.keys(sl)) {
-    if (!l.off(u)) continue
+    if (!l.off(u) && !(deferred.has(u) && sl[u]!.off === true && !sl[u]!.back)) continue
     const want = waitingEntry(sl[u]!.why), have = rejected[u]
     if (have === want) continue
     if (have === undefined || have.startsWith('waiting:')) { rejected[u] = want; out.back.push(u) }
     else out.other.push(`${u}: its never-again entry is another kind's, left in force`)
   }
-  for (const [u, why] of Object.entries(rejected)) if (why.startsWith('waiting:') && !(l.off(u) && why === waitingEntry(sl[u]!.why))) out.alone.push(`${u}: no second-look record marked for it, kept off`)
+  for (const [u, why] of Object.entries(rejected)) if (why.startsWith('waiting:') && !(sl[u]?.off && !sl[u].back && why === waitingEntry(sl[u].why))) out.alone.push(`${u}: no second-look record marked for it, kept off`)
   if (out.back.length) await writePhotoState(rejectedFile, rejected)
   return out
 }

@@ -7,7 +7,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
+import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, type Stood } from './last-photo'
 
 /**
  * No dead fish on a page, for what the photo check hasn't asked about (photo-check.ts asks since 2026-11-05): each species
@@ -194,12 +194,13 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const firstOff = new Map([...last].filter(([u]) => !passed(u)))
   const holding = new Map<string, { why: string; pages: string[]; off?: true }>()
   type Page = { photos?: Photo[]; videos?: { youtubeId: string }[] }
-  const edits = new Map<string, { raw: string; page: Page }>()
+  const edits = new Map<string, { raw: string; original: Page; page: Page }>()
   const readPage = async (file: string) => {
     const had = edits.get(file)
     if (had) return had
     const raw = await readFile(file, 'utf8')
-    const edit = { raw, page: JSON.parse(raw) as Page }
+    const original = JSON.parse(raw) as Page
+    const edit = { raw, original, page: { ...original } }
     edits.set(file, edit)
     return edit
   }
@@ -240,7 +241,9 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     }
   }
   // A retry can always find the owning photo until its removal or hold is durable.
-  await holdForSecondLook(root, holding, 'the dead-fish screen')
+  const left = new Map<string, Stood[]>()
+  for (const [file, edit] of edits) placesIn(root, file, edit.original, url => firstOff.has(url), left)
+  await holdForSecondLook(root, holding, 'the dead-fish screen', undefined, left)
   const save = (f: string, data: object) => writePhotoState(state(f), data)
   if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)
   if (off.some(x => !x.video && going.has(x.url) && !held.has(x.url))) await save('_photo-rejected.json', photoRejected)

@@ -25,6 +25,20 @@ test("an emptied page both sides listed keeps the earlier day, whichever side ha
   expect(mergeMaps({}, { 'species/a': 'waiting' }, { 'species/a': '2026-11-20' })).toEqual({ 'species/a': 'waiting' })
 })
 
+test('a clear keeps recovery places added for the same mark in a concurrent checkout', () => {
+  const mark = { why: 'dead: withheld', step: 'the photo check', pages: ['species/x'], at: '2026-11-20', off: true }
+  const look = { said: 'clear', by: 'the chief of staff', on: '2026-11-21' }
+  const page = { file: 'content/species/x/entity.json', index: 0 }
+  const album = { file: 'content/gallery/x.json', index: 2 }
+  const base = { u: mark }
+  const checked = { u: { ...mark, look, left: [page] } }
+  const captured = { u: { ...mark, left: [album] } }
+  const merged = { u: { ...mark, look, left: [page, album] } }
+  expect(mergeMaps(base, checked, captured)).toEqual(merged)
+  expect(mergeMaps(base, captured, checked)).toEqual(merged)
+  expect(mergeMaps(base, checked, { u: { ...captured.u, why: 'people: withheld' } })).toEqual({ u: { ...captured.u, why: 'people: withheld' } })
+})
+
 test('as a git merge driver: two engine jobs that both append to a photo cache rebase cleanly', async () => {
   const dir = await mkdtemp(join(tmpdir(), 'jm-'))
   const git = (...a: string[]) => execFileSync('git', a, { cwd: dir, encoding: 'utf8' })

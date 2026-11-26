@@ -18,16 +18,30 @@ import { pathToFileURL } from 'node:url'
 // and main's unmarked records won: the chief of staff, 20 Nov 2026); else ours.
 const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && typeof v.step === 'string' && Array.isArray(v.pages) && typeof v.at === 'string'
 const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
+const placesOf = r => Array.isArray(r?.left) ? r.left.filter(p => typeof p?.file === 'string' && Number.isSafeInteger(p.index) && p.index >= 0) : []
+function mergePlaces(chosen, base, ours, theirs) {
+  if (ours.off !== true || theirs.off !== true || ours.at !== theirs.at || ours.why !== theirs.why) return chosen
+  const other = chosen === ours ? theirs : ours
+  const from = placesOf(other)
+  if (!from.length) return chosen
+  const added = chosen.back ? from.filter(p => !placesOf(base).some(q => q.file === p.file)) : from
+  const places = new Map(placesOf(chosen).map(p => [p.file, p]))
+  for (const p of added) if (!places.has(p.file)) places.set(p.file, p)
+  if (!places.size) return chosen
+  const { back: _back, ...pending } = chosen
+  return { ...pending, left: [...places.values()] }
+}
+
 function bothChanged(base, ours, theirs, k) {
   if (!(k in ours) || !(k in theirs)) return k in base ? undefined : (k in ours ? ours : theirs)
   const [o, t] = [ours[k], theirs[k]]
   if (answered(o) !== answered(t)) {
     const [a, m] = answered(o) ? [o, t] : [t, o]
     if (m.off === true && a.look.said === 'clear' && a.why !== m.why) return { [k]: m }
-    return { [k]: m.off === true && a.off !== true ? { ...m, look: a.look } : a }
+    return { [k]: m.off === true && a.off !== true ? { ...m, look: a.look } : mergePlaces(a, base[k], o, t) }
   }
   if ((o.off === true) !== (t.off === true)) return o.off === true ? ours : theirs
-  return ours
+  return { [k]: mergePlaces(o, base[k], o, t) }
 }
 
 // A never-again entry (engine-state/_photo-rejected.json) both sides changed, one a waiting entry (last-photo.ts
