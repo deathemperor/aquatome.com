@@ -199,12 +199,16 @@ function storedSourcePhoto(p: Photo): Photo | undefined {
   return { url, thumb, width, height, licence: p.licence, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), sourceUrl: p.sourceUrl, source: p.source }
 }
 
+const hasPhotographer = (photo: Photo) => photo.author.includes(' / ')
+
 /** Media addresses are shared by publisher and image, including originals kept inside an alteration. */
 export async function storedSourcePhotos(content: string): Promise<Map<string, Photo>> {
   const stored = new Map<string, Photo>()
   for await (const p of photoPlacements(content)) {
     const photo = storedSourcePhoto(p)
-    if (photo && !stored.has(photo.url)) stored.set(photo.url, photo)
+    if (!photo) continue
+    const previous = stored.get(photo.url)
+    if (!previous || (!hasPhotographer(previous) && hasPhotographer(photo))) stored.set(photo.url, photo)
   }
   return stored
 }
@@ -214,15 +218,19 @@ function publishedSourcePhoto(root: string, url: string): Photo | undefined {
   const git = (...args: string[]) => spawnSync('git', ['-C', root, ...args], { encoding: 'utf8', maxBuffer: 8 << 20 })
   const scopes = ['content/species', 'content/plants', 'content/breeds', 'content/guides', 'content/glossary', 'content/gallery', 'content/equipment']
   const inRevision = (version: string, paths: string): Photo | undefined => {
+    let first: Photo | undefined
     for (const file of paths.split('\0')) {
       if (!file.endsWith('/entity.json') && !/^content\/(gallery|equipment)\/.*\.json$/.test(file)) continue
       const result = git('show', `${version}:${file}`)
       if (result.status !== 0) continue
       for (const p of documentPhotos(JSON.parse(result.stdout))) {
         const record = storedSourcePhoto(p)
-        if (record?.url === url) return record
+        if (record?.url !== url) continue
+        if (hasPhotographer(record)) return record
+        first ??= record
       }
     }
+    return first
   }
   const current = git('grep', '-l', '-z', '-F', '-e', url, 'HEAD', '--', ...scopes)
   if (current.status === 0) {
