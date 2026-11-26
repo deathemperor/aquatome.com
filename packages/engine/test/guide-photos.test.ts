@@ -72,12 +72,12 @@ test.each(['own photo', 'stock photo'])('a guide %s keeps its eligible fallback 
   const altered = { ...photo('altered'), altered: [{ method: 'lanczos3-upscale' }], original: photo('original') }
   const stock = place === 'stock photo'
   const root = await store({ guide: stock ? { video: { figures: [{ photo: altered, moments: [] }] } } : { photos: [altered] } })
-  const { d, seen } = model({ altered: { mark: true } })
+  const { d, seen } = model({ altered: { person: true } })
   await screenGuidePhotos(root, d, { limit: 1 })
   expect(seen.map(s => s.photos)).toEqual([['altered', 'original']])
   const guide = await json(root, 'content/guides/guide/entity.json')
   expect(stock ? guide.video.figures[0].photo : guide.photos[0]).toEqual(altered)
-  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [altered.url]: 'watermark' })
+  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [altered.url]: 'people' })
 })
 
 test('hands or a person on a guide\'s photos, a mark on a video section\'s photo and a brand on a packshot take them off the guides and onto the blocklist; a brand stays on an equipment guide', async () => {
