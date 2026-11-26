@@ -611,3 +611,16 @@ test('a pending source watermark cannot count its mirror as a replacement for a 
   expect(await photosOf(r, 'aaa')).toEqual(['a-dead', name(mirror)])
   expect((await json(r, 'engine-state/_photo-rejected.json'))[source]).toBeUndefined()
 })
+
+test('an existing whole-photo source rejection also excludes its mirror as a replacement', async () => {
+  const r = await store({ aaa: [] }, { 'a-dead': { aaa: oldPass } })
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const sibling = { ...photo('sample'), url: mirror, source: undefined, licence: 'CC BY 4.0' }
+  await writeFile(join(r, 'content/species/aaa/entity.json'), JSON.stringify(fish('aaa', [photo('a-dead'), sibling])))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [source]: 'not the subject' }))
+  const checked = await checkPagePhotos(r, model({ 'a-dead': dead }), { limit: 10, emptyCap: 0 })
+
+  expect(checked.heads.held).toContain(`species/aaa: ${url('a-dead')}`)
+  expect(await photosOf(r, 'aaa')).toContain('a-dead')
+})
