@@ -40,7 +40,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { rejectedEntry } from './photos'
-import { gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readSecondLook, unlistCleared, waitingEntry, type History, type Stood } from './last-photo'
+import { captureWaiting, gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readSecondLook, unlistCleared, type History, type Stood } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
@@ -1140,9 +1140,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // The glossary's too: a term shows a photo from a fish page, and one refused there stayed on the term (the independent
   // reader, 20 Nov). A kind left with no photo has no record (GlossarySchema `kinds`).
   const glossaryFiles = (await readdir(join(content, 'glossary')).catch(() => [] as string[])).sort().map(id => join(content, 'glossary', id, 'entity.json'))
-  const marked = await readSecondLook(root)
-  const waiting = looks(marked)
-  const remember = (url: string) => waiting.off(url) && listed(url) && listedWhy(url) === waitingEntry(marked[url]!.why)
+  const remember = captureWaiting(await readSecondLook(root), rejectedEntry(rejected))
   const keepsVersion = (url: string, original: string, blockedOriginal: boolean) =>
     /^(?:dead|people|waiting): /.test(listedWhy(url)) && (!blockedOriginal || listedWhy(original).startsWith('waiting:'))
   for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment')), ...glossaryFiles]) {
@@ -1150,7 +1148,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     if (!raw) continue
     const data = JSON.parse(raw) as { photos?: unknown }
     const places = new Map<string, Stood[]>()
-    placesIn(root, file, data, remember, places)
+    placesIn(root, file, data, url => listed(url) ? remember(url) : undefined, places)
     const removed: string[] = []
     stripPhotos(data, listed, removed, [], keepsVersion)
     if (!removed.length) continue

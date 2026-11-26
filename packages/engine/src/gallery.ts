@@ -12,8 +12,8 @@ import { openversePage } from './openverse'
 import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
-import { isRejected, unfitCommons } from './photos'
-import { CLEARED_VERDICT, looks, readSecondLook } from './last-photo'
+import { isRejected, rejectedEntry, unfitCommons } from './photos'
+import { captureWaiting, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -519,7 +519,7 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   let openverseFailures = 0
   const today = d.now().toISOString().slice(0, 10)
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
-  await dropRejected(content, rejectedPhoto)
+  await dropRejected(root, content, rejectedPhoto, captureWaiting(sl, rejectedEntry(rejected)))
   // `shard` [i, n]: every n-th page from the i-th, so n runs can share the work (each still most popular first).
   const plan = (await galleryPlan(root)).filter((t, i) => (!o.only || t.id === o.only) && (!o.shard || i % o.shard[1] === o.shard[0]))
   // Each source's requests: counted against the run's budget, at the pace the source asks for (shared by n shards).
@@ -792,12 +792,16 @@ async function pageOf(root: string, id: string): Promise<Photo[]> {
 }
 
 /** Photos the owner rejected (engine-state/_photo-rejected.json) leave every gallery, the next run after they are listed. */
-async function dropRejected(content: string, isRejected: (url: string) => boolean) {
+async function dropRejected(root: string, content: string, isRejected: (url: string) => boolean, waiting: (url: string) => string | undefined) {
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const file = join(content, 'gallery', f)
     const g = JSON.parse(await readFile(file, 'utf8')) as { photos: Photo[] }
     const keep = g.photos.filter(p => !isRejected(p.url))
-    if (keep.length < g.photos.length) await writeFile(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
+    if (keep.length === g.photos.length) continue
+    const stood = new Map<string, Stood[]>()
+    placesIn(root, file, g, url => isRejected(url) ? waiting(url) : undefined, stood)
+    await notePlaces(root, stood)
+    await writeFile(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
   }
 }
 
