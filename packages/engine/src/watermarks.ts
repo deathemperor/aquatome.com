@@ -11,7 +11,7 @@ import { deadScreenPhotoUrls, IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit, 
 import { rememberMarkedPhotos } from './marked-photos'
 import { compactScreen, summarizeOcr, PHOTO_MARK_KINDS, PHOTO_POSITIONS, photoFailure, photoModelStop, type CompactScreen } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { readPhotoWaits } from './photo-visibility'
+import { permittedPhotoSource, readPhotoWaits } from './photo-visibility'
 import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readSecondLook } from './last-photo'
 
 /** A line of text macOS Vision read on a photo: confidence 0–1, box 0–1 from the top left. */
@@ -239,6 +239,7 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   const markedNow = (u: string) => cache[u]?.watermark === true && !retainedOwnMark(u, cache[u]) && sl.open(u)
   const waits = await readPhotoWaits(root, { rejected, watermarks: cache })
   const pages = await pagesShowing(join(root, 'content'), p => {
+    if (!permittedPhotoSource(p, sources)) return undefined
     if (markedNow(p.url) || p.url in rejected) return p.url
     return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)?.url
   })

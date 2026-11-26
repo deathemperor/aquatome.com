@@ -245,14 +245,14 @@ test('one photo on two pages, the only photo on one and one of several on the ot
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('j-dead')]: waitingEntry(sl[url('j-dead')].why) })
 })
 
-test('the other address of a first refusal joins the same wait even when it has a visible sibling', async () => {
+test.each([false, true])('the other address of a first refusal joins the same wait (different verdict: %s)', async mixed => {
   const r = await store({ jjj: [], kkk: [] })
   const source = 'https://live.staticflickr.com/123/456_abc.jpg'
   const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
   await writeFile(join(r, 'content/species/jjj/entity.json'), JSON.stringify(fish('jjj', [{ ...photo('mirror'), url: mirror }])))
   await writeFile(join(r, 'content/species/kkk/entity.json'), JSON.stringify(fish('kkk', [{ ...photo('source'), url: source }, photo('live')])))
 
-  await checkPagePhotos(r, model({ [name(source)]: dead, [name(mirror)]: dead }), { limit: 10 })
+  await checkPagePhotos(r, model({ [name(source)]: dead, [name(mirror)]: mixed ? { person: true } : dead }), { limit: 10 })
 
   const marks = await json(r, 'engine-state/_photo-second-look.json')
   expect(marks[mirror]).toMatchObject({ pages: ['species/jjj'], off: true })

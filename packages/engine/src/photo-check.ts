@@ -20,7 +20,7 @@ import { ageOf, ageUnasked, grownFirst, grownHead, headAsksAge, youngUnasked } f
 import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
 import { readAvoid } from './curation'
 import { priorityFish } from './priority-fish'
-import { readPhotoWaits } from './photo-visibility'
+import { permittedPhotoSource, readPhotoWaits } from './photo-visibility'
 
 type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; licence?: string; generated?: unknown; unchecked?: boolean }
 /**
@@ -842,8 +842,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const shownPhotos = async (file: string) => {
     const gallery = galleryId(file)
     return (await ownPhotos(file)).flatMap(photo => {
-      if (gallery && photo.unchecked && !albumChecked(photo.url, gallery)) return []
       const stored = photo as ContentPhoto
+      if (!permittedPhotoSource(stored, sources)) return []
+      if (gallery && photo.unchecked && !albumChecked(photo.url, gallery)) return []
       const served = versionOf(stored)
       return served ? [{ stored, served }] : []
     })
@@ -910,7 +911,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   const firstByPhoto = new Map<string, string>()
   for (const [url, mark] of firstOff) {
-    const key = `${mark.why.split(':')[0]}\n${photoKey(url) ?? url}`
+    const key = photoKey(url) ?? url
     const prior = firstByPhoto.get(key)
     if (prior) {
       firstOff.get(prior)!.pages.push(...mark.pages)
@@ -919,8 +920,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     } else firstByPhoto.set(key, url)
   }
   for (const [url, why] of Object.entries(added)) {
-    if (firstOff.has(url)) continue
-    const canonical = firstByPhoto.get(`${why.split(':')[0]}\n${photoKey(url) ?? url}`)
+    if (firstOff.has(url) || !FIRST_OFF.test(why)) continue
+    const canonical = firstByPhoto.get(photoKey(url) ?? url)
     if (canonical) firstAliases.set(url, canonical)
   }
   for (const [url, h] of firstOff) report.firstOff.push(`${[...new Set(h.pages)].join(', ')}: ${url}`)

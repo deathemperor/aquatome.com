@@ -10,6 +10,7 @@ import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { captureWaiting, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutSettledWaits, type Stood } from './last-photo'
+import { permittedPhotoSource } from './photo-visibility'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
 
@@ -96,7 +97,9 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   }
   const dropsStored = (p: Photo) => !keepsOriginal(p) && (!!listed(p.url) || face(p.url))
   const pagesToKeep = await pagesShowing(contentRoot, p => {
-    if (!waitingForDead || dropsStored(p)) return p.url
+    if (!waitingForDead) return p.url
+    if (!permittedPhotoSource(p, sources)) return undefined
+    if (dropsStored(p)) return p.url
     const shown = version(p)?.url
     return shown && !setsCookies(shown) ? shown : undefined
   })
