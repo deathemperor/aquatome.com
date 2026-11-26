@@ -1,4 +1,4 @@
-import { deadScreenPhotoUrls, type Photo } from '@aq/schema'
+import { deadScreenPhotoUrls, rejectedEntry, type Photo } from '@aq/schema'
 import { createHash } from 'node:crypto'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -72,9 +72,13 @@ export async function takeOffGuidesDead(root: string, dead: Map<string, string>,
   const sl = looks(await readSecondLook(root))
   const where = await guidePlaces(root)
   const asked = await askedByCheck(root)
-  const going = [...dead].filter(([u]) => where.has(u) && sl.open(u) && !asked.has(u))
-  if (!going.length) return report
   const rejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
+  const isListed = rejectedEntry(rejected)
+  const going = [...dead].filter(([u]) => {
+    const existing = isListed(u)?.[1]
+    return where.has(u) && sl.open(u) && !asked.has(u) && (!existing || existing.startsWith('watermark:'))
+  })
+  if (!going.length) return report
   const partsFile = state('_part-photos-off.json')
   const parts = (await readJson<PartPhotosOff>(partsFile)) ?? {}
   const hold = new Map<string, { why: string; pages: string[]; off: true; parts?: string[] }>()
@@ -95,8 +99,12 @@ export async function takeOffGuidesDead(root: string, dead: Map<string, string>,
       const h = hold.get(url)!
       h.parts = [...new Set([...(h.parts ?? []), key])]
       const had = parts[key]
+      const photoKey = hashed(url)
+      const holds = { ...had?.holds, [photoKey]: [...new Set([...(had?.holds?.[photoKey] ?? []), p.guide])].sort() }
+      const manualGuides = had?.manualGuides ?? (!had?.holds ? had?.guides : undefined)
       parts[key] = {
-        ...had, why: had?.why ?? compactRejection(why),
+        ...had, why: had?.why ?? compactRejection(why), holds,
+        ...(manualGuides?.length ? { manualGuides } : {}),
         ...(had && !had.guides ? {} : { guides: [...new Set([...(had?.guides ?? []), p.guide])].sort() }),
         ...(p.kind === 'frame' ? { seconds: [...new Set([...(had?.seconds ?? []), p.t!])].sort((a, b) => a - b) } : {}),
       }

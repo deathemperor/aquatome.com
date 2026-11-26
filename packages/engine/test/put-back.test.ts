@@ -1063,7 +1063,7 @@ test("a guide's part photo and frame a person cleared go back to their parts, an
   await mkdir(join(r, 'content/guides/ggg'), { recursive: true })
   await writeFile(join(r, G), `${JSON.stringify(guideAfter, null, 2)}\n`)
   const rec = { why, step: 'the dead-fish screen', pages: ['guides/ggg'], at: '2026-11-26', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-27' } }
-  await writeFile(join(r, SL), JSON.stringify({ [stock.url]: rec, [frame.url]: rec }))
+  await writeFile(join(r, SL), JSON.stringify({ [stock.url]: { ...rec, parts: [hashOf(stockPage)] }, [frame.url]: { ...rec, parts: [frame.url] } }))
   await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [stock.url]: waitingEntry(why), [frame.url]: waitingEntry(why) }))
   const byHand = 'https://commons.wikimedia.org/wiki/File:Other.jpg'
   await writeFile(join(r, 'engine-state/_part-photos-off.json'), JSON.stringify({ [hashOf(stockPage)]: { why, guides: ['ggg', 'hhh'] }, [frame.url]: { why, guides: ['ggg'], seconds: [60] }, [byHand]: { why: 'by hand' } }))
@@ -1112,6 +1112,41 @@ test('a clear restores a stock photo to the second of two parts with the same he
 
   expect((await putBackCleared(r, async () => [])).back).toEqual([`${G}: ${stock.url}`])
   expect((await json(r, G)).video.figures).toEqual(figures)
+})
+
+test('distinct surviving frames identify both repeated stock-photo slots', async () => {
+  const r = await store({})
+  const G = 'content/guides/ggg/entity.json'
+  const figures = [
+    { heading: 'Same heading', photo: stock, moments: [frame] },
+    { heading: 'Same heading', photo: stock, moments: [{ ...frame, url: url('distinct-frame'), t: 120 }] },
+  ]
+  await mkdir(join(r, G, '..'), { recursive: true })
+  await writeFile(join(r, G), JSON.stringify({ ...guideBefore, video: { ...guideBefore.video, figures } }))
+  await takeOffGuidesDead(r, new Map([[stock.url, 'sample']]), 'the guide photo check')
+  const marks = await json(r, SL)
+  marks[stock.url].look = { said: 'clear', by: 'reviewer', on: today() }
+  await writeFile(join(r, SL), JSON.stringify(marks))
+
+  expect((await putBackCleared(r, async () => [])).back).toHaveLength(2)
+  expect((await json(r, G)).video.figures).toEqual(figures)
+})
+
+test('a stock clear lifts its own hash and keeps a manual source exclusion', async () => {
+  const r = await store({})
+  const G = 'content/guides/ggg/entity.json'
+  const P = 'engine-state/_part-photos-off.json'
+  const manual = { why: 'by hand', guides: ['ggg'] }
+  await mkdir(join(r, G, '..'), { recursive: true })
+  await writeFile(join(r, G), JSON.stringify(guideBefore))
+  await writeFile(join(r, P), JSON.stringify({ [stockPage]: manual }))
+  await takeOffGuidesDead(r, new Map([[stock.url, 'sample']]), 'the guide photo check')
+  const marks = await json(r, SL)
+  marks[stock.url].look = { said: 'clear', by: 'reviewer', on: today() }
+  await writeFile(join(r, SL), JSON.stringify(marks))
+
+  expect((await putBackCleared(r, async () => [])).back).toEqual([`${G}: ${stock.url}`])
+  expect(await json(r, P)).toEqual({ [stockPage]: manual })
 })
 
 test('a dropped first part comes back before its surviving duplicate heading', async () => {
@@ -1205,7 +1240,7 @@ test("a same-cycle stock photo and frame return from private recovery even if th
   const out = await putBackCleared(r, async () => [])
   expect(out.back.sort()).toEqual([`${G}: ${frame.url}`, `${G}: ${stock.url}`].sort())
   expect(await json(r, G)).toEqual(guideBefore)
-  expect(await json(r, 'engine-state/_part-photos-off.json')).toEqual({ [hashOf(stockPage)]: { why, guides: ['hhh'] } })
+  expect(await json(r, 'engine-state/_part-photos-off.json')).toEqual({ [hashOf(stockPage)]: { why, guides: ['hhh'], manualGuides: ['hhh'] } })
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({})
 })
 

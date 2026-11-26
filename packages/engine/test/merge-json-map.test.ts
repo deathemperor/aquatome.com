@@ -65,6 +65,16 @@ test('a concurrent source exclusion keeps the added guide and drops the cleared 
   expect(mergeMaps(base, confirmed, {})).toEqual(confirmed)
 })
 
+test('a concurrent hold for the same guide preserves the exclusion when the first photo clears', () => {
+  const key = 'sha256:sample'
+  const entry = { why: 'dead: withheld', guides: ['g'] }
+  const base = { [key]: { ...entry, holds: { first: ['g'] } } }
+  const added = { [key]: { ...entry, holds: { first: ['g'], second: ['g'] } } }
+  const expected = { [key]: { ...entry, holds: { second: ['g'] } } }
+  expect(mergeMaps(base, {}, added)).toEqual(expected)
+  expect(mergeMaps(base, added, {})).toEqual(expected)
+})
+
 test("the part-photo list merges by key through the map driver, and no other file the driver merges holds a part photo's entry", async () => {
   const repo = fileURLToPath(new URL('../../../', import.meta.url))
   expect(execFileSync('git', ['check-attr', 'merge', '--', 'engine-state/_part-photos-off.json'], { cwd: repo, encoding: 'utf8' }).trim()).toBe('engine-state/_part-photos-off.json: merge: jsonmap')

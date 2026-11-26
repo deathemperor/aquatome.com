@@ -75,8 +75,8 @@ test("guides' own photos, then stock photos, then frames, each not asked about a
   const parts = await readPartPhotosOff(join(root, 'content'))
   const stockKey = `sha256:${createHash('sha256').update(stockPage).digest('hex')}`
   expect(Object.keys(parts).sort()).toEqual([m('frame-dead'), stockKey].sort())
-  expect(parts[stockKey]).toEqual({ why: expect.stringMatching(/^flagged by the backlog's look: withheld \[sha256:[0-9a-f]{64}\]$/), guides: ['g'] })
-  expect(parts[m('frame-dead')]).toEqual({ why: expect.stringMatching(/^flagged by the backlog's look: withheld \[sha256:[0-9a-f]{64}\]$/), guides: ['g'], seconds: [60] })
+  expect(parts[stockKey]).toEqual({ why: expect.stringMatching(/^flagged by the backlog's look: withheld \[sha256:[0-9a-f]{64}\]$/), guides: ['g'], holds: { [`sha256:${createHash('sha256').update(m('stock-dead')).digest('hex')}`]: ['g'] } })
+  expect(parts[m('frame-dead')]).toEqual({ why: expect.stringMatching(/^flagged by the backlog's look: withheld \[sha256:[0-9a-f]{64}\]$/), guides: ['g'], seconds: [60], holds: { [`sha256:${createHash('sha256').update(m('frame-dead')).digest('hex')}`]: ['g'] } })
   expect(JSON.stringify(parts)).not.toContain('bottle')
   // Each judged once: the next run asks nothing.
   const next = deps()
@@ -104,4 +104,14 @@ test("the take-off leaves alone a picture no guide shows, one a second look hold
   const r = await takeOffGuidesDead(root, new Map([[m('nowhere'), 'x'], [m('g-live'), 'x'], [m('g-checked'), 'x'], [m('g-dead'), 'x']]), 'the guide photo check')
   expect(r.off).toEqual([`${m('g-dead')}: guides/g`])
   expect((await json(root, 'content/guides/g/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([m('g-live'), m('g-looked'), m('g-screened'), m('g-checked')])
+})
+
+test('an agreed guide refusal is not requested again when its wrapper still exists', async () => {
+  const root = await store()
+  const flag = m('stock-dead')
+  const file = join(root, 'engine-state/_photo-rejected.json')
+  await writeFile(file, JSON.stringify({ [flag]: "flagged by the backlog's look: withheld" }))
+
+  expect(await takeOffGuidesDead(root, new Map([[flag, 'sample']]), 'the guide photo check')).toEqual({ off: [], bare: [] })
+  await expect(readFile(join(root, 'engine-state/_photo-second-look.json'), 'utf8')).rejects.toMatchObject({ code: 'ENOENT' })
 })

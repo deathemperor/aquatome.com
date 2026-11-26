@@ -83,9 +83,11 @@ const listedDays = (k, o, t) => LISTED.test(k) && typeof o === 'string' && typeo
 
 // Part-photo exclusions can be cleared for a guide while another run adds a guide. Keep each membership change
 // relative to the base. A human agreement keeps its guide excluded even when a different held photo is cleared.
-const partFields = ['why', 'guides', 'seconds', 'agreedGuides']
+const partFields = ['why', 'guides', 'seconds', 'agreedGuides', 'manualGuides']
+const guideHolds = v => v === undefined || (!!v && typeof v === 'object' && !Array.isArray(v) &&
+  Object.values(v).every(Array.isArray))
 const partOff = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' &&
-  Object.keys(v).every(k => partFields.includes(k)) &&
+  Object.keys(v).every(k => partFields.includes(k) || k === 'holds') && guideHolds(v.holds) &&
   partFields.slice(1).every(k => v[k] === undefined || Array.isArray(v[k]))
 function partsOff(base, ours, theirs) {
   const entries = [base, ours, theirs]
@@ -100,12 +102,23 @@ function mergePartOff(base, ours, theirs) {
   ])]
   const winner = ours ?? theirs
   if (!winner) return undefined
-  if ([ours, theirs].some(v => v && !v.guides && !v.seconds)) return { why: winner.why }
+  const urls = new Set([base, ours, theirs].flatMap(mark => Object.keys(mark?.holds ?? {})))
+  const holds = Object.fromEntries([...urls].flatMap(url => {
+    const guides = mergeMembers(base?.holds?.[url], ours?.holds?.[url], theirs?.holds?.[url]).sort()
+    return guides.length ? [[url, guides]] : []
+  }))
+  if ([ours, theirs].some(v => v && !v.guides && !v.seconds)) return { why: winner.why, ...(Object.keys(holds).length ? { holds } : {}) }
   const seconds = mergeMembers(base?.seconds, ours?.seconds, theirs?.seconds).sort((a, b) => a - b)
   const agreedGuides = mergeMembers(base?.agreedGuides, ours?.agreedGuides, theirs?.agreedGuides).sort()
-  const guides = [...new Set([...mergeMembers(base?.guides, ours?.guides, theirs?.guides), ...agreedGuides])].sort()
+  const manualGuides = mergeMembers(base?.manualGuides, ours?.manualGuides, theirs?.manualGuides).sort()
+  const guides = [...new Set([
+    ...mergeMembers(base?.guides, ours?.guides, theirs?.guides), ...agreedGuides, ...manualGuides, ...Object.values(holds).flat(),
+  ])].sort()
   if (!guides.length) return undefined
-  return { why: winner.why, guides, ...(seconds.length ? { seconds } : {}), ...(agreedGuides.length ? { agreedGuides } : {}) }
+  return { why: winner.why, guides, ...(seconds.length ? { seconds } : {}),
+    ...(agreedGuides.length ? { agreedGuides } : {}), ...(manualGuides.length ? { manualGuides } : {}),
+    ...(Object.keys(holds).length ? { holds } : {}) }
+
 }
 
 export function mergeMaps(base, ours, theirs) {

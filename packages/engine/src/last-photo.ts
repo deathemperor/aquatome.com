@@ -224,7 +224,7 @@ export async function listAgreed(root: string): Promise<string[]> {
     ? JSON.parse(await readFile(partsFile, 'utf8').catch((error: NodeJS.ErrnoException) => {
       if (error.code === 'ENOENT') return '{}'
       throw error
-    })) as Record<string, { guides?: string[]; agreedGuides?: string[] }>
+    })) as Record<string, { guides?: string[]; agreedGuides?: string[]; holds?: Record<string, string[]> }>
     : undefined
   let partsChanged = false
   for (const url of agreed) {
@@ -237,6 +237,12 @@ export async function listAgreed(root: string): Promise<string[]> {
     for (const key of sl[url]!.parts ?? []) {
       const part = partsOff?.[key]
       if (!part?.guides) continue
+      const id = `sha256:${createHash('sha256').update(url).digest('hex')}`
+      if (part.holds?.[id]) {
+        delete part.holds[id]
+        if (!Object.keys(part.holds).length) delete part.holds
+        partsChanged = true
+      }
       const guides = new Set(part.agreedGuides)
       for (const page of sl[url]!.pages) {
         const guide = page.startsWith('guides/') ? page.slice('guides/'.length) : ''
@@ -729,21 +735,28 @@ export async function putBackCleared(root: string, history: History, at = today(
   // The part-photo list (video-images.ts): a stock photo by its Commons page, as written or hashed, a frame by its
   // address. A photo back on a guide's part leaves it for that guide; an entry for every guide is a person's, and stays.
   const partsFile = join(root, 'engine-state', '_part-photos-off.json')
-  const partsOff = JSON.parse(await readFile(partsFile, 'utf8').catch(() => '{}')) as Record<string, { why: string; guides?: string[]; seconds?: number[]; agreedGuides?: string[] }>
+  const partsOff = JSON.parse(await readFile(partsFile, 'utf8').catch(() => '{}')) as Record<string, { why: string; guides?: string[]; seconds?: number[]; agreedGuides?: string[]; manualGuides?: string[]; holds?: Record<string, string[]> }>
   let lifted = false
   const parts = {
     lift: (key: string, guide: string, photo: string) => {
-      if (!key) return
-      for (const k of [key, `sha256:${createHash('sha256').update(key).digest('hex')}`]) {
-        const e = partsOff[k]
-        if (!e?.guides?.includes(guide) || e.agreedGuides?.includes(guide)) continue
-        const stillNeeded = Object.entries(sl).some(([url, mark]) => url !== photo && !mark.back &&
-          mark.pages.includes(`guides/${guide}`) && mark.parts?.includes(k))
-        if (stillNeeded) continue
-        e.guides = e.guides.filter(g => g !== guide)
-        if (!e.guides.length) delete partsOff[k]
+      const entry = partsOff[key]
+      if (!entry) return
+      const photoKey = `sha256:${createHash('sha256').update(photo).digest('hex')}`
+      if (entry.holds?.[photoKey]?.includes(guide)) {
+        const rest = entry.holds[photoKey].filter(g => g !== guide)
+        if (rest.length) entry.holds[photoKey] = rest
+        else delete entry.holds[photoKey]
+        if (!Object.keys(entry.holds).length) delete entry.holds
         lifted = true
       }
+      if (!entry.guides?.includes(guide) || entry.agreedGuides?.includes(guide) || entry.manualGuides?.includes(guide)) return
+      const recorded = Object.values(entry.holds ?? {}).some(guides => guides.includes(guide))
+      const unresolved = Object.entries(sl).some(([url, mark]) => url !== photo && !mark.back &&
+        mark.pages.includes(`guides/${guide}`) && mark.parts?.includes(key))
+      if (recorded || unresolved) return
+      entry.guides = entry.guides.filter(g => g !== guide)
+      if (!entry.guides.length) delete partsOff[key]
+      lifted = true
     },
   }
   const complete = (mark: SecondLook, recovered: readonly LeftPlace[] = []) => {
@@ -839,20 +852,26 @@ export async function putBackCleared(root: string, history: History, at = today(
         const headings = figures.flatMap((figure, i) => figure.heading === p.heading ? [i] : [])
         const priorHeadingCount = p.partOrder?.filter(heading => heading === p.heading).length ?? 0
         const occurrence = headingOccurrence(p.heading, saved, p.partOrder)
-        const savedMatch = (figure: Record<string, unknown>, index: number) => {
-          if (figure.heading !== p.partOrder?.[index]) return false
-          if (p.partOrder?.filter(heading => heading === figure.heading).length === 1) return true
+        const score = (figure: Record<string, unknown>, index: number) => {
+          if (figure.heading !== p.partOrder?.[index]) return 0
+          if (p.partOrder?.filter(heading => heading === figure.heading).length === 1) return 1
           const images = figurePhotoUrls(figure)
-          return p.partImages?.[index]?.some(url => images.includes(url)) ?? false
+          return p.partImages?.[index]?.reduce((total, url) => {
+            if (!images.includes(url)) return total
+            const shared = p.partImages?.some((part, i) => i !== index && part.includes(url))
+            return total + (shared ? 1 : 2)
+          }, 0) ?? 0
         }
-        const found = p.partImages ? headings.find(i => savedMatch(figures[i]!, saved)) : undefined
+        const ranked = p.partImages ? headings.map(i => ({ i, score: score(figures[i]!, saved) }))
+          .filter(candidate => candidate.score > 0).sort((a, b) => b.score - a.score) : []
+        const found = ranked[0]?.i
         const dropped = found === undefined && priorHeadingCount > 1 && headings.length < priorHeadingCount && !!p.partImages
         const at = p.heading === undefined ? saved : found ?? (dropped ? -1 : occurrence === undefined
           ? figures[saved]?.heading === p.heading ? saved : headings[0] ?? -1
           : headings[occurrence] ?? -1)
         if (at < 0 && p.heading !== undefined) {
           into = { heading: p.heading, moments: [] } as typeof into
-          const positions = figures.map(figure => p.partOrder?.findIndex((_, i) => savedMatch(figure, i)) ?? -1)
+          const positions = figures.map(figure => p.partOrder?.map((_, i) => ({ i, score: score(figure, i) })).filter(item => item.score > 0).sort((a, b) => b.score - a.score)[0]?.i ?? -1)
           const next = positions.findIndex(index => index > saved)
           const prev = positions.findLastIndex(index => index >= 0 && index < saved)
           const index = next >= 0 ? next : prev >= 0 ? prev + 1 : Math.min(saved, figures.length)
@@ -889,7 +908,6 @@ export async function putBackCleared(root: string, history: History, at = today(
       }
       await replacePhotoDocument(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       out.back.push(`${p.file}: ${address}`)
-      if (guideId) parts.lift(slot === 'photo' ? String(p.photo.sourceUrl ?? '') : address, guideId, u)
     }
     for (const key of sl[u]!.parts ?? []) for (const g of sl[u]!.pages) if (g.startsWith('guides/')) parts.lift(key, g.slice('guides/'.length), u)
     if (entry !== undefined) { delete rejected[u]; unlisted = true }

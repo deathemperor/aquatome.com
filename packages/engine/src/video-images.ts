@@ -154,7 +154,7 @@ Give n and a caption: one short Vietnamese sentence (≤ 14 words) saying what t
  * never read off the address, and an entry with `seconds` and no `guides` stops the step: it never bars a second on
  * every video.
  */
-export type PartPhotosOff = Record<string, { why: string; guides?: string[]; seconds?: number[]; agreedGuides?: string[] }>
+export type PartPhotosOff = Record<string, { why: string; guides?: string[]; seconds?: number[]; agreedGuides?: string[]; manualGuides?: string[]; holds?: Record<string, string[]> }>
 /** The list; none where the file isn't there. A file that is there but can't be read stops the step, so no photo comes back. */
 export async function readPartPhotosOff(contentRoot: string): Promise<PartPhotosOff> {
   const raw = await readFile(join(contentRoot, '..', 'engine-state', '_part-photos-off.json'), 'utf8').catch((err: NodeJS.ErrnoException) => {

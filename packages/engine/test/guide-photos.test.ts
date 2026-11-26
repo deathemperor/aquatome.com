@@ -6,7 +6,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, onTestFinished, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
-import { guideSubject, screenGuidePhotos, type GuidePhotoDeps, type GuidePhotoVerdict } from '../src/guide-photos'
+import { guideSubject, judgeGuidePhotos, screenGuidePhotos, type GuidePhotoDeps, type GuidePhotoVerdict } from '../src/guide-photos'
 import { videoStills, type StillDeps } from '../src/video-stills'
 import { DEAD_RULE, screenGuidesDead } from '../src/guides-dead'
 import type { DeadScreenDeps } from '../src/dead-screen'
@@ -525,4 +525,16 @@ test("a still whose verdict says dead isn't cleared to show until its second loo
   await putBackCleared(root, async () => [])
   expect(await screenGuidePhotos(root, d, { limit: 5 })).toMatchObject({ judged: 0, cleared: 1 })
   expect(await person()).toBe(false)
+})
+
+test('conflicting guide and frame tile decisions remain retryable', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'guide-answer-'))
+  const image = await jpeg
+  const tile = { n: 1, person: false, mark: false, brand: false, dead: false, note: 'sample' }
+  const answers = await judgeGuidePhotos([image, image], join(root, 'sheet.jpg'), async () => ({ photos: [
+    { ...tile, dead: true }, tile, tile,
+    { ...tile, n: 2 }, { ...tile, n: 2 },
+  ] }))
+  expect(answers[0]).toBeUndefined()
+  expect(answers[1]).toMatchObject({ dead: false })
 })

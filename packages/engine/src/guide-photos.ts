@@ -95,11 +95,22 @@ export async function judgeGuidePhotos(images: Buffer[], sheet: string, look: Gu
   const out: (GuidePhotoVerdict | undefined)[] = images.map(() => undefined)
   const asked = subjects.flatMap((s, i) => (s ? [`- Photo ${i + 1} (${s.subject}): "${s.title}"`] : []))
   const prompt = asked.length ? `${GUIDE_PHOTO_PROMPT}\n${GUIDE_SUBJECT_PROMPT}\n${asked.join('\n')}` : GUIDE_PHOTO_PROMPT
+  const conflicts = new Set<number>()
   for (const p of (await look(sheet, prompt)).photos ?? []) {
-    if (!(p.n - 1 in out) || typeof p.person !== 'boolean' || typeof p.mark !== 'boolean' || typeof p.brand !== 'boolean' || typeof p.dead !== 'boolean') continue
-    const about = subjects[p.n - 1]
-    out[p.n - 1] = compactVerdict({ person: p.person, mark: p.mark, brand: p.brand, dead: p.dead, note: String(p.note ?? '').slice(0, 120),
-      ...(about && typeof p.other === 'boolean' ? { other: { [about.subject]: p.other }, answeredSubjects: [about.subject] } : {}),
+    const index = p.n - 1
+    if (!Number.isInteger(index) || index < 0 || index >= out.length || conflicts.has(index) ||
+        typeof p.person !== 'boolean' || typeof p.mark !== 'boolean' || typeof p.brand !== 'boolean' || typeof p.dead !== 'boolean') continue
+    const about = subjects[index]
+    const other = about && typeof p.other === 'boolean' ? p.other : undefined
+    const previous = out[index]
+    if (previous && (previous.person !== p.person || previous.mark !== p.mark || previous.brand !== p.brand ||
+        previous.dead !== p.dead || (about && previous.other?.[about.subject] !== other))) {
+      conflicts.add(index)
+      out[index] = undefined
+      continue
+    }
+    out[index] ??= compactVerdict({ person: p.person, mark: p.mark, brand: p.brand, dead: p.dead, note: String(p.note ?? '').slice(0, 120),
+      ...(about && other !== undefined ? { other: { [about.subject]: other }, answeredSubjects: [about.subject] } : {}),
     })
   }
   return out
