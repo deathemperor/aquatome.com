@@ -746,7 +746,8 @@ final class PageShotsFlowTests: XCTestCase {
   /// `then`, after typing, gives what shows once the screen is there: a result row unless it says otherwise.
   private func shootSearch(_ name: String, dark: Bool = false, size: String? = nil, more: [String] = [], typing query: String = "ca\n",
                            then: ((XCUIApplication) -> XCUIElement)? = nil) {
-    let app = launch(dark: dark, size: size, more)
+    let app = launch(dark: dark, size: size, more, look: .v2)
+    app.openTab("Tìm kiếm")
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()

@@ -241,7 +241,7 @@ final class HandbookFlowTests: XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook",
                            "-familiar", "5"]
     app.launchForFlow()
-    app.openTab("Tìm")
+    app.openTab("Tìm kiếm")
     search(app, "ca\n")
     XCTAssertTrue(chip(app, "all").waitForExistence(timeout: 5))
     XCTAssertTrue(chip(app, "all").isSelected)
@@ -269,7 +269,7 @@ final class HandbookFlowTests: XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook",
                            "-familiar", "5", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
     app.launchForFlow()
-    app.openTab("Tìm")
+    app.openTab("Tìm kiếm")
     search(app, "ca\n")
     let first = item(app, "Cá đĩa")
     XCTAssertTrue(first.waitForExistence(timeout: 5) && first.isHittable, "the best fish starts in view")
