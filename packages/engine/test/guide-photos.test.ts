@@ -428,7 +428,7 @@ test('a guide refusing an alteration holds the bare original on a fish page unti
   const { d } = model({ alteration: { mark: true } })
   const report = await screenGuidePhotos(root, d, { limit: 1 })
   expect(report.held).toEqual([`${wrapper.url}: species/only`])
-  expect((await json(root, 'content/guides/guide/entity.json')).photos).toEqual([])
+  expect((await json(root, 'content/guides/guide/entity.json')).photos).toEqual([wrapper])
   expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
   const marks = await json(root, 'engine-state/_photo-second-look.json')
   expect(marks[wrapper.url].originals).toEqual([original.url])
