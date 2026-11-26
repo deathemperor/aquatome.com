@@ -110,11 +110,16 @@ const VERDICTS = `- supported: every claim in it is in the facts (a figure conve
 - contradicts: the facts say otherwise;
 - not a claim: a picture, a transition or a heading, with nothing in it to check ("it gives the tank the look of a stream"). An item under a heading of steps, mistakes or warnings is a claim: judge the advice or warning it gives.
 For every verdict but supported, say why in a few English words.`
+// The site's own names for the species the facts name by their scientific name (glossary-entry.ts factPageNames; the chief
+// of staff, 22 Nov 2026): the writer calls a fish by its page's name, so the check is told those names, and only those.
+const NAMES = `FACTS may give "siteNames": each line is the site's own names for one species or plant, then "=" and the scientific name a fact writes. A sentence that calls it by one of those names names that species, as if it wrote that scientific name: judge the rest of the sentence as usual. A name no fact gives and no line of siteNames lists is still a name the facts don't give. siteNames only says which species a name means: it is no fact and carries no claim.`
 const ALL = `Below are FACTS gathered about a fishkeeping term (each with a source number, and in "also" the other sources that give the same; the sources list gives each number's kind and site) and the numbered SENTENCES of a Vietnamese glossary entry written from them, the term's meaning under [the definition], each section's under its [heading], each kind's under [heading › its name]: a sentence there is about that kind, and each list's items under the opening the list follows, which credits every item. Give every sentence one verdict against the FACTS:
 ${VERDICTS}
+${NAMES}
 Reply {"verdicts": [{"n": 1, "verdict": "supported"}, {"n": 2, "verdict": "loose", "why": "..."}]}, one for every sentence, in order.`
 const ONE = `Below are FACTS gathered about a fishkeeping term (each with a source number, and in "also" the other sources that give the same; the sources list gives each number's kind and site), and one SENTENCE of a Vietnamese glossary entry written from them, in its PARAGRAPH, under its HEADING ("(the definition)" for the term's meaning), and under the OPENING its list follows, if any, which credits it, with the sentences just BEFORE and AFTER it. Give the SENTENCE one verdict against the FACTS:
 ${VERDICTS}
+${NAMES}
 Reply {"verdict": "...", "why": "..."}.`
 const SYSTEM = 'You check a guide against its facts, sentence by sentence. Reply only with JSON.'
 /**
