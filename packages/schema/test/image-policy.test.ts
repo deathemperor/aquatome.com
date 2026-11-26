@@ -65,7 +65,7 @@ test('each source can revoke its altered pictures in one build; Glaser falls bac
   const altered = [{ method: 'mark-removal' as const, date: '2026-11-10', permissionDate: '2026-11-10', originalHash: hash, box: { x0: 0, y0: 0, x1: 20, y1: 10 }, outsideChanged: 0 as const, noTrace: 'pass' as const, checks:{species:pair,ownership:pair,noTrace:pair,preservation:pair}, residue: { version: MARK_RESIDUE_VERSION, score: 0.1, limit: MARK_RESIDUE_LIMIT } }]
   const glaser: Photo = { ...real, source: 'glaser', licence: 'dùng với sự cho phép', url: 'https://media.aquatome.com/clean-glaser.webp', thumb: 'https://media.aquatome.com/clean-glaser-480.webp', altered, original: { url: 'https://media.aquatome.com/glaser/original.webp', width: 800, height: 600 } }
   const bw: Photo = { ...glaser, source: 'bwaquatics', url: 'https://media.aquatome.com/clean-bw.webp' }
-  const root = await fixture([glaser, bw]), file = join(root, 'sources.json'), sources = JSON.parse(await readFile(file, 'utf8'))
+  const root = await fixture([glaser, bw], [glaser]), file = join(root, 'sources.json'), sources = JSON.parse(await readFile(file, 'utf8'))
   for (const id of ['glaser', 'bwaquatics']) sources[id] = { name: id, homepage: `https://${id}.example/`, publish: true, permission: { date: '2026-11-10', file: 'owner statement', scope: ['photos'], markRemoval: { allowed: true, date: '2026-11-10' } } }
   await writeFile(file, JSON.stringify(sources))
   const opts = { root, lang: 'vi' as const, publicBuild: true, imageSwitches: { ...IMAGE_SWITCHES, removeMarks: true, publishAltered: true } }
@@ -83,6 +83,25 @@ test('each source can revoke its altered pictures in one build; Glaser falls bac
   expect(waiting.photoWaits!(original.url)).toBe(true)
   await screenRecords(root, [glaser, bw, original], [glaser.url, bw.url, original.url])
   expect((await loadAll(opts)).species[0]!.photos.map(p => p.url)).toEqual([original.url])
+  // The image step records the same alteration and original in the entity and the album.
+  const state = join(dirname(root), 'engine-state')
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({
+    [glaser.url]: { dead: false }, [bw.url]: { dead: false }, [original.url]: { dead: true },
+  }))
+  const mark = { why: 'dead: withheld', off: true, pages: ['species/alpha'] }
+  const secondLook = join(state, '_photo-second-look.json')
+  const rejected = join(state, '_photo-rejected.json')
+  await writeFile(secondLook, JSON.stringify({ [original.url]: mark }))
+  await writeFile(rejected, JSON.stringify({ [original.url]: 'waiting: withheld' }))
+  const off = await loadAll(opts)
+  expect(off.species[0]!.photos).toEqual([])
+  expect(off.galleries.alpha).toBeUndefined()
+  expect(off.photoWaits!(original.url)).toBe(true)
+  await writeFile(secondLook, JSON.stringify({ [original.url]: { ...mark, look: { said: 'clear', by: 'reviewer', on: '2026-11-26' } } }))
+  await writeFile(rejected, '{}')
+  expect((await loadAll(opts)).species[0]!.photos.map(p => p.url)).toEqual([original.url])
+  await writeFile(rejected, JSON.stringify({ [original.url]: 'dead: withheld' }))
+  expect((await loadAll(opts)).galleries.alpha).toBeUndefined()
 })
 
 test('withdrawing a generated head retains its real album lead, including build-time invalidation',async()=>{

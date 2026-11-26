@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process'
 import { access, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, LANGS, loadAll, PHOTO_BOXES_FILE, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate, type Photo } from '@aq/schema'
+import { DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, LANGS, loadAll, PHOTO_BOXES_FILE, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate, type Photo } from '@aq/schema'
 
 /**
  * Fish pages our removals left with no photo, first for new photos (the chief of staff, 21 Nov): every page a run's own
@@ -74,7 +74,7 @@ const commitOwners = (root: string, at: string): Owners => async urls => {
  */
 export const LOADER_FILES = {
   content: ['sources.json', 'one-voice.json', 'image-approvals.json', 'picture-hashes.json'],
-  records: [PHOTO_SCREEN_FILE, '_photo-faces.json', '_photo-dead-owed.json', DEAD_SCREEN_FILE, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD],
+  records: [PHOTO_SCREEN_FILE, '_photo-faces.json', '_photo-dead-owed.json', DEAD_SCREEN_FILE, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, PHOTO_REJECTED_FILE],
   pages: ['gallery'],
   elsewhere: ['captions', 'cards', 'changelog.json', 'equipment', 'materials', 'page-dates.json', 'products', 'series', 'video-generated.json', 'video-titles', PHOTO_BOXES_FILE],
 } as const
@@ -114,7 +114,7 @@ export async function showingPhotos(refs: string[], read: Read, owners: Owners):
       for (const f of LANGS.map(l => `content/${kind}/${id}/${l}.json`)) await put(f)
       for (const f of [`content/${kind}/${id}/entity.json`, `content/gallery/${id}.json`]) { const s = await put(f); if (s !== undefined) theirs.push(s) }
     }
-    const urls = theirs.flatMap(s => ((JSON.parse(s) as { photos?: { url: string }[] }).photos ?? []).map(p => p.url))
+    const urls = theirs.flatMap(s => ((JSON.parse(s) as { photos?: Photo[] }).photos ?? []).flatMap(deadScreenPhotoUrls))
     const waits = new Set<string>()
     const record = await read(`engine-state/${FACES_FILE}`)
     if (record !== undefined) {

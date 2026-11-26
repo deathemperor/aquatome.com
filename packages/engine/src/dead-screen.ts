@@ -1,4 +1,4 @@
-import { askedByCheckOf, deadScreenPhotoUrls, type Photo } from '@aq/schema'
+import { askedByCheckOf, deadScreenPhotoUrls, IMAGE_SWITCHES, publicPhotoVersion, type Photo, type SourceInfo } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -157,7 +157,12 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const passed = off.some(x => !x.video) ? await readPassedBefore(root) : new Set<string>()
   const going = new Set(off.filter(x => !x.video && (sl.open(x.url) || (sl.waiting(x.url) && !passed.has(x.url)))).map(x => x.url))
   // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
-  const last = going.size ? new Map([...lastPhotos(await pagesShowing(content), u => going.has(u) || u in photoRejected)].filter(([u]) => going.has(u))) : new Map<string, string[]>()
+  const last = new Map<string, string[]>()
+  if (going.size) {
+    const sources = await readJson<Record<string, SourceInfo>>(join(content, 'sources.json')) ?? {}
+    const pages = await pagesShowing(content, p => publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)?.url)
+    for (const [url, refs] of lastPhotos(pages, u => going.has(u) || u in photoRejected)) if (going.has(url)) last.set(url, refs)
+  }
   // Only one that passed the check before is held; this verdict, on one that never did, takes it off, marked (last-photo.ts).
   const held = new Map([...last].filter(([u]) => passed.has(u)))
   const firstOff = new Map([...last].filter(([u]) => !passed.has(u)))
@@ -180,11 +185,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     for (const file of it.files) {
       const raw = await readFile(file, 'utf8')
       const e = JSON.parse(raw) as { photos?: Photo[]; videos?: { youtubeId: string }[] }
-      const next = it.video ? { ...e, videos: (e.videos ?? []).filter(v => v.youtubeId !== it.video) } : { ...e, photos: (e.photos ?? []).filter(p => p.url !== it.url).map(p => {
-        if (p.original?.url !== it.url) return p
-        const { original: _rejected, ...kept } = p
-        return kept
-      }) }
+      const next = it.video ? { ...e, videos: (e.videos ?? []).filter(v => v.youtubeId !== it.video) } : { ...e, photos: (e.photos ?? []).filter(p => p.url !== it.url) }
+      // Fallback metadata remains in the entity and album. The public gate reads its rejection record, so a clear makes
+      // the original eligible again without rewriting the alteration or losing its credit.
+      if (!it.video && next.photos?.length === e.photos?.length) continue
       await writeFile(file, `${JSON.stringify(next, null, indentOf(raw))}\n`)
     }
   }

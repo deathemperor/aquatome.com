@@ -1,3 +1,4 @@
+import type { Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -77,9 +78,12 @@ export function looks(sl: SecondLooks) {
 export type PageShows = { ref: string; own: string[]; album: string[] }
 
 /** Every species, plant and breed page, as the site shows it now. */
-export async function pagesShowing(content: string): Promise<PageShows[]> {
-  type Doc = { photos?: { url?: unknown; generated?: unknown }[] }
-  const urls = (d: Doc | null) => [...new Set((d?.photos ?? []).filter(p => typeof p?.url === 'string' && !p.generated).map(p => p.url as string))]
+export async function pagesShowing(content: string, version: (p: Photo) => string | undefined = p => p.url): Promise<PageShows[]> {
+  type Doc = { photos?: Photo[] }
+  const urls = (d: Doc | null) => [...new Set((d?.photos ?? []).flatMap(p => {
+    const url = p?.url && !p.generated ? version(p) : undefined
+    return url ? [url] : []
+  }))]
   const read = async (f: string) => JSON.parse(await readFile(f, 'utf8').catch(() => 'null')) as Doc | null
   const out: PageShows[] = []
   for (const kind of ['species', 'plants', 'breeds']) {

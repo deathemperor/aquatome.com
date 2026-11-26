@@ -152,6 +152,21 @@ test("an album photo that another page owns and no look has judged for a dead fi
   expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
 })
 
+test('the replay finds the owner of the original an album alteration would show', async () => {
+  const { r, put } = await store({ species: { x: [], y: ['u'] }, albums: { x: ['alt'] } })
+  const altered = {
+    ...photo('alt'),
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-10', originalHash: 'a'.repeat(64) }],
+    original: { url: url('u'), width: 1200, height: 800 },
+  }
+  await put('content/gallery/x.json', { id: 'x', photos: [altered], seen: 1, updatedAt: '2026-11-01' })
+  await put(`engine-state/${schema.FACES_FILE}`, { [url('u')]: 0, [url('alt')]: 0 })
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [url('alt')]: { dead: false } })
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', false]]))
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [url('alt')]: { dead: false }, [url('u')]: { dead: false } })
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
+})
+
 test("a page emptied by this run's removal and main's together is listed on main as it is now, after the run caught up", async () => {
   const { r, put } = await store({ species: { pair: ['p1'] }, albums: { pair: ['a1'] } })
   const git = (...a: string[]) => execFileSync('git', a, { cwd: r, encoding: 'utf8' })

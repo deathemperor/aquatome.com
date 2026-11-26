@@ -75,6 +75,21 @@ test('the count is under the album row\'s or equal: a picture with a copy doesn\
   expect(await priorityFish(b)).toEqual([])
 })
 
+test('an unjudged own photo on another page does not fill the sixth album slot', async () => {
+  const r = await root(checked(PRIORITY_UNTIL))
+  const file = join(r, 'content/species/danio-rerio/entity.json')
+  const other = JSON.parse(await readFile(file, 'utf8'))
+  other.photos = [photo('a0')]
+  await writeFile(file, JSON.stringify(other))
+  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify(Object.fromEntries(checked(PRIORITY_UNTIL).map(p => [p.url, { ocr: [] }]))))
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), '{}')
+  expect(await count(r)).toBe(5)
+  expect(await priorityFish(r)).toEqual(['species/zzz-liked'])
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify({ [url('a0')]: { dead: false } }))
+  expect(await count(r)).toBe(6)
+  expect(await priorityFish(r)).toEqual([])
+})
+
 test('a photo kept with a shop\'s mark doesn\'t count: the fish stays first until six photos with no mark', async () => {
   // Betta mahachai's album once BW's five land: Glaser's photo and BW's five, kept with the shops' own marks, and one with
   // no mark. Seven on the row, one that counts.

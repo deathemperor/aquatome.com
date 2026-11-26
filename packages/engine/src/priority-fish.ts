@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { awaitsScreen, hashDistance, isAllowedLicence, isGenerated, isOwnerCrop, mayPublish, PHOTO_SCREEN_FILE, pictureOf, SAME_PICTURE, setsCookies, unmarked, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { awaitsScreen, DEAD_SCREEN_FILE, deadLooked, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, hashDistance, isAllowedLicence, isGenerated, isOwnerCrop, mayPublish, PHOTO_SCREEN_FILE, pictureOf, SAME_PICTURE, setsCookies, unmarked, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { diskOwners, EMPTIED_FILE, readList, showingPhotos } from './emptied-pages'
 import { isRejected } from './photos'
 
@@ -42,11 +42,22 @@ export async function readPriorityFish(root: string): Promise<Record<string, str
  * the count can fall short of the row's, never over it, and a fish never leaves the list before its row shows six photos
  * with no mark. A picture shown twice counts for neither copy: the fish stays first in line a little longer.
  */
-export async function shownPictures(root: string, kind: string, id: string): Promise<number> {
+async function deadWaiting(root: string): Promise<Set<string>> {
+  const record = (name: string) => readJson<Record<string, unknown> | undefined>(join(root, 'engine-state', name), undefined)
+  const [screen, check, subjects, secondLook] = await Promise.all([
+    record(DEAD_SCREEN_FILE), record(PHOTO_CHECK_FILE), record(PHOTO_SUBJECTS_FILE), record(SECOND_LOOK_RECORD),
+  ])
+  if (!screen) return new Set()
+  const looked = deadLooked({ screen, check, subjects, secondLook })
+  return new Set([...(await ownDeadPhotoUrls(join(root, 'content')))].filter(u => !looked(u)))
+}
+
+export async function shownPictures(root: string, kind: string, id: string, waiting?: ReadonlySet<string>): Promise<number> {
   const page = await readJson<{ photos?: Photo[] }>(join(root, 'content', kind, id, 'entity.json'), {})
   const album = await readJson<{ photos?: (Photo & { unchecked?: boolean })[] }>(join(root, 'content/gallery', `${id}.json`), {})
   // No screen record, nothing waits, as in a build that has none (run.ts readKeeps).
   const screen = await readJson<Record<string, PhotoScreenEntry> | undefined>(join(root, 'engine-state', PHOTO_SCREEN_FILE), undefined)
+  const unjudged = waiting ?? await deadWaiting(root)
   const rejected = isRejected(await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'), {}))
   const sources = await readJson<Record<string, { publish?: boolean | 'photos' }>>(join(root, 'content/sources.json'), {})
   const hashes = await readJson<Record<string, string>>(join(root, 'content/picture-hashes.json'), {})
@@ -56,7 +67,7 @@ export async function shownPictures(root: string, kind: string, id: string): Pro
   const all = [...own, ...photos].map(at)
   let clean = 0
   for (const [i, p] of photos.entries()) {
-    if (p.unchecked || isGenerated(p) || p.altered?.length || isOwnerCrop(p) || (!!screen && awaitsScreen(p.url, screen[p.url])) || rejected(p.url) || setsCookies(p.url)) continue
+    if (p.unchecked || unjudged.has(p.url) || isGenerated(p) || p.altered?.length || isOwnerCrop(p) || (!!screen && awaitsScreen(p.url, screen[p.url])) || rejected(p.url) || setsCookies(p.url)) continue
     if (p.source ? !mayPublish(sources[p.source], 'photos') : !isAllowedLicence(p.licence)) continue
     if (!unmarked(p) || screen?.[p.url]?.watermark === true) continue
     const self = own.length + i
@@ -74,9 +85,11 @@ export async function shownPictures(root: string, kind: string, id: string): Pro
 export async function priorityFish(root: string): Promise<string[]> {
   const out: [string, string][] = []
   const owner = await readPriorityFish(root)
-  for (const [ref, day] of Object.entries(owner)) {
+  const entries = Object.entries(owner)
+  const waiting = entries.length ? await deadWaiting(root) : new Set<string>()
+  for (const [ref, day] of entries) {
     const [kind, id] = ref.split('/') as [string, string]
-    if ((await shownPictures(root, kind, id)) < PRIORITY_UNTIL) out.push([ref, day])
+    if ((await shownPictures(root, kind, id, waiting)) < PRIORITY_UNTIL) out.push([ref, day])
   }
   const emptied = Object.entries(await readList(root, EMPTIED_FILE)).filter(([ref]) => !Object.hasOwn(owner, ref))
   const showing = await showingPhotos(emptied.map(([ref]) => ref), p => readFile(join(root, p), 'utf8').catch(() => undefined), diskOwners(root))

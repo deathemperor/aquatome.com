@@ -181,7 +181,11 @@ test("the screen owes every photo of a fish or plant page that no look has judge
   expect(r.faces.checked).toBe(0)
   expect(sent).toEqual([m('d-read'), m('d-read-dead'), m('p-read'), m('p-original-dead')])
   expect(r.dead).toMatchObject({ judged: 4, left: 0 })
-  expect((await json(root, 'content/plants/p/entity.json')).photos).toEqual([{ ...photo('p-read'), altered: [{ method: 'lanczos3-upscale' }] }])
+  // Permission is off, so the original is the only version this plant page could show. The original stays in the
+  // alteration record, but its first dead verdict makes it wait for a person, even though the stored URL is different.
+  expect(r.dead!.firstOff).toContain(`${m('p-original-dead')}: plants/p`)
+  expect((await json(root, 'content/plants/p/entity.json')).photos[0].original.url).toBe(m('p-original-dead'))
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[m('p-original-dead')]).toMatch(/^waiting: /)
   // Off at this push, as a new photo's dead verdict is: d keeps its other photos.
   expect(await urls(root, 'd')).toEqual([m('d-read'), m('d-asked'), m('d-cleared')])
   expect(await owed(root)).toEqual([])

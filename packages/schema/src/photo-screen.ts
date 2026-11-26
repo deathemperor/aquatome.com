@@ -1,4 +1,6 @@
-import { isOwnerCrop } from './image-policy'
+import { readdir, readFile } from 'node:fs/promises'
+import { join } from 'node:path'
+import { isOwnerCrop, type ImageSwitches } from './image-policy'
 import type { Photo } from './types'
 
 /**
@@ -74,14 +76,44 @@ export const UNREAD_FACES_LIMIT = 300
 export const DEAD_SCREEN_FILE = '_dead-screen.json'
 /** The photo check's records, in engine-state: its verdicts by address, the old form, and the one by subject. */
 export const PHOTO_CHECK_FILE = '_photo-check.json'
+export const PHOTO_REJECTED_FILE = '_photo-rejected.json'
 export const PHOTO_SUBJECTS_FILE = '_photo-subjects.json'
 /** The second look's records, in engine-state (address → record): a person's `look` is on its photo's record. */
 export const SECOND_LOOK_RECORD = '_photo-second-look.json'
+type PhotoVersions = Pick<Photo, 'url' | 'altered' | 'original' | 'generated' | 'source' | 'ownerCrop'>
+const markAlteration = (p: PhotoVersions) => p.altered?.find(a => a.method === 'mark-removal' || a.method === 'mark-crop')
+const mayFallBack = (p: PhotoVersions) => !!p.original && (!markAlteration(p) || p.source === 'glaser')
+
+/** The version allowed by the alteration switch and current source permission. */
+export function publicPhotoVersion<P extends Photo>(p: P, images: Readonly<ImageSwitches>, permission?: { allowed: boolean; date?: string }): P | undefined {
+  if (isOwnerCrop(p) || p.generated || !p.altered?.length) return p
+  const mark = markAlteration(p)
+  const allowed = images.publishAltered && (mark ? images.removeMarks && permission?.allowed && permission.date === mark.permissionDate : images.upscaleReal)
+  if (allowed) return p
+  if (!mayFallBack(p)) return undefined
+  const { altered: _altered, original, large: _large, thumb: _thumb, ...rest } = p
+  return { ...rest, ...original } as P
+}
+
 /** The stored URL and any original the public loader can use if it withdraws an alteration. */
-export function deadScreenPhotoUrls(p: Pick<Photo, 'url' | 'altered' | 'original' | 'generated' | 'source' | 'ownerCrop'>): string[] {
-  if (!p.original || !p.altered?.length || p.generated || isOwnerCrop(p)) return [p.url]
-  const removedMark = p.altered.some(a => a.method === 'mark-removal' || a.method === 'mark-crop')
-  return removedMark && p.source !== 'glaser' ? [p.url] : [p.url, p.original.url]
+export function deadScreenPhotoUrls(p: PhotoVersions): string[] {
+  return p.altered?.length && !p.generated && !isOwnerCrop(p) && mayFallBack(p) ? [p.url, p.original!.url] : [p.url]
+}
+
+export async function ownDeadPhotoUrls(root: string, kinds: readonly string[] = ['species', 'plants']): Promise<Set<string>> {
+  const urls = new Set<string>()
+  for (const kind of kinds) {
+    for (const id of (await readdir(join(root, kind)).catch(() => [] as string[])).sort()) {
+      const raw = await readFile(join(root, kind, id, 'entity.json'), 'utf8').catch((e: NodeJS.ErrnoException) => {
+        if (e.code === 'ENOENT') return undefined
+        throw e
+      })
+      if (raw === undefined) continue
+      const page = JSON.parse(raw) as { photos?: PhotoVersions[] }
+      for (const url of (page.photos ?? []).flatMap(deadScreenPhotoUrls)) urls.add(url)
+    }
+  }
+  return urls
 }
 
 export type DeadLookRecords = { screen: Record<string, unknown>; check?: Record<string, unknown>; subjects?: Record<string, unknown>; secondLook?: Record<string, unknown> }

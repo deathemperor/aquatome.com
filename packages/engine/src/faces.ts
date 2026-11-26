@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, type Photo as PagePhoto } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -117,17 +117,12 @@ export const NEW_PHOTO_SHEETS = 14
  * `deadLooked`, the rule the public build hides by) and the never-again list doesn't have (they leave every page anyway).
  */
 async function unjudged(root: string, contentRoot: string): Promise<string[]> {
-  const shown = new Set<string>()
-  for (const kind of ['species', 'plants']) {
-    for (const id of (await readdir(join(contentRoot, kind)).catch(() => [] as string[])).sort()) {
-      const e = JSON.parse(await readFile(join(contentRoot, kind, id, 'entity.json'), 'utf8').catch(() => '{}')) as { photos?: PagePhoto[] }
-      for (const url of (e.photos ?? []).flatMap(deadScreenPhotoUrls)) shown.add(url)
-    }
-  }
   const read = async (f: string) => JSON.parse(await readFile(join(root, 'engine-state', f), 'utf8').catch(() => '{}')) as Record<string, unknown>
-  const [screen, check, subjects, secondLook, rejected] = await Promise.all([DEAD_SCREEN_FILE, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, '_photo-rejected.json'].map(read))
-  const looked = deadLooked({ screen: screen!, check, subjects, secondLook })
-  return [...shown].filter(u => !looked(u) && !(u in rejected!))
+  const [shown, screen, check, subjects, secondLook, rejected] = await Promise.all([
+    ownDeadPhotoUrls(contentRoot), read(DEAD_SCREEN_FILE), read(PHOTO_CHECK_FILE), read(PHOTO_SUBJECTS_FILE), read(SECOND_LOOK_RECORD), read(PHOTO_REJECTED_FILE),
+  ])
+  const looked = deadLooked({ screen, check, subjects, secondLook })
+  return [...shown].filter(u => !looked(u) && !(u in rejected))
 }
 
 /**
