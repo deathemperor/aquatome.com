@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process'
 import { access, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, LANGS, loadAll, PHOTO_BOXES_FILE, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate, type Photo } from '@aq/schema'
+import { DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, LANGS, loadAll, PHOTO_BOXES_FILE, photoAddressSet, photoKey, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate, type Photo } from '@aq/schema'
 
 /**
  * Fish pages our removals left with no photo, first for new photos (the chief of staff, 21 Nov): every page a run's own
@@ -43,23 +43,42 @@ const OWNER_KINDS = ['species', 'plants', 'guides'] as const
 
 /** Owners as the working tree at `root` holds them: each page whose own photos hold one of the addresses. */
 export const diskOwners = (root: string): Owners => async urls => {
-  const want = new Set(urls), out: string[] = []
+  const want = photoAddressSet(urls), out: string[] = []
   for (const kind of OWNER_KINDS) {
     for (const id of await readdir(join(root, 'content', kind)).catch(() => [] as string[])) {
       const f = `content/${kind}/${id}/entity.json`
       const s = await readFile(join(root, f), 'utf8').catch(() => undefined)
-      if (s !== undefined && ((JSON.parse(s) as { photos?: Photo[] }).photos ?? []).flatMap(deadScreenPhotoUrls).some(u => want.has(u))) out.push(f)
+      if (s !== undefined && ((JSON.parse(s) as { photos?: Photo[] }).photos ?? []).flatMap(deadScreenPhotoUrls).some(want)) out.push(f)
     }
   }
   return out
 }
 
 /** Owners as commit `at` of the repository at `root` holds them: each such page whose file names one of the addresses. */
-const commitOwners = (root: string, at: string): Owners => async urls => {
-  const r = spawnSync('git', ['-C', root, 'grep', '-l', '-F', '-f', '-', at, '--', ...OWNER_KINDS.map(k => `content/${k}/*/entity.json`)], { input: urls.join('\n'), encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+const commitOwners = (root: string, at: string, read: Read): Owners => async urls => {
+  const hosts: Record<string, string[]> = {
+    commons: ['upload.wikimedia.org/', 'thumb.wikimedia.org/'],
+    inaturalist: ['inaturalist-open-data.s3.amazonaws.com/', 'static.inaturalist.org/'],
+    flickr: ['.staticflickr.com/'],
+    gbif: ['api.gbif.org/v1/image/cache/'],
+  }
+  const matches = new Set(urls)
+  for (const url of urls) {
+    const key = photoKey(url), mirrors = key && hosts[key.split('/')[0]!]
+    if (!mirrors) continue
+    matches.add(`https://media.aquatome.com/${key}`)
+    for (const host of mirrors) matches.add(host)
+  }
+  const r = spawnSync('git', ['-C', root, 'grep', '-l', '-F', '-f', '-', at, '--', ...OWNER_KINDS.map(k => `content/${k}/*/entity.json`)], { input: [...matches].join('\n'), encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
   if (r.status === 1) return []
   if (r.status !== 0) throw new Error(`git grep at ${at}: ${r.stderr.trim()}`)
-  return r.stdout.split('\n').filter(Boolean).map(l => l.slice(at.length + 1))
+  const want = photoAddressSet(urls)
+  const candidates = r.stdout.split('\n').filter(Boolean).map(l => l.slice(at.length + 1))
+  const found = await Promise.all(candidates.map(async file => {
+    const raw = await read(file)
+    return raw && ((JSON.parse(raw) as { photos?: Photo[] }).photos ?? []).flatMap(deadScreenPhotoUrls).some(want) ? file : undefined
+  }))
+  return found.filter((file): file is string => file !== undefined)
 }
 
 /**
@@ -188,7 +207,7 @@ export async function listEmptied(root: string, at = vnDate(new Date())): Promis
   if (!refs.size) return write([])
   const then: Read = async p => { const r = git('show', `${base}:${p}`); return r.status === 0 ? r.stdout : undefined }
   const now: Read = p => readFile(join(root, p), 'utf8').catch(() => undefined)
-  const [before, after] = [await showingPhotos([...refs], then, commitOwners(root, base)), await showingPhotos([...refs], now, diskOwners(root))]
+  const [before, after] = [await showingPhotos([...refs], then, commitOwners(root, base, then)), await showingPhotos([...refs], now, diskOwners(root))]
   const added: string[] = []
   // Showed a photo then, and is a page with none now: a page the loader drops (no section it may show) isn't one.
   for (const r of [...refs].sort()) if (before.get(r) === true && after.get(r) === false && !Object.hasOwn(list, r) && (await here(r))) added.push(r)

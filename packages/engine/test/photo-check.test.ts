@@ -165,7 +165,13 @@ test('the kind record names only a photo this run put on the list, keeps what it
     await writeFile(listFile, JSON.stringify({ [url('raced')]: 'people: a person in it' }))
     return look(...a)
   }
-  atVerdicts.hook = async () => writeFile(listFile, JSON.stringify({ ...(await json(r, 'engine-state/_photo-rejected.json')), [url('late')]: 'people: a person in it', [url('elsewhere')]: 'watermark: a logo' }))
+  atVerdicts.hook = async () => {
+    // A subject verdict can release the public dead-fish gate. Its page edit and durable rejection precede it.
+    expect((await json(r, 'content/species/aaa-fish/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([url('a-1')])
+    const saved = await json(r, 'engine-state/_photo-rejected.json')
+    expect(saved[url('named')]).toBeDefined()
+    await writeFile(listFile, JSON.stringify({ ...saved, [url('late')]: 'people: a person in it', [url('elsewhere')]: 'watermark: a logo' }))
+  }
   try { await checkPagePhotos(r, d, { limit: 10, today: '2026-11-20' }) } finally { atVerdicts.hook = undefined }
   const listed = await json(r, 'engine-state/_photo-rejected.json')
   for (const n of ['raced', 'late']) expect(listed[url(n)]).toMatch(/^people:/)

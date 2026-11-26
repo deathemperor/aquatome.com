@@ -14,7 +14,7 @@ import { galleryPlan } from './gallery-plan'
 import { pickStands, readPersonYes } from './person-yes'
 import { FIRST_OFF, holdForSecondLook, looks, passedBefore, readSecondLook, waitingEntry } from './last-photo'
 import { contactSheet } from './video-images'
-import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
+import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, shouldStripPhoto, stripPhotos, type WatermarkEntry } from './watermarks'
 import { keptLast, screenedShop } from './own-mark'
 import { ageOf, ageUnasked, grownFirst, grownHead, headAsksAge, youngUnasked } from './young-heads'
 import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
@@ -814,16 +814,25 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const ownPhotos = async (file: string) => real((await readJson<{ photos?: Photo[] }>(file))?.photos)
   const waitsFor = await readPhotoWaits(root, { check: legacy, subjects: cache, rejected })
   const sources = (await readJson<Record<string, SourceInfo>>(join(content, 'sources.json'))) ?? {}
+  const firstOff = new Map<string, { why: string; pages: string[]; off: true }>()
+  const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) =>
+    /^(?:dead|people|waiting): /.test(rejected[url] ?? added[url] ?? '') &&
+    (!blockedOriginal || firstOff.has(original) || !!rejected[original]?.startsWith('waiting:'))
   const shownPhotos = async (file: string) => (await ownPhotos(file)).flatMap(photo => {
     const p = photo as ContentPhoto
     const version = publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
-    return version ? [version] : []
+    return version ? [{ stored: p, served: version }] : []
   })
   const takenOff = async (file: string): Promise<string[]> => {
     const photos = await shownPhotos(file)
     const removes = blocked(file)
-    if (photos.some(p => !removes(p.url) && !waitsFor(p.url))) return []
-    return photos.filter(p => removes(p.url)).map(p => p.url)
+    const removed = new Set<string>()
+    for (const { stored, served } of photos) {
+      if (shouldStripPhoto(stored, removes, preservesOriginal)) removed.add(stored.url)
+      else if (removes(served.url)) removed.add(served.url)
+      else if (!waitsFor(served.url)) return []
+    }
+    return [...removed]
   }
   const pageFiles = [...new Set(shown.filter(x => !x.guide && x.file.endsWith('entity.json')).map(x => x.file))]
   const emptying: string[] = []
@@ -838,7 +847,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const s = byId.get(g.split('/').at(-1)!.replace(/\.json$/, ''))
     if (!s) continue
     const file = join(content, s.kind, s.id, 'entity.json')
-    if (emptying.includes(file) || (await shownPhotos(file)).some(p => !blocked(file)(p.url) && !waitsFor(p.url))) continue
+    const removes = blocked(file)
+    if (emptying.includes(file) || (await shownPhotos(file)).some(({ stored, served }) =>
+      !shouldStripPhoto(stored, removes, preservesOriginal) && !removes(served.url) && !waitsFor(served.url))) continue
     const removed = await takenOff(g)
     if (removed.length) { emptying.push(file); emptyBy.set(file, removed) }
   }
@@ -853,7 +864,6 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // Each first verdict on a page left with nothing waits for its look, marked: the page's own and its album's, whether or
   // not the page is held. On a page only first verdicts empty, the album's first-verdict photos are its last hope of a
   // picture, as its own are (the chief of staff, 21 Nov 2026).
-  const firstOff = new Map<string, { why: string; pages: string[]; off: true }>()
   for (const file of holdOn ? emptying : []) for (const f of [file, galleryOf(file)]) for (const p of await ownPhotos(f)) {
     if (!first(p.url) || sl.off(p.url)) continue
     const h = firstOff.get(p.url) ?? { why: added[p.url]!, pages: [], off: true as const }
@@ -891,9 +901,6 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     delete added[p.url]
     report.blocked = report.blocked.filter(x => !x.startsWith(`${p.url}: `))
   }
-  const preservesOriginal = (url: string, original: string, blockedOriginal: boolean) =>
-    /^(?:dead|people|waiting): /.test(rejected[url] ?? added[url] ?? '') &&
-    (!blockedOriginal || firstOff.has(original) || !!rejected[original]?.startsWith('waiting:'))
   const edits = new Map<string, string>()
   for (const file of [...new Set(shown.map(x => x.file))]) {
     if (held.has(file)) {
@@ -998,9 +1005,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // One off at its first verdict waits there marked, and isn't counted refused (last-photo.ts).
   for (const [u, why] of Object.entries(added)) if (!(u in now)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
   await writePhotoState(rejectedFile, now)
-  // Publish removals before a completed verdict can release the same URL in a fallback or another copy.
-  await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
+  // Keep the rejection durable during the page edits. A subject verdict may release the dead-fish wait, so
+  // publish it only after every edit has succeeded.
   for (const [file, out] of edits) await writeFile(file, out)
+  await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   // One another step listed meanwhile keeps that step's reason, and no id from this run.
   if (kinded.length) {
     const published = (await readJson<Record<string, string>>(rejectedFile)) ?? {}

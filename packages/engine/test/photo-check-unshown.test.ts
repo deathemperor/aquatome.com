@@ -81,6 +81,20 @@ test('the photo check and sweep keep a refused passed photo if its only sibling 
   expect(await photosOf(independent, 'aaa')).toContain('a-dead')
 })
 
+test('a verdict on the stored photo holds the last visible original if the edit would delete both', async () => {
+  const r = await store({ aaa: ['altered'] })
+  const original = photo('original')
+  const altered = {
+    ...photo('altered'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'd'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  }
+  const file = 'content/species/aaa/entity.json'
+  await writeFile(join(r, file), JSON.stringify(fish('aaa', [altered])))
+  const checked = await checkPagePhotos(r, model({ altered: { ok: 'other', typical: false } }), { limit: 10, emptyCap: 0 })
+  expect(checked.heads.held).toContain(`species/aaa: ${altered.url}`)
+  expect((await json(r, file)).photos).toEqual([altered])
+})
+
 test('one photo check keeps a fallback original marked off for recovery alongside its rejected alteration', async () => {
   const r = await store({ aaa: ['altered', 'a-live'], bbb: ['original'] })
   const original = photo('original')

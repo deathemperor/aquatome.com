@@ -152,6 +152,25 @@ test("an album photo that another page owns and no look has judged for a dead fi
   expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
 })
 
+test('the working tree and Git replay find an unjudged mirror’s source owner', async () => {
+  const { r, put } = await store({ species: { x: [], y: [] }, albums: { x: [] } })
+  const source = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Replay.jpg/1280px-Replay.jpg'
+  const mirrored = `https://media.aquatome.com/${schema.mirrorPlan(source)!.key}`
+  const file = 'content/species/y/entity.json'
+  const entity = JSON.parse(await readFile(join(r, file), 'utf8'))
+  await put(file, { ...entity, photos: [{ ...photo('sample'), url: source }] })
+  await put('content/gallery/x.json', { id: 'x', photos: [{ ...photo('sample'), url: mirrored }], seen: 1, updatedAt: '2026-11-01' })
+  await put(`engine-state/${schema.PHOTO_SCREEN_FILE}`, { [source]: { ocr: [] }, [mirrored]: { ocr: [] } })
+  await put(`engine-state/${schema.FACES_FILE}`, { [source]: 0, [mirrored]: 0 })
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, {})
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', false]]))
+  const git = (...args: string[]) => execFileSync('git', args, { cwd: r, encoding: 'utf8' })
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
+  git('add', '.'); git('commit', '-qm', 'the mirror still waits')
+  await put('content/gallery/x.json', { id: 'x', photos: [], seen: 0, updatedAt: '2026-11-01' })
+  expect(await listEmptied(r, '2026-11-26')).toEqual([])
+})
+
 test('the replay locates a different page whose fallback original has a face verdict', async () => {
   const { r, put } = await store({ species: { x: [], y: [] }, albums: { x: ['u'] } })
   const file = 'content/species/y/entity.json'

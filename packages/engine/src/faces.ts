@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { awaitsScreen, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -92,7 +92,8 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   }
   const pagesToKeep = await pagesShowing(contentRoot, p => waitingForDead ? version(p)?.url : p.url)
   const unread = new Set(todo.filter(u => !Object.hasOwn(cache, u)))
-  const offPage = (u: string) => face(u) || !!listed(u) || waitingForDead?.has(u) === true ||
+  const owesLook = photoAddressSet(waitingForDead ?? [])
+  const offPage = (u: string) => face(u) || !!listed(u) || owesLook(u) ||
     (!!waitingForDead && (unread.has(u) || deadPhotoOff(u, screen, secondLook) || (!!watermarks && awaitsScreen(u, watermarks[u]))))
   const last = new Map([...lastPhotos(pagesToKeep, offPage)].filter(([u]) => face(u) && !listed(u)))
   // Only one that passed the check before is held; a face found now, on one that never did, takes it off, marked on both

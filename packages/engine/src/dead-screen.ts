@@ -1,4 +1,4 @@
-import { askedByCheckOf, awaitsScreen, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, facePhotoOff, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, publicPhotoVersion, rejectedEntry, facePhotoStatus, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { askedByCheckOf, awaitsScreen, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadPhotoOff, deadScreenPhotoUrls, facePhotoOff, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, publicPhotoVersion, rejectedEntry, facePhotoStatus, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -179,8 +179,9 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     ])
     const looked = deadLooked({ screen: cache, check, subjects, secondLook })
     const { unread, altered: flaggedAlterations } = await facePhotoStatus(content, faces)
+    const owesLook = photoAddressSet([...Object.keys(listed ?? {}), ...[...owned].filter(u => !looked(u))])
     const offPage = (u: string) => going.has(u) || !!isListed(u) || deadPhotoOff(u, oldCache, secondLook) ||
-      !!listed?.[u] || (owned.has(u) && !looked(u)) || unread.has(u) || (flaggedAlterations.has(u) && facePhotoOff(u, faces, secondLook)) || (!!watermarks && awaitsScreen(u, watermarks[u]))
+      owesLook(u) || unread.has(u) || (flaggedAlterations.has(u) && facePhotoOff(u, faces, secondLook)) || (!!watermarks && awaitsScreen(u, watermarks[u]))
     for (const [url, refs] of lastPhotos(pages, offPage)) if (going.has(url)) last.set(url, refs)
   }
   // Only one that passed the check before is held; this verdict, on one that never did, takes it off, marked (last-photo.ts).

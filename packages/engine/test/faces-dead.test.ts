@@ -415,6 +415,22 @@ test('the standalone screen asks about the displayed original even when the stor
   expect(sent).toEqual([original.url])
 })
 
+test('an unjudged owned source keeps its album mirror off until the source is judged', async () => {
+  const source = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Sample.jpg/1280px-Sample.jpg'
+  const mirrored = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const p = photo('fish')
+  const { state, publicView } = await publicFixture([{ ...p, url: source }], [{ ...p, url: mirrored }], [source, mirrored])
+  await writeFile(join(state, '_dead-screen.json'), '{}')
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [source]: 0, [mirrored]: 0 }))
+  const before = await publicView()
+  expect(before.galleries.alpha).toBeUndefined()
+  expect(before.photoWaits!(mirrored)).toBe(true)
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [source]: { dead: false } }))
+  const after = await publicView()
+  expect(after.galleries.alpha?.map(photo => photo.url)).toEqual([mirrored])
+  expect(after.photoWaits!(mirrored)).toBe(false)
+})
+
 test('a rejected source URL keeps its mirrored fallback off the page, album and direct lookup', async () => {
   const source = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Example.jpg/1280px-Example.jpg'
   const mirrored = `https://media.aquatome.com/${mirrorPlan(source)!.key}`

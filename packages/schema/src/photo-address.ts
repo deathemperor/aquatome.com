@@ -40,6 +40,20 @@ export function photoKey(url: string): string | undefined {
   try { return mirrorPlan(url)?.key } catch { return undefined }
 }
 
+/** Test whether a stored or source address belongs to the same set of photos. */
+export function photoAddressSet(urls: Iterable<string>): (url: string) => boolean {
+  const addresses = new Set(urls)
+  const keys = new Set([...addresses].flatMap(url => {
+    const key = photoKey(url)
+    return key ? [key] : []
+  }))
+  return url => {
+    if (addresses.has(url)) return true
+    const key = photoKey(url)
+    return key !== undefined && keys.has(key)
+  }
+}
+
 /**
  * The entry engine-state/_photo-rejected.json (URL → why) holds for a photo, `[the address it is listed by, why]`: by
  * its own address, or by its one key in our store (photoKey), either way round. A photo listed by its source's address

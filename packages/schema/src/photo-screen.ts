@@ -1,4 +1,4 @@
-import type { PhotoRejection } from './photo-address'
+import { photoAddressSet, type PhotoRejection } from './photo-address'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { isOwnerCrop, type ImageSwitches } from './image-policy'
@@ -214,10 +214,11 @@ export type PhotoWaitRecords = {
 
 /** The screen records that can withhold a selected photo version, wherever its address is used. */
 export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
+  const owesLook = photoAddressSet([...Object.keys(r.owed ?? {}), ...(r.unjudged ?? [])])
   return url => (!!r.watermarks && awaitsScreen(url, r.watermarks[url])) ||
-    (!!r.owed && Object.hasOwn(r.owed, url)) || r.unread?.has(url) === true ||
+    owesLook(url) || r.unread?.has(url) === true ||
     (r.flaggedAlterations?.has(url) === true && facePhotoOff(url, r.faces, r.secondLook)) ||
-    r.unjudged?.has(url) === true || deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected)
+    deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected)
 }
 
 /**

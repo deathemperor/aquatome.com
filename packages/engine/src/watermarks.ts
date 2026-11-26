@@ -127,21 +127,26 @@ function urlsIn(x: unknown, out: Set<string>, from: Map<string, Set<string>>) {
   }
 }
 
+type PreserveOriginal = (url: string, original: string, blockedOriginal: boolean) => boolean
+
+/** Shared by the last-photo calculation and the actual edit. */
+export function shouldStripPhoto(p: Photo, blocked: (url: string) => boolean, preserveOriginal?: PreserveOriginal): boolean {
+  if (!blocked(p.url)) return false
+  const original = preserveOriginal && deadScreenPhotoUrls(p)[1]
+  return !original || !preserveOriginal?.(p.url, original, blocked(original))
+}
+
 /**
  * Takes blocked photos off a content file, in place: from `photos` lists, video stills and figure photos (a figure left
  * with neither goes too), equipment type photos. An equipment hero is required: it becomes the first type photo left,
  * and stays (`kept`) when there is none.
  */
-export function stripPhotos(x: unknown, blocked: (url: string) => boolean, removed: string[], kept: string[], preserveOriginal?: (url: string, original: string, blockedOriginal: boolean) => boolean) {
+export function stripPhotos(x: unknown, blocked: (url: string) => boolean, removed: string[], kept: string[], preserveOriginal?: PreserveOriginal) {
   if (Array.isArray(x)) { for (const v of x) stripPhotos(v, blocked, removed, kept, preserveOriginal); return }
   if (!x || typeof x !== 'object') return
   const o = x as Record<string, unknown>
   for (const v of Object.values(o)) stripPhotos(v, blocked, removed, kept, preserveOriginal)
-  const drop = (p: unknown) => {
-    if (!isRef(p) || !blocked(p.url)) return false
-    const original = preserveOriginal && deadScreenPhotoUrls(p as Photo)[1]
-    return (!original || !preserveOriginal?.(p.url, original, blocked(original))) && removed.push(p.url) > 0
-  }
+  const drop = (p: unknown) => isRef(p) && shouldStripPhoto(p as Photo, blocked, preserveOriginal) && removed.push(p.url) > 0
   for (const k of ['photos', 'moments']) if (Array.isArray(o[k])) o[k] = (o[k] as unknown[]).filter(p => !drop(p))
   if (drop(o.photo)) delete o.photo
   if (Array.isArray(o.figures)) o.figures = (o.figures as { moments?: unknown[]; photo?: unknown }[]).filter(f => f.moments?.length || f.photo)
