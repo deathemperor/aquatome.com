@@ -5,10 +5,14 @@ import { robotsTxt } from '../src/lib/seo'
 import { createHash } from 'node:crypto'
 import { parse } from 'node-html-parser'
 import { DIST, page, sitemapText } from './dist'
-import { missingAddresses } from '../scripts/check-addresses'
+import { missingAddresses, unlinkedSitemapPages } from '../scripts/check-addresses'
 import { VI_SECTIONS } from '../worker/paths'
 import { LANGS } from '@aq/schema/langs'
 import { APP_PAGES, APP_STATE } from '../src/lib/app'
+import { getContent } from '../src/lib/content'
+import { OFF_LIST_GROUPS } from '../src/lib/format'
+import { localizePath } from '../src/lib/i18n'
+import { sitemapEntries } from '../src/lib/sitemap'
 
 const htmlFiles = (dir: string): string[] =>
   readdirSync(dir).flatMap(f => { const p = join(dir, f); return statSync(p).isDirectory() ? htmlFiles(p) : p.endsWith('.html') ? [p] : [] })
@@ -46,6 +50,21 @@ test('sitemap lists indexable pages and omits noindex ones', () => {
   expect(xml).toContain('/ca/ca-neon-vua/')
   expect(xml).not.toContain('/ca/ca-boraras-do/')
 })
+
+test('the sitemap lists the fish groups offered to search in each language', async () => {
+  const entries = await sitemapEntries()
+  const paths = new Set(entries.filter(e => e.kind === 'other').map(e => e.path))
+  for (const lang of LANGS) {
+    const content = await getContent(lang)
+    for (const group of OFF_LIST_GROUPS) expect(paths.has(localizePath(lang, `/vi/nhom/${group}/`))).toBe(false)
+    for (const group of new Set(content.species.map(s => s.group))) {
+      const path = localizePath(lang, `/vi/nhom/${group}/`)
+      expect(paths.has(path), path).toBe(!OFF_LIST_GROUPS.includes(group))
+    }
+  }
+  expect(paths.has('/phan-loai/')).toBe(true)
+  expect(paths.has('/nguon-goc/')).toBe(true)
+})
 const sheet = (kind: string) => readFileSync(join(DIST, `sitemap-${kind}.xml`), 'utf8')
 const dateIn = (xml: string, path: string) => new RegExp(`<loc>https?://[^/]+${path}</loc>(?:<lastmod>([^<]+)</lastmod>)?`).exec(xml)
 
@@ -70,6 +89,10 @@ test('/sitemap.xml is the index of one sitemap per kind of page, and a page is i
 test('every page a sitemap lists, and every redirect target, is a page the build wrote', () => {
   expect(sitemapText().match(/<loc>/g)!.length).toBeGreaterThan(30)
   expect(missingAddresses(DIST)).toEqual({ sitemap: [], redirects: [] })
+})
+
+test('every sitemap address has an ordinary link from the HTML catalogue', () => {
+  expect(unlinkedSitemapPages(DIST)).toEqual([])
 })
 
 // The dates are the fixture's page-dates.json, all in the past: a page's own files, the latest of them.
