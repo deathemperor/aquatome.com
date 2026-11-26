@@ -536,7 +536,7 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   await dropRejected(root, content, effectiveRejection, captureWaiting(sl, effectiveRejection))
   // `shard` [i, n]: every n-th page from the i-th, so n runs can share the work (each still most popular first).
   const plan = (await galleryPlan(root)).filter((t, i) => (!o.only || t.id === o.only) && (!o.shard || i % o.shard[1] === o.shard[0]))
-  const listed = new Set([...Object.keys(await readPriorityFish(root)), ...Object.keys(await readList(root, EMPTIED_FILE))])
+  const priorityPages = new Set([...Object.keys(await readPriorityFish(root)), ...Object.keys(await readList(root, EMPTIED_FILE))])
   // Each source's requests: counted against the run's budget, at the pace the source asks for (shared by n shards).
   const runs = o.shard?.[1] ?? 1
   const paced = (name: keyof SourceBudget, gap: number) => async (url: string) => {
@@ -593,7 +593,7 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
     if (ncRound && (t.kind === 'breeds' || (st.inatNc?.done && !ncQueued) || !ncReady(t, st))) continue
     // A page dry before the non-commercial switch went on has never read that pass: it is read now, not in a month.
     const ncUnread = ncRound && !st.inatNc
-    const due = !st.exhausted || !!o.only || days(st.exhausted) >= (listed.has(`${t.kind}/${t.id}`) ? LISTED_RETRY_DAYS : RETRY_DAYS)
+    const due = !st.exhausted || !!o.only || days(st.exhausted) >= (priorityPages.has(`${t.kind}/${t.id}`) ? LISTED_RETRY_DAYS : RETRY_DAYS)
     if (!due && !ncUnread) continue
     // Read for that pass alone: the open sources stay dry from the day they ran dry, so their month isn't put back.
     const drySince = due ? undefined : st.exhausted
