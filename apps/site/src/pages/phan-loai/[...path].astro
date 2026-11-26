@@ -47,7 +47,7 @@ const crumbs: [string, string][] = node.path.length
   ? [['/vi/phan-loai/', t(RANKS[0])], ...node.path.slice(0, -1).map((_, i): [string, string] => [`/vi/phan-loai/${node.path.slice(0, i + 1).join('/')}/`, crumbNames[i]!])]
   : []
 ---
-<Browse title={node.path.length ? `${level} ${node.name}` : t(RANKS[0])} heading={node.path.length ? node.name : t(RANKS[0])} crumbs={crumbs} credits={creditsFor(gridPhotos(c, node.species.slice(0, PAGE)).map(p => p ?? undefined))} creditsLater={node.species.length > PAGE} intro={node.path.length ? t(TAXON_INTRO, { level, name: node.name, n: node.species.length }) : t('Duyệt loài theo bộ, họ và chi.')} alternates={alternates}>
+<Browse title={node.path.length ? `${level} ${node.name}` : t(RANKS[0])} heading={node.path.length ? node.name : t(RANKS[0])} crumbs={crumbs} structuredBreadcrumb credits={creditsFor(gridPhotos(c, node.species.slice(0, PAGE)).map(p => p ?? undefined))} creditsLater={node.species.length > PAGE} intro={node.path.length ? t(TAXON_INTRO, { level, name: node.name, n: node.species.length }) : t('Duyệt loài theo bộ, họ và chi.')} alternates={alternates}>
   {/* Always fill the slot: a conditional one leaves the h1 empty when false. A genus is italic, higher ranks are not. */}
   <span slot="heading" class:list={{ sci: node.level === 3 }}>{node.path.length ? node.name : t(RANKS[0])}</span>
   {kids.length > 0 && (

@@ -19,6 +19,7 @@ import { shareImage } from '../../lib/gallery'
 import { plantParts } from '../../lib/plant-page'
 import { i18n, langOf } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
+import { articleLd, breadcrumbLd, firstPublished, taxonLd } from '../../lib/structured-data'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -41,8 +42,19 @@ const facts: [string, string][] = [
 import RedirectNote from '../../components/RedirectNote.astro'
 import BackToTop from '../../components/BackToTop.astro'
 const alternates = await alternatesOf('plants', p.id)
+const description = `${withSci(p.t.name, p.scientificName)}: ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`
+const image = shareImage(p.photos)
+const jsonld = [
+  articleLd(Astro.site!, lang, Astro.url.pathname, {
+    headline: p.t.name,
+    alternativeHeadline: sciBeside(p.t.name, p.scientificName) ? p.scientificName : undefined,
+    datePublished: firstPublished(c.changelog, lang, 'plant', p.id), dateModified: p.updatedAt, description, image,
+    about: taxonLd(p.scientificName, p.t.name, p.t.altNames),
+  }),
+  breadcrumbLd(Astro.site!, lang, [['/vi/cay/', t('Cây thủy sinh')], [Astro.url.pathname, p.t.name]]),
+]
 ---
-<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${withSci(p.t.name, p.scientificName)}: ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={shareImage(p.photos)} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor([...figures, ...strip, ...videoPhotos.slice(0, VIDEO_CARDS)].map(x => x ?? undefined))}>
+<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={description} image={image} jsonld={jsonld} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor([...figures, ...strip, ...videoPhotos.slice(0, VIDEO_CARDS)].map(x => x ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}><a href="/vi/cay/">{t('Cây thủy sinh')}</a></nav>
   <header class="wrap top">

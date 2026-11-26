@@ -22,7 +22,7 @@ const shownNotes = discovery.length > PAGE ? first : discovery
 const covers = takeEach(pics, shownNotes, g => guideImages(c, g))
 const recentPhotos = gridPhotos(c, recent, pics)
 ---
-<Browse title={t('Khám phá')} heading={t('Khám phá')} intro={t('Loài mới nhập, bể đẹp và những điều thú vị dưới mặt nước.')} credits={creditsFor([...covers, ...recentPhotos].map(p => p ?? undefined))} creditsLater={discovery.length > PAGE}>
+<Browse title={t('Khám phá')} heading={t('Khám phá')} structuredBreadcrumb intro={t('Loài mới nhập, bể đẹp và những điều thú vị dưới mặt nước.')} credits={creditsFor([...covers, ...recentPhotos].map(p => p ?? undefined))} creditsLater={discovery.length > PAGE}>
   {discovery.length > PAGE
     ? <MoreList kind="guides" src={`/data/${lang}/guides/kham-pha.json`} total={discovery.length} next="/vi/kham-pha/trang/2/"><div class="grid">{first.map((g, i) => <GuideCard g={g} photo={covers[i]} />)}<template id="guide-card"><GuideCard g={discovery[0]!} template /></template></div></MoreList>
     : discovery.length > 0 && <div class="grid">{discovery.map((g, i) => <GuideCard g={g} photo={covers[i]} />)}</div>}
