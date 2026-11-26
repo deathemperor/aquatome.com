@@ -990,6 +990,54 @@ test('a clear restores a stock photo to the second of two parts with the same he
   expect((await json(r, G)).video.figures).toEqual(figures)
 })
 
+test('a dropped first part comes back before its surviving duplicate heading', async () => {
+  const r = await store({})
+  const G = 'content/guides/ggg/entity.json'
+  const figures = [
+    { heading: 'Same heading', moments: [frame] },
+    { heading: 'Same heading', moments: [], photo: stock },
+  ]
+  await mkdir(join(r, G, '..'), { recursive: true })
+  await writeFile(join(r, G), JSON.stringify({ ...guideBefore, video: { ...guideBefore.video, figures } }))
+  await takeOffGuidesDead(r, new Map([[frame.url, 'sample']]), 'the guide photo check')
+  await writeFile(join(r, G), JSON.stringify({ ...guideBefore, video: { ...guideBefore.video, figures: [figures[1]] } }))
+  const marks = await json(r, SL)
+  marks[frame.url].look = { said: 'clear', by: 'reviewer', on: today() }
+  await writeFile(join(r, SL), JSON.stringify(marks))
+
+  expect((await putBackCleared(r, async () => [])).back).toEqual([`${G}: ${frame.url}`])
+  expect((await json(r, G)).video.figures).toEqual(figures)
+})
+
+test.each([false, true])('clearing one of two stock photos keeps their shared source exclusion (other agreed: %s)', async agreed => {
+  const r = await store({})
+  const G = 'content/guides/ggg/entity.json'
+  const P = 'engine-state/_part-photos-off.json'
+  const another = { ...stock, url: url('shared-stock-source') }
+  const figures = [
+    { heading: 'One', moments: [], photo: stock },
+    { heading: 'Two', moments: [], photo: another },
+  ]
+  await mkdir(join(r, G, '..'), { recursive: true })
+  await writeFile(join(r, G), JSON.stringify({ ...guideBefore, video: { ...guideBefore.video, figures } }))
+  await takeOffGuidesDead(r, new Map([[stock.url, 'sample'], [another.url, 'sample']]), 'the guide photo check')
+  const records = await json(r, SL)
+  records[stock.url].look = { said: 'clear', by: 'reviewer', on: today() }
+  if (agreed) records[another.url].look = { said: 'agree', by: 'reviewer', on: today() }
+  await writeFile(join(r, SL), JSON.stringify(records))
+  if (agreed) await listAgreed(r)
+
+  expect((await putBackCleared(r, async () => [])).back).toEqual([`${G}: ${stock.url}`])
+  expect((await json(r, P))[hashOf(stockPage)]).toMatchObject({ guides: ['ggg'] })
+  if (!agreed) {
+    const rest = await json(r, SL)
+    rest[another.url].look = { said: 'clear', by: 'reviewer', on: today() }
+    await writeFile(join(r, SL), JSON.stringify(rest))
+    expect((await putBackCleared(r, async () => [])).back).toEqual([`${G}: ${another.url}`])
+    expect((await json(r, P))[hashOf(stockPage)]).toBeUndefined()
+  }
+})
+
 test('clearing the second empty part before the first restores both before their surviving neighbor', async () => {
   const r = await store({})
   const G = 'content/guides/ggg/entity.json'

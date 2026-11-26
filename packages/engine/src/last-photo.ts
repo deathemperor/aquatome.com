@@ -209,6 +209,14 @@ export async function listAgreed(root: string): Promise<string[]> {
   if (!agreed.length) return []
   const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
   const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
+  const partsFile = join(root, 'engine-state', '_part-photos-off.json')
+  const partsOff = agreed.some(url => sl[url]!.parts?.length)
+    ? JSON.parse(await readFile(partsFile, 'utf8').catch((error: NodeJS.ErrnoException) => {
+      if (error.code === 'ENOENT') return '{}'
+      throw error
+    })) as Record<string, { guides?: string[]; agreedGuides?: string[] }>
+    : undefined
+  let partsChanged = false
   for (const url of agreed) {
     // A waiting entry, for this reason or another, takes the verdict's own reason, on a record marked off or not: two runs'
     // records can meet in a merge with the unmarked one kept and the waiting entry beside it (the chief of staff, 20 Nov,
@@ -216,8 +224,22 @@ export async function listAgreed(root: string): Promise<string[]> {
     // lift (the independent reader, 20 Nov).
     if (rejected[url]?.startsWith('waiting:') || (sl[url]!.off && rejected[url]?.startsWith('watermark:'))) rejected[url] = sl[url]!.why
     else rejected[url] ??= sl[url]!.why
+    for (const key of sl[url]!.parts ?? []) {
+      const part = partsOff?.[key]
+      if (!part?.guides) continue
+      const guides = new Set(part.agreedGuides)
+      for (const page of sl[url]!.pages) {
+        const guide = page.startsWith('guides/') ? page.slice('guides/'.length) : ''
+        if (part.guides.includes(guide)) guides.add(guide)
+      }
+      if (guides.size > (part.agreedGuides?.length ?? 0)) {
+        part.agreedGuides = [...guides].sort()
+        partsChanged = true
+      }
+    }
     delete sl[url]
   }
+  if (partsChanged) await writeImageCache(partsFile, `${JSON.stringify(partsOff, null, 2)}\n`)
   await writePhotoState(rejectedFile, rejected)
   await writeSecondLook(root, sl)
   return agreed
@@ -271,7 +293,7 @@ const validPlace = (p: Place) => PLACE.test(p.file) && Number.isSafeInteger(p.in
     p.path[0] === 'video' && p.path[1] === 'figures' && Number.isSafeInteger(p.path[2]) && p.path[2] >= 0 &&
     (p.path[3] === 'photo' ? p.index === -1 : p.path[3] === 'moments' && p.index >= 0))
 /** The same, with its entry there, as the step that takes it off holds it. */
-export type Stood = Place & { photo: Record<string, unknown>; order?: string[]; heading?: string; partOrder?: string[] }
+export type Stood = Place & { partImages?: string[][]; photo: Record<string, unknown>; order?: string[]; heading?: string; partOrder?: string[] }
 /** A place a photo's mark took it off, as it was just before it first left from the mark on; and how many times it left. */
 export type LeftPlace = Stood & { times: number }
 
@@ -294,25 +316,32 @@ function sameGuideSlot(p: Pick<PhotoSlot, 'path' | 'heading' | 'partOrder'>, q: 
   return first === undefined || second === undefined ? p.path[2] === q.path[2] : first === second
 }
 
+function figurePhotoUrls(figure: { photo?: unknown; moments?: unknown }): string[] {
+  return [figure.photo, ...(Array.isArray(figure.moments) ? figure.moments : [])].flatMap(photo =>
+    typeof photo?.url === 'string' ? [photo.url] : [],
+  )
+}
+
 function photoSlots(data: unknown, guide: boolean): PhotoSlot[] {
   const doc = data as { photos?: unknown; video?: { figures?: unknown } } | undefined
   const out: PhotoSlot[] = []
-  const add = (photos: unknown, path?: GuideSlot, heading?: string, partOrder?: string[]) => {
+  const add = (photos: unknown, path?: GuideSlot, heading?: string, partOrder?: string[], partImages?: string[][]) => {
     if (!Array.isArray(photos)) return
     const order = photos.map(p => typeof p?.url === 'string' ? p.url : '')
     photos.forEach((p, index) => {
       if (typeof p?.url !== 'string') return
-      out.push({ index: path?.[3] === 'photo' ? -1 : index, photo: p, order, ...(path ? { path } : {}), ...(heading !== undefined ? { heading, partOrder } : {}) })
+      out.push({ index: path?.[3] === 'photo' ? -1 : index, photo: p, order, ...(path ? { path } : {}), ...(heading !== undefined ? { heading, partOrder, partImages } : {}) })
     })
   }
   add(doc?.photos)
   const figures = doc?.video?.figures
   if (guide && Array.isArray(figures)) {
     const partOrder = figures.map(f => typeof f?.heading === 'string' ? f.heading : '')
+    const partImages = figures.map(figurePhotoUrls)
     figures.forEach((f, index) => {
       const heading = typeof f?.heading === 'string' ? f.heading : undefined
-      add([f?.photo], ['video', 'figures', index, 'photo'], heading, partOrder)
-      add(f?.moments, ['video', 'figures', index, 'moments'], heading, partOrder)
+      add([f?.photo], ['video', 'figures', index, 'photo'], heading, partOrder, partImages)
+      add(f?.moments, ['video', 'figures', index, 'moments'], heading, partOrder, partImages)
     })
   }
   return out
@@ -575,7 +604,7 @@ export function gitHistory(root: string): History {
             const starting = capturedAt && capturedAt !== mark ? [`${capturedAt}^`, capturedAt] : [parent, mark]
             const wasPresent = (!capturedAt && spots(parent, file).some(same)) ||
               (capturedKeys.has(key) && starting.some(rev => spots(rev, file).some(same)))
-            out.set(key, { ...position, photo: p.photo, order: p.order, times: wasPresent ? 1 : 2, ...(p.heading !== undefined ? { heading: p.heading, partOrder: p.partOrder } : {}) })
+            out.set(key, { ...position, photo: p.photo, order: p.order, times: wasPresent ? 1 : 2, ...(p.heading !== undefined ? { heading: p.heading, partOrder: p.partOrder, partImages: p.partImages } : {}) })
           }
         }
       }
@@ -681,14 +710,17 @@ export async function putBackCleared(root: string, history: History, at = today(
   // The part-photo list (video-images.ts): a stock photo by its Commons page, as written or hashed, a frame by its
   // address. A photo back on a guide's part leaves it for that guide; an entry for every guide is a person's, and stays.
   const partsFile = join(root, 'engine-state', '_part-photos-off.json')
-  const partsOff = JSON.parse(await readFile(partsFile, 'utf8').catch(() => '{}')) as Record<string, { why: string; guides?: string[]; seconds?: number[] }>
+  const partsOff = JSON.parse(await readFile(partsFile, 'utf8').catch(() => '{}')) as Record<string, { why: string; guides?: string[]; seconds?: number[]; agreedGuides?: string[] }>
   let lifted = false
   const parts = {
-    lift: (key: string, guide: string) => {
+    lift: (key: string, guide: string, photo: string) => {
       if (!key) return
       for (const k of [key, `sha256:${createHash('sha256').update(key).digest('hex')}`]) {
         const e = partsOff[k]
-        if (!e?.guides?.includes(guide)) continue
+        if (!e?.guides?.includes(guide) || e.agreedGuides?.includes(guide)) continue
+        const stillNeeded = Object.entries(sl).some(([url, mark]) => url !== photo && !mark.back &&
+          mark.pages.includes(`guides/${guide}`) && mark.parts?.includes(k))
+        if (stillNeeded) continue
         e.guides = e.guides.filter(g => g !== guide)
         if (!e.guides.length) delete partsOff[k]
         lifted = true
@@ -746,7 +778,7 @@ export async function putBackCleared(root: string, history: History, at = today(
     const missing: string[] = []
     for (const p of own) {
       const kept = captures.get(placeKey(p))
-      if (kept) mine.push({ ...p, photo: kept.photo, order: kept.order, heading: kept.heading, partOrder: kept.partOrder, times: fromHistory.get(placeKey(p))?.times ?? 1 })
+      if (kept) mine.push({ ...p, photo: kept.photo, order: kept.order, heading: kept.heading, partOrder: kept.partOrder, partImages: kept.partImages, times: fromHistory.get(placeKey(p))?.times ?? 1 })
       else if (!fromHistory.has(placeKey(p))) missing.push(`${u}: its entry on ${p.file} wasn't kept here`)
     }
     out.off.push(...missing)
@@ -784,15 +816,26 @@ export async function putBackCleared(root: string, history: History, at = today(
         const figures = doc.video?.figures
         if (!guideId || !Array.isArray(figures)) { out.off.push(`${u}: its part of ${p.file} is gone`); continue }
         const saved = p.path[2]
-        const headings = figures.flatMap((f, i) => f.heading === p.heading ? [i] : [])
+        const headings = figures.flatMap((figure, i) => figure.heading === p.heading ? [i] : [])
+        const priorHeadingCount = p.partOrder?.filter(heading => heading === p.heading).length ?? 0
         const occurrence = headingOccurrence(p.heading, saved, p.partOrder)
-        const at = p.heading === undefined ? saved : occurrence === undefined
+        const savedMatch = (figure: Record<string, unknown>, index: number) => {
+          if (figure.heading !== p.partOrder?.[index]) return false
+          if (p.partOrder?.filter(heading => heading === figure.heading).length === 1) return true
+          const images = figurePhotoUrls(figure)
+          return p.partImages?.[index]?.some(url => images.includes(url)) ?? false
+        }
+        const found = p.partImages ? headings.find(i => savedMatch(figures[i]!, saved)) : undefined
+        const dropped = found === undefined && priorHeadingCount > 1 && headings.length < priorHeadingCount && !!p.partImages
+        const at = p.heading === undefined ? saved : found ?? (dropped ? -1 : occurrence === undefined
           ? figures[saved]?.heading === p.heading ? saved : headings[0] ?? -1
-          : headings[occurrence] ?? -1
+          : headings[occurrence] ?? -1)
         if (at < 0 && p.heading !== undefined) {
           into = { heading: p.heading, moments: [] } as typeof into
-          const current = figures.map(f => typeof f.heading === 'string' ? f.heading : '')
-          const index = photoPosition(current, p.partOrder ?? [], p.path[2], p.path[2])
+          const positions = figures.map(figure => p.partOrder?.findIndex((_, i) => savedMatch(figure, i)) ?? -1)
+          const next = positions.findIndex(index => index > saved)
+          const prev = positions.findLastIndex(index => index >= 0 && index < saved)
+          const index = next >= 0 ? next : prev >= 0 ? prev + 1 : Math.min(saved, figures.length)
           figures.splice(index, 0, into)
         } else {
           if (!figures[at]) { out.off.push(`${u}: its part of ${p.file} is gone`); continue }
@@ -820,9 +863,9 @@ export async function putBackCleared(root: string, history: History, at = today(
       }
       await replacePhotoDocument(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       out.back.push(`${p.file}: ${address}`)
-      if (guideId) parts.lift(slot === 'photo' ? String(p.photo.sourceUrl ?? '') : address, guideId)
+      if (guideId) parts.lift(slot === 'photo' ? String(p.photo.sourceUrl ?? '') : address, guideId, u)
     }
-    for (const key of sl[u]!.parts ?? []) for (const g of sl[u]!.pages) if (g.startsWith('guides/')) parts.lift(key, g.slice('guides/'.length))
+    for (const key of sl[u]!.parts ?? []) for (const g of sl[u]!.pages) if (g.startsWith('guides/')) parts.lift(key, g.slice('guides/'.length), u)
     if (entry !== undefined) { delete rejected[u]; unlisted = true }
     complete(sl[u]!, places)
   }

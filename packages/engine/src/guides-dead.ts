@@ -96,7 +96,7 @@ export async function takeOffGuidesDead(root: string, dead: Map<string, string>,
       h.parts = [...new Set([...(h.parts ?? []), key])]
       const had = parts[key]
       parts[key] = {
-        why: had?.why ?? compactRejection(why),
+        ...had, why: had?.why ?? compactRejection(why),
         ...(had && !had.guides ? {} : { guides: [...new Set([...(had?.guides ?? []), p.guide])].sort() }),
         ...(p.kind === 'frame' ? { seconds: [...new Set([...(had?.seconds ?? []), p.t!])].sort((a, b) => a - b) } : {}),
       }

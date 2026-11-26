@@ -62,20 +62,31 @@ const waitingAndFinal = (o, t) => typeof o === 'string' && typeof t === 'string'
 const LISTED = /^(species|breeds)\/[a-z0-9-]+$/, DAY = /^\d{4}-\d{2}-\d{2}$/
 const listedDays = (k, o, t) => LISTED.test(k) && typeof o === 'string' && typeof t === 'string' && DAY.test(o) && DAY.test(t)
 
-// A part photo's entry (engine-state/_part-photos-off.json, packages/engine/src/video-images.ts): a Commons file's page or a
-// frame's address to `why`, the guides it is off for (none: every guide) and, for a frame, the seconds the picture step
-// doesn't cut. Where both sides changed one, it stays off for every guide and second either side named: keeping one side
-// whole would bring the photo back on the other's guide at its next rewrite. The reason is ours. Told by its shape: `why`
-// and only `guides` and `seconds` beside it, one of them on at least one side (a test holds that no other file the
-// driver merges has one).
-const partOff = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && Object.keys(v).every(k => k === 'why' || k === 'guides' || k === 'seconds') && (v.guides === undefined || Array.isArray(v.guides)) && (v.seconds === undefined || Array.isArray(v.seconds))
-const partsOff = (o, t) => partOff(o) && partOff(t) && [o, t].some(v => v.guides || v.seconds)
-function bothOff(o, t) {
-  const union = (a, b) => [...new Set([...(a ?? []), ...(b ?? [])])]
-  const seconds = o.seconds || t.seconds ? union(o.seconds, t.seconds).sort((a, b) => a - b) : undefined
-  // Every guide where either side says so, but a frame's seconds always name their guides.
-  const guides = (o.guides && t.guides) || seconds ? union(o.guides, t.guides).sort() : undefined
-  return { why: o.why, ...(guides ? { guides } : {}), ...(seconds ? { seconds } : {}) }
+// Part-photo exclusions can be cleared for a guide while another run adds a guide. Keep each membership change
+// relative to the base. A human agreement keeps its guide excluded even when a different held photo is cleared.
+const partFields = ['why', 'guides', 'seconds', 'agreedGuides']
+const partOff = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' &&
+  Object.keys(v).every(k => partFields.includes(k)) &&
+  partFields.slice(1).every(k => v[k] === undefined || Array.isArray(v[k]))
+function partsOff(base, ours, theirs) {
+  const entries = [base, ours, theirs]
+  return entries.every(v => v === undefined || partOff(v)) &&
+    entries.some(v => v && partFields.slice(1).some(k => Array.isArray(v[k])))
+}
+function mergePartOff(base, ours, theirs) {
+  const mergeMembers = (a = [], o = [], t = []) => [...new Set([
+    ...a.filter(value => o.includes(value) && t.includes(value)),
+    ...o.filter(value => !a.includes(value)),
+    ...t.filter(value => !a.includes(value)),
+  ])]
+  const winner = ours ?? theirs
+  if (!winner) return undefined
+  if ([ours, theirs].some(v => v && !v.guides && !v.seconds)) return { why: winner.why }
+  const seconds = mergeMembers(base?.seconds, ours?.seconds, theirs?.seconds).sort((a, b) => a - b)
+  const agreedGuides = mergeMembers(base?.agreedGuides, ours?.agreedGuides, theirs?.agreedGuides).sort()
+  const guides = [...new Set([...mergeMembers(base?.guides, ours?.guides, theirs?.guides), ...agreedGuides])].sort()
+  if (!guides.length) return undefined
+  return { why: winner.why, guides, ...(seconds.length ? { seconds } : {}), ...(agreedGuides.length ? { agreedGuides } : {}) }
 }
 
 export function mergeMaps(base, ours, theirs) {
@@ -87,9 +98,9 @@ export function mergeMaps(base, ours, theirs) {
     const side = both ? bothChanged(base, ours, theirs, k)
       : changed && k in ours && k in theirs && waitingAndFinal(ours[k], theirs[k]) ? (WAITING.test(ours[k]) ? theirs : ours)
       : changed && k in ours && k in theirs && listedDays(k, ours[k], theirs[k]) ? (theirs[k] < ours[k] ? theirs : ours)
-      : changed && k in ours && k in theirs && partsOff(ours[k], theirs[k]) ? { [k]: bothOff(ours[k], theirs[k]) }
+      : changed && partsOff(base[k], ours[k], theirs[k]) ? { [k]: mergePartOff(base[k], ours[k], theirs[k]) }
       : !same(ours, k) ? ours : !same(theirs, k) ? theirs : base
-    if (side && k in side) out[k] = side[k]
+    if (side && k in side && side[k] !== undefined) out[k] = side[k]
   }
   return out
 }

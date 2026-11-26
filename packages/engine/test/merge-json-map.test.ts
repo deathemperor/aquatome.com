@@ -53,6 +53,18 @@ test("a part photo's entry both sides changed stays off for every guide and seco
   expect(mergeMaps({}, { k: { why: 'b', step: 's' } }, { k: { why: 'c', guides: ['g'] } })).toEqual({ k: { why: 'b', step: 's' } })
 })
 
+test('a concurrent source exclusion keeps the added guide and drops the cleared guide', () => {
+  const key = 'sha256:example'
+  const base = { [key]: { why: 'dead: withheld', guides: ['a'] } }
+  const added = { [key]: { why: 'dead: withheld', guides: ['a', 'b'] } }
+  const expected = { [key]: { why: 'dead: withheld', guides: ['b'] } }
+  expect(mergeMaps(base, {}, added)).toEqual(expected)
+  expect(mergeMaps(base, added, {})).toEqual(expected)
+  const confirmed = { [key]: { ...added[key], agreedGuides: ['a'] } }
+  expect(mergeMaps(base, {}, confirmed)).toEqual(confirmed)
+  expect(mergeMaps(base, confirmed, {})).toEqual(confirmed)
+})
+
 test("the part-photo list merges by key through the map driver, and no other file the driver merges holds a part photo's entry", async () => {
   const repo = fileURLToPath(new URL('../../../', import.meta.url))
   expect(execFileSync('git', ['check-attr', 'merge', '--', 'engine-state/_part-photos-off.json'], { cwd: repo, encoding: 'utf8' }).trim()).toBe('engine-state/_part-photos-off.json: merge: jsonmap')
