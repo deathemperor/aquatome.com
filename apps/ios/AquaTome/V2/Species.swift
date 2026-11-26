@@ -143,7 +143,7 @@ struct SpeciesPage: View {
     // A page the app can't draw (its kind not drawn here, or it didn't come): the site's page, or its kept copy offline, as
     // v1 showed it, under v1's bar (the v2 Lab, 15 Nov: the old look's switch goes on Thu 19, and this was only v1's).
     if asked && doc == nil {
-      PageView(item: item, url: handbook.url(item), at: openAt, webOnly: true)
+      PageView(item: item, url: handbook.url(item), at: openAt, webOnly: true).v2ClearOfTheFade()
     } else {
       drawn
     }

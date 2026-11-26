@@ -194,8 +194,8 @@ struct PageView: View {
       }
   }
 
-  private func readWhenLoaded() {
-    guard !readFallback else { return }
+  private func readWhenLoaded(_ loadedURL: URL) {
+    guard !readFallback, PageStore.address(loadedURL, site: url) == PageStore.address(url, site: url) else { return }
     readFallback = true
     handbook.read(item)
   }
@@ -368,7 +368,7 @@ private struct WebPage: UIViewRepresentable {
   let saved: (Data) -> Void
   /// A link to a page the app has as its own screen.
   let open: (AppScreen) -> Void
-  var loaded: (() -> Void)? = nil
+  var loaded: ((URL) -> Void)? = nil
 
   func makeCoordinator() -> Coordinator { Coordinator(self) }
 
@@ -435,7 +435,7 @@ private struct WebPage: UIViewRepresentable {
     var page: WebPage
     /// The load of the kept copy, shown offline: not kept again, and it doesn't clear the offline note.
     private var archive: WKNavigation?
-    private var archiveHeading: String?
+    private var archivedURL: URL?
     /// The request made when this view opened, identified by its WebKit navigation.
     private var firstRequest: (navigation: WKNavigation, url: URL)?
     /// Whether the site answered the page now loading with a page (2xx), not an error page to keep over a good copy.
@@ -487,21 +487,22 @@ private struct WebPage: UIViewRepresentable {
     func webView(_ web: WKWebView, didFinish navigation: WKNavigation!) {
       if navigation === archive {
         archive = nil
-        if let archiveHeading {
-          web.callAsyncJavaScript("document.getElementById(heading)?.scrollIntoView()",
-                                  arguments: ["heading": archiveHeading], in: nil, in: .page, completionHandler: nil)
+        if let archivedURL {
+          if let heading = archivedURL.fragment(percentEncoded: false) {
+            web.callAsyncJavaScript("document.getElementById(heading)?.scrollIntoView()",
+                                    arguments: ["heading": heading], in: nil, in: .page, completionHandler: nil)
+          }
+          page.loaded?(archivedURL)
         }
-        archiveHeading = nil
-        page.loaded?()
+        archivedURL = nil
         return
       }
       if navigation === firstRequest?.navigation { firstRequest = nil }
       // Online again: the notes go, and the page is kept for next time.
       page.offline = false
       page.failed = false
-      guard answered else { return }
-      page.loaded?()
-      guard let u = web.url, PageRoute.of(u, site: page.url, mainFrame: true, newWindow: false) == .app else { return }
+      guard answered, let u = web.url, PageRoute.of(u, site: page.url, mainFrame: true, newWindow: false) == .app else { return }
+      page.loaded?(u)
       #if DEBUG
       // The stand-in isn't the page: not kept as its offline copy, which would outlast the test run.
       if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") { return }
@@ -530,7 +531,7 @@ private struct WebPage: UIViewRepresentable {
       }
       if let data = PageStore.archive(for: address, site: page.url) {
         page.offline = true
-        archiveHeading = address.fragment(percentEncoded: false)
+        archivedURL = address
         archive = web.load(data, mimeType: "application/x-webarchive", characterEncodingName: "utf-8", baseURL: u)
       } else {
         page.failed = true
