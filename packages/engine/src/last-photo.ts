@@ -549,12 +549,18 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
   const marks = publishedJson(root, `engine-state/${SECOND_LOOK_FILE}`) as SecondLooks | undefined
   const rejected = publishedJson(root, 'engine-state/_photo-rejected.json')
   if (!marks || !rejected) return
+  const entries: { path: string; kept: Kept }[] = []
   for (const file of files) {
     const path = join(dir, file)
     const raw = await readFile(path, 'utf8').catch(() => undefined)
     let k: Kept | undefined
     try { k = raw === undefined ? undefined : JSON.parse(raw) as Kept } catch { continue }
     if (!k || typeof k.url !== 'string' || !day(k.at) || typeof k.why !== 'string') continue
+    entries.push({ path, kept: k })
+  }
+  const captureKey = (k: Kept, id: string) => JSON.stringify([k.url, k.file, id])
+  const captures = new Map(entries.flatMap(({ path, kept }) => kept.capture ? [[captureKey(kept, kept.capture), path] as const] : []))
+  for (const { path, kept: k } of entries) {
     const mark = marks[k.url], here = local[k.url]
     const restored = mark?.back && here?.back && mark.why === here.why &&
       mark.settled?.some(p => (p.captureWhy ?? mark.why) === k.why &&
@@ -571,6 +577,14 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
         return prior?.left?.some(place => place.capture === k.capture && place.file === k.file &&
           (place.capturedOccurrence ?? place.occurrence ?? 0) === (k.occurrence ?? 0)) === true
       })
+    }
+    if (agreed) {
+      // Remove earlier snapshots first so the published descendant still proves their outcome if pruning stops.
+      const ancestors = k.ancestors ?? (k.replaces ? [k.replaces] : [])
+      for (const id of ancestors) {
+        const prior = captures.get(captureKey(k, id))
+        if (prior && prior !== path) await rm(prior, { force: true })
+      }
     }
     if (restored || agreed) await rm(path, { force: true })
   }
@@ -589,14 +603,14 @@ export type History = (url: string, since: string, captured?: readonly HistoryPl
 /** The pages, albums and guides a photo shows on. */
 const PLACE = /^content\/(?:(?:species|plants|breeds|guides)\/[^/]+\/entity\.json|gallery\/[^/]+\.json)$/
 
-/** An independently first-refused rendition has its own history and requires its own clear. */
+/** A rendition with its own review or permanent refusal has its own recovery history. */
 function reviewedPhotoAddressSet(url: string, reviews: SecondLooks, rejected: Record<string, string>): (address: string) => boolean {
   const aliases = photoAddressSet([url])
   const version = photoVersionAddressSet([url])
   return address => {
     const reason = rejected[address]
-    const independentlyRefused = reviews[address]?.off === true || (reason && !reason.startsWith('waiting:'))
-    return aliases(address) && (version(address) || !independentlyRefused)
+    const separatelyReviewed = Object.hasOwn(reviews, address) || (reason && !reason.startsWith('waiting:'))
+    return aliases(address) && (version(address) || !separatelyReviewed)
   }
 }
 
@@ -872,8 +886,12 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks, dir?: st
       if (restored) {
         const historyPlaces = await history(url, mark.at, [{ ...place, photo: target, photoUrl: typeof target?.url === 'string' ? target.url : undefined }])
         if (!historyPlaces) throw new Error('Could not verify an unpublished photo restore after pulling main')
-        const departed = historyPlaces.find(p => placeKey(p) === placeKey(place) && p.times >= 2)
-        const returned = copy(publicPhotos, !!departed)
+        const historyPlace = historyPlaces.find(p => placeKey(p) === placeKey(place))
+        const departed = (historyPlace?.times ?? 0) >= 2
+        const edited = !departed && historyPlace?.returnedAs
+        const editedHash = edited ? placementHash(edited) : undefined
+        const editedEntry = editedHash ? publicPhotos.find(p => placementHash(p) === editedHash) : undefined
+        const returned = editedEntry ?? copy(publicPhotos, departed)
         if (!departed && !returned) continue
         const entry = copy(savedPhotos, !!departed)
         const localEntry = copy(priorPhotos, !!departed)
@@ -897,7 +915,10 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks, dir?: st
         if (sameRestore && merged && (returned ? publicEntry !== mergedEntry || (orderStillLocal && orderDiffers) : departed)) {
           const index = photos.indexOf(merged)
           photos.splice(index, 1)
-          if (returned) {
+          // A merge can keep both the editor's version and the replayed original. Drop the stale copy only.
+          const editAlreadyPresent = editedEntry && publicPhotos.filter(p => placementHash(p) === editedHash).length <=
+            photos.filter(p => placementHash(p) === editedHash).length
+          if (returned && !editAlreadyPresent) {
             const at = orderStillLocal && orderDiffers
               ? photoPosition(photos.map(orderKey), publicPhotos.map(orderKey), publicPhotos.indexOf(returned), index)
               : index

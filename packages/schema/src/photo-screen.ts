@@ -77,6 +77,7 @@ export const UNREAD_FACES_LIMIT = 300
 /** The dead-fish screen's record, in engine-state (address → its verdict): every photo it has judged, dead or not. */
 export const DEAD_SCREEN_FILE = '_dead-screen.json'
 /** The photo check's records, in engine-state: its verdicts by address, the old form, and the one by subject. */
+export const GUIDE_LOOKS_FILE = '_photo-guides.json'
 export const PHOTO_CHECK_FILE = '_photo-check.json'
 export const PHOTO_REJECTED_FILE = '_photo-rejected.json'
 export const PHOTO_SUBJECTS_FILE = '_photo-subjects.json'
@@ -388,6 +389,7 @@ export type PhotoWaitRecords = {
   check?: Record<string, unknown>
   subjects?: Record<string, unknown>
   deadScreen?: Record<string, unknown>
+  guideLooks?: Record<string, unknown>
   secondLook?: Record<string, unknown>
   rejected?: PhotoRejection
 }
@@ -403,7 +405,10 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
   const firstOff = photoFirstOff(r.secondLook, reviewedPhotoVersion(r.secondLook, r.check, r.subjects))
   const directFaces = new Set(Object.keys(r.faces ?? {}).filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)))
   const faceWaits = photoAddressSet([...(r.unread ?? []), ...directFaces])
-  const refusedByCheck = new Set<string>()
+  const refusedByCheck = new Set(Object.entries(r.guideLooks ?? {}).flatMap(([url, raw]) => {
+    const verdict = raw as { mark?: unknown; person?: unknown } | null
+    return verdict?.mark === true && verdict.person === true ? [url] : []
+  }))
   for (const url of new Set([...Object.keys(r.check ?? {}), ...Object.keys(r.subjects ?? {})])) {
     const by = r.subjects?.[url]
     const verdicts = [r.check?.[url], ...(by && typeof by === 'object' ? Object.values(by) : [])] as
@@ -418,7 +423,7 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
       if (entry && !retainedOwnMark(url, r.watermarks[url]) && !retainedOwnMark(entry[0], r.watermarks[entry[0]])) return true
     }
     const waitsForFace = directFaces.has(url) || r.unread?.has(url) || (!Object.hasOwn(r.faces ?? {}, url) && faceWaits(url))
-    // The photo check writes the whole-photo watermark reason. Its independent dead/person result still applies
+    // A mixed check writes the whole-photo watermark reason. Its independent dead/person result still applies
     // after a shop-mark waiver, pending an applicable review.
     const review = r.secondLook?.[url] as LookMark | undefined
     const clearedRefusal = typeof review?.why === 'string' && /^(?:dead|people): /.test(review.why) &&

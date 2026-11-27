@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, heldPhotoVersion, reviewedPhotoVersion, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, photoVersionAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, heldPhotoVersion, reviewedPhotoVersion, GUIDE_LOOKS_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, photoVersionAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from './dead-screen'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -108,9 +108,11 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     return shown && !setsCookies(shown) ? shown : undefined
   })
   const unread = new Set(todo.filter(u => !Object.hasOwn(cache, u)))
-  const [check, subjects] = screen ? await Promise.all([readPhotoRecord(root, PHOTO_CHECK_FILE), readPhotoRecord(root, PHOTO_SUBJECTS_FILE)]) : []
+  const [check, subjects, guideLooks] = screen ? await Promise.all([
+    readPhotoRecord(root, PHOTO_CHECK_FILE), readPhotoRecord(root, PHOTO_SUBJECTS_FILE), readPhotoRecord(root, GUIDE_LOOKS_FILE),
+  ]) : []
   const lookedForDead = screen && deadLooked({ screen, secondLook, check, subjects })
-  const waits = waitingForDead && photoWaitsFor({ watermarks, unjudged: waitingForDead, lookedForDead, check, subjects, unread, deadScreen: screen, secondLook })
+  const waits = waitingForDead && photoWaitsFor({ watermarks, unjudged: waitingForDead, lookedForDead, check, subjects, unread, deadScreen: screen, guideLooks, secondLook })
   const flagVerdicts = [...new Set([...screened, ...Object.keys(cache)])].filter(u => face(u) && !listed(u))
   const heldForCredit = await readCreditHoldWait(root)
   const unavailable = (u: string) => !!listed(u) || heldForCredit(u) || waits?.(u) === true

@@ -4,10 +4,10 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { createHash } from 'node:crypto'
-import { ownerCropCanonical, type OwnerCropApproval, type Photo } from '@aq/schema'
+import { mirrorPlan, ownerCropCanonical, type OwnerCropApproval, type Photo } from '@aq/schema'
 import { cardCrop, HEAD_IN_CROP, leadChoice, screenLeads, TRIES, type LeadDeps } from '../src/lead-photo'
 import { approvedCrop, hiddenFromReaders, mergePhotos, mergeRead, readKeeps, waitsForScreen } from '../src/run'
-import { readPhotoWaits, readRecoveryRetention } from '../src/photo-visibility'
+import { readPhotoWaits, readRecoveryRetention, readReviewedPhotoVersion } from '../src/photo-visibility'
 import { dropNonCommercial } from '../src/gallery'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
@@ -508,6 +508,25 @@ test('a reread keeps a waiting original and does not count a rejected wrapper as
   expect(mergeRead([stored], source, page, [], keeps)).toEqual({ photos: [stored], held: [] })
   const blocked = readKeeps(ref, 'Sample fish', { [stored.url]: 'watermark: withheld' }, names)
   expect(mergeRead([passed], source, page, [stored], blocked)).toEqual({ photos: [passed], held: [passed] })
+})
+
+test('a source reread keeps the last passed mirror after another crop is finally refused', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'reread-independent-mirror-'))
+  await mkdir(join(root, 'engine-state'))
+  const square = 'https://live.staticflickr.com/123/456_abc_q.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(square)!.key}`
+  const source = 'bwaquatics', page = 'https://example.org/fish'
+  const prior = { ...photo('passed'), url: mirror, source, sourceUrl: page } as const
+  const blocked = { [square]: 'dead: confirmed first refusal' }
+  const state = (name: string, value: unknown) => writeFile(join(root, 'engine-state', name), JSON.stringify(value))
+  await state('_photo-check.json', { [mirror]: { ok: 'yes', logo: false, person: false } })
+  await state('_photo-rejected.json', blocked)
+  const reviewed = await readReviewedPhotoVersion(root)
+  const waits = await readPhotoWaits(root, { rejected: blocked })
+  const keep = readKeeps('species/aaa', 'Example fish', blocked, { [source]: { publish: true } }, undefined, waits, undefined, reviewed)
+
+  expect(mergeRead([prior], source, page, [], keep)).toEqual({ photos: [prior], held: [prior] })
+  expect(keep.gone?.({ ...prior, url: square })).toBe(true)
 })
 
 test('a reread keeps the credited original of a durable first refusal before its rejection write', async () => {

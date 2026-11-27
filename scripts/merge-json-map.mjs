@@ -38,14 +38,16 @@ function mergePlaces(chosen, base, ours, theirs) {
   const settled = new Map([...oldSettled, ...datedPlaces(chosen, 'settled')].map(p => [placeKey(p), p]))
   const original = new Map(datedPlaces(base).map(p => [placeKey(p), p]))
   const pending = new Map(datedPlaces(chosen).map(p => [placeKey(p), p]))
+  const incoming = datedPlaces(other)
+  const incomingKeys = new Set(incoming.map(placeKey))
   const sameCapture = (p, q) => !!p && !!q && p.capture === q.capture && p.index === q.index && p.captureDay === q.captureDay && p.captureWhy === q.captureWhy
   const distinctEditions = (p, q) => p?.edition && q.edition && p.edition !== q.edition
   const renumber = place => {
     const moved = { ...place, occurrence: 1, capturedOccurrence: place.capturedOccurrence ?? place.occurrence ?? 0 }
-    while (pending.has(placeKey(moved)) || settled.has(placeKey(moved)) || original.has(placeKey(moved))) moved.occurrence++
+    while (pending.has(placeKey(moved)) || settled.has(placeKey(moved)) || original.has(placeKey(moved)) || incomingKeys.has(placeKey(moved))) moved.occurrence++
     return moved
   }
-  for (const place of datedPlaces(other)) {
+  for (const place of incoming) {
     if (differentKind && !place.capture) continue
     const key = placeKey(place)
     const before = original.get(key)
