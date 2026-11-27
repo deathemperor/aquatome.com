@@ -300,10 +300,14 @@ export type History = (url: string, since: string) => Promise<LeftPlace[] | unde
 const PLACE = /^content\/(?:(?:species|plants|breeds|guides)\/[^/]+\/entity\.json|gallery\/[^/]+\.json)$/
 
 /** An independently first-refused rendition has its own history and requires its own clear. */
-function reviewedPhotoAddressSet(url: string, reviews: SecondLooks): (address: string) => boolean {
+function reviewedPhotoAddressSet(url: string, reviews: SecondLooks, rejected: Record<string, string>): (address: string) => boolean {
   const aliases = photoAddressSet([url])
   const version = photoVersionAddressSet([url])
-  return address => aliases(address) && (version(address) || reviews[address]?.off !== true)
+  return address => {
+    const reason = rejected[address]
+    const independentlyRefused = reviews[address]?.off === true || (reason && !reason.startsWith('waiting:'))
+    return aliases(address) && (version(address) || !independentlyRefused)
+  }
 }
 
 /**
@@ -342,7 +346,11 @@ export function gitHistory(root: string): History {
     const urls = (d: { photos?: unknown } | undefined) => (Array.isArray(d?.photos) ? d.photos as Record<string, unknown>[] : [])
     // The places that showed it just before its mark (grep's status is 1 when none does).
     const mirrors = mirrorSearchTerms(url)
-    const samePhoto = reviewedPhotoAddressSet(url, await readSecondLook(root))
+    const rejected = JSON.parse(await readFile(join(root, 'engine-state', '_photo-rejected.json'), 'utf8').catch((error: NodeJS.ErrnoException) => {
+      if (error.code !== 'ENOENT') throw error
+      return '{}'
+    })) as Record<string, string>
+    const samePhoto = reviewedPhotoAddressSet(url, await readSecondLook(root), rejected)
     const shown = (p: Record<string, unknown>) => typeof p?.url === 'string' && samePhoto(p.url)
     const publishable = (p: Record<string, unknown>) => typeof p?.url === 'string' && samePhoto(p.url) && !setsCookies(p.url)
     const terms = [url, ...mirrors].flatMap(s => ['-e', s])
@@ -421,7 +429,7 @@ export async function putBackCleared(root: string, history: History, at = today(
     if (!places) { out.unread.push(u); continue }
     if (!places.length) out.off.push(`${u}: it left no page or album that showed it when it was marked off`)
     const named = new Set(sl[u]!.pages.map(x => x.split('/')[1]))
-    const samePhoto = reviewedPhotoAddressSet(u, sl)
+    const samePhoto = reviewedPhotoAddressSet(u, sl, rejected)
     for (const p of places) {
       if (p.times > 1) { out.off.push(`${u}: it left ${p.file} again after it came back, and that removal stands`); continue }
       const id = p.file.match(/^content\/(?:species|plants|breeds)\/([^/]+)\/entity\.json$|^content\/gallery\/([^/]+)\.json$/)
