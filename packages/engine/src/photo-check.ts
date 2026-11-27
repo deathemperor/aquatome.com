@@ -820,11 +820,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // its look marked on both lists (last-photo.ts), as does one already marked.
   const first = (url: string) => sl.off(url) || (Object.hasOwn(added, url) && freshBad.has(url))
   const separateHolds = new Set(Object.keys(added).filter(url => passedPhoto(url) && isVersionRejection(added[url]!)))
-  const separateHold = (url: string) => separateHolds.has(url)
+  const separateHold = (url: string) => versionHeld(url) || separateHolds.has(url)
   const firstByAddress = photoRejections(Object.fromEntries(Object.entries(added).filter(([url]) => first(url))), {}, separateHold)
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
-  const pendingGlobal = photoRejections(added, marks)
+  const pendingGlobal = photoRejections(added, marks, separateHold)
   const existingGlobal = photoRejections(rejected, marks, versionHeld)
   const originals = Object.values(added).some(why => !isVersionRejection(why))
     ? await originalPhotoRefusals(content, url => {
@@ -964,7 +964,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   const firstByPhoto = new Map<string, string>()
   for (const [url, mark] of firstOff) {
-    const key = photoKey(url) ?? url
+    const identity = photoKey(url)
+    const key = isVersionRejection(mark.why) && !identity?.startsWith('commons/') ? url : identity ?? url
     const prior = firstByPhoto.get(key)
     if (prior) {
       firstOff.get(prior)!.pages.push(...mark.pages)

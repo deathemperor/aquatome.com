@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process'
 import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -6,7 +7,7 @@ import { expect, test } from 'vitest'
 import { mirrorPlan, photoWaitsFor } from '@aq/schema'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { dropFacePhotos } from '../src/faces'
-import { listAgreed, unlistCleared, waitingEntry } from '../src/last-photo'
+import { gitHistory, listAgreed, unlistCleared, waitingEntry } from '../src/last-photo'
 import { compactRejection } from '../src/photo-observations'
 import { checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 import { sweep } from '../src/sweep'
@@ -654,6 +655,60 @@ test('a first dead verdict on a square crop does not take off a separately passe
   expect(reviews[square]).toMatchObject({ off: true, pages: ['species/aaa'] })
   expect(reviews[mirror]).toMatchObject({ pages: ['species/bbb'] })
   expect(reviews[mirror].off).toBeUndefined()
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [square]: waitingEntry(reviews[square].why) })
+})
+
+test.each([false, true])('a later first refusal leaves an independently reviewed mirror on its page (cleared: %s)', async cleared => {
+  const r = await store({ aaa: [], bbb: [] })
+  const square = 'https://live.staticflickr.com/123/456_abc_q.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(square)!.key}`
+  const photoAt = (address: string) => ({ ...photo('sample'), url: address, source: undefined, licence: 'CC BY 4.0' })
+  await writeFile(join(r, 'content/species/aaa/entity.json'), JSON.stringify(fish('aaa', [photoAt(square)])))
+  await writeFile(join(r, 'content/species/bbb/entity.json'), JSON.stringify(fish('bbb', [photoAt(mirror)])))
+  const previous = {
+    why: compactRejection('dead: earlier answer'), pages: ['species/bbb'], step: 'the photo check', at: '2026-11-26',
+    ...(cleared ? { look: { said: 'clear', by: 'reviewer', on: '2026-11-26' } } : {}),
+  }
+  const file = 'engine-state/_photo-second-look.json'
+  await writeFile(join(r, file), JSON.stringify({ [mirror]: previous }))
+  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({ [mirror]: oldPass }))
+
+  await checkPagePhotos(r, model({ [name(square)]: dead, [name(mirror)]: dead }), { limit: 10, emptyCap: 0 })
+
+  expect(await photosOf(r, 'aaa')).toEqual([])
+  expect(await photosOf(r, 'bbb')).toEqual([name(mirror)])
+  const reviews = await json(r, file)
+  expect(reviews[mirror]).toEqual(previous)
+  expect(reviews[square]).toMatchObject({ off: true, pages: ['species/aaa'] })
+})
+
+test('a clear restores only the first-refused rendition the person reviewed', async () => {
+  const r = await store({ aaa: [], bbb: [] })
+  const square = 'https://live.staticflickr.com/123/456_abc_q.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(square)!.key}`
+  const photoAt = (address: string) => ({ ...photo('sample'), url: address, source: undefined, licence: 'CC BY 4.0' })
+  await writeFile(join(r, 'content/species/aaa/entity.json'), JSON.stringify(fish('aaa', [photoAt(square)])))
+  await writeFile(join(r, 'content/species/bbb/entity.json'), JSON.stringify(fish('bbb', [photoAt(mirror)])))
+  const git = (...args: string[]) => execFileSync('git', args, { cwd: r, encoding: 'utf8' })
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
+  git('add', '.'); git('commit', '-qm', 'two renditions on distinct pages')
+
+  await checkPagePhotos(r, model({ [name(square)]: dead, [name(mirror)]: dead }), { limit: 10, emptyCap: 0 })
+
+  const file = 'engine-state/_photo-second-look.json'
+  const reviews = await json(r, file)
+  expect(reviews[square]).toMatchObject({ off: true, pages: ['species/aaa'] })
+  expect(reviews[mirror]).toMatchObject({ off: true, pages: ['species/bbb'] })
+  expect(await photosOf(r, 'aaa')).toEqual([])
+  expect(await photosOf(r, 'bbb')).toEqual([])
+  git('add', '.'); git('commit', '-qm', 'two first refusals')
+  reviews[mirror].look = { said: 'clear', by: 'reviewer', on: '2026-11-27' }
+  await writeFile(join(r, file), JSON.stringify(reviews))
+  git('add', '.'); git('commit', '-qm', 'clear only the larger rendition')
+  await sweep(r, { history: gitHistory(r) })
+
+  expect(await photosOf(r, 'aaa')).toEqual([])
+  expect(await photosOf(r, 'bbb')).toEqual([name(mirror)])
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [square]: waitingEntry(reviews[square].why) })
 })
 

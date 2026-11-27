@@ -299,6 +299,13 @@ export type History = (url: string, since: string) => Promise<LeftPlace[] | unde
 /** The pages, albums and guides a photo shows on. */
 const PLACE = /^content\/(?:(?:species|plants|breeds|guides)\/[^/]+\/entity\.json|gallery\/[^/]+\.json)$/
 
+/** An independently first-refused rendition has its own history and requires its own clear. */
+function reviewedPhotoAddressSet(url: string, reviews: SecondLooks): (address: string) => boolean {
+  const aliases = photoAddressSet([url])
+  const version = photoVersionAddressSet([url])
+  return address => aliases(address) && (version(address) || reviews[address]?.off !== true)
+}
+
 /**
  * `History` from git in `root`, along main's own line (the independent reader, 21 Nov). The places are the files that
  * showed the photo just before its mark and that it left from the mark on: a check's mark takes it off in its own commit,
@@ -335,7 +342,7 @@ export function gitHistory(root: string): History {
     const urls = (d: { photos?: unknown } | undefined) => (Array.isArray(d?.photos) ? d.photos as Record<string, unknown>[] : [])
     // The places that showed it just before its mark (grep's status is 1 when none does).
     const mirrors = mirrorSearchTerms(url)
-    const samePhoto = photoAddressSet([url])
+    const samePhoto = reviewedPhotoAddressSet(url, await readSecondLook(root))
     const shown = (p: Record<string, unknown>) => typeof p?.url === 'string' && samePhoto(p.url)
     const publishable = (p: Record<string, unknown>) => typeof p?.url === 'string' && samePhoto(p.url) && !setsCookies(p.url)
     const terms = [url, ...mirrors].flatMap(s => ['-e', s])
@@ -414,11 +421,13 @@ export async function putBackCleared(root: string, history: History, at = today(
     if (!places) { out.unread.push(u); continue }
     if (!places.length) out.off.push(`${u}: it left no page or album that showed it when it was marked off`)
     const named = new Set(sl[u]!.pages.map(x => x.split('/')[1]))
+    const samePhoto = reviewedPhotoAddressSet(u, sl)
     for (const p of places) {
       if (p.times > 1) { out.off.push(`${u}: it left ${p.file} again after it came back, and that removal stands`); continue }
       const id = p.file.match(/^content\/(?:species|plants|breeds)\/([^/]+)\/entity\.json$|^content\/gallery\/([^/]+)\.json$/)
       const page = id?.[1] ?? id?.[2]
       const address = typeof p.photo.url === 'string' ? p.photo.url : u
+      if (!samePhoto(address)) continue
       const aliasRejection = address === u ? undefined : rejected[address]
       if (aliasRejection && aliasRejection !== waitingEntry(sl[u]!.why)) {
         out.off.push(`${u}: its copy on ${p.file} is on the never-again list as ${aliasRejection.split(':')[0]}`)
@@ -431,7 +440,6 @@ export async function putBackCleared(root: string, history: History, at = today(
       if (raw === undefined) { out.off.push(`${u}: ${p.file} is gone`); continue }
       const doc = JSON.parse(raw) as { photos?: Record<string, unknown>[] }
       const photos = Array.isArray(doc.photos) ? doc.photos : (doc.photos = [])
-      const samePhoto = photoAddressSet([u, address])
       const blockedHost = setsCookies(address)
       if (photos.some(x => typeof x?.url === 'string' && samePhoto(x.url) && (blockedHost || !setsCookies(x.url)))) continue
       const blockedAlias = blockedHost ? -1 : photos.findIndex(x => typeof x?.url === 'string' && samePhoto(x.url) && setsCookies(x.url))
