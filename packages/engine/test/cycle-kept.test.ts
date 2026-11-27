@@ -203,6 +203,24 @@ test.each([
   expect(c.onMain('content/video.json')).toBe('')
 }, slow(60_000))
 
+test.each(['failed sweep commit', 'tracked write during verification'])('a kept video recheck does not publish after a %s', reason => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${kept} && git reset -q --hard origin/main`)
+  if (reason === 'failed sweep commit') {
+    c.sh('printf "#!/bin/sh\\nexit 1\\n" > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit')
+  }
+  c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    ${reason === 'failed sweep commit'
+      ? 'pnpm() { if [ "$1 $2" = "engine sweep" ]; then echo fixed > content/a.json; fi; }; checks() { [ "$(cat content/a.json)" = fixed ]; }'
+      : 'checks() { echo changed > content/a.json; }'}
+    publish_kept video-recheck
+  `)
+  expect(c.branches()).toEqual([kept])
+  expect(c.onMain('content/video.json')).toBe('')
+}, slow(60_000))
+
 test('a kept video recheck waits for a fresh shell when main changes the verification scripts', () => {
   const c = clone()
   const kept = 'kept/video-recheck/20261127T030000'

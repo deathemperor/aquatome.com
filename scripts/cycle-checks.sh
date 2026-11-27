@@ -619,7 +619,12 @@ main_holds() {
 video_recheck_rules_current() {
   [ -n "${AQ_SCRIPT_HEAD:-}" ] &&
     git diff --quiet "$AQ_SCRIPT_HEAD" HEAD -- \
-      scripts/cycle-checks.sh scripts/video-recheck.sh scripts/video-recheck-publish.sh .nvmrc .npmrc pnpm-workspace.yaml pnpm-lock.yaml
+      scripts/cycle-checks.sh scripts/video-recheck.sh scripts/video-recheck-publish.sh \
+      .nvmrc .npmrc pnpm-workspace.yaml pnpm-lock.yaml ':(glob)**/package.json'
+}
+# The verification commands read files from the checkout. Its index and tracked files must match the commit to push.
+video_recheck_tree() {
+  git diff --quiet HEAD -- && git diff --cached --quiet HEAD -- && git rev-parse 'HEAD^{tree}'
 }
 
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
@@ -668,7 +673,7 @@ push_kept() {
     # would pass a tree whose photo records weren't migrated, which push() never publishes (Grok's read).
     if [ "$(git rev-parse origin/main 2>/dev/null)" != "$main" ] && [ -z "$check" ]; then
       head=$(git rev-parse HEAD)
-      sweep_merged
+      sweep_merged || { KEPT_WHY="the sweep couldn't be committed"; return 1; }
       swept=1
       if [ -z "$video_recheck" ]; then
         if swept_clean "$head" "$main" "$(git rev-parse origin/main)"; then
@@ -683,9 +688,9 @@ push_kept() {
       check=1
     fi
     if [ -n "$check" ]; then
-      [ -n "$swept" ] || sweep_merged
+      [ -n "$swept" ] || sweep_merged || { KEPT_WHY="the sweep couldn't be committed"; return 1; }
       if [ -n "$video_recheck" ]; then
-        checked_tree=$(git rev-parse 'HEAD^{tree}') || { KEPT_WHY="could not identify the video recheck tree"; return 1; }
+        checked_tree=$(video_recheck_tree) || { KEPT_WHY="the video recheck checkout differed from its commit before verification"; return 1; }
       fi
       if ! verify_cycle; then
         if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
@@ -693,8 +698,16 @@ push_kept() {
         else KEPT_FAILED=1; fi
         return 1
       fi
+      if [ -n "$video_recheck" ] && [ "$(video_recheck_tree)" != "$checked_tree" ]; then
+        KEPT_WHY="the video recheck checkout changed during verification"
+        return 1
+      fi
       check=
       [ -z "$BRANCH" ] || [ -n "$PASS_UNRECORDED" ] || ended_row
+    fi
+    if [ -n "$video_recheck" ] && [ "$(video_recheck_tree)" != "$checked_tree" ]; then
+      KEPT_WHY="the video recheck checkout differed from the verified tree before publishing"
+      return 1
     fi
     if engine_cloud && [ -n "$BRANCH" ]; then
       net git push -q --atomic origin HEAD:main ":refs/heads/$BRANCH" && return 0
@@ -827,7 +840,7 @@ sweep_merged() {
   MIGRATE_FAILED=
   pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
   pnpm engine sweep || log "sweep: failed"
-  git add content sources engine-state docs/review
+  git add content sources engine-state docs/review || return 1
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
 }
 # A clean pull at a push brings main's changes in as well: a photo put on the never-again list, a head picked. A page file

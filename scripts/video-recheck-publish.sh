@@ -26,15 +26,25 @@ push_video_recheck() {
     refreshed=$(git rev-parse '@{u}') || break
     if [ "$refreshed" != "$base" ]; then
       main_holds "$run" || true
-      sweep_merged
+      if ! sweep_merged; then
+        keep_lost_push video-recheck "the sweep couldn't be committed" "$run"
+        return 1
+      fi
     fi
 
     # Check the tree that includes the latest main. A disjoint content change can affect cross-page checks.
-    tree=$(git rev-parse 'HEAD^{tree}') || break
+    if ! tree=$(video_recheck_tree); then
+      keep_lost_push video-recheck "the video recheck checkout differed from its commit before verification" "$run"
+      return 1
+    fi
     if [ "$checked_tree" != "$tree" ] || [ -n "${MIGRATE_FAILED:-}" ]; then
       if ! verify_cycle; then
         keep_unpublished video-recheck
         log "tests failed, not publishing (see $TEST_LOG)"
+        return 1
+      fi
+      if [ "$(video_recheck_tree)" != "$tree" ]; then
+        keep_lost_push video-recheck "the video recheck checkout changed during verification" "$run"
         return 1
       fi
       checked_tree=$tree
@@ -42,7 +52,7 @@ push_video_recheck() {
 
     # Main may have moved during the checks. A fast-forward-only pull means it cannot combine divergent trees here.
     # If anything came in, the next attempt integrates and checks it before a push can run.
-    if ! net git pull -q --no-rebase --ff-only || [ "$(git rev-parse 'HEAD^{tree}')" != "$checked_tree" ]; then
+    if ! net git pull -q --no-rebase --ff-only || [ "$(video_recheck_tree)" != "$checked_tree" ]; then
       log "main moved or could not be reached after the checks: trying a fresh pull before publishing"
       continue
     fi
