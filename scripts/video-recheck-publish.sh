@@ -2,7 +2,7 @@
 # Sourced by video-recheck.sh after the common cycle helpers are loaded.
 
 push_video_recheck() {
-  local try run base tree checked_tree='' refreshed clash
+  local try run base tree checked_tree='' refreshed clash verification_failed
   for try in 1 2 3; do
     run=$(git rev-parse HEAD) || break
     base=$(git merge-base "$run" '@{u}') || break
@@ -38,13 +38,15 @@ push_video_recheck() {
       return 1
     fi
     if [ "$checked_tree" != "$tree" ] || [ -n "${MIGRATE_FAILED:-}" ]; then
-      if ! verify_cycle; then
-        keep_unpublished video-recheck
-        log "tests failed, not publishing (see $TEST_LOG)"
-        return 1
-      fi
+      verification_failed=
+      verify_cycle || verification_failed=1
       if [ "$(video_recheck_tree)" != "$tree" ]; then
         keep_lost_push video-recheck "the video recheck checkout changed during verification" "$run"
+        return 1
+      fi
+      if [ -n "$verification_failed" ]; then
+        keep_unpublished video-recheck
+        log "tests failed, not publishing (see $TEST_LOG)"
         return 1
       fi
       checked_tree=$tree

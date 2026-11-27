@@ -622,9 +622,11 @@ video_recheck_rules_current() {
       scripts/cycle-checks.sh scripts/video-recheck.sh scripts/video-recheck-publish.sh \
       .nvmrc .npmrc pnpm-workspace.yaml pnpm-lock.yaml ':(glob)**/package.json'
 }
-# The verification commands read files from the checkout. Its index and tracked files must match the commit to push.
+# The verification commands read from the checkout. Expected build output is ignored by Git.
 video_recheck_tree() {
-  git diff --quiet HEAD -- && git diff --cached --quiet HEAD -- && git rev-parse 'HEAD^{tree}'
+  local status
+  status=$(git status --porcelain=v1 --untracked-files=all) &&
+    [ -z "$status" ] && git rev-parse 'HEAD^{tree}'
 }
 
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
@@ -633,7 +635,7 @@ video_recheck_tree() {
 # passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
-  local check=1 clash main head swept run video_recheck= checked_tree=
+  local check=1 clash main head swept run video_recheck= checked_tree= verification_failed
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
@@ -692,14 +694,16 @@ push_kept() {
       if [ -n "$video_recheck" ]; then
         checked_tree=$(video_recheck_tree) || { KEPT_WHY="the video recheck checkout differed from its commit before verification"; return 1; }
       fi
-      if ! verify_cycle; then
+      verification_failed=
+      verify_cycle || verification_failed=1
+      if [ -n "$video_recheck" ] && [ "$(video_recheck_tree)" != "$checked_tree" ]; then
+        KEPT_WHY="the video recheck checkout changed during verification"
+        return 1
+      fi
+      if [ -n "$verification_failed" ]; then
         if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
         elif [ -n "${MIGRATE_FAILED:-}" ]; then KEPT_WHY="its photo records couldn't be migrated"
         else KEPT_FAILED=1; fi
-        return 1
-      fi
-      if [ -n "$video_recheck" ] && [ "$(video_recheck_tree)" != "$checked_tree" ]; then
-        KEPT_WHY="the video recheck checkout changed during verification"
         return 1
       fi
       check=

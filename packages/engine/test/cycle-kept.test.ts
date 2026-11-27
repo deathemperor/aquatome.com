@@ -221,6 +221,35 @@ test.each(['failed sweep commit', 'tracked write during verification'])('a kept 
   expect(c.onMain('content/video.json')).toBe('')
 }, slow(60_000))
 
+test('a kept video recheck does not publish with an untracked verification input', () => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${kept} && git reset -q --hard origin/main`)
+  c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    checks() { echo local-only > content/material-parent.json; }
+    publish_kept video-recheck
+  `)
+  expect(c.branches()).toEqual([kept])
+  expect(c.onMain('content/video.json')).toBe('')
+}, slow(60_000))
+
+test('a held video recheck stays eligible for retry if its failing verification changed tracked files', () => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const held = `held/video-recheck/${when}`
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${held} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new')
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    checks() { echo changed > content/a.json; echo 'AssertionError: failed on a changed tree'; return 1; }
+    publish_kept video-recheck
+  `)
+  expect(c.branches()).toEqual([held])
+  expect(c.onMain('content/video.json')).toBe('')
+}, slow(60_000))
+
 test('a kept video recheck waits for a fresh shell when main changes the verification scripts', () => {
   const c = clone()
   const kept = 'kept/video-recheck/20261127T030000'
@@ -685,7 +714,7 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
     // after the sweep on a clean pull that brought main's commits in.
     if (name === 'video-recheck.sh') {
       expect(s, name).toContain('\npush_video_recheck\n')
-      expect(script('video-recheck-publish.sh')).toMatch(/if ! verify_cycle; then\n\s*keep_unpublished video-recheck\n.*not publishing.*\n\s*return 1/)
+      expect(script('video-recheck-publish.sh')).toMatch(/if \[ -n "\$verification_failed" \]; then\n\s*keep_unpublished video-recheck\n.*not publishing.*\n\s*return 1/)
     } else {
       const gaveUp = s.split('\n').filter(l => /not publishing/.test(l) && !/gate:/.test(l))
       expect(gaveUp.length, name).toBe(3)
