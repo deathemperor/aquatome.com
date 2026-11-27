@@ -100,6 +100,11 @@ export function publicPhotoVersion<P extends Photo>(p: P, images: Readonly<Image
 
 /** These refusals apply to the version that received the verdict. */
 export const isVersionRejection = (reason: string): boolean => /^(?:dead|people|waiting): /.test(reason)
+
+/** A waiver can lift a watermark decision, so it must never replace an independent refusal. */
+export const maySupersedePhotoRefusal = (prior: string | undefined, decision: string): boolean =>
+  !prior || (!decision.startsWith('watermark:') &&
+    (prior.startsWith('watermark:') || (isVersionRejection(prior) && !isVersionRejection(decision))))
 const CREDIT_HOLD_TEXT = 'rejected: held for a credit read'
 export const CREDIT_HOLD_REJECTION = `rejected: withheld [sha256:${createHash('sha256').update(CREDIT_HOLD_TEXT).digest('hex')}]`
 export const CREDIT_HOLD_FILE = '_credit-holds.json'
@@ -201,7 +206,7 @@ export async function expandWholePhotoRejections(
     const reasons = [...causes].map(cause => rejections[cause]!)
     const independent = reasons.find(reason => !reason.startsWith('watermark:'))
     const reason = independent ?? reasons[0]
-    if (reason && (!prior || isVersionRejection(prior) || (independent && prior.startsWith('watermark:')))) added[url] = reason
+    if (reason && maySupersedePhotoRefusal(prior, reason)) added[url] = reason
   }
   return Object.keys(added).length ? { ...rejections, ...added } : rejections
 }
@@ -341,10 +346,8 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
   const cleared = photoClears(r.secondLook)
   const held = photoHolds(r.secondLook)
   const firstOff = photoFirstOff(r.secondLook)
-  const faceWaits = photoAddressSet([
-    ...(r.unread ?? []),
-    ...Object.keys(r.faces ?? {}).filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)),
-  ])
+  const directFaces = new Set(Object.keys(r.faces ?? {}).filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)))
+  const faceWaits = photoAddressSet([...(r.unread ?? []), ...directFaces])
   return url => {
     const entry = r.rejected?.(url)
     if (entry && !entry[1].startsWith('watermark:')) return true
@@ -352,7 +355,8 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
       if (awaitsScreen(url, r.watermarks[url])) return true
       if (entry && !retainedOwnMark(url, r.watermarks[url]) && !retainedOwnMark(entry[0], r.watermarks[entry[0]])) return true
     }
-    return directWaits.has(url) || (owesLook(url) && !lookedForDead(url)) || faceWaits(url) ||
+    const waitsForFace = directFaces.has(url) || r.unread?.has(url) || (!Object.hasOwn(r.faces ?? {}, url) && faceWaits(url))
+    return directWaits.has(url) || (owesLook(url) && !lookedForDead(url)) || waitsForFace ||
       deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected, cleared, held, firstOff)
   }
 }

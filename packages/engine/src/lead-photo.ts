@@ -130,7 +130,7 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
   const file = join(root, 'engine-state', '_photo-leads.json')
   const compared: Compared = JSON.parse(await readFile(file, 'utf8').catch(() => '{}'))
   const [verdicts, waits, sources] = await Promise.all([
-    readVerdicts(root), readPhotoWaits(root, { freshOwn: true }), readPhotoSources(content),
+    readVerdicts(root), readPhotoWaits(root, { requireDeadLook: true }), readPhotoSources(content),
   ])
   const cur = await readCalendar(root)
   // A person's entries alone: the engine's (headAvoid) list a photo refused for one page, by address, and here a photo is
@@ -176,10 +176,12 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
     if (picks[f.ref] && pickStands(f.ref, picks[f.ref]!, verdicts.subjects, yes)) return undefined
     return ageOf(verdicts.subjects[p.url]?.[f.id]) === true ? true : grown(asked(f, p), f.id) && !(p.url in avoid) ? false : undefined
   }
+  const servedVersion = (p: Photo) =>
+    publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   const choose = (f: Fish) => {
     const eligible = (p: Photo) => {
       if (f.ref.startsWith('breeds/')) return true
-      const served = publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
+      const served = servedVersion(p)
       return !!served && !waits(served.url)
     }
     const ageOfPhoto = age(f)
@@ -241,8 +243,13 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
     const own = f.entity.photos ?? []
     const { best: _b, kind: _k, ...photo } = c.lead as GalleryPhoto
     const had = own.find(p => p.url === photo.url)
-    // A non-commercial head that gives way goes back to its album alone (gallery.ts dropNonCommercial).
-    const photos = [had ?? photo, ...own.filter(p => p.url !== photo.url && !isNonCommercial(p.licence))]
+    // An eligible album photo can join the page so faces will read it next time. A visible non-commercial head stays
+    // until the replacement has a face result of its own (the sweep then applies the sole-photo licence rule).
+    const shown = servedVersion(had ?? photo)
+    const awaitsFace = !f.ref.startsWith('breeds/') && shown && !Object.hasOwn(verdicts.faces, shown.url)
+    const keepsHead = (p: Photo) => !isNonCommercial(p.licence) ||
+      (awaitsFace && Object.hasOwn(verdicts.faces, servedVersion(p)?.url ?? ''))
+    const photos = [had ?? photo, ...own.filter(p => p.url !== photo.url && keepsHead(p))]
     ;(own.length ? report.changed : report.gained).push(`${f.ref}: ${own[0]?.url ?? 'none'} -> ${photo.url}`)
     await writeFile(f.path, `${JSON.stringify({ ...f.entity, photos }, null, f.raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }

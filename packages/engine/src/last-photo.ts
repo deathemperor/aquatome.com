@@ -1,4 +1,4 @@
-import { CREDIT_HOLD_REJECTION, isNonCommercial, isVersionRejection, originalPhotoRefusals, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, setsCookies, type Photo } from '@aq/schema'
+import { CREDIT_HOLD_REJECTION, maySupersedePhotoRefusal, isNonCommercial, isVersionRejection, originalPhotoRefusals, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, setsCookies, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -237,13 +237,12 @@ export async function listAgreed(root: string, includes: (url: string) => boolea
     // after that night's seven). On one marked off, a mark's entry does too, which a shop's own kept mark could otherwise
     // lift (the independent reader, 20 Nov).
     const prior = rejected[url]
-    if (!prior || prior === CREDIT_HOLD_REJECTION || prior.startsWith('waiting:') || (isVersionRejection(prior) && !isVersionRejection(sl[url]!.why)) ||
-        (prior.startsWith('watermark:') && (sl[url]!.off || !active(url) || (!isVersionRejection(sl[url]!.why) && !sl[url]!.why.startsWith('watermark:'))))) {
-      rejected[url] = sl[url]!.why
-    }
+    const decision = sl[url]!.why
+    if (maySupersedePhotoRefusal(prior, decision) || prior === CREDIT_HOLD_REJECTION || prior?.startsWith('waiting:') ||
+        (prior?.startsWith('watermark:') && (sl[url]!.off || !active(url)))) rejected[url] = decision
     for (const original of sl[url]!.originals ?? []) {
       const previous = active(original)?.[1]
-      if (!previous || previous === CREDIT_HOLD_REJECTION || isVersionRejection(previous) || (previous.startsWith('watermark:') && !sl[url]!.why.startsWith('watermark:'))) rejected[original] = sl[url]!.why
+      if (maySupersedePhotoRefusal(previous, decision) || previous === CREDIT_HOLD_REJECTION) rejected[original] = decision
     }
     delete sl[url]
   }
