@@ -1,10 +1,10 @@
-import { recordListedAlbumTakeOffs } from './album-takeoffs'
+import { recordAlbumTakeOffs, recordListedAlbumTakeOffs } from './album-takeoffs'
 import { piece } from './pieces'
 import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
+import { deadScreenPhotoUrls, GallerySchema, heldPhotoVersion, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo, type PhotoRejection } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -14,7 +14,7 @@ import { openversePage } from './openverse'
 import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
-import { isRejected, rejectedEntry, unfitCommons } from './photos'
+import { isRejected, unfitCommons } from './photos'
 import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutClearedWaits, type Stood } from './last-photo'
 import { EMPTIED_FILE, readList } from './emptied-pages'
 import { readPriorityFish } from './priority-fish'
@@ -551,7 +551,7 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   let openverseFailures = 0
   const today = d.now().toISOString().slice(0, 10)
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
-  const listed = rejectedEntry(cleanupRejected)
+  const listed = photoRejections(cleanupRejected, {}, heldPhotoVersion(sl))
   const effectiveRejection: typeof listed = url => {
     const entry = listed(url)
     return entry?.[1].startsWith('watermark:') && (markKept(url) || markKept(entry[0])) ? undefined : entry
@@ -832,7 +832,7 @@ async function pageOf(root: string, id: string): Promise<Photo[]> {
 }
 
 /** Photos the owner rejected (engine-state/_photo-rejected.json) leave every gallery, the next run after they are listed. */
-async function dropRejected(root: string, content: string, rejected: ReturnType<typeof rejectedEntry>, waiting: (url: string) => string | undefined) {
+async function dropRejected(root: string, content: string, rejected: PhotoRejection, waiting: (url: string) => string | undefined) {
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const file = join(content, 'gallery', f)
     const g = JSON.parse(await readFile(file, 'utf8')) as { photos: Photo[] }
@@ -847,11 +847,12 @@ async function dropRejected(root: string, content: string, rejected: ReturnType<
     ))
     if (keep.length === g.photos.length) continue
     const stood = new Map<string, Stood[]>()
-    const removed = new Set(g.photos.filter(p => !keep.includes(p)).map(p => p.url))
+    const removed = new Set(g.photos.filter(p => !keep.includes(p)).flatMap(deadScreenPhotoUrls))
     placesIn(root, file, g, (url, slot) => !keep.includes(slot.photo as Photo) ? waiting(url) : undefined, stood)
     await notePlaces(root, stood)
-    await recordListedAlbumTakeOffs(root, removed, rejected)
+    const receipts = await recordListedAlbumTakeOffs(root, removed, rejected)
     await replacePhotoDocument(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
+    if (receipts.length) await recordAlbumTakeOffs(root, receipts, true)
   }
 }
 

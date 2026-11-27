@@ -41,10 +41,19 @@ function mergePlaces(chosen, base, ours, theirs) {
   const sameCapture = (p, q) => !!p && !!q && p.capture === q.capture && p.index === q.index && p.captureDay === q.captureDay && p.captureWhy === q.captureWhy
   for (const place of datedPlaces(other)) {
     if (differentKind && !place.capture) continue
-    const before = original.get(placeKey(place))
-    const selected = pending.get(placeKey(place))
+    const key = placeKey(place)
+    const before = original.get(key)
+    const selected = pending.get(key)
+    const receipt = settled.get(key)
+    if (place.capture && [...pending.values(), ...settled.values()].some(p => p.file === place.file && sameCapture(p, place))) continue
     if (chosen.back && sameCapture(place, before)) continue
-    if (!selected || (sameCapture(selected, before) && !sameCapture(place, before))) pending.set(placeKey(place), place)
+    const conflicting = selected ?? receipt
+    if (conflicting?.edition && place.edition && conflicting.edition !== place.edition) {
+      // Two checkouts can capture different variants from the same ordinal. Both private entries are still needed.
+      const moved = { ...place, occurrence: 1, capturedOccurrence: place.capturedOccurrence ?? place.occurrence ?? 0 }
+      while (pending.has(placeKey(moved)) || settled.has(placeKey(moved)) || original.has(placeKey(moved))) moved.occurrence++
+      pending.set(placeKey(moved), moved)
+    } else if (!selected || (sameCapture(selected, before) && !sameCapture(place, before))) pending.set(key, place)
   }
   for (const [file, receipt] of settled) {
     const next = pending.get(file)
@@ -140,6 +149,11 @@ function mergePartOff(base, ours, theirs) {
 
 }
 
+const receiptRank = value => value === true ? 1
+  : value?.applied === true ? 2
+    : typeof value?.batch === 'string' && /^[a-f0-9]{64}$/.test(value.batch) ? 3 : 0
+const albumReceipt = (key, ours, theirs) => /^https?:\/\//.test(key) && receiptRank(ours) && receiptRank(theirs)
+
 export function mergeMaps(base, ours, theirs) {
   const same = (side, k) => (k in side) === (k in base) && JSON.stringify(side[k]) === JSON.stringify(base[k])
   const out = {}
@@ -147,6 +161,7 @@ export function mergeMaps(base, ours, theirs) {
     const changed = !same(ours, k) && !same(theirs, k)
     const both = changed && [base[k], ours[k], theirs[k]].some(record) && [base[k], ours[k], theirs[k]].every(v => v === undefined || record(v))
     const side = both ? bothChanged(base, ours, theirs, k)
+      : changed && albumReceipt(k, ours[k], theirs[k]) ? (receiptRank(ours[k]) >= receiptRank(theirs[k]) ? ours : theirs)
       : changed && k in ours && k in theirs && waitingAndFinal(ours[k], theirs[k]) ? (WAITING.test(ours[k]) ? theirs : ours)
       : changed && k in ours && k in theirs && listedDays(k, ours[k], theirs[k]) ? (theirs[k] < ours[k] ? theirs : ours)
       : changed && partsOff(base[k], ours[k], theirs[k]) ? { [k]: mergePartOff(base[k], ours[k], theirs[k]) }

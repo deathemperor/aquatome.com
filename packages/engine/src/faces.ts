@@ -5,14 +5,14 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, heldPhotoVersion, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, photoVersionAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { PER_SHEET, screenDead, type DeadScreenDeps } from './dead-screen'
 import { costLog, leftToday, stepName } from './ceiling'
 import { GUIDE_BACKLOG_PER_SHEET, screenGuidesDead } from './guides-dead'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { writeImageCache } from './image-cache-write'
-import { captureWaiting, entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, verdictAddressSet, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
 import { permittedPhotoSource, readCreditHoldWait, readPhotoSources } from './photo-visibility'
 
 export type FaceDeps = { get: (url: string) => Promise<Uint8Array>; detect: (files: string[]) => Promise<number[]> }
@@ -48,7 +48,8 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     (error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return undefined },
   )
   const effective = await expandWholePhotoRejections(contentRoot, rejected, marks)
-  const listed = photoRejections(effective, marks)
+  const secondLook = await readSecondLook(root)
+  const listed = photoRejections(effective, marks, heldPhotoVersion(secondLook))
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
   for (const kind of ['species', 'plants', 'breeds', 'guides']) {
     for (const id of await readdir(join(contentRoot, kind)).catch(() => [] as string[])) {
@@ -82,10 +83,9 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   }
   // A face takes a photo off, unless its going would leave a species, plant or breed page with nothing: then it stays,
   // held for a second look (last-photo.ts). One the second look cleared stays too.
-  const secondLook = await readSecondLook(root)
   const sl = looks(secondLook)
   // A hold on another reason doesn't keep a photo that never passed from a face found now, its first verdict (photo-check.ts spared).
-  const passed = photoAddressSet(await readPassedBefore(root))
+  const passed = photoVersionAddressSet(await readPassedBefore(root))
   const face = (u: string) => cache[u]! > 0 && !sl.clearedPhoto(u) && !sl.pendingOff(u) && (sl.open(u) || ((sl.waiting(u) || sl.held(u)) && screened.has(u) && !passed(u)))
   const screen = waitingForDead && await readPhotoRecord(root, DEAD_SCREEN_FILE)
   const sources = waitingForDead ? await readPhotoSources(contentRoot) : {}
@@ -109,17 +109,20 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     return shown && !setsCookies(shown) ? shown : undefined
   })
   const unread = new Set(todo.filter(u => !Object.hasOwn(cache, u)))
-  const waits = waitingForDead && photoWaitsFor({ watermarks, unjudged: waitingForDead, unread, deadScreen: screen, secondLook })
+  const [check, subjects] = screen ? await Promise.all([readPhotoRecord(root, PHOTO_CHECK_FILE), readPhotoRecord(root, PHOTO_SUBJECTS_FILE)]) : []
+  const lookedForDead = screen && deadLooked({ screen, secondLook, check, subjects })
+  const waits = waitingForDead && photoWaitsFor({ watermarks, unjudged: waitingForDead, lookedForDead, check, subjects, unread, deadScreen: screen, secondLook })
   const flagVerdicts = [...new Set([...screened, ...Object.keys(cache)])].filter(u => face(u) && !listed(u))
   const heldForCredit = await readCreditHoldWait(root)
   const unavailable = (u: string) => !!listed(u) || heldForCredit(u) || waits?.(u) === true
-  const last = lastPhotoVerdicts(pagesToKeep, unavailable, flagVerdicts)
+  const last = lastPhotoVerdicts(pagesToKeep, unavailable, flagVerdicts, undefined, undefined, true)
   // Only one that passed the check before is held; a face found now, on one that never did, takes it off, marked on both
   // lists (last-photo.ts).
   const firstOff = new Map([...last].filter(([u]) => screened.has(u) && !passed(u)))
   for (const u of firstOff.keys()) last.delete(u)
-  const heldByAddress = photoAddressSet(last.keys())
-  const markedByAddress = photoAddressSet(firstOff.keys())
+  const directlyFlagged = new Set(flagVerdicts)
+  const heldByAddress = verdictAddressSet(last.keys(), directlyFlagged)
+  const markedByAddress = verdictAddressSet(firstOff.keys(), directlyFlagged)
   const why = 'people: a face (face detection)'
   await holdForSecondLook(root, new Map([...last].map(([u, pages]) => [u, { why, pages }])), 'face detection')
   const left = new Map<string, Stood[]>()
@@ -206,7 +209,7 @@ async function unjudged(root: string, contentRoot: string): Promise<string[]> {
     ownDeadPhotoUrls(contentRoot), read(DEAD_SCREEN_FILE), read(PHOTO_CHECK_FILE), read(PHOTO_SUBJECTS_FILE), read(SECOND_LOOK_RECORD), read(PHOTO_REJECTED_FILE), read(PHOTO_SCREEN_FILE),
   ])
   const looked = deadLooked({ screen, check, subjects, secondLook })
-  const listed = photoRejections(rejected as Record<string, string>, marks as Record<string, PhotoScreenEntry>)
+  const listed = photoRejections(rejected as Record<string, string>, marks as Record<string, PhotoScreenEntry>, heldPhotoVersion(secondLook))
   return [...shown].filter(u => !looked(u) && !listed(u))
 }
 

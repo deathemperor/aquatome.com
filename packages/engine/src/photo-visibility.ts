@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { lastPhotoVerdicts, looks, pagesShowing, readSecondLook } from './last-photo'
 import { CREDIT_HOLD_FILE, CREDIT_HOLD_REJECTION, creditHoldPhotoUrls, type CreditHoldPhotos } from '@aq/schema'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, facePhotoStatus, FACES_FILE, guideLooked, guidePhotoUrlsIn, GUIDE_LOOKS_FILE, IMAGE_SWITCHES, isOwnerCrop, isVersionRejection, mayPublish, mayPublishLicence, ownDeadPhotoUrls, originalPhotoRefusals, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, rejectedEntry, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, heldPhotoVersion, facePhotoStatus, FACES_FILE, guideLooked, guidePhotoUrlsIn, GUIDE_LOOKS_FILE, IMAGE_SWITCHES, isOwnerCrop, isVersionRejection, mayPublish, mayPublishLicence, ownDeadPhotoUrls, originalPhotoRefusals, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, rejectedEntry, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 
 const read = async <T>(root: string, name: string): Promise<Record<string, T> | undefined> => {
   const raw = await readFile(join(root, 'engine-state', name), 'utf8').catch((error: NodeJS.ErrnoException) => {
@@ -41,7 +41,7 @@ export async function readPhotoIntakeBlocks(root: string): Promise<Record<string
 /** Use the public screen predicates before removing a photo that might leave its page empty. */
 export async function readPhotoWaits(
   root: string,
-  overrides: { check?: Record<string, unknown>; subjects?: Record<string, unknown>; rejected?: Record<string, string>; watermarks?: Record<string, PhotoScreenEntry>; freshOwn?: boolean } = {},
+  overrides: { check?: Record<string, unknown>; subjects?: Record<string, unknown>; rejected?: Record<string, string>; watermarks?: Record<string, PhotoScreenEntry>; freshOwn?: boolean; requireDeadLook?: boolean } = {},
 ): Promise<(url: string) => boolean> {
   const [watermarks, owed, faces, deadScreen, secondLook, rejected, check, subjects, guideLooks, creditHeld] = await Promise.all([
     overrides.watermarks ?? read<PhotoScreenEntry>(root, PHOTO_SCREEN_FILE), read(root, DEAD_OWED_FILE), read(root, FACES_FILE),
@@ -58,10 +58,11 @@ export async function readPhotoWaits(
   }
   if (guideLooks) for (const url of await guidePhotoUrlsIn(content)) if (!guideLooked(guideLooks[url])) unjudged.add(url)
   const effective = await expandWholePhotoRejections(content, rejected ?? {}, watermarks)
-  const waits = photoWaitsFor({ watermarks, owed, unread, faces, unjudged, deadScreen, secondLook,
-    rejected: photoRejections(effective, watermarks) })
+  const waits = photoWaitsFor({ watermarks, owed, unread, faces, unjudged, lookedForDead: looked, check, subjects, deadScreen, secondLook,
+    rejected: photoRejections(effective, watermarks, heldPhotoVersion(secondLook)) })
   return url => setsCookies(url) || creditHeld(url) || waits(url) ||
-    (overrides.freshOwn === true && ((!!looked && !looked(url)) || (!!faces && !Object.hasOwn(faces, url))))
+    ((overrides.freshOwn || overrides.requireDeadLook) && !!looked && !looked(url)) ||
+    (overrides.freshOwn === true && !!faces && !Object.hasOwn(faces, url))
 }
 
 /** Attribute a page's last visible photo to the pending guide or credit verdict. */

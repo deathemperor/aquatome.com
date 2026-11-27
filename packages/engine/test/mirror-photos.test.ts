@@ -3,7 +3,7 @@ import { mkdir, mkdtemp, readFile, rmdir, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { photoWaitsFor } from '@aq/schema'
+import { deadLooked, photoWaitsFor } from '@aq/schema'
 import { mirrorPhotos, mirrorPlan, type MirrorDeps } from '../src/mirror-photos'
 
 const C1280 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Oscar_%281%29.jpg/1280px-Oscar_%281%29.jpg?utm_source=commons.wikimedia.org'
@@ -100,6 +100,12 @@ test.each(['flickr square placement', 'iNaturalist larger download'])('the mirro
   await writeFile(join(r, 'content/gallery/astronotus-ocellatus.json'), JSON.stringify({ id: 'astronotus-ocellatus', photos: other ? [photo(other)] : [] }))
   const file = join(r, 'engine-state/_dead-screen.json')
   await writeFile(file, JSON.stringify({ [judged]: { dead: false } }))
+  const secondLookFile = join(r, 'engine-state/_photo-second-look.json')
+  const clear = { why: 'dead: withheld', pages: ['species/alpha'], at: '2026-11-26', step: 'the dead-fish screen',
+    look: { said: 'clear', on: '2026-11-26', by: 'reviewer' } }
+  await writeFile(secondLookFile, JSON.stringify({ [judged]: clear }))
+  const owedFile = join(r, 'engine-state/_photo-dead-owed.json')
+  await writeFile(owedFile, JSON.stringify({ [judged]: '2026-11-26' }))
   const { d, fetched } = deps()
   d.bytes = async url => { fetched.push(url); return Uint8Array.of(1) }
 
@@ -107,8 +113,35 @@ test.each(['flickr square placement', 'iNaturalist larger download'])('the mirro
 
   expect(fetched).toContain(mirrorPlan(source)!.fetch[0])
   expect(fetched).not.toContain(judged)
-  expect(JSON.parse(await readFile(file, 'utf8'))).toEqual({ [judged]: { dead: false } })
-  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(d.media.urlFor(mirrorPlan(source)!.key))
+  const screen = JSON.parse(await readFile(file, 'utf8'))
+  const secondLook = JSON.parse(await readFile(secondLookFile, 'utf8'))
+  const destination = d.media.urlFor(mirrorPlan(source)!.key)
+  expect(screen).toEqual({ [judged]: { dead: false } })
+  expect(secondLook).toEqual({ [judged]: clear })
+  expect(JSON.parse(await readFile(owedFile, 'utf8'))).toEqual({ [judged]: '2026-11-26' })
+  expect(deadLooked({ screen, secondLook })(destination)).toBe(false)
+  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(destination)
+})
+
+test('the uploaded rendition keeps its human clear without copying the source recovery places', async () => {
+  const r = await root()
+  const file = join(r, 'engine-state/_photo-second-look.json')
+  const look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  const left = [{ file: 'content/gallery/astronotus-ocellatus.json', index: 0, capture: '1'.repeat(36) }]
+  await writeFile(file, JSON.stringify({
+    [C1280]: { why: 'dead: withheld', pages: ['species/astronotus-ocellatus'], at: '2026-11-26', step: 'the dead-fish screen',
+      off: true, back: '2026-11-26', settled: left, look },
+  }))
+  const { d } = deps()
+
+  await mirrorPhotos(r, d)
+
+  const mark = JSON.parse(await readFile(file, 'utf8'))
+  expect(mark[C1280].settled).toEqual(left)
+  const copied = mark[d.media.urlFor(mirrorPlan(C1280)!.key)]
+  expect(copied.look).toEqual(look)
+  expect(copied).not.toHaveProperty('settled')
+  expect(copied).toMatchObject({ off: true, back: look.on })
 })
 
 test('a mirror used only as a fallback original keeps the stored bytes and dimensions', async () => {
@@ -208,7 +241,8 @@ test("a second look's clear follows its photo to our bucket, so the verdict copi
   expect(put).toContain('inaturalist/617421644.webp')
   const sl = JSON.parse(await readFile(join(r, 'engine-state/_photo-second-look.json'), 'utf8'))
   const mirror = 'https://media.aquatome.com/inaturalist/617421644.webp'
-  expect(sl).toEqual({ [INAT]: rec })
+  const { left: _left, ...review } = rec
+  expect(sl).toEqual({ [INAT]: rec, [mirror]: { ...review, back: rec.look.on } })
   expect(photoWaitsFor({ deadScreen: { [mirror]: { dead: true } }, secondLook: sl })(mirror)).toBe(false)
 })
 

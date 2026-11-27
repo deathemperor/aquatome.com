@@ -336,3 +336,14 @@ test('a manual guide added to an existing held source remains independently excl
   expect(mergeMaps(base, manual, automatic)[key].manualGuides).toEqual(['b'])
   expect(mergeMaps(base, automatic, manual)[key].manualGuides).toEqual(['b'])
 })
+
+test('an album take-off receipt keeps its applied or batched status in either merge orientation', () => {
+  const url = 'https://media.example/dead.webp'
+  const planned = { [url]: true }
+  const applied = { [url]: { applied: true } }
+  const batched = { [url]: { batch: '1'.repeat(64) } }
+  expect(mergeMaps({}, planned, applied)).toEqual(applied)
+  expect(mergeMaps({}, applied, planned)).toEqual(applied)
+  expect(mergeMaps(planned, applied, batched)).toEqual(batched)
+  expect(mergeMaps(planned, batched, applied)).toEqual(batched)
+})

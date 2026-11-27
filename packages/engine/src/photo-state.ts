@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { basename, dirname, join } from 'node:path'
-import { expandWholePhotoRejections, isVersionRejection, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, type PhotoScreenEntry } from '@aq/schema'
+import { expandWholePhotoRejections, isVersionRejection, maySupersedePhotoRefusal, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, type PhotoScreenEntry } from '@aq/schema'
 import { compactScreen, compactVerdict, compactRejections, compactRejection, photoFailure } from './photo-observations'
 import { writeImageCache } from './image-cache-write'
 
@@ -52,12 +52,13 @@ export async function recordPhotoRefusals(
   file: string, rejected: Record<string, string>, refusals: ReadonlyMap<string, string>, marks?: Record<string, PhotoScreenEntry>,
 ): Promise<void> {
   if (!refusals.size) return
-  const active = photoRejections(rejected, marks ?? await storedWatermarks(file))
-  const pending = rejectedEntry(Object.fromEntries(refusals))
-  for (const url of new Set([...refusals.keys(), ...Object.keys(rejected)])) {
+  const screen = marks ?? await storedWatermarks(file)
+  const active = photoRejections(rejected, screen)
+  const expanded = await expandWholePhotoRejections(join(dirname(dirname(file)), 'content'), Object.fromEntries(refusals), screen)
+  const pending = rejectedEntry(expanded)
+  for (const url of new Set([...Object.keys(expanded), ...Object.keys(rejected)])) {
     const decision = pending(url)?.[1]
-    const prior = active(url)?.[1]
-    if (decision && (!prior || (isVersionRejection(prior) && !isVersionRejection(decision)))) rejected[url] = decision
+    if (decision && maySupersedePhotoRefusal(active(url)?.[1], decision)) rejected[url] = decision
   }
 }
 
