@@ -891,6 +891,25 @@ test.each([false, true])('private entries survive an unpublished agreement with 
   expect(await keptOf(url('a-new'))).toBeNull()
 })
 
+test('a published agreement prunes a capture superseded before its first commit', async () => {
+  const { r, git, agree } = await runRepo()
+  const photoAt = photo('recaptioned')
+  const capture = (caption: string) => new Map([[photoAt.url, [{ file: A, index: 0, photo: { ...photoAt, caption } }]]])
+  await holdForSecondLook(r, new Map([[photoAt.url, { why, pages: ['species/aaa'], off: true }]]),
+    'the photo check', today(), capture('Original caption'))
+  await notePlaces(r, capture('Corrected caption'))
+  await agree()
+  await listAgreed(r)
+  await putBackCleared(r, gitHistory(r))
+  expect(await keptFor(photoAt.url)).toHaveLength(2)
+  git('add', '-A'); git('commit', '-qm', 'publish the agreement')
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+
+  await putBackCleared(r, gitHistory(r))
+
+  expect(await keptFor(photoAt.url)).toEqual([])
+})
+
 test.each([CREDIT_HOLD_REJECTION, compactRejection('people: another decision')])('an old rejection cannot prune a capture it never saw (%#)', async refusal => {
   const previous = await runRepo()
   const current = await runRepo()
@@ -1711,7 +1730,7 @@ test('publication after pruning a settled capture preserves only the surviving w
   expect((await json(r, A)).photos).toEqual([survivor])
 })
 
-test.each(['removal', 'reorder'])('publication preserves main’s later %s of same-edition album occurrences', async action => {
+test.each(['removal', 'reorder', 'recaption and reorder'])('publication preserves main’s later %s of same-edition album occurrences', async action => {
   const { r, git, clear } = await runRepo({ aaa: [] })
   const albumFile = 'content/gallery/aaa.json'
   const file = join(r, albumFile)
@@ -1735,7 +1754,10 @@ test.each(['removal', 'reorder'])('publication preserves main’s later %s of sa
   git('switch', '-qc', 'concurrent-main', 'refs/remotes/origin/main')
   await putBackCleared(r, gitHistory(r))
   git('add', '-A'); git('commit', '-qm', 'an independent restore on main')
-  const edited = action === 'removal' ? [kept] : [kept, removed]
+  const edited = action === 'removal' ? [kept] : [
+    action === 'recaption and reorder' ? { ...kept, caption: 'Corrected second placement' } : kept,
+    removed,
+  ]
   await writeFile(file, JSON.stringify({ ...document, photos: edited }))
   git('add', '-A'); git('commit', '-qm', 'an editor changes the restored order')
   git('update-ref', 'refs/remotes/origin/main', 'HEAD')
