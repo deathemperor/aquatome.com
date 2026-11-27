@@ -242,7 +242,8 @@ test("a second look's clear follows its photo to our bucket, so the verdict copi
   expect(put).toContain('inaturalist/617421644.webp')
   const sl = JSON.parse(await readFile(join(r, 'engine-state/_photo-second-look.json'), 'utf8'))
   const mirror = 'https://media.aquatome.com/inaturalist/617421644.webp'
-  expect(sl).toEqual({ [INAT]: rec })
+  const { off: _off, left: _left, ...review } = rec
+  expect(sl).toEqual({ [INAT]: rec, [mirror]: review })
   expect(photoWaitsFor({ deadScreen: { [mirror]: { dead: true } }, secondLook: sl })(mirror)).toBe(false)
 })
 
