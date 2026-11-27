@@ -15,7 +15,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, validSubjectVerdict, type PhotoVerdict } from './photo-check'
-import { permittedPhotoSource, readPhotoSources, readPhotoWaits } from './photo-visibility'
+import { permittedPhotoSource, pruneGuideLegacyUses, readPhotoSources, readPhotoWaits } from './photo-visibility'
 import { CAPTIONED } from './captions'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, mayHoldEmail, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
@@ -1525,6 +1525,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     ;(report.text['emails'] ??= []).push(f.replace(/\.json$/, ''))
   }
   if (emails.emptied.length) report.text['emails-emptied'] = emails.emptied
+  await pruneGuideLegacyUses(root)
   // Last of all: a fish page this run's steps left with no photo goes first for new photos (emptied-pages.ts).
   report.emptiedListed = await listEmptied(root, o.today ?? vnDate(new Date()))
   return report

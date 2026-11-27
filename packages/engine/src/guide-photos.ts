@@ -1,13 +1,12 @@
-import { writeImageCache } from './image-cache-write'
 import { piece } from './pieces'
 import { compactVerdict, photoReason, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { recordPhotoRefusals, writePhotoState } from './photo-state'
-import { holdablePhotoVerdicts, versionRejection } from './photo-visibility'
+import { holdablePhotoVerdicts, pruneGuideLegacyUses, versionRejection } from './photo-visibility'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
 import sharp from 'sharp'
-import { deadScreenPhotoUrls, guideLooked, GUIDE_LEGACY_USES_FILE, guidePhotoWaits, GUIDE_LOOKS_FILE, keepGuideLegacyUses, readGuideLegacyUses, PHOTO_SCREEN_FILE, photoAddressSet, rejectedEntry, retainedOwnMark, stillShown, subjectForGuide, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { deadScreenPhotoUrls, guideLooked, GUIDE_LOOKS_FILE, PHOTO_SCREEN_FILE, photoAddressSet, photoRejections, retainedOwnMark, stillShown, subjectForGuide, type Photo, type PhotoScreenEntry } from '@aq/schema'
 export { guideSubject } from '@aq/schema'
 import { LlmError } from './claude'
 import { contactSheet, stillDone } from './video-images'
@@ -103,7 +102,8 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   const state = (f: string) => join(root, 'engine-state', f)
   const oldCache = (await readJson<Record<string, GuidePhotoVerdict>>(state(GUIDE_LOOKS_FILE))) ?? {}
   const cache = Object.fromEntries(Object.entries(oldCache).filter(([, v]) => guideLooked(v)).map(([u,v])=>[u,compactVerdict(v)]))
-  const rejected = rejectedEntry((await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {})
+  const marks = (await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))) ?? {}
+  const rejected = photoRejections((await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}, marks)
   const done = (await readJson<StillsState>(state('_video-stills.json'))) ?? {}
   const report = { sheets: 0, judged: 0, cleared: 0, off: [] as string[], removed: [] as string[], kept: [] as string[], held: [] as string[], failed: [] as string[], left: 0, waiting: 0, stopped: '', subject: [] as string[] }
 
@@ -202,7 +202,6 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   // A guide's photo that is also the last photo of a species, plant or breed page doesn't go on the list, which would
   // take it off that page too: it waits for a second look (last-photo.ts). It still leaves the guides.
   const sl = looks(await readSecondLook(root))
-  const marks = (await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))) ?? {}
   const ownMark = photoAddressSet(Object.keys(marks).filter(url => retainedOwnMark(url, marks[url])))
   const verdictOff = (url: string, brandKept: boolean) => guidePhotoOff(cache[url], brandKept, ownMark(url))
   const listing = new Map([...items.values()].flatMap(x => {
@@ -256,11 +255,6 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     await writeFile(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
   await writePhotoState(state(GUIDE_LOOKS_FILE), Object.fromEntries(Object.entries(cache).sort()))
-  const legacy = await readGuideLegacyUses(content)
-  if (legacy.length) {
-    const { pendingLegacy } = await guidePhotoWaits(content, cache)
-    const keep = keepGuideLegacyUses(legacy, pendingLegacy)
-    if (keep.length < legacy.length) await writeImageCache(join(content, GUIDE_LEGACY_USES_FILE), keep.length ? `[\n${keep.map(use => '  ' + JSON.stringify(use)).join(',\n')}\n]\n` : '[]\n')
-  }
+  await pruneGuideLegacyUses(root, cache)
   return report
 }

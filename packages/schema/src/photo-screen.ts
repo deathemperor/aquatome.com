@@ -484,11 +484,12 @@ export async function guidePhotoWaits(root: string, looks: Record<string, unknow
     const subject = subjectForGuide(guide, id, text.name)
     if (subject) subjects.set(id, subject)
     for (const url of guidePhotoUrls(guide)) {
-      if (!guideLooked(looks[url])) unlooked.add(url)
-      else if (subject && !guideLooked(looks[url], subject)) {
+      const basic = guideLooked(looks[url])
+      if (!basic) unlooked.add(url)
+      if (subject && !guideLooked(looks[url], subject)) {
         const key = guideUseKey(id, subject, url)
         if (legacy.has(key)) pendingLegacy.add(key)
-        else pendingSubjects.add(url)
+        else if (basic) pendingSubjects.add(url)
       }
     }
   }
@@ -505,8 +506,8 @@ export function guideLooked(verdict: unknown, subject?: string): verdict is Guid
 }
 
 /** A guide's own or stock photo has to pass the questions for that specific guide. */
-export function guidePhotoAllowed(verdict: unknown, subject?: string, legacy = false): boolean {
-  return guideLooked(verdict, legacy ? undefined : subject) && !verdict.person && !verdict.mark && !verdict.brand &&
+export function guidePhotoAllowed(verdict: unknown, subject?: string, legacy = false, ownMark = false): boolean {
+  return guideLooked(verdict, legacy ? undefined : subject) && !verdict.person && (!verdict.mark || ownMark) && !verdict.brand &&
     (!subject || verdict.other?.[subject] === false)
 }
 /**

@@ -10,6 +10,7 @@ import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { guideSubject, screenGuidePhotos, type GuidePhotoDeps, type GuidePhotoVerdict } from '../src/guide-photos'
 import { videoStills, type StillDeps } from '../src/video-stills'
+import { pruneGuideLegacyUses } from '../src/photo-visibility'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -342,13 +343,13 @@ test('a missing guide subject answer leaves that question queued', async () => {
     .toMatchObject({ other: { platy: false }, answeredSubjects: ['platy'] })
 })
 
-test('a legacy implicit answer stays queued until it is explicitly answered', async () => {
+test.each([false, true])('a legacy implicit answer stays queued until it is explicitly answered (basic look incomplete: %s)', async incomplete => {
   const id = 'platy-care'
   const root = await store({ [id]: { kind: 'care', photos: [photo('shared')] } })
   const baseline = 'content/guide-legacy-photo-uses.json'
   await writeFile(join(root, baseline), JSON.stringify([[id, 'platy', url('shared')]]))
   await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({
-    [url('shared')]: { person: false, mark: false, brand: false, other: { platy: false } },
+    [url('shared')]: { person: false, mark: false, ...(incomplete ? {} : { brand: false }), other: { platy: false } },
   }))
   const { seen, d } = model({ shared: { other: false } })
   await screenGuidePhotos(root, d, { limit: 0 })
@@ -356,6 +357,38 @@ test('a legacy implicit answer stays queued until it is explicitly answered', as
   await screenGuidePhotos(root, d, { limit: 1 })
   expect(seen.map(s => s.photos)).toEqual([['shared']])
   expect(await json(root, baseline)).toEqual([])
+})
+
+test('an ended guide use loses its baseline entry before it can return', async () => {
+  const id = 'platy-care'
+  const former = photo('former')
+  const root = await store({ [id]: { kind: 'care', photos: [] } })
+  const baseline = 'content/guide-legacy-photo-uses.json'
+  await writeFile(join(root, baseline), JSON.stringify([[id, 'platy', former.url]]))
+
+  await pruneGuideLegacyUses(root)
+
+  expect(await json(root, baseline)).toEqual([])
+})
+
+test('a waived shop-mark refusal does not stop the guide subject retry', async () => {
+  const marked = { ...photo('shop'), url: 'https://media.aquatome.com/glaser/p.webp', source: 'glaser',
+    sourceUrl: 'https://www.aquariumglaser.de/example/' }
+  const id = 'platy-care'
+  const root = await store({ [id]: { kind: 'care', photos: [marked] } })
+  await writeFile(join(root, 'engine-state/_photo-watermarks.json'), JSON.stringify({
+    [marked.url]: { ocr: [], watermark: true, retainedOwnMark: { source: 'glaser', sourceUrl: marked.sourceUrl, owner: 'source' } },
+  }))
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [marked.url]: 'watermark: retained mark' }))
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [marked.url]: { person: false, mark: true, brand: false } }))
+  const { d, seen } = model({ p: { other: false } })
+
+  await screenGuidePhotos(root, d, { limit: 1 })
+
+  expect(seen.map(sheet => sheet.photos)).toEqual([['p']])
+  expect((await json(root, 'engine-state/_photo-guides.json'))[marked.url])
+    .toMatchObject({ mark: true, other: { platy: false }, answeredSubjects: ['platy'] })
+  expect((await json(root, `content/guides/${id}/entity.json`)).photos).toEqual([marked])
 })
 
 test('a photo judged before the subject was asked is asked once, ahead of photos not judged, and keeps its verdict; a still is not asked', async () => {

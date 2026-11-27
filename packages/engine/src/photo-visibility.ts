@@ -1,8 +1,9 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { writeImageCache } from './image-cache-write'
 import { lastPhotoVerdicts, looks, pagesShowing, readSecondLook } from './last-photo'
 import { CREDIT_HOLD_FILE, CREDIT_HOLD_REJECTION, creditHoldPhotoUrls, type CreditHoldPhotos } from '@aq/schema'
-import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, heldPhotoVersion, facePhotoStatus, FACES_FILE, guideLooked, guidePhotoUrlsIn, GUIDE_LOOKS_FILE, IMAGE_SWITCHES, isOwnerCrop, isVersionRejection, mayPublish, mayPublishLicence, ownDeadPhotoUrls, originalPhotoRefusals, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, rejectedEntry, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
+import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, heldPhotoVersion, facePhotoStatus, FACES_FILE, guideLooked, guidePhotoUrlsIn, guidePhotoWaits, GUIDE_LEGACY_USES_FILE, GUIDE_LOOKS_FILE, keepGuideLegacyUses, readGuideLegacyUses, IMAGE_SWITCHES, isOwnerCrop, isVersionRejection, mayPublish, mayPublishLicence, ownDeadPhotoUrls, originalPhotoRefusals, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, rejectedEntry, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
 
 const read = async <T>(root: string, name: string): Promise<Record<string, T> | undefined> => {
   const raw = await readFile(join(root, 'engine-state', name), 'utf8').catch((error: NodeJS.ErrnoException) => {
@@ -36,6 +37,18 @@ export async function readCreditHoldWait(root: string): Promise<(url: string) =>
 export async function readPhotoIntakeBlocks(root: string): Promise<Record<string, string>> {
   const [rejected, holds] = await Promise.all([read<string>(root, PHOTO_REJECTED_FILE), read<CreditHoldPhotos>(root, CREDIT_HOLD_FILE)])
   return { ...Object.fromEntries(creditHoldPhotoUrls(holds).map(url => [url, CREDIT_HOLD_REJECTION])), ...rejected }
+}
+
+/** Keep the baseline in step with removed guide uses and newly explicit answers. */
+export async function pruneGuideLegacyUses(root: string, looks?: Record<string, unknown>): Promise<void> {
+  const content = join(root, 'content')
+  const legacy = await readGuideLegacyUses(content)
+  if (!legacy.length) return
+  const { pendingLegacy } = await guidePhotoWaits(content, looks ?? await read(root, GUIDE_LOOKS_FILE) ?? {})
+  const keep = keepGuideLegacyUses(legacy, pendingLegacy)
+  if (keep.length < legacy.length) {
+    await writeImageCache(join(content, GUIDE_LEGACY_USES_FILE), keep.length ? `[\n${keep.map(use => '  ' + JSON.stringify(use)).join(',\n')}\n]\n` : '[]\n')
+  }
 }
 
 /** Use the public screen predicates before removing a photo that might leave its page empty. */
