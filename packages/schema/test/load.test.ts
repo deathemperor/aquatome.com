@@ -465,10 +465,10 @@ test("a public build shows no guide photo or stock photo the guides' own look ha
   await write('guides/g/vi.json', { ...alphaVi, slug: 'trang-g', name: 'Hướng dẫn nuôi cá platy' })
   const passed = { person: false, mark: false, brand: false }
   await state('_photo-guides.json', {
-    [photo('guide-looked').url]: { ...passed, other: { arowana: false, platy: false } },
-    [photo('guide-new').url]: { ...passed, other: { arowana: false } },
-    [photo('stock-looked').url]: { ...passed, other: { platy: true } },
-    [photo('stock-new').url]: { ...passed, other: { platy: false } },
+    [photo('guide-looked').url]: { ...passed, other: { arowana: false, platy: false }, answeredSubjects: ['arowana', 'platy'] },
+    [photo('guide-new').url]: { ...passed, other: { arowana: false }, answeredSubjects: ['arowana'] },
+    [photo('stock-looked').url]: { ...passed, other: { platy: true }, answeredSubjects: ['platy'] },
+    [photo('stock-new').url]: { ...passed, other: { platy: false }, answeredSubjects: ['platy'] },
   })
   expect(await shown(true)).toEqual({ own: ['guide-looked'], stock: ['stock-new'] })
   await write('guides/g/vi.json', { ...alphaVi, slug: 'trang-g' })
