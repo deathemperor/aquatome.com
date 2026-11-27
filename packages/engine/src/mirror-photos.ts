@@ -50,7 +50,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
   const report = { mirrored: 0, files: 0, pending: 0, failed: [] as string[] }
   const done = new Map<string, Stored>()
   const moved: [string, string][] = []
-  const uploaded = new Set<string>()
+  const uploaded = new Map<string, string>()
   const edits = new Map<string, string>()
   // A photo off at its first verdict is coming off every page: it isn't copied, so its waiting entry and its record keep
   // one address (last-photo.ts; the independent reader, 20 Nov).
@@ -100,11 +100,14 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
             stored = { url, thumb: d.media.urlFor(plan.key.replace(/\.webp$/, `-${THUMB_WIDTH}.webp`)), width, height }
           }
           if (!stored) {
-            let bytes: Uint8Array | undefined
-            for (const u of plan.fetch) { bytes = await d.bytes(u).catch(() => undefined); if (bytes) break }
-            if (!bytes) throw new Error('not downloadable')
-            stored = await d.media.put(plan.key, bytes)
-            uploaded.add(stored.url)
+            let image: { url: string; bytes: Uint8Array } | undefined
+            for (const url of plan.fetch) {
+              const bytes = await d.bytes(url).catch(() => undefined)
+              if (bytes) { image = { url, bytes }; break }
+            }
+            if (!image) throw new Error('not downloadable')
+            stored = await d.media.put(plan.key, image.bytes)
+            uploaded.set(stored.url, image.url)
             await d.sleep(500) // Wikimedia asks bulk clients to go gently
           }
           done.set(plan.key, stored)
@@ -122,11 +125,13 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
       edits.set(file, `${JSON.stringify(data, null, indent)}\n`)
     }
   }
+  // A refusal follows the picture identity. An automated judgment follows the rendition actually uploaded.
+  const copies = [...uploaded].map(([to, from]) => [from, to] as const)
   if (moved.length) for (const [path, cache] of caches) {
+    const name = basename(path)
     let n = 0
-    const refusals = basename(path) === '_photo-rejected.json'
-    for (const [from, to] of moved) if (from in cache && !(to in cache)) {
-      if (!uploaded.has(to) && !refusals) continue
+    const refusals = name === '_photo-rejected.json'
+    for (const [from, to] of refusals || name === '_photo-dead-owed.json' ? moved : copies) if (from in cache && !(to in cache)) {
       const value = cache[from]
       if (refusals && typeof value === 'string' && value.startsWith('waiting:')) continue
       cache[to] = value

@@ -90,6 +90,27 @@ test('hot-linked photos move to our bucket once each; credit, licence, source li
   expect(again.put).toEqual([])
 })
 
+test.each(['flickr square placement', 'iNaturalist larger download'])('the mirror receives no verdict from a different rendition (%s)', async kind => {
+  const r = await root()
+  const flickr = kind.startsWith('flickr')
+  const source = flickr ? 'https://live.staticflickr.com/8518/8600709463_7a79b898cf_b.jpg' : INAT
+  const other = flickr ? source.replace('_b.jpg', '_q.jpg') : undefined
+  const judged = other ?? source
+  await writeFile(join(r, 'content/species/astronotus-ocellatus/entity.json'), JSON.stringify({ id: 'astronotus-ocellatus', photos: [photo(source)] }))
+  await writeFile(join(r, 'content/gallery/astronotus-ocellatus.json'), JSON.stringify({ id: 'astronotus-ocellatus', photos: other ? [photo(other)] : [] }))
+  const file = join(r, 'engine-state/_dead-screen.json')
+  await writeFile(file, JSON.stringify({ [judged]: { dead: false } }))
+  const { d, fetched } = deps()
+  d.bytes = async url => { fetched.push(url); return Uint8Array.of(1) }
+
+  await mirrorPhotos(r, d)
+
+  expect(fetched).toContain(mirrorPlan(source)!.fetch[0])
+  expect(fetched).not.toContain(judged)
+  expect(JSON.parse(await readFile(file, 'utf8'))).toEqual({ [judged]: { dead: false } })
+  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(d.media.urlFor(mirrorPlan(source)!.key))
+})
+
 test('a mirror used only as a fallback original keeps the stored bytes and dimensions', async () => {
   const r = await root()
   const { d, fetched, put } = deps()

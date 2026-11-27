@@ -198,8 +198,10 @@ export async function expandWholePhotoRejections(
   const added: Record<string, string> = {}
   for (const [url, causes] of originals) {
     const prior = effective(url)?.[1]
-    const cause = causes.values().next().value
-    if (cause && (!prior || isVersionRejection(prior))) added[url] = rejections[cause]!
+    const reasons = [...causes].map(cause => rejections[cause]!)
+    const independent = reasons.find(reason => !reason.startsWith('watermark:'))
+    const reason = independent ?? reasons[0]
+    if (reason && (!prior || isVersionRejection(prior) || (independent && prior.startsWith('watermark:')))) added[url] = reason
   }
   return Object.keys(added).length ? { ...rejections, ...added } : rejections
 }
@@ -226,12 +228,18 @@ export async function facePhotoStatus(root: string, faces?: Record<string, unkno
 
 export type DeadLookRecords = { screen: Record<string, unknown>; check?: Record<string, unknown>; subjects?: Record<string, unknown>; secondLook?: Record<string, unknown> }
 
-const has = (v: unknown, key: string) => !!v && typeof v === 'object' && Object.hasOwn(v, key)
-/** The photos a photo-check verdict judged for a dead fish: one with `logo`, which it has asked with since 5 Nov 2026. */
+const photoCheckAnswers = new Set(['yes', 'other', 'none', 'habitat', 'unsure', 'dead', 'no'])
+const answeredByCheck = (verdict: unknown): boolean => {
+  if (!verdict || typeof verdict !== 'object') return false
+  const { ok, logo } = verdict as { ok?: unknown; logo?: unknown }
+  return typeof ok === 'string' && photoCheckAnswers.has(ok) && typeof logo === 'boolean'
+}
+
+/** A complete check answer from the version that asked about dead fish, marked by its `logo` answer since 5 Nov 2026. */
 export function askedByCheckOf(check: Record<string, unknown> = {}, subjects: Record<string, unknown> = {}): Set<string> {
   const asked = new Set<string>()
-  for (const [u, v] of Object.entries(check)) if (has(v, 'logo')) asked.add(u)
-  for (const [u, by] of Object.entries(subjects)) if (by && typeof by === 'object' && Object.values(by).some(v => has(v, 'logo'))) asked.add(u)
+  for (const [u, v] of Object.entries(check)) if (answeredByCheck(v)) asked.add(u)
+  for (const [u, by] of Object.entries(subjects)) if (by && typeof by === 'object' && Object.values(by).some(answeredByCheck)) asked.add(u)
   return asked
 }
 
