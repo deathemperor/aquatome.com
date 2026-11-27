@@ -1157,7 +1157,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const now = withoutSettledWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, await readSecondLook(root))
   // One off at its first verdict waits there marked, and isn't counted refused (last-photo.ts).
   for (const [u, why] of Object.entries(added)) if (!(u in now) && !firstAliases.has(u)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
-  const receipts = albumRemoved.size ? await recordListedAlbumTakeOffs(root, albumRemoved, rejectedEntry(now)) : []
+  const receipts = albumRemoved.size ? await recordListedAlbumTakeOffs(root, albumRemoved, photoRejections(now, marks, versionHeld)) : []
   await writePhotoState(rejectedFile, now)
   // Keep the rejection durable during the page edits. A subject verdict may release the dead-fish wait, so
   // publish it only after every edit has succeeded.
