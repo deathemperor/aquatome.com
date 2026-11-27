@@ -1,4 +1,4 @@
-import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, reviewedPhotoVersion, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, photoVersionAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, reviewedPhotoVersion, FACES_FILE, GUIDE_LOOKS_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, photoVersionAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { replacePhotoDocument } from './image-cache-write'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
@@ -82,9 +82,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const cache=Object.fromEntries(Object.entries(oldCache).map(([u,v])=>[u,compactVerdict(v)]))
   const videoRejected = (await readJson<Record<string, string>>(state('_video-rejected.json'))) ?? {}
   const photoRejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
-  const [check, subjects] = await Promise.all([
+  const [check, subjects, guideLooks] = await Promise.all([
     readJson<Record<string, unknown>>(state(PHOTO_CHECK_FILE)),
     readJson<Record<string, unknown>>(state(PHOTO_SUBJECTS_FILE)),
+    readJson<Record<string, unknown>>(state(GUIDE_LOOKS_FILE)),
   ])
   const watermarkCache = await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))
   const secondLook = await readSecondLook(root)
@@ -189,7 +190,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const looked = deadLooked({ screen: cache, check, subjects, secondLook })
     const { unread } = await facePhotoStatus(content, faces)
     const unjudged = new Set([...owned].filter(url => !looked(url)))
-    const waits = photoWaitsFor({ watermarks: watermarkCache, owed: listed, unread, faces, unjudged, lookedForDead: looked, check, subjects, deadScreen: oldCache, secondLook })
+    const waits = photoWaitsFor({ watermarks: watermarkCache, owed: listed, unread, faces, unjudged, lookedForDead: looked, check, subjects, deadScreen: oldCache, guideLooks, secondLook })
     const heldForCredit = await readCreditHoldWait(root)
     const unavailable = (u: string) => !!isListed(u) || heldForCredit(u) || waits(u)
     for (const [url, refs] of lastPhotoVerdicts(pages, unavailable, going, undefined, undefined, true)) last.set(url, refs)
