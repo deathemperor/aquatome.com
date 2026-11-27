@@ -11,6 +11,12 @@ const batchDir = (root: string) => join(root, 'engine-state', 'album-takeoff-bat
 const ackDir = (root: string) => join(root, 'engine-state', 'album-takeoff-acks')
 const hash = (urls: string[]) => createHash('sha256').update(JSON.stringify(urls)).digest('hex')
 const batchId = /^[a-f0-9]{64}$/
+
+/** A Commons resize shares the original's verdict. A Flickr or iNaturalist photo ID can name different crops. */
+export function albumTakeOffKey(url: string): string {
+  const key = photoKey(url)
+  return key?.startsWith('commons/') ? key : url
+}
 export type TakeOffReceipt = true | { applied: true } | { batch: string; acknowledged?: true }
 export const albumTakeOffApplied = (receipt: TakeOffReceipt | undefined): boolean =>
   !!receipt && receipt !== true && 'applied' in receipt && receipt.applied
@@ -90,21 +96,20 @@ export async function completeAlbumReceipts(root: string, completed: string[], i
   const receipts = await albumReceipts(root)
   const batches = await readBatches(root)
   const acknowledged = new Set((await readdir(ackDir(root)).catch(missing)) ?? [])
-  const identity = (url: string) => photoKey(url) ?? url
-  const covered = new Set(batches.filter(batch => acknowledged.has(batch.id)).flatMap(batch => batch.urls.map(identity)))
+  const covered = new Set(batches.filter(batch => acknowledged.has(batch.id)).flatMap(batch => batch.urls.map(albumTakeOffKey)))
   for (const url of ignored) if (receipts[url] === true) delete receipts[url]
   const ready = new Map<string, string>()
   for (const url of [...completed, ...batches.flatMap(batch => batch.urls)].sort()) {
-    const key = identity(url)
+    const key = albumTakeOffKey(url)
     if (!covered.has(key) && !ready.has(key)) ready.set(key, url)
   }
   const report: Batch[] = []
   // A committed batch keeps the membership its ID names. A simultaneous overlapping batch contributes only the URLs
   // still due, under a new ID when needed.
   for (const batch of batches) {
-    if (!batch.urls.every(url => ready.has(identity(url)))) continue
+    if (!batch.urls.every(url => ready.has(albumTakeOffKey(url)))) continue
     report.push(batch)
-    for (const url of batch.urls) ready.delete(identity(url))
+    for (const url of batch.urls) ready.delete(albumTakeOffKey(url))
   }
   const rest = [...ready.values()].sort()
   for (let start = 0; start < rest.length; start += 30) {
@@ -113,8 +118,8 @@ export async function completeAlbumReceipts(root: string, completed: string[], i
     await writeImageCache(join(batchDir(root), id), `${JSON.stringify(urls)}\n`)
     report.push({ id, urls })
   }
-  const assigned = new Map([...batches, ...report].flatMap(batch => batch.urls.map(url => [identity(url), batch.id] as const)))
-  for (const url of completed) if (assigned.has(identity(url))) receipts[url] = { batch: assigned.get(identity(url))! }
+  const assigned = new Map([...batches, ...report].flatMap(batch => batch.urls.map(url => [albumTakeOffKey(url), batch.id] as const)))
+  for (const url of completed) if (assigned.has(albumTakeOffKey(url))) receipts[url] = { batch: assigned.get(albumTakeOffKey(url))! }
   if (completed.length || ignored.length) await writePhotoState(receiptFile(root), receipts)
   return report
 }

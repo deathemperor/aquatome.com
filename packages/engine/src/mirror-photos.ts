@@ -2,7 +2,7 @@ import sharp from 'sharp'
 import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { basename, join } from 'node:path'
-import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, photoLookAnswer, THUMB_WIDTH, type ImageSwitches } from '@aq/schema'
+import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, isVersionRejection, mirrorPlan, photoLookAnswer, photoVersionAddressSet, THUMB_WIDTH, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
 import { looks, readSecondLook, writeSecondLook } from './last-photo'
 
@@ -82,6 +82,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
       if (width && height) placed.set(url, { url, ...(thumb ? { thumb } : {}), width, height })
     }
   }
+  const rejected = caches.get(join(root, 'engine-state', '_photo-rejected.json'))
   for (const [file, { raw, data }] of docs) {
     let changed = false
     for (const p of photosIn(data)) {
@@ -116,6 +117,10 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
           continue
         }
       }
+      const refusal = rejected?.[p.url]
+      // A version-specific refusal cannot move onto bytes supplied by a different crop.
+      if (typeof refusal === 'string' && isVersionRejection(refusal) &&
+          uploaded.get(stored.url) !== p.url && !photoVersionAddressSet([p.url])(stored.url)) continue
       moved.push([p.url, stored.url])
       Object.assign(p, { url: stored.url, thumb: stored.thumb, width: stored.width, height: stored.height })
       changed = true

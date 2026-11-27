@@ -219,6 +219,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     if (last.has(x.url)) { holding.set(x.url, { why, pages: last.get(x.url)! }); report.held.push(`${x.url}: ${last.get(x.url)!.join(', ')}`); continue }
   }
   await holdForSecondLook(root, holding, 'the guide photo check')
+  await writePhotoState(state(GUIDE_LOOKS_FILE), Object.fromEntries(Object.entries(cache).sort()))
   await recordPhotoRefusals(rejectedFile, now, new Map([...listing].filter(([url]) => !heldAddress(url))))
   await writePhotoState(rejectedFile, now)
   for (const file of files) {
@@ -254,7 +255,6 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     report.removed.push(...removed.map(u => `${relative(root, file)}: ${u}`))
     await writeFile(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
-  await writePhotoState(state(GUIDE_LOOKS_FILE), Object.fromEntries(Object.entries(cache).sort()))
   await pruneGuideLegacyUses(root, cache)
   return report
 }

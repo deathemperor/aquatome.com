@@ -144,6 +144,26 @@ test('the uploaded rendition keeps its human clear without copying the source re
   expect(copied).toMatchObject({ off: true, back: look.on })
 })
 
+test('a refused crop leaves an independently passed mirror and its verdict intact', async () => {
+  const r = await root()
+  const square = 'https://live.staticflickr.com/8518/8600709463_7a79b898cf_q.jpg'
+  const { d } = deps()
+  const mirror = d.media.urlFor(mirrorPlan(square)!.key)
+  const page = 'species/astronotus-ocellatus/entity.json'
+  const album = 'gallery/astronotus-ocellatus.json'
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  await writeFile(join(r, 'content', page), JSON.stringify({ photos: [photo(mirror)] }))
+  await writeFile(join(r, 'content', album), JSON.stringify({ photos: [photo(square), photo(mirror)] }))
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify({ [mirror]: { dead: false } }))
+  await writeFile(rejected, JSON.stringify({ [square]: 'dead: withheld' }))
+
+  await mirrorPhotos(r, d)
+
+  expect(JSON.parse(await readFile(rejected, 'utf8'))).toEqual({ [square]: 'dead: withheld' })
+  expect(JSON.parse(await read(r, page)).photos).toEqual([photo(mirror)])
+  expect(JSON.parse(await read(r, album)).photos).toEqual([photo(square), photo(mirror)])
+})
+
 test('a mirror used only as a fallback original keeps the stored bytes and dimensions', async () => {
   const r = await root()
   const { d, fetched, put } = deps()

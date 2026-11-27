@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { PHOTO_SCREEN_FILE, type Photo, type PhotoScreenEntry, type SourceId } from '@aq/schema'
 import { htmlToOutline, isChallenge } from './outline'
 import { mergePhotos, readKeeps } from './run'
-import { readPhotoIntakeBlocks, readPhotoWaits, readRecoveryRetention } from './photo-visibility'
+import { readPhotoIntakeBlocks, readPhotoWaits, readRecoveryRetention, readReviewedPhotoVersion } from './photo-visibility'
 import { SOURCES, sourceById } from './sources'
 import { sourcesOnArchive } from './state'
 import { linkedPhotos, mayTake, pickSourcePhotos, sourcePhotoInventory, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
@@ -55,8 +55,8 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
   const names: Record<string, { name?: string; publish?: boolean | 'photos'; permission?: CreditTerms & { markRemoval?: { allowed?: boolean } } }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
   const blocked = await readPhotoIntakeBlocks(root)
   const screen: Record<string, PhotoScreenEntry> | undefined = JSON.parse(await readFile(join(root, 'engine-state', PHOTO_SCREEN_FILE), 'utf8').catch(() => 'null')) ?? undefined
-  const [photoWaits, pendingRefusal] = await Promise.all([
-    readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root),
+  const [photoWaits, pendingRefusal, reviewed] = await Promise.all([
+    readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root), readReviewedPhotoVersion(root),
   ])
   let inventory: ReturnType<typeof sourcePhotoInventory> | undefined
   const last = new Map<SourceId, number>()
@@ -111,7 +111,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           if (stored.length && kind === 'guides') {
             const body = async (l: string) => (JSON.parse(await readFile(join(root, 'content', kind, id, `${l}.json`), 'utf8').catch(() => '{}')) as { body?: string }).body
             e.photos = [...withSections(stored, { vi: (await body('vi')) ?? '', ...Object.fromEntries(await Promise.all(WRITTEN_OTHER_LANGS.map(async l => [l, await body(l)]))) }), ...e.photos.filter(p => p.sourceUrl !== url)]
-          } else if (stored.length) e.photos = mergePhotos(e.photos, source, url, stored.map(({ heading: _, ...p }) => p), readKeeps(`${kind}/${id}`, e.scientificName ?? '', blocked, names, screen, photoWaits, pendingRefusal))
+          } else if (stored.length) e.photos = mergePhotos(e.photos, source, url, stored.map(({ heading: _, ...p }) => p), readKeeps(`${kind}/${id}`, e.scientificName ?? '', blocked, names, screen, photoWaits, pendingRefusal, reviewed))
           tried[url] = d.now().toISOString()
         } catch (err) {
           errors.push(`${kind}/${id} ${url}: ${(err as Error).message.slice(0, 120)}`)

@@ -51,6 +51,13 @@ export async function pruneGuideLegacyUses(root: string, looks?: Record<string, 
   }
 }
 
+export async function readReviewedPhotoVersion(root: string): Promise<(url: string) => boolean> {
+  const [reviews, check, subjects] = await Promise.all([
+    read(root, SECOND_LOOK_RECORD), read(root, PHOTO_CHECK_FILE), read(root, PHOTO_SUBJECTS_FILE),
+  ])
+  return reviewedPhotoVersion(reviews, check, subjects)
+}
+
 /** Use the public screen predicates before removing a photo that might leave its page empty. */
 export async function readPhotoWaits(
   root: string,
@@ -71,7 +78,7 @@ export async function readPhotoWaits(
   }
   if (guideLooks) for (const url of await guidePhotoUrlsIn(content)) if (!guideLooked(guideLooks[url])) unjudged.add(url)
   const effective = await expandWholePhotoRejections(content, rejected ?? {}, watermarks)
-  const waits = photoWaitsFor({ watermarks, owed, unread, faces, unjudged, lookedForDead: looked, check, subjects, deadScreen, secondLook,
+  const waits = photoWaitsFor({ watermarks, owed, unread, faces, unjudged, lookedForDead: looked, check, subjects, deadScreen, guideLooks, secondLook,
     rejected: photoRejections(effective, watermarks, reviewedPhotoVersion(secondLook, check, subjects)) })
   return url => setsCookies(url) || creditHeld(url) || waits(url) ||
     ((overrides.freshOwn || overrides.requireDeadLook) && !!looked && !looked(url)) ||

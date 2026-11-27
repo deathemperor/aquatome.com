@@ -252,6 +252,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const secondLook = deadScreen || faces ? await stateRecord<Record<string, { why?: string; off?: boolean; look?: { said?: string } }>>(root, SECOND_LOOK_RECORD) : undefined
   const check = deadScreen ? await stateRecord<Record<string, unknown>>(root, PHOTO_CHECK_FILE) : undefined
   const subjects = deadScreen ? await stateRecord<Record<string, unknown>>(root, PHOTO_SUBJECTS_FILE) : undefined
+  const guideLooks = screen ? await stateRecord<Record<string, unknown>>(root, GUIDE_LOOKS_FILE) : undefined
   const rejectedForDead = screen ? photoRejections(
     await expandWholePhotoRejections(root, await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}, screen), screen, reviewedPhotoVersion(secondLook, check, subjects),
   ) : undefined
@@ -274,7 +275,6 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // And a guide's own photo or a video guide's part's stock photo the guides' own look hasn't judged (photo-screen.ts
   // GUIDE_LOOKS_FILE), wherever it shows, as its stills wait for theirs (the chief of staff, 22 Nov 2026: the look first).
   // With no record beside the root none waits for it; the site's build of the real content needs the record.
-  const guideLooks = screen ? await stateRecord<Record<string, unknown>>(root, GUIDE_LOOKS_FILE) : undefined
   if (screen && !guideLooks && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', GUIDE_LOOKS_FILE)}: the guides' own look's record is missing, so no guide photo can be shown as looked at`)
   const guideWaits = guideLooks ? await guidePhotoWaits(root, guideLooks) : undefined
   const unlooked = guideWaits?.unlooked ?? new Set<string>()
@@ -283,7 +283,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     console.log(`${lang}: ${retryable} guide photos and stock photos wait, the guides' own look hasn't judged them`)
     if (retryable > GUIDE_UNJUDGED_LIMIT) throw new Error(`${lang}: ${retryable} guide photos and stock photos the guides' own look hasn't judged (${join(dirname(root), 'engine-state', GUIDE_LOOKS_FILE)}). More than ${GUIDE_UNJUDGED_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the guides without them. A photos run's guide look (pnpm engine guide-photos) judges them.`)
   }
-  const waitsForScreen = photoWaitsFor({ watermarks: screen, owed, unread, faces, unjudged: new Set([...unjudged, ...unlooked]), lookedForDead, check, subjects, deadScreen, secondLook, rejected: rejectedForDead })
+  const waitsForScreen = photoWaitsFor({ watermarks: screen, owed, unread, faces, unjudged: new Set([...unjudged, ...unlooked]), lookedForDead, check, subjects, deadScreen, guideLooks, secondLook, rejected: rejectedForDead })
   const waitsFor = (url: string) => heldForCredit(url) || waitsForScreen(url)
   // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
   // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,

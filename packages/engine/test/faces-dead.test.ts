@@ -13,6 +13,7 @@ import { recordAlbumTakeOffs } from '../src/album-takeoffs'
 import { LlmError } from '../src/claude'
 import { acknowledgeAlbumTakeOffs, screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { galleries, type GalleryDeps } from '../src/gallery'
+import { screenGuidePhotos } from '../src/guide-photos'
 import { gitHistory, listAgreed, putBackCleared, unlistCleared, waitingEntry } from '../src/last-photo'
 import { holdForCreditRead, releaseCreditHolds } from '../src/credit-reads'
 import { checkPagePhotos } from '../src/photo-check'
@@ -436,6 +437,33 @@ test.each(['screen', 'agreement'])('a %s watermark decision cannot replace an in
   expect(view.photoWaits!(shop.url)).toBe(true)
 })
 
+test('a later shop-mark approval preserves the guide’s person refusal', async () => {
+  const sourceUrl = 'https://www.aquariumglaser.de/example/'
+  const shop = { ...photo('shop'), url: 'https://media.aquatome.com/glaser/mixed.webp', sourceUrl }
+  const spare = photo('spare')
+  const { root, state, publicView } = await publicFixture([shop, spare], [shop], [shop.url, spare.url])
+  const guide = join(root, 'content/guides/shop/entity.json')
+  await mkdir(join(guide, '..'), { recursive: true })
+  await writeFile(guide, JSON.stringify({ id: 'shop', photos: [shop] }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [shop.url]: 0, [spare.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [shop.url]: { dead: false }, [spare.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-guides.json'), JSON.stringify({ [shop.url]: { person: true, mark: true, brand: false, note: '' } }))
+  const watermarks = join(state, '_photo-watermarks.json')
+  await writeFile(watermarks, JSON.stringify({ [shop.url]: { ocr: [], watermark: true }, [spare.url]: { ocr: [] } }))
+  const unused = async () => { throw new Error('The guide’s verdict is cached') }
+  await screenGuidePhotos(root, { get: unused, look: unused }, { limit: 0 })
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toMatchObject({ [shop.url]: expect.stringMatching(/^watermark:/) })
+  expect((await json(root, 'content/guides/shop/entity.json')).photos).toEqual([])
+  await writeFile(watermarks, JSON.stringify({
+    [shop.url]: { ocr: [], watermark: true, retainedOwnMark: { owner: 'source', source: 'glaser', sourceUrl } }, [spare.url]: { ocr: [] },
+  }))
+
+  const view = await publicView()
+  expect(view.species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([spare.url])
+  expect(view.galleries.alpha ?? []).toEqual([])
+  expect(view.photoWaits!(shop.url)).toBe(true)
+})
+
 test.each(['dead', 'person'])('waiving a photo-check watermark still withholds its mixed %s verdict', async refusal => {
   const sourceUrl = 'https://www.aquariumglaser.de/example/'
   const shop = { ...photo('shop'), url: 'https://media.aquatome.com/glaser/mixed.webp', sourceUrl }
@@ -696,6 +724,10 @@ test('a passed mirror without a review remains visible through a square refusal 
   }
   await visible()
   await sweep(root, { history: gitHistory(root) })
+  expect((await json(root, 'content/species/alpha/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([mirror.url])
+  await visible()
+  const unused = async () => { throw new Error('The independently judged renditions already have answers') }
+  await checkPagePhotos(root, { get: unused, look: unused }, { limit: 0, fill: 0 })
   expect((await json(root, 'content/species/alpha/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([mirror.url])
   await visible()
 })
@@ -2004,21 +2036,26 @@ test.each(['gallery', 'sweep', 'photo check'])('%s receipts every refused versio
   expect(report.albumBatches).toEqual([{ id: expect.any(String), urls: [wrapper.url, original.url].sort() }])
 })
 
-test.each(['before restoration', 'after restoration', 'after an interrupted receipt write'])(
+test.each(['before restoration', 'after restoration', 'after an interrupted receipt write', 'before restoration beside a cleared crop'])(
   'a human clear preserves an applied album take-off for its first batch (%s)', async phase => {
-  const dead = photo('dead'), live = photo('live')
-  const { root, state } = await publicFixture([live], [dead], [dead.url, live.url])
+  const hasCrop = phase === 'before restoration beside a cleared crop'
+  const crop = { ...photo('crop'), url: 'https://live.staticflickr.com/123/456_abc_q.jpg' }
+  const dead = hasCrop ? { ...photo('dead'), url: `https://media.aquatome.com/${mirrorPlan(crop.url)!.key}` } : photo('dead')
+  const live = photo('live'), remaining = hasCrop ? [crop] : []
+  const { root, state } = await publicFixture([live], [dead, ...remaining], [dead.url, live.url, ...remaining.map(p => p.url)])
   const why = 'dead: held for review'
   const marksFile = join(state, '_photo-second-look.json')
   await writeFile(marksFile, JSON.stringify({
     [dead.url]: { why, step: 'the dead-fish screen', pages: ['species/alpha'], at: '2026-11-26', off: true },
+    ...(hasCrop ? { [crop.url]: { why, step: 'the dead-fish screen', pages: ['species/alpha'], at: '2026-11-26',
+      look: { said: 'clear', by: 'reviewer', on: '2026-11-26' } } } : {}),
   }))
   await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [dead.url]: waitingEntry(why) }))
   vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
   onTestFinished(() => { vi.unstubAllEnvs() })
   const unused = async () => { throw new Error('gallery cleanup needs no source calls') }
   const clean = () => galleries(root, { get: unused, http: unused, look: unused, faces: unused, sleep: unused, now: () => new Date() }, { only: 'missing', sheets: 0 })
-  if (phase === 'after an interrupted receipt write') {
+  if (phase === 'after an interrupted receipt write' || hasCrop) {
     const write = imageWrites.writeImageCache
     const interrupted = vi.spyOn(imageWrites, 'writeImageCache').mockImplementation(async (path, data) => {
       if (path.endsWith('_photo-album-dead-takeoffs.json') && JSON.parse(String(data))[dead.url]?.applied === true) {
@@ -2029,16 +2066,21 @@ test.each(['before restoration', 'after restoration', 'after an interrupted rece
     try { await expect(clean()).rejects.toThrow('interrupted after removing the entry') } finally { interrupted.mockRestore() }
     expect((await json(root, 'engine-state/_photo-album-dead-takeoffs.json'))[dead.url]).toBe(true)
   } else await clean()
-  expect(JSON.parse(await readFile(join(root, 'content/gallery/alpha.json'), 'utf8')).photos).toEqual([])
+  expect(JSON.parse(await readFile(join(root, 'content/gallery/alpha.json'), 'utf8')).photos).toEqual(remaining)
   const marks = JSON.parse(await readFile(marksFile, 'utf8'))
   marks[dead.url].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
   await writeFile(marksFile, JSON.stringify(marks))
-  if (phase !== 'before restoration') {
+  if (phase !== 'before restoration' && !hasCrop) {
     await sweep(root, { history: async () => [] })
     expect(JSON.parse(await readFile(join(root, 'content/gallery/alpha.json'), 'utf8')).photos).toEqual([dead])
   }
   const report = await screenDead(root, deps().d.dead, { limit: 0, albums: true })
   expect(report.albumBatches).toEqual([{ id: expect.any(String), urls: [dead.url] }])
+  if (hasCrop) {
+    await sweep(root, { history: async () => [] })
+    expect((await json(root, 'content/gallery/alpha.json')).photos).toEqual([dead, crop])
+    expect((await screenDead(root, deps().d.dead, { limit: 0, albums: true })).albumBatches).toEqual(report.albumBatches)
+  }
 })
 
 test('zero sheets remove the cached-dead mirror while retaining a separately cleared square', async () => {
@@ -2061,11 +2103,11 @@ test('zero sheets remove the cached-dead mirror while retaining a separately cle
 
 test('a cached take-off leaves a separately held unjudged rendition in the album balance', async () => {
   const square = { ...photo('square'), url: 'https://live.staticflickr.com/123/456_abc_q.jpg' }
-  const mirror = `https://media.aquatome.com/${mirrorPlan(square.url)!.key}`
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(square.url)!.key}` }
   const dead = photo('other-dead')
-  const { root, state } = await publicFixture([], [square, dead], [square.url, dead.url])
+  const { root, state } = await publicFixture([], [square, mirror, dead], [square.url, mirror.url, dead.url])
   await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true } }))
-  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [mirror]: 'dead: independently refused' }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [mirror.url]: 'dead: independently refused' }))
   await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
     [square.url]: { why: 'dead: separately held square', pages: ['species/alpha'], step: 'the dead-fish screen', at: '2026-11-26' },
   }))
@@ -2076,6 +2118,39 @@ test('a cached take-off leaves a separately held unjudged rendition in the album
   expect(report.pendingTakeOffs).toBe(0)
   expect((await json(root, 'content/gallery/alpha.json')).photos).toEqual([square])
   expect((await screenDead(root, deps().d.dead, { limit: 0, albums: true })).left).toBe(1)
+})
+
+test('an agreement on the larger mirror creates no receipt for a separately cleared crop', async () => {
+  const crop = { ...photo('crop'), url: 'https://live.staticflickr.com/123/456_abc_q.jpg' }
+  const mirror = `https://media.aquatome.com/${mirrorPlan(crop.url)!.key}`
+  const { root, state, file } = await albumFixture([crop])
+  const mark = { why: 'dead: withheld', step: 'the dead-fish screen', at: '2026-11-26', pages: ['species/alpha'] }
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [crop.url]: { ...mark, look: { said: 'clear', by: 'reviewer', on: '2026-11-26' } },
+    [mirror]: { ...mark, look: { said: 'agree', by: 'reviewer', on: '2026-11-26' } },
+  }))
+
+  const report = await screenDead(root, deps().d.dead, { limit: 0, albums: true })
+
+  expect(report).toMatchObject({ sheets: 0, left: 0, albumBatches: [] })
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([crop])
+})
+
+test('an acknowledged mirror does not cover a later independently refused crop', async () => {
+  const crop = { ...photo('crop'), url: 'https://live.staticflickr.com/123/456_abc_q.jpg' }
+  const mirror = { ...crop, url: `https://media.aquatome.com/${mirrorPlan(crop.url)!.key}` }
+  const { root, state, file } = await albumFixture([mirror])
+  const verdicts = join(state, '_dead-screen.json')
+  await writeFile(verdicts, JSON.stringify({ [mirror.url]: { dead: true } }))
+  const before = await screenDead(root, deps().d.dead, { limit: 0, albums: true })
+  expect(await acknowledgeAlbumTakeOffs(root, before.albumBatches[0]!.id)).toBe(1)
+  await writeFile(file, JSON.stringify({ id: 'alpha', photos: [crop] }))
+  await writeFile(verdicts, JSON.stringify({ [mirror.url]: { dead: true }, [crop.url]: { dead: true } }))
+
+  const after = await screenDead(root, deps().d.dead, { limit: 0, albums: true })
+
+  expect(after.albumBatches).toEqual([{ id: expect.any(String), urls: [crop.url] }])
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
 })
 
 test('an equipment type keeps its waiting album photo through a sweep and clear', async () => {
@@ -2172,7 +2247,7 @@ test('overlapping merged batches keep their identities and never redeliver ackno
   const { root, state } = await albumFixture([])
   const folder = join(state, 'album-takeoff-batches')
   await mkdir(folder)
-  const a = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const a = 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Sample_fish.jpg'
   const mirror = `https://media.aquatome.com/${mirrorPlan(a)!.key}`
   const b = m('b'), c = m('c')
   const id = (urls: string[]) => createHash('sha256').update(JSON.stringify(urls)).digest('hex')
