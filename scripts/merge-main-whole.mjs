@@ -59,11 +59,12 @@ const keyOf = x => (isPicture(x) ? `url:${x.url}` : isObj(x) && typeof x.heading
 const keyed = (...lists) => lists.every(l => l.every(x => keyOf(x) !== undefined))
 /** Each item's key in its list, with its count among items of the same key (a guide can repeat a heading). */
 const pictureVariant = p => JSON.stringify([p.altered ?? null, p.original?.url ?? null, p.ownerCrop !== undefined])
-function keysOf(list, variants) {
+function keysOf(list, variants, repeatedAdditions) {
   const seen = new Map()
   return list.map(x => {
     const id = keyOf(x)
-    const key = variants.has(id) && isPicture(x) ? JSON.stringify([id, pictureVariant(x)]) : id
+    const key = repeatedAdditions.has(id) ? JSON.stringify([id, x])
+      : variants.has(id) && isPicture(x) ? JSON.stringify([id, pictureVariant(x)]) : id
     const occurrence = seen.get(key) ?? 0
     seen.set(key, occurrence + 1)
     return `${key}#${occurrence}`
@@ -92,21 +93,25 @@ export function merge3(base, ours, theirs, gone = new Set()) {
 /** A list of pictures or figures, item by item. */
 function mergeList(base, ours, theirs, gone) {
   const variants = new Set()
+  const before = new Set(base.map(keyOf))
+  const repeatedAdditions = new Set()
   for (const list of [base, ours, theirs]) {
     const seen = new Map()
     for (const p of list.filter(isPicture)) {
       const id = keyOf(p), variant = pictureVariant(p)
-      if (seen.has(id) && seen.get(id) !== variant) variants.add(id)
+      if (seen.has(id)) {
+        if (seen.get(id) !== variant) variants.add(id)
+        else if (!before.has(id)) repeatedAdditions.add(id)
+      }
       seen.set(id, variant)
     }
   }
-  const before = new Set(base.map(keyOf))
   const local = new Map(theirs.filter(isPicture).map(p => [keyOf(p), p]))
   for (const p of ours.filter(isPicture)) {
     const id = keyOf(p), other = local.get(id)
     if (!before.has(id) && other && pictureVariant(p) !== pictureVariant(other)) variants.add(id)
   }
-  const kb = keysOf(base, variants), inBase = new Set(kb)
+  const kb = keysOf(base, variants, repeatedAdditions), inBase = new Set(kb)
   // A figure under a heading new on one side is the base figure it shares a picture with, if that side has no figure
   // under the base one's heading: the heading was renamed.
   const renamed = (list, ks) => {
@@ -120,7 +125,7 @@ function mergeList(base, ours, theirs, gone) {
       return kb[j]
     })
   }
-  const [ko, kt] = [renamed(ours, keysOf(ours, variants)), renamed(theirs, keysOf(theirs, variants))]
+  const [ko, kt] = [renamed(ours, keysOf(ours, variants, repeatedAdditions)), renamed(theirs, keysOf(theirs, variants, repeatedAdditions))]
   const b = new Map(base.map((x, i) => [kb[i], x])), t = new Map(theirs.map((x, i) => [kt[i], x])), o = new Set(ko)
   const out = [], at = []
   ours.forEach((x, i) => {
