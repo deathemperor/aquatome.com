@@ -103,10 +103,9 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     return shown && !setsCookies(shown) ? shown : undefined
   })
   const unread = new Set(todo.filter(u => !Object.hasOwn(cache, u)))
-  const lookedForDead = screen && deadLooked({
-    screen, secondLook, check: await readPhotoRecord(root, PHOTO_CHECK_FILE), subjects: await readPhotoRecord(root, PHOTO_SUBJECTS_FILE),
-  })
-  const waits = waitingForDead && photoWaitsFor({ watermarks, unjudged: waitingForDead, lookedForDead, unread, deadScreen: screen, secondLook })
+  const [check, subjects] = screen ? await Promise.all([readPhotoRecord(root, PHOTO_CHECK_FILE), readPhotoRecord(root, PHOTO_SUBJECTS_FILE)]) : []
+  const lookedForDead = screen && deadLooked({ screen, secondLook, check, subjects })
+  const waits = waitingForDead && photoWaitsFor({ watermarks, unjudged: waitingForDead, lookedForDead, check, subjects, unread, deadScreen: screen, secondLook })
   const flagVerdicts = [...new Set([...screened, ...Object.keys(cache)])].filter(u => face(u) && !listed(u))
   const heldForCredit = await readCreditHoldWait(root)
   const unavailable = (u: string) => !!listed(u) || heldForCredit(u) || waits?.(u) === true

@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto'
-import { photoAddressSet, type PhotoRejection } from './photo-address'
+import { photoAddressSet, photoKey, type PhotoRejection } from './photo-address'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { isOwnerCrop, type ImageSwitches } from './image-policy'
@@ -273,12 +273,15 @@ export function photoLookAnswer(record: unknown): { said: 'agree' | 'clear'; by:
   return { said: look.said, by: look.by, on: look.on }
 }
 
-/** A clear applies to both addresses. A completed decision at the requested address takes precedence. */
+/** A completed decision at the requested address takes precedence over a clear on the same Commons file. */
 export function photoClears(records: Record<string, unknown> = {}): (url: string) => boolean {
-  const clears = photoAddressSet(Object.keys(records).filter(url => photoLookAnswer(records[url])?.said === 'clear'))
+  // Commons mirrors resize the same file. Photo IDs at other sources can include alternate crops. Their clears
+  // follow an upload only when mirroring can identify the exact reviewed address that supplied the image.
+  const commons = (url: string) => photoKey(url)?.startsWith('commons/') === true
+  const clears = photoAddressSet(Object.keys(records).filter(url => commons(url) && photoLookAnswer(records[url])?.said === 'clear'))
   return url => {
     const decision = Object.hasOwn(records, url) ? photoLookAnswer(records[url]) : undefined
-    return decision ? decision.said === 'clear' : clears(url)
+    return decision ? decision.said === 'clear' : commons(url) && clears(url)
   }
 }
 
@@ -332,6 +335,8 @@ export type PhotoWaitRecords = {
   faces?: Record<string, unknown>
   unjudged?: ReadonlySet<string>
   lookedForDead?: (url: string) => boolean
+  check?: Record<string, unknown>
+  subjects?: Record<string, unknown>
   deadScreen?: Record<string, unknown>
   secondLook?: Record<string, unknown>
   rejected?: PhotoRejection
@@ -348,6 +353,13 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
   const firstOff = photoFirstOff(r.secondLook)
   const directFaces = new Set(Object.keys(r.faces ?? {}).filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)))
   const faceWaits = photoAddressSet([...(r.unread ?? []), ...directFaces])
+  const refusedByCheck = new Set<string>()
+  for (const url of new Set([...Object.keys(r.check ?? {}), ...Object.keys(r.subjects ?? {})])) {
+    const by = r.subjects?.[url]
+    const verdicts = [r.check?.[url], ...(by && typeof by === 'object' ? Object.values(by) : [])] as
+      ({ logo?: unknown; ok?: unknown; person?: unknown } | null | undefined)[]
+    if (verdicts.some(v => v?.logo === true) && verdicts.some(v => v?.ok === 'dead' || v?.person === true)) refusedByCheck.add(url)
+  }
   return url => {
     const entry = r.rejected?.(url)
     if (entry && !entry[1].startsWith('watermark:')) return true
@@ -356,7 +368,13 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
       if (entry && !retainedOwnMark(url, r.watermarks[url]) && !retainedOwnMark(entry[0], r.watermarks[entry[0]])) return true
     }
     const waitsForFace = directFaces.has(url) || r.unread?.has(url) || (!Object.hasOwn(r.faces ?? {}, url) && faceWaits(url))
-    return directWaits.has(url) || (owesLook(url) && !lookedForDead(url)) || waitsForFace ||
+    // The photo check writes the whole-photo watermark reason. Its independent dead/person result still applies
+    // after a shop-mark waiver, pending an applicable review.
+    const review = r.secondLook?.[url] as LookMark | undefined
+    const clearedRefusal = typeof review?.why === 'string' && /^(?:dead|people): /.test(review.why) &&
+      photoLookAnswer(review)?.said === 'clear'
+    const refusedVersion = refusedByCheck.has(url) && !held(url) && !clearedRefusal
+    return directWaits.has(url) || (owesLook(url) && !lookedForDead(url)) || waitsForFace || refusedVersion ||
       deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected, cleared, held, firstOff)
   }
 }
