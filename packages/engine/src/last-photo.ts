@@ -433,22 +433,23 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
       let earlier = earlierPlace ? await readKept(dir, url, r, earlierPlace) : undefined
       if (earlierPlace && !earlier) throw new Error('Photo take-off is waiting for an existing private capture')
       let occurrence = p.occurrence
-      if (earlier && !samePlacement(p.photo, earlier.photo)) {
+      const aliasesTogether = places.some(other => other.file === p.file && other.photo.url !== p.photo.url && samePlacement(p.photo, other.photo))
+      if (earlier && (!samePlacement(p.photo, earlier.photo) || (aliasesTogether && earlier.photo.url !== p.photo.url))) {
         const other = [...named.values()].filter(place => place.file === p.file && place !== earlierPlace)
         earlier = undefined
         const sameEdition: { candidate: Place; entry: Kept }[] = []
         for (const candidate of other) {
           const entry = await readKept(dir, url, r, candidate)
           if (!entry) throw new Error('Photo take-off is waiting for an existing private capture')
-          if (samePlacement(p.photo, entry.photo)) sameEdition.push({ candidate, entry })
+          if (samePlacement(p.photo, entry.photo) && (!aliasesTogether || p.photo.url === entry.photo.url)) sameEdition.push({ candidate, entry })
         }
         const sameAt = sameEdition.find(({ entry }) => placementHash(entry.photo) === placementHash(p.photo))
           ?? sameEdition.find(({ entry }) => entry.index === p.index)
         // If both variants are still present, an editor can move and recaption one before the take-off retry.
         const stillTogether = places.some(other => other.file === p.file && other !== p && earlierPlace &&
           placeKey(other) !== placeKey(earlierPlace) && !samePlacement(other.photo, p.photo))
-        const moved = stillTogether && sameEdition.length === 1 &&
-          places.filter(other => other.file === p.file && samePlacement(other.photo, p.photo)).length === 1
+        const moved = sameEdition.length === 1 && (aliasesTogether || (stillTogether &&
+          places.filter(other => other.file === p.file && samePlacement(other.photo, p.photo)).length === 1))
           ? sameEdition[0] : undefined
         const match = sameAt ?? moved
         if (match) {
@@ -557,7 +558,8 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
       const history = spawnSync('git', ['-C', root, 'log', '--first-parent', '-2', '--format=%H', '-S', k.capture, 'refs/remotes/origin/main', '--', record], { encoding: 'utf8' })
       if (history.status === 0) agreed = history.stdout.trim().split('\n').filter(Boolean).some(sha => {
         const prior = (publishedJson(root, record, sha) as SecondLooks | undefined)?.[k.url]
-        return prior?.left?.some(place => place.capture === k.capture && placeKey(place) === placeKey(k)) === true
+        return prior?.left?.some(place => place.capture === k.capture && place.file === k.file &&
+          (place.capturedOccurrence ?? place.occurrence ?? 0) === (k.occurrence ?? 0)) === true
       })
     }
     if (restored || agreed) await rm(path, { force: true })
@@ -853,12 +855,16 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks, dir?: st
         const mergedEntry = JSON.stringify(merged)
         const publicEntry = JSON.stringify(returned)
         const sameRestore = old && JSON.stringify(localEntry) === old && (mergedEntry === old || mergedEntry === publicEntry)
-        const anchors = (a: Record<string, unknown>[], b: Record<string, unknown>[]) =>
-          new Set(a.map(p => String(p.url)).filter(u => !matches(u) && b.some(p => p.url === u)))
+        const orderKey = (photo: Record<string, unknown>) =>
+          matches(String(photo.url)) ? `photo:${placementHash(photo)}` : `url:${photo.url}`
+        const anchors = (a: Record<string, unknown>[], target: Record<string, unknown> | undefined, b: Record<string, unknown>[]) => {
+          const neighbors = new Set(b.map(orderKey))
+          return new Set(a.filter(photo => photo !== target).map(orderKey).filter(key => neighbors.has(key)))
+        }
         const position = (ps: Record<string, unknown>[], p: Record<string, unknown> | undefined, near: Set<string>) =>
-          ps.slice(0, p ? ps.indexOf(p) : 0).map(photo => String(photo.url)).filter(url => near.has(url)).sort().join('\n')
-        const localAnchors = anchors(savedPhotos, priorPhotos)
-        const mainAnchors = anchors(publicPhotos, photos)
+          ps.slice(0, p ? ps.indexOf(p) : 0).map(orderKey).filter(key => near.has(key)).sort().join('\n')
+        const localAnchors = anchors(savedPhotos, entry, priorPhotos)
+        const mainAnchors = anchors(publicPhotos, returned, photos)
         const orderStillLocal = position(savedPhotos, entry, localAnchors) === position(priorPhotos, localEntry, localAnchors)
         const orderDiffers = returned && position(photos, merged, mainAnchors) !== position(publicPhotos, returned, mainAnchors)
         if (sameRestore && merged && (returned ? publicEntry !== mergedEntry || (orderStillLocal && orderDiffers) : departed)) {
@@ -866,7 +872,7 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks, dir?: st
           photos.splice(index, 1)
           if (returned) {
             const at = orderStillLocal && orderDiffers
-              ? photoPosition(photos.map(p => String(p.url)), publicPhotos.map(p => String(p.url)), publicPhotos.indexOf(returned), index)
+              ? photoPosition(photos.map(orderKey), publicPhotos.map(orderKey), publicPhotos.indexOf(returned), index)
               : index
             photos.splice(at, 0, returned)
           }

@@ -318,11 +318,33 @@ test.each([false, true])('gallery: a cleared dead verdict allows intake (copied 
   const reviewed = mirrored ? `https://media.aquatome.com/${mirrorPlan(back.url)!.key}` : back.url
   await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [reviewed]: { 'betta-splendens': dead }, [kept.url]: { 'betta-splendens': dead } }))
   const rec = { why: 'dead: withheld [sha256:' + 'b'.repeat(64) + ']', step: 'the photo check', pages: ['species/betta-splendens'], at: '2026-11-20', off: true }
-  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [back.url]: { ...rec, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-20' } }, [kept.url]: rec }))
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [reviewed]: { ...rec, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-20' } }, [kept.url]: rec }))
   await galleries(r, deps(), { sheets: 5 })
   const shown = urls(await read(r, 'content/gallery/betta-splendens.json'))
   expect(shown).toContain(back.sourceUrl)
   expect(shown).not.toContain(kept.sourceUrl)
+})
+
+test.each(['dead', 'other'] as const)('gallery: a clear at another rendition cannot waive %s', async ok => {
+  const r = await root()
+  const original = 'https://inaturalist-open-data.s3.amazonaws.com/photos/85/original.jpg'
+  const square = original.replace('original.jpg', 'square.jpg')
+  const candidate = { url: original, thumb: square, width: 1332, height: 1776, licence: 'CC BY',
+    author: 'a', sourceUrl: 'https://www.inaturalist.org/photos/85', key: 'inat:85' }
+  const id = 'betta-splendens'
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  await writeFile(join(r, `engine-state/gallery/${id}.json`), JSON.stringify({ queue: [candidate], judged: [], hashes: {} }))
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [original]: { [id]: { ok, typical: false } } }))
+  const review = { why: 'dead: withheld [sha256:' + 'b'.repeat(64) + ']', step: 'the photo check', pages: [`species/${id}`],
+    at: '2026-11-20', look: { said: 'clear', by: 'reviewer', on: '2026-11-20' } }
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({
+    [square]: { ...review, ...(ok === 'dead' ? { off: true } : {}) },
+    ...(ok === 'other' ? { [original]: { ...review, off: true } } : {}),
+  }))
+
+  await galleries(r, deps(), { sheets: 5 })
+
+  expect(urls(await read(r, `content/gallery/${id}.json`))).not.toContain(candidate.sourceUrl)
 })
 
 test("gallery: a clear sets aside a photo's off verdicts only on the pages its record names: another page's verdict still keeps it out of that page's album", async () => {
