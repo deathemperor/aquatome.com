@@ -894,6 +894,45 @@ test.each([false, true])('private entries survive an unpublished agreement with 
   expect(await keptOf(url('a-new'))).toBeNull()
 })
 
+test('a published agreement prunes a capture superseded before its first commit', async () => {
+  const { r, git, agree } = await runRepo()
+  const photoAt = photo('recaptioned')
+  const capture = (caption: string) => new Map([[photoAt.url, [{ file: A, index: 0, photo: { ...photoAt, caption } }]]])
+  await holdForSecondLook(r, new Map([[photoAt.url, { why, pages: ['species/aaa'], off: true }]]),
+    'the photo check', today(), capture('Original caption'))
+  await notePlaces(r, capture('Corrected caption'))
+  await agree()
+  await listAgreed(r)
+  await putBackCleared(r, gitHistory(r))
+  expect(await keptFor(photoAt.url)).toHaveLength(2)
+  git('add', '-A'); git('commit', '-qm', 'publish the agreement')
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+
+  await putBackCleared(r, gitHistory(r))
+
+  expect(await keptFor(photoAt.url)).toEqual([])
+})
+
+test('a crop cleared on a separate review cannot satisfy the mirror’s recovery', async () => {
+  const { r } = await runRepo({ aaa: [] })
+  const square = { ...photo('square'), url: 'https://live.staticflickr.com/123/456_abc_q.jpg', licence: 'CC BY 4.0' }
+  const mirror = { ...square, url: `https://media.aquatome.com/${mirrorPlan(square.url)!.key}` }
+  const file = 'content/gallery/aaa.json'
+  const album = await json(r, file)
+  await holdForSecondLook(r, new Map([[mirror.url, { why, pages: ['species/aaa'], off: true }]]), 'the photo check', today(),
+    new Map([[mirror.url, [{ file, index: 0, photo: mirror, order: [mirror.url, square.url] }]]]))
+  const reviews = await json(r, SL)
+  const look = { said: 'clear', by: 'reviewer', on: today() }
+  reviews[mirror.url].look = look
+  reviews[square.url] = { why, pages: ['species/aaa'], at: today(), step: 'the photo check', look }
+  await writeFile(join(r, SL), JSON.stringify(reviews))
+  await writeFile(join(r, file), JSON.stringify({ ...album, photos: [square] }))
+
+  await putBackCleared(r, async () => [])
+
+  expect((await json(r, file)).photos).toEqual([mirror, square])
+})
+
 test.each([CREDIT_HOLD_REJECTION, compactRejection('people: another decision')])('an old rejection cannot prune a capture it never saw (%#)', async refusal => {
   const previous = await runRepo()
   const current = await runRepo()
@@ -2003,7 +2042,7 @@ test('publication after pruning a settled capture preserves only the surviving w
   expect((await json(r, A)).photos).toEqual([survivor])
 })
 
-test('publication preserves the only same-edition album occurrence left on main', async () => {
+test.each(['removal', 'reorder', 'recaption and reorder'])('publication preserves main’s later %s of same-edition album occurrences', async action => {
   const { r, git, clear } = await runRepo({ aaa: [] })
   const albumFile = 'content/gallery/aaa.json'
   const file = join(r, albumFile)
@@ -2027,17 +2066,21 @@ test('publication preserves the only same-edition album occurrence left on main'
   git('switch', '-qc', 'concurrent-main', 'refs/remotes/origin/main')
   await putBackCleared(r, gitHistory(r))
   git('add', '-A'); git('commit', '-qm', 'an independent restore on main')
-  await writeFile(file, JSON.stringify({ ...document, photos: [kept] }))
-  git('add', '-A'); git('commit', '-qm', 'an editor removes the first occurrence')
+  const edited = action === 'removal' ? [kept] : [
+    action === 'recaption and reorder' ? { ...kept, caption: 'Corrected second placement' } : kept,
+    removed,
+  ]
+  await writeFile(file, JSON.stringify({ ...document, photos: edited }))
+  git('add', '-A'); git('commit', '-qm', 'an editor changes the restored order')
   git('update-ref', 'refs/remotes/origin/main', 'HEAD')
 
   git('switch', '-q', 'main')
   git('rebase', 'refs/remotes/origin/main')
   await putBackCleared(r, gitHistory(r))
-  expect((await json(r, albumFile)).photos).toEqual([kept])
+  expect((await json(r, albumFile)).photos).toEqual(edited)
 })
 
-test('a published clear does not discard a different edition captured at the same ordinal', async () => {
+test.each([false, true])('a published clear preserves a competing edition in both merge orientations (pending first: %s)', async pendingFirst => {
   const main = await runRepo({ aaa: [] }), parallel = await runRepo({ aaa: [] })
   const albumFile = 'content/gallery/aaa.json'
   const plain = photo('same-address')
@@ -2056,9 +2099,55 @@ test('a published clear does not discard a different edition captured at the sam
   await putBackCleared(main.r, gitHistory(main.r))
   expect((await keptFor(plain.url)).map(entry => entry.entry.photo)).toEqual([wrapper])
 
-  const merged = mergeMaps({}, await json(main.r, SL), await json(parallel.r, SL))
+  if (pendingFirst) await parallel.clear()
+  const published = await json(main.r, SL), competing = await json(parallel.r, SL)
+  const merged = pendingFirst ? mergeMaps({}, competing, published) : mergeMaps({}, published, competing)
   await writeFile(join(main.r, SL), JSON.stringify(merged))
   const restored = await putBackCleared(main.r, gitHistory(main.r))
   expect(restored.unread).toEqual([])
   expect((await json(main.r, albumFile)).photos).toEqual([plain, wrapper])
+})
+
+test('retry after recaption and reorder preserves both Flickr aliases and their new order', async () => {
+  const { r, clear } = await runRepo({ aaa: [] })
+  const source = { ...photo('sample'), url: 'https://live.staticflickr.com/8518/8600709463_7a79b898cf_b.jpg', caption: 'Source caption', licence: 'CC BY 4.0' }
+  const mirror = { ...source, url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}`, caption: 'Old mirror caption' }
+  const file = join(r, 'content/gallery/aaa.json')
+  const capture = async (photos: object[]) => {
+    const places = new Map<string, Stood[]>()
+    placesIn(r, file, { photos }, () => source.url, places)
+    await notePlaces(r, places)
+  }
+  await holdForSecondLook(r, new Map([[source.url, { why, pages: ['species/aaa'], off: true }]]), 'the dead-fish screen')
+  await capture([source, mirror])
+  const corrected = { ...mirror, caption: 'Corrected mirror caption' }
+  await capture([corrected, source])
+  await clear()
+
+  await putBackCleared(r, gitHistory(r))
+
+  expect((await json(r, 'content/gallery/aaa.json')).photos).toEqual([corrected, source])
+})
+
+test('a published agreement prunes the private entry of a renumbered capture', async () => {
+  const main = await runRepo({ aaa: [] }), other = await runRepo({ aaa: [] })
+  const file = 'content/gallery/aaa.json'
+  const plain = photo('same-position')
+  const edited = { ...plain, altered: [{ method: 'lanczos3-upscale' }], original: photo('original') }
+  const hold = { why, pages: ['species/aaa'], off: true as const }
+  for (const [repo, photo] of [[main, plain], [other, edited]] as const) {
+    await holdForSecondLook(repo.r, new Map([[plain.url, hold]]), 'the photo check', today(), new Map([[plain.url, [{ file, index: 0, photo }]]]))
+  }
+  const merged = mergeMaps({}, await json(main.r, SL), await json(other.r, SL))
+  expect(merged[plain.url].left).toContainEqual(expect.objectContaining({ occurrence: 1, capturedOccurrence: 0 }))
+  await writeFile(join(main.r, SL), JSON.stringify(merged))
+  await main.agree()
+  await listAgreed(main.r)
+  main.git('add', '-A'); main.git('commit', '-qm', 'publish the agreement')
+  main.git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+  expect(await keptFor(plain.url)).toHaveLength(2)
+
+  await putBackCleared(main.r, gitHistory(main.r))
+
+  expect(await keptFor(plain.url)).toEqual([])
 })

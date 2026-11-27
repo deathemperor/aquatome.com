@@ -1,13 +1,12 @@
-import { writeImageCache } from './image-cache-write'
 import { piece } from './pieces'
 import { compactVerdict, photoReason, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { recordPhotoRefusals, writePhotoState } from './photo-state'
-import { holdablePhotoVerdicts, versionRejection } from './photo-visibility'
+import { holdablePhotoVerdicts, pruneGuideLegacyUses, versionRejection } from './photo-visibility'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
 import sharp from 'sharp'
-import { deadScreenPhotoUrls, guideLooked, GUIDE_LEGACY_USES_FILE, guidePhotoWaits, GUIDE_LOOKS_FILE, keepGuideLegacyUses, readGuideLegacyUses, PHOTO_SCREEN_FILE, photoAddressSet, rejectedEntry, retainedOwnMark, stillShown, subjectForGuide, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { deadScreenPhotoUrls, guideLooked, GUIDE_LOOKS_FILE, PHOTO_SCREEN_FILE, photoAddressSet, photoRejections, retainedOwnMark, stillShown, subjectForGuide, type Photo, type PhotoScreenEntry } from '@aq/schema'
 export { guideSubject } from '@aq/schema'
 import { LlmError } from './claude'
 import { contactSheet, stillDone } from './video-images'
@@ -124,7 +123,8 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   const state = (f: string) => join(root, 'engine-state', f)
   const oldCache = (await readJson<Record<string, GuidePhotoVerdict>>(state(GUIDE_LOOKS_FILE))) ?? {}
   const cache = Object.fromEntries(Object.entries(oldCache).filter(([, v]) => guideLooked(v)).map(([u,v])=>[u,compactVerdict(v)]))
-  const rejected = rejectedEntry((await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {})
+  const marks = (await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))) ?? {}
+  const rejected = photoRejections((await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}, marks)
   const done = (await readJson<StillsState>(state('_video-stills.json'))) ?? {}
   const report = { sheets: 0, judged: 0, cleared: 0, off: [] as string[], removed: [] as string[], kept: [] as string[], held: [] as string[], failed: [] as string[], left: 0, waiting: 0, stopped: '', subject: [] as string[], dead: [] as string[], bare: [] as string[] }
 
@@ -223,22 +223,13 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     await rm(dir, { recursive: true, force: true })
   }
 
-  // Save the first look before a take-off that may need to resume.
-  await writePhotoState(state(GUIDE_LOOKS_FILE), Object.fromEntries(Object.entries(cache).sort()))
-
-  // A dead one off its guides, held for its second look.
-  const took = await takeOffGuidesDead(root, dead, 'the guide photo check')
-  report.dead = took.off
-  report.bare = took.bare
-
   // 2. Off the guides and equipment guides; a person, a mark, or a brand on a photo no equipment guide shows and that
   // isn't a still, onto the blocklist.
   const rejectedFile = state('_photo-rejected.json')
-  const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {} // re-read: entries another step added meanwhile stay
+  const prior = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   // A guide's photo that is also the last photo of a species, plant or breed page doesn't go on the list, which would
   // take it off that page too: it waits for a second look (last-photo.ts). It still leaves the guides.
   const sl = looks(await readSecondLook(root))
-  const marks = (await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))) ?? {}
   const ownMark = photoAddressSet(Object.keys(marks).filter(url => retainedOwnMark(url, marks[url])))
   const verdictOff = (url: string, brandKept: boolean) => guidePhotoOff(cache[url], brandKept, ownMark(url))
   const listing = new Map([...items.values()].flatMap(x => {
@@ -246,7 +237,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     return why && sl.open(x.url) ? [[x.url, why] as const] : []
   }))
   const removesWrapper = photoAddressSet([...listing].flatMap(([url, reason]) => versionRejection(reason) ? [] : [url]))
-  const last = await holdablePhotoVerdicts(root, now, new Set(listing.keys()), removesWrapper)
+  const last = await holdablePhotoVerdicts(root, prior, new Set(listing.keys()), removesWrapper)
   const heldAddress = photoAddressSet(last.keys())
   const holding = new Map<string, { why: string; pages: string[] }>()
   for (const x of items.values()) {
@@ -256,6 +247,12 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     if (last.has(x.url)) { holding.set(x.url, { why, pages: last.get(x.url)! }); report.held.push(`${x.url}: ${last.get(x.url)!.join(', ')}`); continue }
   }
   await holdForSecondLook(root, holding, 'the guide photo check')
+  await writePhotoState(state(GUIDE_LOOKS_FILE), Object.fromEntries(Object.entries(cache).sort()))
+  // A dead one off its guides, held for its second look once the first look is durable.
+  const took = await takeOffGuidesDead(root, dead, 'the guide photo check')
+  report.dead = took.off
+  report.bare = took.bare
+  const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   await recordPhotoRefusals(rejectedFile, now, new Map([...listing].filter(([url]) => !heldAddress(url))))
   await writePhotoState(rejectedFile, now)
   for (const file of files) {
@@ -291,11 +288,6 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     report.removed.push(...removed.map(u => `${relative(root, file)}: ${u}`))
     await writeFile(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
-  const legacy = await readGuideLegacyUses(content)
-  if (legacy.length) {
-    const { pendingLegacy } = await guidePhotoWaits(content, cache)
-    const keep = keepGuideLegacyUses(legacy, pendingLegacy)
-    if (keep.length < legacy.length) await writeImageCache(join(content, GUIDE_LEGACY_USES_FILE), keep.length ? `[\n${keep.map(use => '  ' + JSON.stringify(use)).join(',\n')}\n]\n` : '[]\n')
-  }
+  await pruneGuideLegacyUses(root, cache)
   return report
 }

@@ -27,7 +27,7 @@ import { rewriteVi, VI_WRITE } from './vi-rewrite'
 import { QUALITY_THRESHOLD, gate, reviewTranslation, steadyRead, WRITER_BAND } from './quality'
 import { logReviews, type Review } from './review-log'
 import { holdForSecondLook } from './last-photo'
-import { readPhotoIntakeBlocks, readPhotoWaits, readRecoveryRetention, versionRejection } from './photo-visibility'
+import { readPhotoIntakeBlocks, readPhotoWaits, readRecoveryRetention, readReviewedPhotoVersion, versionRejection } from './photo-visibility'
 import { linkedPhotos, mayTake, pickSourcePhotos, sourcePhotoInventory, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
 import { ARCHIVE_POLITE, archiveStops } from './archive'
@@ -119,9 +119,9 @@ export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => bo
  */
 export const waitsForScreen = (screen: Record<string, PhotoScreenEntry> | undefined) => (p: Photo) => !!screen && awaitsScreen(p.url, screen[p.url])
 /** What a re-read of a page keeps, the same on every path that merges one (the run and the content backfill). */
-export const readKeeps = (page: string, scientificName: string, blocked: Record<string, string>, sources: Parameters<typeof hiddenFromReaders>[1], screen?: Record<string, PhotoScreenEntry>, photoWaits?: (url: string) => boolean, pendingRefusal?: (url: string) => boolean): ReadKeeps => {
+export const readKeeps = (page: string, scientificName: string, blocked: Record<string, string>, sources: Parameters<typeof hiddenFromReaders>[1], screen?: Record<string, PhotoScreenEntry>, photoWaits?: (url: string) => boolean, pendingRefusal?: (url: string) => boolean, reviewed?: (url: string) => boolean): ReadKeeps => {
   const gone = hiddenFromReaders({}, sources, IMAGE_SWITCHES.inatNonCommercial)
-  const listed = photoRejections(blocked, screen)
+  const listed = photoRejections(blocked, screen, reviewed)
   const selected = (p: Photo) => {
     const permission = p.source ? sources[p.source]?.permission?.markRemoval : undefined
     return publicPhotoVersion(p, IMAGE_SWITCHES, permission && { allowed: permission.allowed === true, date: permission.date })
@@ -298,10 +298,10 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const readPhotoState = async () => {
     const blocked = await readPhotoIntakeBlocks(root)
     const screen = await readJson<Record<string, PhotoScreenEntry>>(join(root, 'engine-state', PHOTO_SCREEN_FILE))
-    const [photoWaits, pendingRefusal] = await Promise.all([
-      readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root),
+    const [photoWaits, pendingRefusal, reviewed] = await Promise.all([
+      readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root), readReviewedPhotoVersion(root),
     ])
-    return { blocked, screen, photoWaits, pendingRefusal }
+    return { blocked, screen, photoWaits, pendingRefusal, reviewed }
   }
   let photoState = await readPhotoState()
   let stored: ReturnType<typeof sourcePhotoInventory> | undefined
@@ -310,7 +310,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const today = () => deps.now().toISOString().slice(0, 10)
   // What a re-read keeps of a page's photos (mergeRead): the owner's approved crops; never a never-again photo, or one whose source no longer lets us show photos.
   const keeps = (page: string, scientificName: string): ReadKeeps =>
-    readKeeps(page, scientificName, photoState.blocked, sourceNames, photoState.screen, photoState.photoWaits, photoState.pendingRefusal)
+    readKeeps(page, scientificName, photoState.blocked, sourceNames, photoState.screen, photoState.photoWaits, photoState.pendingRefusal, photoState.reviewed)
   // A re-read that would leave a page with no photo keeps the old ones, each held for a person's second look (mergeRead).
   const holdLast = (held: Photo[], page: string) => holdForSecondLook(root, new Map(held.map(p => [p.url, { why: "rejected: the source's page no longer shows it", pages: [page] }])), 'the pages rewrite', today())
   // Source pages whose credits a read still has to learn (credit-reads.ts): read only on their own turn, like any page.

@@ -38,8 +38,16 @@ function mergePlaces(chosen, base, ours, theirs) {
   const settled = new Map([...oldSettled, ...datedPlaces(chosen, 'settled')].map(p => [placeKey(p), p]))
   const original = new Map(datedPlaces(base).map(p => [placeKey(p), p]))
   const pending = new Map(datedPlaces(chosen).map(p => [placeKey(p), p]))
+  const incoming = datedPlaces(other)
+  const incomingKeys = new Set(incoming.map(placeKey))
   const sameCapture = (p, q) => !!p && !!q && p.capture === q.capture && p.index === q.index && p.captureDay === q.captureDay && p.captureWhy === q.captureWhy
-  for (const place of datedPlaces(other)) {
+  const distinctEditions = (p, q) => p?.edition && q.edition && p.edition !== q.edition
+  const renumber = place => {
+    const moved = { ...place, occurrence: 1, capturedOccurrence: place.capturedOccurrence ?? place.occurrence ?? 0 }
+    while (pending.has(placeKey(moved)) || settled.has(placeKey(moved)) || original.has(placeKey(moved)) || incomingKeys.has(placeKey(moved))) moved.occurrence++
+    return moved
+  }
+  for (const place of incoming) {
     if (differentKind && !place.capture) continue
     const key = placeKey(place)
     const before = original.get(key)
@@ -47,11 +55,8 @@ function mergePlaces(chosen, base, ours, theirs) {
     const receipt = settled.get(key)
     if (place.capture && [...pending.values(), ...settled.values()].some(p => p.file === place.file && sameCapture(p, place))) continue
     if (chosen.back && sameCapture(place, before)) continue
-    const conflicting = selected ?? receipt
-    if (conflicting?.edition && place.edition && conflicting.edition !== place.edition) {
-      // Two checkouts can capture different variants from the same ordinal. Both private entries are still needed.
-      const moved = { ...place, occurrence: 1, capturedOccurrence: place.capturedOccurrence ?? place.occurrence ?? 0 }
-      while (pending.has(placeKey(moved)) || settled.has(placeKey(moved)) || original.has(placeKey(moved))) moved.occurrence++
+    if (distinctEditions(selected ?? receipt, place)) {
+      const moved = renumber(place)
       pending.set(placeKey(moved), moved)
     } else if (!selected || (sameCapture(selected, before) && !sameCapture(place, before))) pending.set(key, place)
   }
@@ -59,7 +64,12 @@ function mergePlaces(chosen, base, ours, theirs) {
     const next = pending.get(file)
     if (!next) continue
     // The completed receipt wins over a competing first capture. Only a replacement of that receipt reopens it.
-    if (sameCapture(receipt, original.get(file)) && !sameCapture(receipt, next)) settled.delete(file)
+    if (distinctEditions(receipt, next)) {
+      // Both variants survived the merge even if the first one has already returned.
+      const moved = renumber(next)
+      pending.delete(file)
+      pending.set(placeKey(moved), moved)
+    } else if (sameCapture(receipt, original.get(file)) && !sameCapture(receipt, next)) settled.delete(file)
     else pending.delete(file)
   }
   const { back, left, settled: _settled, ...merged } = chosen

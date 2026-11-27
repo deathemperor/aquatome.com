@@ -414,6 +414,27 @@ test("a public build shows no guide photo or stock photo the guides' own look ha
   await looked(['guide-looked', 'stock-looked'])
   // The engine's own reads see every photo.
   expect(await shown(false)).toEqual({ own: ['guide-looked', 'guide-new'], stock: ['stock-looked', 'stock-new'] })
+  const originalGuide = guide([photo('guide-looked'), photo('guide-new')])
+  const shop = { ...photo('shop'), url: 'https://media.aquatome.com/glaser/kept.webp',
+    sourceUrl: 'https://www.aquariumglaser.de/example/' }
+  const readState = async (name: string) => JSON.parse(await readFile(join(site, 'engine-state', name), 'utf8'))
+  const priorMarks = await readState('_photo-watermarks.json')
+  const priorFaces = await readState('_photo-faces.json')
+  const priorLooks = await readState('_photo-guides.json')
+  await write('guides/g/entity.json', guide([shop]))
+  await state('_photo-watermarks.json', { ...priorMarks,
+    [shop.url]: { ocr: [], watermark: true, retainedOwnMark: { source: 'glaser', sourceUrl: shop.sourceUrl, owner: 'source' } },
+  })
+  await state('_photo-faces.json', { ...priorFaces, [shop.url]: 0 })
+  await state('_photo-guides.json', { ...priorLooks, [shop.url]: { person: false, mark: true, brand: false } })
+  await state('_photo-rejected.json', { [shop.url]: 'watermark: retained mark' })
+  expect((await loadAll({ root: store, lang: 'vi', publicBuild: true })).guides.find(g => g.id === 'g')?.photos.map(p => p.url))
+    .toEqual([shop.url])
+  await write('guides/g/entity.json', originalGuide)
+  await state('_photo-watermarks.json', priorMarks)
+  await state('_photo-faces.json', priorFaces)
+  await state('_photo-guides.json', priorLooks)
+  await rm(join(site, 'engine-state', '_photo-rejected.json'))
   const c = await loadAll({ root: store, lang: 'vi', publicBuild: true })
   expect(['guide-new', 'guide-new-480', 'stock-new-large', 'guide-looked'].filter(n => c.photoWaits!(`https://media.test/${n}.webp`))).toEqual(['guide-new', 'guide-new-480', 'stock-new-large'])
   const said = vi.spyOn(console, 'log').mockImplementation(() => {})

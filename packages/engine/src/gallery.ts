@@ -4,7 +4,7 @@ import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { deadScreenPhotoUrls, GallerySchema, heldPhotoVersion, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo, type PhotoRejection } from '@aq/schema'
+import { deadScreenPhotoUrls, GallerySchema, heldPhotoVersion, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, photoVersionAddressSet, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo, type PhotoRejection } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -15,7 +15,7 @@ import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, unfitCommons } from './photos'
-import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutClearedWaits, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readPassedBefore, readSecondLook, withoutClearedWaits, type Stood } from './last-photo'
 import { EMPTIED_FILE, readList } from './emptied-pages'
 import { readPriorityFish } from './priority-fish'
 import { contactSheet } from './video-images'
@@ -527,18 +527,28 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   // its own page still keeps it out, as in the put-back (CLEARED_VERDICT; the chief of staff, 21 Nov). The record names
   // pages as kind/id, the verdicts by id.
   const cleared = looks(sl).cleared
-  const clearKey = (id: string, url: string) => `${id}\n${photoKey(url) ?? url}`
+  const exactKey = (id: string, url: string) => `${id}\n${url}`
+  const commonsKey = (id: string, url: string) => {
+    const key = photoKey(url)
+    return key?.startsWith('commons/') ? `${id}\n${key}` : undefined
+  }
   const clearedPages = new Map<string, boolean>()
+  const clearedCommons = new Map<string, boolean>()
   for (const [url, mark] of Object.entries(sl)) {
     if (!cleared(url)) continue
     for (const page of mark.pages) {
-      const key = clearKey(page.slice(page.indexOf('/') + 1), url)
-      clearedPages.set(key, mark.off !== true || clearedPages.get(key) === true)
+      const id = page.slice(page.indexOf('/') + 1)
+      clearedPages.set(exactKey(id, url), mark.off !== true)
+      const key = commonsKey(id, url)
+      if (key) clearedCommons.set(key, mark.off !== true || clearedCommons.get(key) === true)
     }
   }
   const clearedOn = (url: string, id: string, ok: PhotoVerdict['ok']) => {
-    const key = clearKey(id, url)
-    return clearedPages.get(key) === true || (ok === CLEARED_VERDICT && clearedPages.has(key))
+    if (sl[url] && !cleared(url)) return false
+    const direct = clearedPages.get(exactKey(id, url))
+    const key = commonsKey(id, url)
+    const scope = direct ?? (key ? clearedCommons.get(key) : undefined)
+    return scope === true || (scope === false && ok === CLEARED_VERDICT)
   }
   for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok) && !clearedOn(url, id, v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
   const gbifNames = JSON.parse(await readFile(join(root, 'engine-state/_gbif-names.json'), 'utf8').catch(() => '{}')) as Record<string, { canonicalName: string } | null>
@@ -551,7 +561,9 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   let openverseFailures = 0
   const today = d.now().toISOString().slice(0, 10)
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
-  const listed = photoRejections(cleanupRejected, {}, heldPhotoVersion(sl))
+  const reviewed = heldPhotoVersion(sl)
+  const passed = photoVersionAddressSet(await readPassedBefore(root))
+  const listed = photoRejections(cleanupRejected, {}, url => reviewed(url) || passed(url))
   const effectiveRejection: typeof listed = url => {
     const entry = listed(url)
     return entry?.[1].startsWith('watermark:') && (markKept(url) || markKept(entry[0])) ? undefined : entry

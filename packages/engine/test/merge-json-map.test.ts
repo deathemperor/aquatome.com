@@ -8,6 +8,21 @@ import { expect, test } from 'vitest'
 import { mergeMaps } from '../../../scripts/merge-json-map.mjs'
 import { listAgreed, mendWaiting, unlistCleared, waitingEntry } from '../src/last-photo'
 
+test('moving an incoming capture around a settled edition preserves later incoming occurrences', () => {
+  const file = 'content/gallery/x.json'
+  const mark = { why: 'dead: withheld', step: 'the photo check', pages: ['species/x'], at: '2026-11-20', off: true }
+  const look = { said: 'clear', by: 'the chief of staff', on: '2026-11-21' }
+  const settled = { file, index: 0, capture: 'plain', edition: 'plain' }
+  const first = { file, index: 0, capture: 'altered-first', edition: 'altered' }
+  const second = { file, index: 1, occurrence: 1, capture: 'altered-second', edition: 'altered' }
+
+  const merged = mergeMaps({}, { u: { ...mark, look, back: '2026-11-21', settled: [settled] } }, { u: { ...mark, left: [first, second] } })
+
+  expect(merged.u.settled).toEqual([settled])
+  expect(merged.u.left).toEqual([{ ...first, occurrence: 2, capturedOccurrence: 0 }, second])
+  expect(merged.u.back).toBeUndefined()
+})
+
 test('keys added, changed or removed on either side all land; untouched keys stay', () => {
   const base = { a: 0, b: 0, c: 0 }
   const ours = { a: 1, b: 0, c: 0, x: 0 }

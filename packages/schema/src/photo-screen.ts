@@ -79,6 +79,7 @@ export const UNREAD_FACES_LIMIT = 300
 /** The dead-fish screen's record, in engine-state (address → its verdict): every photo it has judged, dead or not. */
 export const DEAD_SCREEN_FILE = '_dead-screen.json'
 /** The photo check's records, in engine-state: its verdicts by address, the old form, and the one by subject. */
+export const GUIDE_LOOKS_FILE = '_photo-guides.json'
 export const PHOTO_CHECK_FILE = '_photo-check.json'
 export const PHOTO_REJECTED_FILE = '_photo-rejected.json'
 export const PHOTO_SUBJECTS_FILE = '_photo-subjects.json'
@@ -286,6 +287,19 @@ export function photoClears(records: Record<string, unknown> = {}): (url: string
   }
 }
 
+/** A previously passed check can protect a last photo even when it predates the current screening questions. */
+export function passedBefore(subjects: Record<string, unknown> = {}, check: Record<string, unknown> = {}): Set<string> {
+  const passed = (record: unknown) => {
+    const verdict = record as { ok?: string; person?: boolean } | undefined
+    return verdict?.ok === 'yes' && verdict?.person !== true
+  }
+  const urls = new Set(Object.keys(check).filter(url => passed(check[url])))
+  for (const [url, records] of Object.entries(subjects)) {
+    if (records && typeof records === 'object' && !Array.isArray(records) && Object.values(records).some(passed)) urls.add(url)
+  }
+  return urls
+}
+
 type LookMark = { why?: unknown; off?: boolean; left?: unknown; settled?: unknown; waitingReasons?: unknown; originals?: unknown }
 
 function unansweredHold(record: unknown): boolean {
@@ -302,6 +316,15 @@ export function heldPhotoVersion(records: Record<string, unknown> = {}): (url: s
   }
 }
 
+/** A separately passed or reviewed rendition does not borrow a first refusal from a different crop. */
+export function reviewedPhotoVersion(
+  reviews?: Record<string, unknown>, check?: Record<string, unknown>, subjects?: Record<string, unknown>,
+): (url: string) => boolean {
+  const held = heldPhotoVersion(reviews)
+  const passed = photoVersionAddressSet(passedBefore(subjects, check))
+  return url => held(url) || passed(url)
+}
+
 /** An unanswered hold stays with the photo when its source is mirrored. */
 export function photoHolds(records: Record<string, unknown> = {}): (url: string) => boolean {
   const held = photoAddressSet(Object.keys(records).filter(url => unansweredHold(records[url])))
@@ -309,7 +332,7 @@ export function photoHolds(records: Record<string, unknown> = {}): (url: string)
 }
 
 /** A first-refusal mark is durable before its rejection entry is written. */
-function photoFirstOff(records: Record<string, unknown> = {}): (url: string) => boolean {
+function photoFirstOff(records: Record<string, unknown> = {}, reviewed = heldPhotoVersion(records)): (url: string) => boolean {
   const marked = Object.entries(records).filter(([, record]) => {
     const mark = record as LookMark | undefined
     return mark?.off === true && typeof mark.why === 'string' && photoLookAnswer(mark)?.said !== 'clear'
@@ -318,7 +341,7 @@ function photoFirstOff(records: Record<string, unknown> = {}): (url: string) => 
     const { why, originals } = record as { why: string; originals?: string[] }
     return [[url, why], ...(Array.isArray(originals) ? originals.filter(u => typeof u === 'string').map(u => [u, why]) : [])]
   }))
-  const refused = photoRejections(rejected, {}, heldPhotoVersion(records))
+  const refused = photoRejections(rejected, {}, reviewed)
   return url => !!refused(url)
 }
 
@@ -375,6 +398,7 @@ export type PhotoWaitRecords = {
   check?: Record<string, unknown>
   subjects?: Record<string, unknown>
   deadScreen?: Record<string, unknown>
+  guideLooks?: Record<string, unknown>
   secondLook?: Record<string, unknown>
   rejected?: PhotoRejection
 }
@@ -387,10 +411,13 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
     completedDeadVerdict(r.deadScreen?.[url]) || !!photoLookAnswer(r.secondLook?.[url]))
   const cleared = photoClears(r.secondLook)
   const held = photoHolds(r.secondLook)
-  const firstOff = photoFirstOff(r.secondLook)
+  const firstOff = photoFirstOff(r.secondLook, reviewedPhotoVersion(r.secondLook, r.check, r.subjects))
   const directFaces = new Set(Object.keys(r.faces ?? {}).filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)))
   const faceWaits = photoAddressSet([...(r.unread ?? []), ...directFaces])
-  const refusedByCheck = new Set<string>()
+  const refusedByCheck = new Set(Object.entries(r.guideLooks ?? {}).flatMap(([url, raw]) => {
+    const verdict = raw as { mark?: unknown; person?: unknown } | null
+    return verdict?.mark === true && verdict.person === true ? [url] : []
+  }))
   for (const url of new Set([...Object.keys(r.check ?? {}), ...Object.keys(r.subjects ?? {})])) {
     const by = r.subjects?.[url]
     const verdicts = [r.check?.[url], ...(by && typeof by === 'object' ? Object.values(by) : [])] as
@@ -405,7 +432,7 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
       if (entry && !retainedOwnMark(url, r.watermarks[url]) && !retainedOwnMark(entry[0], r.watermarks[entry[0]])) return true
     }
     const waitsForFace = directFaces.has(url) || r.unread?.has(url) || (!Object.hasOwn(r.faces ?? {}, url) && faceWaits(url))
-    // The photo check writes the whole-photo watermark reason. Its independent dead/person result still applies
+    // A mixed check writes the whole-photo watermark reason. Its independent dead/person result still applies
     // after a shop-mark waiver, pending an applicable review.
     const review = r.secondLook?.[url] as LookMark | undefined
     const clearedRefusal = typeof review?.why === 'string' && /^(?:dead|people): /.test(review.why) &&
@@ -431,7 +458,6 @@ export const UNJUDGED_DEAD_LIMIT = 300
  * judged. A public build shows neither until it has (load.ts), as a video guide's stills wait for theirs: a new guide
  * photo or stock photo showed for hours before its look until 22 Nov 2026 (the chief of staff: the look first).
  */
-export const GUIDE_LOOKS_FILE = '_photo-guides.json'
 
 /** Guide photos and stock photos have their own look. Video frames have a separate verdict. */
 export function guidePhotoUrls(guide: { photos?: PhotoVersions[]; video?: { figures?: { photo?: PhotoVersions }[] } }): string[] {
@@ -492,11 +518,12 @@ export async function guidePhotoWaits(root: string, looks: Record<string, unknow
     const subject = subjectForGuide(guide, id, text.name)
     if (subject) subjects.set(id, subject)
     for (const url of guidePhotoUrls(guide)) {
-      if (!guideLooked(looks[url])) unlooked.add(url)
-      else if (subject && !guideLooked(looks[url], subject)) {
+      const basic = guideLooked(looks[url])
+      if (!basic) unlooked.add(url)
+      if (subject && !guideLooked(looks[url], subject)) {
         const key = guideUseKey(id, subject, url)
         if (legacy.has(key)) pendingLegacy.add(key)
-        else pendingSubjects.add(url)
+        else if (basic) pendingSubjects.add(url)
       }
     }
   }
@@ -513,8 +540,8 @@ export function guideLooked(verdict: unknown, subject?: string): verdict is Guid
 }
 
 /** A guide's own or stock photo has to pass the questions for that specific guide. */
-export function guidePhotoAllowed(verdict: unknown, subject?: string, legacy = false): boolean {
-  return guideLooked(verdict, legacy ? undefined : subject) && !verdict.person && !verdict.mark && !verdict.brand &&
+export function guidePhotoAllowed(verdict: unknown, subject?: string, legacy = false, ownMark = false): boolean {
+  return guideLooked(verdict, legacy ? undefined : subject) && !verdict.person && (!verdict.mark || ownMark) && !verdict.brand &&
     (!subject || verdict.other?.[subject] === false)
 }
 /**
