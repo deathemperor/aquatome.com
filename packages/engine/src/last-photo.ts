@@ -579,6 +579,17 @@ export type History = (url: string, since: string, captured?: readonly HistoryPl
 /** The pages, albums and guides a photo shows on. */
 const PLACE = /^content\/(?:(?:species|plants|breeds|guides)\/[^/]+\/entity\.json|gallery\/[^/]+\.json)$/
 
+/** An independently first-refused rendition has its own history and requires its own clear. */
+function reviewedPhotoAddressSet(url: string, reviews: SecondLooks, rejected: Record<string, string>): (address: string) => boolean {
+  const aliases = photoAddressSet([url])
+  const version = photoVersionAddressSet([url])
+  return address => {
+    const reason = rejected[address]
+    const independentlyRefused = reviews[address]?.off === true || (reason && !reason.startsWith('waiting:'))
+    return aliases(address) && (version(address) || !independentlyRefused)
+  }
+}
+
 /**
  * `History` from git in `root`, along main's own line (the independent reader, 21 Nov). The places are the files that
  * showed the photo just before its mark and that it left from the mark on: a check's mark takes it off in its own commit,
@@ -625,7 +636,13 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
     }
     // The places that showed it just before its mark (grep's status is 1 when none does).
     const mirrors = mirrorSearchTerms(url)
-    const samePhoto = photoAddressSet([url])
+    const rejectedFile = 'engine-state/_photo-rejected.json'
+    const historicalRejections = tip === 'HEAD' ? undefined : at(tip, rejectedFile)
+    if (historicalRejections !== undefined && !object(historicalRejections)) return undefined
+    const rejected = tip === 'HEAD' ? await readPhotoMap<string>(join(root, rejectedFile))
+      : (historicalRejections ?? {}) as Record<string, string>
+    const reviews = tip === 'HEAD' ? await readSecondLook(root) : recordAt(tip) ?? {}
+    const samePhoto = reviewedPhotoAddressSet(url, reviews, rejected)
     const shown = (p: Record<string, unknown>) => typeof p?.url === 'string' && samePhoto(p.url)
     const publishable = (p: Record<string, unknown>) => typeof p?.url === 'string' && samePhoto(p.url) && !setsCookies(p.url)
     const terms = [url, ...mirrors].flatMap(s => ['-e', s])
@@ -656,7 +673,7 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
       if (files.status !== 0) return undefined
       for (const file of files.stdout.split('\n').filter(Boolean)) {
         const matches = photoAddressSet([url, byFile.get(file) ?? url])
-        const shownAt = (p: Record<string, unknown>) => typeof p?.url === 'string' && matches(p.url)
+        const shownAt = (p: Record<string, unknown>) => typeof p?.url === 'string' && matches(p.url) && samePhoto(p.url)
         const before = urls(at(`${sha}^`, file))
         const publishableAt = (p: Record<string, unknown>) => shownAt(p) && !setsCookies(p.url as string)
         if (before.some(publishableAt)) served.add(file)
@@ -998,11 +1015,13 @@ export async function putBackCleared(root: string, history: History, at = today(
     const places = [...mine, ...read.filter(p => !settled.has(placeKey(p)) && !mine.some(o => placeKey(o) === placeKey(p)))]
     if (!places.length && !own.length) out.off.push(`${u}: it left no page or album that showed it when it was marked off`)
     const named = new Set(sl[u]!.pages.map(x => x.split('/')[1]))
+    const samePhoto = reviewedPhotoAddressSet(u, sl, rejected)
     for (const p of places) {
       if (p.times > 1) { out.off.push(`${u}: it left ${p.file} again after it came back, and that removal stands`); continue }
       const id = p.file.match(/^content\/(?:species|plants|breeds)\/([^/]+)\/entity\.json$|^content\/gallery\/([^/]+)\.json$/)
       const page = id?.[1] ?? id?.[2]
       const address = typeof p.photo.url === 'string' ? p.photo.url : u
+      if (!samePhoto(address)) continue
       const aliasRejection = address === u ? undefined : rejected[address]
       if (aliasRejection && !ownsWaiting(sl[u], aliasRejection)) {
         out.off.push(`${u}: its copy on ${p.file} is on the never-again list as ${aliasRejection.split(':')[0]}`)
@@ -1021,7 +1040,6 @@ export async function putBackCleared(root: string, history: History, at = today(
         continue restore
       }
       const photos = Array.isArray(doc.photos) ? doc.photos : (doc.photos = [])
-      const samePhoto = photoAddressSet([u, address])
       const earlier = earlierOrders.get(p.file) ?? []
       const current = photos.map(photo => String(photo?.url))
       const orders = [...earlier, ...(p.order ? [p.order] : [])]

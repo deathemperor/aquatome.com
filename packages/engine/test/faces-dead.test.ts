@@ -1,3 +1,4 @@
+import { albumOf, hasAlbum } from '../../../apps/site/src/lib/photo-page'
 import * as imageWrites from '../src/image-cache-write'
 import { execFileSync } from 'node:child_process'
 import { expectControlledRejections } from './photo-privacy-assertions'
@@ -657,6 +658,20 @@ test.each([false, true])('the face finder holds a passed last photo while its si
   expect(view.photoWaits!(pending.url)).toBe(true)
   expect((await json(root, 'engine-state/_photo-second-look.json'))[flagged.url])
     .toMatchObject({ step: 'face detection', pages: ['species/alpha'] })
+})
+
+test('one ordinary album photo still displays on the web while it owes a look for lead promotion', async () => {
+  const pending = photo('album-unjudged')
+  const { state, publicView } = await publicFixture([], [pending], [pending.url])
+  await writeFile(join(state, '_dead-screen.json'), '{}')
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [pending.url]: 0 }))
+
+  const view = await publicView()
+  const alpha = view.species.find(page => page.id === 'alpha')!
+  expect(alpha.photos).toEqual([])
+  const album = albumOf(view, 'species', alpha)
+  expect(album.map(p => p.url)).toEqual([pending.url])
+  expect(hasAlbum(album)).toBe(true)
 })
 
 test.each(['face detection', 'the dead-fish screen'])('an unseen sibling cannot displace the last photo flagged by %s', async step => {

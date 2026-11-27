@@ -826,12 +826,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // dead or a person, on a photo that never passed, isn't held: it comes off, even as a page's last photo, and waits for
   // its look marked on both lists (last-photo.ts), as does one already marked.
   const first = (url: string) => sl.off(url) || (Object.hasOwn(added, url) && freshBad.has(url))
-  const separateHolds = new Set(Object.keys(added).filter(url => passedPhoto(url) && isVersionRejection(added[url]!)))
-  const separateHold = (url: string) => separateHolds.has(url)
+  const separateHold = (url: string) => versionHeld(url) || passedPhoto(url)
   const firstByAddress = photoRejections(Object.fromEntries(Object.entries(added).filter(([url]) => first(url))), {}, separateHold)
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
-  const pendingGlobal = photoRejections(added, marks)
+  const pendingGlobal = photoRejections(added, marks, separateHold)
   const existingGlobal = photoRejections(rejected, marks, versionHeld)
   const originals = Object.values(added).some(why => !isVersionRejection(why))
     ? await originalPhotoRefusals(content, url => {
@@ -971,7 +970,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   const firstByPhoto = new Map<string, string>()
   for (const [url, mark] of firstOff) {
-    const key = photoKey(url) ?? url
+    const identity = photoKey(url)
+    const key = isVersionRejection(mark.why) && !identity?.startsWith('commons/') ? url : identity ?? url
     const prior = firstByPhoto.get(key)
     if (prior) {
       firstOff.get(prior)!.pages.push(...mark.pages)
@@ -986,9 +986,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     if (canonical) firstAliases.set(url, canonical)
   }
   for (const [url, h] of firstOff) report.firstOff.push(`${[...new Set(h.pages)].join(', ')}: ${url}`)
+  // A shared first-refusal wait cannot substitute for an independent whole-photo rejection.
+  const coveredByFirst = (url: string) => firstAliases.has(url) && isVersionRejection(added[url] ?? '')
   report.blocked = report.blocked.filter(x => {
     const url = x.slice(0, x.indexOf(': '))
-    return !firstOff.has(url) && !firstAliases.has(url)
+    return !firstOff.has(url) && !coveredByFirst(url)
   })
   for (const file of heldPages) report.heads.held.push(`${pageOf(file)}: ${((await ownPhotos(file))[0] ?? (await ownPhotos(galleryOf(file)))[0])!.url}`)
   // Each photo a held page would have lost goes on the second look, with its reason (last-photo.ts).
@@ -1138,7 +1140,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   if (kinded.length) await writeKinds()
   const now = withoutSettledWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, await readSecondLook(root))
   // One off at its first verdict waits there marked, and isn't counted refused (last-photo.ts).
-  for (const [u, why] of Object.entries(added)) if (!(u in now) && !firstAliases.has(u)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
+  for (const [u, why] of Object.entries(added)) if (!(u in now) && !coveredByFirst(u)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
   await writePhotoState(rejectedFile, now)
   // Keep the rejection durable during the page edits. A subject verdict may release the dead-fish wait, so
   // publish it only after every edit has succeeded.
