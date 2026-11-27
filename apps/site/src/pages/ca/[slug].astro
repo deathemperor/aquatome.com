@@ -44,12 +44,11 @@ const c = await getContent(lang)
 // The fish list's name at the head of the trail: a crab's, a shrimp's or a snail's page isn't under "Loài cá" (the owner,
 // 15 Nov: the fiddler crab's page).
 const list = t(isFish(s) ? 'Loài cá' : 'Loài')
-const modified = lastChanged(c.pageDates, pageDateFiles('species', s.id, lang))
 const jsonld = [
   articleLd(Astro.site!, lang, Astro.url.pathname, {
     headline: s.t.name,
     alternativeHeadline: sciBeside(s.t.name, s.scientificName) ? s.scientificName : undefined,
-    datePublished: firstPublished(c.changelog, lang, 'species', s.id), dateModified: modified, image: shareImage(s.photos),
+    datePublished: firstPublished(c.changelog, lang, 'species', s.id), dateModified: lastChanged(c.pageDates, pageDateFiles('species', s.id, lang)), image: shareImage(s.photos),
     about: taxonLd(s.scientificName, s.t.name, s.t.altNames),
   }),
   breadcrumbLd(Astro.site!, lang, [
@@ -92,7 +91,7 @@ const alternates = await alternatesOf('species', s.id)
       <script is:inline>(function (d) { var m = matchMedia('(max-width: 860px)'); var set = function () { d.open = !m.matches }; set(); m.addEventListener('change', set) })(document.currentScript.previousElementSibling)</script>
       {firstSource && (researched
         ? <p class="srcline">{t('AquaTome tổng hợp từ')} <a href="#nguon">{t('{n} nguồn', { n: researched })}</a> {t('rồi tự viết')}.</p>
-        : <p class="srcline">{t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources: [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', '), date: modified ?? s.updatedAt })}</p>)}
+        : <p class="srcline">{t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources: [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', '), date: s.updatedAt })}</p>)}
     </div>
     {vn && summary && <QuickSummary summary={summary} inside />}
     {s.photos.length > 0 && (

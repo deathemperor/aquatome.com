@@ -28,7 +28,6 @@ import type { RangeParts } from './range'
 import { OFF_LABELS, sectionParts, type SectionProps } from './section-parts'
 import { QUESTION_LABELS } from './sections'
 import { seriesParts } from './series-page'
-import { lastChanged, pageDateFiles } from './page-dates'
 import { speciesParts } from './species-page'
 import { commentsKey, photosKey } from './talk'
 import { clock, guideChapters, seriesGuides, watchUrl } from './video'
@@ -238,7 +237,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
     sub: sciBeside(s.t.name, s.scientificName),
     where: p.country ? [`${s.family}, `, linked(lang, p.country.t.name, `/vi/nguon-goc/${p.country.parent}/${p.country.id}/`)] : [s.family],
     ...(s.t.altNames.length ? { aka: t('Tên khác: {names}', { names: s.t.altNames.join(', ') }) } : {}),
-    ...(p.firstSource ? { credit: p.researched ? [`${t('AquaTome tổng hợp từ')} `, { text: t('{n} nguồn', { n: p.researched }), href: '#nguon' }, ` ${t('rồi tự viết')}.`] : [t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources, date: lastChanged(c.pageDates, pageDateFiles('species', s.id, lang)) ?? s.updatedAt })] } : {}),
+    ...(p.firstSource ? { credit: p.researched ? [`${t('AquaTome tổng hợp từ')} `, { text: t('{n} nguồn', { n: p.researched }), href: '#nguon' }, ` ${t('rồi tự viết')}.`] : [t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources, date: s.updatedAt })] } : {}),
     ...(lead ? { lead } : {}),
     talk: { comments: commentsKey(lang, `species:${s.id}`), photos: photosKey(`species:${s.id}`) },
     blocks: [
@@ -289,7 +288,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
     title: b.t.name,
     where: p.parent && b.kind === 'variety' ? [`${kind}${t(', dòng của')} `, { text: p.parent.name, href: at(p.parent.href) }] : [kind],
     ...(b.t.altNames.length ? { aka: t('Tên khác: {names}', { names: b.t.altNames.join(', ') }) } : {}),
-    credit: [t('AquaTome tổng hợp từ {n} nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật {date}.', { n: b.sources.length, date: dmy(lastChanged(c.pageDates, pageDateFiles('breeds', b.id, lang)) ?? b.updatedAt) })],
+    credit: [t('AquaTome tổng hợp từ {n} nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật {date}.', { n: b.sources.length, date: dmy(b.updatedAt) })],
     ...(lead ? { lead } : {}),
     // Readers' photos on the Vietnamese page alone, as the page has them.
     talk: { comments: commentsKey(lang, p.key), ...(lang === 'vi' ? { photos: photosKey(p.key) } : {}) },

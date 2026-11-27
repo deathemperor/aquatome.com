@@ -34,11 +34,10 @@ const { key, parent, parents, card, sources, gallery, strip, lines, linePhotos, 
 // A shrimp's line (the blue velvet shrimp, a cherry shrimp's) isn't under "Loài cá" and isn't called a fish.
 const fish = breedIsFish(c, b)
 const list = t(fish ? 'Loài cá' : 'Loài')
-const modified = lastChanged(c.pageDates, pageDateFiles('breeds', b.id, lang))
 const jsonld = [
   articleLd(Astro.site!, lang, Astro.url.pathname, {
     headline: b.t.name, alternativeHeadline: b.t.altNames.slice(0, 3).join(', ') || undefined,
-    dateModified: modified, image: shareImage(b.photos), description: b.t.summary?.join(' '),
+    dateModified: lastChanged(c.pageDates, pageDateFiles('breeds', b.id, lang)), image: shareImage(b.photos), description: b.t.summary?.join(' '),
   }),
   breadcrumbLd(Astro.site!, lang, [
     ['/vi/ca/', list], ...(parent ? [[parent.href, parent.name] as const] : []), [Astro.url.pathname, b.t.name],
@@ -66,7 +65,7 @@ const alternates = await alternatesOf('breeds', b.id)
       )}
       {b.t.altNames.length > 0 && <p class="alt" data-pagefind-ignore>{t('Tên khác: {names}', { names: b.t.altNames.join(', ') })}</p>}
       <DataCard card={card} sources={sources} fish={fish} />
-      <p class="srcline">{t('AquaTome tổng hợp từ {n} nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật {date}.', { n: b.sources.length, date: dmy(modified ?? b.updatedAt) })}</p>
+      <p class="srcline">{t('AquaTome tổng hợp từ {n} nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật {date}.', { n: b.sources.length, date: dmy(b.updatedAt) })}</p>
     </div>
   </header>
 
