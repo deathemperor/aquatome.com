@@ -339,7 +339,6 @@ export type PhotoWaitRecords = {
   watermarks?: Record<string, PhotoScreenEntry>
   owed?: Record<string, unknown>
   unread?: ReadonlySet<string>
-  flaggedAlterations?: ReadonlySet<string>
   faces?: Record<string, unknown>
   unjudged?: ReadonlySet<string>
   deadScreen?: Record<string, unknown>
@@ -355,7 +354,7 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
   const firstOff = photoFirstOff(r.secondLook)
   const faceWaits = photoAddressSet([
     ...(r.unread ?? []),
-    ...[...(r.flaggedAlterations ?? [])].filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)),
+    ...Object.keys(r.faces ?? {}).filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)),
   ])
   return url => {
     const entry = r.rejected?.(url)

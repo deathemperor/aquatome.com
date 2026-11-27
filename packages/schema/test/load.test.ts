@@ -558,10 +558,10 @@ test("a public build shows no own photo of a species, plant or guide page the fa
   } finally {
     said.mockRestore()
   }
-  // Read (a faces step has run): each shows by itself in the next build.
+  // After the face step, the cached positive result keeps its photo off both the page and its album.
   await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread')] })
   await writeFile(facesFile, JSON.stringify(Object.fromEntries(['fish-read', 'fish-unread', 'plant-unread', 'guide-read', 'guide-unread'].map(n => [`https://media.test/${n}.webp`, n === 'fish-unread' ? 2 : 0]))))
-  expect(await shown(true)).toEqual({ fish: ['fish-read', 'fish-unread'], album: ['fish-unread', 'album'], plant: ['plant-unread'], guide: ['guide-read', 'guide-unread'], breed: ['breed'] })
+  expect(await shown(true)).toEqual({ fish: ['fish-read'], album: ['album'], plant: ['plant-unread'], guide: ['guide-read', 'guide-unread'], breed: ['breed'] })
   // With no record beside the real content, the site's build fails: it can't tell a read photo from one never read.
   const { rm } = await import('node:fs/promises')
   await rm(facesFile)

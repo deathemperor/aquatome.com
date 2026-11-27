@@ -246,7 +246,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const rejectedForDead = screen ? photoRejections(
     await expandWholePhotoRejections(root, await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}, screen), screen,
   ) : undefined
-  const { unread, altered: flaggedAlterations } = await facePhotoStatus(root, faces)
+  const { unread } = await facePhotoStatus(root, faces)
   if (faces && opts.photoScreen === 'required') {
     const retryable = [...unread].filter(url => !rejectedForDead?.(url) && !heldForCredit(url)).length
     console.log(`${lang}: ${retryable} own photos of species, plant and guide pages wait, the face finder has never read them`)
@@ -286,7 +286,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     console.log(`${lang}: ${retryable} guide photos and stock photos wait, the guides' own look hasn't judged them`)
     if (retryable > GUIDE_UNJUDGED_LIMIT) throw new Error(`${lang}: ${retryable} guide photos and stock photos the guides' own look hasn't judged (${join(dirname(root), 'engine-state', GUIDE_LOOKS_FILE)}). More than ${GUIDE_UNJUDGED_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the guides without them. A photos run's guide look (pnpm engine guide-photos) judges them.`)
   }
-  const waitsForScreen = photoWaitsFor({ watermarks: screen, owed, unread, flaggedAlterations, faces, unjudged: new Set([...unjudged, ...unlooked]), deadScreen, secondLook, rejected: rejectedForDead })
+  const waitsForScreen = photoWaitsFor({ watermarks: screen, owed, unread, faces, unjudged: new Set([...unjudged, ...unlooked]), deadScreen, secondLook, rejected: rejectedForDead })
   const waitsFor = (url: string) => heldForCredit(url) || waitsForScreen(url)
   // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
   // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,

@@ -26,6 +26,8 @@ function idOf(it) {
   return JSON.stringify(it)
 }
 
+const photoVariant = p => JSON.stringify([p?.altered ?? null, p?.original?.url ?? null, p?.ownerCrop !== undefined])
+
 function mergeLists(base, ours, theirs, field) {
   const lists = [base, ours, theirs]
   const repeated = new Set()
@@ -42,12 +44,12 @@ function mergeLists(base, ours, theirs, field) {
     const local = new Map(theirs.map(it => [idOf(it), it]))
     for (const it of ours) {
       const id = idOf(it), other = local.get(id)
-      if (!before.has(id) && other && !eq(it?.altered, other.altered)) repeated.add(id)
+      if (!before.has(id) && other && photoVariant(it) !== photoVariant(other)) repeated.add(id)
     }
   }
   const key = it => {
     const id = idOf(it)
-    return repeated.has(id) ? JSON.stringify([id, it?.altered ?? null]) : id
+    return repeated.has(id) ? JSON.stringify([id, photoVariant(it)]) : id
   }
   const pairs = list => {
     const counts = new Map()
