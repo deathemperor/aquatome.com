@@ -27,7 +27,8 @@ async function speciesWithForeignVideo(request: APIRequestContext): Promise<stri
   for (let i = 0; i < species.length; i += 20) {
     const batch = species.slice(i, i + 20)
     const has = await Promise.all(batch.map(async p => {
-      const videos = /<section class="videos"[\s\S]*?<\/section>/.exec(await (await request.get(p)).text())?.[0] ?? ''
+      // A reset on one candidate used to abort the whole batch before the title check could run.
+      const videos = /<section class="videos"[\s\S]*?<\/section>/.exec(await (await request.get(p, { maxRetries: 1 })).text())?.[0] ?? ''
       return [...videos.matchAll(/<small[^>]*>([^<]*)<\/small>/g)].some(m => !m[1]!.includes('tiếng Việt'))
     }))
     const hit = batch.find((_, j) => has[j])

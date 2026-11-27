@@ -20,7 +20,7 @@ const photos = plantPhotos(c).slice(0, PAGE)
 /** Cards in the first row load at once: one of them is usually the page's largest image. */
 const EAGER = 4
 ---
-<Browse title={t('Cây thủy sinh')} heading={t('Cây thủy sinh')} intro={t('{n} loài cây, kèm nhu cầu ánh sáng, CO₂ và vị trí trồng.', { n: c.plants.length })} credits={creditsFor(photos.map(p => p ?? undefined))} creditsLater={c.plants.length > 0}>
+<Browse title={t('Cây thủy sinh')} heading={t('Cây thủy sinh')} structuredBreadcrumb intro={t('{n} loài cây, kèm nhu cầu ánh sáng, CO₂ và vị trí trồng.', { n: c.plants.length })} credits={creditsFor(photos.map(p => p ?? undefined))} creditsLater={c.plants.length > 0}>
   {c.plants.length === 0 ? <p>{t('Chưa có cây nào được xuất bản.')}</p> : <>
     {/* The reader's tank: its light grows plants needing as much or less; no CO₂ keeps the plants that grow without it. */}
     <FilterBox id="plant-box" prefix="plant" summary={t('Lọc theo bể của bạn')}>

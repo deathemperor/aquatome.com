@@ -33,3 +33,20 @@ test('home: an equipment kind never wraps inside itself, and plant cards in a ro
   expect(cards.length, 'plant cards').toBeGreaterThan(0)
   for (const top of new Set(cards.map(c => c.top))) expect(new Set(cards.filter(c => c.top === top).map(c => c.meta)).size, `care lines in the row at ${top}`).toBe(1)
 })
+
+
+test('the home tank matcher fields are 44px touch targets', async ({ page }, info) => {
+  test.skip(info.project.name !== 'phone', 'measures the phone controls')
+  for (const path of ['/', '/id/', '/th/', '/ms/']) {
+    await page.goto(path)
+    const fields = page.locator('.tank .form input[type="number"]')
+    await expect(fields).toHaveCount(3)
+    const sizes = await fields.evaluateAll(inputs => inputs.map(input => {
+      const { width, height } = input.getBoundingClientRect()
+      return { width, height, name: input.getAttribute('name') }
+    }))
+    for (const { width, height, name } of sizes) {
+      expect(Math.min(width, height), `${path} ${name}`).toBeGreaterThanOrEqual(44)
+    }
+  }
+})

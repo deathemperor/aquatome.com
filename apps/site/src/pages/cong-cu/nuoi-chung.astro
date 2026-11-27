@@ -1,11 +1,12 @@
 ---
+import { TOOL_DESCRIPTIONS } from '../../lib/tools'
 import Browse from '../../layouts/Browse.astro'
 import SaveToTank from '../../components/SaveToTank.astro'
 import { i18n } from '../../lib/i18n'
 
 const { lang, t } = i18n(Astro.url)
 ---
-<Browse title={t('Kiểm tra cá nuôi chung: hợp nước, hợp tính, thả bao nhiêu con')} heading={t('Nuôi chung được không? Thả bao nhiêu con?')} intro={t('Chọn 1–6 loài và số con. Công cụ so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước mật độ cá theo kích thước bể ở mục dưới. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Các loài cá có nuôi chung được không: so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước thả bao nhiêu con là vừa bể.')}>
+<Browse title={t('Kiểm tra cá nuôi chung: hợp nước, hợp tính, thả bao nhiêu con')} heading={t('Nuôi chung được không? Thả bao nhiêu con?')} intro={t('Chọn 1–6 loài và số con. Công cụ so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước mật độ cá theo kích thước bể ở mục dưới. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t(TOOL_DESCRIPTIONS['/vi/cong-cu/nuoi-chung/'])}>
   <div class="tm">
     <form id="tm-form" class="pick" novalidate data-src={`/data/${lang}/tank-mates.json`}>
       <label for="tm-input">{t('Thêm loài')}</label>

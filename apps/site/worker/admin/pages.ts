@@ -15,7 +15,7 @@ import type { ContentStats, Snapshot } from './content'
 import { inLang, items as itemCount, KIND as PAGE_KIND, LANG_NAME, MAIN, perDay, writtenPerDay } from './content-page'
 import { FISH_PERIOD_KEYS, fishSpan, periodTotals, RECENT_MAX, type Call, type FishIdStats, type FishPeriodKey, type FishSpan, type Totals } from './fishid'
 import { countingNotes, failedBox, ICON, isFailed, page, REPORT_NAME, REPORT_PATH, SCOREBOARD_PATH, type Soft } from './shell'
-import { clock, HOME_TZ, hourMinute, localDay, mondayOf, sameClock, timeTag, timeText, zoneName } from './time'
+import { clock, dayStart, HOME_TZ, hourMinute, localDay, mondayOf, sameClock, timeTag, timeText, zoneName } from './time'
 import { OUR_RUNS } from './ae'
 
 /** Each admin page's HTML from what its loaders returned; a part that failed says so in its place. */
@@ -528,16 +528,22 @@ function backParts(r: Readers) {
 function returnWeeks(now: Date, r: Readers, tz: string): string {
   const weeks = r.revisits?.weekly
   if (!weeks?.length) return ''
-  const firstDay = localDay(now.getTime() - r.days * 86_400_000, tz)
-  const resetDay = r.from ? localDay(r.from, tz) : ''
-  const thisWeek = mondayOf(localDay(now, tz))
-  const rows = weeks.map(w => {
-    const partial = w.monday <= firstDay || w.monday <= resetDay || w.monday === thisWeek
+  const dayMs = 86_400_000
+  const measuredFrom = Math.max(now.getTime() - r.days * dayMs, r.from ? Date.parse(r.from) : -Infinity)
+  const firstDay = localDay(measuredFrom, tz)
+  const today = localDay(now, tz)
+  const thisWeek = mondayOf(today)
+  const dayCount = 1 + (Date.parse(today) - Date.parse(firstDay)) / dayMs
+  const byMonday = new Map(weeks.map(w => [w.monday, w]))
+  const mondays = new Set(lastDays(now, dayCount, tz).map(mondayOf))
+  const rows = [...mondays].reverse().map(monday => {
+    const { visitors, returning } = byMonday.get(monday) ?? { visitors: 0, returning: 0 }
+    const partial = measuredFrom > Date.parse(dayStart(monday, tz)) || monday === thisWeek
     return [
-      { text: dayText(w.monday, now, tz), ...(partial ? { sub: w.monday === thisWeek ? 'So far' : 'Partial week' } : {}) },
-      { text: fmt(w.visitors) },
-      { text: fmt(w.returning) },
-      { text: `${fmt(100 * w.returning / w.visitors, 1)}%` },
+      { text: dayText(monday, now, tz), ...(partial ? { sub: monday === thisWeek ? 'So far' : 'Partial week' } : {}) },
+      { text: fmt(visitors) },
+      { text: fmt(returning) },
+      { text: visitors ? `${fmt(100 * returning / visitors, 1)}%` : '—' },
     ]
   })
   return `<h3>Returning visitors by week</h3>

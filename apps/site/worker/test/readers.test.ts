@@ -1,4 +1,5 @@
 import { afterEach, expect, test, vi } from 'vitest'
+import { parse } from 'node-html-parser'
 import { APP_SQL, automated, BURST, queryReaders, sourceOf, summariseAppReads, summariseReaders, type Session } from '../readers'
 import { areas, readersPage, readersSection } from '../admin/pages'
 import type { ChartBlock } from '../admin/blocks'
@@ -199,4 +200,46 @@ test('return visits, by the visitor code: browsers back on another day, how soon
   const none = summariseReaders(sessions.map(s => ({ ...s, u: '' })), [], 14)
   expect(none.revisits).toBeUndefined()
   expect(readersPage(new Date('2026-11-09T12:00:00Z'), none)).not.toContain('Return visits')
+})
+
+function returnWeekRows(html: string) {
+  const [, section] = html.split('<h3>Returning visitors by week</h3>')
+  return parse(section!).querySelector('tbody')!.querySelectorAll('tr').map(row => {
+    const week = row.querySelector('th')!
+    return [week.childNodes[0]?.text, week.querySelector('.muted')?.text, ...row.querySelectorAll('td').map(cell => cell.text)]
+  })
+}
+
+test('return visits keeps empty weeks visible when a week has only uncoded tabs', () => {
+  const r = summariseReaders([
+    { sid: 'coded', u: 'aaaa1111', first: '2026-11-11 12:00:00', pages: 1, t: 40, scroll: 0 },
+    { sid: 'uncoded', first: '2026-11-23 12:00:00', pages: 1, t: 40, scroll: 0 },
+  ], [], 14)
+  const html = readersPage(new Date('2026-11-23T13:00:00Z'), r, 'UTC')
+  expect(returnWeekRows(html)).toEqual([
+    ['23 Nov', 'So far', '0', '0', '—'],
+    ['16 Nov', undefined, '0', '0', '—'],
+    ['9 Nov', 'Partial week', '1', '0', '0.0%'],
+  ])
+})
+
+test('return visits shows measured weeks before the first coded visit in the window', () => {
+  const now = new Date('2026-11-27T12:00:00Z')
+  const r = summariseReaders([
+    { sid: 'coded', u: 'aaaa1111', first: '2026-11-24 12:00:00', pages: 1, t: 40, scroll: 0 },
+  ], [], 14)
+  const latest = ['23 Nov', 'So far', '1', '0', '0.0%']
+  expect(returnWeekRows(readersPage(now, r, 'UTC'))).toEqual([
+    latest,
+    ['16 Nov', undefined, '0', '0', '—'],
+    ['9 Nov', 'Partial week', '0', '0', '—'],
+  ])
+  expect(returnWeekRows(readersPage(now, { ...r, from: '2026-11-18T12:00:00Z' }, 'UTC'))).toEqual([
+    latest,
+    ['16 Nov', 'Partial week', '0', '0', '—'],
+  ])
+  expect(returnWeekRows(readersPage(now, { ...r, from: '2026-11-16T00:00:00Z' }, 'UTC'))).toEqual([
+    latest,
+    ['16 Nov', undefined, '0', '0', '—'],
+  ])
 })

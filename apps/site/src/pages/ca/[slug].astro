@@ -30,6 +30,7 @@ import { speciesDescription, speciesTitle } from '../../lib/meta'
 import { nameAndSci, sciBeside } from '../../lib/sci'
 import { i18n, langOf, served } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
+import { articleLd, breadcrumbLd, firstPublished, taxonLd } from '../../lib/structured-data'
 import { isFish, taxonHref } from '../../lib/taxa-places'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
@@ -39,17 +40,21 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { s } = Astro.props as { s: Localized<SpeciesEntity> }
 const { lang, t } = i18n(Astro.url)
 const c = await getContent(lang)
-const url = new URL(Astro.url.pathname, Astro.site).href
 // The fish list's name at the head of the trail: a crab's, a shrimp's or a snail's page isn't under "Loài cá" (the owner,
 // 15 Nov: the fiddler crab's page).
 const list = t(isFish(s) ? 'Loài cá' : 'Loài')
 const jsonld = [
-  { '@context': 'https://schema.org', '@type': 'Article', headline: s.t.name, ...(sciBeside(s.t.name, s.scientificName) ? { alternativeHeadline: s.scientificName } : {}), inLanguage: lang, dateModified: s.updatedAt, image: shareImage(s.photos), mainEntityOfPage: url,
-    about: { '@type': 'Taxon', name: s.scientificName, taxonRank: 'species', alternateName: [s.t.name, ...s.t.altNames] } },
-  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: list, item: new URL('/vi/ca/', Astro.site).href },
-    ...(served(lang, '/vi/phan-loai/x/') ? [{ '@type': 'ListItem', position: 2, name: s.family, item: new URL(taxonHref(s, 2) ?? '/vi/phan-loai/', Astro.site).href }] : []),
-    { '@type': 'ListItem', position: served(lang, '/vi/phan-loai/x/') ? 3 : 2, name: s.t.name, item: url } ] },
+  articleLd(Astro.site!, lang, Astro.url.pathname, {
+    headline: s.t.name,
+    alternativeHeadline: sciBeside(s.t.name, s.scientificName) ? s.scientificName : undefined,
+    datePublished: firstPublished(c.changelog, lang, 'species', s.id), dateModified: s.updatedAt, image: shareImage(s.photos),
+    about: taxonLd(s.scientificName, s.t.name, s.t.altNames),
+  }),
+  breadcrumbLd(Astro.site!, lang, [
+    ['/vi/ca/', list],
+    ...(served(lang, '/vi/phan-loai/x/') ? [[taxonHref(s, 2) ?? '/vi/phan-loai/', s.family] as const] : []),
+    [Astro.url.pathname, s.t.name],
+  ]),
 ]
 // What the page shows, chosen in page order (lib/species-page.ts, which the app's copy reads too).
 const { country, firstSource, researched, card, sources, summary, gallery, strip, more, figures, vn, kit, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides, videoPhotos } = await speciesParts(lang, c, s)
@@ -97,9 +102,8 @@ const alternates = await alternatesOf('species', s.id)
   </header>
   <JumpChips items={jumps} />
 
-  {/* "Thông tin nhanh" folds on a phone, where the key facts and the summary above already give most of it: the first
-      care question within three screens. */}
-  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} range={{ id: s.id, name: s.t.name, range: s.range }} refs={s.refs} fold={['quickFacts']}>
+  {/* The quick facts and buying advice fold on a phone so the first care question is within three screens. */}
+  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} figuresAfterCare card={s.dataCard} range={{ id: s.id, name: s.t.name, range: s.range }} refs={s.refs} fold={['quickFacts', 'beforeYouBuy']}>
     {vn && <VnClimate slot="waterConditions" card={s.dataCard} />}
     {showMates ? <Companions slot="behaviour" {...mates} tool={tool} /> : <p slot="behaviour" class="srcline mates-tool"><a href={tool}>{t('Kiểm tra nuôi chung với loài khác →')}</a></p>}
   </Sections>
