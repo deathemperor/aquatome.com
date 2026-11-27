@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto'
 import { subjectForGuide } from './guide-subject'
-import { photoAddressSet, type PhotoRejection } from './photo-address'
+import { photoAddressSet, photoKey, type PhotoRejection } from './photo-address'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { isOwnerCrop, type ImageSwitches } from './image-policy'
@@ -101,6 +101,11 @@ export function publicPhotoVersion<P extends Photo>(p: P, images: Readonly<Image
 
 /** These refusals apply to the version that received the verdict. */
 export const isVersionRejection = (reason: string): boolean => /^(?:dead|people|waiting): /.test(reason)
+
+/** A waiver can lift a watermark decision, so it must never replace an independent refusal. */
+export const maySupersedePhotoRefusal = (prior: string | undefined, decision: string): boolean =>
+  !prior || (prior === CREDIT_HOLD_REJECTION && !decision.startsWith('waiting:')) || (!decision.startsWith('watermark:') &&
+    (prior.startsWith('watermark:') || (isVersionRejection(prior) && !isVersionRejection(decision))))
 const CREDIT_HOLD_TEXT = 'rejected: held for a credit read'
 export const CREDIT_HOLD_REJECTION = `rejected: withheld [sha256:${createHash('sha256').update(CREDIT_HOLD_TEXT).digest('hex')}]`
 export const CREDIT_HOLD_FILE = '_credit-holds.json'
@@ -202,7 +207,7 @@ export async function expandWholePhotoRejections(
     const reasons = [...causes].map(cause => rejections[cause]!)
     const independent = reasons.find(reason => !reason.startsWith('watermark:'))
     const reason = independent ?? reasons[0]
-    if (reason && (!prior || isVersionRejection(prior) || (independent && prior.startsWith('watermark:')))) added[url] = reason
+    if (reason && maySupersedePhotoRefusal(prior, reason)) added[url] = reason
   }
   return Object.keys(added).length ? { ...rejections, ...added } : rejections
 }
@@ -258,8 +263,7 @@ export const completedDeadVerdict = (record: unknown): record is { dead: boolean
  */
 export function deadLooked(r: DeadLookRecords): (url: string) => boolean {
   const asked = askedByCheckOf(r.check, r.subjects)
-  const cleared = photoClears(r.secondLook)
-  return url => completedDeadVerdict(r.screen[url]) || asked.has(url) || cleared(url) ||
+  return url => completedDeadVerdict(r.screen[url]) || asked.has(url) ||
     (!!r.secondLook && Object.hasOwn(r.secondLook, url) && !!photoLookAnswer(r.secondLook[url]))
 }
 /** Album vetting counts only a verdict from the dead-fish screen or a person's second look. */
@@ -276,9 +280,17 @@ export function photoLookAnswer(record: unknown): { said: 'agree' | 'clear'; by:
   return { said: look.said, by: look.by, on: look.on }
 }
 
-/** A clear applies to both addresses. A completed decision at the requested address takes precedence. */
+/** Commons mirrors resize the same file. Other source IDs can name different crops, which need their own results. */
+export function photoVersionAddressSet(urls: Iterable<string>): (url: string) => boolean {
+  const exact = new Set(urls)
+  const commons = (url: string) => photoKey(url)?.startsWith('commons/') === true
+  const resized = photoAddressSet([...exact].filter(commons))
+  return url => exact.has(url) || (commons(url) && resized(url))
+}
+
+/** A completed decision at the requested address takes precedence over a clear on the same Commons file. */
 export function photoClears(records: Record<string, unknown> = {}): (url: string) => boolean {
-  const clears = photoAddressSet(Object.keys(records).filter(url => photoLookAnswer(records[url])?.said === 'clear'))
+  const clears = photoVersionAddressSet(Object.keys(records).filter(url => photoLookAnswer(records[url])?.said === 'clear'))
   return url => {
     const decision = Object.hasOwn(records, url) ? photoLookAnswer(records[url]) : undefined
     return decision ? decision.said === 'clear' : clears(url)
@@ -349,6 +361,9 @@ export type PhotoWaitRecords = {
   unread?: ReadonlySet<string>
   faces?: Record<string, unknown>
   unjudged?: ReadonlySet<string>
+  lookedForDead?: (url: string) => boolean
+  check?: Record<string, unknown>
+  subjects?: Record<string, unknown>
   deadScreen?: Record<string, unknown>
   secondLook?: Record<string, unknown>
   rejected?: PhotoRejection
@@ -356,14 +371,22 @@ export type PhotoWaitRecords = {
 
 /** The screen records that can withhold a selected photo version, wherever its address is used. */
 export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
-  const owesLook = photoAddressSet([...Object.keys(r.owed ?? {}), ...(r.unjudged ?? [])])
+  const directWaits = new Set([...Object.keys(r.owed ?? {}), ...(r.unjudged ?? [])])
+  const owesLook = photoAddressSet(directWaits)
+  const lookedForDead = r.lookedForDead ?? (url =>
+    completedDeadVerdict(r.deadScreen?.[url]) || !!photoLookAnswer(r.secondLook?.[url]))
   const cleared = photoClears(r.secondLook)
   const held = photoHolds(r.secondLook)
   const firstOff = photoFirstOff(r.secondLook)
-  const faceWaits = photoAddressSet([
-    ...(r.unread ?? []),
-    ...Object.keys(r.faces ?? {}).filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)),
-  ])
+  const directFaces = new Set(Object.keys(r.faces ?? {}).filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)))
+  const faceWaits = photoAddressSet([...(r.unread ?? []), ...directFaces])
+  const refusedByCheck = new Set<string>()
+  for (const url of new Set([...Object.keys(r.check ?? {}), ...Object.keys(r.subjects ?? {})])) {
+    const by = r.subjects?.[url]
+    const verdicts = [r.check?.[url], ...(by && typeof by === 'object' ? Object.values(by) : [])] as
+      ({ logo?: unknown; ok?: unknown; person?: unknown } | null | undefined)[]
+    if (verdicts.some(v => v?.logo === true) && verdicts.some(v => v?.ok === 'dead' || v?.person === true)) refusedByCheck.add(url)
+  }
   return url => {
     const entry = r.rejected?.(url)
     if (entry && !entry[1].startsWith('watermark:')) return true
@@ -371,7 +394,14 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
       if (awaitsScreen(url, r.watermarks[url])) return true
       if (entry && !retainedOwnMark(url, r.watermarks[url]) && !retainedOwnMark(entry[0], r.watermarks[entry[0]])) return true
     }
-    return owesLook(url) || faceWaits(url) ||
+    const waitsForFace = directFaces.has(url) || r.unread?.has(url) || (!Object.hasOwn(r.faces ?? {}, url) && faceWaits(url))
+    // The photo check writes the whole-photo watermark reason. Its independent dead/person result still applies
+    // after a shop-mark waiver, pending an applicable review.
+    const review = r.secondLook?.[url] as LookMark | undefined
+    const clearedRefusal = typeof review?.why === 'string' && /^(?:dead|people): /.test(review.why) &&
+      photoLookAnswer(review)?.said === 'clear'
+    const refusedVersion = refusedByCheck.has(url) && !held(url) && !clearedRefusal
+    return directWaits.has(url) || (owesLook(url) && !lookedForDead(url)) || waitsForFace || refusedVersion ||
       deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected, cleared, held, firstOff)
   }
 }

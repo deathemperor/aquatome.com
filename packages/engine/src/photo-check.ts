@@ -1,4 +1,4 @@
-import { recordListedAlbumTakeOffs } from './album-takeoffs'
+import { recordAlbumTakeOffs, recordListedAlbumTakeOffs } from './album-takeoffs'
 import { piece, PieceAdmissionError } from './pieces'
 import { errorKind } from './state'
 import { compactRejection, compactVerdict, modelFailureKind, photoHints, photoReason, deadNote, peopleNote, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
@@ -7,7 +7,7 @@ import { replacePhotoDocument, writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { deadScreenPhotoUrls, isVersionRejection, originalPhotoRefusals, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
+import { deadScreenPhotoUrls, isVersionRejection, originalPhotoRefusals, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoVersionAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -810,7 +810,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const ownMarkWaits = new Set(shown.filter(x => marks[x.url]?.watermark === undefined && screenedShop(x.url, x.source ?? (x.guide ? guideFrom.get(x.url) : undefined))).map(x => x.url))
   // This run's own verdicts of dead or a person on a photo that never passed the check: a first verdict (last-photo.ts).
   // A verdict cached from before doesn't count, nor does this run's verdict of anything else.
-  const passedPhoto = photoAddressSet(passed)
+  const passedPhoto = photoVersionAddressSet(passed)
   const freshBad = new Set([...judgedNow].flatMap(k => { const i = k.indexOf(' '), u = k.slice(i + 1), v = cache[u]?.[k.slice(0, i)]; return v && (v.ok === 'dead' || v.person === true) && !passedPhoto(u) ? [u] : [] }))
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict; but a hold on another reason doesn't
   // keep a photo from its first verdict of dead or a person (the independent reader, 20 Nov).
@@ -1023,8 +1023,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const canCapture = !!entriesDir()
   const recoverableEdit = (url: string) => {
     const at = waitingAt(url)
-    if (!at) return true
     const entry = rejectedAt(url)
+    if (!at) return !entry?.[1].startsWith('waiting:')
     return canCapture && sl.off(at) && (!entry || entry[1] === waitingEntry(secondLook[at]!.why))
   }
   for (const file of new Set([...shown.map(x => x.file), ...linkedFiles])) {
@@ -1033,11 +1033,18 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       return reason && first(reason) ? (firstAliases.get(reason) ?? reason) : firstByPhoto.get(photoKey(url) ?? url)
     }
     const raw = await readFile(file, 'utf8')
-    const data = JSON.parse(raw) as { photos?: Photo[]; video?: { figures?: { photo?: Photo; moments?: { url: string }[] }[] } }
-    // Waiting guide slots remain in the document until recovery can capture those slots.
-    const nested = photoAddressSet((data.video?.figures ?? []).flatMap(f => [
-      ...(f.photo ? deadScreenPhotoUrls(f.photo as ContentPhoto) : []), ...(f.moments ?? []).map(m => m.url),
-    ]))
+    const data = JSON.parse(raw) as {
+      photos?: Photo[]; video?: { figures?: { photo?: Photo; moments?: { url: string }[] }[] };
+      hero?: Photo; types?: { photo?: Photo }[]; kinds?: { photo?: Photo }[]
+    }
+    // Keep waiting placements that do not have a slot in photo recovery.
+    const nested = photoAddressSet([
+      ...(data.video?.figures ?? []).flatMap(f => [
+        ...(f.photo ? deadScreenPhotoUrls(f.photo as ContentPhoto) : []), ...(f.moments ?? []).map(m => m.url),
+      ]),
+      ...[data.hero, ...(data.types ?? []).map(t => t.photo), ...(data.kinds ?? []).map(k => k.photo),
+        ...(file.startsWith(join(content, 'glossary') + '/') ? data.photos ?? [] : [])].flatMap(p => p ? deadScreenPhotoUrls(p as ContentPhoto) : []),
+    ])
     const canRemove = (url: string) => recoverableEdit(url) && !(nested(url) && (waitingAt(url) || capture(url)))
     if (held.has(file)) {
       // A held page keeps what passed before; a first verdict comes off it all the same.
@@ -1046,7 +1053,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       stripPhotos(data, url => canCapture && canRemove(url) && !!capture(url), removed, [], preservesOriginal)
       placesIn(root, file, before, (url, slot) => !data.photos?.includes(slot.photo as Photo) ? capture(url) : undefined, stood)
       if (!removed.length) continue
-      if (galleryId(file)) for (const url of removed) albumRemoved.add(url)
+      if (galleryId(file)) for (const p of before.photos ?? []) if (!data.photos?.includes(p)) {
+        for (const url of deadScreenPhotoUrls(p as ContentPhoto)) albumRemoved.add(url)
+      }
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
       edits.set(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       continue
@@ -1123,7 +1132,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     }
     const out = `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`
     if (out === raw) continue
-    if (galleryId(file)) for (const url of removed) albumRemoved.add(url)
+    if (galleryId(file)) for (const p of beforeEdit.photos ?? []) if (!data.photos?.includes(p)) {
+      for (const url of deadScreenPhotoUrls(p as ContentPhoto)) albumRemoved.add(url)
+    }
     report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
     edits.set(file, out)
   }
@@ -1142,11 +1153,12 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const now = withoutSettledWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, await readSecondLook(root))
   // One off at its first verdict waits there marked, and isn't counted refused (last-photo.ts).
   for (const [u, why] of Object.entries(added)) if (!(u in now) && !firstAliases.has(u)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
-  if (albumRemoved.size) await recordListedAlbumTakeOffs(root, albumRemoved, rejectedEntry(now))
+  const receipts = albumRemoved.size ? await recordListedAlbumTakeOffs(root, albumRemoved, rejectedEntry(now)) : []
   await writePhotoState(rejectedFile, now)
   // Keep the rejection durable during the page edits. A subject verdict may release the dead-fish wait, so
   // publish it only after every edit has succeeded.
   for (const [file, out] of edits) await replacePhotoDocument(file, out)
+  if (receipts.length) await recordAlbumTakeOffs(root, receipts, true)
   await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   // One another step listed meanwhile keeps that step's reason, and no id from this run.
   if (kinded.length) {

@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { photoKey, type PhotoRejection } from '@aq/schema'
+import { photoAddressSet, photoKey, type PhotoRejection } from '@aq/schema'
 import { writePhotoState } from './photo-state'
 import { writeImageCache } from './image-cache-write'
 import { readSecondLook, waitingReview } from './last-photo'
@@ -11,7 +11,11 @@ const batchDir = (root: string) => join(root, 'engine-state', 'album-takeoff-bat
 const ackDir = (root: string) => join(root, 'engine-state', 'album-takeoff-acks')
 const hash = (urls: string[]) => createHash('sha256').update(JSON.stringify(urls)).digest('hex')
 const batchId = /^[a-f0-9]{64}$/
-export type TakeOffReceipt = true | { batch: string; acknowledged?: true }
+export type TakeOffReceipt = true | { applied: true } | { batch: string; acknowledged?: true }
+export const albumTakeOffApplied = (receipt: TakeOffReceipt | undefined): boolean =>
+  !!receipt && receipt !== true && 'applied' in receipt && receipt.applied
+export const pendingAlbumTakeOff = (receipt: TakeOffReceipt | undefined): boolean =>
+  receipt === true || albumTakeOffApplied(receipt)
 type Batch = { id: string; urls: string[] }
 
 const missing = (error: NodeJS.ErrnoException) => {
@@ -25,10 +29,13 @@ const read = async <T>(file: string): Promise<T | undefined> => {
 export const albumReceipts = async (root: string) => (await read<Record<string, TakeOffReceipt>>(receiptFile(root))) ?? {}
 
 /** Commit a pending take-off before any step removes its album entry. */
-export async function recordAlbumTakeOffs(root: string, urls: Iterable<string>) {
+export async function recordAlbumTakeOffs(root: string, urls: Iterable<string>, applied = false) {
   const receipts = await albumReceipts(root)
   let changed = false
-  for (const url of urls) if (!(url in receipts)) { receipts[url] = true; changed = true }
+  for (const url of urls) if (!(url in receipts) || (applied && receipts[url] === true)) {
+    receipts[url] = applied ? { applied: true } : true
+    changed = true
+  }
   if (changed) await writePhotoState(receiptFile(root), receipts)
   return receipts
 }
@@ -37,15 +44,17 @@ export async function recordAlbumTakeOffs(root: string, urls: Iterable<string>) 
 export async function recordListedAlbumTakeOffs(root: string, urls: Iterable<string>, listed: PhotoRejection) {
   const marks = await readSecondLook(root)
   const dead = await read<Record<string, { dead?: boolean }>>(join(root, 'engine-state', '_dead-screen.json'))
+  const cachedDead = photoAddressSet(Object.keys(dead ?? {}).filter(url => dead?.[url]?.dead === true))
   const removed = [...urls].flatMap(url => {
     const entry = listed(url)
     if (!entry) return []
     const [address, reason] = entry
     if (reason.startsWith('dead:')) return [url]
     const review = waitingReview(marks, address, reason)
-    return review && (review[1].why.startsWith('dead:') || dead?.[review[0]]?.dead || dead?.[address]?.dead || dead?.[url]?.dead) ? [url] : []
+    return review && (review[1].why.startsWith('dead:') || cachedDead(url)) ? [url] : []
   })
   if (removed.length) await recordAlbumTakeOffs(root, removed)
+  return removed
 }
 
 async function readBatches(root: string): Promise<Batch[]> {
