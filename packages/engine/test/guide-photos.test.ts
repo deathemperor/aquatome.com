@@ -519,7 +519,7 @@ test("a photo asked again for its subject keeps its verdict: that look's dead an
   const id = 'aquariumcoop-platy-care'
   const root = await store({ [id]: { kind: 'care', source: 'aquariumcoop', photos: [photo('lead'), photo('old')] } })
   const verdict = { person: false, mark: false, brand: false, note: 'a platy, from before' }
-  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [url('lead')]: { ...verdict, other: { platy: false } }, [url('old')]: verdict }))
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [url('lead')]: { ...verdict, other: { platy: false }, answeredSubjects: ['platy'] }, [url('old')]: verdict }))
   const { d, seen } = model({ old: { dead: true, note: 'a dead platy' } })
   const r = await screenGuidePhotos(root, d, { limit: 1 })
   expect(seen[0]!.photos).toEqual(['old'])
