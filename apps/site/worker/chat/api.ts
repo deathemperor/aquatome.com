@@ -325,11 +325,15 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const account = await chatAccount(env.ACCOUNT_HMAC_KEY, session.userId)
   const convKey = conversationKey(account, q.conversation)
   const keptKey = idem ? retryKey(account, idem) : ''
-  const readKept = async (): Promise<Kept | undefined> => {
-    if (!keptKey) return undefined
-    const k = await (await env.UPLOADS.get(keptKey))?.json<Kept>()
-    return k && clock() - k.at < ('turn' in k || k.status !== 503 ? RETRY_MS : UNAVAILABLE_MS) ? k : undefined
+  const readRetry = async (): Promise<{ kept?: Kept; expiredETag?: string }> => {
+    const record = keptKey ? await env.UPLOADS.get(keptKey) : null
+    if (!record) return {}
+    const k = await record.json<Kept>()
+    if (!k) return {}
+    const lifetime = 'turn' in k || k.status !== 503 ? RETRY_MS : UNAVAILABLE_MS
+    return clock() - k.at < lifetime ? { kept: k } : { expiredETag: record.etag }
   }
+  const readKept = async () => (await readRetry()).kept
   const answerOf = (k: Kept) => ('turn' in k ? k.turn : undefined)
   const keptResponse = (k: Kept): Response => {
     if ('turn' in k) return stream ? new Response(sse('done', k.turn), { headers: streamHeaders }) : json(k.turn)
@@ -337,8 +341,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     return stream ? new Response(sse('error', body), { headers: streamHeaders }) : json(body, k.status)
   }
 
-  const kept = await readKept()
-  if (kept) return keptResponse(kept)
+  let retry = await readRetry()
+  if (retry.kept) return keptResponse(retry.kept)
   const obj = await env.UPLOADS.get(convKey)
   const conv = obj ? await obj.json<Conversation>() : undefined
   // A retry of the question still answering waits for it, even once the conversation has passed its end: a 410 would
@@ -347,8 +351,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   if (running && idem && running.key === idem) return waitFor(readKept, keptResponse, stream, clock, deps)
   // The previous answer may have saved its replay record between the read above and clearing its turn's mark.
   if (mayOfferEquipment && conv && !running) {
-    const finished = await readKept()
-    if (finished) return keptResponse(finished)
+    retry = await readRetry()
+    if (retry.kept) return keptResponse(retry.kept)
   }
   // Hidden from the list on another device: ended, so the app asks in a new conversation. A read that fails stops no question.
   const hasTurns = Boolean(conv?.turns.length)
@@ -556,8 +560,9 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     if (next.turns.length && tankStart) next.tankStart = tankStart
     // A proposal is only for the app that asked and received this turn. Replays and history never offer an old switch.
     const k: Kept = turn ? { at: asked, turn: { ...turn, equipment: undefined } } : { at: asked, status: done.status, ...(done.body as { error: string; counted?: boolean; freeLeft?: number }) }
-    // The replay record also claims the proposal. Only the first successful conditional write can offer it.
-    const stored = keptKey ? await env.UPLOADS.put(keptKey, JSON.stringify(k), turn?.equipment ? { onlyIf: { etagDoesNotMatch: '*' } } : undefined)
+    // The replay record also claims the proposal. A retry can replace only the expired version it observed.
+    const onlyIf = retry.expiredETag === undefined ? { etagDoesNotMatch: '*' } : { etagMatches: retry.expiredETag }
+    const stored = keptKey ? await env.UPLOADS.put(keptKey, JSON.stringify(k), turn?.equipment ? { onlyIf } : undefined)
       .catch(e => { console.error('chat kept:', e); return null }) : null
     if (turn?.equipment && !stored) delete turn.equipment
     await env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e))

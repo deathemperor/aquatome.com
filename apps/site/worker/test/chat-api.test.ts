@@ -1511,6 +1511,35 @@ test('an opted-in owner app can receive one safe equipment proposal, only on the
   expect((await askAs(owner.token, {}, withNewTurn())).body).not.toHaveProperty('equipment')
 })
 
+test('a successful equipment retry can replace an expired unavailable record and offer the card once', async () => {
+  const { e, db, store } = env({ CHAT_EQUIPMENT: 'owner' })
+  const owner = await signIn(db)
+  e.OWNER_ACCOUNTS = owner.id
+  const now = new Date()
+  const at = now.toISOString()
+  const tank = { id: crypto.randomUUID(), name: 'Bể rêu', species: [], plants: [], createdAt: at, updatedAt: at }
+  const lamp = { id: crypto.randomUUID(), tankId: tank.id, kind: 'light', brand: 'loveecology', createdAt: at, updatedAt: at }
+  await syncStore(db, owner.id, { v: 1, tanks: [tank], devices: [lamp] }, now)
+  const body = { from: 'tank', tank: tank.id, about: undefined, question: 'Bật đèn Love Ecology cho mình.' }
+  const headers = { 'X-AquaTome-Equipment': '1', 'Idempotency-Key': crypto.randomUUID() }
+  const request = () => ask(bearer(owner.token), body, headers)
+  const down = claude([() => Response.json({ type: 'error', error: { type: 'overloaded_error', message: 'x' } }, { status: 529 })])
+  expect((await run(request(), e, deps(down.fetch), now)).body).toEqual({ error: 'unavailable' })
+
+  const recovered = claude([() => answers({ offTopic: false, equipment: { option: 1, on: true } })])
+  const later = new Date(now.getTime() + 16 * 60_000)
+  const d = deps(recovered.fetch, { clock: () => later.getTime() })
+  const first = await run(request(), e, d, later)
+  expect(first.body).toMatchObject({ n: 1, equipment: { tank: tank.id, role: 'lamp', command: { device: lamp.id, on: true } } })
+  const calls = recovered.bodies.length
+  expect(calls).toBeGreaterThan(0)
+  const replay = await run(request(), e, d, later)
+  expect(replay.body).toMatchObject({ n: first.body.n, text: first.body.text })
+  expect(replay.body).not.toHaveProperty('equipment')
+  expect(recovered.bodies).toHaveLength(calls)
+  expect(store.read<Conversation>(await convKey(owner))?.turns).toHaveLength(1)
+})
+
 test('read_tanks reads the whole saved tank: plants, substrate, notes, days since saved, each light\'s active schedule, what its plugs power', async () => {
   const { e, db } = env()
   const me = await signIn(db)
