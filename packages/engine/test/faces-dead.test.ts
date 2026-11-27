@@ -1055,14 +1055,16 @@ test('an unanswered source hold cannot replace a clear on its mirror', async () 
   await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [source.url]: 0, [mirror.url]: 0 }))
   await writeFile(join(state, '_dead-screen.json'), '{}')
   await writeFile(join(state, '_photo-second-look.json'), JSON.stringify(marks))
-  const { d, sent } = deps()
-  d.dead.look = async () => { throw new Error('The photo already received a human clear') }
+  const { d, sent } = deps({ unreadable: source.url })
 
   await run(root, d)
 
-  expect(sent).toEqual([])
+  expect(sent).toEqual([source.url])
+  expect(await owed(root)).toEqual([source.url])
   expect(await json(root, 'engine-state/_photo-second-look.json')).toEqual(marks)
-  expect((await publicView()).galleries.alpha?.map(p => p.url)).toEqual([mirror.url])
+  const view = await publicView()
+  expect(view.galleries.alpha?.map(p => p.url)).toEqual([mirror.url])
+  expect(view.photoWaits!(mirror.url)).toBe(false)
 })
 
 test('the photo check cannot replace a clear on the mirror with a first refusal at an unanswered source hold', async () => {

@@ -257,8 +257,7 @@ export const completedDeadVerdict = (record: unknown): record is { dead: boolean
  */
 export function deadLooked(r: DeadLookRecords): (url: string) => boolean {
   const asked = askedByCheckOf(r.check, r.subjects)
-  const cleared = photoClears(r.secondLook)
-  return url => completedDeadVerdict(r.screen[url]) || asked.has(url) || cleared(url) ||
+  return url => completedDeadVerdict(r.screen[url]) || asked.has(url) ||
     (!!r.secondLook && Object.hasOwn(r.secondLook, url) && !!photoLookAnswer(r.secondLook[url]))
 }
 /** A second look is answered only with a decision, a reviewer and a dated record. */
@@ -327,6 +326,7 @@ export type PhotoWaitRecords = {
   unread?: ReadonlySet<string>
   faces?: Record<string, unknown>
   unjudged?: ReadonlySet<string>
+  lookedForDead?: (url: string) => boolean
   deadScreen?: Record<string, unknown>
   secondLook?: Record<string, unknown>
   rejected?: PhotoRejection
@@ -334,7 +334,10 @@ export type PhotoWaitRecords = {
 
 /** The screen records that can withhold a selected photo version, wherever its address is used. */
 export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
-  const owesLook = photoAddressSet([...Object.keys(r.owed ?? {}), ...(r.unjudged ?? [])])
+  const directWaits = new Set([...Object.keys(r.owed ?? {}), ...(r.unjudged ?? [])])
+  const owesLook = photoAddressSet(directWaits)
+  const lookedForDead = r.lookedForDead ?? (url =>
+    completedDeadVerdict(r.deadScreen?.[url]) || !!photoLookAnswer(r.secondLook?.[url]))
   const cleared = photoClears(r.secondLook)
   const held = photoHolds(r.secondLook)
   const firstOff = photoFirstOff(r.secondLook)
@@ -349,7 +352,7 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
       if (awaitsScreen(url, r.watermarks[url])) return true
       if (entry && !retainedOwnMark(url, r.watermarks[url]) && !retainedOwnMark(entry[0], r.watermarks[entry[0]])) return true
     }
-    return owesLook(url) || faceWaits(url) ||
+    return directWaits.has(url) || (owesLook(url) && !lookedForDead(url)) || faceWaits(url) ||
       deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected, cleared, held, firstOff)
   }
 }

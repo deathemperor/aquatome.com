@@ -2,7 +2,7 @@ import sharp from 'sharp'
 import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { basename, join } from 'node:path'
-import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, THUMB_WIDTH, type ImageSwitches } from '@aq/schema'
+import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, photoLookAnswer, THUMB_WIDTH, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
 import { looks, readSecondLook, writeSecondLook } from './last-photo'
 
@@ -130,17 +130,16 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
   if (moved.length) for (const [path, cache] of caches) {
     const name = basename(path)
     let n = 0
-    for (const [from, to] of name === '_photo-rejected.json' || name === '_photo-dead-owed.json' ? moved : copies) {
+    for (const [from, to] of name === '_photo-rejected.json' ? moved : copies) {
       if (from in cache && !(to in cache)) { cache[to] = cache[from]; n++ }
     }
     if (n) await writePhotoState(path, cache)
   }
-  // A second look's "clear" follows its photo to our bucket, so the cleared verdict copied above doesn't take it off there.
-  if (moved.length) {
+  // A human clear can qualify the rendition it reviewed when those bytes are the ones we uploaded.
+  if (copies.length) {
     const sl = await readSecondLook(root)
-    const cleared = looks(sl).cleared
     let n = 0
-    for (const [from, to] of moved) if (sl[from] && cleared(from) && !(to in sl)) { sl[to] = sl[from]; n++ }
+    for (const [from, to] of copies) if (sl[from] && photoLookAnswer(sl[from])?.said === 'clear' && !(to in sl)) { sl[to] = sl[from]; n++ }
     if (n) await writeSecondLook(root, sl)
   }
   // Keep a source reference available for retry until its transferred records are durable.

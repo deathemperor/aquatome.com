@@ -289,6 +289,30 @@ test("a page led by a non-commercial photo is reached by --calendar like a page 
   expect(r.gained).toEqual([`species/none: none -> ${url('n-nc')}`])
 })
 
+test.each([false, true])('an open album photo must qualify at the address that would lead (fallback: %s)', async fallback => {
+  const nc = { ...photo('nc'), url: 'https://media.aquatome.com/inaturalist/42.webp', licence: 'CC BY-NC 4.0' }
+  const original = photo('original')
+  const open: Photo = { ...photo('open'), licence: 'CC BY 4.0' }
+  if (fallback) {
+    open.altered = [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }]
+    open.original = { url: original.url, width: original.width, height: original.height }
+  }
+  const root = await store({ aaa: { photos: [nc], gallery: [nc, open] } })
+  const served = fallback ? original.url : open.url
+  const state = (name: string, value: unknown) => writeFile(join(root, 'engine-state', name), JSON.stringify(value))
+  await state('_photo-subjects.json', { [open.url]: { aaa: { ok: 'yes', typical: true, ...(fallback ? { logo: false } : {}) } } })
+  await state('_photo-faces.json', { [nc.url]: 0, [open.url]: 0, [served]: 0 })
+  await state('_dead-screen.json', { [nc.url]: { dead: false } })
+  const { d, seen } = model(yes)
+
+  expect((await screenLeads(root, d, { limit: 1 })).changed).toEqual([])
+  expect((await entity(root, 'aaa')).photos).toEqual([nc])
+  await state('_dead-screen.json', { [nc.url]: { dead: false }, [served]: { dead: false } })
+  expect((await screenLeads(root, d, { limit: 1 })).changed).toHaveLength(1)
+  expect((await entity(root, 'aaa')).photos.map(p => p.url)).toEqual([open.url])
+  expect(seen).toEqual([])
+})
+
 test("the step reads the calendar's hold for the head: a held head that fills the card gives way to a smaller photo that passes, with no model call (Rineloricaria castroi, 16 Nov)", async () => {
   const root = await store({ r: { photos: [big('r-held'), photo('r-other', 500, 375)] } })
   const cal = JSON.parse(await readFile(join(root, 'content/curation.json'), 'utf8'))
