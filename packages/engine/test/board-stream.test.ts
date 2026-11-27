@@ -16,8 +16,11 @@ const stream = (pieces: Piece[], tail = 0) => (signal: AbortSignal) => Object.as
   await wait(tail, signal)
 })(), { finalMessage: async () => ({ content: [{ type: 'text', text: pieces.map(p => p.delta.text ?? '').join('') }] }) })
 /** The SDK's error classes, the real ones, from a client (the engine doesn't depend on the SDK itself). */
-type Errors = { APIConnectionTimeoutError: new () => Error; APIConnectionError: new (o: { message: string }) => Error; APIUserAbortError: new () => Error }
+type Errors = { APIConnectionError: new (o: { message: string }) => Error; APIUserAbortError: new () => Error }
 const sdk = async () => (await clientFor({ key: 'not-a-key', hash: 'h' })).constructor as unknown as Errors
+/** A real client whose requests go to `fetch`, so nothing leaves this Mac. */
+const realClient = async (fetch: unknown) => (await clientFor({ key: 'not-a-key', hash: 'h' }, fetch as typeof globalThis.fetch)) as unknown as { messages: { stream(b: object, o: object): any } }
+const BODY = { model: 'claude-opus-5-5', max_tokens: 1, messages: [{ role: 'user', content: 'test' }] }
 const failing = (e: unknown) => () => Object.assign((async function* () { throw e })(), { finalMessage: async () => ({}) })
 
 beforeEach(() => { vi.useFakeTimers() })
@@ -52,11 +55,30 @@ describe('a board call our own timer ends is named as ours, not as no key answer
     await r
     expect(cut.by).toBe('before writing')
   })
-  it('the SDK\'s own timeout counts as ours', async () => {
-    const SDK = await sdk()
+  it('the SDK\'s own timeout, given the same time, never ends the call before ours does', async () => {
+    // A fetch that waits until it's stopped: our timer and the SDK's both run to 22 s.
+    const hang = vi.fn((_url: unknown, init?: { signal?: AbortSignal }) => new Promise<never>((_, fail) => {
+      init?.signal?.addEventListener('abort', () => fail(Object.assign(new Error('This operation was aborted'), { name: 'AbortError' })))
+    }))
+    const client = await realClient(hang)
     const cut: Cut = {}
-    await expect(streamOnce(failing(new SDK.APIConnectionTimeoutError()), 1000, {}, cut)).rejects.toBeInstanceOf(SDK.APIConnectionTimeoutError)
+    const r = expect(streamOnce(signal => client.messages.stream(BODY, { timeout: 22_000, signal }), 22_000, {}, cut)).rejects.toMatchObject({ message: 'Request timed out.', status: undefined })
+    await vi.advanceTimersByTimeAsync(22_000)
+    await r
+    expect(hang).toHaveBeenCalledTimes(1)
     expect(cut.by).toBe('before writing')
+  })
+  it('a connection the network times out before ours is the network\'s (Codex, 17 Nov)', async () => {
+    const native = Object.assign(new Error('Connect Timeout Error (timeout: 10000ms)'), { name: 'ConnectTimeoutError', code: 'UND_ERR_CONNECT_TIMEOUT' })
+    const slow = vi.fn(async () => { await new Promise(r => setTimeout(r, 10_000)); throw new TypeError('fetch failed', { cause: native }) })
+    const client = await realClient(slow)
+    const cut: Cut = {}, signals: AbortSignal[] = []
+    const r = streamOnce(signal => { signals.push(signal); return client.messages.stream(BODY, { timeout: 22_000, signal }) }, 22_000, {}, cut).catch((e: unknown) => e)
+    await vi.advanceTimersByTimeAsync(10_000)
+    expect((await r as Error).constructor.name).toBe('APIConnectionTimeoutError')
+    expect(signals[0]!.aborted).toBe(false)
+    expect(cut.by).toBeUndefined()
+    expect(noAnswer(cut, 'unavailable')).toBe('no key answered: unavailable')
   })
   it('a failure that isn\'t a time limit of ours stays the key\'s or the network\'s', async () => {
     const SDK = await sdk()
