@@ -41,7 +41,14 @@
               "type": "string",
               "format": "uuid"
             },
-            "description": "One per question: a retry with the same key within 24 hours gets the first run's turn, not a new one."
+            "description": "One per question: a retry with the same key within 24 hours gets the first run's turn, without its equipment proposal."
+          },
+          {
+            "name": "X-AquaTome-Equipment",
+            "in": "header",
+            "required": false,
+            "schema": { "const": "1" },
+            "description": "An app that can confirm equipment proposals sends this with its bearer and Idempotency-Key. The server only considers it for eligible owner accounts in a saved tank's chat while the trial is enabled."
           }
         ],
         "requestBody": {
@@ -839,8 +846,45 @@
             "minLength": 10,
             "maxLength": 200,
             "description": "The line the stream's `opening` event showed during the wait, the same text. Missing when there was none, when the answer took it back (one not about fishkeeping: the client takes the line away), on a JSON answer (only a stream gets one), and on turns from before."
+          },
+          "equipment": {
+            "$ref": "#/components/schemas/EquipmentProposal"
           }
         },
+        "additionalProperties": false
+      },
+      "EquipmentProposal": {
+        "type": "object",
+        "description": "One proposed switch on the selected saved tank, on the original completed turn only. The app keeps it only with that live turn and requires a tap to confirm. Before sending it checks its current account, tank, device, role and availability and rejects any outlet linked to a light. Only a Love Ecology lamp or Tuya fan can switch on or off, and CO₂ can only switch off. The Worker never sends a device command.",
+        "required": ["tank", "role", "command"],
+        "properties": {
+          "tank": { "type": "string", "format": "uuid" },
+          "role": { "enum": ["lamp", "fan", "co2"] },
+          "command": { "$ref": "device-command.schema.json#/$defs/DeviceCommand" }
+        },
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "role": { "const": "lamp" },
+              "command": { "type": "object", "properties": { "outlet": { "not": {} }, "colour": { "not": {} } } }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "role": { "const": "fan" },
+              "command": { "type": "object", "required": ["outlet"], "properties": { "colour": { "not": {} } } }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "role": { "const": "co2" },
+              "command": { "type": "object", "required": ["outlet"], "properties": { "on": { "const": false }, "colour": { "not": {} } } }
+            }
+          }
+        ],
         "additionalProperties": false
       },
       "Piece": {
@@ -1775,7 +1819,7 @@
           "asked",
           "turn"
         ],
-        "description": "A question and its turn, as it was answered: its blocks as they were filled then.",
+        "description": "A question and its saved turn, with its original text and blocks.",
         "properties": {
           "question": {
             "type": "string",
@@ -1787,7 +1831,10 @@
             "description": "When."
           },
           "turn": {
-            "$ref": "#/components/schemas/Turn"
+            "allOf": [
+              { "$ref": "#/components/schemas/Turn" },
+              { "not": { "type": "object", "required": ["equipment"] } }
+            ]
           }
         },
         "additionalProperties": false
