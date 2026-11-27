@@ -1,4 +1,4 @@
-import { CREDIT_HOLD_REJECTION, maySupersedePhotoRefusal, isNonCommercial, isVersionRejection, originalPhotoRefusals, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, setsCookies, settledWaiting, type Photo } from '@aq/schema'
+import { CREDIT_HOLD_REJECTION, heldPhotoVersion, maySupersedePhotoRefusal, isNonCommercial, isVersionRejection, originalPhotoRefusals, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoVersionAddressSet, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, setsCookies, settledWaiting, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { createHash, randomUUID } from 'node:crypto'
 import { link, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
@@ -66,7 +66,8 @@ export function looks(sl: SecondLooks) {
   const cleared = photoClears(sl)
   const held = photoHolds(sl)
   const off = (url: string) => has(sl, url) && sl[url]!.off === true && !lookOf(sl[url])
-  const pendingOff = photoAddressSet(Object.keys(sl).filter(off))
+  const firstRefusal = photoRejections(Object.fromEntries(Object.keys(sl).filter(off).map(url => [url, sl[url]!.why])), {}, heldPhotoVersion(sl))
+  const pendingOff = (url: string) => !!firstRefusal(url)
   return {
     /** Cleared: no automatic verdict takes it off. */
     cleared: (url: string) => has(sl, url) && lookOf(sl[url])?.said === 'clear',
@@ -132,17 +133,31 @@ export function lastPhotos(pages: PageShows[], off: (url: string, ref: string) =
   return out
 }
 
+/** A verdict follows an alias unless that rendition received a distinct verdict in the same pass. */
+export function verdictAddressSet(urls: Iterable<string>, judged: ReadonlySet<string>): (url: string) => boolean {
+  const addresses = [...urls]
+  const sameVersion = photoVersionAddressSet(addresses)
+  const alias = photoAddressSet(addresses)
+  return url => sameVersion(url) || (!judged.has(url) && alias(url))
+}
+
 /** Attribute a page's loss to the address that received the verdict, even when it serves a mirror. */
 export function lastPhotoVerdicts(
   pages: PageShows[], unavailable: (url: string, ref: string) => boolean, verdicts: Iterable<string>,
   removesWrapper?: (verdictUrl: string) => boolean, originals?: ReadonlyMap<string, ReadonlySet<string>>,
+  separateVersions = false,
 ): Map<string, string[]> {
+  const exact = new Set(verdicts)
   const addresses = new Map<string, string>()
-  for (const url of verdicts) {
+  for (const url of exact) {
     const key = photoKey(url) ?? url
     if (!addresses.has(key)) addresses.set(key, url)
   }
-  const byVerdict = (url: string) => addresses.get(photoKey(url) ?? url)
+  const byVerdict = (url: string) => {
+    const key = photoKey(url)
+    if (separateVersions && exact.has(url) && !key?.startsWith('commons/')) return url
+    return addresses.get(key ?? url)
+  }
   const linked = new Map<string, Set<string>>()
   for (const [url, causes] of originals ?? []) {
     const key = photoKey(url) ?? url
