@@ -12,6 +12,7 @@ import Comments from '../../components/Comments.astro'
 import { plantTitle, withSci } from '../../lib/meta'
 import { nameAndSci, sciBeside } from '../../lib/sci'
 import { getContent } from '../../lib/content'
+import { lastChanged, pageDateFiles } from '../../lib/page-dates'
 import { searchAliases } from '../../lib/search'
 import { PLANT_LABELS } from '../../lib/format'
 import { creditsFor, VIDEO_CARDS } from '../../lib/credits'
@@ -48,7 +49,7 @@ const jsonld = [
   articleLd(Astro.site!, lang, Astro.url.pathname, {
     headline: p.t.name,
     alternativeHeadline: sciBeside(p.t.name, p.scientificName) ? p.scientificName : undefined,
-    datePublished: firstPublished(c.changelog, lang, 'plant', p.id), dateModified: p.updatedAt, description, image,
+    datePublished: firstPublished(c.changelog, lang, 'plant', p.id), dateModified: lastChanged(c.pageDates, pageDateFiles('plants', p.id, lang)), description, image,
     about: taxonLd(p.scientificName, p.t.name, p.t.altNames),
   }),
   breadcrumbLd(Astro.site!, lang, [['/vi/cay/', t('Cây thủy sinh')], [Astro.url.pathname, p.t.name]]),
