@@ -7,7 +7,8 @@ import { createHash } from 'node:crypto'
 import { ownerCropCanonical, type OwnerCropApproval, type Photo } from '@aq/schema'
 import { cardCrop, HEAD_IN_CROP, leadChoice, screenLeads, TRIES, type LeadDeps } from '../src/lead-photo'
 import { approvedCrop, hiddenFromReaders, mergePhotos, mergeRead, readKeeps, waitsForScreen } from '../src/run'
-import { readRecoveryRetention } from '../src/photo-visibility'
+import { readPhotoWaits, readRecoveryRetention } from '../src/photo-visibility'
+import { dropNonCommercial } from '../src/gallery'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -287,6 +288,51 @@ test("a page led by a non-commercial photo is reached by --calendar like a page 
   // With nothing else, it leads.
   expect((await entity(root, 'none')).photos.map(p => name(p.url))).toEqual(['n-nc'])
   expect(r.gained).toEqual([`species/none: none -> ${url('n-nc')}`])
+})
+
+test.each([false, true])('an open album photo must qualify at the address that would lead (fallback: %s)', async fallback => {
+  const nc = { ...photo('nc'), url: 'https://media.aquatome.com/inaturalist/42.webp', sourceUrl: 'https://www.inaturalist.org/photos/42', licence: 'CC BY-NC 4.0' }
+  const original = photo('original')
+  const open: Photo = { ...photo('open'), licence: 'CC BY 4.0' }
+  if (fallback) {
+    open.altered = [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }]
+    open.original = { url: original.url, width: original.width, height: original.height }
+  }
+  const root = await store({ aaa: { photos: [nc], gallery: [nc, open] } })
+  const served = fallback ? original.url : open.url
+  const state = (name: string, value: unknown) => writeFile(join(root, 'engine-state', name), JSON.stringify(value))
+  await state('_photo-subjects.json', { [open.url]: { aaa: { ok: 'yes', typical: true, ...(fallback ? { logo: false } : {}) } } })
+  await state('_photo-faces.json', { [nc.url]: 0, [open.url]: 0, [served]: 0 })
+  await state('_dead-screen.json', { [nc.url]: { dead: false } })
+  const { d, seen } = model(yes)
+
+  expect((await screenLeads(root, d, { limit: 1 })).changed).toEqual([])
+  expect((await entity(root, 'aaa')).photos).toEqual([nc])
+  await state('_dead-screen.json', { [nc.url]: { dead: false }, [served]: { dead: false } })
+  expect((await screenLeads(root, d, { limit: 1 })).changed).toHaveLength(1)
+  expect((await entity(root, 'aaa')).photos.map(p => p.url)).toEqual([open.url])
+  expect(seen).toEqual([])
+})
+
+test('a qualified album photo with no face cache can join a page while its non-commercial head stays', async () => {
+  const nc = { ...photo('nc'), url: 'https://media.aquatome.com/inaturalist/42.webp', sourceUrl: 'https://www.inaturalist.org/photos/42', licence: 'CC BY-NC 4.0' }
+  const open = { ...photo('open'), licence: 'CC BY 4.0' }
+  const root = await store({ aaa: { photos: [nc], gallery: [nc, open] } })
+  const facesFile = join(root, 'engine-state/_photo-faces.json')
+  await writeFile(facesFile, JSON.stringify({ [nc.url]: 0 }))
+  await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify({ [nc.url]: { dead: false }, [open.url]: { dead: false } }))
+  const { d, seen } = model(yes)
+  const sweepLicence = async () => {
+    const waits = await readPhotoWaits(root)
+    await dropNonCommercial(join(root, 'content'), undefined, p => waits(p.url))
+    return (await entity(root, 'aaa')).photos.map(p => p.url)
+  }
+
+  expect((await screenLeads(root, d, { limit: 1 })).changed).toHaveLength(1)
+  expect(await sweepLicence()).toEqual([open.url, nc.url])
+  await writeFile(facesFile, JSON.stringify({ [nc.url]: 0, [open.url]: 0 }))
+  expect(await sweepLicence()).toEqual([open.url])
+  expect(seen).toEqual([])
 })
 
 test("the step reads the calendar's hold for the head: a held head that fills the card gives way to a smaller photo that passes, with no model call (Rineloricaria castroi, 16 Nov)", async () => {

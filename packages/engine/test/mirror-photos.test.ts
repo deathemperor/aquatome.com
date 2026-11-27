@@ -3,7 +3,7 @@ import { mkdir, mkdtemp, readFile, rmdir, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { photoWaitsFor } from '@aq/schema'
+import { deadLooked, photoWaitsFor } from '@aq/schema'
 import { mirrorPhotos, mirrorPlan, type MirrorDeps } from '../src/mirror-photos'
 
 const C1280 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Oscar_%281%29.jpg/1280px-Oscar_%281%29.jpg?utm_source=commons.wikimedia.org'
@@ -100,6 +100,12 @@ test.each(['flickr square placement', 'iNaturalist larger download'])('the mirro
   await writeFile(join(r, 'content/gallery/astronotus-ocellatus.json'), JSON.stringify({ id: 'astronotus-ocellatus', photos: other ? [photo(other)] : [] }))
   const file = join(r, 'engine-state/_dead-screen.json')
   await writeFile(file, JSON.stringify({ [judged]: { dead: false } }))
+  const secondLookFile = join(r, 'engine-state/_photo-second-look.json')
+  const clear = { why: 'dead: withheld', pages: ['species/alpha'], at: '2026-11-26', step: 'the dead-fish screen',
+    look: { said: 'clear', on: '2026-11-26', by: 'reviewer' } }
+  await writeFile(secondLookFile, JSON.stringify({ [judged]: clear }))
+  const owedFile = join(r, 'engine-state/_photo-dead-owed.json')
+  await writeFile(owedFile, JSON.stringify({ [judged]: '2026-11-26' }))
   const { d, fetched } = deps()
   d.bytes = async url => { fetched.push(url); return Uint8Array.of(1) }
 
@@ -107,8 +113,14 @@ test.each(['flickr square placement', 'iNaturalist larger download'])('the mirro
 
   expect(fetched).toContain(mirrorPlan(source)!.fetch[0])
   expect(fetched).not.toContain(judged)
-  expect(JSON.parse(await readFile(file, 'utf8'))).toEqual({ [judged]: { dead: false } })
-  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(d.media.urlFor(mirrorPlan(source)!.key))
+  const screen = JSON.parse(await readFile(file, 'utf8'))
+  const secondLook = JSON.parse(await readFile(secondLookFile, 'utf8'))
+  const destination = d.media.urlFor(mirrorPlan(source)!.key)
+  expect(screen).toEqual({ [judged]: { dead: false } })
+  expect(secondLook).toEqual({ [judged]: clear })
+  expect(JSON.parse(await readFile(owedFile, 'utf8'))).toEqual({ [judged]: '2026-11-26' })
+  expect(deadLooked({ screen, secondLook })(destination)).toBe(false)
+  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(destination)
 })
 
 test('a mirror used only as a fallback original keeps the stored bytes and dimensions', async () => {

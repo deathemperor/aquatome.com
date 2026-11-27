@@ -2,7 +2,7 @@ import sharp from 'sharp'
 import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { basename, join } from 'node:path'
-import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, THUMB_WIDTH, type ImageSwitches } from '@aq/schema'
+import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, photoLookAnswer, THUMB_WIDTH, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
 import { looks, readSecondLook } from './last-photo'
 
@@ -131,13 +131,28 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     const name = basename(path)
     let n = 0
     const refusals = name === '_photo-rejected.json'
-    for (const [from, to] of refusals || name === '_photo-dead-owed.json' ? moved : copies) if (from in cache && !(to in cache)) {
+    for (const [from, to] of refusals ? moved : copies) if (from in cache && !(to in cache)) {
       const value = cache[from]
       if (refusals && typeof value === 'string' && value.startsWith('waiting:')) continue
       cache[to] = value
       n++
     }
     if (n) await writePhotoState(path, cache)
+  }
+
+  // The same uploaded rendition keeps its review answer. Recovery places still belong to the source record.
+  if (copies.length) {
+    const marks = await readSecondLook(root)
+    let changed = false
+    for (const [from, to] of copies) {
+      const mark = marks[from]
+      const look = photoLookAnswer(mark)
+      if (!mark || look?.said !== 'clear' || to in marks) continue
+      const { why, step, pages, at } = mark
+      marks[to] = { why, step, pages, at, look }
+      changed = true
+    }
+    if (changed) await writeSecondLook(root, marks)
   }
   // Keep a source reference available for retry until its transferred records are durable.
   for (const [file, raw] of edits) await writeFile(file, raw)

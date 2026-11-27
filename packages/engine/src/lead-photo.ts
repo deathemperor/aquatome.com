@@ -1,12 +1,13 @@
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { isNonCommercial, photoFitsHead, type Photo } from '@aq/schema'
+import { IMAGE_SWITCHES, isNonCommercial, photoFitsHead, publicPhotoVersion, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { across, cardWorthy, handAvoid, LARGE_PX, ownMarkOnly, readCalendar, readVerdicts, SLOT_RATIO } from './curation'
 import { pickStands, readPersonYes } from './person-yes'
 import { namedOn } from './photo-named'
+import { readPhotoSources, readPhotoWaits } from './photo-visibility'
 import { ageOf, grownHead } from './young-heads'
 import { contactSheet } from './video-images'
 
@@ -128,7 +129,9 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
   const content = join(root, 'content')
   const file = join(root, 'engine-state', '_photo-leads.json')
   const compared: Compared = JSON.parse(await readFile(file, 'utf8').catch(() => '{}'))
-  const verdicts = await readVerdicts(root)
+  const [verdicts, waits, sources] = await Promise.all([
+    readVerdicts(root), readPhotoWaits(root, { requireDeadLook: true }), readPhotoSources(content),
+  ])
   const cur = await readCalendar(root)
   // A person's entries alone: the engine's (headAvoid) list a photo refused for one page, by address, and here a photo is
   // judged for its own page, where it may pass.
@@ -173,7 +176,19 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
     if (picks[f.ref] && pickStands(f.ref, picks[f.ref]!, verdicts.subjects, yes)) return undefined
     return ageOf(verdicts.subjects[p.url]?.[f.id]) === true ? true : grown(asked(f, p), f.id) && !(p.url in avoid) ? false : undefined
   }
-  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(asked(f, p), f.id, verdicts, avoid), compared, p => ownMarkOnly(asked(f, p), f.id, verdicts, avoid), named(f.id), p => !!verdicts.kept?.(p.url), age(f), p => p.url in avoid)
+  const servedVersion = (p: Photo) =>
+    publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
+  const choose = (f: Fish) => {
+    const eligible = (p: Photo) => {
+      if (f.ref.startsWith('breeds/')) return true
+      const served = servedVersion(p)
+      return !!served && !waits(served.url)
+    }
+    const ageOfPhoto = age(f)
+    return leadChoice(f.entity.photos ?? [], f.gallery, p => eligible(p) && cardWorthy(asked(f, p), f.id, verdicts, avoid),
+      compared, p => eligible(p) && ownMarkOnly(asked(f, p), f.id, verdicts, avoid), named(f.id), p => !!verdicts.kept?.(p.url),
+      p => eligible(p) ? ageOfPhoto(p) : undefined, p => p.url in avoid)
+  }
 
   // Asked in rounds, since a pair answered no sends its fish on to the next photo.
   const dir = await mkdtemp(join(tmpdir(), 'lead-photos-'))
@@ -228,8 +243,13 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
     const own = f.entity.photos ?? []
     const { best: _b, kind: _k, ...photo } = c.lead as GalleryPhoto
     const had = own.find(p => p.url === photo.url)
-    // A non-commercial head that gives way goes back to its album alone (gallery.ts dropNonCommercial).
-    const photos = [had ?? photo, ...own.filter(p => p.url !== photo.url && !isNonCommercial(p.licence))]
+    // An eligible album photo can join the page so faces will read it next time. A visible non-commercial head stays
+    // until the replacement has a face result of its own (the sweep then applies the sole-photo licence rule).
+    const shown = servedVersion(had ?? photo)
+    const awaitsFace = !f.ref.startsWith('breeds/') && shown && !Object.hasOwn(verdicts.faces, shown.url)
+    const keepsHead = (p: Photo) => !isNonCommercial(p.licence) ||
+      (awaitsFace && Object.hasOwn(verdicts.faces, servedVersion(p)?.url ?? ''))
+    const photos = [had ?? photo, ...own.filter(p => p.url !== photo.url && keepsHead(p))]
     ;(own.length ? report.changed : report.gained).push(`${f.ref}: ${own[0]?.url ?? 'none'} -> ${photo.url}`)
     await writeFile(f.path, `${JSON.stringify({ ...f.entity, photos }, null, f.raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
