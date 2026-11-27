@@ -1,4 +1,4 @@
-import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, photoWaitsFor, publicPhotoVersion, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, photoWaitsFor, publicPhotoVersion, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -86,7 +86,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     readJson<Record<string, unknown>>(state(PHOTO_SUBJECTS_FILE)),
   ])
   const watermarkCache = await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))
-  const isListed = photoRejections(photoRejected, watermarkCache)
+  const isListed = photoRejections(await expandWholePhotoRejections(content, photoRejected, watermarkCache), watermarkCache)
   const lookedBefore = deadLooked({ screen: cache, check, subjects, secondLook: await readSecondLook(root) })
   // `firstOff`: a page's last photo the hold doesn't keep, its first verdict on a photo that never passed the check (last-photo.ts).
   const report = { sheets: 0, judged: 0, dead: [] as string[], held: [] as string[], firstOff: [] as string[], failed: [] as string[], left: 0, stopped: '' }
