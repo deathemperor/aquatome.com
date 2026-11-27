@@ -166,7 +166,7 @@ async function unjudged(root: string, contentRoot: string): Promise<string[]> {
     ownDeadPhotoUrls(contentRoot), read(DEAD_SCREEN_FILE), read(PHOTO_CHECK_FILE), read(PHOTO_SUBJECTS_FILE), read(SECOND_LOOK_RECORD), read(PHOTO_REJECTED_FILE), read(PHOTO_SCREEN_FILE),
   ])
   const looked = deadLooked({ screen, check, subjects, secondLook })
-  const listed = photoRejections(rejected as Record<string, string>, marks as Record<string, PhotoScreenEntry>)
+  const listed = photoRejections(rejected as Record<string, string>, marks as Record<string, PhotoScreenEntry>, heldPhotoVersion(secondLook))
   return [...shown].filter(u => !looked(u) && !listed(u))
 }
 

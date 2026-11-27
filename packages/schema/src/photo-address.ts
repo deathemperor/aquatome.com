@@ -68,6 +68,9 @@ export function photoAddressSet(urls: Iterable<string>): (url: string) => boolea
   }
 }
 
+const CREDIT_HOLD_TEXT = 'rejected: held for a credit read'
+export const CREDIT_HOLD_REJECTION = `rejected: withheld [sha256:${createHash('sha256').update(CREDIT_HOLD_TEXT).digest('hex')}]`
+
 /** These refusals apply to the version that received the verdict. */
 export const isVersionRejection = (reason: string): boolean => /^(?:dead|people|waiting): /.test(reason)
 

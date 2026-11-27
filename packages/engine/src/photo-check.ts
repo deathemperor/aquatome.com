@@ -6,7 +6,7 @@ import { writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { deadScreenPhotoUrls, heldPhotoVersion, isVersionRejection, originalPhotoRefusals, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoVersionAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
+import { deadScreenPhotoUrls, heldPhotoVersion, isVersionRejection, originalPhotoRefusals, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoVersionAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, type Photo as ContentPhoto } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -819,6 +819,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // dead or a person, on a photo that never passed, isn't held: it comes off, even as a page's last photo, and waits for
   // its look marked on both lists (last-photo.ts), as does one already marked.
   const first = (url: string) => sl.off(url) || (Object.hasOwn(added, url) && freshBad.has(url))
+  const separateHolds = new Set(Object.keys(added).filter(url => passedPhoto(url) && isVersionRejection(added[url]!)))
+  const separateHold = (url: string) => separateHolds.has(url)
+  const firstByAddress = photoRejections(Object.fromEntries(Object.entries(added).filter(([url]) => first(url))), {}, separateHold)
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
   const pendingGlobal = photoRejections(added, marks)
@@ -889,8 +892,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   const blockedVersions = async (file: string) => {
     const urls = new Set<string>()
-    const firstByAddress = rejectedEntry(Object.fromEntries(Object.entries(added).filter(([url]) => first(url))))
-    for (const photo of await ownPhotos(file)) {
+      for (const photo of await ownPhotos(file)) {
       const served = versionOf(photo)?.url
       for (const version of new Set([photo.url, ...(served ? [served] : [])])) {
         const blocked = blockedAs(file, version)
@@ -970,9 +972,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       firstOff.delete(url)
     } else firstByPhoto.set(key, url)
   }
+  const refusedFirst = photoRejections(Object.fromEntries([...firstOff].map(([url, mark]) => [url, mark.why])), {}, separateHold)
   for (const url of Object.keys(added)) {
     if (firstOff.has(url)) continue
-    const canonical = firstByPhoto.get(photoKey(url) ?? url)
+    const canonical = refusedFirst(url)?.[0]
     if (canonical) firstAliases.set(url, canonical)
   }
   for (const [url, h] of firstOff) report.firstOff.push(`${[...new Set(h.pages)].join(', ')}: ${url}`)
@@ -1010,7 +1013,6 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     delete added[url]
     report.blocked = report.blocked.filter(x => !x.startsWith(`${url}: `))
   }
-  const firstRefused = photoAddressSet(firstOff.keys())
   const edits = new Map<string, string>()
   for (const file of new Set([...shown.map(x => x.file), ...linkedFiles])) {
     if (held.has(file)) {
@@ -1018,7 +1020,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const raw = await readFile(file, 'utf8')
       const data = JSON.parse(raw) as { photos?: Photo[] }
       const removed: string[] = []
-      stripPhotos(data, url => first(url) || firstRefused(url), removed, [], preservesOriginal)
+      stripPhotos(data, url => first(url) || !!refusedFirst(url), removed, [], preservesOriginal)
       if (!removed.length) continue
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
       edits.set(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)

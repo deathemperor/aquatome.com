@@ -1,5 +1,4 @@
-import { createHash } from 'node:crypto'
-import { isVersionRejection, photoAddressSet, photoVersionAddressSet, type PhotoRejection } from './photo-address'
+import { CREDIT_HOLD_REJECTION, isVersionRejection, photoAddressSet, photoVersionAddressSet, type PhotoRejection } from './photo-address'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { isOwnerCrop, type ImageSwitches } from './image-policy'
@@ -98,14 +97,12 @@ export function publicPhotoVersion<P extends Photo>(p: P, images: Readonly<Image
   return { ...rest, ...original } as P
 }
 
-export { isVersionRejection, photoVersionAddressSet } from './photo-address'
+export { CREDIT_HOLD_REJECTION, isVersionRejection, photoVersionAddressSet } from './photo-address'
 
 /** A waiver can lift a watermark decision, so it must never replace an independent refusal. */
 export const maySupersedePhotoRefusal = (prior: string | undefined, decision: string): boolean =>
   !prior || (prior === CREDIT_HOLD_REJECTION && !decision.startsWith('waiting:')) || (!decision.startsWith('watermark:') &&
     (prior.startsWith('watermark:') || (isVersionRejection(prior) && !isVersionRejection(decision))))
-const CREDIT_HOLD_TEXT = 'rejected: held for a credit read'
-export const CREDIT_HOLD_REJECTION = `rejected: withheld [sha256:${createHash('sha256').update(CREDIT_HOLD_TEXT).digest('hex')}]`
 export const CREDIT_HOLD_FILE = '_credit-holds.json'
 
 /** The stored URL and any original the public loader can use if it withdraws an alteration. */
@@ -292,7 +289,8 @@ function unansweredHold(record: unknown): boolean {
 export function heldPhotoVersion(records: Record<string, unknown> = {}): (url: string) => boolean {
   return url => {
     const mark = records[url] as LookMark | undefined
-    return typeof mark?.why === 'string' && isVersionRejection(mark.why) && unansweredHold(mark)
+    return typeof mark?.why === 'string' && isVersionRejection(mark.why) &&
+      (unansweredHold(mark) || photoLookAnswer(mark)?.said === 'clear')
   }
 }
 

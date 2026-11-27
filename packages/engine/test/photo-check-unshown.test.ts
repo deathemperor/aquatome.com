@@ -637,6 +637,26 @@ test('an existing whole-photo source rejection also excludes its mirror as a rep
   expect(await photosOf(r, 'aaa')).toContain('a-dead')
 })
 
+test('a first dead verdict on a square crop does not take off a separately passed mirror', async () => {
+  const r = await store({ aaa: [], bbb: [] })
+  const square = 'https://live.staticflickr.com/123/456_abc_q.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(square)!.key}`
+  const photoAt = (address: string) => ({ ...photo('sample'), url: address, source: undefined, licence: 'CC BY 4.0' })
+  await writeFile(join(r, 'content/species/aaa/entity.json'), JSON.stringify(fish('aaa', [photoAt(square)])))
+  await writeFile(join(r, 'content/species/bbb/entity.json'), JSON.stringify(fish('bbb', [photoAt(mirror)])))
+  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({ [mirror]: oldPass }))
+  const report = await checkPagePhotos(r, model({ [name(square)]: dead, [name(mirror)]: dead }), { limit: 10, emptyCap: 0 })
+
+  expect(report.heads.held).toEqual([`species/bbb: ${mirror}`])
+  expect(await photosOf(r, 'aaa')).toEqual([])
+  expect(await photosOf(r, 'bbb')).toEqual([name(mirror)])
+  const reviews = await json(r, 'engine-state/_photo-second-look.json')
+  expect(reviews[square]).toMatchObject({ off: true, pages: ['species/aaa'] })
+  expect(reviews[mirror]).toMatchObject({ pages: ['species/bbb'] })
+  expect(reviews[mirror].off).toBeUndefined()
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [square]: waitingEntry(reviews[square].why) })
+})
+
 test('a held mirror also suppresses a new watermark refusal at its source', async () => {
   const r = await store({ aaa: [], bbb: [] }, { 'a-live': { aaa: oldPass } })
   const source = 'https://live.staticflickr.com/123/456_abc.jpg'

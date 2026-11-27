@@ -1,4 +1,4 @@
-import { isVersionRejection, photoAddressSet, photoKey, rejectedEntry, type PhotoRejection } from './photo-address'
+import { CREDIT_HOLD_REJECTION, isVersionRejection, photoAddressSet, photoKey, rejectedEntry, type PhotoRejection } from './photo-address'
 
 /**
  * The shops whose own mark on their own photos the owner allows: Aquarium Glaser's logo first (the chief of staff,
@@ -70,7 +70,7 @@ export function photoRejections(
   const retained = photoAddressSet(Object.keys(marks).filter(url => retainedOwnMark(url, marks[url])))
   const active = Object.entries(rejected).filter(([url, why]) => !why.startsWith('watermark:') || !retained(url))
   const whole = active.filter(([, why]) => !isVersionRejection(why))
-  const permanent = rejectedEntry(Object.fromEntries(whole.filter(([, why]) => !why.startsWith('watermark:'))))
+  const permanent = rejectedEntry(Object.fromEntries(whole.filter(([, why]) => !why.startsWith('watermark:') && why !== CREDIT_HOLD_REJECTION)))
   const anyWhole = rejectedEntry(Object.fromEntries(whole))
   const any = rejectedEntry(Object.fromEntries(active))
   return url => {
