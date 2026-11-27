@@ -278,6 +278,19 @@ export function photoClears(records: Record<string, unknown> = {}): (url: string
   }
 }
 
+/** A previously passed check can protect a last photo even when it predates the current screening questions. */
+export function passedBefore(subjects: Record<string, unknown> = {}, check: Record<string, unknown> = {}): Set<string> {
+  const passed = (record: unknown) => {
+    const verdict = record as { ok?: string; person?: boolean } | undefined
+    return verdict?.ok === 'yes' && verdict?.person !== true
+  }
+  const urls = new Set(Object.keys(check).filter(url => passed(check[url])))
+  for (const [url, records] of Object.entries(subjects)) {
+    if (records && typeof records === 'object' && !Array.isArray(records) && Object.values(records).some(passed)) urls.add(url)
+  }
+  return urls
+}
+
 type LookMark = { why?: unknown; off?: boolean; left?: unknown; settled?: unknown; waitingReasons?: unknown; originals?: unknown }
 
 function unansweredHold(record: unknown): boolean {
@@ -294,6 +307,15 @@ export function heldPhotoVersion(records: Record<string, unknown> = {}): (url: s
   }
 }
 
+/** A separately passed or reviewed rendition does not borrow a first refusal from a different crop. */
+export function reviewedPhotoVersion(
+  reviews?: Record<string, unknown>, check?: Record<string, unknown>, subjects?: Record<string, unknown>,
+): (url: string) => boolean {
+  const held = heldPhotoVersion(reviews)
+  const passed = photoVersionAddressSet(passedBefore(subjects, check))
+  return url => held(url) || passed(url)
+}
+
 /** An unanswered hold stays with the photo when its source is mirrored. */
 export function photoHolds(records: Record<string, unknown> = {}): (url: string) => boolean {
   const held = photoAddressSet(Object.keys(records).filter(url => unansweredHold(records[url])))
@@ -301,7 +323,7 @@ export function photoHolds(records: Record<string, unknown> = {}): (url: string)
 }
 
 /** A first-refusal mark is durable before its rejection entry is written. */
-function photoFirstOff(records: Record<string, unknown> = {}): (url: string) => boolean {
+function photoFirstOff(records: Record<string, unknown> = {}, reviewed = heldPhotoVersion(records)): (url: string) => boolean {
   const marked = Object.entries(records).filter(([, record]) => {
     const mark = record as LookMark | undefined
     return mark?.off === true && typeof mark.why === 'string' && photoLookAnswer(mark)?.said !== 'clear'
@@ -310,7 +332,7 @@ function photoFirstOff(records: Record<string, unknown> = {}): (url: string) => 
     const { why, originals } = record as { why: string; originals?: string[] }
     return [[url, why], ...(Array.isArray(originals) ? originals.filter(u => typeof u === 'string').map(u => [u, why]) : [])]
   }))
-  const refused = photoRejections(rejected, {}, heldPhotoVersion(records))
+  const refused = photoRejections(rejected, {}, reviewed)
   return url => !!refused(url)
 }
 
@@ -372,7 +394,7 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
     completedDeadVerdict(r.deadScreen?.[url]) || !!photoLookAnswer(r.secondLook?.[url]))
   const cleared = photoClears(r.secondLook)
   const held = photoHolds(r.secondLook)
-  const firstOff = photoFirstOff(r.secondLook)
+  const firstOff = photoFirstOff(r.secondLook, reviewedPhotoVersion(r.secondLook, r.check, r.subjects))
   const directFaces = new Set(Object.keys(r.faces ?? {}).filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)))
   const faceWaits = photoAddressSet([...(r.unread ?? []), ...directFaces])
   const refusedByCheck = new Set<string>()

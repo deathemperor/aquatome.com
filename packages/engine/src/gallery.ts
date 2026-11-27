@@ -3,7 +3,7 @@ import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, heldPhotoVersion, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
+import { GallerySchema, heldPhotoVersion, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, photoVersionAddressSet, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -14,7 +14,7 @@ import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, unfitCommons } from './photos'
-import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutClearedWaits, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readPassedBefore, readSecondLook, withoutClearedWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -552,7 +552,9 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   let openverseFailures = 0
   const today = d.now().toISOString().slice(0, 10)
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
-  const rejection = photoRejections(cleanupRejected, {}, heldPhotoVersion(sl))
+  const reviewed = heldPhotoVersion(sl)
+  const passed = photoVersionAddressSet(await readPassedBefore(root))
+  const rejection = photoRejections(cleanupRejected, {}, url => reviewed(url) || passed(url))
   const why = (url: string) => {
     const entry = rejection(url)
     return entry?.[1].startsWith('watermark:') && (markKept(url) || markKept(entry[0])) ? undefined : entry?.[1]

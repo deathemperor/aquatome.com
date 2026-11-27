@@ -246,6 +246,7 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
     // An eligible album photo can join the page so faces will read it next time. A visible non-commercial head stays
     // until the replacement has a face result of its own (the sweep then applies the sole-photo licence rule).
     const shown = servedVersion(had ?? photo)
+    if (!f.ref.startsWith('breeds/') && (!shown || waits(shown.url))) continue
     const awaitsFace = !f.ref.startsWith('breeds/') && shown && !Object.hasOwn(verdicts.faces, shown.url)
     const keepsHead = (p: Photo) => !isNonCommercial(p.licence) ||
       (awaitsFace && Object.hasOwn(verdicts.faces, servedVersion(p)?.url ?? ''))
