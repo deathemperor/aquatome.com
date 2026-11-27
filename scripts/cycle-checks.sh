@@ -619,7 +619,7 @@ main_holds() {
 video_recheck_rules_current() {
   [ -n "${AQ_SCRIPT_HEAD:-}" ] &&
     git diff --quiet "$AQ_SCRIPT_HEAD" HEAD -- \
-      scripts/cycle-checks.sh scripts/video-recheck.sh scripts/video-recheck-publish.sh .nvmrc pnpm-lock.yaml
+      scripts/cycle-checks.sh scripts/video-recheck.sh scripts/video-recheck-publish.sh .nvmrc .npmrc pnpm-workspace.yaml pnpm-lock.yaml
 }
 
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
@@ -634,6 +634,10 @@ push_kept() {
   case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
   for _ in 1 2 3; do
     main=$(git rev-parse origin/main 2>/dev/null || true) run=$(git rev-parse HEAD) swept=
+    if [ -n "$video_recheck" ]; then
+      # A fetch can update origin/main before this try pulls it into the checked tree.
+      main=$(git merge-base "$run" "$main") || { KEPT_WHY="could not find the video recheck's base"; return 1; }
+    fi
     if ! net git pull -q --rebase origin main; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort 2>/dev/null || true
@@ -666,14 +670,17 @@ push_kept() {
       head=$(git rev-parse HEAD)
       sweep_merged
       swept=1
-      if [ -n "$video_recheck" ]; then
-        # Like a fresh video recheck, a recovered one can reuse a pass only for the exact tree it checked.
-        if [ "$(git rev-parse 'HEAD^{tree}')" != "$checked_tree" ] || [ -n "$MIGRATE_FAILED" ]; then check=1; fi
-      elif swept_clean "$head" "$main" "$(git rev-parse origin/main)"; then
-        log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
-      else
-        check=1
+      if [ -z "$video_recheck" ]; then
+        if swept_clean "$head" "$main" "$(git rev-parse origin/main)"; then
+          log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
+        else
+          check=1
+        fi
       fi
+    fi
+    # Recovered video work can reuse a pass only for the exact tree it checked.
+    if [ -n "$video_recheck" ] && { [ "$(git rev-parse 'HEAD^{tree}')" != "$checked_tree" ] || [ -n "$MIGRATE_FAILED" ]; }; then
+      check=1
     fi
     if [ -n "$check" ]; then
       [ -n "$swept" ] || sweep_merged

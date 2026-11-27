@@ -179,9 +179,15 @@ function atOut2(c: ReturnType<typeof clone>, work = 'echo photos > content/b.jso
   return base
 }
 
-test.each(['kept', 'held'])('a %s video recheck checks the rebased tree after losing a push', (prefix) => {
+test.each([
+  ['kept', false],
+  ['held', false],
+  ['kept', true],
+  ['held', true],
+] as const)('a %s video recheck checks the rebased tree after losing a push (fetch first: %s)', (prefix, fetchFirst) => {
   const c = clone()
-  const branch = `${prefix}/video-recheck/20261127T030000`
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const branch = `${prefix}/video-recheck/${when}`
   c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${branch} && git reset -q --hard origin/main`)
   if (prefix === 'held') {
     c.elsewhere('code.txt', 'new')
@@ -189,6 +195,7 @@ test.each(['kept', 'held'])('a %s video recheck checks the rebased tree after lo
   }
   c.cycle(`
     AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    ${fetchFirst ? 'sleep() { git fetch -q origin; }' : ''}
     ${racing('echo new > content/disjoint.json && git add .', "echo 'AssertionError: combined tree failed'; return 1")}
     publish_kept video-recheck
   `)

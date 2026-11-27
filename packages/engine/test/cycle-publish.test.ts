@@ -48,7 +48,7 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   // Kept work: after a pull that brought main's commits in, checked in full until it has passed; then swept, and checked
   // again only if the sweep changed more than the pages' dates or the migration failed, as a run's own push does, on that
   // one sweep.
-  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$\(git rev-parse origin\/main 2>\/dev\/null\)" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged\n\s*swept=1\n\s*if \[ -n "\$video_recheck" \]; then[^]*?\n\s*elif swept_clean "\$head" "\$main" "\$\(git rev-parse origin\/main\)"; then/)
+  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$\(git rev-parse origin\/main 2>\/dev\/null\)" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged\n\s*swept=1\n\s*if \[ -z "\$video_recheck" \]; then\n\s*if swept_clean "\$head" "\$main" "\$\(git rev-parse origin\/main\)"; then/)
   expect(script('cycle-checks.sh')).toMatch(/\n\s*fi\n\s*if \[ -n "\$check" \]; then\n\s*\[ -n "\$swept" \] \|\| sweep_merged/)
 
   const dir = mkdtempSync(join(tmpdir(), 'aq-pulled-'))
@@ -173,6 +173,7 @@ test.each([
   ['during', 'content/other.json', true, 'checked old main\nchecked new main\nkept unpublished\nexit 1'],
   ['before', 'scripts/cycle-checks.sh', true, 'kept lost push\nexit 1'],
   ['during', 'scripts/cycle-checks.sh', true, 'checked old main\nkept lost push\nexit 1'],
+  ['during', 'pnpm-workspace.yaml', true, 'checked old main\nkept lost push\nexit 1'],
 ])('video recheck checks main moving %s its checks with %s', (when, changed, fails, trace) => {
   const dir = mkdtempSync(join(tmpdir(), 'aq-video-push-'))
   const repo = join(dir, 'repo')
