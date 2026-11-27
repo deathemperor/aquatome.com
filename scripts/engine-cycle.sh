@@ -28,8 +28,8 @@ if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pa
 deploy() { gh workflow run deploy.yml -R "${GITHUB_REPOSITORY:-deathemperor/aquatome.com}" --ref main; }
 # Push this part's commit on top of whatever landed during the run (code, the other parts' content).
 push() {
-  local main run moved SWEEP_ORIGINAL_HEAD
-  SWEEP_ORIGINAL_HEAD=$(git rev-parse HEAD)
+  local main run moved
+  local SWEEP_ORIGINAL_HEAD="${SWEEP_ORIGINAL_HEAD:-$(git rev-parse HEAD)}"
   for _ in 1 2 3; do
     # main: the commit this work sits on, not the last main fetched, which a fetch before this pull (catch_up's, stopped
     # after its fetch) may have moved: swept_pull then sees main's commits come in (a reader's catch, 16 Nov).
@@ -508,6 +508,7 @@ if [ -n "${SWEEP_FAILED:-}" ]; then keep_unpublished "$PART"; log "sweep failed,
 # Checked on top of main as it is now (catch_up), not as it was when the cycle started hours ago: the suite must pass
 # (verify_cycle; deploy.yml builds the real site before it goes live). A commit that fails twice is held, unpublished,
 # unless its tests only ran out of time: then it's kept, and the next cycle publishes it first (keep_unpublished).
+SWEEP_ORIGINAL_HEAD=$(git rev-parse HEAD)
 catch_up
 sweep_merged
 if ! verify_cycle; then
