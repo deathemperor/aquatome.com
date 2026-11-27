@@ -1,4 +1,4 @@
-import { CREDIT_HOLD_REJECTION, heldPhotoVersion, maySupersedePhotoRefusal, isNonCommercial, isVersionRejection, originalPhotoRefusals, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoVersionAddressSet, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, setsCookies, type Photo } from '@aq/schema'
+import { CREDIT_HOLD_REJECTION, heldPhotoVersion, maySupersedePhotoRefusal, isNonCommercial, isVersionRejection, originalPhotoRefusals, passedBefore, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoVersionAddressSet, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, setsCookies, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -54,11 +54,12 @@ export async function readSecondLook(root: string): Promise<SecondLooks> {
 }
 
 /** The second look's answers, as each step asks them. */
-export function looks(sl: SecondLooks) {
+export function looks(sl: SecondLooks, passed: (url: string) => boolean = () => false) {
   const cleared = photoClears(sl)
   const held = photoHolds(sl)
   const off = (url: string) => has(sl, url) && sl[url]!.off === true && !lookOf(sl[url])
-  const firstRefusal = photoRejections(Object.fromEntries(Object.keys(sl).filter(off).map(url => [url, sl[url]!.why])), {}, heldPhotoVersion(sl))
+  const reviewed = heldPhotoVersion(sl)
+  const firstRefusal = photoRejections(Object.fromEntries(Object.keys(sl).filter(off).map(url => [url, sl[url]!.why])), {}, url => reviewed(url) || passed(url))
   const pendingOff = (url: string) => !!firstRefusal(url)
   return {
     /** Cleared: no automatic verdict takes it off. */
@@ -185,15 +186,7 @@ export function lastPhotoVerdicts(
 
 const today = () => new Date().toISOString().slice(0, 10)
 
-/** A verdict of the photo check that passed: "yes", with no person in the photo. */
-const passes = (v: unknown) => object(v) && v.ok === 'yes' && v.person !== true
-/** The photos that passed the photo check before: any page's verdict for it, or the first check's, a pass (above). */
-export function passedBefore(subjects: Record<string, unknown>, legacy: Record<string, unknown> = {}): Set<string> {
-  const out = new Set<string>()
-  for (const [u, by] of Object.entries(subjects)) if (object(by) && Object.values(by).some(passes)) out.add(u)
-  for (const [u, v] of Object.entries(legacy)) if (passes(v)) out.add(u)
-  return out
-}
+export { passedBefore } from '@aq/schema'
 /** The same, from the check's verdict files as they are now: a step's start. */
 export async function readPassedBefore(root: string): Promise<Set<string>> {
   const read = async (f: string) => JSON.parse(await readFile(join(root, 'engine-state', f), 'utf8').catch(() => '{}')) as Record<string, unknown>

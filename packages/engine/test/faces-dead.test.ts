@@ -650,6 +650,42 @@ test.each([false, true])('the face finder holds a passed last photo while its si
     .toMatchObject({ step: 'face detection', pages: ['species/alpha'] })
 })
 
+test('a passed mirror without a review remains visible through a square refusal and the sweep', async () => {
+  const square = { ...photo('square'), url: 'https://live.staticflickr.com/123/456_abc_q.jpg' }
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(square.url)!.key}` }
+  const { root, state, file, publicView } = await publicFixture([mirror], [mirror], [mirror.url, square.url])
+  const other = join(root, 'content/species/second')
+  await mkdir(other)
+  const entity = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(join(other, 'entity.json'), JSON.stringify({ ...entity, id: 'second', photos: [square] }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [mirror.url]: { ok: 'yes', typical: true, logo: false, person: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0, [square.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), '{}')
+  const fetched: string[] = []
+  const jpeg = new Uint8Array(await sharp({ create: { width: 96, height: 80, channels: 3, background: '#468' } }).jpeg().toBuffer())
+  await checkPagePhotos(root, {
+    get: async url => { fetched.push(url); return jpeg },
+    look: async () => ({ photos: fetched.splice(0).map((url, i) => ({
+      n: i + 1, ok: url === square.url ? 'dead' as const : 'yes' as const, typical: false, logo: false, person: false, note: '',
+    })) }),
+  }, { limit: 10, emptyCap: 0 })
+
+  const marks = await json(root, 'engine-state/_photo-second-look.json')
+  expect(marks[square.url].off).toBe(true)
+  expect(marks[mirror.url]).toBeUndefined()
+  const visible = async () => {
+    const view = await publicView()
+    expect(view.species.find(page => page.id === 'alpha')?.photos.map(p => p.url)).toEqual([mirror.url])
+    expect(view.galleries.alpha?.map(p => p.url)).toEqual([mirror.url])
+    expect(view.photoWaits!(mirror.url)).toBe(false)
+    expect(view.photoWaits!(square.url)).toBe(true)
+  }
+  await visible()
+  await sweep(root, { history: gitHistory(root) })
+  expect((await json(root, 'content/species/alpha/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([mirror.url])
+  await visible()
+})
+
 test('one ordinary album photo still displays on the web while it owes a look for lead promotion', async () => {
   const pending = photo('album-unjudged')
   const { state, publicView } = await publicFixture([], [pending], [pending.url])
