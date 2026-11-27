@@ -1,8 +1,8 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { handbookOf, sectionsOf, type Handbook, type Source } from '../chat/handbook'
-import { HANDED_NOTE, handoverFor, handsOver, type Found, type SectionSearch } from '../chat/handover'
+import { handbookOf, sectionsOf, type Handbook, type Item, type Source } from '../chat/handbook'
+import { HANDED_NOTE, handoverFor, handsOver, mentionedPages, namedPagesFor, type Found, type SectionSearch } from '../chat/handover'
 import { sectionSearch } from '../chat/section-search'
 import type { Tank } from '../chat/tools'
 
@@ -17,6 +17,46 @@ const SECTIONED = '/vi/huong-dan/ca-nano-cho-be-19-lit/'
 const tank: Tank = { id: 't1', name: 'Bể phòng khách', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 10 }], unlisted: [] }
 const POST = 'Bể em mới set được ba tuần, nước cứ đục trắng dù đã thay nước. '.repeat(4)
 const finds = (found: Found[]) => { const asked: string[] = []; const search: SectionSearch = async t => { asked.push(t); return found }; return { asked, search } }
+
+test('only the longest unambiguous names in the question select fish or plant pages', async () => {
+  const items: Item[] = [
+    { kind: 'fish', name: 'Cá neon đỏ', path: '/vi/ca/neon-do/', aka: ['neon'] },
+    { kind: 'plant', name: 'Rong đuôi chồn', path: '/vi/cay/rong-duoi-chon/', sub: 'Ceratophyllum demersum' },
+    { kind: 'fish', name: 'Cá neon xanh', path: NEON, aka: ['neon'], sub: 'Paracheirodon innesi' },
+    { kind: 'guide', name: 'Rong đuôi chồn', path: GUIDE },
+  ]
+  const handbook = { ...await hb(), items }
+  expect(mentionedPages('Em nuôi neon với neon nữa.', handbook)).toEqual([])
+  expect(mentionedPages('CA NEON XANH bơi quanh Ceratophyllum demersum, rong đuôi chồn sao vàng?', handbook)).toEqual([items[2], items[1]])
+  expect(mentionedPages('Một cái đèn neonxanh', handbook)).toEqual([])
+  const thai: Item = { kind: 'fish', name: 'ปลานีออน', path: '/th/fish/neon/' }
+  expect(mentionedPages('เลี้ยงปลานีออนกี่ตัวดี', { ...handbook, lang: 'th', items: [thai] })).toEqual([thai])
+})
+
+test('named pages give card figures and section text beyond the outline, and omit missing copies', async () => {
+  const base = await hb()
+  const plant = base.byId('anubias-barteri-nana')!
+  const missing: Item = { kind: 'plant', name: 'Rong đuôi chồn', path: '/vi/cay/rong-duoi-chon/' }
+  const attempted: string[] = []
+  const h: Handbook = {
+    ...base, items: [missing, plant],
+    page: async path => {
+      attempted.push(path)
+      if (path === missing.path) throw new Error('missing page shard')
+      const doc = (await base.page(path))!
+      return { ...doc, blocks: [
+        { t: 'h', id: 'cach-trong', text: 'Cách trồng' },
+        { t: 'p', c: ['Nội dung về cây. '.repeat(12) + 'Không lấp thân rễ xuống nền.'] },
+      ] }
+    },
+  }
+  const found = await namedPagesFor(`Rong đuôi chồn và ${plant.name} hay bị vàng lá.`, h)
+  expect(attempted).toEqual([missing.path, plant.path])
+  expect(found?.sections).toEqual([{ path: plant.path, heading: null }])
+  expect(found?.text).toContain('"light":"low"')
+  expect(found?.text).toContain('Không lấp thân rễ xuống nền.')
+  expect(found?.text).not.toContain(missing.path)
+})
 
 test('sections go only with a saved tank and a question under 150 characters, spaces around it not counted', () => {
   expect(handsOver('Nước đục có sao không?', [])).toBe(false)

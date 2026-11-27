@@ -2,7 +2,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import { runAgent, type AgentRun, type Limits } from '../agent/loop'
 import { ANSWER_SCHEMA, filler, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type ChatBlock, type Choice } from './answer'
 import type { Handbook, Lang } from './handbook'
-import type { Found, Handover } from './handover'
+import { namedPagesFor, type Found, type Handover } from './handover'
 import type { MatesCheck } from './mates'
 import { openingOf } from './opening'
 import { chatTools, handedTanks, type Step, type Tank } from './tools'
@@ -287,7 +287,7 @@ export const NO_THINKING: Record<string, { thinking?: Anthropic.ThinkingConfigPa
 export const noThinking = (model: string) => NO_THINKING[model] ?? NO_THINKING['claude-opus-5-5']!
 
 /** `opening`: the first line the reader was shown, if one was (the turn leaves it out when the answer is off topic: api.ts). */
-export type ChatRun = AgentRun<Step> & { answer?: Answer; blocks: ChatBlock[]; dropped: string[]; opening?: string; handed?: Found[] }
+export type ChatRun = AgentRun<Step> & { answer?: Answer; blocks: ChatBlock[]; dropped: string[]; opening?: string; handed?: Found[]; named?: string[] }
 export type ChatOptions = {
   /**
    * One call to Claude. With `onText`, the call streams, and each raw delta of its text content (never its thinking)
@@ -407,7 +407,11 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // Asked for once the first line's call has left, so a search never holds the line back.
   const clock = o.clock ?? Date.now
   const asked = clock()
-  const [handed, tankHanded] = await Promise.all([o.handover ? inTime(o.handover, 'handover') : undefined, o.start.tank ? inTime(() => o.tanks(), 'tanks') : undefined])
+  const [handed, tankHanded, named] = await Promise.all([
+    o.handover ? inTime(o.handover, 'handover') : undefined,
+    o.start.tank ? inTime(() => o.tanks(), 'tanks') : undefined,
+    inTime(() => namedPagesFor(o.question, o.handbook), 'named pages'),
+  ])
   const opened = tankHanded ? await openedTank(o.start, async () => tankHanded, o.handbook, !!handed) : undefined
   const content = [...(first.content as Anthropic.ContentBlockParam[]), ...(opened ? [{ type: 'text' as const, text: opened }] : [])]
   // No `recheck` here: an answer that may be sent back must not stream, as the reader would have read the one it replaces.
@@ -416,7 +420,7 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     model: o.model,
     system: SYSTEM,
     tools: chatTools({ handbook: o.handbook, tanks: o.tanks, checks }),
-    first: { role: 'user', content: [...content, ...(handed ? [{ type: 'text' as const, text: handed.text }] : [])] },
+    first: { role: 'user', content: [...content, ...[named, handed].flatMap(context => context ? [{ type: 'text' as const, text: context.text }] : [])] },
     schema: ANSWER_SCHEMA as unknown as Record<string, unknown>,
     effort: o.effort ?? 'medium',
     lastEffort: o.lastEffort ?? 'low',
@@ -447,5 +451,9 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // The picks the stream didn't fill (all of them, when the text didn't stream): the same picks, as both read the same JSON.
   if (answer) for (const p of answer.blocks.slice(picked)) await blocks.add(p)
   const filled = answer ? blocks.done() : { blocks: [], dropped: [] }
-  return { ...run, ...(answer ? { answer } : {}), ...filled, ...(opening ? { opening } : {}), ...(handed?.sections.length ? { handed: handed.sections } : {}) }
+  return {
+    ...run, ...(answer ? { answer } : {}), ...filled, ...(opening ? { opening } : {}),
+    ...(handed?.sections.length ? { handed: handed.sections } : {}),
+    ...(named ? { named: named.sections.map(s => s.path) } : {}),
+  }
 }

@@ -567,6 +567,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       ...(t.answer ? { answer: { text: t.answer.text, covered: t.answer.covered, ...(t.answer.offTopic ? { offTopic: true } : {}), blocks: t.blocks.length, dropped: t.dropped } } : {}),
       ...(t.opening ? { opening: t.opening } : {}),
       ...(t.handed ? { handed: t.handed } : {}),
+      ...(t.named ? { named: t.named } : {}),
       turns: turnsOf(t.history, t.message),
     }
   }
