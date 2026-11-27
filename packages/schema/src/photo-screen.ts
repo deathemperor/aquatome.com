@@ -103,7 +103,7 @@ export const isVersionRejection = (reason: string): boolean => /^(?:dead|people|
 
 /** A waiver can lift a watermark decision, so it must never replace an independent refusal. */
 export const maySupersedePhotoRefusal = (prior: string | undefined, decision: string): boolean =>
-  !prior || (!decision.startsWith('watermark:') &&
+  !prior || (prior === CREDIT_HOLD_REJECTION && !decision.startsWith('waiting:')) || (!decision.startsWith('watermark:') &&
     (prior.startsWith('watermark:') || (isVersionRejection(prior) && !isVersionRejection(decision))))
 const CREDIT_HOLD_TEXT = 'rejected: held for a credit read'
 export const CREDIT_HOLD_REJECTION = `rejected: withheld [sha256:${createHash('sha256').update(CREDIT_HOLD_TEXT).digest('hex')}]`
@@ -273,15 +273,20 @@ export function photoLookAnswer(record: unknown): { said: 'agree' | 'clear'; by:
   return { said: look.said, by: look.by, on: look.on }
 }
 
+/** Commons mirrors resize the same file. Other source IDs can name different crops, which need their own results. */
+export function photoVersionAddressSet(urls: Iterable<string>): (url: string) => boolean {
+  const exact = new Set(urls)
+  const commons = (url: string) => photoKey(url)?.startsWith('commons/') === true
+  const resized = photoAddressSet([...exact].filter(commons))
+  return url => exact.has(url) || (commons(url) && resized(url))
+}
+
 /** A completed decision at the requested address takes precedence over a clear on the same Commons file. */
 export function photoClears(records: Record<string, unknown> = {}): (url: string) => boolean {
-  // Commons mirrors resize the same file. Photo IDs at other sources can include alternate crops. Their clears
-  // follow an upload only when mirroring can identify the exact reviewed address that supplied the image.
-  const commons = (url: string) => photoKey(url)?.startsWith('commons/') === true
-  const clears = photoAddressSet(Object.keys(records).filter(url => commons(url) && photoLookAnswer(records[url])?.said === 'clear'))
+  const clears = photoVersionAddressSet(Object.keys(records).filter(url => photoLookAnswer(records[url])?.said === 'clear'))
   return url => {
     const decision = Object.hasOwn(records, url) ? photoLookAnswer(records[url]) : undefined
-    return decision ? decision.said === 'clear' : commons(url) && clears(url)
+    return decision ? decision.said === 'clear' : clears(url)
   }
 }
 

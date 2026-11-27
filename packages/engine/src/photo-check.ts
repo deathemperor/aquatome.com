@@ -6,7 +6,7 @@ import { writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { deadScreenPhotoUrls, isVersionRejection, originalPhotoRefusals, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
+import { deadScreenPhotoUrls, isVersionRejection, originalPhotoRefusals, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoVersionAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -802,7 +802,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const ownMarkWaits = new Set(shown.filter(x => marks[x.url]?.watermark === undefined && screenedShop(x.url, x.source ?? (x.guide ? guideFrom.get(x.url) : undefined))).map(x => x.url))
   // This run's own verdicts of dead or a person on a photo that never passed the check: a first verdict (last-photo.ts).
   // A verdict cached from before doesn't count, nor does this run's verdict of anything else.
-  const passedPhoto = photoAddressSet(passed)
+  const passedPhoto = photoVersionAddressSet(passed)
   const freshBad = new Set([...judgedNow].flatMap(k => { const i = k.indexOf(' '), u = k.slice(i + 1), v = cache[u]?.[k.slice(0, i)]; return v && (v.ok === 'dead' || v.person === true) && !passedPhoto(u) ? [u] : [] }))
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict; but a hold on another reason doesn't
   // keep a photo from its first verdict of dead or a person (the independent reader, 20 Nov).
