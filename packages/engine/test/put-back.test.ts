@@ -627,6 +627,8 @@ test.each(['pending', 'settled', 'album reopened', 'edited after restore', 'new 
   git('update-ref', 'refs/remotes/origin/main', 'HEAD')
   await putBackCleared(r, gitHistory(r))
   expect(await photosOf(r, 'aaa')).toEqual(['a-dead'])
+  // The cycle also carries independent work, so an identical restoration alone cannot make Git skip the patch.
+  await writeFile(join(r, 'unrelated.txt'), 'another change from the cycle\n')
   git('add', '-A'); git('commit', '-qm', 'unpublished restore')
   if (scenario === 'edited after restore') {
     const doc = await json(r, A)
