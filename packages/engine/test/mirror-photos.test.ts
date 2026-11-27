@@ -141,8 +141,7 @@ test('the uploaded rendition keeps its human clear without copying the source re
   const copied = mark[d.media.urlFor(mirrorPlan(C1280)!.key)]
   expect(copied.look).toEqual(look)
   expect(copied).not.toHaveProperty('settled')
-  expect(copied).not.toHaveProperty('back')
-  expect(copied).not.toHaveProperty('off')
+  expect(copied).toMatchObject({ off: true, back: look.on })
 })
 
 test('a mirror used only as a fallback original keeps the stored bytes and dimensions', async () => {
@@ -242,8 +241,8 @@ test("a second look's clear follows its photo to our bucket, so the verdict copi
   expect(put).toContain('inaturalist/617421644.webp')
   const sl = JSON.parse(await readFile(join(r, 'engine-state/_photo-second-look.json'), 'utf8'))
   const mirror = 'https://media.aquatome.com/inaturalist/617421644.webp'
-  const { off: _off, left: _left, ...review } = rec
-  expect(sl).toEqual({ [INAT]: rec, [mirror]: review })
+  const { left: _left, ...review } = rec
+  expect(sl).toEqual({ [INAT]: rec, [mirror]: { ...review, back: rec.look.on } })
   expect(photoWaitsFor({ deadScreen: { [mirror]: { dead: true } }, secondLook: sl })(mirror)).toBe(false)
 })
 

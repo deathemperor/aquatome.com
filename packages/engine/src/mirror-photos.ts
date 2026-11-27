@@ -148,8 +148,9 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
       const mark = marks[from]
       const look = photoLookAnswer(mark)
       if (!mark || look?.said !== 'clear' || to in marks) continue
-      const { why, step, pages, at } = mark
-      marks[to] = { why, step, pages, at, look }
+      const { why, step, pages, at, off } = mark
+      // This alias has no restore work. Keep the restriction on which verdict its clear answers.
+      marks[to] = { why, step, pages, at, look, ...(off ? { off, back: look.on } : {}) }
       changed = true
     }
     if (changed) await writeSecondLook(root, marks)

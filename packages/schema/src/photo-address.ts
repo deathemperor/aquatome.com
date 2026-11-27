@@ -68,6 +68,22 @@ export function photoAddressSet(urls: Iterable<string>): (url: string) => boolea
   }
 }
 
+const CREDIT_HOLD_TEXT = 'rejected: held for a credit read'
+export const CREDIT_HOLD_REJECTION = `rejected: withheld [sha256:${createHash('sha256').update(CREDIT_HOLD_TEXT).digest('hex')}]`
+
+/** These refusals apply to the version that received the verdict. */
+export const isVersionRejection = (reason: string): boolean => /^(?:dead|people|waiting): /.test(reason)
+
+/** Commons mirrors resize the same file. Other source IDs can also name different crops. */
+export function photoVersionAddressSet(urls: Iterable<string>): (url: string) => boolean {
+  const exact = new Set(urls)
+  const resized = new Set([...exact].flatMap(url => {
+    const key = photoKey(url)
+    return key?.startsWith('commons/') ? [key] : []
+  }))
+  return url => exact.has(url) || resized.has(photoKey(url) ?? '')
+}
+
 /**
  * The entry engine-state/_photo-rejected.json (URL → why) holds for a photo, `[the address it is listed by, why]`: by
  * its own address, or by its one key in our store (photoKey), either way round. A photo listed by its source's address
