@@ -252,7 +252,7 @@ keep_unpublished() {
 }
 # HEAD on branch $1, and in the cloud on GitHub's branch of that name.
 keep_branch() {
-  git branch -q -f "$1" HEAD || return 1
+  git branch -q -f "$1" "${2:-HEAD}" || return 1
   engine_cloud || return 0
   net git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
 }
@@ -615,24 +615,38 @@ main_holds() {
   log "$(grep -c . <<<"$holds") pages main read during this run take main's hold, as its record has it: $(head -5 <<<"$holds" | tr '\n' ' ')"
   return 1
 }
+# from_main loads these rules once. A video recheck that pulls new rules leaves its work for the next process.
+video_recheck_rules_current() {
+  [ -n "${AQ_SCRIPT_HEAD:-}" ] &&
+    git diff --quiet "$AQ_SCRIPT_HEAD" HEAD -- \
+      scripts/cycle-checks.sh scripts/video-recheck.sh scripts/video-recheck-publish.sh .nvmrc pnpm-lock.yaml
+}
+
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
 # when its tests failed for real; KEPT_WHY says why it isn't published; BRANCH, the branch's name now (a check that
 # passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
-  local check=1 clash main head swept run
+  local check=1 clash main head swept run video_recheck= checked_tree=
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
+  case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
   for _ in 1 2 3; do
     main=$(git rev-parse origin/main 2>/dev/null || true) run=$(git rev-parse HEAD) swept=
     if ! net git pull -q --rebase origin main; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort 2>/dev/null || true
       net git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; KEPT_WHY="a clash with main"; return 1; }
-      replan_merged "$clash"
       check=1
+    else
+      clash=
     fi
+    if [ -n "$video_recheck" ] && ! video_recheck_rules_current; then
+      KEPT_WHY="video recheck rules changed during this run"
+      return 1
+    fi
+    replan_merged "$clash"
     # Main's pages put back is a tree the checks haven't seen: on a try after a lost push, back over what the sweep made of
     # them (Grok's read of 19652e876, 14 Nov). main_pages commits only when it changed something, and so do main's holds
     # (main_holds), after it: a page it put back whole is main's already.
@@ -652,7 +666,10 @@ push_kept() {
       head=$(git rev-parse HEAD)
       sweep_merged
       swept=1
-      if swept_clean "$head" "$main" "$(git rev-parse origin/main)"; then
+      if [ -n "$video_recheck" ]; then
+        # Like a fresh video recheck, a recovered one can reuse a pass only for the exact tree it checked.
+        if [ "$(git rev-parse 'HEAD^{tree}')" != "$checked_tree" ] || [ -n "$MIGRATE_FAILED" ]; then check=1; fi
+      elif swept_clean "$head" "$main" "$(git rev-parse origin/main)"; then
         log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
       else
         check=1
@@ -660,6 +677,9 @@ push_kept() {
     fi
     if [ -n "$check" ]; then
       [ -n "$swept" ] || sweep_merged
+      if [ -n "$video_recheck" ]; then
+        checked_tree=$(git rev-parse 'HEAD^{tree}') || { KEPT_WHY="could not identify the video recheck tree"; return 1; }
+      fi
       if ! verify_cycle; then
         if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
         elif [ -n "${MIGRATE_FAILED:-}" ]; then KEPT_WHY="its photo records couldn't be migrated"
@@ -859,12 +879,12 @@ swept_clean() {
 # Work whose checks passed but whose push lost to main three times (each try pulled, swept and pushed while main moved
 # on: five merges in forty minutes on 14 Nov, when the sf run lost three) is kept as work out of time is, and the next run
 # publishes it first, after its own tests (publish_kept). Until then it stayed in the clone, whose next run starts from
-# main and drops it. A branch of that name already there is never written over. `keep_lost_push <job>`.
+# main and drops it. A branch of that name already there is never written over. `keep_lost_push <job> [why] [commit]`.
 keep_lost_push() {
   engine_clone || engine_cloud || return 0
-  local branch; branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
-  if git show-ref -q --verify "refs/heads/$branch"; then log "push failed three times, and $branch is already there: this run's work isn't kept"; return 1; fi
-  keep_branch "$branch" && log "push failed three times: this run's work is kept on $branch for the next run"
+  local branch why=${2:-push failed three times}; branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
+  if git show-ref -q --verify "refs/heads/$branch"; then log "$why, and $branch is already there: this run's work isn't kept"; return 1; fi
+  keep_branch "$branch" "${3:-HEAD}" && log "$why: this run's work is kept on $branch for the next run"
 }
 # The calendar (content/curation.json) is one plan, not lines to blend. After a clash with a change on main, push()'s
 # line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of

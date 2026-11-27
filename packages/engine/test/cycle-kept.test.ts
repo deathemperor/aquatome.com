@@ -179,6 +179,37 @@ function atOut2(c: ReturnType<typeof clone>, work = 'echo photos > content/b.jso
   return base
 }
 
+test.each(['kept', 'held'])('a %s video recheck checks the rebased tree after losing a push', (prefix) => {
+  const c = clone()
+  const branch = `${prefix}/video-recheck/20261127T030000`
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${branch} && git reset -q --hard origin/main`)
+  if (prefix === 'held') {
+    c.elsewhere('code.txt', 'new')
+    c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  }
+  c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    ${racing('echo new > content/disjoint.json && git add .', "echo 'AssertionError: combined tree failed'; return 1")}
+    publish_kept video-recheck
+  `)
+  expect(c.onMain('content/disjoint.json')).toBe('new')
+  expect(c.onMain('content/video.json')).toBe('')
+}, slow(60_000))
+
+test('a kept video recheck waits for a fresh shell when main changes the verification scripts', () => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${kept} && git reset -q --hard origin/main`)
+  const log = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    ${racing('mkdir scripts && echo new > scripts/cycle-checks.sh && git add .', 'echo stale-checks; return 0')}
+    publish_kept video-recheck
+  `)
+  expect(log).toContain('video recheck rules changed during this run')
+  expect(c.branches()).toEqual([kept])
+  expect(c.onMain('content/video.json')).toBe('')
+}, slow(60_000))
+
 // The chief of staff, 14 Nov 2026: a check that passed ends the row at that moment, before any push is tried. A batch at
 // -out2 passed, lost the push to another job, and main's newer commit was checked and ran out of time: it was held as
 // out of time three cycles in a row, with a pass in between.

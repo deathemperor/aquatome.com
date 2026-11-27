@@ -53,6 +53,10 @@ if engine_clone || engine_cloud; then git config merge.main-whole.driver 'node s
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 publish_kept video-recheck
+if ! video_recheck_rules_current; then
+  log "video recheck rules changed during this run: leaving new work for the next run"
+  exit 0
+fi
 log "video recheck start"
 # Records left saying pages were done on 11 Nov 2026, when the usage limit stopped the gate, put back before a writer runs.
 pnpm engine redo-unread || log "redo-unread: failed"

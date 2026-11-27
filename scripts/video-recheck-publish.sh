@@ -19,6 +19,10 @@ push_video_recheck() {
         continue
       fi
     fi
+    if ! video_recheck_rules_current; then
+      keep_lost_push video-recheck "video recheck rules changed during this run" "$run"
+      return 1
+    fi
     refreshed=$(git rev-parse '@{u}') || break
     if [ "$refreshed" != "$base" ]; then
       main_holds "$run" || true
