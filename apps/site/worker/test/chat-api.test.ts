@@ -1408,6 +1408,17 @@ test.each(['write', 'read'] as const)('a saved-tank review survives a conversati
   const auth = bearer(me.token)
   expect((await run(ask(auth, { from: undefined, about: undefined, tank: tank.id, question: 'Bể này ổn không?' }), e, deps(c.fetch), now)).body.n).toBe(1)
   failing = fault === 'read'
+  if (fault === 'write') {
+    // The account opens history before asking any follow-up. The importer recreates the missing D1 row from R2.
+    const history = async (suffix = '') => {
+      const url = new URL(`https://x.test/api/chat/conversations${suffix}`)
+      const res = await chatPast(new Request(url, { headers: auth }), url, e, now)
+      expect(res.status).toBe(200)
+      return res.json()
+    }
+    expect(await history()).toMatchObject({ rows: [{ conversations: [{ id: CONV, tank: tank.id }] }] })
+    expect(await history(`/${CONV}`)).toMatchObject({ id: CONV, tank: tank.id })
+  }
   const later = new Date(now.getTime() + 1000)
   await syncStore(db, me.id, { v: 1, tanks: [{ ...tank, notes: 'Nước đã trong', updatedAt: later.toISOString() }], devices: [] }, later)
   expect((await run(ask(auth, { question: 'Giờ thì sao?' }), e, deps(c.fetch), later)).body.n).toBe(2)

@@ -180,7 +180,7 @@ function cursorOf(s: string): { t: number; id: string } | null {
   } catch { return null }
 }
 
-/** An account's conversations from before the list has rows for them: where they started wasn't kept, so their rows have no picture. */
+/** Rebuild missing list rows from the account's saved conversations, with their tank selection when it was kept. */
 async function importOld(env: Required<Pick<ChatEnv, 'DB' | 'UPLOADS'>>, account: string, have: Set<string>): Promise<void> {
   const prefix = conversationKey(account, '').replace(/\.json$/, '')
   const idOf = (key: string) => key.slice(prefix.length, -'.json'.length)
@@ -191,8 +191,8 @@ async function importOld(env: Required<Pick<ChatEnv, 'DB' | 'UPLOADS'>>, account
     try {
       const c = await (await env.UPLOADS.get(key))?.json<Conversation>()
       if (!c?.turns.length) continue
-      rows.push(env.DB.prepare('INSERT OR IGNORE INTO chat_conversations (account, id, title, first_at, last_at, questions) VALUES (?, ?, ?, ?, ?, ?)')
-        .bind(account, idOf(key), c.turns[0]!.question, secs(c.created), secs(c.turns.at(-1)!.at), c.turns.length))
+      rows.push(env.DB.prepare('INSERT OR IGNORE INTO chat_conversations (account, id, title, start, first_at, last_at, questions) VALUES (?, ?, ?, ?, ?, ?, ?)')
+        .bind(account, idOf(key), c.turns[0]!.question, JSON.stringify(c.tankStart ?? {}), secs(c.created), secs(c.turns.at(-1)!.at), c.turns.length))
     } catch { unread++ }
   }
   if (rows.length) await env.DB.batch(rows)
