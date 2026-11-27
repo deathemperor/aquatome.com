@@ -211,8 +211,9 @@ test.each([false, true])('a watermark on a dead-screened alteration considers it
   expect((await read(r, 'engine-state/_photo-watermarks.json'))[original.url]).toEqual({ ocr: [] })
   expect(result.held.includes(`${stored.url}: species/a`)).toBe(!spare)
   expect((await read(r, file)).photos).toEqual(spare ? [photo('box')] : [stored])
-  expect(refusals[stored.url]).toMatch(spare ? /^watermark:/ : /^dead:/)
-  expect(refusals[original.url]).toBe(spare ? refusals[stored.url] : undefined)
+  expect(refusals[stored.url]).toMatch(/^dead:/)
+  if (spare) expect(refusals[original.url]).toMatch(/^watermark:/)
+  else expect(refusals[original.url]).toBeUndefined()
 })
 
 test('item admission stops without model calls or content changes', async () => {

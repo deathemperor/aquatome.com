@@ -1,4 +1,4 @@
-import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, photoLookAnswer, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoClears, photoKey, photoRejections, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { albumLooked, askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, photoLookAnswer, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoClears, photoKey, photoRejections, photoVersionAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { albumReceipts, albumTakeOffApplied, completeAlbumReceipts, pendingAlbumTakeOff, recordAlbumTakeOffs, type TakeOffReceipt } from './album-takeoffs'
 import { replacePhotoDocument } from './image-cache-write'
 import { compactRejection, compactVerdict, photoFailure, photoModelStop } from './photo-observations'
@@ -301,7 +301,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const secondLook = await readSecondLook(root)
   const sl = looks(secondLook)
   // A hold on another reason doesn't keep a photo that never passed from this, its first verdict (photo-check.ts spared).
-  const passed = photoAddressSet(!o.albums && off.some(x => !x.video) ? await readPassedBefore(root) : [])
+  const passed = photoVersionAddressSet(!o.albums && off.some(x => !x.video) ? await readPassedBefore(root) : [])
   const clearedAlbum = photoClears(secondLook)
   const going = new Set(off.filter(x => !x.video && (o.albums
     ? !!x.agreement || x.rejection?.startsWith('dead:') || !clearedAlbum(x.url)
@@ -325,7 +325,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const looked = deadLooked({ screen: cache, check, subjects, secondLook })
     const { unread } = await facePhotoStatus(content, faces)
     const unjudged = new Set([...owned].filter(url => !looked(url)))
-    const waits = photoWaitsFor({ watermarks: watermarkCache, owed: listed, unread, faces, unjudged, deadScreen: oldCache, secondLook })
+    const waits = photoWaitsFor({ watermarks: watermarkCache, owed: listed, unread, faces, unjudged, lookedForDead: looked, check, subjects, deadScreen: oldCache, secondLook })
     const heldForCredit = await readCreditHoldWait(root)
     const unavailable = (u: string) => !!isListed(u) || heldForCredit(u) || waits(u)
     for (const [url, refs] of lastPhotoVerdicts(pages, unavailable, going)) last.set(url, refs)
