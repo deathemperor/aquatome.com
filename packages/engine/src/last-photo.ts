@@ -247,8 +247,8 @@ export async function listAgreed(root: string, includes: (url: string) => boolea
     raw => JSON.parse(raw) as Record<string, { retainedOwnMark?: unknown }>,
     (error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return undefined },
   )
-  const active = photoRejections(rejected, watermarks)
   for (const url of agreed) {
+    const active = photoRejections(rejected, watermarks)
     // A waiting entry, for this reason or another, takes the verdict's own reason, on a record marked off or not: two runs'
     // records can meet in a merge with the unmarked one kept and the waiting entry beside it (the chief of staff, 20 Nov,
     // after that night's seven). On one marked off, a mark's entry does too, which a shop's own kept mark could otherwise
@@ -491,7 +491,7 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
           }
         }
       }
-      await writeKept(dir, url, r, { ...p, ...place, order, orderKeys, ...(orderKeys ? { orderKeyIndex } : {}) }, earlier)
+      await writeKept(dir, url, r, { ...p, ...place, occurrence, order, orderKeys, ...(orderKeys ? { orderKeyIndex } : {}) }, earlier)
       named.set(placeKey(place), place)
       r.left = [...named.values()]
       const at = previous.get(p.file) ?? []
@@ -656,12 +656,17 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
         }
         const order = before.map(p => typeof p?.url === 'string' ? p.url : '')
         const orderKeys = before.map(placementHash)
+        const earlierDepartures = [...out.values()]
         for (const [index, entry] of from.entries()) {
           if (kept.has(index)) continue
           const exact = (p: { file: string; photo?: Record<string, unknown> }) =>
             p.file === file && JSON.stringify(p.photo) === JSON.stringify(entry.photo)
-          const saved = captured.filter(exact)
-          const known = [...out.values()].filter(exact)
+          const sameVersion = (p: { file: string; photo?: Record<string, unknown> }) =>
+            p.file === file && !!p.photo && samePlacement(p.photo, entry.photo)
+          const exactCaptures = captured.filter(exact)
+          const saved = exactCaptures.length ? exactCaptures : captured.filter(sameVersion)
+          const exactDepartures = earlierDepartures.filter(exact)
+          const known = exactDepartures.length ? exactDepartures : earlierDepartures.filter(sameVersion)
           const occurrence = saved.length === 1 ? saved[0]!.occurrence : known.length === 1 ? known[0]!.occurrence : index
           const placement = { file, index: entry.index, ...(occurrence ? { occurrence } : {}) }
           const key = placeKey(placement)
@@ -681,7 +686,7 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
           if (named?.photo && !samePlacement(named.photo, entry.photo)) continue
           if (had) had.times++
           else {
-            const existed = saved.length === 1
+            const existed = exactCaptures.length === 1
               ? starting.some(rev => urls(at(rev, file)).some(photo => JSON.stringify(photo) === JSON.stringify(entry.photo)))
               : wasPresent
             out.set(key, { ...placement, photo: entry.photo, times: existed ? 1 : 2, order, orderKeys })
@@ -759,8 +764,6 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks, dir?: st
     if (!places.length) continue
     const restoredHere = places.filter(place => pending.settled?.some(p => placeKey(p) === placeKey(place)) &&
       !original?.[url]?.settled?.some(p => placeKey(p) === placeKey(place)))
-    const historyPlaces = restoredHere.length ? await history(url, mark.at, restoredHere) : []
-    if (!historyPlaces) throw new Error('Could not verify an unpublished photo restore after pulling main')
     for (const place of places) {
       const file = join(root, place.file)
       const raw = await readFile(file, 'utf8').catch((error: NodeJS.ErrnoException) => {
@@ -778,20 +781,39 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks, dir?: st
       const matches = photoAddressSet([url, address])
       const same = (photo: Record<string, unknown>) =>
         typeof photo?.url === 'string' && matches(photo.url) && !setsCookies(photo.url)
+      const restored = restoredHere.includes(place)
+      const landed = restored ? localStates.find(state => state.marks?.[url]?.settled?.some(p => placeKey(p) === placeKey(place))) : undefined
+      if (restored && !landed) throw new Error('Could not verify the original entry restored before pulling main')
+      const savedPhotos = landed ? urls(publishedJson(root, place.file, landed.sha)) : []
+      let target = capture?.photo
+      if (landed && !target) {
+        // A matching published outcome can prune the private file before this attempt. Recover the exact addition
+        // from the unpublished restore commit rather than selecting another placement at the same URL.
+        const before = urls(publishedJson(root, place.file, `${landed.sha}^`)).map(placementHash)
+        const added = savedPhotos.filter(photo => {
+          const index = before.indexOf(placementHash(photo))
+          if (index < 0) return same(photo)
+          before.splice(index, 1)
+          return false
+        })
+        if (!added.length) continue
+        target = added.length === 1 ? added[0] : added[place.occurrence ?? 0]
+        if (!target) throw new Error('Could not identify the photo added by the original restore')
+      }
       const copy = (entries: Record<string, unknown>[]) => {
         const candidates = entries.filter(same)
-        if (!capture) return candidates[place.occurrence ?? 0]
-        const exact = candidates.filter(photo => placementHash(photo) === placementHash(capture.photo))
+        if (!target) return candidates[place.occurrence ?? 0]
+        const exact = candidates.filter(photo => placementHash(photo) === placementHash(target!))
         if (exact.length === 1) return exact[0]
-        const variant = candidates.filter(photo => samePlacement(photo, capture.photo))
+        const variant = candidates.filter(photo => samePlacement(photo, target!))
         return variant.length === 1 ? variant[0] : variant[place.occurrence ?? 0]
       }
       const returned = copy(publicPhotos)
-      const departure = historyPlaces.find(p => placeKey(p) === placeKey(place) && p.times >= 2)
-      if (restoredHere.includes(place) && (departure || returned)) {
-        const landed = localStates.find(state => state.marks?.[url]?.settled?.some(p => placeKey(p) === placeKey(place)))
-        if (!landed) throw new Error('Could not verify the original entry restored before pulling main')
-        const savedPhotos = urls(publishedJson(root, place.file, landed.sha))
+      if (restored) {
+        const historyPlaces = await history(url, mark.at, [{ ...place, photo: target, photoUrl: typeof target?.url === 'string' ? target.url : undefined }])
+        if (!historyPlaces) throw new Error('Could not verify an unpublished photo restore after pulling main')
+        const departure = historyPlaces.some(p => placeKey(p) === placeKey(place) && p.times >= 2)
+        if (!departure && !returned) continue
         const entry = copy(savedPhotos)
         const localEntry = copy(priorPhotos)
         const merged = copy(photos)

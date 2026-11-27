@@ -363,6 +363,22 @@ test.each([false, true])('the agency refusal survives a watermark waiver (waived
   expect(view.photoWaits!(original.url)).toBe(true)
 })
 
+test('a cached positive face stays off the album after its last credited wrapper disappears', async () => {
+  const original = photo('face-cached-original')
+  const wrapper = { ...photo('wrapper'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
+  const spare = photo('spare'), { root, file, state, publicView } = await publicFixture([wrapper, spare], [original], [wrapper.url, original.url, spare.url])
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [wrapper.url]: 0, [original.url]: 1, [spare.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false }, [spare.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [original.url]: { ok: 'yes', person: false } }))
+  expect((await publicView()).photoWaits!(original.url)).toBe(true)
+
+  const page = await json(root, 'content/species/alpha/entity.json')
+  await writeFile(file, JSON.stringify({ ...page, photos: [spare] }))
+  const view = await publicView()
+  expect(view.galleries.alpha ?? []).toEqual([])
+  expect(view.photoWaits!(original.url)).toBe(true)
+})
+
 test.each(['face', 'dead'])('a credit-held original cannot replace a head with a %s verdict', async verdict => {
   const held = photo('credit-held'), head = photo(`head-${verdict}`)
   const wrapper = { ...photo('wrapper'), altered: [{ method: 'lanczos3-upscale' }], original: held }
