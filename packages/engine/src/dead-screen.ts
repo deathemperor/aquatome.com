@@ -298,6 +298,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
 
   // Off the lists and off the pages that show them. A photo whose going would leave a page with nothing stays, held for
   // a second look (last-photo.ts); one the second look cleared stays too.
+  const secondLook = initialLooks
   const sl = looks(secondLook)
   // A hold on another reason doesn't keep a photo that never passed from this, its first verdict (photo-check.ts spared).
   const passed = photoVersionAddressSet(!o.albums && off.some(x => !x.video) ? await readPassedBefore(root) : [])

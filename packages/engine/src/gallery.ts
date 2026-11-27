@@ -4,7 +4,7 @@ import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { deadScreenPhotoUrls, GallerySchema, heldPhotoVersion, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
+import { deadScreenPhotoUrls, GallerySchema, heldPhotoVersion, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo, type PhotoRejection } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -823,7 +823,7 @@ async function pageOf(root: string, id: string): Promise<Photo[]> {
 }
 
 /** Photos the owner rejected (engine-state/_photo-rejected.json) leave every gallery, the next run after they are listed. */
-async function dropRejected(root: string, content: string, rejected: ReturnType<typeof rejectedEntry>, waiting: (url: string) => string | undefined) {
+async function dropRejected(root: string, content: string, rejected: PhotoRejection, waiting: (url: string) => string | undefined) {
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const file = join(content, 'gallery', f)
     const g = JSON.parse(await readFile(file, 'utf8')) as { photos: Photo[] }
