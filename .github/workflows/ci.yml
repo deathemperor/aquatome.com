@@ -79,6 +79,13 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 2
+      - name: Fetch the guide baseline comparison commit when it is outside the shallow checkout
+        env:
+          AQ_GUIDE_BASELINE_REF: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [ -n "$AQ_GUIDE_BASELINE_REF" ] && ! git cat-file -e "$AQ_GUIDE_BASELINE_REF^{commit}" 2>/dev/null; then
+            git fetch --no-tags --depth=1 origin "$AQ_GUIDE_BASELINE_REF"
+          fi
       - name: Install Node, pnpm and the dependencies
         uses: ./.github/actions/setup
       # With every test file's reads of the real content traced (@aq/schema's test-content-trace.ts).
