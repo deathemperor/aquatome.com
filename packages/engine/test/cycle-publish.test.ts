@@ -166,40 +166,49 @@ test("a video re-check sweeps its work and commits it before its tests, as the v
   expect(commit).toBeLessThan(s.indexOf('verify_cycle'))
 })
 
-test('the second push attempt keeps the original unpublished commit if its sweep fails', () => {
-  const push = script('engine-cycle.sh').match(/\npush\(\) \{\n[\s\S]*?\n\}/)?.[0]
-  expect(push).toBeDefined()
-  const run = `
-    source '${join(ROOT, 'scripts/cycle-checks.sh')}'
-    ${push}
-    attempt=0
-    PART=photos
-    log() { :; }
-    sleep() { :; }
-    git() {
-      case "$1 $2" in
-        'merge-base HEAD') echo "main-$attempt" ;;
-        'rev-parse HEAD') echo "run-$attempt" ;;
-        "rev-parse @{u}") echo "main-$attempt" ;;
-      esac
-    }
-    net() {
-      case "$2" in
-        pull) attempt=$((attempt+1)); return 0 ;;
-        push) return 1 ;;
-      esac
-    }
-    pnpm() {
-      [ "$2" != sweep ] && return 0
-      echo "sweep $AQ_PHOTO_PRE_REBASE"
-      [ "$attempt" -eq 1 ]
-    }
-    main_holds() { return 0; }
-    swept_clean() { [ -z "$SWEEP_FAILED" ]; }
-    verify_cycle() { [ -z "$SWEEP_FAILED" ]; }
-    keep_unpublished() { echo "kept $SWEEP_RETRY_HEAD"; }
-    push || :
-  `
-  const out = execSync(run, { shell: '/bin/bash', encoding: 'utf8' })
-  expect(out.trim().split('\n')).toEqual(['sweep run-0', 'sweep run-1', 'kept run-0'])
-})
+test.each(['engine-cycle.sh', 'video-cycle.sh', 'video-recheck.sh'])(
+  '%s keeps the original unpublished commit if its second push sweep fails',
+  filename => {
+    const code = script(filename)
+    const push = filename === 'engine-cycle.sh'
+      ? code.match(/\npush\(\) \{\n[\s\S]*?\n\}/)?.[0]
+      : code.match(/\n(?:SWEEP_ORIGINAL_HEAD=.*\n)?for _ in 1 2 3; do\n[\s\S]*?\ndone/)?.[0]
+    expect(push).toBeDefined()
+    const attemptPush = filename === 'engine-cycle.sh' ? push : `push() ( ${push}\n)`
+    const run = `
+      source '${join(ROOT, 'scripts/cycle-checks.sh')}'
+      ${attemptPush}
+      attempt=0
+      PART=photos
+      log() { :; }
+      sleep() { :; }
+      git() {
+        case "$1 $2" in
+          'merge-base HEAD') echo "main-$attempt" ;;
+          'rev-parse HEAD') echo "run-$attempt" ;;
+          "rev-parse @{u}") echo "main-$attempt" ;;
+          'pull -q') attempt=$((attempt+1)); return 0 ;;
+          'push -q') return 1 ;;
+        esac
+      }
+      net() {
+        case "$2" in
+          pull) attempt=$((attempt+1)); return 0 ;;
+          push) return 1 ;;
+        esac
+      }
+      pnpm() {
+        [ "$2" != sweep ] && return 0
+        echo "sweep $AQ_PHOTO_PRE_REBASE"
+        [ "$attempt" -eq 1 ]
+      }
+      main_holds() { return 0; }
+      swept_clean() { [ -z "$SWEEP_FAILED" ]; }
+      verify_cycle() { [ -z "$SWEEP_FAILED" ]; }
+      keep_unpublished() { echo "kept $SWEEP_RETRY_HEAD"; }
+      push || :
+    `
+    const out = execSync(run, { shell: '/bin/bash', encoding: 'utf8' })
+    expect(out.trim().split('\n')).toEqual(['sweep run-0', 'sweep run-1', 'kept run-0'])
+  },
+)

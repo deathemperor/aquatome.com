@@ -1,11 +1,11 @@
-import { recordAlbumTakeOffs, recordListedAlbumTakeOffs } from './album-takeoffs'
+import { recordAlbumTakeOffs, recordListedAlbumTakeOffs, recordRestoredAlbumTakeOff } from './album-takeoffs'
 import { compactRejection } from './photo-observations'
 import { replacePhotoDocument } from './image-cache-write'
 import { readPhotoMap, writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { deadScreenPhotoUrls, IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections, heldPhotoVersion, photoRejections } from '@aq/schema'
+import { deadScreenPhotoUrls, IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections, heldPhotoVersion, photoVersionAddressSet, photoRejections } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -42,7 +42,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { rejectedEntry } from './photos'
-import { captureWaiting, entriesDir, gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readSecondLook, unlistCleared, withoutClearedWaits, type History, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readPassedBefore, readSecondLook, unlistCleared, withoutClearedWaits, type History, type Stood } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
@@ -503,7 +503,9 @@ async function neverAgain(root: string) {
   if (rejected !== saved) await writePhotoState(file, rejected)
   const kept = keptOwnMark(rejected, marks)
   const secondLook = await readSecondLook(root)
-  const entry = photoRejections(rejected, marks, heldPhotoVersion(secondLook))
+  const passed = photoVersionAddressSet(await readPassedBefore(root))
+  const reviewed = heldPhotoVersion(secondLook)
+  const entry = photoRejections(rejected, marks, url => reviewed(url) || passed(url))
   // One marked off at its first verdict is off whatever its entry says: a mark the shop's own kept doesn't keep a dead
   // fish on the page (last-photo.ts; the independent reader, 20 Nov).
   const marked = looks(secondLook).off
@@ -602,7 +604,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       return why({ [url]: { ...subjects[url], [id]: { ...v, ok: 'yes' as const } } })(id, url) !== undefined
     }
   })()
-  const put = await putBackCleared(root, o.history ?? gitHistory(root), o.today, putRefused)
+  const put = await putBackCleared(root, o.history ?? gitHistory(root), o.today, putRefused, undefined, async place => {
+    if (place.file.startsWith('content/gallery/')) await recordRestoredAlbumTakeOff(root, deadScreenPhotoUrls(place.photo as Photo))
+  })
   for (const x of put.back) changed(x.slice(0, x.indexOf(': ')).replace(/^content\//, ''))
   report.putBack = put.back
   report.putBackOff = put.off

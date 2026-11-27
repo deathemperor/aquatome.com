@@ -314,6 +314,26 @@ test.each([false, true])('an open album photo must qualify at the address that w
   expect(seen).toEqual([])
 })
 
+test('promotion checks the fallback of the existing entry that will actually lead', async () => {
+  const nc = { ...photo('nc'), url: 'https://media.aquatome.com/inaturalist/42.webp', sourceUrl: 'https://www.inaturalist.org/photos/42', licence: 'CC BY-NC 4.0' }
+  const album = { ...photo('open'), licence: 'CC BY 4.0' }
+  const fallback = photo('fallback')
+  const existing = { ...album, altered: [{ method: 'lanczos3-upscale' as const, date: '2026-11-26', originalHash: 'a'.repeat(64) }],
+    original: { url: fallback.url, width: fallback.width, height: fallback.height } }
+  const root = await store({ aaa: { photos: [nc, existing], gallery: [album] } })
+  const state = (name: string, value: unknown) => writeFile(join(root, 'engine-state', name), JSON.stringify(value))
+  await state('_photo-faces.json', { [nc.url]: 0, [album.url]: 0, [fallback.url]: 0 })
+  const read = { [nc.url]: { dead: false }, [album.url]: { dead: false } }
+  await state('_dead-screen.json', read)
+  const { d } = model(yes)
+
+  expect((await screenLeads(root, d, { limit: 1 })).changed).toEqual([])
+  expect((await entity(root, 'aaa')).photos).toEqual([nc, existing])
+  await state('_dead-screen.json', { ...read, [fallback.url]: { dead: false } })
+  expect((await screenLeads(root, d, { limit: 1 })).changed).toHaveLength(1)
+  expect((await entity(root, 'aaa')).photos).toEqual([existing])
+})
+
 test('a qualified album photo with no face cache can join a page while its non-commercial head stays', async () => {
   const nc = { ...photo('nc'), url: 'https://media.aquatome.com/inaturalist/42.webp', sourceUrl: 'https://www.inaturalist.org/photos/42', licence: 'CC BY-NC 4.0' }
   const open = { ...photo('open'), licence: 'CC BY 4.0' }
