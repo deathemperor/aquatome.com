@@ -1716,7 +1716,7 @@ test('an unreadable source permission record stops the dead screen before it rem
   await expect(readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8')).rejects.toMatchObject({ code: 'ENOENT' })
 })
 
-test('a mirrored cached death uses the matching older watermark review at its source address', async () => {
+test.each([false, true])('a mirrored cached death uses the matching older watermark review (source verdict: %s)', async sourceVerdict => {
   const source = 'https://live.staticflickr.com/123/456_abc.jpg'
   const mirror = { ...photo('held-dead'), url: `https://media.aquatome.com/${mirrorPlan(source)!.key}` }
   const { root, state, file } = await albumFixture([mirror])
@@ -1725,7 +1725,7 @@ test('a mirrored cached death uses the matching older watermark review at its so
     [source]: { why, step: 'the watermark screen', pages: ['species/alpha'], at: '2026-11-26' },
   }))
   await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [source]: waitingEntry(why), [mirror.url]: waitingEntry(why) }))
-  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [mirror.url]: { dead: true } }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [sourceVerdict ? source : mirror.url]: { dead: true } }))
   vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
   onTestFinished(() => { vi.unstubAllEnvs() })
 
@@ -1755,6 +1755,77 @@ test.each(['sweep', 'photo check'])('a failed take-off receipt is recovered by %
   }
   expect(JSON.parse(await readFile(join(root, 'content/gallery/alpha.json'), 'utf8')).photos).toEqual([])
   expect((await screenDead(root, d, { limit: 0, albums: true })).albumBatches).toEqual([{ id: expect.any(String), urls: [dead.url] }])
+})
+
+test.each(['gallery', 'sweep', 'photo check'])('%s receipts every refused version before removing their shared album entry', async cleaner => {
+  const original = photo('original-dead'), live = photo('live')
+  const wrapper = { ...photo('alteration-dead'), original,
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'b'.repeat(64) }] }
+  const { root, state } = await publicFixture([live], [wrapper], [live.url, wrapper.url, original.url])
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({
+    [original.url]: 'dead: known original', [wrapper.url]: 'dead: known alteration',
+  }))
+  const unused = async () => { throw new Error('no source requests or model calls in the fixture') }
+  if (cleaner === 'sweep') await sweep(root, { history: async () => [] })
+  else if (cleaner === 'photo check') await checkPagePhotos(root, { get: unused, look: unused }, { limit: 0, fill: 0 })
+  else await galleries(root, { get: unused, http: unused, look: unused, faces: unused, sleep: unused, now: () => new Date() }, { only: 'missing', sheets: 0 })
+  expect(JSON.parse(await readFile(join(root, 'content/gallery/alpha.json'), 'utf8')).photos).toEqual([])
+  const report = await screenDead(root, deps().d.dead, { limit: 0, albums: true })
+  expect(report.albumBatches).toEqual([{ id: expect.any(String), urls: [wrapper.url, original.url].sort() }])
+})
+
+test.each([false, true])('a human clear preserves an applied album take-off for its first batch (recovered first: %s)', async restored => {
+  const dead = photo('dead'), live = photo('live')
+  const { root, state } = await publicFixture([live], [dead], [dead.url, live.url])
+  const why = 'dead: held for review'
+  const marksFile = join(state, '_photo-second-look.json')
+  await writeFile(marksFile, JSON.stringify({
+    [dead.url]: { why, step: 'the dead-fish screen', pages: ['species/alpha'], at: '2026-11-26', off: true },
+  }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [dead.url]: waitingEntry(why) }))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
+  const unused = async () => { throw new Error('gallery cleanup needs no source calls') }
+  await galleries(root, { get: unused, http: unused, look: unused, faces: unused, sleep: unused, now: () => new Date() }, { only: 'missing', sheets: 0 })
+  expect(JSON.parse(await readFile(join(root, 'content/gallery/alpha.json'), 'utf8')).photos).toEqual([])
+  const marks = JSON.parse(await readFile(marksFile, 'utf8'))
+  marks[dead.url].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  await writeFile(marksFile, JSON.stringify(marks))
+  if (restored) {
+    await sweep(root, { history: async () => [] })
+    expect(JSON.parse(await readFile(join(root, 'content/gallery/alpha.json'), 'utf8')).photos).toEqual([dead])
+  }
+  const report = await screenDead(root, deps().d.dead, { limit: 0, albums: true })
+  expect(report.albumBatches).toEqual([{ id: expect.any(String), urls: [dead.url] }])
+})
+
+test('an equipment type keeps its waiting album photo through a sweep and clear', async () => {
+  const dead = photo('equipment-dead'), live = photo('live')
+  const { root, state, publicView } = await publicFixture([live], [dead], [dead.url, live.url])
+  const equipment = join(root, 'content/equipment/co2.json')
+  await mkdir(join(equipment, '..'), { recursive: true })
+  const type = { id: 'diffuser', name: 'Diffuser', match: 'diffuser', desc: '', pick: '', buy: '', photo: dead }
+  const document = { category: 'co2', name: 'CO2', lead: '', intro: '', hero: live, types: [type], choose: [], mistakes: [], faq: [] }
+  await writeFile(equipment, JSON.stringify(document))
+  const why = 'dead: held for review'
+  const path = join(state, '_photo-second-look.json')
+  await writeFile(path, JSON.stringify({
+    [dead.url]: { why, step: 'the dead-fish screen', pages: ['species/alpha'], at: '2026-11-26' },
+  }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [dead.url]: { dead: true }, [live.url]: { dead: false } }))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
+  expect((await screenDead(root, deps().d.dead, { limit: 0, albums: true })).albumBatches).toHaveLength(1)
+  await sweep(root, { history: async () => [] })
+  expect(JSON.parse(await readFile(equipment, 'utf8')).types[0].photo).toEqual(dead)
+  expect((await publicView()).equipment[0]?.types[0]?.photo).toBeUndefined()
+  const marks = JSON.parse(await readFile(path, 'utf8'))
+  marks[dead.url].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  await writeFile(path, JSON.stringify(marks))
+  await sweep(root, { history: async () => [] })
+  const view = await publicView()
+  expect(view.equipment[0]?.types[0]?.photo?.url).toBe(dead.url)
+  expect(view.galleries.alpha?.map(p => p.url)).toEqual([dead.url])
 })
 
 test('a batch acknowledged during the next judgment does not appear again', async () => {
@@ -1927,12 +1998,20 @@ test.each(['gallery', 'screen'])('the %s step honors a competing waiting hash wh
   expect((await json(root, 'engine-state/_photo-rejected.json'))[dead.url]).toBe(marked)
 })
 
-test('an already-refused album version is reported once while its credited original remains', async () => {
+test.each([false, true])('an already-refused album version is reported once while its credited original remains (waiting: %s)', async waiting => {
   const original = photo('eligible-original')
   const wrapper = { ...photo('refused-version'), original, altered: [{ method: 'lanczos3-upscale' }] }
   const { root, state, file } = await albumFixture([wrapper])
-  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [wrapper.url]: 'dead: earlier look' }))
-  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+  const why = 'dead: earlier look'
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [wrapper.url]: waiting ? waitingEntry(why) : why }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [wrapper.url]: { dead: true }, [original.url]: { dead: false } }))
+  if (waiting) {
+    await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+      [wrapper.url]: { why, step: 'the dead-fish screen', pages: ['species/alpha'], at: '2026-11-26', off: true },
+    }))
+    vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+    onTestFinished(() => { vi.unstubAllEnvs() })
+  }
 
   const d = deps().d.dead
   const report = await screenDead(root, d, { limit: 0, albums: true })

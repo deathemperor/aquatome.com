@@ -1,11 +1,11 @@
-import { recordListedAlbumTakeOffs } from './album-takeoffs'
+import { recordAlbumTakeOffs, recordListedAlbumTakeOffs } from './album-takeoffs'
 import { compactRejection } from './photo-observations'
 import { replacePhotoDocument } from './image-cache-write'
 import { readPhotoMap, writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections } from '@aq/schema'
+import { deadScreenPhotoUrls, IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -1161,14 +1161,19 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const remember = captureWaiting(marks, rejectedAt)
   const keepsVersion = (url: string, original: string, blockedOriginal: boolean) =>
     /^(?:dead|people|waiting): /.test(listedWhy(url)) && (!blockedOriginal || listedWhy(original).startsWith('waiting:'))
-  for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment')), ...glossaryFiles]) {
+  const equipmentFiles = new Set(await everyJson('equipment'))
+  for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...equipmentFiles, ...glossaryFiles]) {
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
     type Ref = { url?: string }
-    const data = JSON.parse(raw) as { photos?: Ref[]; video?: { figures?: { photo?: Ref; moments?: Ref[] }[] }; kinds?: { photo?: Ref }[] }
+    const data = JSON.parse(raw) as {
+      photos?: Photo[]; video?: { figures?: { photo?: Ref; moments?: Ref[] }[] }; kinds?: { photo?: Ref }[];
+      hero?: Ref; types?: { photo?: Ref }[]
+    }
     const protectedPhotos = file.includes('/guides/')
       ? (data.video?.figures ?? []).flatMap(part => [part.photo, ...(part.moments ?? [])])
-      : glossaryFiles.includes(file) ? [...(data.photos ?? []), ...(data.kinds ?? []).map(kind => kind.photo)] : []
+      : glossaryFiles.includes(file) ? [...(data.photos ?? []), ...(data.kinds ?? []).map(kind => kind.photo)]
+        : equipmentFiles.has(file) ? [data.hero, ...(data.types ?? []).map(type => type.photo)] : []
     const protectedParts = new Set(protectedPhotos.flatMap(photo => photo?.url && rejectedAt(photo.url)?.[1].startsWith('waiting:') ? [photo.url] : []))
     const places = new Map<string, Stood[]>()
     const canCapture = !!entriesDir()
@@ -1185,9 +1190,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const g = data as { kinds?: { photo?: unknown }[] }
     if (glossaryFiles.includes(file) && Array.isArray(g.kinds)) { g.kinds = g.kinds.filter(k => k.photo); if (!g.kinds.length) delete g.kinds }
     await notePlaces(root, places)
-    if (galleryFiles.includes(file)) await recordListedAlbumTakeOffs(root, removed, rejectedAt)
+    const receipts = galleryFiles.includes(file) ? await recordListedAlbumTakeOffs(root,
+      (before.photos ?? []).filter(photo => !data.photos?.includes(photo)).flatMap(deadScreenPhotoUrls), rejectedAt) : []
     for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(listedWhy(url))})`)
     await replacePhotoDocument(file, `${JSON.stringify(data, null, indentOf(raw))}\n`)
+    if (receipts.length) await recordAlbumTakeOffs(root, receipts, true)
     changed(file.slice(content.length + 1))
   }
   // A photo the check refused stays off: a Seriously Fish read or the monthly backfill puts back what its source still

@@ -1,10 +1,10 @@
-import { recordListedAlbumTakeOffs } from './album-takeoffs'
+import { recordAlbumTakeOffs, recordListedAlbumTakeOffs } from './album-takeoffs'
 import { piece } from './pieces'
 import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
+import { deadScreenPhotoUrls, GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -838,11 +838,12 @@ async function dropRejected(root: string, content: string, rejected: ReturnType<
     ))
     if (keep.length === g.photos.length) continue
     const stood = new Map<string, Stood[]>()
-    const removed = new Set(g.photos.filter(p => !keep.includes(p)).map(p => p.url))
+    const removed = new Set(g.photos.filter(p => !keep.includes(p)).flatMap(deadScreenPhotoUrls))
     placesIn(root, file, g, (url, slot) => !keep.includes(slot.photo as Photo) ? waiting(url) : undefined, stood)
     await notePlaces(root, stood)
-    await recordListedAlbumTakeOffs(root, removed, rejected)
+    const receipts = await recordListedAlbumTakeOffs(root, removed, rejected)
     await replacePhotoDocument(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
+    if (receipts.length) await recordAlbumTakeOffs(root, receipts, true)
   }
 }
 

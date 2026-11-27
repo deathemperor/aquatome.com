@@ -264,3 +264,14 @@ test("an agree's sweep meets a run that marked the photo off before the agree: t
   expect(await listAgreed(r.dir)).toEqual([])
   expect(await mendWaiting(r.dir)).toEqual({ back: [], other: [], alone: [] })
 })
+
+test('an album take-off receipt keeps its applied or batched status in either merge orientation', () => {
+  const url = 'https://media.example/dead.webp'
+  const planned = { [url]: true }
+  const applied = { [url]: { applied: true } }
+  const batched = { [url]: { batch: '1'.repeat(64) } }
+  expect(mergeMaps({}, planned, applied)).toEqual(applied)
+  expect(mergeMaps({}, applied, planned)).toEqual(applied)
+  expect(mergeMaps(planned, applied, batched)).toEqual(batched)
+  expect(mergeMaps(planned, batched, applied)).toEqual(batched)
+})
