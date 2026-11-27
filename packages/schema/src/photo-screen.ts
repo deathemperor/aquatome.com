@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto'
-import { photoAddressSet, photoKey, type PhotoRejection } from './photo-address'
+import { isVersionRejection, photoAddressSet, photoVersionAddressSet, type PhotoRejection } from './photo-address'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { isOwnerCrop, type ImageSwitches } from './image-policy'
@@ -98,8 +98,7 @@ export function publicPhotoVersion<P extends Photo>(p: P, images: Readonly<Image
   return { ...rest, ...original } as P
 }
 
-/** These refusals apply to the version that received the verdict. */
-export const isVersionRejection = (reason: string): boolean => /^(?:dead|people|waiting): /.test(reason)
+export { isVersionRejection, photoVersionAddressSet } from './photo-address'
 
 /** A waiver can lift a watermark decision, so it must never replace an independent refusal. */
 export const maySupersedePhotoRefusal = (prior: string | undefined, decision: string): boolean =>
@@ -273,14 +272,6 @@ export function photoLookAnswer(record: unknown): { said: 'agree' | 'clear'; by:
   return { said: look.said, by: look.by, on: look.on }
 }
 
-/** Commons mirrors resize the same file. Other source IDs can name different crops, which need their own results. */
-export function photoVersionAddressSet(urls: Iterable<string>): (url: string) => boolean {
-  const exact = new Set(urls)
-  const commons = (url: string) => photoKey(url)?.startsWith('commons/') === true
-  const resized = photoAddressSet([...exact].filter(commons))
-  return url => exact.has(url) || (commons(url) && resized(url))
-}
-
 /** A completed decision at the requested address takes precedence over a clear on the same Commons file. */
 export function photoClears(records: Record<string, unknown> = {}): (url: string) => boolean {
   const clears = photoVersionAddressSet(Object.keys(records).filter(url => photoLookAnswer(records[url])?.said === 'clear'))
@@ -297,6 +288,14 @@ function unansweredHold(record: unknown): boolean {
   return typeof mark?.why === 'string' && !!mark.why && mark.off !== true && !photoLookAnswer(mark)
 }
 
+/** A directly reviewed rendition can have a decision independent of another crop of the same image. */
+export function heldPhotoVersion(records: Record<string, unknown> = {}): (url: string) => boolean {
+  return url => {
+    const mark = records[url] as LookMark | undefined
+    return typeof mark?.why === 'string' && isVersionRejection(mark.why) && unansweredHold(mark)
+  }
+}
+
 /** An unanswered hold stays with the photo when its source is mirrored. */
 export function photoHolds(records: Record<string, unknown> = {}): (url: string) => boolean {
   const held = photoAddressSet(Object.keys(records).filter(url => unansweredHold(records[url])))
@@ -305,11 +304,16 @@ export function photoHolds(records: Record<string, unknown> = {}): (url: string)
 
 /** A first-refusal mark is durable before its rejection entry is written. */
 function photoFirstOff(records: Record<string, unknown> = {}): (url: string) => boolean {
-  return photoAddressSet(Object.entries(records).flatMap(([url, record]) => {
+  const marked = Object.entries(records).filter(([, record]) => {
     const mark = record as LookMark | undefined
-    if (mark?.off !== true || typeof mark.why !== 'string' || photoLookAnswer(mark)?.said === 'clear') return []
-    return [url, ...(Array.isArray(mark.originals) ? mark.originals.filter(u => typeof u === 'string') : [])]
+    return mark?.off === true && typeof mark.why === 'string' && photoLookAnswer(mark)?.said !== 'clear'
+  })
+  const rejected = Object.fromEntries(marked.flatMap(([url, record]) => {
+    const { why, originals } = record as { why: string; originals?: string[] }
+    return [[url, why], ...(Array.isArray(originals) ? originals.filter(u => typeof u === 'string').map(u => [u, why]) : [])]
   }))
+  const refused = photoRejections(rejected, {}, heldPhotoVersion(records))
+  return url => !!refused(url)
 }
 
 /** A face found on one version of a photo disqualifies that URL, subject to its second look. */

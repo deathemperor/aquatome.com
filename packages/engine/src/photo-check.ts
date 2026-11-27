@@ -6,7 +6,7 @@ import { writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { deadScreenPhotoUrls, isVersionRejection, originalPhotoRefusals, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoVersionAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
+import { deadScreenPhotoUrls, heldPhotoVersion, isVersionRejection, originalPhotoRefusals, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoVersionAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, rejectedEntry, type Photo as ContentPhoto } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -468,10 +468,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict (last-photo.ts).
   const secondLook = await readSecondLook(root)
   const sl = looks(secondLook)
-  const rejectedAt = rejectedEntry(rejected)
-  const markedAt = rejectedEntry(Object.fromEntries(Object.entries(secondLook)
+  const versionHeld = heldPhotoVersion(secondLook)
+  const rejectedAt = photoRejections(rejected, {}, versionHeld)
+  const markedAt = photoRejections(Object.fromEntries(Object.entries(secondLook)
     .filter(([url]) => sl.off(url))
-    .map(([url, mark]) => [url, waitingEntry(mark.why)])))
+    .map(([url, mark]) => [url, mark.why])), {}, versionHeld)
   const waitingAt = (url: string) => {
     const entry = rejectedAt(url)
     if (!entry) return markedAt(url)?.[0]
@@ -821,7 +822,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
   const pendingGlobal = photoRejections(added, marks)
-  const existingGlobal = photoRejections(rejected, marks)
+  const existingGlobal = photoRejections(rejected, marks, versionHeld)
   const originals = Object.values(added).some(why => !isVersionRejection(why))
     ? await originalPhotoRefusals(content, url => {
       const entry = pendingGlobal(url)

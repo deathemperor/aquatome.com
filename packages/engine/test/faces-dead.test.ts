@@ -473,6 +473,52 @@ test('a clear on a square crop does not waive the dead verdict on the larger mir
   expect(view.photoWaits!(mirror.url)).toBe(true)
 })
 
+test.each([false, true])('two face verdicts keep the passed rendition while the first refusal stays off (passed first: %s)', async passedFirst => {
+  const square = { ...photo('square'), url: 'https://live.staticflickr.com/123/456_abc_q.jpg' }
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(square.url)!.key}` }
+  const { root, state, file, publicView } = await publicFixture([passedFirst ? mirror : square], [mirror, square], [square.url, mirror.url])
+  const other = join(root, 'content/species/second')
+  await mkdir(other)
+  const translation = JSON.parse(await readFile(join(file, '..', 'vi.json'), 'utf8'))
+  await writeFile(join(other, 'vi.json'), JSON.stringify({ ...translation, slug: 'ca-second' }))
+  const entity = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(join(other, 'entity.json'), JSON.stringify({ ...entity, id: 'second', photos: [passedFirst ? square : mirror] }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [mirror.url]: { ok: 'yes', logo: false } }))
+  await writeFile(join(state, '_dead-screen.json'), '{}')
+  const { d } = deps()
+  d.detect = async files => files.map(() => 1)
+
+  const report = await run(root, d)
+  expect(report.faces.screened.filter(url => url === mirror.url || url === square.url)).toEqual(passedFirst ? [mirror.url, square.url] : [square.url, mirror.url])
+  expect(report.faces.held).toHaveLength(1)
+  expect(report.faces.held[0]).toContain(`species/${passedFirst ? 'alpha' : 'second'}`)
+  expect(report.faces.firstOff).toEqual([`${square.url}: species/${passedFirst ? 'second' : 'alpha'}`])
+  const marks = await json(root, 'engine-state/_photo-second-look.json')
+  expect(marks[mirror.url].off).toBeUndefined()
+  expect(marks[square.url].off).toBe(true)
+  const view = await publicView()
+  expect(view.species.find(p => p.id === (passedFirst ? 'alpha' : 'second'))?.photos.map(p => p.url)).toEqual([mirror.url])
+  expect(view.galleries.alpha?.map(p => p.url)).toEqual([mirror.url])
+  expect(view.photoWaits!(mirror.url)).toBe(false)
+  expect(view.photoWaits!(square.url)).toBe(true)
+})
+
+test('an exact people refusal cannot hide a whole-photo rights refusal at the source', async () => {
+  const source = 'https://live.staticflickr.com/123/456_abc_b.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const original = photo('credited-original')
+  const stored = { ...photo('altered'), url: mirror, altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
+  const { state, publicView } = await publicFixture([stored], [original], [mirror, original.url])
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror]: 0, [original.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [mirror]: 'people: a face', [source]: 'rejected: agency credit' }))
+
+  const view = await publicView()
+  expect(view.species.find(p => p.id === 'alpha')?.photos).toEqual([])
+  expect(view.galleries.alpha ?? []).toEqual([])
+  expect(view.photoWaits!(original.url)).toBe(true)
+})
+
 test('a cached positive face stays off the album after its last credited wrapper disappears', async () => {
   const original = photo('face-cached-original')
   const wrapper = { ...photo('wrapper'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }

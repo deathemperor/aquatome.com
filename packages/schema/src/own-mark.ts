@@ -1,4 +1,4 @@
-import { photoAddressSet, rejectedEntry } from './photo-address'
+import { isVersionRejection, photoAddressSet, photoKey, rejectedEntry, type PhotoRejection } from './photo-address'
 
 /**
  * The shops whose own mark on their own photos the owner allows: Aquarium Glaser's logo first (the chief of staff,
@@ -62,9 +62,21 @@ export const keptAuthorOk = (k: { by?: unknown; word?: unknown }): boolean => {
 }
 
 /** An approved shop mark waives only that watermark rejection, leaving other photo decisions in force. */
-export function photoRejections(rejected: Record<string, string>, marks: Record<string, { retainedOwnMark?: unknown }> = {}) {
+export function photoRejections(
+  rejected: Record<string, string>,
+  marks: Record<string, { retainedOwnMark?: unknown }> = {},
+  heldVersion: (url: string) => boolean = () => false,
+): PhotoRejection {
   const retained = photoAddressSet(Object.keys(marks).filter(url => retainedOwnMark(url, marks[url])))
-  return rejectedEntry(Object.fromEntries(Object.entries(rejected).filter(([url, why]) =>
-    !why.startsWith('watermark:') || !retained(url),
-  )))
+  const active = Object.entries(rejected).filter(([url, why]) => !why.startsWith('watermark:') || !retained(url))
+  const whole = active.filter(([, why]) => !isVersionRejection(why))
+  const permanent = rejectedEntry(Object.fromEntries(whole.filter(([, why]) => !why.startsWith('watermark:'))))
+  const anyWhole = rejectedEntry(Object.fromEntries(whole))
+  const any = rejectedEntry(Object.fromEntries(active))
+  return url => {
+    const refusal = permanent(url) ?? anyWhole(url) ?? any(url)
+    if (refusal && refusal[0] !== url && isVersionRejection(refusal[1]) && heldVersion(url) &&
+        !photoKey(url)?.startsWith('commons/')) return undefined
+    return refusal
+  }
 }

@@ -1,4 +1,4 @@
-import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, photoVersionAddressSet, photoWaitsFor, publicPhotoVersion, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, heldPhotoVersion, FACES_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, photoVersionAddressSet, photoWaitsFor, publicPhotoVersion, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -7,7 +7,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
+import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readPassedBefore, readSecondLook, verdictAddressSet, waitingEntry } from './last-photo'
 import { permittedPhotoSource, readCreditHoldWait, readPhotoSources } from './photo-visibility'
 
 /**
@@ -86,8 +86,9 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     readJson<Record<string, unknown>>(state(PHOTO_SUBJECTS_FILE)),
   ])
   const watermarkCache = await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))
-  const isListed = photoRejections(await expandWholePhotoRejections(content, photoRejected, watermarkCache), watermarkCache)
-  const lookedBefore = deadLooked({ screen: cache, check, subjects, secondLook: await readSecondLook(root) })
+  const secondLook = await readSecondLook(root)
+  const isListed = photoRejections(await expandWholePhotoRejections(content, photoRejected, watermarkCache), watermarkCache, heldPhotoVersion(secondLook))
+  const lookedBefore = deadLooked({ screen: cache, check, subjects, secondLook })
   // `firstOff`: a page's last photo the hold doesn't keep, its first verdict on a photo that never passed the check (last-photo.ts).
   const report = { sheets: 0, judged: 0, dead: [] as string[], held: [] as string[], firstOff: [] as string[], failed: [] as string[], left: 0, stopped: '' }
 
@@ -164,7 +165,6 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
 
   // Off the lists and off the pages that show them. A photo whose going would leave a page with nothing stays, held for
   // a second look (last-photo.ts); one the second look cleared stays too.
-  const secondLook = await readSecondLook(root)
   const sl = looks(secondLook)
   // A hold on another reason doesn't keep a photo that never passed from this, its first verdict (photo-check.ts spared).
   const passed = photoVersionAddressSet(off.some(x => !x.video) ? await readPassedBefore(root) : [])
@@ -191,13 +191,13 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     const waits = photoWaitsFor({ watermarks: watermarkCache, owed: listed, unread, faces, unjudged, lookedForDead: looked, check, subjects, deadScreen: oldCache, secondLook })
     const heldForCredit = await readCreditHoldWait(root)
     const unavailable = (u: string) => !!isListed(u) || heldForCredit(u) || waits(u)
-    for (const [url, refs] of lastPhotoVerdicts(pages, unavailable, going)) last.set(url, refs)
+    for (const [url, refs] of lastPhotoVerdicts(pages, unavailable, going, undefined, undefined, true)) last.set(url, refs)
   }
   // Only one that passed the check before is held; this verdict, on one that never did, takes it off, marked (last-photo.ts).
   const held = new Map([...last].filter(([u]) => passed(u)))
   const firstOff = new Map([...last].filter(([u]) => !passed(u)))
-  const heldByAddress = photoAddressSet(held.keys())
-  const markedByAddress = photoAddressSet(firstOff.keys())
+  const heldByAddress = verdictAddressSet(held.keys(), going)
+  const markedByAddress = verdictAddressSet(firstOff.keys(), going)
   const holding = new Map<string, { why: string; pages: string[]; off?: true }>()
   type Page = { photos?: Photo[]; videos?: { youtubeId: string }[] }
   const edits = new Map<string, { raw: string; page: Page }>()

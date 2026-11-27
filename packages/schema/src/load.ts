@@ -5,7 +5,7 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, isVersionRejection, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type CreditHoldPhotos, type PhotoScreenEntry } from './photo-screen'
+import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, heldPhotoVersion, expandWholePhotoRejections, isVersionRejection, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type CreditHoldPhotos, type PhotoScreenEntry } from './photo-screen'
 import { photoAddressSet } from './photo-address'
 import { photoRejections } from './own-mark'
 import { ownerCropFitsPage } from './owner-crops'
@@ -243,15 +243,6 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const heldForCredit = photoAddressSet(creditHoldPhotoUrls(publicBuild
     ? await stateRecord<Record<string, CreditHoldPhotos>>(root, CREDIT_HOLD_FILE) : undefined))
   if (screen && !faces && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', FACES_FILE)}: the face finder's record is missing, so no page's own photo can be shown as read`)
-  const rejectedForDead = screen ? photoRejections(
-    await expandWholePhotoRejections(root, await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}, screen), screen,
-  ) : undefined
-  const { unread } = await facePhotoStatus(root, faces)
-  if (faces && opts.photoScreen === 'required') {
-    const retryable = [...unread].filter(url => !rejectedForDead?.(url) && !heldForCredit(url)).length
-    console.log(`${lang}: ${retryable} own photos of species, plant and guide pages wait, the face finder has never read them`)
-    if (retryable > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species, plant and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
-  }
   // And an own photo of a species or plant page that no look has judged for a dead fish (photo-screen.ts deadLooked),
   // owed or not: the list is the engine's queue, and one that is behind can't let a photo through (the chief of staff,
   // 22 Nov 2026). With no screen record beside the root (the fixture build, a test's store) none waits for it; the site's
@@ -259,6 +250,15 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const deadScreen = screen ? await stateRecord<Record<string, unknown>>(root, DEAD_SCREEN_FILE) : undefined
   if (screen && !deadScreen && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)}: the dead-fish screen's record is missing, so no photo can be shown as judged for a dead fish`)
   const secondLook = deadScreen || faces ? await stateRecord<Record<string, { why?: string; off?: boolean; look?: { said?: string } }>>(root, SECOND_LOOK_RECORD) : undefined
+  const rejectedForDead = screen ? photoRejections(
+    await expandWholePhotoRejections(root, await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}, screen), screen, heldPhotoVersion(secondLook),
+  ) : undefined
+  const { unread } = await facePhotoStatus(root, faces)
+  if (faces && opts.photoScreen === 'required') {
+    const retryable = [...unread].filter(url => !rejectedForDead?.(url) && !heldForCredit(url)).length
+    console.log(`${lang}: ${retryable} own photos of species, plant and guide pages wait, the face finder has never read them`)
+    if (retryable > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species, plant and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
+  }
   const check = deadScreen ? await stateRecord<Record<string, unknown>>(root, PHOTO_CHECK_FILE) : undefined
   const subjects = deadScreen ? await stateRecord<Record<string, unknown>>(root, PHOTO_SUBJECTS_FILE) : undefined
   const lookedForDead = deadScreen ? deadLooked({ screen: deadScreen, check, subjects, secondLook }) : undefined

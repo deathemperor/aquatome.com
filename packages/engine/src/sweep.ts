@@ -3,7 +3,7 @@ import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections } from '@aq/schema'
+import { IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections, heldPhotoVersion, photoRejections } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -39,7 +39,6 @@ import { pageGroup } from './gbif'
 import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
-import { rejectedEntry } from './photos'
 import { gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, putBackCleared, readSecondLook, unlistCleared, type History } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
@@ -500,10 +499,11 @@ async function neverAgain(root: string) {
   const rejected = await expandWholePhotoRejections(join(root, 'content'), saved, marks)
   if (rejected !== saved) await writePhotoState(file, rejected)
   const kept = keptOwnMark(rejected, marks)
-  const entry = rejectedEntry(rejected)
+  const secondLook = await readSecondLook(root)
+  const entry = photoRejections(rejected, marks, heldPhotoVersion(secondLook))
   // One marked off at its first verdict is off whatever its entry says: a mark the shop's own kept doesn't keep a dead
   // fish on the page (last-photo.ts; the independent reader, 20 Nov).
-  const marked = looks(await readSecondLook(root)).off
+  const marked = looks(secondLook).off
   const listed = (url: string) => {
     const e = entry(url)
     return (!!e && !kept(e[0]) && !(e[1].startsWith('watermark:') && kept(url))) || marked(url)

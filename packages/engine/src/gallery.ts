@@ -2,7 +2,7 @@ import { piece } from './pieces'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
+import { photoRejections, heldPhotoVersion, GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -12,7 +12,7 @@ import { openversePage } from './openverse'
 import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
-import { isRejected, rejectedEntry, unfitCommons } from './photos'
+import { isRejected, unfitCommons } from './photos'
 import { CLEARED_VERDICT, looks, readSecondLook } from './last-photo'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
@@ -520,7 +520,7 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   let openverseFailures = 0
   const today = d.now().toISOString().slice(0, 10)
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
-  const rejection = rejectedEntry(rejected)
+  const rejection = photoRejections(rejected, {}, heldPhotoVersion(sl))
   const why = (url: string) => {
     const entry = rejection(url)
     return entry?.[1].startsWith('watermark:') && (markKept(url) || markKept(entry[0])) ? undefined : entry?.[1]
