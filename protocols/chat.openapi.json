@@ -855,7 +855,7 @@
       },
       "EquipmentProposal": {
         "type": "object",
-        "description": "One proposed switch on the selected saved tank, on the original completed turn only. The app shows it once and requires a tap to confirm. It must check its current account, tank, device, role and availability again before sending. Only a Love Ecology lamp or Tuya fan can switch on or off, and CO₂ can only switch off. The Worker never sends a device command.",
+        "description": "One proposed switch on the selected saved tank, on the original completed turn only. The app keeps it only with that live turn and requires a tap to confirm. Before sending it checks its current account, tank, device, role and availability and rejects any outlet linked to a light. Only a Love Ecology lamp or Tuya fan can switch on or off, and CO₂ can only switch off. The Worker never sends a device command.",
         "required": ["tank", "role", "command"],
         "properties": {
           "tank": { "type": "string", "format": "uuid" },
@@ -1819,7 +1819,7 @@
           "asked",
           "turn"
         ],
-        "description": "A question and its turn, as it was answered: its blocks as they were filled then.",
+        "description": "A question and its saved turn, with its original text and blocks.",
         "properties": {
           "question": {
             "type": "string",
@@ -1831,7 +1831,10 @@
             "description": "When."
           },
           "turn": {
-            "$ref": "#/components/schemas/Turn"
+            "allOf": [
+              { "$ref": "#/components/schemas/Turn" },
+              { "not": { "type": "object", "required": ["equipment"] } }
+            ]
           }
         },
         "additionalProperties": false

@@ -23,7 +23,14 @@ export function equipmentOf(store: TankStore, tank: string): Equipment[] {
   }
   // Group by physical strip, including copies on other tanks. The model needs neither this id nor an outlet code.
   const strips = new Map<string, Device[]>()
+  const lightOutlets = new Map<string, Set<string>>()
   for (const plug of devices) {
+    if (plug.kind === 'light' && plug.powerOutlet) {
+      const { plugId, code } = plug.powerOutlet
+      const outlets = lightOutlets.get(plugId) ?? new Set<string>()
+      outlets.add(code)
+      lightOutlets.set(plugId, outlets)
+    }
     if (plug.kind !== 'plug' || plug.brand !== 'tuya' || !plug.remoteId) continue
     const copies = strips.get(plug.remoteId) ?? []
     copies.push(plug)
@@ -37,6 +44,7 @@ export function equipmentOf(store: TankStore, tank: string): Equipment[] {
     const outlets = plug.outlets ?? []
     for (const { code, role, label } of outlets) {
       if ((role !== 'fan' && role !== 'co2') || !code || [...code].length > 40) continue
+      if (lightOutlets.get(plug.id)?.has(code)) continue
       if (outlets.filter(o => o.code === code).length !== 1) continue
       found.push({ device: plug.id, outlet: code, role, ...(label ? { label: withoutContacts(label) } : {}) })
     }

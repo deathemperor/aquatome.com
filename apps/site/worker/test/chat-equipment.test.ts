@@ -45,3 +45,14 @@ test('ambiguous physical devices and duplicate outlet codes are ineligible', () 
   const deletedCopy = { id: copy.id, deletedAt: at, updatedAt: at }
   expect(equipmentOf({ ...saved, devices: [...saved.devices, deletedCopy] }, tank.id)).toEqual(equipmentOf(saved, tank.id))
 })
+
+test('a live light’s power outlet is ineligible even if its outlet role says fan', () => {
+  const linked = {
+    ...lamp, id: 'b1000000-0000-4000-8000-000000000005', tankId: other.id, brand: 'chihiros',
+    powerOutlet: { plugId: plug.id, code: 'switch_1' },
+  }
+  const withLight = { ...saved, devices: [...saved.devices, linked] }
+  expect(equipmentOf(withLight, tank.id).map(e => e.role)).toEqual(['lamp', 'co2'])
+  const deleted = { id: linked.id, updatedAt: at, deletedAt: at }
+  expect(equipmentOf({ ...saved, devices: [...saved.devices, deleted] }, tank.id)).toEqual(equipmentOf(saved, tank.id))
+})

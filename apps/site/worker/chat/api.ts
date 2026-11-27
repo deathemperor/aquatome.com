@@ -345,6 +345,11 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   // have it asked again elsewhere, before its kept answer is written.
   const running = conv?.running && clock() - conv.running.at < RUNNING_MS ? conv.running : undefined
   if (running && idem && running.key === idem) return waitFor(readKept, keptResponse, stream, clock, deps)
+  // The previous answer may have saved its replay record between the read above and clearing its turn's mark.
+  if (mayOfferEquipment && conv && !running) {
+    const finished = await readKept()
+    if (finished) return keptResponse(finished)
+  }
   // Hidden from the list on another device: ended, so the app asks in a new conversation. A read that fails stops no question.
   const hasTurns = Boolean(conv?.turns.length)
   const row = hasTurns ? await env.DB.prepare('SELECT hidden, start FROM chat_conversations WHERE account = ? AND id = ?').bind(account, q.conversation).first<{ hidden: number; start: string }>().catch(() => null) : null
@@ -442,7 +447,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   /** One snapshot of the reader's tanks for this turn. A failed read can be tried again by the next tool call. */
   const savedTanks = () => saved ??= loadStore(env.DB, session.userId).catch(e => { saved = undefined; throw e })
   const tanks = () => savedTanks().then(store => tanksOf(store, now), e => { console.error('chat tanks:', e); return null })
-  const equipmentTank = mayOfferEquipment && (conv?.turns.length || start.from === 'tank') ? start.tank : undefined
+  const equipmentTank = mayOfferEquipment && start.from === 'tank' ? start.tank : undefined
 
   /** The run, after admission: its turn, or the error it ends on (as the JSON answer's status). */
   const work = async (onStep?: (s: Step) => void, onText?: (piece: string) => void, onBlock?: (b: ChatBlock) => void, onOpening?: (line: string) => void, until?: () => number): Promise<{ status: number; body: Record<string, unknown> }> => {
@@ -551,7 +556,10 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     if (next.turns.length && tankStart) next.tankStart = tankStart
     // A proposal is only for the app that asked and received this turn. Replays and history never offer an old switch.
     const k: Kept = turn ? { at: asked, turn: { ...turn, equipment: undefined } } : { at: asked, status: done.status, ...(done.body as { error: string; counted?: boolean; freeLeft?: number }) }
-    if (keptKey) await env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e))
+    // The replay record also claims the proposal. Only the first successful conditional write can offer it.
+    const stored = keptKey ? await env.UPLOADS.put(keptKey, JSON.stringify(k), turn?.equipment ? { onlyIf: { etagDoesNotMatch: '*' } } : undefined)
+      .catch(e => { console.error('chat kept:', e); return null }) : null
+    if (turn?.equipment && !stored) delete turn.equipment
     await env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e))
     if (turn) await listed(asked, next.turns.length).catch(e => console.error('chat list:', e))
     await Promise.all(spends)

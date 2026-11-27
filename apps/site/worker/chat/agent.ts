@@ -331,7 +331,7 @@ export type ChatOptions = {
  * picks as each is written (`picksReader`) to `onPick`. A call that has given the reader any text is the answer: its tool
  * calls are dropped and the run ends on it, since what the reader has read can't be taken back.
  */
-function streaming(send: ChatOptions['send'], onText: (piece: string) => void, onPick?: (pick: Choice) => void): ChatOptions['send'] {
+function streaming(send: ChatOptions['send'], onText: (piece: string) => void, stoppedAfterText: WeakSet<Anthropic.Message>, onPick?: (pick: Choice) => void): ChatOptions['send'] {
   return async (body, opts) => {
     const read = textReader()
     const picks = picksReader()
@@ -349,7 +349,9 @@ function streaming(send: ChatOptions['send'], onText: (piece: string) => void, o
       },
     })
     if (!shown) return m
-    return { ...m, content: m.content.filter(b => b.type !== 'tool_use'), stop_reason: m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason }
+    const visible: Anthropic.Message = { ...m, content: m.content.filter(b => b.type !== 'tool_use'), stop_reason: m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason }
+    if (m.stop_reason === 'tool_use') stoppedAfterText.add(visible)
+    return visible
   }
 }
 
@@ -395,7 +397,8 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   let wrote = false
   const onStep = (step: Step) => { begun = true; o.onStep?.(step) }
   const onText = o.onText && ((piece: string) => { begun = wrote = true; o.onText!(piece) })
-  const send = onText ? streaming(o.send, onText, onPick) : o.send
+  const stoppedAfterText = new WeakSet<Anthropic.Message>()
+  const send = onText ? streaming(o.send, onText, stoppedAfterText, onPick) : o.send
   const first = firstMessage(o.lang, o.question, o.earlier, o.start, o.handbook)
   const off = noThinking(o.model)
   const line = o.opening
@@ -464,7 +467,8 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // The picks the stream didn't fill (all of them, when the text didn't stream): the same picks, as both read the same JSON.
   if (answer) for (const p of answer.blocks.slice(picked)) await blocks.add(p)
   const filled = answer ? blocks.done() : { blocks: [], dropped: [] }
-  const proposal = answer && !answer.offTopic && offers && o.start.tank && run.message?.stop_reason === 'end_turn'
+  const completed = run.message?.stop_reason === 'end_turn' && !stoppedAfterText.has(run.message)
+  const proposal = answer && !answer.offTopic && offers && o.start.tank && completed
     ? equipmentProposal(o.start.tank, offers, answer.equipment)
     : undefined
   return { ...run, ...(answer ? { answer } : {}), ...filled, ...(opening ? { opening } : {}), ...(handed?.sections.length ? { handed: handed.sections } : {}), ...(proposal ? { equipment: proposal } : {}) }

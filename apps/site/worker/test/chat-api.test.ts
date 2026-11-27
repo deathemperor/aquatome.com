@@ -13,7 +13,7 @@ import { NO_THINKING, OPENING_SYSTEM } from '../chat/agent'
 import { OFF_TOPIC } from '../chat/answer'
 import { handbookOf, sectionsOf } from '../chat/handbook'
 import { textOf } from '../chat/tools'
-import { chatAccount, conversationKey } from '../chat/store'
+import { chatAccount, conversationKey, retryKey } from '../chat/store'
 import type { ChatRunRecord } from '../chat/transcript'
 import { clientFor, DEFAULT_MODEL, priceOf } from '../fishid/claude'
 import { classify, isApiError, type KeyEntry } from '../fishid/keys'
@@ -133,7 +133,7 @@ const ask = (auth: Record<string, string>, body: Record<string, unknown> = {}, h
   body: JSON.stringify({ conversation: CONV, question: 'Nuôi cá này thế nào?', lang: 'vi', from: 'fish-id', about: 'paracheirodon-innesi', ...body }),
 })
 const bearer = (token: string) => ({ authorization: `Bearer ${token}` })
-const { answer, streamMisfits, api } = contract('chat.openapi.json')
+const { answer, streamMisfits, api, misfits } = contract('chat.openapi.json')
 const sseMedia = api.paths['/api/chat'].post.responses['200'].content['text/event-stream']
 /**
  * The first line's call (a stream's), answered apart from the run's with `line` ("-": none), so the run's calls are the
@@ -1431,7 +1431,7 @@ test.each(['write', 'read'] as const)('a saved-tank review survives a conversati
 })
 
 test('an opted-in owner app can receive one safe equipment proposal, only on the original completed turn', async () => {
-  const { e, db } = env()
+  const { e, db, store } = env()
   const owner = await signIn(db)
   const reader = await signIn(db)
   e.OWNER_ACCOUNTS = owner.id
@@ -1444,7 +1444,14 @@ test('an opted-in owner app can receive one safe equipment proposal, only on the
   const headers = { 'X-AquaTome-Equipment': '1', 'Idempotency-Key': crypto.randomUUID() }
   let pick: unknown = { option: 1, on: false }
   let offTopic = false
-  const c = claude([() => answers({ offTopic, text: 'Bạn xác nhận tắt CO₂ trên ứng dụng nhé.', equipment: pick })])
+  let unfinished = false
+  const c = claude([() => {
+    const a = { offTopic, text: 'Bạn xác nhận tắt CO₂ trên ứng dụng nhé.', equipment: pick, blocks: [], suggestions: [], covered: true }
+    return unfinished ? msg([
+      { type: 'text', text: JSON.stringify(a) },
+      { type: 'tool_use', id: 'next', name: 'read_tanks', input: {} },
+    ], 'tool_use') : answers(a)
+  }])
 
   const askAs = (token: string, extra = {}, h: Record<string, string> = headers) => run(ask(bearer(token), { ...body, ...extra }, h), e, deps(c.fetch), now)
   const withNewTurn = () => ({ ...headers, 'Idempotency-Key': crypto.randomUUID() })
@@ -1460,6 +1467,10 @@ test('an opted-in owner app can receive one safe equipment proposal, only on the
   const turnKey = withNewTurn()
   const original = await askAs(owner.token, {}, turnKey)
   expect(original.body.equipment).toEqual({ tank: tank.id, role: 'co2', command: { device: strip.id, outlet: 'switch_1', on: false } })
+  const keptSchema = { $ref: '#/components/schemas/Kept' }
+  const { equipment: _proposal, ...ordinaryTurn } = original.body
+  expect(misfits({ question: body.question, asked: at, turn: ordinaryTurn }, keptSchema)).toEqual([])
+  expect(misfits({ question: body.question, asked: at, turn: original.body }, keptSchema)).not.toEqual([])
   const prompt = JSON.stringify(c.bodies.at(-1))
   expect(prompt).toContain('Switch options for this turn')
   for (const value of [strip.id, strip.remoteId, 'switch_1']) expect(prompt).not.toContain(value)
@@ -1468,6 +1479,30 @@ test('an opted-in owner app can receive one safe equipment proposal, only on the
   expect(c.bodies).toHaveLength(calls)
   const streamed = await askAs(owner.token, {}, { ...withNewTurn(), Accept: 'text/event-stream' })
   expect(streamed.body.equipment).toEqual(original.body.equipment)
+
+  unfinished = true
+  const stopped = await askAs(owner.token, {}, { ...withNewTurn(), Accept: 'text/event-stream' })
+  expect(stopped.body).toMatchObject({ text: 'Bạn xác nhận tắt CO₂ trên ứng dụng nhé.' })
+  expect(stopped.body).not.toHaveProperty('equipment')
+  unfinished = false
+
+  const keyOf = async (headers: typeof turnKey) => retryKey(await chatAccount('k', owner.id), headers['Idempotency-Key'])
+  const retryHeaders = withNewTurn()
+  const retryRecord = await keyOf(retryHeaders)
+  e.UPLOADS = hooked(store.bucket, { put: key => { if (key === retryRecord) throw new Error('retry write failed') } })
+  expect((await askAs(owner.token, {}, { ...retryHeaders, Accept: 'text/event-stream' })).body).not.toHaveProperty('equipment')
+  e.UPLOADS = store.bucket
+  expect((await askAs(owner.token, {}, retryHeaders)).body.equipment).toEqual(original.body.equipment)
+
+  // A retry that missed the durable record can finish its own answer, but its conditional write cannot claim the card.
+  const originalRecord = await keyOf(turnKey)
+  e.UPLOADS = {
+    ...store.bucket,
+    get: async (key: string) => key === originalRecord ? null : store.bucket.get(key),
+  } as R2Bucket
+  expect((await askAs(owner.token, {}, turnKey)).body).not.toHaveProperty('equipment')
+  e.UPLOADS = store.bucket
+  expect((await askAs(owner.token, {}, turnKey)).body.n).toBe(original.body.n)
 
   pick = { option: 1, on: true }
   expect((await askAs(owner.token, {}, withNewTurn())).body).not.toHaveProperty('equipment')
