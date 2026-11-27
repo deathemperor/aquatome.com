@@ -39,10 +39,11 @@ async function storedWatermarks(file: string): Promise<Record<string, PhotoScree
 /** Keep an existing effective refusal unless the new one applies to the entire photo. */
 export async function recordPhotoRefusals(
   file: string, rejected: Record<string, string>, refusals: ReadonlyMap<string, string>, marks?: Record<string, PhotoScreenEntry>,
+  reviewed?: (url: string) => boolean,
 ): Promise<void> {
   if (!refusals.size) return
   const screen = marks ?? await storedWatermarks(file)
-  const active = photoRejections(rejected, screen)
+  const active = photoRejections(rejected, screen, reviewed)
   const expanded = await expandWholePhotoRejections(join(dirname(dirname(file)), 'content'), Object.fromEntries(refusals), screen)
   const pending = rejectedEntry(expanded)
   for (const url of new Set([...Object.keys(expanded), ...Object.keys(rejected)])) {

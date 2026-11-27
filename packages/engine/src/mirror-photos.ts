@@ -3,7 +3,7 @@ import { writePhotoState } from './photo-state'
 import { readPhotoWaits } from './photo-visibility'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { basename, join } from 'node:path'
-import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, isVersionRejection, mirrorPlan, photoLookAnswer, photoVersionAddressSet, THUMB_WIDTH, type ImageSwitches } from '@aq/schema'
+import { FACES_FILE, IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, isVersionRejection, mirrorPlan, photoLookAnswer, photoVersionAddressSet, THUMB_WIDTH, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
 import { looks, readSecondLook, writeSecondLook } from './last-photo'
 
@@ -84,8 +84,10 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     }
   }
   const rejected = caches.get(join(root, 'engine-state', '_photo-rejected.json'))
+  const faces = caches.get(join(root, 'engine-state', FACES_FILE))
   let photoWaits: Promise<(url: string) => boolean> | undefined
   for (const [file, { raw, data }] of docs) {
+    const own = ['species', 'plants'].some(kind => file.startsWith(join(root, 'content', kind) + '/'))
     let changed = false
     for (const p of photosIn(data)) {
       const plan = mirrorPlan(p.url)
@@ -124,7 +126,8 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
         const refusals = [rejected?.[p.url], rejected?.[stored.url]]
         if (refusals.some(reason => typeof reason === 'string' && isVersionRejection(reason))) continue
         const waits = await (photoWaits ??= readPhotoWaits(root, { requireDeadLook: true }))
-        if (!waits(p.url) && waits(stored.url)) continue
+        const needsFace = own && faces && !Object.hasOwn(faces, stored.url)
+        if (!waits(p.url) && (waits(stored.url) || needsFace)) continue
       }
       moved.push([p.url, stored.url])
       Object.assign(p, { url: stored.url, thumb: stored.thumb, width: stored.width, height: stored.height })
