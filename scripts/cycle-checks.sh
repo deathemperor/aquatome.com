@@ -815,7 +815,7 @@ sweep_merged() {
   MIGRATE_FAILED=
   pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
   AQ_PHOTO_PRE_REBASE="$before" sweep_for_publish
-  if [ -n "${SWEEP_FAILED:-}" ]; then SWEEP_RETRY_HEAD="$before"; fi
+  if [ -n "${SWEEP_FAILED:-}" ]; then SWEEP_RETRY_HEAD="${SWEEP_ORIGINAL_HEAD:-$before}"; fi
   git add content sources engine-state docs/review
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
 }

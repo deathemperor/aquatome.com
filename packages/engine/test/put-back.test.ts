@@ -231,7 +231,7 @@ const keptOf = async (u: string) => {
 }
 const today = () => new Date().toISOString().slice(0, 10)
 const A = 'content/species/aaa/entity.json'
-const capturedAt = (file: string, index: number) => ({ file, index, capture: expect.any(String) })
+const capturedAt = (file: string, index: number) => ({ file, index, capture: expect.any(String), edition: expect.stringMatching(/^[a-f0-9]{64}$/) })
 
 /** A store in a repository, aaa with no photo of its own committed, and the look's clear in a commit of its own. */
 async function runRepo(albums: Record<string, string[]> = {}) {
@@ -1633,7 +1633,7 @@ test('a take-off retry captures reordered neighbors with the same address', asyn
   expect((await json(r, file)).photos).toEqual([second, target, first])
 })
 
-test('a reordered take-off retry retains readable private captures for both variants', async () => {
+test.each([false, true])('a reordered take-off retry retains readable private captures for both variants (recaptioned: %s)', async recaptioned => {
   const { r, clear } = await runRepo()
   const file = join(r, A)
   const plain = photo('a-now')
@@ -1647,11 +1647,12 @@ test('a reordered take-off retry retains readable private captures for both vari
   await holdForSecondLook(r, new Map([[plain.url, mark]]), 'the photo check', today())
   await capture([plain, wrapper])
   // An editor reordered the still-present photos after the first take-off failed to write its page.
-  await capture([wrapper, plain])
+  const edited = recaptioned ? { ...wrapper, caption: 'Corrected credit note' } : wrapper
+  await capture([edited, plain])
   await clear()
   const restored = await putBackCleared(r, gitHistory(r))
   expect(restored.unread).toEqual([])
-  expect((await json(r, A)).photos).toEqual([wrapper, plain])
+  expect((await json(r, A)).photos).toEqual([edited, plain])
 })
 
 test('a returned wrapper remains independently removed after an editor changed its caption', async () => {
@@ -1708,4 +1709,64 @@ test('publication after pruning a settled capture preserves only the surviving w
   expect((await json(r, A)).photos).toEqual([first, survivor])
   await putBackCleared(r, gitHistory(r))
   expect((await json(r, A)).photos).toEqual([survivor])
+})
+
+test('publication preserves the only same-edition album occurrence left on main', async () => {
+  const { r, git, clear } = await runRepo({ aaa: [] })
+  const albumFile = 'content/gallery/aaa.json'
+  const file = join(r, albumFile)
+  const document = await json(r, albumFile)
+  const removed = { ...photo('shared'), caption: 'First placement' }
+  const kept = { ...removed, caption: 'Second placement' }
+  const driver = fileURLToPath(new URL('../../../scripts/merge-main-whole.mjs', import.meta.url))
+  git('config', 'merge.main-whole.driver', `node "${driver}" %O %A %B %P`)
+  await writeFile(join(r, '.gitattributes'), 'content/gallery/*.json merge=main-whole\n')
+  const places = new Map<string, Stood[]>()
+  placesIn(r, file, { photos: [removed, kept] }, () => true, places)
+  await holdForSecondLook(r, new Map([[removed.url, { why, pages: ['species/aaa'], off: true }]]), 'the photo check', today(), places)
+  await clear()
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+
+  await putBackCleared(r, gitHistory(r))
+  expect((await json(r, albumFile)).photos).toEqual([removed, kept])
+  await writeFile(join(r, 'unrelated.txt'), 'Other work from the same cycle\n')
+  git('add', '-A'); git('commit', '-qm', 'the unpublished restore')
+
+  git('switch', '-qc', 'concurrent-main', 'refs/remotes/origin/main')
+  await putBackCleared(r, gitHistory(r))
+  git('add', '-A'); git('commit', '-qm', 'an independent restore on main')
+  await writeFile(file, JSON.stringify({ ...document, photos: [kept] }))
+  git('add', '-A'); git('commit', '-qm', 'an editor removes the first occurrence')
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+
+  git('switch', '-q', 'main')
+  git('rebase', 'refs/remotes/origin/main')
+  await putBackCleared(r, gitHistory(r))
+  expect((await json(r, albumFile)).photos).toEqual([kept])
+})
+
+test('a published clear does not discard a different edition captured at the same ordinal', async () => {
+  const main = await runRepo({ aaa: [] }), parallel = await runRepo({ aaa: [] })
+  const albumFile = 'content/gallery/aaa.json'
+  const plain = photo('same-address')
+  const wrapper = { ...plain, altered: [{ method: 'lanczos3-upscale' }], original: photo('original') }
+  const hold = { why, pages: ['species/aaa'], off: true as const }
+  for (const [repo, photo] of [[main, plain], [parallel, wrapper]] as const) {
+    await holdForSecondLook(repo.r, new Map([[plain.url, hold]]), 'the photo check', today(),
+      new Map([[plain.url, [{ file: albumFile, index: 0, photo }]]]))
+    await writeFile(join(repo.r, 'engine-state/_photo-rejected.json'), '{}')
+    repo.git('add', '-A'); repo.git('commit', '-qm', 'the take-off')
+  }
+  await main.clear()
+  await putBackCleared(main.r, gitHistory(main.r))
+  main.git('add', '-A'); main.git('commit', '-qm', 'the published restore')
+  main.git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+  await putBackCleared(main.r, gitHistory(main.r))
+  expect((await keptFor(plain.url)).map(entry => entry.entry.photo)).toEqual([wrapper])
+
+  const merged = mergeMaps({}, await json(main.r, SL), await json(parallel.r, SL))
+  await writeFile(join(main.r, SL), JSON.stringify(merged))
+  const restored = await putBackCleared(main.r, gitHistory(main.r))
+  expect(restored.unread).toEqual([])
+  expect((await json(main.r, albumFile)).photos).toEqual([plain, wrapper])
 })

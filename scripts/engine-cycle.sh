@@ -28,7 +28,8 @@ if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pa
 deploy() { gh workflow run deploy.yml -R "${GITHUB_REPOSITORY:-deathemperor/aquatome.com}" --ref main; }
 # Push this part's commit on top of whatever landed during the run (code, the other parts' content).
 push() {
-  local main run moved
+  local main run moved SWEEP_ORIGINAL_HEAD
+  SWEEP_ORIGINAL_HEAD=$(git rev-parse HEAD)
   for _ in 1 2 3; do
     # main: the commit this work sits on, not the last main fetched, which a fetch before this pull (catch_up's, stopped
     # after its fetch) may have moved: swept_pull then sees main's commits come in (a reader's catch, 16 Nov).
