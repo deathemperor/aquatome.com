@@ -323,7 +323,7 @@ test("a public build shows no own photo of a species or plant page that no look 
   await state('_photo-dead-owed.json', {})
   // Judged: by the screen, by the photo check (a verdict that asked about dead fish has `logo`), by a person's clear.
   await state('_dead-screen.json', { 'https://media.test/by-screen.webp': { dead: false } })
-  await state('_photo-subjects.json', { 'https://media.test/by-check.webp': { alpha: { ok: 'yes', logo: false } }, 'https://media.test/by-none.webp': { alpha: { ok: 'yes' } } })
+  await state('_photo-subjects.json', { 'https://media.test/by-check.webp': { alpha: { ok: 'yes', logo: false } }, 'https://media.test/by-none.webp': { alpha: { logo: false } } })
   await state('_photo-second-look.json', { 'https://media.test/by-person.webp': { why: 'x', step: 'the watermark screen', pages: ['species/alpha'], at: '2026-11-20', look: { said: 'clear', by: 'the chief of staff', on: '2026-11-21' } } })
   const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')
   const shown = async (publicBuild: boolean) => {
