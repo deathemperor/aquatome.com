@@ -256,7 +256,6 @@ export async function listAgreed(root: string, includes: (url: string) => boolea
     raw => JSON.parse(raw) as Record<string, { retainedOwnMark?: unknown }>,
     (error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return undefined },
   )
-  const active = photoRejections(rejected, watermarks)
   const partsFile = join(root, 'engine-state', '_part-photos-off.json')
   const partsOff = agreed.some(url => sl[url]!.parts?.length)
     ? JSON.parse(await readFile(partsFile, 'utf8').catch((error: NodeJS.ErrnoException) => {
@@ -266,6 +265,7 @@ export async function listAgreed(root: string, includes: (url: string) => boolea
     : undefined
   let partsChanged = false
   for (const url of agreed) {
+    const active = photoRejections(rejected, watermarks)
     // A waiting entry, for this reason or another, takes the verdict's own reason, on a record marked off or not: two runs'
     // records can meet in a merge with the unmarked one kept and the waiting entry beside it (the chief of staff, 20 Nov,
     // after that night's seven). On one marked off, a mark's entry does too, which a shop's own kept mark could otherwise
@@ -311,14 +311,18 @@ export async function listAgreed(root: string, includes: (url: string) => boolea
  * carry its waiting entry back into the merge, so apply the clear before any step uses the rejection list.
  */
 export function withoutSettledWaits(rejected: Record<string, string>, marks: SecondLooks): Record<string, string> {
-  for (const [url, mark] of Object.entries(marks)) if (settledWaiting(rejected[url], mark)) delete rejected[url]
+  for (const [url, reason] of Object.entries(rejected)) {
+    const review = waitingReview(marks, url, reason)
+    if (review && settledWaiting(reason, review[1])) delete rejected[url]
+  }
   return rejected
 }
 
 /** Leave a waiting copy in place once a valid clear has arrived, even before recovery completes. */
 export function withoutClearedWaits(rejected: Record<string, string>, marks: SecondLooks): Record<string, string> {
-  for (const [url, mark] of Object.entries(marks)) {
-    if (mark.off === true && lookOf(mark)?.said === 'clear' && ownsWaiting(mark, rejected[url])) delete rejected[url]
+  for (const [url, reason] of Object.entries(rejected)) {
+    const review = waitingReview(marks, url, reason)
+    if (review?.[1].off === true && lookOf(review[1])?.said === 'clear') delete rejected[url]
   }
   return rejected
 }
@@ -337,11 +341,15 @@ export async function unlistCleared(root: string, deferred: ReadonlySet<string> 
   // A later checkout can add a pending place after an earlier place has published. A URL-wide waiting entry
   // would take that earlier copy off again even though the clear still applies to it.
   const waits = (u: string) => !sl[u]!.settled?.length && (deferred.has(u) || (!!sl[u]!.left?.length && !sl[u]!.back))
-  const out = Object.keys(sl).filter(u => sl[u]!.off === true && l.cleared(u) && ownsWaiting(sl[u], rejected[u]) && !waits(u))
-  if (!out.length) return []
-  for (const u of out) delete rejected[u]
-  await writePhotoState(rejectedFile, rejected)
-  return out
+  const out = new Set<string>()
+  for (const [url, reason] of Object.entries(rejected)) {
+    const review = waitingReview(sl, url, reason)
+    if (!review || review[1].off !== true || !l.cleared(review[0]) || waits(review[0])) continue
+    delete rejected[url]
+    out.add(review[0])
+  }
+  if (out.size) await writePhotoState(rejectedFile, rejected)
+  return [...out]
 }
 
 /** A place a photo stood: its page's, album's or guide's file (from the repository's root) and its place in `photos`. */
@@ -572,7 +580,7 @@ async function capturePlaces(sl: SecondLooks, left: Map<string, Stood[]>, dir: s
           }
         }
       }
-      await writeKept(dir, url, r, { ...p, ...place, order, orderKeys, ...(orderKeys ? { orderKeyIndex } : {}) }, earlier)
+      await writeKept(dir, url, r, { ...p, ...place, occurrence, order, orderKeys, ...(orderKeys ? { orderKeyIndex } : {}) }, earlier)
       named.set(placeKey(place), place)
       r.left = [...named.values()]
       const group = placeKey({ ...p, occurrence: undefined })
@@ -728,14 +736,19 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
           const same = candidates.find(p => !matched.has(p) && sameGuideSlot(p, next) && samePlacement(p.photo, next.photo))
           if (same) matched.add(same)
         }
+        const earlierDepartures = [...out.values()]
         for (const p of candidates) {
-          // A part can move when a neighboring part is dropped.
           if (matched.has(p)) continue
-          const exact = (q: Pick<Place, 'file' | 'path'> & { photo?: Record<string, unknown> }) =>
-            q.file === file && placeKey({ ...q, occurrence: undefined }) === placeKey({ ...p, file, occurrence: undefined }) &&
-            JSON.stringify(q.photo) === JSON.stringify(p.photo)
-          const saved = captured.filter(exact)
-          const known = [...out.values()].filter(exact)
+          const sameSlot = (q: Pick<PhotoSlot, 'path' | 'heading' | 'partOrder'> & { file: string; photo?: Record<string, unknown> }) =>
+            q.file === file && sameGuideSlot(q, p)
+          const exact = (q: Parameters<typeof sameSlot>[0]) =>
+            sameSlot(q) && JSON.stringify(q.photo) === JSON.stringify(p.photo)
+          const sameVersion = (q: Parameters<typeof sameSlot>[0]) =>
+            sameSlot(q) && !!q.photo && samePlacement(q.photo, p.photo)
+          const exactCaptures = captured.filter(exact)
+          const saved = exactCaptures.length ? exactCaptures : captured.filter(sameVersion)
+          const exactDepartures = earlierDepartures.filter(exact)
+          const known = exactDepartures.length ? exactDepartures : earlierDepartures.filter(sameVersion)
           const occurrence = saved.length === 1 ? saved[0]!.occurrence : known.length === 1 ? known[0]!.occurrence : p.occurrence
           const same = (q: PhotoSlot) => sameGuideSlot(p, q) && q.occurrence === occurrence
           const position = { file, index: p.index, ...(p.path ? { path: p.path } : {}), ...(occurrence ? { occurrence } : {}) }
@@ -756,7 +769,7 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
             const starting = capturedAt && capturedAt !== mark ? [`${capturedAt}^`, capturedAt] : [parent, mark]
             const wasPresent = (!capturedAt && spots(parent, file).some(same)) ||
               (capturedKeys.has(key) && starting.some(rev => spots(rev, file).some(same)))
-            const existed = saved.length === 1
+            const existed = exactCaptures.length === 1
               ? starting.some(rev => spots(rev, file).some(slot => sameGuideSlot(p, slot) && placementHash(slot.photo) === placementHash(p.photo)))
               : wasPresent
             out.set(key, { ...position, photo: p.photo, order: p.order, orderKeys: p.orderKeys, times: existed ? 1 : 2, ...(p.heading !== undefined ? { heading: p.heading, partOrder: p.partOrder, partImages: p.partImages } : {}) })
@@ -832,8 +845,6 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks, dir?: st
     if (!places.length) continue
     const restoredHere = places.filter(place => pending.settled?.some(p => placeKey(p) === placeKey(place)) &&
       !original?.[url]?.settled?.some(p => placeKey(p) === placeKey(place)))
-    const historyPlaces = restoredHere.length ? await history(url, mark.at, restoredHere) : []
-    if (!historyPlaces) throw new Error('Could not verify an unpublished photo restore after pulling main')
     for (const place of places) {
       const file = join(root, place.file)
       const raw = await readFile(file, 'utf8').catch((error: NodeJS.ErrnoException) => {
@@ -848,24 +859,45 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks, dir?: st
       const capture = dir && saved?.capture ? await readKept(dir, url, pending, saved) : undefined
       const address = typeof capture?.photo.url === 'string' ? capture.photo.url : url
       const matches = photoAddressSet([url, address])
-      const departure = historyPlaces.find(p => placeKey(p) === placeKey(place) && p.times >= 2)
+      const slots = (data: unknown) => photoSlots(data, guide).filter(slot =>
+        sameGuideSlot(capture ?? place, slot) && matches(String(slot.photo.url)) && !setsCookies(String(slot.photo.url)))
+      const restored = restoredHere.includes(place)
+      const landed = restored ? localStates.find(state => state.marks?.[url]?.settled?.some(p => placeKey(p) === placeKey(place))) : undefined
+      if (restored && !landed) throw new Error('Could not verify the original entry restored before pulling main')
+      const savedData = landed ? publishedJson(root, place.file, landed.sha) : undefined
+      let target: Pick<PhotoSlot, 'photo'> | undefined = capture
+      if (landed && !target) {
+        // The private entry may have been pruned after a matching outcome. Find what the local restoration added.
+        const earlier = slots(publishedJson(root, place.file, landed.sha + '^')).map(slot => placementHash(slot.photo))
+        const added = slots(savedData).filter(slot => {
+          const index = earlier.indexOf(placementHash(slot.photo))
+          if (index < 0) return true
+          earlier.splice(index, 1)
+          return false
+        })
+        if (!added.length) continue
+        const original = added.length === 1 ? added[0] : added[place.occurrence ?? 0]
+        if (!original) throw new Error('Could not identify the photo added by the original restore')
+        target = original
+      }
       const at = (data: unknown): PhotoSlot[] => {
-        const candidates = photoSlots(data, guide).filter(slot =>
-          sameGuideSlot(departure ?? capture ?? place, slot) && matches(String(slot.photo.url)) && !setsCookies(String(slot.photo.url)))
-        if (!capture) return candidates.filter(slot => slot.occurrence === place.occurrence)
-        const exact = candidates.filter(slot => placementHash(slot.photo) === placementHash(capture.photo))
+        const candidates = slots(data)
+        if (!target) return candidates.filter(slot => slot.occurrence === place.occurrence)
+        const exact = candidates.filter(slot => placementHash(slot.photo) === placementHash(target!.photo))
         if (exact.length === 1) return exact
-        const variants = candidates.filter(slot => samePlacement(slot.photo, capture.photo))
+        const variants = candidates.filter(slot => samePlacement(slot.photo, target!.photo))
         return variants.length === 1 ? variants : variants.filter(slot => slot.occurrence === place.occurrence)
       }
       const publicSlots = at(publishedJson(root, place.file, main))
       const previousSlots = at(publishedJson(root, place.file, before))
       const currentSlots = at(doc)
       const returned = publicSlots[0]
-      if (restoredHere.includes(place) && (departure || returned)) {
-        const landed = localStates.find(state => state.marks?.[url]?.settled?.some(p => placeKey(p) === placeKey(place)))
-        if (!landed) throw new Error('Could not verify the original entry restored before pulling main')
-        const saved = at(publishedJson(root, place.file, landed.sha))[0]
+      if (restored) {
+        const historyPlaces = await history(url, mark.at, [{ ...place, photo: target?.photo, photoUrl: typeof target?.photo.url === 'string' ? target.photo.url : undefined }])
+        if (!historyPlaces) throw new Error('Could not verify an unpublished photo restore after pulling main')
+        const departure = historyPlaces.some(p => placeKey(p) === placeKey(place) && p.times >= 2)
+        if (!departure && !returned) continue
+        const saved = at(savedData)[0]
         const merged = currentSlots[0]
         const former = previousSlots[0]
         if (!saved || !merged) continue
@@ -1177,6 +1209,11 @@ export async function putBackCleared(root: string, history: History, at = today(
     }
     for (const key of sl[u]!.parts ?? []) for (const g of sl[u]!.pages) if (g.startsWith('guides/')) parts.lift(key, g.slice('guides/'.length), u)
     if (entry !== undefined) { delete rejected[u]; unlisted = true }
+    for (const [address, reason] of Object.entries(rejected)) {
+      if (waitingReview(sl, address, reason)?.[0] !== u) continue
+      delete rejected[address]
+      unlisted = true
+    }
     complete(sl[u]!, places)
   }
   if (unlisted) await writePhotoState(rejectedFile, rejected)

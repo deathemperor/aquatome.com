@@ -324,7 +324,7 @@ test("a public build shows no own photo of a species or plant page that no look 
   await state('_photo-guides.json', {})
   // Judged: by the screen, by the photo check (a verdict that asked about dead fish has `logo`), by a person's clear.
   await state('_dead-screen.json', { 'https://media.test/by-screen.webp': { dead: false } })
-  await state('_photo-subjects.json', { 'https://media.test/by-check.webp': { alpha: { ok: 'yes', logo: false } }, 'https://media.test/by-none.webp': { alpha: { ok: 'yes' } } })
+  await state('_photo-subjects.json', { 'https://media.test/by-check.webp': { alpha: { ok: 'yes', logo: false } }, 'https://media.test/by-none.webp': { alpha: { logo: false } } })
   await state('_photo-second-look.json', { 'https://media.test/by-person.webp': { why: 'x', step: 'the watermark screen', pages: ['species/alpha'], at: '2026-11-20', look: { said: 'clear', by: 'the chief of staff', on: '2026-11-21' } } })
   const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')
   const shown = async (publicBuild: boolean) => {
@@ -436,10 +436,24 @@ test("a public build shows no guide photo or stock photo the guides' own look ha
     await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new'), ...many]))
     await write('guides/g/vi.json', { ...alphaVi, slug: 'trang-g', name: 'Hướng dẫn nuôi cá platy' })
     await state('_photo-guides.json', Object.fromEntries(named.map(n => [
-      photo(n).url, { person: false, mark: false, brand: false, ...(n.startsWith('stock-') ? { other: { platy: false } } : {}) },
+      photo(n).url, { person: false, mark: false, brand: false, ...(n.startsWith('stock-') ? { other: { platy: false }, answeredSubjects: ['platy'] } : {}) },
     ])))
     await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' }))
       .rejects.toThrow(`vi: ${GUIDE_UNJUDGED_LIMIT + 1} guide photos and stock photos the guides' own look hasn't judged`)
+    await write('guide-legacy-photo-uses.json', [['g', 'platy', photo('guide-looked').url]])
+    const legacy = await loadAll({ root: store, lang: 'vi', publicBuild: true })
+    expect(legacy.guides.find(x => x.id === 'g')?.photos).toEqual([])
+    await state('_photo-guides.json', {
+      [photo('guide-looked').url]: { person: false, mark: false, brand: false, other: { platy: false } },
+      [photo('guide-new').url]: { person: false, mark: false, brand: false, other: { platy: false } },
+    })
+    expect((await shown(true)).own).toEqual(['guide-looked'])
+    await write('guide-legacy-photo-uses.json', [['g', 'guppy', photo('guide-looked').url]])
+    expect((await shown(true)).own).toEqual([])
+    await state('_photo-guides.json', {
+      [photo('guide-looked').url]: { person: false, mark: false, brand: false, other: { platy: false }, answeredSubjects: ['platy'] },
+    })
+    expect((await shown(true)).own).toEqual(['guide-looked'])
     await write('guides/g/vi.json', { ...alphaVi, slug: 'trang-g' })
   } finally {
     said.mockRestore()
@@ -576,10 +590,10 @@ test("a public build shows no own photo of a species, plant, breed or guide page
   } finally {
     said.mockRestore()
   }
-  // Read (a faces step has run): each shows by itself in the next build.
+  // After the face step, the cached positive result keeps its photo off both the page and its album.
   await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread')] })
   await writeFile(facesFile, JSON.stringify(Object.fromEntries(['fish-read', 'fish-unread', 'plant-unread', 'guide-read', 'guide-unread', 'breed'].map(n => [`https://media.test/${n}.webp`, n === 'fish-unread' ? 2 : 0]))))
-  expect(await shown(true)).toEqual({ fish: ['fish-read', 'fish-unread'], album: ['fish-unread', 'album'], plant: ['plant-unread'], guide: ['guide-read', 'guide-unread'], breed: ['breed'] })
+  expect(await shown(true)).toEqual({ fish: ['fish-read'], album: ['album'], plant: ['plant-unread'], guide: ['guide-read', 'guide-unread'], breed: ['breed'] })
   // With no record beside the real content, the site's build fails: it can't tell a read photo from one never read.
   const { rm } = await import('node:fs/promises')
   await rm(facesFile)

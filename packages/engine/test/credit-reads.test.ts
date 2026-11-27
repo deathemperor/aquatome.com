@@ -372,3 +372,35 @@ test('a publisher refusal on the original applies to its approved crop on the pa
   expect(rejected[crop.url]).toMatch(/^rejected: /)
   expect(rejected[original.url]).toMatch(/^rejected: /)
 })
+
+test.each([false, true])('an agency agreement survives a competing watermark agreement (agency processed first: %s)', async agencyFirst => {
+  const original = photo('shared'), first = photo('first'), second = photo('second')
+  const r = await root({})
+  const review = { step: 'the guide photo check', pages: ['species/fish-e'], at: '2026-11-26', originals: [original.url],
+    look: { said: 'agree', by: 'reviewer', on: '2026-11-26' } }
+  const agency = 'rejected: agency credit'
+  const agreed = {
+    [first.url]: { ...review, why: agencyFirst ? agency : 'watermark: dealer mark' },
+    [second.url]: { ...review, why: agencyFirst ? 'watermark: dealer mark' : agency },
+  }
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify(agreed))
+
+  await listAgreed(r)
+  expect((await json(join(r, 'engine-state/_photo-rejected.json')))[original.url]).toBe(compactRejection(agency))
+})
+
+test('own-credit release leaves an owner crop off after an independent whole-photo refusal', async () => {
+  const original = photo('shared-original')
+  const crop = photo('owner-crop', { original, ownerCrop: { id: 'approved-crop' } })
+  const sibling = photo('sibling')
+  const page = 'content/species/fish-e/entity.json', album = 'content/gallery/fish-e.json'
+  const r = await root({ [page]: { id: 'fish-e', photos: [crop] }, [album]: { id: 'fish-e', photos: [crop] } })
+  await holdForCreditRead(r, [crop.url], 'reviewer', '2026-11-26', 'credit unread')
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({
+    [sibling.url]: { why: 'rejected: independent credit refusal', originals: [original.url], pages: ['species/fish-e'],
+      step: 'the credit read', at: '2026-11-26', look: { said: 'agree', by: 'reviewer', on: '2026-11-26' } },
+  }))
+  expect(await releaseCreditHolds(r, { [original.url]: { page: PAGE, kind: 'own', at: '2026-11-26' } })).toEqual({ back: [], off: [crop.url], stuck: [] })
+  expect((await json(join(r, page))).photos).toEqual([])
+  expect((await json(join(r, album))).photos).toEqual([])
+})

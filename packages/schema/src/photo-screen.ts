@@ -200,8 +200,10 @@ export async function expandWholePhotoRejections(
   const added: Record<string, string> = {}
   for (const [url, causes] of originals) {
     const prior = effective(url)?.[1]
-    const cause = causes.values().next().value
-    if (cause && (!prior || isVersionRejection(prior))) added[url] = rejections[cause]!
+    const reasons = [...causes].map(cause => rejections[cause]!)
+    const independent = reasons.find(reason => !reason.startsWith('watermark:'))
+    const reason = independent ?? reasons[0]
+    if (reason && (!prior || isVersionRejection(prior) || (independent && prior.startsWith('watermark:')))) added[url] = reason
   }
   return Object.keys(added).length ? { ...rejections, ...added } : rejections
 }
@@ -228,12 +230,18 @@ export async function facePhotoStatus(root: string, faces?: Record<string, unkno
 
 export type DeadLookRecords = { screen: Record<string, unknown>; check?: Record<string, unknown>; subjects?: Record<string, unknown>; secondLook?: Record<string, unknown> }
 
-const has = (v: unknown, key: string) => !!v && typeof v === 'object' && Object.hasOwn(v, key)
-/** The photos a photo-check verdict judged for a dead fish: one with `logo`, which it has asked with since 5 Nov 2026. */
+const photoCheckAnswers = new Set(['yes', 'other', 'none', 'habitat', 'unsure', 'dead', 'no'])
+const answeredByCheck = (verdict: unknown): boolean => {
+  if (!verdict || typeof verdict !== 'object') return false
+  const { ok, logo } = verdict as { ok?: unknown; logo?: unknown }
+  return typeof ok === 'string' && photoCheckAnswers.has(ok) && typeof logo === 'boolean'
+}
+
+/** A complete check answer from the version that asked about dead fish, marked by its `logo` answer since 5 Nov 2026. */
 export function askedByCheckOf(check: Record<string, unknown> = {}, subjects: Record<string, unknown> = {}): Set<string> {
   const asked = new Set<string>()
-  for (const [u, v] of Object.entries(check)) if (has(v, 'logo')) asked.add(u)
-  for (const [u, by] of Object.entries(subjects)) if (by && typeof by === 'object' && Object.values(by).some(v => has(v, 'logo'))) asked.add(u)
+  for (const [u, v] of Object.entries(check)) if (answeredByCheck(v)) asked.add(u)
+  for (const [u, by] of Object.entries(subjects)) if (by && typeof by === 'object' && Object.values(by).some(answeredByCheck)) asked.add(u)
   return asked
 }
 
@@ -347,7 +355,6 @@ export type PhotoWaitRecords = {
   watermarks?: Record<string, PhotoScreenEntry>
   owed?: Record<string, unknown>
   unread?: ReadonlySet<string>
-  flaggedAlterations?: ReadonlySet<string>
   faces?: Record<string, unknown>
   unjudged?: ReadonlySet<string>
   deadScreen?: Record<string, unknown>
@@ -363,7 +370,7 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
   const firstOff = photoFirstOff(r.secondLook)
   const faceWaits = photoAddressSet([
     ...(r.unread ?? []),
-    ...[...(r.flaggedAlterations ?? [])].filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)),
+    ...Object.keys(r.faces ?? {}).filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)),
   ])
   return url => {
     const entry = r.rejected?.(url)
@@ -416,11 +423,34 @@ export async function guidePhotoUrlsIn(root: string): Promise<Set<string>> {
   return urls
 }
 
+export const GUIDE_LEGACY_USES_FILE = 'guide-legacy-photo-uses.json'
+type LegacyGuideUse = [guide: string, subject: string, url: string]
+export const guideUseKey = (id: string, subject: string, url: string) => JSON.stringify([id, subject, url])
+
+export async function readGuideLegacyUses(root: string): Promise<LegacyGuideUse[]> {
+  const raw = await readFile(join(root, GUIDE_LEGACY_USES_FILE), 'utf8').catch((error: NodeJS.ErrnoException) => {
+    if (error.code === 'ENOENT') return '[]'
+    throw error
+  })
+  const uses: unknown = JSON.parse(raw)
+  if (!Array.isArray(uses) || uses.some(use => !Array.isArray(use) || use.length !== 3 || use.some(part => typeof part !== 'string'))) {
+    throw new Error('Invalid legacy guide photo uses')
+  }
+  return uses as LegacyGuideUse[]
+}
+
+/** Remove only existing exceptions whose guide use has ended or has an explicit subject answer. */
+export function keepGuideLegacyUses(uses: LegacyGuideUse[], waiting: ReadonlySet<string>): LegacyGuideUse[] {
+  return uses.filter(([id, subject, url]) => waiting.has(guideUseKey(id, subject, url)))
+}
+
 /** Per-guide subject decisions and distinct URLs awaiting any applicable answer. */
 export async function guidePhotoWaits(root: string, looks: Record<string, unknown>) {
   const subjects = new Map<string, string>()
   const unlooked = new Set<string>()
   const pendingSubjects = new Set<string>()
+  const pendingLegacy = new Set<string>()
+  const legacy = new Set((await readGuideLegacyUses(root)).map(use => guideUseKey(...use)))
   for await (const { guide, id } of guidesWithPhotos(root)) {
     const raw = await readFile(join(root, 'guides', id, 'vi.json'), 'utf8').catch((e: NodeJS.ErrnoException) => {
       if (e.code === 'ENOENT') return '{}'
@@ -431,10 +461,14 @@ export async function guidePhotoWaits(root: string, looks: Record<string, unknow
     if (subject) subjects.set(id, subject)
     for (const url of guidePhotoUrls(guide)) {
       if (!guideLooked(looks[url])) unlooked.add(url)
-      else if (subject && !guideLooked(looks[url], subject)) pendingSubjects.add(url)
+      else if (subject && !guideLooked(looks[url], subject)) {
+        const key = guideUseKey(id, subject, url)
+        if (legacy.has(key)) pendingLegacy.add(key)
+        else pendingSubjects.add(url)
+      }
     }
   }
-  return { subjects, unlooked, pendingSubjects }
+  return { subjects, unlooked, pendingSubjects, pendingLegacy }
 }
 
 type GuideLook = { person: boolean; mark: boolean; brand: boolean; other?: Record<string, unknown>; answeredSubjects?: string[] }
@@ -443,12 +477,13 @@ export function guideLooked(verdict: unknown, subject?: string): verdict is Guid
   if (!verdict || typeof verdict !== 'object') return false
   const v = verdict as Partial<GuideLook>
   return typeof v.person === 'boolean' && typeof v.mark === 'boolean' && typeof v.brand === 'boolean' &&
-    (!subject || typeof v.other?.[subject] === 'boolean')
+    (!subject || (Array.isArray(v.answeredSubjects) && v.answeredSubjects.includes(subject) && typeof v.other?.[subject] === 'boolean'))
 }
 
 /** A guide's own or stock photo has to pass the questions for that specific guide. */
-export function guidePhotoAllowed(verdict: unknown, subject?: string): boolean {
-  return guideLooked(verdict, subject) && !verdict.person && !verdict.mark && !verdict.brand && (!subject || verdict.other?.[subject] === false)
+export function guidePhotoAllowed(verdict: unknown, subject?: string, legacy = false): boolean {
+  return guideLooked(verdict, legacy ? undefined : subject) && !verdict.person && !verdict.mark && !verdict.brand &&
+    (!subject || verdict.other?.[subject] === false)
 }
 /**
  * More guide photos and stock photos than this with no look of the guides is a lost or damaged record, not a run's new

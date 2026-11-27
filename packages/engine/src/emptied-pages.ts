@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process'
 import { access, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, type CreditHoldPhotos, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, guideLooked, guidePhotoUrls, GUIDE_LOOKS_FILE, LANGS, loadAll, mirrorSearchTerms, PHOTO_BOXES_FILE, photoAddressSet, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate, type Photo } from '@aq/schema'
+import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, type CreditHoldPhotos, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, FACES_FILE, guideLooked, guidePhotoUrls, GUIDE_LEGACY_USES_FILE, GUIDE_LOOKS_FILE, LANGS, loadAll, mirrorSearchTerms, PHOTO_BOXES_FILE, photoAddressSet, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, vnDate, type Photo } from '@aq/schema'
 
 /**
  * Fish pages our removals left with no photo, first for new photos (the chief of staff, 21 Nov): every page a run's own
@@ -88,7 +88,7 @@ const commitOwners = (
  * address (`Owners`).
  */
 export const LOADER_FILES = {
-  content: ['sources.json', 'one-voice.json', 'image-approvals.json', 'picture-hashes.json'],
+  content: ['sources.json', 'one-voice.json', 'image-approvals.json', 'picture-hashes.json', GUIDE_LEGACY_USES_FILE],
   records: [PHOTO_SCREEN_FILE, '_photo-faces.json', '_photo-dead-owed.json', DEAD_SCREEN_FILE, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, PHOTO_REJECTED_FILE, GUIDE_LOOKS_FILE, CREDIT_HOLD_FILE],
   pages: ['gallery'],
   // A guide's entity file decides a fish page's photo only when the guide owns one the page's album shows that waits:

@@ -403,6 +403,22 @@ test('a new guide photo stays owed when its first answer omits the dead-fish que
   expect(seen.map(s => s.photos)).toEqual([['shared'], ['shared']])
 })
 
+test('a legacy implicit answer stays queued until it is explicitly answered', async () => {
+  const id = 'platy-care'
+  const root = await store({ [id]: { kind: 'care', photos: [photo('shared')] } })
+  const baseline = 'content/guide-legacy-photo-uses.json'
+  await writeFile(join(root, baseline), JSON.stringify([[id, 'platy', url('shared')]]))
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({
+    [url('shared')]: { person: false, mark: false, brand: false, other: { platy: false } },
+  }))
+  const { seen, d } = model({ shared: { other: false } })
+  await screenGuidePhotos(root, d, { limit: 0 })
+  expect(await json(root, baseline)).toEqual([[id, 'platy', url('shared')]])
+  await screenGuidePhotos(root, d, { limit: 1 })
+  expect(seen.map(s => s.photos)).toEqual([['shared']])
+  expect(await json(root, baseline)).toEqual([])
+})
+
 test('a photo judged before the subject was asked is asked once, ahead of photos not judged, and keeps its verdict; a still is not asked', async () => {
   const id = 'aquariumcoop-platy-care'
   const root = await store({

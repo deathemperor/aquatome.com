@@ -3,7 +3,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, onTestFinished, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
 import { screenDead, thumbnail, videoFrames, type DeadScreenDeps } from '../src/dead-screen'
 
@@ -15,6 +15,8 @@ const DEAD = new Set([thumbnail('deadthumb01'), videoFrames('deadframe01')[3]!, 
 // A's second photo was already judged by the screen; b's head by the photo check. Plant c has a live main photo.
 async function store() {
   const root = await mkdtemp(join(tmpdir(), 'dead-screen-'))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
   const put = async (path: string, data: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), `${JSON.stringify(data, null, 2)}\n`) }
   await put('content/species/a/entity.json', { id: 'a', photos: [photo('https://m/a-dead.webp'), photo('https://m/a-2.webp')], videos: [video('deadthumb01'), video('alivethumb1')] })
   await put('content/species/b/entity.json', { id: 'b', photos: [photo('https://m/b-asked.webp')], videos: [video('deadthumb01')] })
