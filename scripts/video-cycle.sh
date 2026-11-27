@@ -107,6 +107,7 @@ git commit -q -m "content: videos $(date -u +%F)"
 if ! verify_cycle; then keep_unpublished videos; log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
 # The GitHub engine pushes too; the files above merge through their drivers. Lines both changed (the photo verdicts
 # review page) give way to this run's, as engine-cycle.sh does; then the tests run again on the merge.
+SWEEP_ORIGINAL_HEAD=$(git rev-parse HEAD)
 for _ in 1 2 3; do
   # main: the commit this work sits on, not the last main fetched, which a fetch before this pull (catch_up's, stopped
   # after its fetch) may have moved: swept_pull then sees main's commits come in (a reader's catch, 16 Nov).

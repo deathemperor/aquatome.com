@@ -5,7 +5,7 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, heldPhotoVersion, expandWholePhotoRejections, isVersionRejection, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type CreditHoldPhotos, type PhotoScreenEntry } from './photo-screen'
+import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, reviewedPhotoVersion, expandWholePhotoRejections, isVersionRejection, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type CreditHoldPhotos, type PhotoScreenEntry } from './photo-screen'
 import { photoAddressSet } from './photo-address'
 import { photoRejections } from './own-mark'
 import { ownerCropFitsPage } from './owner-crops'
@@ -250,8 +250,10 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const deadScreen = screen ? await stateRecord<Record<string, unknown>>(root, DEAD_SCREEN_FILE) : undefined
   if (screen && !deadScreen && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)}: the dead-fish screen's record is missing, so no photo can be shown as judged for a dead fish`)
   const secondLook = deadScreen || faces ? await stateRecord<Record<string, { why?: string; off?: boolean; look?: { said?: string } }>>(root, SECOND_LOOK_RECORD) : undefined
+  const check = deadScreen ? await stateRecord<Record<string, unknown>>(root, PHOTO_CHECK_FILE) : undefined
+  const subjects = deadScreen ? await stateRecord<Record<string, unknown>>(root, PHOTO_SUBJECTS_FILE) : undefined
   const rejectedForDead = screen ? photoRejections(
-    await expandWholePhotoRejections(root, await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}, screen), screen, heldPhotoVersion(secondLook),
+    await expandWholePhotoRejections(root, await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}, screen), screen, reviewedPhotoVersion(secondLook, check, subjects),
   ) : undefined
   const { unread } = await facePhotoStatus(root, faces)
   if (faces && opts.photoScreen === 'required') {
@@ -259,8 +261,6 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     console.log(`${lang}: ${retryable} own photos of species, plant and guide pages wait, the face finder has never read them`)
     if (retryable > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species, plant and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
   }
-  const check = deadScreen ? await stateRecord<Record<string, unknown>>(root, PHOTO_CHECK_FILE) : undefined
-  const subjects = deadScreen ? await stateRecord<Record<string, unknown>>(root, PHOTO_SUBJECTS_FILE) : undefined
   const lookedForDead = deadScreen ? deadLooked({ screen: deadScreen, check, subjects, secondLook }) : undefined
   const unjudged = new Set<string>()
   if (lookedForDead) {
