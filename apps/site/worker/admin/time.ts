@@ -46,6 +46,12 @@ export function localDay(t: Date | number | string, tz: string): string {
   return `${p.year}-${p.month}-${p.day}`
 }
 
+/** The Monday of the week a calendar day falls in. */
+export function mondayOf(day: string): string {
+  const t = Date.parse(`${day}T00:00:00Z`)
+  return new Date(t - ((new Date(t).getUTCDay() + 6) % 7) * 86_400_000).toISOString().slice(0, 10)
+}
+
 /** Minutes `tz` is ahead of UTC at `t` (420 for Vietnam). */
 export function offsetMinutes(tz: string, t: Date | number = Date.now()): number {
   const ms = Math.floor(msOf(t) / 60_000) * 60_000
