@@ -81,9 +81,6 @@ export function pageCredits(images: PageImage[], page: string, source: SourceId,
     const key = dedupeKey(src), p = pictures.get(key) ?? { srcs: [], credits: [] }
     pictures.set(key, p)
     p.srcs.push(src)
-    for (const rendition of img.renditions ?? []) {
-      try { p.srcs.push(new URL(rendition, page).href) } catch { continue }
-    }
     const credit = img.credit ?? img.author
     if (credit) p.credits.push(credit)
   }
@@ -92,11 +89,7 @@ export function pageCredits(images: PageImage[], page: string, source: SourceId,
     const lines = p.credits.map(c => ({ c: c.trim(), k: creditReadKind(c, sourceName, terms) })).sort((a, b) => RANK[b.k] - RANK[a.k])
     const top = lines[0]
     const record: PhotoCredit = { page, kind: top?.k ?? 'none', ...(top && top.k !== 'none' ? { line: sha(top.c) } : {}), at }
-    for (const src of p.srcs) {
-      const address = media.urlFor(photoKey(source, src))
-      const prior = out[address]
-      if (!prior || RANK[record.kind] >= RANK[prior.kind]) out[address] = record
-    }
+    for (const src of p.srcs) out[media.urlFor(photoKey(source, src))] = record
   }
   return out
 }

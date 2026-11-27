@@ -43,7 +43,7 @@ function walk(node: Node, out: string[]): void {
  */
 /** `heading`: the heading it sits under (the last one before it), so a guide puts it in the same section. */
 /** `link`: where the link around it goes, if one does (source-photos.ts: a link to another article makes it that article's card). */
-export type PageImage = { src: string; renditions?: string[]; alt: string; width?: number; height?: number; displayWidth?: number; displayHeight?: number; product?: true; page?: string; author?: string; credit?: string; heading?: string; link?: string }
+export type PageImage = { src: string; alt: string; width?: number; height?: number; displayWidth?: number; displayHeight?: number; product?: true; page?: string; author?: string; credit?: string; heading?: string; link?: string }
 
 const PRODUCT_BOX = /product/i
 const inProduct = (i: HTMLElement) => {
@@ -71,17 +71,10 @@ function pageImage(i: HTMLElement): PageImage | null {
   const src = i.getAttribute('src') ?? i.getAttribute('data-src')
   const w = Number(i.getAttribute('width')) || undefined
   const h = Number(i.getAttribute('height')) || undefined
-  const variants = (i.getAttribute('srcset') ?? i.getAttribute('data-srcset') ?? '').split(',')
-    .map(candidate => candidate.trim().split(/\s+/))
-    .flatMap(([url, descriptor]) => url ? [{ url, width: descriptor?.endsWith('w') ? Number.parseInt(descriptor) : 0 }] : [])
-  const largest = variants.filter(candidate => candidate.width > 0).sort((a, b) => b.width - a.width)[0]
-  const sized = largest && (!w || largest.width > w) ? largest : undefined
-  const chosen = sized?.url ?? src
-  if (!chosen) return null
-  const renditions = [...new Set([src, ...variants.map(candidate => candidate.url)])].filter((url): url is string => !!url && url !== chosen)
+  const set = (i.getAttribute('srcset') ?? i.getAttribute('data-srcset') ?? '').split(',').map(c => c.trim().split(/\s+/)).flatMap(([u, d]) => (u && d?.endsWith('w') ? [{ u, w: Number.parseInt(d) }] : [])).sort((a, b) => b.w - a.w)[0]
   const alt = clean(dropEmails(i.getAttribute('alt') ?? ''))
-  return { src: chosen, alt, ...(sized ? { width: sized.width } : {}), ...(renditions.length ? { renditions } : {}),
-    ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) }
+  if (set && (!w || set.w > w)) return { src: set.u, alt, width: set.w, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) }
+  return src ? { src, alt, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) } : null
 }
 
 /** The heading each image sits under: the last h1–h4 before it in the page. */

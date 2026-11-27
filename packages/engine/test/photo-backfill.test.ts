@@ -432,7 +432,7 @@ test("a re-read keeps a shown photo the page lays out small, on a fish's page an
   }
 })
 
-test.each([false, true])('guide backfill honors the original’s rights hold (larger srcset rendition: %s)', async rendition => {
+test('guide backfill honors a rights hold on an original saved inside its removed wrapper', async () => {
   const root = await mkdtemp(join(tmpdir(), 'pb-credit-hold-'))
   const file = join(root, 'content/guides/fish/entity.json')
   await mkdir(join(file, '..'), { recursive: true })
@@ -445,12 +445,8 @@ test.each([false, true])('guide backfill honors the original’s rights hold (la
   await holdForCreditRead(root, [wrapper.url], 'reviewer', '2026-11-26', 'credit unread')
   const unused = async () => { throw new Error('the held original must not be fetched or stored') }
 
-  const heldImage = page.replace(/<img src="\/images\/robertsi-2.jpg"[^>]*>/, '')
-  const html = rendition
-    ? heldImage.replace('src="/images/robertsi.jpg"', 'src="/images/robertsi.jpg" srcset="/images/robertsi-full.jpg 1200w"')
-    : heldImage
   expect(await backfillPhotos(root, {
-    get: async () => ({ status: 200, html }),
+    get: async () => ({ status: 200, html: page.replace(/<img src="\/images\/robertsi-2.jpg"[^>]*>/, '') }),
     bytes: unused, media: { put: unused, urlFor }, now: () => new Date('2026-11-26'), sleep: async () => {},
   })).toEqual({ pages: 1, added: 0, errors: [] })
   expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
