@@ -391,6 +391,7 @@ export type PhotoWaitRecords = {
   subjects?: Record<string, unknown>
   deadScreen?: Record<string, unknown>
   guideLooks?: Record<string, unknown>
+  guideUnjudged?: ReadonlySet<string>
   secondLook?: Record<string, unknown>
   rejected?: PhotoRejection
 }
@@ -399,6 +400,7 @@ export type PhotoWaitRecords = {
 export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
   const directWaits = new Set([...Object.keys(r.owed ?? {}), ...(r.unjudged ?? [])])
   const owesLook = photoAddressSet(directWaits)
+  const owesGuideLook = photoAddressSet(r.guideUnjudged ?? [])
   const lookedForDead = r.lookedForDead ?? (url =>
     completedDeadVerdict(r.deadScreen?.[url]) || !!photoLookAnswer(r.secondLook?.[url]))
   const cleared = photoClears(r.secondLook)
@@ -430,7 +432,8 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
     const clearedRefusal = typeof review?.why === 'string' && /^(?:dead|people): /.test(review.why) &&
       photoLookAnswer(review)?.said === 'clear'
     const refusedVersion = refusedByCheck.has(url) && !held(url) && !clearedRefusal
-    return directWaits.has(url) || (owesLook(url) && !lookedForDead(url)) || waitsForFace || refusedVersion ||
+    return directWaits.has(url) || (owesLook(url) && !lookedForDead(url)) ||
+      (owesGuideLook(url) && !guideLooked(r.guideLooks?.[url])) || waitsForFace || refusedVersion ||
       deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected, cleared, held, firstOff)
   }
 }
@@ -455,15 +458,22 @@ export const UNJUDGED_DEAD_LIMIT = 300
 export function guidePhotoUrls(guide: { photos?: PhotoVersions[]; video?: { figures?: { photo?: PhotoVersions }[] } }): string[] {
   return [...(guide.photos ?? []).flatMap(deadScreenPhotoUrls), ...(guide.video?.figures ?? []).flatMap(f => f.photo ? deadScreenPhotoUrls(f.photo) : [])]
 }
-type GuideWithPhotos = Parameters<typeof guidePhotoUrls>[0] & Parameters<typeof subjectForGuide>[0]
+type GuideWithPhotos = Parameters<typeof guidePhotoUrls>[0] & Parameters<typeof subjectForGuide>[0] & { id?: string }
 
 async function* guidesWithPhotos(root: string): AsyncGenerator<{ id: string; guide: GuideWithPhotos }> {
-  for (const id of await readdir(join(root, 'guides')).catch(() => [] as string[])) {
+  const dirs = await readdir(join(root, 'guides'), { withFileTypes: true }).catch((error: NodeJS.ErrnoException) => {
+    if (error.code === 'ENOENT') return []
+    throw error
+  })
+  for (const { name: id } of dirs.filter(dir => dir.isDirectory())) {
     const raw = await readFile(join(root, 'guides', id, 'entity.json'), 'utf8').catch((e: NodeJS.ErrnoException) => {
       if (e.code === 'ENOENT') return undefined
       throw e
     })
-    if (raw !== undefined) yield { id, guide: JSON.parse(raw) as GuideWithPhotos }
+    if (raw === undefined) continue
+    const guide = JSON.parse(raw) as GuideWithPhotos
+    if (guide.id !== undefined && guide.id !== id) throw new Error(`Guide ID does not match its directory: ${id}`)
+    yield { id, guide }
   }
 }
 

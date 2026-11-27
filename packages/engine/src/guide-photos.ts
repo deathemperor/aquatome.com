@@ -1,12 +1,12 @@
 import { piece } from './pieces'
 import { compactVerdict, photoReason, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { recordPhotoRefusals, writePhotoState } from './photo-state'
-import { holdablePhotoVerdicts, pruneGuideLegacyUses, versionRejection } from './photo-visibility'
+import { holdablePhotoVerdicts, pruneGuideLegacyUses, readReviewedPhotoVersion, versionRejection } from './photo-visibility'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
 import sharp from 'sharp'
-import { deadScreenPhotoUrls, guideLooked, GUIDE_LOOKS_FILE, PHOTO_SCREEN_FILE, photoAddressSet, photoRejections, retainedOwnMark, stillShown, subjectForGuide, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { deadScreenPhotoUrls, expandWholePhotoRejections, guideLooked, GUIDE_LOOKS_FILE, PHOTO_SCREEN_FILE, photoAddressSet, photoRejections, retainedOwnMark, stillShown, subjectForGuide, type Photo, type PhotoScreenEntry } from '@aq/schema'
 export { guideSubject } from '@aq/schema'
 import { LlmError } from './claude'
 import { contactSheet, stillDone } from './video-images'
@@ -103,7 +103,9 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   const oldCache = (await readJson<Record<string, GuidePhotoVerdict>>(state(GUIDE_LOOKS_FILE))) ?? {}
   const cache = Object.fromEntries(Object.entries(oldCache).filter(([, v]) => guideLooked(v)).map(([u,v])=>[u,compactVerdict(v)]))
   const marks = (await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))) ?? {}
-  const rejected = photoRejections((await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}, marks)
+  const reviewed = await readReviewedPhotoVersion(root)
+  const rejected = photoRejections(await expandWholePhotoRejections(content,
+    (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}, marks), marks, reviewed)
   const done = (await readJson<StillsState>(state('_video-stills.json'))) ?? {}
   const report = { sheets: 0, judged: 0, cleared: 0, off: [] as string[], removed: [] as string[], kept: [] as string[], held: [] as string[], failed: [] as string[], left: 0, waiting: 0, stopped: '', subject: [] as string[] }
 

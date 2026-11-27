@@ -283,7 +283,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     console.log(`${lang}: ${retryable} guide photos and stock photos wait, the guides' own look hasn't judged them`)
     if (retryable > GUIDE_UNJUDGED_LIMIT) throw new Error(`${lang}: ${retryable} guide photos and stock photos the guides' own look hasn't judged (${join(dirname(root), 'engine-state', GUIDE_LOOKS_FILE)}). More than ${GUIDE_UNJUDGED_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the guides without them. A photos run's guide look (pnpm engine guide-photos) judges them.`)
   }
-  const waitsForScreen = photoWaitsFor({ watermarks: screen, owed, unread, faces, unjudged: new Set([...unjudged, ...unlooked]), lookedForDead, check, subjects, deadScreen, guideLooks, secondLook, rejected: rejectedForDead })
+  const waitsForScreen = photoWaitsFor({ watermarks: screen, owed, unread, faces, unjudged, lookedForDead, check, subjects, deadScreen, guideLooks, guideUnjudged: unlooked, secondLook, rejected: rejectedForDead })
   const waitsFor = (url: string) => heldForCredit(url) || waitsForScreen(url)
   // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
   // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,
@@ -429,7 +429,9 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (!g.video?.figures) return { ...g, photos }
     const figures = g.video.figures.map(f => {
       const version = f.photo && publicPhotoVersion(f.photo, images, f.photo.source ? sources[f.photo.source]?.permission?.markRemoval : undefined)
-      const photo = version && screened(version) && guidePasses(version) ? boxed(version) : undefined
+      const photo = version && f.photo && (version.url === f.photo.url
+        ? screened(version) && guidePasses(version) ? boxed(version) : undefined
+        : cleanPhotos([f.photo]).find(guidePasses))
       return { ...f, moments: f.moments.filter(screened), photo }
     })
     return { ...g, photos, video: { ...g.video, figures } }

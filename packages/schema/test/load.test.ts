@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test, vi } from 'vitest'
-import { cardShownIn, GUIDE_UNJUDGED_LIMIT, loadAll, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, type Section, type Translation } from '../src/index'
+import { cardShownIn, GUIDE_UNJUDGED_LIMIT, loadAll, mirrorPlan, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, type Section, type Translation } from '../src/index'
 import { oneVoice, withLocalNote } from '../src/load'
 
 const root = fileURLToPath(new URL('./fixtures/store', import.meta.url))
@@ -496,6 +496,26 @@ test("a public build shows no guide photo or stock photo the guides' own look ha
   expect((await shown(true)).own).toEqual([])
   await looked([...all, 'original'])
   expect((await shown(true)).own).toEqual(['original'])
+  await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new')]))
+  // A dead-fish look on an album mirror cannot answer the guide's separate pending basic look.
+  const source = { ...photo('new-source'), url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Sample_fish.jpg' }
+  const mirror = { ...source, url: `https://media.aquatome.com/${mirrorPlan(source.url)!.key}` }
+  await mkdir(join(store, 'gallery'), { recursive: true })
+  await write('guides/g/entity.json', guide([source]))
+  await write('gallery/alpha.json', { id: 'alpha', seen: 1, updatedAt: '2026-11-21', photos: [mirror] })
+  await state('_photo-watermarks.json', { ...priorMarks, [source.url]: { ocr: [] }, [mirror.url]: { ocr: [] } })
+  await state('_photo-faces.json', { ...priorFaces, [source.url]: 0, [mirror.url]: 0 })
+  await state('_dead-screen.json', { [mirror.url]: { dead: false } })
+  const waiting = await loadAll({ root: store, lang: 'vi', publicBuild: true })
+  expect(waiting.galleries.alpha ?? []).toEqual([])
+  expect(waiting.photoWaits!(mirror.url)).toBe(true)
+  await state('_photo-guides.json', { ...priorLooks, [mirror.url]: { person: false, mark: false, brand: false } })
+  const lookedAtMirror = await loadAll({ root: store, lang: 'vi', publicBuild: true })
+  expect(lookedAtMirror.galleries.alpha?.map(p => p.url)).toEqual([mirror.url])
+  // Inventory and serving use a single identity for the subject decision.
+  await write('guides/g/entity.json', { ...guide([photo('guide-looked')]), id: 'stale-guide' })
+  await write('guides/g/vi.json', { ...alphaVi, name: 'Nuôi cá platy', slug: 'trang-g' })
+  await expect(loadAll({ root: store, lang: 'vi', publicBuild: true })).rejects.toThrow('Guide ID does not match its directory')
   await write('guides/g/entity.json', guide([photo('guide-looked'), photo('guide-new')]))
   // With no record beside the real content the site's build fails; a root with none (the fixture build) has no rule.
   await rm(join(site, 'engine-state', '_photo-guides.json'))
