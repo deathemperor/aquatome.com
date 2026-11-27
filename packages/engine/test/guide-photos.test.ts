@@ -365,7 +365,7 @@ test('a photo judged before the subject was asked is asked once, ahead of photos
     [id]: { kind: 'care', source: 'aquariumcoop', photos: [photo('lead'), photo('old')], video: { title: 'x', figures: [{ heading: 'a', moments: [{ ...still(3, true), url: url('still-hd') }] }] } },
   })
   const verdict = { person: false, mark: false, brand: false, note: 'a platy, from before' }
-  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [url('lead')]: { ...verdict, other: { platy: false } }, [url('lead-n')]: verdict, [url('old')]: verdict, [url('still-hd')]: verdict }))
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [url('lead')]: { ...verdict, other: { platy: false }, answeredSubjects: ['platy'] }, [url('lead-n')]: verdict, [url('old')]: verdict, [url('still-hd')]: verdict }))
   const { d, seen } = model({ old: { person: true, note: 'a new note' }, unjudged: {} })
   await screenGuidePhotos(root, d, { limit: 1 })
   expect(seen[0]!.photos).toEqual(['old', 'unjudged'])
