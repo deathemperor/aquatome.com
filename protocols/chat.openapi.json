@@ -721,7 +721,7 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 100,
-            "description": "The first question only, from a saved tank (\"Hỏi về bể này\"): its id, as the app syncs it. The Worker reads the tank from the account's synced tanks; one it doesn't hold is answered as if no tank was named."
+            "description": "The first question only, from a saved tank (\"Hỏi về bể này\"): its id, as the app syncs it. The Worker keeps the selection for this conversation and reads the account's latest sync for each new question. If the tank cannot be read, the answer asks for current details when it needs them."
           },
           "identified": {
             "type": "object",

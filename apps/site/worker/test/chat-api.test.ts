@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, test, vi } from 'vitest'
 import { emailHash, normalEmail } from '../accounts/email'
 import { COOKIE, createSession, type Client } from '../accounts/session'
 import { TESTER_ADDRESS, TESTER_ID } from '../accounts/tester'
@@ -1347,7 +1347,7 @@ test('read_tanks reads the account\'s synced tanks with their ids, its fish name
 })
 
 test('a saved-tank review keeps its original tank on follow-ups and reads the current sync', async () => {
-  const { e, db } = env()
+  const { e, db, store } = env()
   const me = await signIn(db)
   const now = new Date()
   const at = now.toISOString()
@@ -1359,6 +1359,10 @@ test('a saved-tank review keeps its original tank on follow-ups and reads the cu
   await run(ask(auth, { from: 'tank', about: undefined, tank: tank.id, question: 'Bể này ổn không?' }), e, deps(c.fetch), now)
   expect(JSON.stringify(c.bodies.at(-1)!.messages)).toContain('Nước đục')
 
+  // Older conversations kept the selection only in the list index.
+  const key = await convKey(me)
+  const { tankStart: _selection, ...legacyConversation } = store.read<Conversation>(key)!
+  await e.UPLOADS!.put(key, JSON.stringify(legacyConversation))
   const later = new Date(now.getTime() + 1000)
   await syncStore(db, me.id, { v: 1, tanks: [{ ...tank, notes: 'Nước đã trong', updatedAt: later.toISOString() }], devices: [] }, later)
   await run(ask(auth, { from: 'tank', about: undefined, tank: other.id, question: 'Giờ thì sao?' }), e, deps(c.fetch), later)
@@ -1376,6 +1380,43 @@ test('a saved-tank review keeps its original tank on follow-ups and reads the cu
   expect(after).toContain('The saved tank this chat was opened from is unavailable.')
   expect(after).not.toContain(other.id)
   expect(after).not.toContain('Nước đã trong')
+})
+
+test.each(['write', 'read'] as const)('a saved-tank review survives a conversation index %s failure', async fault => {
+  const { e, db } = env()
+  const me = await signIn(db)
+  const now = new Date()
+  const at = now.toISOString()
+  const tank = { id: crypto.randomUUID(), name: 'Bể rêu', notes: 'Nước đục', species: [], plants: [], createdAt: at, updatedAt: at }
+  await syncStore(db, me.id, { v: 1, tanks: [tank], devices: [] }, now)
+  let failing = fault === 'write'
+  let failures = 0
+  const fail = async () => { failures++; throw new Error('conversation index unavailable') }
+  const prepare = db.prepare.bind(db)
+  vi.spyOn(db, 'prepare').mockImplementation(sql => {
+    const stmt = prepare(sql)
+    const bind = stmt.bind.bind(stmt)
+    vi.spyOn(stmt, 'bind').mockImplementation((...values) => {
+      const bound = bind(...values)
+      if (failing && fault === 'write' && sql.startsWith('INSERT INTO chat_conversations')) vi.spyOn(bound, 'run').mockImplementation(fail)
+      if (failing && fault === 'read' && /^SELECT hidden(?:, start)? FROM chat_conversations/.test(sql)) vi.spyOn(bound, 'first').mockImplementation(fail)
+      return bound
+    })
+    return stmt
+  })
+  const c = claude([() => answers({})])
+  const auth = bearer(me.token)
+  expect((await run(ask(auth, { from: undefined, about: undefined, tank: tank.id, question: 'Bể này ổn không?' }), e, deps(c.fetch), now)).body.n).toBe(1)
+  failing = fault === 'read'
+  const later = new Date(now.getTime() + 1000)
+  await syncStore(db, me.id, { v: 1, tanks: [{ ...tank, notes: 'Nước đã trong', updatedAt: later.toISOString() }], devices: [] }, later)
+  expect((await run(ask(auth, { question: 'Giờ thì sao?' }), e, deps(c.fetch), later)).body.n).toBe(2)
+  expect(failures).toBe(1)
+  const next = JSON.stringify(c.bodies.at(-1)!.messages)
+  expect(next).toContain(tank.id)
+  expect(next).toContain('Nước đã trong')
+  const listed = await db.prepare('SELECT start FROM chat_conversations WHERE id = ?').bind(CONV).first<{ start: string }>()
+  expect(JSON.parse(listed!.start)).toMatchObject({ tank: tank.id })
 })
 
 test('an opted-in owner app can receive one safe equipment proposal, only on the original completed turn', async () => {
