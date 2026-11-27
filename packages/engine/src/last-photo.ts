@@ -930,7 +930,7 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks, dir?: st
  * waits, unmarked (`unread`).
  * Returns `file: url` for each place it went back to, `url: why` for each place or photo kept off, and `unread`.
  */
-export async function putBackCleared(root: string, history: History, at = today(), refused: (id: string, url: string, aside?: typeof CLEARED_VERDICT) => boolean = () => false, dir = entriesDir()): Promise<{ back: string[]; off: string[]; unread: string[] }> {
+export async function putBackCleared(root: string, history: History, at = today(), refused: (id: string, url: string, aside?: typeof CLEARED_VERDICT) => boolean = () => false, dir = entriesDir(), onRestore?: (place: Stood) => Promise<void>): Promise<{ back: string[]; off: string[]; unread: string[] }> {
   const out = { back: [] as string[], off: [] as string[], unread: [] as string[] }
   const sl = await readSecondLook(root)
   const l = looks(sl)
@@ -1082,6 +1082,7 @@ export async function putBackCleared(root: string, history: History, at = today(
       // Two captures can both have stood at this ordinal on divergent branches. Keep an already restored neighbor's lead.
       const afterSettled = p.capturedOccurrence !== undefined && !hasSavedNeighbor ? currentUrls.findLastIndex(samePhoto) + 1 : 0
       photos.splice(Math.max(index, afterSettled), 0, p.photo)
+      await onRestore?.(p)
       await replacePhotoDocument(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       out.back.push(`${p.file}: ${address}`)
     }

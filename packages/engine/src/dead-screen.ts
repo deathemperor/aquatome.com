@@ -367,7 +367,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     if (!original || original.url === p.url) return false
     // The wrapper holds the original's credit and other metadata until the person's decision or next look.
     const prior = isListed(original.url)?.[1]
-    return markedByAddress(original.url) || heldByAddress(original.url) || albumHold(original.url) || sl.off(original.url) || prior?.startsWith('waiting:') ||
+    return (o.albums && clearedAlbum(original.url) && !prior?.startsWith('dead:')) ||
+      markedByAddress(original.url) || heldByAddress(original.url) || albumHold(original.url) || sl.off(original.url) || prior?.startsWith('waiting:') ||
       (!prior && !goingByAddress(original.url))
   }
   const receipted = photoAddressSet(Object.keys(receipts))
@@ -386,7 +387,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       continue
     }
     const matches = o.albums ? photoAddressSet([it.url]) : (url: string) => url === it.url
-    const remove = (photo: Photo) => matches(photo.url) && !retainFallback(photo)
+    const remove = (photo: Photo) => matches(photo.url) && !retainFallback(photo) &&
+      (!o.albums || !clearedAlbum(photo.url) || photoRejected[photo.url]?.startsWith('dead:') || it.agreement?.[0] === photo.url)
     let removed = false
     if (canCapture || !markedByAddress(it.url)) for (const file of new Set(it.files)) {
       const { page } = await readPage(file)
@@ -460,7 +462,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   if (o.albums) {
     const placed = new Map(writes.filter(([file]) => file.startsWith(galleryDir)).map(([file, edit]) =>
       [file, new Set((edit.page.photos ?? []).flatMap(deadScreenPhotoUrls))]))
-    const listed = photoRejections(photoRejected, watermarkCache)
+    const effective = await expandWholePhotoRejections(content, photoRejected, watermarkCache)
+    const listed = photoRejections(effective, watermarkCache, heldPhotoVersion(secondLook))
     const remaining = todo.filter(it => !completedDeadVerdict(cache[it.key]) && !listed(it.url) &&
       it.files.some(file => file.startsWith(galleryDir) && (placed.get(file)?.has(it.url) ?? true)))
     report.left = remaining.length

@@ -1,4 +1,4 @@
-import { recordAlbumTakeOffs, recordListedAlbumTakeOffs } from './album-takeoffs'
+import { recordAlbumTakeOffs, recordListedAlbumTakeOffs, recordRestoredAlbumTakeOff } from './album-takeoffs'
 import { compactRejection } from './photo-observations'
 import { replacePhotoDocument } from './image-cache-write'
 import { readPhotoMap, writePhotoState } from './photo-state'
@@ -602,7 +602,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       return why({ [url]: { ...subjects[url], [id]: { ...v, ok: 'yes' as const } } })(id, url) !== undefined
     }
   })()
-  const put = await putBackCleared(root, o.history ?? gitHistory(root), o.today, putRefused)
+  const put = await putBackCleared(root, o.history ?? gitHistory(root), o.today, putRefused, undefined, async place => {
+    if (place.file.startsWith('content/gallery/')) await recordRestoredAlbumTakeOff(root, deadScreenPhotoUrls(place.photo as Photo))
+  })
   for (const x of put.back) changed(x.slice(0, x.indexOf(': ')).replace(/^content\//, ''))
   report.putBack = put.back
   report.putBackOff = put.off

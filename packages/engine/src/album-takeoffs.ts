@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { photoAddressSet, photoKey, type PhotoRejection } from '@aq/schema'
+import { photoAddressSet, photoKey, photoVersionAddressSet, type PhotoRejection } from '@aq/schema'
 import { writePhotoState } from './photo-state'
 import { writeImageCache } from './image-cache-write'
 import { readSecondLook, waitingReview } from './last-photo'
@@ -38,6 +38,13 @@ export async function recordAlbumTakeOffs(root: string, urls: Iterable<string>, 
   }
   if (changed) await writePhotoState(receiptFile(root), receipts)
   return receipts
+}
+
+/** A restore observes the take-off before it replaces the missing album entry. */
+export async function recordRestoredAlbumTakeOff(root: string, urls: Iterable<string>) {
+  const photos = photoVersionAddressSet(urls)
+  const staged = Object.entries(await albumReceipts(root)).filter(([url, receipt]) => receipt === true && photos(url)).map(([url]) => url)
+  if (staged.length) await recordAlbumTakeOffs(root, staged, true)
 }
 
 /** Gallery cleanup and sweep can reach the album before the next screening retry. */
