@@ -433,6 +433,42 @@ test.each(['screen', 'agreement'])('a %s watermark decision cannot replace an in
   expect(view.photoWaits!(shop.url)).toBe(true)
 })
 
+test.each([false, true])('the guide’s refusal acts on a passed mirror independently of the square (replacement: %s)', async replacement => {
+  const square = 'https://live.staticflickr.com/123/456_abc_q.jpg'
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(square)!.key}` }
+  const spare = photo('spare')
+  const others = replacement ? [spare] : []
+  const { root, state, publicView } = await publicFixture([mirror, ...others], [mirror], [mirror.url, ...others.map(p => p.url)])
+  const guide = join(root, 'content/guides/mirror/entity.json')
+  await mkdir(join(guide, '..'), { recursive: true })
+  await writeFile(guide, JSON.stringify({ id: 'mirror', photos: [mirror] }))
+  const why = 'dead: withheld'
+  const review = { why, pages: ['species/other'], off: true, step: 'the dead-fish screen', at: '2026-11-26' }
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({ [square]: review }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [square]: waitingEntry(why) }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [mirror.url]: { dead: false }, [spare.url]: { dead: false } }))
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [mirror.url]: { ok: 'yes', logo: false } }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0, [spare.url]: 0 }))
+  await writeFile(join(state, '_photo-guides.json'), JSON.stringify({ [mirror.url]: { person: true, mark: !replacement, brand: false, note: '' } }))
+  const unused = async () => { throw new Error('The guide’s verdict is cached') }
+
+  await screenGuidePhotos(root, { get: unused, look: unused }, { limit: 0 })
+
+  const reviews = await json(root, 'engine-state/_photo-second-look.json')
+  expect(reviews[square]).toEqual(review)
+  if (replacement) {
+    expect(reviews[mirror.url]).toBeUndefined()
+    expect(await json(root, 'engine-state/_photo-rejected.json')).toMatchObject({
+      [square]: waitingEntry(why), [mirror.url]: expect.stringMatching(/^people:/),
+    })
+  } else expect(reviews[mirror.url]).toMatchObject({ why: expect.stringMatching(/^watermark:/), pages: ['species/alpha'] })
+  const view = await publicView()
+  expect(view.species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([replacement ? spare.url : mirror.url])
+  expect(view.galleries.alpha?.map(p => p.url) ?? []).toEqual(replacement ? [] : [mirror.url])
+  expect(view.photoWaits!(mirror.url)).toBe(replacement)
+  expect(view.photoWaits!(square)).toBe(true)
+})
+
 test('a later shop-mark approval preserves the guide’s person refusal', async () => {
   const sourceUrl = 'https://www.aquariumglaser.de/example/'
   const shop = { ...photo('shop'), url: 'https://media.aquatome.com/glaser/mixed.webp', sourceUrl }

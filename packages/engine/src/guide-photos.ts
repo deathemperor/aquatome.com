@@ -1,7 +1,7 @@
 import { piece } from './pieces'
 import { compactVerdict, photoReason, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { recordPhotoRefusals, writePhotoState } from './photo-state'
-import { holdablePhotoVerdicts, versionRejection } from './photo-visibility'
+import { holdablePhotoVerdicts, readReviewedPhotoVersion, versionRejection } from './photo-visibility'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
@@ -214,7 +214,8 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {} // re-read: entries another step added meanwhile stay
   // A guide's photo that is also the last photo of a species, plant or breed page doesn't go on the list, which would
   // take it off that page too: it waits for a second look (last-photo.ts). It still leaves the guides.
-  const sl = looks(await readSecondLook(root))
+  const reviewed = await readReviewedPhotoVersion(root)
+  const sl = looks(await readSecondLook(root), reviewed)
   const marks = (await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))) ?? {}
   const ownMark = photoAddressSet(Object.keys(marks).filter(url => retainedOwnMark(url, marks[url])))
   const verdictOff = (url: string, brandKept: boolean) => guidePhotoOff(cache[url], brandKept, ownMark(url))
@@ -234,7 +235,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   }
   await holdForSecondLook(root, holding, 'the guide photo check')
   await writePhotoState(state('_photo-guides.json'), Object.fromEntries(Object.entries(cache).sort()))
-  await recordPhotoRefusals(rejectedFile, now, new Map([...listing].filter(([url]) => !heldAddress(url))))
+  await recordPhotoRefusals(rejectedFile, now, new Map([...listing].filter(([url]) => !heldAddress(url))), marks, reviewed)
   await writePhotoState(rejectedFile, now)
   for (const file of files) {
     const raw = await readFile(file, 'utf8')
