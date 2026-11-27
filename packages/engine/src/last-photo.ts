@@ -586,14 +586,14 @@ export type History = (url: string, since: string, captured?: readonly HistoryPl
 /** The pages, albums and guides a photo shows on. */
 const PLACE = /^content\/(?:(?:species|plants|breeds|guides)\/[^/]+\/entity\.json|gallery\/[^/]+\.json)$/
 
-/** An independently first-refused rendition has its own history and requires its own clear. */
+/** A rendition with its own review or permanent refusal has its own recovery history. */
 function reviewedPhotoAddressSet(url: string, reviews: SecondLooks, rejected: Record<string, string>): (address: string) => boolean {
   const aliases = photoAddressSet([url])
   const version = photoVersionAddressSet([url])
   return address => {
     const reason = rejected[address]
-    const independentlyRefused = reviews[address]?.off === true || (reason && !reason.startsWith('waiting:'))
-    return aliases(address) && (version(address) || !independentlyRefused)
+    const separatelyReviewed = Object.hasOwn(reviews, address) || (reason && !reason.startsWith('waiting:'))
+    return aliases(address) && (version(address) || !separatelyReviewed)
   }
 }
 

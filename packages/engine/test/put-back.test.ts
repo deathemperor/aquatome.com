@@ -910,6 +910,26 @@ test('a published agreement prunes a capture superseded before its first commit'
   expect(await keptFor(photoAt.url)).toEqual([])
 })
 
+test('a crop cleared on a separate review cannot satisfy the mirror’s recovery', async () => {
+  const { r } = await runRepo({ aaa: [] })
+  const square = { ...photo('square'), url: 'https://live.staticflickr.com/123/456_abc_q.jpg', licence: 'CC BY 4.0' }
+  const mirror = { ...square, url: `https://media.aquatome.com/${mirrorPlan(square.url)!.key}` }
+  const file = 'content/gallery/aaa.json'
+  const album = await json(r, file)
+  await holdForSecondLook(r, new Map([[mirror.url, { why, pages: ['species/aaa'], off: true }]]), 'the photo check', today(),
+    new Map([[mirror.url, [{ file, index: 0, photo: mirror, order: [mirror.url, square.url] }]]]))
+  const reviews = await json(r, SL)
+  const look = { said: 'clear', by: 'reviewer', on: today() }
+  reviews[mirror.url].look = look
+  reviews[square.url] = { why, pages: ['species/aaa'], at: today(), step: 'the photo check', look }
+  await writeFile(join(r, SL), JSON.stringify(reviews))
+  await writeFile(join(r, file), JSON.stringify({ ...album, photos: [square] }))
+
+  await putBackCleared(r, async () => [])
+
+  expect((await json(r, file)).photos).toEqual([mirror, square])
+})
+
 test.each([CREDIT_HOLD_REJECTION, compactRejection('people: another decision')])('an old rejection cannot prune a capture it never saw (%#)', async refusal => {
   const previous = await runRepo()
   const current = await runRepo()
