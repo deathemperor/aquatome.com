@@ -4,7 +4,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { basename, join } from 'node:path'
 import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, mirrorPlan, photoLookAnswer, THUMB_WIDTH, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
-import { looks, readSecondLook } from './last-photo'
+import { looks, readSecondLook, writeSecondLook } from './last-photo'
 
 type Stored = Awaited<ReturnType<Media['put']>>
 type Photo = Stored & { licence: string; author: string; sourceUrl: string; original?: Stored }

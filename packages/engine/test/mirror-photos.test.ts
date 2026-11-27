@@ -123,6 +123,28 @@ test.each(['flickr square placement', 'iNaturalist larger download'])('the mirro
   expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(destination)
 })
 
+test('the uploaded rendition keeps its human clear without copying the source recovery places', async () => {
+  const r = await root()
+  const file = join(r, 'engine-state/_photo-second-look.json')
+  const look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  const left = [{ file: 'content/gallery/astronotus-ocellatus.json', index: 0, capture: '1'.repeat(36) }]
+  await writeFile(file, JSON.stringify({
+    [C1280]: { why: 'dead: withheld', pages: ['species/astronotus-ocellatus'], at: '2026-11-26', step: 'the dead-fish screen',
+      off: true, back: '2026-11-26', settled: left, look },
+  }))
+  const { d } = deps()
+
+  await mirrorPhotos(r, d)
+
+  const mark = JSON.parse(await readFile(file, 'utf8'))
+  expect(mark[C1280].settled).toEqual(left)
+  const copied = mark[d.media.urlFor(mirrorPlan(C1280)!.key)]
+  expect(copied.look).toEqual(look)
+  expect(copied).not.toHaveProperty('settled')
+  expect(copied).not.toHaveProperty('back')
+  expect(copied).not.toHaveProperty('off')
+})
+
 test('a mirror used only as a fallback original keeps the stored bytes and dimensions', async () => {
   const r = await root()
   const { d, fetched, put } = deps()
