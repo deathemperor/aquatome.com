@@ -78,7 +78,10 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
     // A drawing, plate or stamp the source shows ("Liobagrus kingi: line drawing", "Pieter Bleeker's drawing of…"): not a photo of it.
     if (kind === 'subject' && ARTWORK.test(words(`${file(src)} ${img.alt}`))) continue
     if (kind === 'guide' && img.product) continue // a shop's product tile is an ad, not a picture of what the article says
-    const picked: Picked = { ...img, src, minWidth, ...(!img.width ? { probe: true } : {}), ...(newlyEligible(img) ? { extra: true } : {}) }
+    const renditions = img.renditions?.flatMap(value => {
+      try { return [new URL(value, pageUrl).href] } catch { return [] }
+    })
+    const picked: Picked = { ...img, src, ...(renditions?.length ? { renditions } : {}), minWidth, ...(!img.width ? { probe: true } : {}), ...(newlyEligible(img) ? { extra: true } : {}) }
     const key = dedupeKey(src)
     const caption = img.alt.toLowerCase().trim()
     const altKey = caption ? `${picked.extra ? 'extra' : 'normal'}:${caption}` : ''
@@ -88,7 +91,10 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
       const again = [duplicate, ...(duplicate.alternatives ?? [])].find(a => a.src === src)
       const credit = img.credit ?? img.author
       if (!again) (duplicate.alternatives ??= []).push(picked)
-      else if (credit) (again.credits ??= []).push(credit)
+      else {
+        if (credit) (again.credits ??= []).push(credit)
+        if (picked.renditions?.length) again.renditions = [...new Set([...(again.renditions ?? []), ...picked.renditions])]
+      }
       continue
     }
     if (altKey && !img.page && seenAlt.has(altKey)) continue
@@ -180,7 +186,7 @@ export type Take = 'yes' | 'shown' | 'no'
  */
 export const mayTake = (source: SourceId, sourceName: string, deps: CreditTerms & { media: Pick<Media, 'urlFor'>; blocked?: Record<string, string> }, existing: readonly Parameters<typeof deadScreenPhotoUrls>[0][] = []) => (img: Picked): Take => {
   const copies = [img, ...(img.alternatives ?? [])]
-  const urls = copies.map(i => deps.media.urlFor(photoKey(source, i.src)))
+  const urls = copies.flatMap(i => [i.src, ...(i.renditions ?? [])].map(src => deps.media.urlFor(photoKey(source, src))))
   if (urls.some(u => deps.blocked?.[u])) return 'no'
   const cover = copies.flatMap(i => [i.credit ?? i.author, ...(i.credits ?? [])]).map(c => creditCover(c, sourceName, deps))
   if (cover.includes('never')) return 'no'

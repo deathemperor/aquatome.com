@@ -17,7 +17,7 @@ const html = readFileSync(new URL('./fixtures/pages/seriouslyfish-cardinal.html'
 
 test('outline images carry sizes; srcset picks the largest candidate', () => {
   const imgs = htmlToOutline('<main><img src="/s.jpg" srcset="/s.jpg 300w, /l.jpg 1200w" alt="A"><img src="/x.jpg" width="640" height="480"></main>').images
-  expect(imgs).toEqual([{ src: '/l.jpg', alt: 'A', width: 1200 }, { src: '/x.jpg', alt: '', displayWidth: 640, displayHeight: 480 }])
+  expect(imgs).toEqual([{ src: '/l.jpg', alt: 'A', width: 1200, renditions: ['/s.jpg'] }, { src: '/x.jpg', alt: '', displayWidth: 640, displayHeight: 480 }])
 })
 
 test('picks the best source photos from a real page', () => {
@@ -262,7 +262,7 @@ test('a dead filename duplicate cannot hide a working address; a retrieved dupli
 
 test('the plain src is retained when the layout width exceeds every srcset width', () => {
   const images = htmlToOutline('<main><img src="/a.jpg" srcset="/small.jpg 300w, /full.jpg 850w" width="1200" height="800"></main>').images
-  expect(images).toEqual([{ src: '/a.jpg', alt: '', displayWidth: 1200, displayHeight: 800 }])
+  expect(images).toEqual([{ src: '/a.jpg', alt: '', displayWidth: 1200, displayHeight: 800, renditions: ['/small.jpg', '/full.jpg'] }])
 })
 
 test('newly eligible layout sizes and fallback addresses share at most four extra downloads, including on guides', async () => {
