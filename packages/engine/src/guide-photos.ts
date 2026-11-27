@@ -11,7 +11,7 @@ import { LlmError } from './claude'
 import { contactSheet, stillDone } from './video-images'
 import type { StillsState } from './video-stills'
 import { stripPhotos } from './watermarks'
-import { holdForSecondLook, looks, readSecondLook } from './last-photo'
+import { holdForSecondLook, looks, readSecondLook, verdictAddressSet } from './last-photo'
 
 /**
  * No people and no logos in the pictures the subject check (photo-check.ts) doesn't look at: every guide's photos (the
@@ -225,7 +225,9 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   }))
   const removesWrapper = photoAddressSet([...listing].flatMap(([url, reason]) => versionRejection(reason) ? [] : [url]))
   const last = await holdablePhotoVerdicts(root, now, new Set(listing.keys()), removesWrapper)
-  const heldAddress = photoAddressSet(last.keys())
+  const heldWhole = photoAddressSet([...last.keys()].filter(removesWrapper))
+  const heldVersions = verdictAddressSet([...last.keys()].filter(url => !removesWrapper(url)), new Set(listing.keys()))
+  const heldAddress = (url: string) => heldWhole(url) || heldVersions(url)
   const holding = new Map<string, { why: string; pages: string[] }>()
   for (const x of items.values()) {
     const why = verdictOff(x.url, x.equipment || x.still)
