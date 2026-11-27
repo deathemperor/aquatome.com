@@ -684,6 +684,10 @@ test('a passed mirror without a review remains visible through a square refusal 
   await sweep(root, { history: gitHistory(root) })
   expect((await json(root, 'content/species/alpha/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([mirror.url])
   await visible()
+  const unused = async () => { throw new Error('The independently judged renditions already have answers') }
+  await checkPagePhotos(root, { get: unused, look: unused }, { limit: 0, fill: 0 })
+  expect((await json(root, 'content/species/alpha/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([mirror.url])
+  await visible()
 })
 
 test('one ordinary album photo still displays on the web while it owes a look for lead promotion', async () => {

@@ -467,12 +467,14 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const rejected = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict (last-photo.ts).
   const secondLook = await readSecondLook(root)
-  const sl = looks(secondLook)
+  const passedPhoto = photoVersionAddressSet(passed)
+  const sl = looks(secondLook, passedPhoto)
   const versionHeld = heldPhotoVersion(secondLook)
-  const rejectedAt = photoRejections(rejected, {}, versionHeld)
+  const separateHold = (url: string) => versionHeld(url) || passedPhoto(url)
+  const rejectedAt = photoRejections(rejected, {}, separateHold)
   const markedAt = photoRejections(Object.fromEntries(Object.entries(secondLook)
     .filter(([url]) => sl.off(url))
-    .map(([url, mark]) => [url, mark.why])), {}, versionHeld)
+    .map(([url, mark]) => [url, mark.why])), {}, separateHold)
   const waitingAt = (url: string) => {
     const entry = rejectedAt(url)
     if (!entry) return markedAt(url)?.[0]
@@ -803,7 +805,6 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const ownMarkWaits = new Set(shown.filter(x => marks[x.url]?.watermark === undefined && screenedShop(x.url, x.source ?? (x.guide ? guideFrom.get(x.url) : undefined))).map(x => x.url))
   // This run's own verdicts of dead or a person on a photo that never passed the check: a first verdict (last-photo.ts).
   // A verdict cached from before doesn't count, nor does this run's verdict of anything else.
-  const passedPhoto = photoVersionAddressSet(passed)
   const freshBad = new Set([...judgedNow].flatMap(k => { const i = k.indexOf(' '), u = k.slice(i + 1), v = cache[u]?.[k.slice(0, i)]; return v && (v.ok === 'dead' || v.person === true) && !passedPhoto(u) ? [u] : [] }))
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict; but a hold on another reason doesn't
   // keep a photo from its first verdict of dead or a person (the independent reader, 20 Nov).
@@ -819,12 +820,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // dead or a person, on a photo that never passed, isn't held: it comes off, even as a page's last photo, and waits for
   // its look marked on both lists (last-photo.ts), as does one already marked.
   const first = (url: string) => sl.off(url) || (Object.hasOwn(added, url) && freshBad.has(url))
-  const separateHold = (url: string) => versionHeld(url) || passedPhoto(url)
   const firstByAddress = photoRejections(Object.fromEntries(Object.entries(added).filter(([url]) => first(url))), {}, separateHold)
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
   const pendingGlobal = photoRejections(added, marks, separateHold)
-  const existingGlobal = photoRejections(rejected, marks, versionHeld)
+  const existingGlobal = photoRejections(rejected, marks, separateHold)
   const originals = Object.values(added).some(why => !isVersionRejection(why))
     ? await originalPhotoRefusals(content, url => {
       const entry = pendingGlobal(url)

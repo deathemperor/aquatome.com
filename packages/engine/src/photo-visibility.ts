@@ -38,6 +38,13 @@ export async function readPhotoIntakeBlocks(root: string): Promise<Record<string
   return { ...Object.fromEntries(creditHoldPhotoUrls(holds).map(url => [url, CREDIT_HOLD_REJECTION])), ...rejected }
 }
 
+export async function readReviewedPhotoVersion(root: string): Promise<(url: string) => boolean> {
+  const [reviews, check, subjects] = await Promise.all([
+    read(root, SECOND_LOOK_RECORD), read(root, PHOTO_CHECK_FILE), read(root, PHOTO_SUBJECTS_FILE),
+  ])
+  return reviewedPhotoVersion(reviews, check, subjects)
+}
+
 /** Use the public screen predicates before removing a photo that might leave its page empty. */
 export async function readPhotoWaits(
   root: string,
