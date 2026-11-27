@@ -1,4 +1,5 @@
 import { afterEach, expect, test, vi } from 'vitest'
+import { parse } from 'node-html-parser'
 import { APP_SQL, automated, BURST, queryReaders, sourceOf, summariseAppReads, summariseReaders, type Session } from '../readers'
 import { areas, readersPage, readersSection } from '../admin/pages'
 import type { ChartBlock } from '../admin/blocks'
@@ -199,4 +200,22 @@ test('return visits, by the visitor code: browsers back on another day, how soon
   const none = summariseReaders(sessions.map(s => ({ ...s, u: '' })), [], 14)
   expect(none.revisits).toBeUndefined()
   expect(readersPage(new Date('2026-11-09T12:00:00Z'), none)).not.toContain('Return visits')
+})
+
+test('return visits keeps empty weeks visible after the first measured week', () => {
+  const r = summariseReaders([
+    { sid: 'coded', u: 'aaaa1111', first: '2026-11-11 12:00:00', pages: 1, t: 40, scroll: 0 },
+    { sid: 'uncoded', first: '2026-11-23 12:00:00', pages: 1, t: 40, scroll: 0 },
+  ], [], 14)
+  const html = readersPage(new Date('2026-11-23T13:00:00Z'), r, 'UTC')
+  const [, section] = html.split('<h3>Returning visitors by week</h3>')
+  const rows = parse(section!).querySelector('tbody')!.querySelectorAll('tr')
+  expect(rows.map(row => {
+    const week = row.querySelector('th')!
+    return [week.childNodes[0]?.text, week.querySelector('.muted')?.text, ...row.querySelectorAll('td').map(cell => cell.text)]
+  })).toEqual([
+    ['23 Nov', 'So far', '0', '0', '—'],
+    ['16 Nov', undefined, '0', '0', '—'],
+    ['9 Nov', 'Partial week', '1', '0', '0.0%'],
+  ])
 })

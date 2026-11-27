@@ -530,13 +530,17 @@ function returnWeeks(now: Date, r: Readers, tz: string): string {
   const firstDay = localDay(now.getTime() - r.days * 86_400_000, tz)
   const resetDay = r.from ? localDay(r.from, tz) : ''
   const thisWeek = mondayOf(localDay(now, tz))
-  const rows = weeks.map(w => {
-    const partial = w.monday <= firstDay || w.monday <= resetDay || w.monday === thisWeek
+  const firstMeasuredWeek = weeks.at(-1)!.monday
+  const byMonday = new Map(weeks.map(w => [w.monday, w]))
+  const mondays = new Set([...byMonday.keys(), ...lastDays(now, r.days + 1, tz).map(mondayOf)])
+  const rows = [...mondays].filter(monday => monday >= firstMeasuredWeek).sort().reverse().map(monday => {
+    const { visitors, returning } = byMonday.get(monday) ?? { visitors: 0, returning: 0 }
+    const partial = monday <= firstDay || monday <= resetDay || monday === thisWeek
     return [
-      { text: dayText(w.monday, now, tz), ...(partial ? { sub: w.monday === thisWeek ? 'So far' : 'Partial week' } : {}) },
-      { text: fmt(w.visitors) },
-      { text: fmt(w.returning) },
-      { text: `${fmt(100 * w.returning / w.visitors, 1)}%` },
+      { text: dayText(monday, now, tz), ...(partial ? { sub: monday === thisWeek ? 'So far' : 'Partial week' } : {}) },
+      { text: fmt(visitors) },
+      { text: fmt(returning) },
+      { text: visitors ? `${fmt(100 * returning / visitors, 1)}%` : '—' },
     ]
   })
   return `<h3>Returning visitors by week</h3>
