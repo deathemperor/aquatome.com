@@ -184,7 +184,13 @@ export function chatWorstCost(model: string): number {
 /** The contract's `Turn`. */
 export type Turn = { conversation: string; n: number; text: string; blocks: ChatBlock[]; suggestions: string[]; covered: boolean; model: string; steps?: Step[]; opening?: string }
 /** A conversation as kept (under its account's prefix): when it began, its turns, and the question being answered. */
-export type Conversation = { created: number; turns: KeptTurn[]; running?: { key: string; at: number } }
+export type Conversation = { created: number; turns: KeptTurn[]; tankStart?: TankStart; running?: { key: string; at: number } }
+/** Only the original selection, kept with the turns so the list index needn't be available to read a tank. */
+type TankStart = { tank: string; from?: Start['from'] }
+function tankStartOf(start: Start | null): TankStart | undefined {
+  if (typeof start?.tank !== 'string' || !start.tank) return undefined
+  return { tank: start.tank, ...(start.from ? { from: start.from } : {}) }
+}
 /** A turn as a conversation keeps it, to read it to Claude and draw it again. A turn from before the past conversations has the first five alone. */
 export type KeptTurn = Earlier & { n: number; at: number; suggestions?: string[]; covered?: boolean; model?: string; steps?: Step[]; opening?: string }
 /** A question's outcome, kept for its retries: its turn, or the error it ended on (a stopped one's, with the stop's figures). */
@@ -336,17 +342,19 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const running = conv?.running && clock() - conv.running.at < RUNNING_MS ? conv.running : undefined
   if (running && idem && running.key === idem) return waitFor(readKept, keptResponse, stream, clock, deps)
   // Hidden from the list on another device: ended, so the app asks in a new conversation. A read that fails stops no question.
-  const row = conv?.turns.length ? await env.DB.prepare('SELECT hidden, start FROM chat_conversations WHERE account = ? AND id = ?').bind(account, q.conversation).first<{ hidden: number; start: string }>().catch(() => null) : null
+  const hasTurns = Boolean(conv?.turns.length)
+  const row = hasTurns ? await env.DB.prepare('SELECT hidden, start FROM chat_conversations WHERE account = ? AND id = ?').bind(account, q.conversation).first<{ hidden: number; start: string }>().catch(() => null) : null
   if (conv && (row?.hidden === 1 || clock() - conv.created > CONVERSATION_MS || conv.turns.length >= maxTurns)) return json({ error: 'ended' }, 410)
   if (running) return json({ error: 'answering' }, 409)
   // Later turns use the original tank selection, never start metadata from the new question.
-  let start: Start = conv?.turns.length ? {} : q.start
-  if (row) {
+  let tankStart = hasTurns ? conv?.tankStart : tankStartOf(q.start)
+  // On older conversations the index may be the only record of the selection.
+  if (hasTurns && !tankStart && row) {
     try {
-      const saved = JSON.parse(row.start) as Start | null
-      if (saved?.from === 'tank' && typeof saved.tank === 'string' && saved.tank) start = { tank: saved.tank }
+      tankStart = tankStartOf(JSON.parse(row.start) as Start | null)
     } catch { /* A historical row without a readable start can still take a question. */ }
   }
+  const start: Start = hasTurns ? tankStart ?? {} : q.start
 
   // Admission, in one step in the ledger: the account's day, chat's day and the site's spend, and a healthy key.
   const model = env.CHAT_MODEL || DEFAULT_MODEL
@@ -367,7 +375,10 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   // `etagDoesNotMatch: '*'` is If-None-Match: * (workerd's r2-bucket.c++, buildSingleEtagArray), which R2 applies as a
   // create-once write only one of several at once wins (developers.cloudflare.com/r2/api/s3/extensions/, "Conditional
   // operations in PutObject"); a failed condition is null, not an error (developers.cloudflare.com/r2/api/workers/workers-api-reference/).
-  const mark: Conversation = { created: conv?.created ?? clock(), turns: conv?.turns ?? [], running: { key: idem || crypto.randomUUID(), at: clock() } }
+  const mark: Conversation = {
+    created: conv?.created ?? clock(), turns: conv?.turns ?? [],
+    ...(hasTurns && tankStart ? { tankStart } : {}), running: { key: idem || crypto.randomUUID(), at: clock() },
+  }
   const marked = await env.UPLOADS.put(convKey, JSON.stringify(mark), { onlyIf: obj ? { etagMatches: obj.etag } : { etagDoesNotMatch: '*' } })
     .then(o => (o ? 'ok' : 'taken'), e => { console.error('chat mark:', e); return 'failed' })
   if (marked !== 'ok') {
@@ -515,7 +526,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const carried = q.continues && !mark.turns.length ? await env.DB.prepare('SELECT hidden FROM chat_conversations WHERE account = ? AND id = ?').bind(account, q.continues).first<{ hidden: number }>() : null
     await env.DB.prepare(`INSERT INTO chat_conversations (account, id, title, start, first_at, last_at, questions, continues) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
       ON CONFLICT (account, id) DO UPDATE SET last_at = excluded.last_at, questions = excluded.questions`)
-      .bind(account, q.conversation, mark.turns[0]?.question ?? q.question, JSON.stringify({ ...(mark.turns.length ? {} : q.start), lang: q.lang }), secs(mark.created), secs(at), turns, carried && !carried.hidden ? q.continues : null)
+      .bind(account, q.conversation, mark.turns[0]?.question ?? q.question, JSON.stringify({ ...(hasTurns ? tankStart : q.start), lang: q.lang }), secs(mark.created), secs(at), turns, carried && !carried.hidden ? q.continues : null)
       .run()
   }
 
@@ -529,6 +540,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const turn = done.status === 200 ? done.body as unknown as Turn : undefined
     const asked = clock()
     const next: Conversation = { created: mark.created, turns: turn ? [...mark.turns, { n: turn.n, question: q.question, text: turn.text, blocks: turn.blocks, suggestions: turn.suggestions, covered: turn.covered, model: turn.model, ...(turn.steps ? { steps: turn.steps } : {}), ...(turn.opening ? { opening: turn.opening } : {}), at: asked }] : mark.turns }
+    if (next.turns.length && tankStart) next.tankStart = tankStart
     const k: Kept = turn ? { at: asked, turn } : { at: asked, status: done.status, ...(done.body as { error: string; counted?: boolean; freeLeft?: number }) }
     if (keptKey) await env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e))
     await env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e))
