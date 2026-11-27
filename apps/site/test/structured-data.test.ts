@@ -118,3 +118,8 @@ test('every supported built page has the expected structured data in its own lan
   const guide = ld(page('/huong-dan/setup-be-thuy-sinh-dau-tien/').html).find(x => x['@type'] === 'Article')
   expect(guide.datePublished).toBe('2026-10-27')
 })
+
+test('the fish and breed update labels match the sitemap dates when available', () => {
+  expect(page('/ca/ca-neon-vua/').dom.querySelector('.facts > .srcline')?.text).toContain('2026-11-04')
+  expect(page('/ms/ikan/baka-uji-melayu/').dom.querySelector('.srcline')?.text).toContain('31/10/2026')
+})
