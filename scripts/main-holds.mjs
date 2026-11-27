@@ -39,8 +39,10 @@
 // it can't parse fails it, with nothing written: its caller then publishes nothing (cycle-checks.sh main_holds). Without
 // <run>, as a cycle that started on the older script calls it, it writes nothing and answers as that script did.
 import { execFileSync } from 'node:child_process'
-import { writeFileSync } from 'node:fs'
-import { pathToFileURL } from 'node:url'
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { dirname, join } from 'node:path'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const FIT = 'engine-state/_fit.json'
 // The gate's kinds (packages/engine/src/gate.ts GATED_KINDS; a test holds them to it) and its language files.
@@ -114,6 +116,28 @@ const withHeld = (page, held) => {
 // A hold with harm among its checks, as gate.ts writes one for another language's harm.
 const withHarm = held => (held ? { ...held, checks: [...new Set([...held.checks, 'harm'])].sort() } : undefined)
 
+// Check the hashes with the gate’s loader. The small content tree contains only the candidate pages, their entities,
+// and the inputs that select their text. Read it from HEAD before any holds are written to the worktree.
+function publishedHashes(files) {
+  if (!files.length) return {}
+  const root = mkdtempSync(join(tmpdir(), 'aq-publish-fit-'))
+  const engine = fileURLToPath(new URL('../packages/engine/', import.meta.url))
+  try {
+    const dirs = files.map(f => dirname(f))
+    for (const file of new Set(['content/sources.json', 'content/one-voice.json', ...dirs.map(d => `${d}/entity.json`), ...files])) {
+      const value = at('HEAD', file)
+      if (value === undefined) continue
+      mkdirSync(join(root, dirname(file)), { recursive: true })
+      writeFileSync(join(root, file), JSON.stringify(value))
+    }
+    const langs = [...new Set(files.map(f => FILE.exec(f)[3]))]
+    const stdout = execFileSync(process.execPath, ['--import', 'tsx', 'scripts/publish-fit-hashes.ts', join(root, 'content'), ...langs], { cwd: engine, encoding: 'utf8' })
+    return JSON.parse(stdout)
+  } finally {
+    rmSync(root, { recursive: true, force: true })
+  }
+}
+
 function main() {
   const [base, main, run] = process.argv.slice(2)
   if (!base || !main) {
@@ -142,61 +166,85 @@ function main() {
     }
     return dirs
   }
-  const withSelection = (list, a, b, rev) => [...new Set([...list.filter(f => FILE.test(f)), ...[...selectionChanged(a, b)].flatMap(d => files(d, rev))])]
-  const changed = withSelection(git('diff', '--name-only', '--no-renames', main, 'HEAD', '--', 'content').split('\n'), main, 'HEAD', 'HEAD')
-  if (!changed.length) return
+  const different = (a, b) => git('diff', '--name-only', '--no-renames', a, b, '--', 'content').split('\n').filter(f => FILE.test(f))
+  const withSelection = (list, a, b) => [...new Set([...list, ...[...selectionChanged(a, b)].flatMap(d => files(d))])]
+  const changed = new Set(different(main, 'HEAD'))
+  if (run) {
+    for (const f of withSelection([...changed], main, 'HEAD')) changed.add(f)
+    // A merge can take all of main’s page, losing a hold from the run with no diff against main.
+    for (const f of different(run, 'HEAD')) {
+      if (at(run, f)?.held && !at('HEAD', f)?.held) changed.add(f)
+    }
+  }
+  if (!changed.size) return
   const out = []
   // Files written here: file → [what, page].
   const written = new Map()
   // Releases still to decide on another language's harm: file → the page to write, or undefined to take main's whole.
   const releases = new Map()
-  // The gate's day (ceiling.ts vnDay).
-  const day = new Date(Date.now() + 7 * 3600_000).toISOString().slice(0, 10)
+  const unread = { checks: [], at: new Date(Date.now() + 7 * 3600_000).toISOString().slice(0, 10) }
   const fit = { base: at(base, FIT) ?? {}, main: at(main, FIT) ?? {}, head: at('HEAD', FIT) ?? {} }
-  // The files both main and this run changed since <base>, a part turned on or off among them: the only ones whose merge
-  // can be a text neither side has.
-  const since = rev => withSelection(git('diff', '--name-only', '--no-renames', base, rev, '--', 'content').split('\n'), base, rev, rev)
-  const mainChanged = new Set(since(main))
+  // Include languages added by the run when main changed which text their page shows.
+  const since = rev => withSelection(different(base, rev), base, rev)
+  const mainChanged = new Set(run ? since(main) : [])
   const both = new Set(run ? since(run).filter(f => mainChanged.has(f)) : [])
+  const comparisons = []
   for (const f of changed) {
     const [, kind, id, lang] = FILE.exec(f)
     const key = `${lang}/${kind}/${id}`
-    // Main read it during the run, and its read is the one that stands. A record main took out is no read (a reader of
-    // #1703): the page goes the way of one main didn't read.
-    const mainRead = fit.main[key] !== undefined && !same(fit.base[key], fit.main[key]) && same(fit.head[key], fit.main[key])
+    const ours = at('HEAD', f)
+    if (!ours) continue
+    const theirs = at(main, f)
+    const mine = run ? at(run, f) : undefined
+    const mainRecord = fit.main[key]
+    const recordWon = same(fit.head[key], mainRecord)
+    const mainRead = (!run || mainRecord !== undefined) && !same(fit.base[key], mainRecord) && recordWon
+    const mainText = run && theirs && same(readAt('HEAD', f, ours), readAt(main, f, theirs))
+    const runText = run && mine && same(readAt('HEAD', f, ours), readAt(run, f, mine))
+    const release = mainRead && mainText && !theirs.held && (ours.held || mine?.held)
+    // Work saved by an older publisher can carry main’s old review after the old merge base has advanced.
+    const savedReview = !ours.held && mainRecord && recordWon && theirs && !mainText
+    comparisons.push({ f, key, ours, theirs, mine, mainRead, mainText, runText, proof: run && (release || savedReview) })
+  }
+  const hashes = publishedHashes(comparisons.filter(c => c.proof).map(c => c.f))
+  for (const { f, key, ours, theirs, mine, mainRead, mainText, runText, proof } of comparisons) {
+    if (proof && (typeof hashes[key] !== 'string' || hashes[key] !== fit.head[key]?.hash)) {
+      if (!ours.held) written.set(f, ['keep', withHeld(ours, mine?.held ?? unread)])
+      continue
+    }
+    if (runText && mine.held && !ours.held && !mainText) {
+      written.set(f, ['keep', withHeld(ours, mine.held)])
+      continue
+    }
     if (!mainRead) {
       // Or nobody read it: both sides changed the page, and the merge's text is neither's (main's hand fix to one section,
       // this run's rewrite of another), while the record that stands read one side's. It waits held for its next read, as
       // the gate holds a page it couldn't read: the run's hold, or the gate's mark (a reader of #1703). A text that is one
       // side's stays as merged: a hand fix main made alone, the sweep's words (the chief of staff, 20 Nov).
       if (!both.has(f)) continue
-      const [ours, theirs, mine] = [at('HEAD', f), at(main, f), at(run, f)]
-      if (ours && theirs && mine && !ours.held && !same(readAt('HEAD', f, ours), readAt(main, f, theirs)) && !same(readAt('HEAD', f, ours), readAt(run, f, mine)))
-        written.set(f, ['unread', withHeld(ours, mine.held ?? { checks: [], at: day })])
+      if (mine && !ours.held && !mainText && !runText)
+        written.set(f, ['unread', withHeld(ours, mine.held ?? unread)])
       continue
     }
-    const ours = at('HEAD', f)
-    const theirs = at(main, f)
-    if (!ours || !theirs) continue
-    const shown = same(selection('HEAD', f), selection(main, f))
+    if (!theirs) continue
+    const shown = !run || same(selection('HEAD', f), selection(main, f))
     if (same(ours, theirs) && shown) continue
     if (same(text(ours), text(theirs)) && shown) {
       if (ours.held && !theirs.held) releases.set(f, undefined)
       else out.push(['hold', f])
-    } else if (run && same(readAt('HEAD', f, ours), readAt(main, f, theirs))) {
+    } else if (mainText) {
       // Main's record read this very text: its hold, or its release, onto the merge's file.
       if (ours.held && !theirs.held) releases.set(f, withHeld(ours, undefined))
       else if (!same(ours.held, theirs.held)) written.set(f, ['own', withHeld(ours, theirs.held)])
     } else if (!run) out.push(['text', f])
     else {
-      const mine = at(run, f)
       if (ours.held) {
         // Where the text going out is the run's, what the run's read found on it stays, though the merge took another
         // hold: a harm the run found isn't lost to a source hold main wrote on the old text (a reader of #1703).
-        const found = mine?.held && same(readAt('HEAD', f, ours), readAt(run, f, mine)) ? mine.held.checks.filter(c => !ours.held.checks.includes(c)) : []
+        const found = mine?.held && runText ? mine.held.checks.filter(c => !ours.held.checks.includes(c)) : []
         if (found.length) written.set(f, ['keep', withHeld(ours, { ...ours.held, checks: [...ours.held.checks, ...found].sort() })])
         else out.push(['text', f])
-      } else written.set(f, ['keep', withHeld(ours, mine?.held ?? { checks: [], at: day })])
+      } else written.set(f, ['keep', withHeld(ours, mine?.held ?? unread)])
     }
   }
   const taken = new Set(out.filter(([what]) => what === 'hold').map(([, f]) => f))
@@ -210,7 +258,7 @@ function main() {
   // left open beside it takes the run's hold with harm, or harm. A release waits below. The older caller writes nothing,
   // and gets the older answer.
   if (run) {
-    const dirs = [...new Set(changed.map(dirOf))]
+    const dirs = [...new Set([...changed].map(dirOf))]
     const langs = new Map(dirs.map(d => [d, files(d)]))
     const all = [...langs.values()].flat()
     atAll('HEAD', all)
@@ -219,7 +267,7 @@ function main() {
       if (!ls.some(harmAtEnd)) continue
       for (const s of ls) {
         if (releases.has(s) || heldAtEnd(s)) continue
-        written.set(s, ['beside', withHeld(at('HEAD', s), withHarm(at(run, s)?.held) ?? { checks: ['harm'], at: day })])
+        written.set(s, ['beside', withHeld(at('HEAD', s), withHarm(at(run, s)?.held) ?? { checks: ['harm'], at: unread.at })])
       }
     }
   }

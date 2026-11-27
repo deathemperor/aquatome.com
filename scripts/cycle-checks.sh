@@ -592,7 +592,10 @@ main_holds() {
   if ! up=$(git rev-parse "$up") || ! base=$(git merge-base "$1" "$up"); then
     uncompared "$1" "main, or where this run left it, couldn't be found"; return 2
   fi
-  [ "$base" != "$up" ] || return 0
+  # Recovery can start with work the older publisher already rebased and a stale fit record.
+  if [ "$base" = "$up" ]; then
+    [ -n "${2:-}" ] && git cat-file -e HEAD:engine-state/_fit.json || return 0
+  fi
   if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up" "$1"); then
     uncompared "$1" "the pages main read during this run couldn't be compared"; return 2
   fi
