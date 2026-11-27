@@ -76,8 +76,8 @@ export const UNREAD_FACES_LIMIT = 300
 
 /** The dead-fish screen's record, in engine-state (address → its verdict): every photo it has judged, dead or not. */
 export const DEAD_SCREEN_FILE = '_dead-screen.json'
-/** The photo check's records, in engine-state: its verdicts by address, the old form, and the one by subject. */
 export const GUIDE_LOOKS_FILE = '_photo-guides.json'
+/** The photo check's records, in engine-state: its verdicts by address, the old form, and the one by subject. */
 export const PHOTO_CHECK_FILE = '_photo-check.json'
 export const PHOTO_REJECTED_FILE = '_photo-rejected.json'
 export const PHOTO_SUBJECTS_FILE = '_photo-subjects.json'

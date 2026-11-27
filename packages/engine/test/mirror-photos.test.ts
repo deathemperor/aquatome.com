@@ -143,6 +143,24 @@ test('a refused crop leaves an independently passed mirror and its verdict intac
   expect(JSON.parse(await read(r, album)).photos).toEqual([photo(square), photo(mirror)])
 })
 
+test.each([true, false])('a passed source is kept when its stored mirror cannot serve (refused: %s)', async refused => {
+  const r = await root()
+  const source = 'https://live.staticflickr.com/8518/8600709463_7a79b898cf_b.jpg'
+  const { d } = deps()
+  const mirror = d.media.urlFor(mirrorPlan(source)!.key)
+  const page = 'species/astronotus-ocellatus/entity.json'
+  await writeFile(join(r, 'content', page), JSON.stringify({ photos: [photo(source)] }))
+  await writeFile(join(r, 'content/gallery/astronotus-ocellatus.json'), JSON.stringify({ photos: [photo(mirror)] }))
+  await writeFile(join(r, 'engine-state/_photo-faces.json'), JSON.stringify({ [source]: 0, [mirror]: 0 }))
+  await writeFile(join(r, 'engine-state/_photo-dead-owed.json'), '{}')
+  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({ [source]: { ok: 'yes', logo: false } }))
+  if (refused) await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [mirror]: 'dead: withheld' }))
+
+  await mirrorPhotos(r, d)
+
+  expect(JSON.parse(await read(r, page)).photos).toEqual([photo(source)])
+})
+
 test('a mirror used only as a fallback original keeps the stored bytes and dimensions', async () => {
   const r = await root()
   const { d, fetched, put } = deps()

@@ -1,7 +1,7 @@
 import { piece } from './pieces'
 import { compactVerdict, photoReason, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { recordPhotoRefusals, writePhotoState } from './photo-state'
-import { holdablePhotoVerdicts, versionRejection } from './photo-visibility'
+import { holdablePhotoVerdicts, readReviewedPhotoVersion, versionRejection } from './photo-visibility'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
@@ -214,7 +214,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {} // re-read: entries another step added meanwhile stay
   // A guide's photo that is also the last photo of a species, plant or breed page doesn't go on the list, which would
   // take it off that page too: it waits for a second look (last-photo.ts). It still leaves the guides.
-  const sl = looks(await readSecondLook(root))
+  const sl = looks(await readSecondLook(root), await readReviewedPhotoVersion(root))
   const marks = (await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))) ?? {}
   const ownMark = photoAddressSet(Object.keys(marks).filter(url => retainedOwnMark(url, marks[url])))
   const verdictOff = (url: string, brandKept: boolean) => guidePhotoOff(cache[url], brandKept, ownMark(url))

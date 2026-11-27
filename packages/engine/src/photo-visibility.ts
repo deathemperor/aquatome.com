@@ -75,10 +75,10 @@ export async function readPhotoWaits(
 export async function holdablePhotoVerdicts(root: string, rejected: Record<string, string>, verdicts: Set<string>, removesWrapper: (url: string) => boolean) {
   if (!verdicts.size) return new Map<string, string[]>()
   const content = join(root, 'content')
-  const [waits, sources, marks] = await Promise.all([
-    readPhotoWaits(root, { rejected }), readPhotoSources(content), read<PhotoScreenEntry>(root, PHOTO_SCREEN_FILE),
+  const [waits, sources, marks, reviewed] = await Promise.all([
+    readPhotoWaits(root, { rejected }), readPhotoSources(content), read<PhotoScreenEntry>(root, PHOTO_SCREEN_FILE), readReviewedPhotoVersion(root),
   ])
-  const listed = photoRejections(await expandWholePhotoRejections(content, rejected, marks), marks)
+  const listed = photoRejections(await expandWholePhotoRejections(content, rejected, marks), marks, reviewed)
   const pages = await pagesShowing(content, (p, ref, name) => {
     const shown = publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
     if (!shown || !permittedPhotoSource(shown, sources, ref, name)) return undefined
