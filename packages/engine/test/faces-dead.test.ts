@@ -466,6 +466,7 @@ test('a clear on a square crop does not waive the dead verdict on the larger mir
   const { root, state, publicView } = await publicFixture([mirror], [mirror], [mirror.url])
   await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [mirror.url]: 0 }))
   await writeFile(join(state, '_dead-screen.json'), '{}')
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify({ [square]: { ok: 'yes', logo: false, person: false } }))
   await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
     [square]: { why: 'dead: withheld', step: 'the dead-fish screen', at: '2026-11-26', pages: ['species/alpha'],
       look: { said: 'clear', on: '2026-11-26', by: 'reviewer' } },
@@ -513,6 +514,31 @@ test.each(['face', 'dead'])('a credit-held original cannot replace a head with a
   const report = await run(root, deps().d)
   expect(verdict === 'face' ? report.faces.held : report.dead?.held).toEqual([`${head.url}: species/alpha`])
   expect((await publicView()).species.find(p => p.id === 'alpha')?.photos.map(p => p.url)).toEqual([head.url])
+})
+
+test('cleanup persists a permanent refusal on a held original before removing the link to its alteration', async () => {
+  const original = photo('rights-held-original')
+  const wrapper = { ...photo('refused-wrapper'), original,
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'c'.repeat(64) }] }
+  const { root, state, file, publicView } = await publicFixture([original], [original], [original.url, wrapper.url])
+  const page = await json(root, 'content/species/alpha/entity.json')
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [original.url]: 0, [wrapper.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+  await holdForCreditRead(root, [original.url], 'reviewer', '2026-11-26', 'credit unread')
+  const other = join(root, 'content/species/other/entity.json')
+  await mkdir(join(other, '..'), { recursive: true })
+  await writeFile(other, JSON.stringify({ ...page, id: 'other', photos: [wrapper] }))
+  const rejected = await json(root, 'engine-state/_photo-rejected.json')
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ ...rejected, [wrapper.url]: 'rejected: independent rights refusal' }))
+
+  await run(root, deps().d)
+  expect(JSON.parse(await readFile(other, 'utf8')).photos).toEqual([])
+  await releaseCreditHolds(root, { [original.url]: { page: original.sourceUrl, kind: 'own', at: '2026-11-26' } })
+
+  const view = await publicView()
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([])
+  expect(view.galleries.alpha ?? []).toEqual([])
+  expect(view.photoWaits!(original.url)).toBe(true)
 })
 
 test('clearing an independent review leaves the bare original hidden until its rights hold releases', async () => {
