@@ -1201,6 +1201,25 @@ test('the first line comes from a call of its own beside the run\'s first, befor
   expect(out.spent.input).toBe(300)
 })
 
+test('a long troubleshooting question starts the answer with its named fish and plant pages', async () => {
+  const h = await hb()
+  const neon = h.byId('paracheirodon-innesi')!
+  const plant = h.byId('anubias-barteri-nana')!
+  const question = `Bể em có ${neon.sub} và ${plant.name}. ${'Tuần này lá vàng, cá bỏ ăn. '.repeat(8)} Vì sao?`
+  const prompts = new Map<number, string>()
+  const result = await answerQuestion({
+    model: 'claude-haiku-5-5', lang: 'vi', question, earlier: [], start: {}, handbook: h, tanks: async () => [], opening: true,
+    send: async (b, { call }) => {
+      prompts.set(call, JSON.stringify(b.messages))
+      return message([{ type: 'text', text: call === 0 ? '-' : JSON.stringify(answer([], { text: 'Bạn đo lại nước trong bể nhé.' })) }])
+    },
+  })
+  expect(result.named).toEqual([neon.path, plant.path])
+  expect(prompts.get(0)).not.toContain('Published handbook pages')
+  expect(prompts.get(1)).toContain('Published handbook pages')
+  for (const page of [neon.path, plant.path]) expect(prompts.get(1)).toContain(page)
+})
+
 test('what\'s handed over goes after the question in every call of the run, never in the first line\'s, which doesn\'t wait for it; one that fails is no handover', async () => {
   const h = await hb()
   const final = answer([], { text: 'Cá neon xanh sống theo đàn.' })
@@ -1212,7 +1231,7 @@ test('what\'s handed over goes after the question in every call of the run, neve
         if (opts.call === 0) { sawLine?.(); return message([{ type: 'text', text: '-' }]) }
         return opts.call === 1 ? message([readPage], 'tool_use') : message([{ type: 'text', text: JSON.stringify(final) }])
       },
-      model: 'claude-haiku-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: h, tanks: async () => [], opening: true, handover,
+      model: 'claude-haiku-5-5', lang: 'vi', question: 'Nước bể đục thì làm sao?', earlier: [], start: {}, handbook: h, tanks: async () => [], opening: true, handover,
     })
     return { out, bodies }
   }
@@ -1220,7 +1239,7 @@ test('what\'s handed over goes after the question in every call of the run, neve
   const { out, bodies } = await run(async () => { await Promise.resolve(); expect(lineSent).toBe(true); return { text: 'Handed text', sections: [{ path: '/vi/ca/ca-neon-xanh/', heading: null }] } }, () => { lineSent = true })
   expect(out.answer?.text).toBe(final.text)
   expect(out.handed).toEqual([{ path: '/vi/ca/ca-neon-xanh/', heading: null }])
-  const first = firstMessage('vi', 'Nuôi cá neon thế nào?', [], {}, h)
+  const first = firstMessage('vi', 'Nước bể đục thì làm sao?', [], {}, h)
   expect(bodies.find(b => b.call === 0)!.body.messages).toEqual([first])
   const runs = bodies.filter(b => b.call !== 0)
   expect(runs.length).toBeGreaterThan(1)

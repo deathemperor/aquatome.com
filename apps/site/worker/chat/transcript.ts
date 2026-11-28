@@ -43,5 +43,7 @@ export type ChatRunRecord = {
   opening?: string
   /** The sections a search handed Claude before its first call (handover.ts), when it did. */
   handed?: Found[]
+  /** Published page paths pre-read for fish or plants explicitly named in the question. */
+  named?: string[]
   turns: Turn[]
 }

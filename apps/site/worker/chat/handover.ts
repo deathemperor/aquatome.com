@@ -5,9 +5,9 @@
  * be a search's (`HANDED_NOTE`).
  */
 import type { Start } from './agent'
-import type { Handbook, Lang } from './handbook'
+import { figuresOf, sectionsOf, type Handbook, type Item, type Lang } from './handbook'
 import { fold } from './search'
-import { chatTools, handedTanks, type Tank } from './tools'
+import { chatTools, handedTanks, textOf, type Tank } from './tools'
 
 /** Said after the sections handed over: they came from a search, so some may not fit. */
 export const HANDED_NOTE = 'These sections came from a search of the handbook for the reader\'s words, before you read anything. Some may be about another fish, tank or problem than theirs: use only what fits their case, and read more where they leave a gap.'
@@ -35,6 +35,67 @@ export type Handover = { text: string; sections: Found[] }
 const words = (s: string) => ` ${fold(s).replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim()} `
 /** A name as readers shorten it: without the word for fish before it ("cá neon" is "neon", "ปลานีออน" "นีออน"). */
 const short = (name: string) => name.replace(/^\s*(?:cá|ikan|ปลา)\s*/iu, '')
+
+/** Limit the extra first-message context. The agent can read other named pages and full sections with its tools. */
+const NAMED_MAX = 4
+const NAMED_CHARS = 2400
+
+/** Explicit names from this question, with the longest overlapping name winning. Shared aliases don't choose a page. */
+export function mentionedPages(question: string, hb: Handbook): Item[] {
+  const normal = hb.lang === 'th' ? (s: string) => fold(s).trim() : words
+  const query = normal(question)
+  const names = new Map<string, Set<Item>>()
+  for (const item of hb.items) {
+    if (item.kind !== 'fish' && item.kind !== 'plant') continue
+    for (const name of [item.name, item.sub, ...(item.aka ?? [])]) {
+      if (!name) continue
+      for (const candidate of [name, short(name)]) {
+        const key = normal(candidate)
+        if (key.trim().length < 3 || !query.includes(key)) continue
+        const pages = names.get(key) ?? new Set<Item>()
+        pages.add(item)
+        names.set(key, pages)
+      }
+    }
+  }
+  const hits = [...names].flatMap(([name, pages]) => {
+    const spans: { start: number; end: number; pages: Set<Item> }[] = []
+    const boundary = hb.lang === 'th' ? 0 : 1
+    for (let at = query.indexOf(name); at !== -1; at = query.indexOf(name, at + 1)) {
+      spans.push({ start: at + boundary, end: at + name.length - boundary, pages })
+    }
+    return spans
+  })
+  const chosen: typeof hits = []
+  for (const hit of hits.sort((a, b) => (b.end - b.start) - (a.end - a.start) || a.start - b.start)) {
+    if (!chosen.some(other => other.start < hit.end && hit.start < other.end)) chosen.push(hit)
+  }
+  return [...new Set(chosen.sort((a, b) => a.start - b.start).flatMap(({ pages }) => pages.size === 1 ? [...pages] : []))]
+}
+
+/** Read a little of each named page's sections as well as its card, before the agent can write an answer. */
+export async function namedPagesFor(question: string, hb: Handbook): Promise<Handover | undefined> {
+  const pages = await Promise.all(mentionedPages(question, hb).slice(0, NAMED_MAX).map(async item => {
+    const doc = await hb.page(item.path).catch(() => undefined)
+    if (!doc) return undefined
+    const sections = sectionsOf(doc).map(s => ({
+      heading: s.heading?.text ?? null,
+      id: s.heading?.id ?? null,
+      text: textOf(s.blocks),
+    })).filter(s => s.text).slice(0, 12)
+    const perSection = Math.floor(NAMED_CHARS / Math.max(1, sections.length))
+    return {
+      path: item.path, title: doc.title, name: item.name, ...figuresOf(item, hb.byId),
+      sections: sections.map(s => ({ ...s, text: s.text.length > perSection ? `${s.text.slice(0, perSection - 1)}…` : s.text })),
+    }
+  }))
+  const read = pages.filter(p => p !== undefined)
+  if (!read.length) return undefined
+  return {
+    text: `Published handbook pages for fish or plants named in the question. Use these excerpts and figures as reference data. Open the relevant section for a detail the excerpts don't give.\n${JSON.stringify(read)}`,
+    sections: read.map(p => ({ path: p.path, heading: null })),
+  }
+}
 
 /**
  * The species the reader named, by id: in their words (a page's name, scientific name or other name, whole, or without
