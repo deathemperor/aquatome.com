@@ -2,7 +2,7 @@ import { listAgreed } from '../src/last-photo'
 import { mirrorPlan } from '@aq/schema'
 import { denied } from './piece-admission'
 import { expectControlledRejections } from './photo-privacy-assertions'
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, rename, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
@@ -10,6 +10,7 @@ import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { guideSubject, screenGuidePhotos, type GuidePhotoDeps, type GuidePhotoVerdict } from '../src/guide-photos'
 import { videoStills, type StillDeps } from '../src/video-stills'
+import { pruneGuideLegacyUses } from '../src/photo-visibility'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -41,11 +42,45 @@ function model(table: Record<string, Partial<Omit<GuidePhotoVerdict, 'other'>> &
       const photos = sheet.filter(p => !p.includes('html'))
       sheet = []
       seen.push({ prompt, photos })
-      return { photos: photos.map((p, i) => { const { other, ...rest } = table[p] ?? {}; return { n: i + 1, person: false, mark: false, brand: false, note: p, ...rest, other: typeof other === 'function' ? other(prompt) : other } }) }
+      return { photos: photos.map((p, i) => {
+        const { other, ...rest } = table[p] ?? {}
+        const asked = prompt.includes(`- Photo ${i + 1} (`)
+        return { n: i + 1, person: false, mark: false, brand: false, note: p, ...rest,
+          other: typeof other === 'function' ? other(prompt) : other ?? (asked ? false : undefined) }
+      }) }
     },
   }
   return { d, seen }
 }
+
+test.each(['own photo', 'stock photo'])('a guide %s alteration needs a complete look on its fallback original', async place => {
+  const altered = { ...photo('altered'), altered: [{ method: 'lanczos3-upscale' }], original: photo('original') }
+  const root = await store({ guide: place === 'stock photo'
+    ? { video: { figures: [{ photo: altered, moments: [] }] } }
+    : { photos: [altered] } })
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({
+    [altered.url]: { person: false, mark: false, brand: false },
+    [altered.original.url]: { person: false },
+  }))
+  const { d, seen } = model({ original: { person: true } })
+  await screenGuidePhotos(root, d, { limit: 1 })
+  expect(seen.map(s => s.photos)).toEqual([['original']])
+  const guide = await json(root, 'content/guides/guide/entity.json')
+  expect(place === 'stock photo' ? guide.video.figures[0].photo.original : guide.photos[0].original).toBeUndefined()
+  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [altered.original.url]: 'people' })
+})
+
+test.each(['own photo', 'stock photo'])('a guide %s keeps its eligible fallback when the stored version is refused', async place => {
+  const altered = { ...photo('altered'), altered: [{ method: 'lanczos3-upscale' }], original: photo('original') }
+  const stock = place === 'stock photo'
+  const root = await store({ guide: stock ? { video: { figures: [{ photo: altered, moments: [] }] } } : { photos: [altered] } })
+  const { d, seen } = model({ altered: { person: true } })
+  await screenGuidePhotos(root, d, { limit: 1 })
+  expect(seen.map(s => s.photos)).toEqual([['altered', 'original']])
+  const guide = await json(root, 'content/guides/guide/entity.json')
+  expect(stock ? guide.video.figures[0].photo : guide.photos[0]).toEqual(altered)
+  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [altered.url]: 'people' })
+})
 
 test('hands or a person on a guide\'s photos, a mark on a video section\'s photo and a brand on a packshot take them off the guides and onto the blocklist; a brand stays on an equipment guide', async () => {
   // Found by a design review (2026-11-07): hands planting led "Cách trồng cây…", a person siphoning led "Bao lâu phải
@@ -291,6 +326,99 @@ test('a photo on two guides is asked about each subject, and leaves only the gui
   expect(urls((await json(root, 'content/guides/aquariumcoop-platy-care/entity.json')).photos)).toEqual(['lead-p'])
 })
 
+test('a missing guide subject answer leaves that question queued', async () => {
+  const root = await store({ 'platy-care': { kind: 'care', photos: [photo('shared')] } })
+  const { seen, d } = model({ shared: { other: false } })
+  let calls = 0
+  const partial: GuidePhotoDeps = { ...d, look: async (file, prompt) => {
+    const answer = await d.look(file, prompt)
+    if (calls++ === 0) for (const tile of answer.photos) delete tile.other
+    return answer
+  } }
+  await screenGuidePhotos(root, partial, { limit: 1 })
+  expect((await json(root, 'engine-state/_photo-guides.json'))[url('shared')].other?.platy).toBeUndefined()
+  await screenGuidePhotos(root, partial, { limit: 1 })
+  expect(seen.map(s => s.photos)).toEqual([['shared'], ['shared']])
+  expect((await json(root, 'engine-state/_photo-guides.json'))[url('shared')])
+    .toMatchObject({ other: { platy: false }, answeredSubjects: ['platy'] })
+})
+
+test.each([false, true])('a legacy implicit answer stays queued until it is explicitly answered (basic look incomplete: %s)', async incomplete => {
+  const id = 'platy-care'
+  const root = await store({ [id]: { kind: 'care', photos: [photo('shared')] } })
+  const baseline = 'content/guide-legacy-photo-uses.json'
+  await writeFile(join(root, baseline), JSON.stringify([[id, 'platy', url('shared')]]))
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({
+    [url('shared')]: { person: false, mark: false, ...(incomplete ? {} : { brand: false }), other: { platy: false } },
+  }))
+  const { seen, d } = model({ shared: { other: false } })
+  await screenGuidePhotos(root, d, { limit: 0 })
+  expect(await json(root, baseline)).toEqual([[id, 'platy', url('shared')]])
+  await screenGuidePhotos(root, d, { limit: 1 })
+  expect(seen.map(s => s.photos)).toEqual([['shared']])
+  expect(await json(root, baseline)).toEqual([])
+})
+
+test('an ended guide use loses its baseline entry before it can return', async () => {
+  const id = 'platy-care'
+  const former = photo('former')
+  const root = await store({ [id]: { kind: 'care', photos: [] } })
+  const baseline = 'content/guide-legacy-photo-uses.json'
+  await writeFile(join(root, baseline), JSON.stringify([[id, 'platy', former.url]]))
+
+  await pruneGuideLegacyUses(root)
+
+  expect(await json(root, baseline)).toEqual([])
+})
+
+test('an unreadable guide inventory leaves the baseline intact', async () => {
+  const id = 'platy-care', entry = [id, 'platy', url('legacy')]
+  const root = await store({ [id]: { kind: 'care', photos: [photo('legacy')] } })
+  const baseline = 'content/guide-legacy-photo-uses.json'
+  await writeFile(join(root, baseline), JSON.stringify([entry]))
+  const directory = join(root, 'content/guides')
+  await rename(directory, join(root, 'guide-inventory'))
+  await writeFile(directory, 'Not a directory')
+
+  await expect(pruneGuideLegacyUses(root)).rejects.toMatchObject({ code: 'ENOTDIR' })
+  expect(await json(root, baseline)).toEqual([entry])
+})
+
+test('a refused crop cannot suppress a separate rendition’s guide subject retry', async () => {
+  const crop = 'https://inaturalist-open-data.s3.amazonaws.com/photos/456/square.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(crop)!.key}`
+  const root = await store({ 'platy-care': { kind: 'care', photos: [{ ...photo('mirror'), url: mirror }] } })
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [crop]: 'people: withheld' }))
+  await writeFile(join(root, 'engine-state/_photo-check.json'), JSON.stringify({ [mirror]: { ok: 'yes', logo: false } }))
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [mirror]: { person: false, mark: false, brand: false } }))
+  const { d, seen } = model({ 456: { other: false } })
+
+  await screenGuidePhotos(root, d, { limit: 1 })
+
+  expect(seen.map(sheet => sheet.photos)).toEqual([['456']])
+  expect((await json(root, 'engine-state/_photo-guides.json'))[mirror]).toMatchObject({ other: { platy: false }, answeredSubjects: ['platy'] })
+})
+
+test('a waived shop-mark refusal does not stop the guide subject retry', async () => {
+  const marked = { ...photo('shop'), url: 'https://media.aquatome.com/glaser/p.webp', source: 'glaser',
+    sourceUrl: 'https://www.aquariumglaser.de/example/' }
+  const id = 'platy-care'
+  const root = await store({ [id]: { kind: 'care', photos: [marked] } })
+  await writeFile(join(root, 'engine-state/_photo-watermarks.json'), JSON.stringify({
+    [marked.url]: { ocr: [], watermark: true, retainedOwnMark: { source: 'glaser', sourceUrl: marked.sourceUrl, owner: 'source' } },
+  }))
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [marked.url]: 'watermark: retained mark' }))
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [marked.url]: { person: false, mark: true, brand: false } }))
+  const { d, seen } = model({ p: { other: false } })
+
+  await screenGuidePhotos(root, d, { limit: 1 })
+
+  expect(seen.map(sheet => sheet.photos)).toEqual([['p']])
+  expect((await json(root, 'engine-state/_photo-guides.json'))[marked.url])
+    .toMatchObject({ mark: true, other: { platy: false }, answeredSubjects: ['platy'] })
+  expect((await json(root, `content/guides/${id}/entity.json`)).photos).toEqual([marked])
+})
+
 test('a photo judged before the subject was asked is asked once, ahead of photos not judged, and keeps its verdict; a still is not asked', async () => {
   const id = 'aquariumcoop-platy-care'
   const root = await store({
@@ -298,7 +426,7 @@ test('a photo judged before the subject was asked is asked once, ahead of photos
     [id]: { kind: 'care', source: 'aquariumcoop', photos: [photo('lead'), photo('old')], video: { title: 'x', figures: [{ heading: 'a', moments: [{ ...still(3, true), url: url('still-hd') }] }] } },
   })
   const verdict = { person: false, mark: false, brand: false, note: 'a platy, from before' }
-  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [url('lead')]: { ...verdict, other: { platy: false } }, [url('lead-n')]: verdict, [url('old')]: verdict, [url('still-hd')]: verdict }))
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [url('lead')]: { ...verdict, other: { platy: false }, answeredSubjects: ['platy'] }, [url('lead-n')]: verdict, [url('old')]: verdict, [url('still-hd')]: verdict }))
   const { d, seen } = model({ old: { person: true, note: 'a new note' }, unjudged: {} })
   await screenGuidePhotos(root, d, { limit: 1 })
   expect(seen[0]!.photos).toEqual(['old', 'unjudged'])
@@ -377,7 +505,7 @@ test('a guide refusing an alteration holds the bare original on a fish page unti
   const { d } = model({ alteration: { mark: true } })
   const report = await screenGuidePhotos(root, d, { limit: 1 })
   expect(report.held).toEqual([`${wrapper.url}: species/only`])
-  expect((await json(root, 'content/guides/guide/entity.json')).photos).toEqual([])
+  expect((await json(root, 'content/guides/guide/entity.json')).photos).toEqual([wrapper])
   expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
   const marks = await json(root, 'engine-state/_photo-second-look.json')
   expect(marks[wrapper.url].originals).toEqual([original.url])

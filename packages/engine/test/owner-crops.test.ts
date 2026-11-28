@@ -220,6 +220,7 @@ test('the stage-owned empty screen record lands before content admission and pre
  // fish (a faces step after this hand run does both).
  await writeFile(join(f.root,'engine-state/_photo-faces.json'),JSON.stringify({[f.p.url]:0,[s.old.url]:0}))
  await writeFile(join(f.root,'engine-state/_dead-screen.json'),JSON.stringify({[f.p.url]:{dead:false},[s.old.url]:{dead:false}}))
+ await writeFile(join(f.root,'engine-state/_photo-guides.json'),'{}')
  const c=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,photoScreen:'required'})
  expect(c.species[0]!.photos[0]!.url).toBe(f.p.url)
 })

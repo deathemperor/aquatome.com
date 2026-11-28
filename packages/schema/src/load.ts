@@ -5,9 +5,9 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, reviewedPhotoVersion, expandWholePhotoRejections, isVersionRejection, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, GUIDE_LOOKS_FILE, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type CreditHoldPhotos, type PhotoScreenEntry } from './photo-screen'
+import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, reviewedPhotoVersion, isVersionRejection, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, guidePhotoAllowed, guidePhotoWaits, guideUseKey, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type CreditHoldPhotos, type PhotoScreenEntry } from './photo-screen'
 import { photoAddressSet } from './photo-address'
-import { photoRejections } from './own-mark'
+import { photoRejections, retainedOwnMark } from './own-mark'
 import { ownerCropFitsPage } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
 import { HAND_BOXES } from './hand-boxes'
@@ -272,7 +272,18 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
       if (retryable > UNJUDGED_DEAD_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species and plant pages that no look has judged for a dead fish (${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)} and the photo check's records). More than ${UNJUDGED_DEAD_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) screens them.`)
     }
   }
-  const waitsForScreen = photoWaitsFor({ watermarks: screen, owed, unread, faces, unjudged, lookedForDead, check, subjects, deadScreen, guideLooks, secondLook, rejected: rejectedForDead })
+  // And a guide's own photo or a video guide's part's stock photo the guides' own look hasn't judged (photo-screen.ts
+  // GUIDE_LOOKS_FILE), wherever it shows, as its stills wait for theirs (the chief of staff, 22 Nov 2026: the look first).
+  // With no record beside the root none waits for it; the site's build of the real content needs the record.
+  if (screen && !guideLooks && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', GUIDE_LOOKS_FILE)}: the guides' own look's record is missing, so no guide photo can be shown as looked at`)
+  const guideWaits = guideLooks ? await guidePhotoWaits(root, guideLooks) : undefined
+  const unlooked = guideWaits?.unlooked ?? new Set<string>()
+  if (guideWaits && opts.photoScreen === 'required') {
+    const retryable = [...new Set([...unlooked, ...guideWaits.pendingSubjects])].filter(url => !rejectedForDead?.(url) && !heldForCredit(url)).length
+    console.log(`${lang}: ${retryable} guide photos and stock photos wait, the guides' own look hasn't judged them`)
+    if (retryable > GUIDE_UNJUDGED_LIMIT) throw new Error(`${lang}: ${retryable} guide photos and stock photos the guides' own look hasn't judged (${join(dirname(root), 'engine-state', GUIDE_LOOKS_FILE)}). More than ${GUIDE_UNJUDGED_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the guides without them. A photos run's guide look (pnpm engine guide-photos) judges them.`)
+  }
+  const waitsForScreen = photoWaitsFor({ watermarks: screen, owed, unread, faces, unjudged, lookedForDead, check, subjects, deadScreen, guideLooks, guideUnjudged: unlooked, secondLook, rejected: rejectedForDead })
   const waitsFor = (url: string) => heldForCredit(url) || waitsForScreen(url)
   // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
   // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,
@@ -408,10 +419,23 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const plants = (await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld)).map(rememberGenerated)
     .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: pagePhotos(p.photos) }))
     .filter(p => p.sections.length > 0)
-  const guides = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld))
-    .filter(g => allowed(g.source))
-    // A video's sections show a photo and stills of their own, and a section's photo can lead the guide or a card.
-    .map(g => ({ ...g, photos: cleanPhotos(g.photos), ...(g.video?.figures ? { video: { ...g.video, figures: g.video.figures.map(f => ({ ...f, moments: f.moments.filter(screened), ...(f.photo ? { photo: screened(f.photo) ? boxed(f.photo) : undefined } : {}) })) } } : {}) }))
+  const guidePages = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld)).filter(g => allowed(g.source))
+  const retainedGuideMark = photoAddressSet(Object.keys(screen ?? {}).filter(url => retainedOwnMark(url, screen?.[url])))
+  const guides = guidePages.map(g => {
+    const subject = guideWaits?.subjects.get(g.id)
+    const guidePasses = (p: Photo) => !guideLooks || guidePhotoAllowed(guideLooks[p.url], subject,
+      !!subject && guideWaits?.pendingLegacy.has(guideUseKey(g.id, subject, p.url)), retainedGuideMark(p.url))
+    const photos = cleanPhotos(g.photos).filter(guidePasses)
+    if (!g.video?.figures) return { ...g, photos }
+    const figures = g.video.figures.map(f => {
+      const version = f.photo && publicPhotoVersion(f.photo, images, f.photo.source ? sources[f.photo.source]?.permission?.markRemoval : undefined)
+      const photo = version && f.photo && (version.url === f.photo.url
+        ? screened(version) && guidePasses(version) ? boxed(version) : undefined
+        : cleanPhotos([f.photo]).find(guidePasses))
+      return { ...f, moments: f.moments.filter(screened), photo }
+    })
+    return { ...g, photos, video: { ...g.video, figures } }
+  })
 
   const changelogPath = join(root, 'changelog.json')
   const changelog = (await exists(changelogPath) ? await readJson(changelogPath, ChangelogSchema) : []).filter(e => allowed(e.source))

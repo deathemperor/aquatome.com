@@ -1,3 +1,4 @@
+import { subjectForGuide } from './guide-subject'
 import { CREDIT_HOLD_REJECTION, isVersionRejection, photoAddressSet, photoVersionAddressSet, type PhotoRejection } from './photo-address'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -397,6 +398,7 @@ export type PhotoWaitRecords = {
   subjects?: Record<string, unknown>
   deadScreen?: Record<string, unknown>
   guideLooks?: Record<string, unknown>
+  guideUnjudged?: ReadonlySet<string>
   secondLook?: Record<string, unknown>
   rejected?: PhotoRejection
 }
@@ -405,6 +407,7 @@ export type PhotoWaitRecords = {
 export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
   const directWaits = new Set([...Object.keys(r.owed ?? {}), ...(r.unjudged ?? [])])
   const owesLook = photoAddressSet(directWaits)
+  const owesGuideLook = photoAddressSet(r.guideUnjudged ?? [])
   const lookedForDead = r.lookedForDead ?? (url =>
     completedDeadVerdict(r.deadScreen?.[url]) || !!photoLookAnswer(r.secondLook?.[url]))
   const cleared = photoClears(r.secondLook)
@@ -436,7 +439,8 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
     const clearedRefusal = typeof review?.why === 'string' && /^(?:dead|people): /.test(review.why) &&
       photoLookAnswer(review)?.said === 'clear'
     const refusedVersion = refusedByCheck.has(url) && !held(url) && !clearedRefusal
-    return directWaits.has(url) || (owesLook(url) && !lookedForDead(url)) || waitsForFace || refusedVersion ||
+    return directWaits.has(url) || (owesLook(url) && !lookedForDead(url)) ||
+      (owesGuideLook(url) && !guideLooked(r.guideLooks?.[url])) || waitsForFace || refusedVersion ||
       deadPhotoOff(url, r.deadScreen, r.secondLook, r.rejected, cleared, held, firstOff)
   }
 }
@@ -449,3 +453,109 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
  * screen record fails the site's build by itself.
  */
 export const UNJUDGED_DEAD_LIMIT = 300
+
+/**
+ * The guides' own look's record, in engine-state (address → verdict: person, mark, brand, and another kind of fish or
+ * plant; the engine's guide-photos.ts): every own photo of a guide and every stock photo of a video guide's parts it has
+ * judged. A public build shows neither until it has (load.ts), as a video guide's stills wait for theirs: a new guide
+ * photo or stock photo showed for hours before its look until 22 Nov 2026 (the chief of staff: the look first).
+ */
+
+/** Guide photos and stock photos have their own look. Video frames have a separate verdict. */
+export function guidePhotoUrls(guide: { photos?: PhotoVersions[]; video?: { figures?: { photo?: PhotoVersions }[] } }): string[] {
+  return [...(guide.photos ?? []).flatMap(deadScreenPhotoUrls), ...(guide.video?.figures ?? []).flatMap(f => f.photo ? deadScreenPhotoUrls(f.photo) : [])]
+}
+type GuideWithPhotos = Parameters<typeof guidePhotoUrls>[0] & Parameters<typeof subjectForGuide>[0] & { id?: string }
+
+async function* guidesWithPhotos(root: string): AsyncGenerator<{ id: string; guide: GuideWithPhotos }> {
+  const dirs = await readdir(join(root, 'guides'), { withFileTypes: true }).catch((error: NodeJS.ErrnoException) => {
+    if (error.code === 'ENOENT') return []
+    throw error
+  })
+  for (const { name: id } of dirs.filter(dir => dir.isDirectory())) {
+    const raw = await readFile(join(root, 'guides', id, 'entity.json'), 'utf8').catch((e: NodeJS.ErrnoException) => {
+      if (e.code === 'ENOENT') return undefined
+      throw e
+    })
+    if (raw === undefined) continue
+    const guide = JSON.parse(raw) as GuideWithPhotos
+    if (guide.id !== undefined && guide.id !== id) throw new Error(`Guide ID does not match its directory: ${id}`)
+    yield { id, guide }
+  }
+}
+
+export async function guidePhotoUrlsIn(root: string): Promise<Set<string>> {
+  const urls = new Set<string>()
+  for await (const { guide } of guidesWithPhotos(root)) for (const url of guidePhotoUrls(guide)) urls.add(url)
+  return urls
+}
+
+export const GUIDE_LEGACY_USES_FILE = 'guide-legacy-photo-uses.json'
+type LegacyGuideUse = [guide: string, subject: string, url: string]
+export const guideUseKey = (id: string, subject: string, url: string) => JSON.stringify([id, subject, url])
+
+export async function readGuideLegacyUses(root: string): Promise<LegacyGuideUse[]> {
+  const raw = await readFile(join(root, GUIDE_LEGACY_USES_FILE), 'utf8').catch((error: NodeJS.ErrnoException) => {
+    if (error.code === 'ENOENT') return '[]'
+    throw error
+  })
+  const uses: unknown = JSON.parse(raw)
+  if (!Array.isArray(uses) || uses.some(use => !Array.isArray(use) || use.length !== 3 || use.some(part => typeof part !== 'string'))) {
+    throw new Error('Invalid legacy guide photo uses')
+  }
+  return uses as LegacyGuideUse[]
+}
+
+/** Remove only existing exceptions whose guide use has ended or has an explicit subject answer. */
+export function keepGuideLegacyUses(uses: LegacyGuideUse[], waiting: ReadonlySet<string>): LegacyGuideUse[] {
+  return uses.filter(([id, subject, url]) => waiting.has(guideUseKey(id, subject, url)))
+}
+
+/** Per-guide subject decisions and distinct URLs awaiting any applicable answer. */
+export async function guidePhotoWaits(root: string, looks: Record<string, unknown>) {
+  const subjects = new Map<string, string>()
+  const unlooked = new Set<string>()
+  const pendingSubjects = new Set<string>()
+  const pendingLegacy = new Set<string>()
+  const legacy = new Set((await readGuideLegacyUses(root)).map(use => guideUseKey(...use)))
+  for await (const { guide, id } of guidesWithPhotos(root)) {
+    const raw = await readFile(join(root, 'guides', id, 'vi.json'), 'utf8').catch((e: NodeJS.ErrnoException) => {
+      if (e.code === 'ENOENT') return '{}'
+      throw e
+    })
+    const text = JSON.parse(raw) as { name?: string }
+    const subject = subjectForGuide(guide, id, text.name)
+    if (subject) subjects.set(id, subject)
+    for (const url of guidePhotoUrls(guide)) {
+      const basic = guideLooked(looks[url])
+      if (!basic) unlooked.add(url)
+      if (subject && !guideLooked(looks[url], subject)) {
+        const key = guideUseKey(id, subject, url)
+        if (legacy.has(key)) pendingLegacy.add(key)
+        else if (basic) pendingSubjects.add(url)
+      }
+    }
+  }
+  return { subjects, unlooked, pendingSubjects, pendingLegacy }
+}
+
+type GuideLook = { person: boolean; mark: boolean; brand: boolean; other?: Record<string, unknown>; answeredSubjects?: string[] }
+
+export function guideLooked(verdict: unknown, subject?: string): verdict is GuideLook {
+  if (!verdict || typeof verdict !== 'object') return false
+  const v = verdict as Partial<GuideLook>
+  return typeof v.person === 'boolean' && typeof v.mark === 'boolean' && typeof v.brand === 'boolean' &&
+    (!subject || (Array.isArray(v.answeredSubjects) && v.answeredSubjects.includes(subject) && typeof v.other?.[subject] === 'boolean'))
+}
+
+/** A guide's own or stock photo has to pass the questions for that specific guide. */
+export function guidePhotoAllowed(verdict: unknown, subject?: string, legacy = false, ownMark = false): boolean {
+  return guideLooked(verdict, legacy ? undefined : subject) && !verdict.person && (!verdict.mark || ownMark) && !verdict.brand &&
+    (!subject || verdict.other?.[subject] === false)
+}
+/**
+ * More guide photos and stock photos than this with no look of the guides is a lost or damaged record, not a run's new
+ * ones: the site's build fails rather than publish the guides without them. At most 54 waited at once from 21 Nov, and a
+ * 12-hour stop of the look would add about 57 (the chief of staff's yes to 200, 22 Nov 2026).
+ */
+export const GUIDE_UNJUDGED_LIMIT = 200
