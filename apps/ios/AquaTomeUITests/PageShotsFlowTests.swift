@@ -212,7 +212,7 @@ final class PageShotsFlowTests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", "on",
                            "-reset-fake-server"]
-    app.launchForFlow(.old)
+    app.launchForFlow(.v2)
     app.openTab("Bể của tôi")
     let first = app.buttons["add-first"]
     XCTAssertTrue(first.waitForExistence(timeout: 5), "no tanks tab")
@@ -236,6 +236,41 @@ final class PageShotsFlowTests: XCTestCase {
     a.name = "shot-tanks-light-01"
     a.lifetime = .keepAlways
     add(a)
+  }
+
+  @MainActor func testTheTankRows() { shootTankRows("tanks-rows-light") }
+  @MainActor func testTheTankRowsInTheDark() { shootTankRows("tanks-rows-dark", dark: true) }
+  @MainActor func testTheTankRowsInTheLargestText() { shootTankRows("tanks-rows-largest", size: largest) }
+  @MainActor func testTheTankRowsInTheDarkAtTheLargestText() { shootTankRows("tanks-rows-dark-largest", dark: true, size: largest) }
+  @MainActor func testTheTankRowsSignedOut() { shootTankRows("tanks-rows-signed-out", signedOut: true) }
+
+  @MainActor private func shootTankRows(_ name: String, dark: Bool = false, size: String? = nil, signedOut: Bool = false) {
+    let seed = signedOut ? "rows-signed-out" : "rows"
+    let app = launch(dark: dark, size: size, ["-seed-tanks", seed, "-fake-accounts", "on", "-reset-fake-server"], look: .v2)
+    if !signedOut {
+      app.openAccount()
+      app.signInWithStandInApple()
+    }
+    app.openTab("Bể của tôi")
+    let clash = app.buttons.matching(identifier: "tank")
+      .matching(NSPredicate(format: "label CONTAINS %@", "Không nên nuôi chung · quá tải 188%")).firstMatch
+    XCTAssertTrue(clash.waitForExistence(timeout: 10), "the tank's warning is missing")
+    if signedOut { XCTAssertTrue(app.buttons["keep-online-hint"].waitForExistence(timeout: 10)) }
+    else if size == nil { XCTAssertFalse(app.buttons["keep-online-hint"].exists) }
+    if size != nil {
+      capture(app, name, dark: dark, large: true, screens: 1)
+      // Place the warning between the bars, away from the fades at their edges.
+      let bottom = app.tabBars.firstMatch.frame.minY - 24
+      let start = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.75))
+      repeatUntil(clash.exists && clash.frame.maxY <= bottom, times: 8) {
+        start.press(forDuration: 0.1, thenDragTo: start.withOffset(CGVector(dx: 0, dy: -110)), withVelocity: .slow,
+                    thenHoldForDuration: 0.2)
+      }
+      XCTAssertLessThanOrEqual(clash.frame.maxY, bottom, "the warning is still under the tab bar")
+      capture(app, name + "-warning", dark: dark, large: true, screens: 1)
+    } else {
+      capture(app, name, dark: dark, screens: 5)
+    }
   }
 
   /// The Tài khoản sheet on a new phone, signed out, with each way to sign in the stand-in server offers, screen by

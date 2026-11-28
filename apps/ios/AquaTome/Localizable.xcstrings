@@ -23452,6 +23452,94 @@
           }
         }
       }
+    },
+    "%lld loại cây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld jenis tanaman"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld jenis tumbuhan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ชนิดพืช"
+          }
+        }
+      }
+    },
+    "%lld thiết bị": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld perangkat"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld peranti"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld อุปกรณ์"
+          }
+        }
+      }
+    },
+    "Không nên nuôi chung": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sebaiknya tidak dipelihara bersama"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak sesuai dipelihara bersama"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่ควรเลี้ยงรวมกัน"
+          }
+        }
+      }
+    },
+    "quá tải %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kelebihan muatan %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "terlebih muatan %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หนาแน่นเกินไป %@"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

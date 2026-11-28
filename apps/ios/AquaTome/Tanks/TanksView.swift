@@ -71,8 +71,10 @@ struct TanksView: View {
             if let p = tanks.problem { Section { ProblemText(problem: p) } }
             Section {
               ForEach(tanks.tanks) { t in
-                NavigationLink(value: t.id) { TankRow(tank: t, lights: tanks.devices(in: t).filter { $0.kind == "light" && !$0.isLoveEcology }.count) }
+                let devices = tanks.devices(in: t).filter { $0.kind == "light" || $0.kind == "plug" }.count
+                NavigationLink(value: t.id) { TankRow(tank: t, devices: devices) }
                   .accessibilityIdentifier("tank")
+                  .listRowInsets(EdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16))
               }
               // In the list too, where it's seen: the + in the bar above is easy to miss.
               Button { adding = true } label: { Label("Thêm bể", systemImage: "plus") }
@@ -127,29 +129,140 @@ struct TanksView: View {
 
 private struct TankRow: View {
   let tank: Tank
-  let lights: Int
+  let devices: Int
+  @Environment(HandbookModel.self) private var handbook
+  @Environment(\.dynamicTypeSize) private var textSize
+  @State private var savedCheck = SavedTankCheck()
 
   var body: some View {
-    VStack(alignment: .leading, spacing: 2) {
-      Text(tank.name).font(.headline)
-      let f = facts(tank)
-      if !f.isEmpty { Text(f.joined(separator: " · ")).font(.subheadline).foregroundStyle(.secondary) }
-      // Not a Label: in a list, a Label's icon goes in the row's icon column, far from its text.
-      if lights > 0 {
-        HStack(spacing: 4) { Image(systemName: "lightbulb").accessibilityHidden(true); Text("\(lights) đèn") }.font(.caption).foregroundStyle(.secondary)
+    let unlisted = tank.unlisted
+    let plants = tank.plants.count + unlisted.filter(\.isPlant).count
+    let fish = tank.species.reduce(0) { $0 + ($1.count ?? 0) }
+      + unlisted.filter { !$0.isPlant }.reduce(0) { $0 + ($1.count ?? 0) }
+    let fishText = Text("\(fish) con")
+    let plantsText = Text("\(plants) loại cây")
+    let devicesText = Text("\(devices) thiết bị")
+    HStack(alignment: .top, spacing: 8) {
+      if !textSize.isAccessibilitySize { TankRowDrawing(tank: tank, plants: plants) }
+      VStack(alignment: .leading, spacing: 2) {
+        Text(tank.name).font(.headline)
+        let f = facts(tank, includeSubstrate: false)
+        if !f.isEmpty {
+          Text(f.joined(separator: " · ")).font(.subheadline).foregroundStyle(.secondary)
+        }
+        if fish > 0 || plants > 0 || devices > 0 {
+          ViewThatFits(in: .horizontal) {
+            HStack(spacing: 12) {
+              count(fish, fishText, icon: "fish.fill")
+              count(plants, plantsText, icon: "leaf")
+              count(devices, devicesText, icon: "powerplug")
+            }
+            VStack(alignment: .leading, spacing: 2) {
+              ViewThatFits(in: .horizontal) {
+                HStack(spacing: 12) {
+                  count(fish, fishText, icon: "fish.fill")
+                  count(plants, plantsText, icon: "leaf")
+                }
+                VStack(alignment: .leading, spacing: 2) {
+                  count(fish, fishText, icon: "fish.fill")
+                  count(plants, plantsText, icon: "leaf")
+                }
+              }
+              count(devices, devicesText, icon: "powerplug")
+            }
+          }
+          .foregroundStyle(.secondary)
+        }
+        if let warning = warningText() {
+          rowPart(warning, icon: "exclamationmark.triangle.fill").foregroundStyle(Color.warning)
+        }
       }
+      .fixedSize(horizontal: false, vertical: true)
     }
     .accessibilityElement(children: .combine)
+  }
+
+  @ViewBuilder private func count(_ count: Int, _ text: Text, icon: String) -> some View {
+    if count > 0 { rowPart(text, icon: icon) }
+  }
+
+  private func rowPart(_ text: Text, icon: String) -> some View {
+    HStack(alignment: .firstTextBaseline, spacing: 4) {
+      Image(systemName: icon).font(.caption).accessibilityHidden(true)
+      text.font(.subheadline).fixedSize(horizontal: false, vertical: true)
+    }
+  }
+
+  private func warningText() -> Text? {
+    let report = savedCheck.read(tank, handbook: handbook)
+    let incompatible = report?.verdict?.level == "no"
+    let overload = report?.stocking.flatMap { $0.level == "over" ? $0.percent : nil }
+    let warning = Text("Không nên nuôi chung")
+    guard let overload else { return incompatible ? warning : nil }
+    let percent = (overload / 100).formatted(.percent.locale(.app).precision(.fractionLength(0)))
+    let stocking = Text("quá tải \(percent)")
+    return incompatible ? warning + Text(verbatim: " · ") + stocking : stocking
+  }
+}
+
+private struct TankRowDrawing: View {
+  let tank: Tank
+  let plants: Int
+  @Environment(\.colorScheme) private var scheme
+
+  var body: some View {
+    Canvas { context, size in
+      let aspect = tank.dims.map { $0.l / $0.h }.flatMap { $0.isFinite && $0 > 0 ? $0 : nil }
+      let ratio = CGFloat(aspect ?? 2)
+      let width = min(size.width - 2, (size.height - 2) * ratio)
+      let height = width / ratio
+      let box = CGRect(x: (size.width - width) / 2, y: (size.height - height) / 2, width: width, height: height)
+      let glass = Path(roundedRect: box, cornerRadius: 2)
+      let rim: Color = scheme == .dark ? .secondary : .accentColor
+      var inside = context
+      inside.clip(to: glass)
+      inside.fill(glass, with: .color(.accentColor.opacity(0.09)))
+      let band = aspect == nil ? nil : substrateColor
+      let bandHeight = band == nil ? 0 : height * 0.15
+      if let band {
+        inside.fill(Path(CGRect(x: box.minX, y: box.maxY - bandHeight, width: width, height: bandHeight)), with: .color(band))
+      }
+      let strokes = min(plants, 5)
+      for i in 0..<strokes {
+        let x = box.minX + width * CGFloat(i + 1) / CGFloat(strokes + 1)
+        let y = box.maxY - bandHeight
+        let stem = height * (i.isMultiple(of: 2) ? 0.58 : 0.46)
+        let sway = min(3, width * 0.07)
+        var path = Path()
+        path.move(to: CGPoint(x: x, y: y))
+        path.addQuadCurve(to: CGPoint(x: x + sway, y: y - stem), control: CGPoint(x: x - sway, y: y - stem * 0.45))
+        inside.stroke(path, with: .color(.accentColor), style: StrokeStyle(lineWidth: 1.3, lineCap: .round))
+      }
+      context.stroke(glass, with: .color(rim), lineWidth: 1.5)
+    }
+    .frame(width: 64, height: 48)
+    .accessibilityHidden(true)
+  }
+
+  private var substrateColor: Color? {
+    switch tank.substrate {
+    case "soil": Color(red: 0.32, green: 0.22, blue: 0.15)
+    case "sand": Color(red: 0.80, green: 0.71, blue: 0.51)
+    case "gravel": Color(red: 0.54, green: 0.51, blue: 0.46)
+    case "lava": Color(red: 0.47, green: 0.29, blue: 0.22)
+    case "other": .secondary
+    default: nil
+    }
   }
 }
 
 /// The line under a tank's name: size, litres, substrate (what it has of them), as the site writes it.
-func facts(_ t: Tank) -> [String] {
+func facts(_ t: Tank, includeSubstrate: Bool = true) -> [String] {
   var out: [String] = []
   let num = { (n: Double) in n.formatted(.number.locale(.app).rounded(rule: .toNearestOrAwayFromZero).precision(.fractionLength(0...1))) }
   if let d = t.dims { out.append("\(num(d.l)) × \(num(d.w)) × \(num(d.h)) cm") }
   if let l = t.totalLitres { out.append(litresText(l)) }
-  if let s = t.substrate { out.append(Substrate.label(s)) }
+  if includeSubstrate, let s = t.substrate { out.append(Substrate.label(s)) }
   return out
 }
 

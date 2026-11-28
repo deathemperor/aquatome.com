@@ -253,6 +253,9 @@ final class TanksModel {
     if args.contains("-reset-defaults") { try? fm.removeItem(at: dir) }
     guard let i = args.firstIndex(of: "-seed-tanks"), i + 1 < args.count else { return }
     switch args[i + 1] {
+    case "rows", "rows-signed-out":
+      try? fm.createDirectory(at: dir, withIntermediateDirectories: true)
+      try? Data(rowFixture(signedOut: args[i + 1] == "rows-signed-out").utf8).write(to: file)
     case "newer", "unreadable", "litres", "life", "many", "clash", "plug", "breed", "two", "master":
       let many = (["paracheirodon-innesi"] + (1...19).map { "loai-thu-\($0)" }).map { #"{"id":"\#($0)","count":2}"# }.joined(separator: ",")
       let store = [
@@ -274,6 +277,25 @@ final class TanksModel {
       fm.createFile(atPath: dir.path, contents: Data()) // a file where the folder goes
     default: break
     }
+  }
+
+  /// Design’s five synthetic tanks and three devices, also used for the list shots.
+  private static func rowFixture(signedOut: Bool) -> String {
+    let tanks = [
+      #"{"id":"00000000-0000-4000-8000-000000000101","name":"Bể thủy sinh phòng khách","dims":{"l":90,"w":45,"h":45},"substrate":"soil","species":[{"id":"paracheirodon-axelrodi","count":20},{"id":"otocinclus-vittatus","count":4}],"plants":[{"id":"rotala-rotundifolia"},{"id":"anubias-barteri-var-nana"},{"id":"bacopa-caroliniana"},{"id":"blyxa-japonica"},{"id":"bolbitis-heudelotii"},{"id":"aponogeton-ulvaceus"},{"id":"acorus-gramineus"},{"id":"alternanthera-reineckii"}],"createdAt":"2026-11-01T08:00:00.000Z","updatedAt":"2026-11-01T08:00:00.000Z"}"#,
+      #"{"id":"00000000-0000-4000-8000-000000000102","name":"Bể 60 phòng ngủ","dims":{"l":60,"w":30,"h":36},"substrate":"sand","species":[{"id":"symphysodon-aequifasciatus","count":2},{"id":"paracheirodon-innesi","count":12}],"plants":[],"createdAt":"2026-11-01T08:00:00.000Z","updatedAt":"2026-11-01T08:00:00.000Z"}"#,
+      #"{"id":"00000000-0000-4000-8000-000000000103","name":"Bể tép bàn làm việc","dims":{"l":30,"w":30,"h":30},"substrate":"soil","species":[{"id":"neocaridina-davidi","count":20}],"plants":[{"id":"anubias-barteri-var-nana"},{"id":"bucephalandra"},{"id":"bolbitis-heteroclita"},{"id":"aegagropila-linnaei"}],"createdAt":"2026-11-01T08:00:00.000Z","updatedAt":"2026-11-01T08:00:00.000Z"}"#,
+      #"{"id":"00000000-0000-4000-8000-000000000104","name":"Bể cá vàng ngoài hiên nhà bà ngoại ở quê","litres":120,"species":[{"id":"carassius-auratus","count":5}],"plants":[],"createdAt":"2026-11-01T08:00:00.000Z","updatedAt":"2026-11-01T08:00:00.000Z"}"#,
+      #"{"id":"00000000-0000-4000-8000-000000000105","name":"Bể mới","species":[],"plants":[],"createdAt":"2026-11-01T08:00:00.000Z","updatedAt":"2026-11-01T08:00:00.000Z"}"#,
+    ]
+    let devices = [
+      #"{"id":"00000000-0000-4000-8000-000000000201","tankId":"00000000-0000-4000-8000-000000000101","kind":"light","brand":"chihiros","model":"WRGB II Slim","nickname":"Đèn bể 90","createdAt":"2026-11-01T08:00:00.000Z","updatedAt":"2026-11-01T08:00:00.000Z"}"#,
+      #"{"id":"00000000-0000-4000-8000-000000000202","tankId":"00000000-0000-4000-8000-000000000101","kind":"plug","brand":"tuya","remoteId":"fake-strip-1","nickname":"Ổ cắm bể 90","outlets":[{"code":"switch_1","label":"Lọc"},{"code":"switch_2","label":"Đèn"}],"createdAt":"2026-11-01T08:00:00.000Z","updatedAt":"2026-11-01T08:00:00.000Z"}"#,
+      #"{"id":"00000000-0000-4000-8000-000000000203","tankId":"00000000-0000-4000-8000-000000000103","kind":"light","brand":"chihiros","model":"C2 RGB","nickname":"Đèn tép","createdAt":"2026-11-01T08:00:00.000Z","updatedAt":"2026-11-01T08:00:00.000Z"}"#,
+    ]
+    let records = signedOut ? [tanks[1], tanks[4]] : tanks
+    let kept = signedOut ? [] : devices
+    return #"{"v":1,"tanks":[\#(records.joined(separator: ","))],"devices":[\#(kept.joined(separator: ","))]}"#
   }
   #endif
 }

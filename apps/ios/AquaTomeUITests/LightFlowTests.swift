@@ -86,7 +86,7 @@ final class LightFlowTests: XCTestCase {
     app.openTab("Bể của tôi")
     let row = app.buttons["tank"].firstMatch
     XCTAssertTrue(row.waitForExistence(timeout: 5), "the light wasn't kept on a tank")
-    XCTAssertTrue(row.label.contains("Bể của tôi") && row.label.contains("1 đèn"), row.label)
+    XCTAssertTrue(row.label.contains("Bể của tôi") && row.label.contains("1 thiết bị"), row.label)
     row.tap()
     XCTAssertTrue(text(app, "WRGB II Slim").waitForExistence(timeout: 5))
     XCTAssertTrue(text(app, "Chưa lưu lịch nào cho đèn này.").exists)
@@ -882,7 +882,7 @@ final class LightFlowTests: XCTestCase {
     app.openTab("Bể của tôi")
     let row = app.buttons["tank"].firstMatch
     XCTAssertTrue(row.waitForExistence(timeout: 5), "the lights weren't kept on a tank")
-    XCTAssertTrue(row.label.contains("Bể của tôi") && row.label.contains("3 đèn"), row.label)
+    XCTAssertTrue(row.label.contains("Bể của tôi") && row.label.contains("3 thiết bị"), row.label)
     row.tap()
     let sent = app.staticTexts.matching(NSPredicate(format: "label == %@", "Green 100% · bật 12:00, tắt 20:00"))
     XCTAssertTrue(sent.firstMatch.waitForExistence(timeout: 5), "what was sent isn't on the tank")
@@ -909,7 +909,7 @@ final class LightFlowTests: XCTestCase {
     app.openTab("Bể của tôi")
     let row = app.buttons.matching(identifier: "tank").matching(NSPredicate(format: "label CONTAINS %@", "Bể nước đen")).firstMatch
     XCTAssertTrue(row.waitForExistence(timeout: 5), "no Bể nước đen in the list")
-    XCTAssertTrue(row.label.contains("3 đèn"), row.label)
+    XCTAssertTrue(row.label.contains("3 thiết bị"), row.label)
   }
 
   func testWeekAquaALightLostWhileWritingLeavesTheOthersWrittenWholeAndTheRecordTrue() {
