@@ -488,6 +488,61 @@ test.each(['fresh', 'kept'])('a %s video recheck pushes the commit whose tree pa
   expect(c.onMain('content/newer.json')).toBe('')
 }, slow(60_000))
 
+test.each(['fresh', 'kept', 'held'])('a %s video recheck keeps its batch when the checkout moves after a rejected push', kind => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const branch = `${kind}/video-recheck/${when}`
+  c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')
+  if (kind !== 'fresh') c.sh(`git branch ${branch} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new')
+  c.sh('git fetch -q origin')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
+    sleep() { :; }
+    net() {
+      if [ "$2" = push ] && [ ! -f "$HOME/rejected-first" ]; then
+        touch "$HOME/rejected-first"
+        echo concurrent > "$HOME/other/content/disjoint.json"
+        git -C "$HOME/other" add content/disjoint.json
+        git -C "$HOME/other" commit -qm concurrent
+        git -C "$HOME/other" push -q
+        git fetch -q origin && git reset -q --hard origin/main
+        return 1
+      fi
+      "$@"
+    }
+    ${kind === 'fresh' ? 'push_video_recheck || echo refused' : 'publish_kept video-recheck'}
+  `)
+  expect(log).toContain('the checkout moved after a rejected video recheck push')
+  expect(c.onMain('content/disjoint.json')).toBe('concurrent')
+  expect(c.onMain('content/video.json')).toBe('')
+  const branches = c.branches()
+  if (kind === 'fresh') expect(branches).toEqual([expect.stringMatching(/^kept\/video-recheck\/\d{8}T\d{6}$/)])
+  else expect(branches).toEqual([branch])
+  expect(c.sh(`git show ${branches[0]}:content/video.json`)).toBe('rechecked')
+}, slow(60_000))
+
+test('held video recovery archives an ignored site input before running checks', () => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const held = `held/video-recheck/${when}`
+  c.sh('mkdir -p apps/site && echo .hidden.json > apps/site/.gitignore && git add apps/site/.gitignore && git commit -qm ignores && git push -q')
+  c.sh(`echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git branch ${held} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new')
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  c.sh(`echo '{"/vat-lieu/lua-sa-tung/":true}' > apps/site/.hidden.json`)
+  const log = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    checks() { [ ! -f apps/site/.hidden.json ]; }
+    publish_kept video-recheck
+  `)
+  expect(log).toContain(`LOG published ${held}`)
+  expect(c.branches()).toEqual([])
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/apps/site/.hidden.json')).toBe('{"/vat-lieu/lua-sa-tung/":true}')
+}, slow(60_000))
+
 test.each(['untracked file', 'empty directory'])('a held video recheck whose tree passed can publish after a stray species %s', stray => {
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')

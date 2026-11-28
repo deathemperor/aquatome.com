@@ -675,7 +675,7 @@ video_recheck_rules_current() {
 # Content loaders can read ignored paths within their input directories. last-run.json is a local run report.
 video_recheck_local_files() {
   git ls-files --others --exclude-standard "$@" &&
-    git ls-files --others --ignored --exclude-standard "$@" -- content sources engine-state docs/review \
+    git ls-files --others --ignored --exclude-standard "$@" -- content sources engine-state docs/review apps/site/.hidden.json \
       ':(exclude)engine-state/last-run.json'
 }
 # Content checks enumerate entity directories, even though Git cannot track a directory with no files.
@@ -753,7 +753,7 @@ video_recheck_unchanged() {
 # passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
-  local check=1 clash main head swept run video_recheck= checked_tree= verification_failed commit publish
+  local check=1 clash main head swept run video_recheck= checked_tree= verification_failed commit publish rejected_commit=
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
@@ -763,6 +763,10 @@ push_kept() {
       return 1
     fi
     main=$(git rev-parse origin/main 2>/dev/null || true) run=$(git rev-parse HEAD) swept=
+    if [ -n "$rejected_commit" ] && [ "$run" != "$rejected_commit" ]; then
+      KEPT_WHY="the checkout moved after a rejected video recheck push"
+      return 1
+    fi
     if [ -n "$video_recheck" ]; then
       # A fetch can update origin/main before this try pulls it into the checked tree.
       main=$(git merge-base "$run" "$main") || { KEPT_WHY="could not find the video recheck's base"; return 1; }
@@ -844,6 +848,7 @@ push_kept() {
     else
       net git push -q origin "$publish" && return 0
     fi
+    if [ -n "$video_recheck" ]; then rejected_commit=$commit; fi
     sleep "${PUSH_PAUSE:-30}"
   done
   KEPT_WHY="the push didn't land"

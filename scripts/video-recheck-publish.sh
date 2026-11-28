@@ -19,9 +19,14 @@ sweep_new_video_recheck() {
 }
 
 push_video_recheck() {
-  local try run base tree checked_tree='' refreshed clash verification_failed commit
+  local try run base tree checked_tree='' refreshed clash verification_failed commit rejected_commit=''
   for try in 1 2 3; do
     run=$(git rev-parse HEAD) || break
+    if [ -n "$rejected_commit" ] && [ "$run" != "$rejected_commit" ]; then
+      keep_lost_push video-recheck "the checkout moved after a rejected video recheck push" "$rejected_commit"
+      return 1
+    fi
+    rejected_commit=
     if ! prepare_video_recheck; then
       keep_lost_push video-recheck "the checkout had changes before publishing" "$run"
       return 1
@@ -84,9 +89,10 @@ push_video_recheck() {
       log "pushed (GitHub deploys it)"
       return 0
     fi
+    rejected_commit=$commit
     if [ "$try" -lt 3 ]; then sleep 30; fi
   done
   log "could not publish after three attempts"
-  keep_lost_push video-recheck
+  keep_lost_push video-recheck "push failed three times" "${rejected_commit:-HEAD}"
   return 1
 }
