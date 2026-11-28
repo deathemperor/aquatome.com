@@ -11,18 +11,20 @@ const script = (name: string) => readFileSync(join(ROOT, 'scripts', name), 'utf8
 // The gate (gate.ts) reads what a run changed before readers get it, so it runs after the last step that writes pages and
 // before the run looks for changes, since its holds are changes, and commits them.
 test('each run that writes pages gates them last, before it commits, and only a crash in the gate stops it', () => {
-  for (const [name, message, paths] of [
-    ['engine-cycle.sh', 'content: engine $PART', 'content sources engine-state docs/review apps/site/src/i18n'],
-    ['video-cycle.sh', 'content: videos', 'content engine-state docs/review'],
-    ['video-recheck.sh', 'content: video guides checked again', 'content engine-state docs/review'],
+  for (const [name, message, paths, sweepCommand, commitCommand] of [
+    ['engine-cycle.sh', 'content: engine $PART', 'content sources engine-state docs/review apps/site/src/i18n', 'pnpm engine sweep || log', 'git commit -q -m'],
+    ['video-cycle.sh', 'content: videos', 'content engine-state docs/review', 'pnpm engine sweep || log', 'git commit -q -m'],
+    ['video-recheck.sh', 'content: video guides checked again', 'content engine-state docs/review', 'sweep_new_video_recheck || exit 1', 'commit_video_recheck'],
   ] as const) {
     const s = script(name)
     // On a crash it keeps what the run itself would commit.
     const gate = s.indexOf(`gate_or_keep "${message}" ${paths} || exit 1`)
-    expect(gate, name).toBeGreaterThan(s.indexOf('pnpm engine sweep || log'))
+    const sweep = s.indexOf(sweepCommand)
+    expect(sweep, name).toBeGreaterThanOrEqual(0)
+    expect(gate, name).toBeGreaterThan(sweep)
     expect(gate, name).toBeLessThan(s.indexOf('if [ -z "$(git status --porcelain'))
     expect(gate, name).toBeLessThan(s.indexOf(`git add ${paths}`))
-    expect(gate, name).toBeLessThan(s.indexOf(`git commit -q -m "${message}`))
+    expect(gate, name).toBeLessThan(s.indexOf(`${commitCommand} "${message}`))
   }
 })
 
