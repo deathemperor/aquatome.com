@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
-import { photoAddressSet, photoKey, photoVersionAddressSet, type PhotoRejection } from '@aq/schema'
+import { basename, join } from 'node:path'
+import { completedDeadVerdict, deadScreenPhotoUrls, photoAddressSet, photoClears, photoKey, photoVersionAddressSet, type Photo, type PhotoRejection } from '@aq/schema'
 import { writePhotoState } from './photo-state'
 import { writeImageCache } from './image-cache-write'
 import { readSecondLook, waitingReview } from './last-photo'
@@ -17,11 +17,40 @@ export function albumTakeOffKey(url: string): string {
   const key = photoKey(url)
   return key?.startsWith('commons/') ? key : url
 }
-export type TakeOffReceipt = true | { applied: true } | { batch: string; acknowledged?: true }
+type StagedTakeOff = { albums: Record<string, number> }
+export type TakeOffReceipt = true | StagedTakeOff | { applied: true } | { batch: string; acknowledged?: true }
+export type AlbumTakeOffEvidence = Map<string, StagedTakeOff['albums']>
+const stagedAlbums = (receipt: TakeOffReceipt | undefined) =>
+  receipt && receipt !== true && 'albums' in receipt ? receipt.albums : undefined
+export function albumVersionCounts(photos: readonly Photo[]): Map<string, number> {
+  const counts = new Map<string, number>()
+  for (const photo of photos) for (const key of new Set(deadScreenPhotoUrls(photo).map(albumTakeOffKey))) {
+    counts.set(key, (counts.get(key) ?? 0) + 1)
+  }
+  return counts
+}
+
+/** Keep the old occurrence count for each album that will lose this version. */
+export function noteAlbumTakeOffs(evidence: AlbumTakeOffEvidence, file: string, before: readonly Photo[], after: readonly Photo[]) {
+  const prior = albumVersionCounts(before), remaining = albumVersionCounts(after)
+  for (const url of new Set(before.flatMap(deadScreenPhotoUrls))) {
+    const key = albumTakeOffKey(url), count = prior.get(key) ?? 0
+    if (count <= (remaining.get(key) ?? 0)) continue
+    evidence.set(url, { ...evidence.get(url), [basename(file)]: count })
+  }
+}
+
+export function albumTakeOffObserved(receipt: TakeOffReceipt | undefined, url: string, albums: ReadonlyMap<string, ReadonlyMap<string, number>>): boolean {
+  const key = albumTakeOffKey(url)
+  const staged = stagedAlbums(receipt)
+  return staged
+    ? Object.entries(staged).some(([file, count]) => (albums.get(file)?.get(key) ?? 0) < count)
+    : ![...albums.values()].some(counts => counts.has(key))
+}
 export const albumTakeOffApplied = (receipt: TakeOffReceipt | undefined): boolean =>
   !!receipt && receipt !== true && 'applied' in receipt && receipt.applied
 export const pendingAlbumTakeOff = (receipt: TakeOffReceipt | undefined): boolean =>
-  receipt === true || albumTakeOffApplied(receipt)
+  receipt === true || !!stagedAlbums(receipt) || albumTakeOffApplied(receipt)
 type Batch = { id: string; urls: string[] }
 
 const missing = (error: NodeJS.ErrnoException) => {
@@ -35,11 +64,17 @@ const read = async <T>(file: string): Promise<T | undefined> => {
 export const albumReceipts = async (root: string) => (await read<Record<string, TakeOffReceipt>>(receiptFile(root))) ?? {}
 
 /** Commit a pending take-off before any step removes its album entry. */
-export async function recordAlbumTakeOffs(root: string, urls: Iterable<string>, applied = false) {
+export async function recordAlbumTakeOffs(root: string, urls: Iterable<string>, applied = false, evidence?: AlbumTakeOffEvidence) {
   const receipts = await albumReceipts(root)
   let changed = false
-  for (const url of urls) if (!(url in receipts) || (applied && receipts[url] === true)) {
-    receipts[url] = applied ? { applied: true } : true
+  for (const url of urls) {
+    const prior = receipts[url]
+    if (prior && (!pendingAlbumTakeOff(prior) || albumTakeOffApplied(prior))) continue
+    const albums = evidence?.get(url)
+    const before = stagedAlbums(prior)
+    const next = applied ? { applied: true as const } : albums ? { albums: { ...albums, ...before } } : prior ?? true
+    if (JSON.stringify(prior) === JSON.stringify(next)) continue
+    receipts[url] = next
     changed = true
   }
   if (changed) await writePhotoState(receiptFile(root), receipts)
@@ -49,24 +84,26 @@ export async function recordAlbumTakeOffs(root: string, urls: Iterable<string>, 
 /** A restore observes the take-off before it replaces the missing album entry. */
 export async function recordRestoredAlbumTakeOff(root: string, urls: Iterable<string>) {
   const photos = photoVersionAddressSet(urls)
-  const staged = Object.entries(await albumReceipts(root)).filter(([url, receipt]) => receipt === true && photos(url)).map(([url]) => url)
+  const staged = Object.entries(await albumReceipts(root)).filter(([url, receipt]) => pendingAlbumTakeOff(receipt) && !albumTakeOffApplied(receipt) && photos(url)).map(([url]) => url)
   if (staged.length) await recordAlbumTakeOffs(root, staged, true)
 }
 
 /** Gallery cleanup and sweep can reach the album before the next screening retry. */
-export async function recordListedAlbumTakeOffs(root: string, urls: Iterable<string>, listed: PhotoRejection) {
+export async function recordListedAlbumTakeOffs(root: string, evidence: AlbumTakeOffEvidence, listed: PhotoRejection) {
   const marks = await readSecondLook(root)
   const dead = await read<Record<string, { dead?: boolean }>>(join(root, 'engine-state', '_dead-screen.json'))
-  const cachedDead = photoAddressSet(Object.keys(dead ?? {}).filter(url => dead?.[url]?.dead === true))
-  const removed = [...urls].flatMap(url => {
+  const cleared = photoClears(marks)
+  const cachedDead = photoAddressSet(Object.keys(dead ?? {}).filter(url => dead?.[url]?.dead === true && !cleared(url)))
+  const removed = [...evidence.keys()].flatMap(url => {
     const entry = listed(url)
     if (!entry) return []
     const [address, reason] = entry
     if (reason.startsWith('dead:')) return [url]
     const review = waitingReview(marks, address, reason)
-    return review && (review[1].why.startsWith('dead:') || cachedDead(url)) ? [url] : []
+    const deadVerdict = !cleared(url) && (completedDeadVerdict(dead?.[url]) ? dead?.[url]?.dead : cachedDead(url))
+    return review && (review[1].why.startsWith('dead:') || deadVerdict) ? [url] : []
   })
-  if (removed.length) await recordAlbumTakeOffs(root, removed)
+  if (removed.length) await recordAlbumTakeOffs(root, removed, false, evidence)
   return removed
 }
 
@@ -97,7 +134,7 @@ export async function completeAlbumReceipts(root: string, completed: string[], i
   const batches = await readBatches(root)
   const acknowledged = new Set((await readdir(ackDir(root)).catch(missing)) ?? [])
   const covered = new Set(batches.filter(batch => acknowledged.has(batch.id)).flatMap(batch => batch.urls.map(albumTakeOffKey)))
-  for (const url of ignored) if (receipts[url] === true) delete receipts[url]
+  for (const url of ignored) if (pendingAlbumTakeOff(receipts[url]) && !albumTakeOffApplied(receipts[url])) delete receipts[url]
   const ready = new Map<string, string>()
   for (const url of [...completed, ...batches.flatMap(batch => batch.urls)].sort()) {
     const key = albumTakeOffKey(url)

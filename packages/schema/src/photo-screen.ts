@@ -316,11 +316,11 @@ export function heldPhotoVersion(records: Record<string, unknown> = {}): (url: s
 
 /** A separately passed or reviewed rendition does not borrow a first refusal from a different crop. */
 export function reviewedPhotoVersion(
-  reviews?: Record<string, unknown>, check?: Record<string, unknown>, subjects?: Record<string, unknown>,
+  reviews?: Record<string, unknown>, check?: Record<string, unknown>, subjects?: Record<string, unknown>, screen?: Record<string, unknown>,
 ): (url: string) => boolean {
   const held = heldPhotoVersion(reviews)
   const passed = photoVersionAddressSet(passedBefore(subjects, check))
-  return url => held(url) || passed(url)
+  return url => held(url) || passed(url) || completedDeadVerdict(screen?.[url])
 }
 
 /** An unanswered hold stays with the photo when its source is mirrored. */
@@ -402,7 +402,7 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
     completedDeadVerdict(r.deadScreen?.[url]) || !!photoLookAnswer(r.secondLook?.[url]))
   const cleared = photoClears(r.secondLook)
   const held = photoHolds(r.secondLook)
-  const firstOff = photoFirstOff(r.secondLook, reviewedPhotoVersion(r.secondLook, r.check, r.subjects))
+  const firstOff = photoFirstOff(r.secondLook, reviewedPhotoVersion(r.secondLook, r.check, r.subjects, r.deadScreen))
   const directFaces = new Set(Object.keys(r.faces ?? {}).filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)))
   const faceWaits = photoAddressSet([...(r.unread ?? []), ...directFaces])
   const refusedByCheck = new Set(Object.entries(r.guideLooks ?? {}).flatMap(([url, raw]) => {

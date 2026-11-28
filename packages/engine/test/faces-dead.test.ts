@@ -2100,7 +2100,7 @@ test.each(['before restoration', 'after restoration', 'after an interrupted rece
       await write(path, data)
     })
     try { await expect(clean()).rejects.toThrow('interrupted after removing the entry') } finally { interrupted.mockRestore() }
-    expect((await json(root, 'engine-state/_photo-album-dead-takeoffs.json'))[dead.url]).toBe(true)
+    expect((await json(root, 'engine-state/_photo-album-dead-takeoffs.json'))[dead.url]).toEqual({ albums: { 'alpha.json': 1 } })
   } else await clean()
   expect(JSON.parse(await readFile(join(root, 'content/gallery/alpha.json'), 'utf8')).photos).toEqual(remaining)
   const marks = JSON.parse(await readFile(marksFile, 'utf8'))
@@ -2117,6 +2117,70 @@ test.each(['before restoration', 'after restoration', 'after an interrupted rece
     expect((await json(root, 'content/gallery/alpha.json')).photos).toEqual([dead, crop])
     expect((await screenDead(root, deps().d.dead, { limit: 0, albums: true })).albumBatches).toEqual(report.albumBatches)
   }
+})
+
+test('a clear after one of two album writes preserves the removal already applied', async () => {
+  const dead = photo('dead'), live = photo('live')
+  const { root, state } = await publicFixture([live], [dead], [dead.url, live.url])
+  const other = join(root, 'content/gallery/beta.json')
+  await writeFile(other, JSON.stringify({ id: 'beta', photos: [dead] }))
+  const why = 'dead: held for review', marksFile = join(state, '_photo-second-look.json')
+  await writeFile(marksFile, JSON.stringify({
+    [dead.url]: { why, step: 'the dead-fish screen', pages: ['species/alpha'], at: '2026-11-26', off: true },
+  }))
+  await writeFile(join(state, '_photo-rejected.json'), JSON.stringify({ [dead.url]: waitingEntry(why) }))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
+  const replace = imageWrites.replacePhotoDocument
+  const failed = vi.spyOn(imageWrites, 'replacePhotoDocument').mockImplementation(async (file, raw) => {
+    if (file === other) throw new Error('second album interrupted')
+    return replace(file, raw)
+  })
+  const inventory = () => screenDead(root, deps().d.dead, { limit: 0, albums: true })
+  try { await expect(inventory()).rejects.toThrow('second album interrupted') } finally { failed.mockRestore() }
+  expect((await json(root, 'content/gallery/alpha.json')).photos).toEqual([])
+  expect((await json(root, 'content/gallery/beta.json')).photos).toEqual([dead])
+  expect((await json(root, 'engine-state/_photo-album-dead-takeoffs.json'))[dead.url]).toEqual({ albums: { 'alpha.json': 1, 'beta.json': 1 } })
+
+  const marks = await json(root, 'engine-state/_photo-second-look.json')
+  marks[dead.url].look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  await writeFile(marksFile, JSON.stringify(marks))
+  const report = await inventory()
+  expect(report.albumBatches).toEqual([{ id: expect.any(String), urls: [dead.url] }])
+  await sweep(root, { history: async () => [] })
+  expect((await json(root, 'content/gallery/alpha.json')).photos).toEqual([dead])
+  expect((await json(root, 'content/gallery/beta.json')).photos).toEqual([dead])
+  expect((await inventory()).albumBatches).toEqual(report.albumBatches)
+})
+
+test('a cleared mirror’s old dead verdict leaves a separate crop owed', async () => {
+  const crop = { ...photo('crop'), url: 'https://live.staticflickr.com/123/456_abc_q.jpg' }
+  const mirror = `https://media.aquatome.com/${mirrorPlan(crop.url)!.key}`
+  const { root, state, file } = await albumFixture([crop])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [mirror]: { dead: true } }))
+  await writeFile(join(state, '_photo-second-look.json'), JSON.stringify({
+    [mirror]: { why: 'dead: previous verdict', pages: ['species/alpha'], step: 'the dead-fish screen', at: '2026-11-26',
+      look: { said: 'clear', by: 'reviewer', on: '2026-11-26' } },
+  }))
+
+  const report = await screenDead(root, deps().d.dead, { limit: 0, albums: true })
+
+  expect(report).toMatchObject({ sheets: 0, left: 1, pendingTakeOffs: 0, albumBatches: [] })
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([crop])
+})
+
+test('gallery cleanup preserves a crop independently judged live', async () => {
+  const square = { ...photo('square'), url: 'https://live.staticflickr.com/123/456_abc_q.jpg' }
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(square.url)!.key}` }
+  const { root, state, publicView } = await publicFixture([], [mirror, square], [mirror.url, square.url])
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [mirror.url]: { dead: true }, [square.url]: { dead: false } }))
+  expect((await screenDead(root, deps().d.dead, { limit: 0, albums: true })).albumBatches[0]?.urls).toEqual([mirror.url])
+  const unused = async () => { throw new Error('Cleanup needs no external reads') }
+
+  await galleries(root, { get: unused, http: unused, look: unused, faces: unused, sleep: unused, now: () => new Date() }, { only: 'missing', sheets: 0 })
+
+  expect((await json(root, 'content/gallery/alpha.json')).photos).toEqual([square])
+  expect((await publicView()).galleries.alpha?.map(p => p.url)).toEqual([square.url])
 })
 
 test('zero sheets remove the cached-dead mirror while retaining a separately cleared square', async () => {

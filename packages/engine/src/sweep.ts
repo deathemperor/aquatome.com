@@ -1,11 +1,11 @@
-import { recordAlbumTakeOffs, recordListedAlbumTakeOffs, recordRestoredAlbumTakeOff } from './album-takeoffs'
+import { noteAlbumTakeOffs, recordAlbumTakeOffs, recordListedAlbumTakeOffs, recordRestoredAlbumTakeOff, type AlbumTakeOffEvidence } from './album-takeoffs'
 import { compactRejection } from './photo-observations'
 import { replacePhotoDocument } from './image-cache-write'
 import { readPhotoMap, writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { deadScreenPhotoUrls, IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections, heldPhotoVersion, photoVersionAddressSet, photoRejections } from '@aq/schema'
+import { completedDeadVerdict, DEAD_SCREEN_FILE, deadScreenPhotoUrls, IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections, heldPhotoVersion, photoVersionAddressSet, photoRejections } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -505,7 +505,8 @@ async function neverAgain(root: string) {
   const secondLook = await readSecondLook(root)
   const passed = photoVersionAddressSet(await readPassedBefore(root))
   const reviewed = heldPhotoVersion(secondLook)
-  const entry = photoRejections(rejected, marks, url => reviewed(url) || passed(url))
+  const screened = await readPhotoMap(join(root, 'engine-state', DEAD_SCREEN_FILE))
+  const entry = photoRejections(rejected, marks, url => reviewed(url) || passed(url) || completedDeadVerdict(screened[url]))
   // One marked off at its first verdict is off whatever its entry says: a mark the shop's own kept doesn't keep a dead
   // fish on the page (last-photo.ts; the independent reader, 20 Nov).
   const marked = looks(secondLook).off
@@ -1195,8 +1196,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const g = data as { kinds?: { photo?: unknown }[] }
     if (glossaryFiles.includes(file) && Array.isArray(g.kinds)) { g.kinds = g.kinds.filter(k => k.photo); if (!g.kinds.length) delete g.kinds }
     await notePlaces(root, places)
-    const receipts = galleryFiles.includes(file) ? await recordListedAlbumTakeOffs(root,
-      (before.photos ?? []).filter(photo => !data.photos?.includes(photo)).flatMap(deadScreenPhotoUrls), rejectedAt) : []
+    const evidence: AlbumTakeOffEvidence = new Map()
+    if (galleryFiles.includes(file)) noteAlbumTakeOffs(evidence, file, before.photos ?? [], data.photos ?? [])
+    const receipts = evidence.size ? await recordListedAlbumTakeOffs(root, evidence, rejectedAt) : []
     for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(listedWhy(url))})`)
     await replacePhotoDocument(file, `${JSON.stringify(data, null, indentOf(raw))}\n`)
     if (receipts.length) await recordAlbumTakeOffs(root, receipts, true)

@@ -1,10 +1,11 @@
-import { recordAlbumTakeOffs, recordListedAlbumTakeOffs } from './album-takeoffs'
+import { readPhotoMap } from './photo-state'
+import { noteAlbumTakeOffs, recordAlbumTakeOffs, recordListedAlbumTakeOffs, type AlbumTakeOffEvidence } from './album-takeoffs'
 import { piece } from './pieces'
 import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { deadScreenPhotoUrls, GallerySchema, heldPhotoVersion, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, photoVersionAddressSet, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo, type PhotoRejection } from '@aq/schema'
+import { GallerySchema, completedDeadVerdict, DEAD_SCREEN_FILE, heldPhotoVersion, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, photoVersionAddressSet, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo, type PhotoRejection } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -555,7 +556,8 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
   const reviewed = heldPhotoVersion(sl)
   const passed = photoVersionAddressSet(await readPassedBefore(root))
-  const listed = photoRejections(cleanupRejected, {}, url => reviewed(url) || passed(url))
+  const screened = await readPhotoMap(join(root, 'engine-state', DEAD_SCREEN_FILE))
+  const listed = photoRejections(cleanupRejected, {}, url => reviewed(url) || passed(url) || completedDeadVerdict(screened[url]))
   const effectiveRejection: typeof listed = url => {
     const entry = listed(url)
     return entry?.[1].startsWith('watermark:') && (markKept(url) || markKept(entry[0])) ? undefined : entry
@@ -850,10 +852,11 @@ async function dropRejected(root: string, content: string, rejected: PhotoReject
     ))
     if (keep.length === g.photos.length) continue
     const stood = new Map<string, Stood[]>()
-    const removed = new Set(g.photos.filter(p => !keep.includes(p)).flatMap(deadScreenPhotoUrls))
+    const evidence: AlbumTakeOffEvidence = new Map()
+    noteAlbumTakeOffs(evidence, file, g.photos, keep)
     placesIn(root, file, g, (url, slot) => !keep.includes(slot.photo as Photo) ? waiting(url) : undefined, stood)
     await notePlaces(root, stood)
-    const receipts = await recordListedAlbumTakeOffs(root, removed, rejected)
+    const receipts = await recordListedAlbumTakeOffs(root, evidence, rejected)
     await replacePhotoDocument(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
     if (receipts.length) await recordAlbumTakeOffs(root, receipts, true)
   }

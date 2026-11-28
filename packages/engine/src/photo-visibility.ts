@@ -39,10 +39,10 @@ export async function readPhotoIntakeBlocks(root: string): Promise<Record<string
 }
 
 export async function readReviewedPhotoVersion(root: string): Promise<(url: string) => boolean> {
-  const [reviews, check, subjects] = await Promise.all([
-    read(root, SECOND_LOOK_RECORD), read(root, PHOTO_CHECK_FILE), read(root, PHOTO_SUBJECTS_FILE),
+  const [reviews, check, subjects, screen] = await Promise.all([
+    read(root, SECOND_LOOK_RECORD), read(root, PHOTO_CHECK_FILE), read(root, PHOTO_SUBJECTS_FILE), read(root, DEAD_SCREEN_FILE),
   ])
-  return reviewedPhotoVersion(reviews, check, subjects)
+  return reviewedPhotoVersion(reviews, check, subjects, screen)
 }
 
 /** Use the public screen predicates before removing a photo that might leave its page empty. */
@@ -65,7 +65,7 @@ export async function readPhotoWaits(
   }
   const effective = await expandWholePhotoRejections(content, rejected ?? {}, watermarks)
   const waits = photoWaitsFor({ watermarks, owed, unread, faces, unjudged, lookedForDead: looked, check, subjects, deadScreen, guideLooks, secondLook,
-    rejected: photoRejections(effective, watermarks, reviewedPhotoVersion(secondLook, check, subjects)) })
+    rejected: photoRejections(effective, watermarks, reviewedPhotoVersion(secondLook, check, subjects, deadScreen)) })
   return url => setsCookies(url) || creditHeld(url) || waits(url) ||
     ((overrides.freshOwn || overrides.requireDeadLook) && !!looked && !looked(url)) ||
     (overrides.freshOwn === true && !!faces && !Object.hasOwn(faces, url))
