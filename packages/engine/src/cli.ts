@@ -187,7 +187,7 @@ const readersWanted = (() => {
 /** No people or marks: the model guide-photos and video-stills ask. */
 const guidePhotoLook: GuidePhotoDeps['look'] = (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: GUIDE_PHOTO_SCHEMA, file, model: process.env.GUIDE_PHOTOS_MODEL ?? 'opus' })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { write: { type: 'boolean' }, 'empty-cap': { type: 'string' }, manifest: { type: 'string' }, heads: { type: 'boolean' }, 'back-check': { type: 'boolean' }, sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, fill: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, fresh: { type: 'boolean' }, 'from-draft': { type: 'boolean' }, revise: { type: 'boolean' }, 'top-up': { type: 'boolean' }, accept: { type: 'string' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, sf: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, 'photo-cap': { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' }, mends: { type: 'string' }, first: { type: 'string' }, front: { type: 'boolean' }, record: { type: 'boolean' }, term: { type: 'string' }, file: { type: 'string' }, openverse: { type: 'string' }, flickr: { type: 'string' }, search: { type: 'string' }, out: { type: 'string' }, per: { type: 'string' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { write: { type: 'boolean' }, 'empty-cap': { type: 'string' }, manifest: { type: 'string' }, heads: { type: 'boolean' }, 'back-check': { type: 'boolean' }, sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, fill: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, fresh: { type: 'boolean' }, 'from-draft': { type: 'boolean' }, revise: { type: 'boolean' }, 'top-up': { type: 'boolean' }, accept: { type: 'string' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, sf: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, backlog: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, 'photo-cap': { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' }, mends: { type: 'string' }, first: { type: 'string' }, front: { type: 'boolean' }, record: { type: 'boolean' }, term: { type: 'string' }, file: { type: 'string' }, openverse: { type: 'string' }, flickr: { type: 'string' }, search: { type: 'string' }, out: { type: 'string' }, per: { type: 'string' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -218,9 +218,9 @@ const galleryDeps = (): GalleryDeps => ({
   look: (file, prompt) => claudeVision<Vet>({ system: 'You pick photos for a fish or plant photo gallery. Reply only with JSON.', prompt, schema: GALLERY_VET, file }),
 })
 /** The dead-fish screen's fetch and look (dead-screen.ts), for its own command and the faces step. */
-const deadScreenDeps = (): DeadScreenDeps => ({
+const deadScreenDeps = (model = process.env.DEAD_SCREEN_MODEL ?? 'sonnet'): DeadScreenDeps => ({
   get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
-  look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: DEAD_SCREEN_SCHEMA, file, model: process.env.DEAD_SCREEN_MODEL ?? 'sonnet' }),
+  look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: DEAD_SCREEN_SCHEMA, file, model }),
 })
 const cmd = positionals[0]
 // The command, wherever it stood among the options, is the name its model calls are counted under (ceiling.ts stepFor).
@@ -384,13 +384,15 @@ if (cmd === 'photo-privacy') {
 } else if (cmd === 'faces') {
   // Drop photos showing people (macOS Vision face detection); each photo is checked once, cached in engine-state. Then
   // the dead-fish screen on the photos it judged now (faces.ts screenNewPhotos), counted under this step's line, then on
-  // album photos no look has judged: ALBUM_SHEETS sheets, or `--sheets <n>` in a hand run (the albums' backlog).
+  // the album queue, then the guides' backlog once the album queue is empty.
   const albumSheets = values.sheets === undefined ? undefined : Number(values.sheets)
   if (albumSheets !== undefined && !(Number.isInteger(albumSheets) && albumSheets >= 0)) throw new Error('faces --sheets takes a whole number of album sheets')
-  const { faces: r, dead, deadFailed, owed, albums, albumsFailed } = await screenNewPhotos(join(ROOT, 'content'), join(ROOT, 'engine-state/_photo-faces.json'), {
+  const backlog = values.backlog === undefined ? undefined : Number(values.backlog)
+  if (backlog !== undefined && !(Number.isInteger(backlog) && backlog >= 0)) throw new Error('faces --backlog takes a whole number of sheets')
+  const { faces: r, dead, deadFailed, owed, albums, albumsFailed, guides, guidesFailed } = await screenNewPhotos(join(ROOT, 'content'), join(ROOT, 'engine-state/_photo-faces.json'), {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
-    detect: visionFaces, dead: deadScreenDeps(),
-  }, join(ROOT, 'engine-state/_photo-rejected.json'), ROOT, { albumSheets })
+    detect: visionFaces, dead: deadScreenDeps(), guideBacklog: deadScreenDeps('opus'),
+  }, join(ROOT, 'engine-state/_photo-rejected.json'), ROOT, { albumSheets, backlog })
   console.log(`faces: ${r.checked} checked, ${r.removed.length} removed, ${r.held.length} held for a second look (a page's last photo), ${r.failed.length} failed`)
   for (const x of r.held) console.log(`held for a second look: ${x}`)
   for (const x of r.firstOff) console.log(`off at its first verdict, waiting for a second look: ${x}`)
@@ -415,6 +417,13 @@ if (cmd === 'photo-privacy') {
     for (const x of albums.held) console.log(`held for a second look (album): ${x}`)
     for (const x of albums.firstOff) console.log(`off at its first verdict, waiting for a second look (album): ${x}`)
     for (const x of albums.failed.slice(0, 30)) console.log(`failed: ${x}`)
+  }
+  if (guidesFailed) console.log(`dead-screen of guides' pictures: failed (${guidesFailed})`)
+  if (guides && (guides.sheets || guides.failed.length || guides.stopped || guides.reserved)) {
+    console.log(`dead-screen of guides' pictures: ${guides.sheets} sheets, ${guides.judged} judged, ${guides.off.length} off at their first verdict, ${guides.bare.length} parts left with no picture, ${guides.left} left${guides.reserved ? ', the rest of the line kept for new photos' : ''}${guides.stopped ? `, stopped: ${guides.stopped}` : ''}`)
+    for (const x of guides.off) console.log(`off at its first verdict, waiting for a second look: ${x}`)
+    for (const x of guides.bare) console.log(`left with no picture: ${x}`)
+    for (const x of guides.failed.slice(0, 30)) console.log(`failed: ${x}`)
   }
 } else if (cmd === 'calibrate-marks') {
   if (!values.manifest) throw new Error('calibrate-marks needs a reviewed --manifest in the private image cache')
@@ -496,14 +505,17 @@ if (cmd === 'photo-privacy') {
   // No people or logos in guides' and equipment guides' photos and video guides' stills (guide-photos.ts): --limit model
   // calls a run (default 20), 6 photos each, leads first, then stills; a person or a mark leaves every page for good, a
   // brand on a product leaves the guides (not a still). A tile video-stills will replace waits for the video's frame. On
-  // a guide about one kind of fish or plant, a photo of another kind leaves that guide.
+  // a guide about one kind of fish or plant, a photo of another kind leaves that guide. A dead fish or fish as food, asked
+  // of each picture's first look, leaves its guides at that verdict, held for a second look.
   // --only id,id: these guides alone.
   const r = await screenGuidePhotos(ROOT, {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     look: guidePhotoLook,
   }, { limit: values.limit ? Number(values.limit) : 20, parallel: values.parallel ? Number(values.parallel) : 1, ...(values.only ? { only: values.only.split(',').map(x => x.trim()).filter(Boolean) } : {}) })
-  console.log(`guide-photos: ${r.sheets} sheets, ${r.judged} judged, ${r.cleared} cleared to show, ${r.off.length} off, ${r.removed.length} removed, ${r.left} left for later, ${r.waiting} stills waiting for their frame, ${r.subject.length} off their guide's subject, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  console.log(`guide-photos: ${r.sheets} sheets, ${r.judged} judged, ${r.cleared} cleared to show, ${r.off.length} off, ${r.removed.length} removed, ${r.left} left for later, ${r.waiting} stills waiting for their frame, ${r.subject.length} off their guide's subject, ${r.dead.length} off as dead at their first verdict, ${r.bare.length} parts left with no picture, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.subject) console.log(`subject: ${x}`)
+  for (const x of r.dead) console.log(`off at its first verdict, waiting for a second look: ${x}`)
+  for (const x of r.bare) console.log(`left with no picture: ${x}`)
   for (const x of r.off) console.log(`off: ${x}`)
   for (const x of r.held) console.log(`held for a second look (kept off the list: a page's last photo): ${x}`)
   for (const x of r.removed) console.log(`removed: ${x}`)
@@ -1146,8 +1158,8 @@ if (cmd === 'photo-privacy') {
     look: (file, prompt) => claudeVision({ system: 'You spot watermarks on photos. Reply only with JSON.', prompt, schema: WATERMARK_SCHEMA, file, model: process.env.WATERMARK_MODEL ?? 'opus' }),
     judge: guidePhotoLook,
   }, { limit: Number(values.limit ?? 15), ...(values.only ? { only: values.only.split(',').map(x => x.trim()).filter(Boolean) } : {}) })
-  for (const x of [...r.done, ...r.dropped.map(x => `dropped: ${x}`), ...r.kept.map(x => `kept as a tile: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
-  console.log(`video-stills: ${r.done.length} guides, ${r.dropped.length} stills dropped, ${r.kept.length} kept as tiles, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of [...r.done, ...r.dropped.map(x => `dropped: ${x}`), ...r.kept.map(x => `kept as a tile: ${x}`), ...r.dead.map(x => `off at its first verdict, waiting for a second look: ${x}`), ...r.bare.map(x => `left with no picture: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
+  console.log(`video-stills: ${r.done.length} guides, ${r.dropped.length} stills dropped, ${r.kept.length} kept as tiles, ${r.dead.length} off as dead at their first verdict, ${r.bare.length} parts left with no picture, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'frame-sheet') {
   // A private sheet of frames from videos named by hand, for a person to look at first (frame-sheet.ts): files in --out
   // only, never the media host, a page or engine-state. pnpm engine frame-sheet --out <folder> --only <videoId>:<species id>,… [--per N]

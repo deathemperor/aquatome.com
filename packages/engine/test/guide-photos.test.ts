@@ -6,10 +6,15 @@ import { mkdir, mkdtemp, readFile, rename, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, onTestFinished, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
-import { guideSubject, screenGuidePhotos, type GuidePhotoDeps, type GuidePhotoVerdict } from '../src/guide-photos'
+import { guideSubject, judgeGuidePhotos, screenGuidePhotos, type GuidePhotoDeps, type GuidePhotoVerdict } from '../src/guide-photos'
 import { videoStills, type StillDeps } from '../src/video-stills'
+import { DEAD_RULE, screenGuidesDead } from '../src/guides-dead'
+import type { DeadScreenDeps } from '../src/dead-screen'
+import { putBackCleared } from '../src/last-photo'
+import { readPartPhotosOff } from '../src/video-images'
+import { createHash } from 'node:crypto'
 import { pruneGuideLegacyUses } from '../src/photo-visibility'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
@@ -19,6 +24,8 @@ const photo = (n: string) => ({ url: url(n), width: 1000, height: 667, licence: 
 
 async function store(guides: Record<string, object>, equipment: Record<string, object> = {}) {
   const root = await mkdtemp(join(tmpdir(), 'guide-photos-'))
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', join(root, 'private-put-back'))
+  onTestFinished(() => { vi.unstubAllEnvs() })
   const put = async (path: string, data: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), `${JSON.stringify(data, null, 2)}\n`) }
   await mkdir(join(root, 'engine-state'))
   for (const [id, g] of Object.entries(guides)) await put(`content/guides/${id}/entity.json`, { id, ...g })
@@ -45,7 +52,7 @@ function model(table: Record<string, Partial<Omit<GuidePhotoVerdict, 'other'>> &
       return { photos: photos.map((p, i) => {
         const { other, ...rest } = table[p] ?? {}
         const asked = prompt.includes(`- Photo ${i + 1} (`)
-        return { n: i + 1, person: false, mark: false, brand: false, note: p, ...rest,
+        return { n: i + 1, person: false, mark: false, brand: false, dead: false, note: p, ...rest,
           other: typeof other === 'function' ? other(prompt) : other ?? (asked ? false : undefined) }
       }) }
     },
@@ -80,6 +87,45 @@ test.each(['own photo', 'stock photo'])('a guide %s keeps its eligible fallback 
   const guide = await json(root, 'content/guides/guide/entity.json')
   expect(stock ? guide.video.figures[0].photo : guide.photos[0]).toEqual(altered)
   expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { [altered.url]: 'people' })
+})
+
+test.each(['photo', 'stock'])('a flagged fallback original of a guide %s keeps a credited wrapper while off', async place => {
+  const original = photo('original-dead')
+  const altered = { ...photo('altered'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const guide = place === 'stock' ? { video: { figures: [{ photo: altered, moments: [] }] } } : { photos: [altered] }
+  const root = await store({ guide })
+  const { d } = model({ 'original-dead': { dead: true } })
+
+  const result = await screenGuidePhotos(root, d, { limit: 1 })
+
+  expect(result.dead).toEqual([`${original.url}: guides/guide`])
+  const saved = await json(root, 'content/guides/guide/entity.json')
+  expect(place === 'stock' ? saved.video.figures[0].photo : saved.photos[0]).toEqual(altered)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[original.url]).toMatchObject({ off: true, pages: ['guides/guide'] })
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^waiting: /)
+})
+
+test.each(['photo', 'stock'])('a rejected stored guide %s keeps its eligible original', async place => {
+  const original = photo('original-live')
+  const altered = { ...photo('stored-dead'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const guide = place === 'stock' ? { video: { figures: [{ photo: altered, moments: [] }] } } : { photos: [altered] }
+  const root = await store({ guide })
+  const { d } = model({ 'stored-dead': { dead: true } })
+  const result = await screenGuidePhotos(root, d, { limit: 1 })
+  expect(result.dead).toEqual([`${altered.url}: guides/guide`])
+  const saved = await json(root, 'content/guides/guide/entity.json')
+  expect(place === 'stock' ? saved.video.figures[0].photo : saved.photos[0]).toEqual(altered)
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[altered.url]).toMatch(/^waiting: /)
+})
+
+test('a flagged guide photo stays recoverable when private capture is unavailable', async () => {
+  const root = await store({ guide: { photos: [photo('flagged-dead')] } })
+  vi.stubEnv('AQ_PUT_BACK_ENTRIES', 'off')
+  const { d } = model({ 'flagged-dead': { dead: true } })
+  await screenGuidePhotos(root, d, { limit: 1 })
+  expect((await json(root, 'content/guides/guide/entity.json')).photos).toEqual([photo('flagged-dead')])
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[url('flagged-dead')]).toMatch(/^waiting: /)
+
 })
 
 test('hands or a person on a guide\'s photos, a mark on a video section\'s photo and a brand on a packshot take them off the guides and onto the blocklist; a brand stays on an equipment guide', async () => {
@@ -208,7 +254,7 @@ test('a video still with hands, a person or a mark leaves its guide for good, an
     faces: async files => files.map(() => 0),
     read: async files => files.map(() => []),
     look: async () => { throw new Error('no text to judge') },
-    judge: async () => ({ photos: [{ n: 1, person: false, mark: false, brand: false, note: 'a tank' }] }),
+    judge: async () => ({ photos: [{ n: 1, person: false, mark: false, brand: false, dead: false, note: 'a tank' }] }),
     media: { urlFor: k => url(k.replace('.webp', '')), put: async k => ({ url: url(k.replace('.webp', '')), width: 1200, height: 675 }) },
     now: () => new Date('2026-11-07T12:00:00Z'),
   }
@@ -301,7 +347,7 @@ test('a guide about one fish: in the same call as the people check, a picture of
   expect(seen[0]!.prompt).not.toContain('- Photo 2 ')
   expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['platy', 'html-gone'])
   expect(urls((await json(root, 'content/guides/aquariumcoop-blogs-setup-a-tank/entity.json')).photos)).toEqual(['neon'])
-  expect(r.subject).toEqual([`content/guides/${id}/entity.json: ${url('arowana')}: guide photo`])
+  expect(r.subject).toEqual([`content/guides/${id}/entity.json: ${url('arowana')}: dead screen clear`])
   expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
   expect((await json(root, 'engine-state/_photo-guides.json'))[url('arowana')].other).toEqual({ platy: true })
 
@@ -341,6 +387,21 @@ test('a missing guide subject answer leaves that question queued', async () => {
   expect(seen.map(s => s.photos)).toEqual([['shared'], ['shared']])
   expect((await json(root, 'engine-state/_photo-guides.json'))[url('shared')])
     .toMatchObject({ other: { platy: false }, answeredSubjects: ['platy'] })
+})
+
+test('a new guide photo stays owed when its first answer omits the dead-fish question', async () => {
+  const root = await store({ guide: { photos: [photo('shared')] } })
+  const { d, seen } = model({})
+  let calls = 0
+  const partial: GuidePhotoDeps = { ...d, look: async (file, prompt) => {
+    const answer = await d.look(file, prompt)
+    if (calls++ === 0) for (const tile of answer.photos) delete tile.dead
+    return answer
+  } }
+  expect((await screenGuidePhotos(root, partial, { limit: 1 })).judged).toBe(0)
+  expect((await json(root, 'engine-state/_photo-guides.json'))[url('shared')]).toBeUndefined()
+  expect((await screenGuidePhotos(root, partial, { limit: 1 })).judged).toBe(1)
+  expect(seen.map(s => s.photos)).toEqual([['shared'], ['shared']])
 })
 
 test.each([false, true])('a legacy implicit answer stays queued until it is explicitly answered (basic look incomplete: %s)', async incomplete => {
@@ -463,6 +524,101 @@ test("a guide's photo with a person in it that is also a fish page's last photo 
   expect(urls((await json(root, 'content/guides/how-to-net/entity.json')).photos)).toEqual(['tank'])
   expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json').catch(() => ({})))).not.toContain(url('netted'))
   expect((await json(root, 'engine-state/_photo-second-look.json'))[url('netted')]).toMatchObject({ step: 'the guide photo check', pages: ['species/a'] })
+})
+
+// The dead-or-food question rides the people check (the chief of staff, 22 Nov 2026).
+const stockPage = 'https://commons.wikimedia.org/wiki/File:Example.jpg'
+const asked = (record: string[]) => { const d: DeadScreenDeps = { get: async u => { record.push(name(u)); return new Uint8Array(await jpeg) }, look: async () => ({ tiles: [] }) }; return d }
+
+test("the dead-or-food question, asked at a picture's first look: a dead guide photo, part photo and frame leave their guides at that verdict, held for a second look; a person on one takes it off for good; an equipment photo's answer is kept and it stays", async () => {
+  const root = await store({
+    'how-to-feed': { photos: [photo('lead'), photo('cut-fish'), photo('dead-hands')] },
+    'youtube-b1': videoGuide([], [
+      { heading: 'Một', moments: [still(20, true), still(30, true)], photo: { ...photo('stock-dead'), sourceUrl: stockPage } },
+      { heading: 'Hai', moments: [still(40, true)] },
+    ]),
+  }, { 'thuc-an': { hero: photo('pellets') } })
+  const { d, seen } = model({
+    'cut-fish': { dead: true, note: 'cut fish fillets as food' },
+    'dead-hands': { dead: true, person: true, note: 'a hand holds a dead fish' },
+    'stock-dead': { dead: true, note: 'a preserved specimen' },
+    'at30-hd': { dead: false },
+    'at40-hd': { dead: true, note: 'a fish lying flat in a bottle' },
+    pellets: { dead: true, note: 'pellets' },
+  })
+  const r = await screenGuidePhotos(root, d, { limit: 10 })
+  // One call, the rule in the people check's own words (guides-dead.ts), after its other questions.
+  expect(seen).toHaveLength(2)
+  expect(seen[0]!.prompt).toContain(`- ${DEAD_RULE}\nAnswer every photo, by its number.`)
+  expect(r.dead.sort()).toEqual([`${url('cut-fish')}: guides/how-to-feed`, `${url('stock-dead')}: guides/youtube-b1`, `${url('video/b1/at40-hd')}: guides/youtube-b1`].sort())
+  expect(urls((await json(root, 'content/guides/how-to-feed/entity.json')).photos)).toEqual(['lead'])
+  // Part two kept no picture; the people check's strip, writing the guide for its cleared stills, drops the empty part.
+  expect(r.bare).toEqual(['guides/youtube-b1: part 2'])
+  expect(await stillsOf(root)).toEqual([{ heading: 'Một', moments: ['at20-hd', 'at30-hd'] }])
+  // A person wins: on the never-again list for good. The dead ones wait for their look, restorable.
+  expectControlledRejections(Object.fromEntries(Object.entries(await json(root, 'engine-state/_photo-rejected.json')).map(([u, w]) => [name(u), w])), { 'dead-hands': 'people', 'cut-fish': 'waiting', 'stock-dead': 'waiting', 'at40-hd': 'waiting' })
+  const sl = await json(root, 'engine-state/_photo-second-look.json')
+  expect(Object.keys(sl).map(name).sort()).toEqual(['at40-hd', 'cut-fish', 'stock-dead'])
+  for (const u of Object.keys(sl)) expect(sl[u]).toMatchObject({ step: 'the guide photo check', off: true, why: expect.stringMatching(/^dead: withheld \[sha256:[0-9a-f]{64}\]$/) })
+  const parts = await readPartPhotosOff(join(root, 'content'))
+  expect(Object.keys(parts).sort()).toEqual([`sha256:${createHash('sha256').update(stockPage).digest('hex')}`, url('video/b1/at40-hd')].sort())
+  expect(parts[url('video/b1/at40-hd')]).toMatchObject({ guides: ['youtube-b1'], seconds: [40] })
+  // The equipment guide keeps its photo; its answer is kept.
+  expect(name((await json(root, 'content/equipment/thuc-an.json')).hero.url)).toBe('pellets')
+  const verdicts = await json(root, 'engine-state/_photo-guides.json')
+  expect(verdicts[url('pellets')].dead).toBe(true)
+  expect(verdicts[url('lead')]).toMatchObject({ person: false, mark: false, brand: false, dead: false })
+  const backlog: string[] = []
+  await screenGuidesDead(root, asked(backlog), { limit: 100 })
+  expect(backlog).toEqual([])
+  // Judged once: the next run asks nothing and takes nothing.
+  const again = await screenGuidePhotos(root, { ...d, look: async () => { throw new Error('judged twice') } }, { limit: 10 })
+  expect(again).toMatchObject({ judged: 0, dead: [], bare: [] })
+})
+
+test("a photo asked again for its subject keeps its verdict: that look's dead answer neither stands nor takes it off, and the backlog asks it", async () => {
+  const id = 'aquariumcoop-platy-care'
+  const root = await store({ [id]: { kind: 'care', source: 'aquariumcoop', photos: [photo('lead'), photo('old')] } })
+  const verdict = { person: false, mark: false, brand: false, note: 'a platy, from before' }
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [url('lead')]: { ...verdict, other: { platy: false }, answeredSubjects: ['platy'] }, [url('old')]: verdict }))
+  const { d, seen } = model({ old: { dead: true, note: 'a dead platy' } })
+  const r = await screenGuidePhotos(root, d, { limit: 1 })
+  expect(seen[0]!.photos).toEqual(['old'])
+  expect(r.dead).toEqual([])
+  expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['lead', 'old'])
+  expect((await json(root, 'engine-state/_photo-guides.json'))[url('old')].dead).toBeUndefined()
+  const backlog: string[] = []
+  await screenGuidesDead(root, asked(backlog), { limit: 100 })
+  expect(backlog).toEqual(['lead', 'old'])
+})
+
+test("a still whose verdict says dead isn't cleared to show until its second look clears it", async () => {
+  const root = await store({ 'youtube-b1': videoGuide([], [{ heading: 'x', moments: [still(20, true)] }]) })
+  const frame = url('video/b1/at20-hd')
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [frame]: { person: false, mark: false, brand: false, note: '', dead: true } }))
+  const person = async () => (await json(root, 'content/guides/youtube-b1/entity.json')).video.figures[0].moments[0].person
+  const { d } = model({})
+  expect(await screenGuidePhotos(root, d, { limit: 5 })).toMatchObject({ judged: 0, cleared: 0 })
+  const looksFile = 'engine-state/_photo-second-look.json'
+  const marks = await json(root, looksFile)
+  expect(marks[frame]).toMatchObject({ off: true })
+  marks[frame].look = { said: 'clear', by: 'reviewer', on: '2026-11-27' }
+  await writeFile(join(root, looksFile), JSON.stringify(marks))
+  await putBackCleared(root, async () => [])
+  expect(await screenGuidePhotos(root, d, { limit: 5 })).toMatchObject({ judged: 0, cleared: 1 })
+  expect(await person()).toBe(false)
+})
+
+test('conflicting guide and frame tile decisions remain retryable', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'guide-answer-'))
+  const image = await jpeg
+  const tile = { n: 1, person: false, mark: false, brand: false, dead: false, note: 'sample' }
+  const answers = await judgeGuidePhotos([image, image], join(root, 'sheet.jpg'), async () => ({ photos: [
+    { ...tile, dead: true }, tile, tile,
+    { ...tile, n: 2 }, { ...tile, n: 2 },
+  ] }))
+  expect(answers[0]).toBeUndefined()
+  expect(answers[1]).toMatchObject({ dead: false })
 })
 
 test('the guide check holds all addresses when a marked upscale carries a fish page’s last original', async () => {

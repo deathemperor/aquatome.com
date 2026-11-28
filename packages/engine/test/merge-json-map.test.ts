@@ -65,6 +65,58 @@ test('a clear keeps recovery places added for the same mark in a concurrent chec
   expect(mergeMaps(base, checked, { u: { ...captured.u, why: 'people: withheld' } })).toEqual({ u: { ...captured.u, why: 'people: withheld' } })
 })
 
+test("a part photo's entry both sides changed stays off for every guide and second either side named; the reason is ours", () => {
+  const page = 'https://commons.wikimedia.org/wiki/File:X.jpg', frame = 'https://media.aquatome.com/guides/g/at60-hd.webp'
+  // Two runs take one Commons file off two guides' parts.
+  expect(mergeMaps({ [page]: { why: 'a', guides: ['g1'] } }, { [page]: { why: 'b', guides: ['g1', 'g2'] } }, { [page]: { why: 'c', guides: ['g1', 'g3'] } }))
+    .toEqual({ [page]: { why: 'b', guides: ['g1', 'g2', 'g3'] } })
+  // Off for every guide on one side: every guide.
+  expect(mergeMaps({}, { [page]: { why: 'b', guides: ['g2'] } }, { [page]: { why: 'c' } })).toEqual({ [page]: { why: 'b' } })
+  // A frame's seconds, each side's, and their guides.
+  expect(mergeMaps({}, { [frame]: { why: 'b', guides: ['g'], seconds: [60] } }, { [frame]: { why: 'c', guides: ['h'], seconds: [55, 60] } }))
+    .toEqual({ [frame]: { why: 'b', guides: ['g', 'h'], seconds: [55, 60] } })
+  // Not a part photo's entry (another key beside `why`): ours, as before.
+  expect(mergeMaps({}, { k: { why: 'b', step: 's' } }, { k: { why: 'c', guides: ['g'] } })).toEqual({ k: { why: 'b', step: 's' } })
+})
+
+test('a concurrent source exclusion keeps the added guide and drops the cleared guide', () => {
+  const key = 'sha256:example'
+  const base = { [key]: { why: 'dead: withheld', guides: ['a'] } }
+  const added = { [key]: { why: 'dead: withheld', guides: ['a', 'b'] } }
+  const expected = { [key]: { why: 'dead: withheld', guides: ['b'] } }
+  expect(mergeMaps(base, {}, added)).toEqual(expected)
+  expect(mergeMaps(base, added, {})).toEqual(expected)
+  const confirmed = { [key]: { ...added[key], agreedGuides: ['a'] } }
+  const merged = { [key]: { ...confirmed[key], manualGuides: ['b'] } }
+  expect(mergeMaps(base, {}, confirmed)).toEqual(merged)
+  expect(mergeMaps(base, confirmed, {})).toEqual(merged)
+})
+
+test('a concurrent hold for the same guide preserves the exclusion when the first photo clears', () => {
+  const key = 'sha256:sample'
+  const entry = { why: 'dead: withheld', guides: ['g'] }
+  const base = { [key]: { ...entry, holds: { first: ['g'] } } }
+  const added = { [key]: { ...entry, holds: { first: ['g'], second: ['g'] } } }
+  const expected = { [key]: { ...entry, holds: { second: ['g'] } } }
+  expect(mergeMaps(base, {}, added)).toEqual(expected)
+  expect(mergeMaps(base, added, {})).toEqual(expected)
+})
+
+test("the part-photo list merges by key through the map driver, and no other file the driver merges holds a part photo's entry", async () => {
+  const repo = fileURLToPath(new URL('../../../', import.meta.url))
+  expect(execFileSync('git', ['check-attr', 'merge', '--', 'engine-state/_part-photos-off.json'], { cwd: repo, encoding: 'utf8' }).trim()).toBe('engine-state/_part-photos-off.json: merge: jsonmap')
+  const attrs = (await readFile(join(repo, '.gitattributes'), 'utf8')).split('\n').filter(l => / merge=jsonmap$/.test(l)).map(l => l.split(' ')[0]!)
+  const files = execFileSync('git', ['ls-files', '--', ...attrs], { cwd: repo, encoding: 'utf8' }).split('\n').filter(Boolean)
+  const partOff = (v: unknown) => !!v && typeof v === 'object' && !Array.isArray(v) && typeof (v as { why?: unknown }).why === 'string' && Object.keys(v).every(k => ['why', 'guides', 'seconds'].includes(k)) && Object.keys(v).length > 1
+  const shaped: string[] = []
+  for (const f of files) {
+    let d: unknown
+    try { d = JSON.parse(await readFile(join(repo, f), 'utf8')) } catch { continue }
+    if (d && typeof d === 'object' && !Array.isArray(d) && Object.values(d).some(partOff)) shaped.push(f)
+  }
+  expect(shaped).toEqual(['engine-state/_part-photos-off.json'])
+})
+
 test('a clear retains a concurrently replaced capture', () => {
   const mark = { why: 'dead: withheld', step: 'the dead-fish screen', pages: ['species/x'], at: '2026-11-20', off: true }
   const original = { file: 'content/species/x/entity.json', index: 0, capture: 'hotlink' }
@@ -289,6 +341,26 @@ test("an agree's sweep meets a run that marked the photo off before the agree: t
   expect(await r.read('_photo-rejected.json')).toEqual({ [raceUrl]: heldRec.why })
   expect(await listAgreed(r.dir)).toEqual([])
   expect(await mendWaiting(r.dir)).toEqual({ back: [], other: [], alone: [] })
+})
+
+test('a concurrent manual stock exclusion keeps its ownership beside a pending automatic hold', () => {
+  const manual = { source: { why: 'manual', guides: ['g'] } }
+  const automatic = { source: { why: 'dead: withheld', guides: ['g'], holds: { photo: ['g'] } } }
+  for (const [ours, theirs] of [[manual, automatic], [automatic, manual]]) {
+    expect(mergeMaps({}, ours, theirs).source).toMatchObject({
+      guides: ['g'], manualGuides: ['g'], holds: { photo: ['g'] },
+    })
+  }
+})
+
+test('a manual guide added to an existing held source remains independently excluded', () => {
+  const key = 'sha256:sample'
+  const entry = { why: 'dead: withheld', guides: ['a'], holds: { first: ['a'] } }
+  const base = { [key]: entry }
+  const manual = { [key]: { ...entry, guides: ['a', 'b'] } }
+  const automatic = { [key]: { ...manual[key], holds: { ...entry.holds, second: ['b'] } } }
+  expect(mergeMaps(base, manual, automatic)[key].manualGuides).toEqual(['b'])
+  expect(mergeMaps(base, automatic, manual)[key].manualGuides).toEqual(['b'])
 })
 
 test('an album take-off receipt keeps its applied or batched status in either merge orientation', () => {

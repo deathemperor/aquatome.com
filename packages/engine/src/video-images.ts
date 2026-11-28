@@ -7,7 +7,7 @@ import { join } from 'node:path'
 import { parse } from 'node-html-parser'
 import sharp from 'sharp'
 import { frameSharpness } from './still-sharpness'
-import { GuideSchema, type GuideEntity, type Photo, type Translation } from '@aq/schema'
+import { GuideSchema, type GuideEntity, type Photo, type Translation, keepFigureSlots } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import type { Media } from './source-photos'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -154,7 +154,7 @@ Give n and a caption: one short Vietnamese sentence (≤ 14 words) saying what t
  * never read off the address, and an entry with `seconds` and no `guides` stops the step: it never bars a second on
  * every video.
  */
-export type PartPhotosOff = Record<string, { why: string; guides?: string[]; seconds?: number[] }>
+export type PartPhotosOff = Record<string, { why: string; guides?: string[]; seconds?: number[]; agreedGuides?: string[]; manualGuides?: string[]; holds?: Record<string, string[]> }>
 /** The list; none where the file isn't there. A file that is there but can't be read stops the step, so no photo comes back. */
 export async function readPartPhotosOff(contentRoot: string): Promise<PartPhotosOff> {
   const raw = await readFile(join(contentRoot, '..', 'engine-state', '_part-photos-off.json'), 'utf8').catch((err: NodeJS.ErrnoException) => {
@@ -173,9 +173,10 @@ export async function readPartPhotosOff(contentRoot: string): Promise<PartPhotos
 }
 const partPhotoOff = (off: PartPhotosOff, guide: string, sourceUrl: string) => {
   const hashed = `sha256:${createHash('sha256').update(sourceUrl).digest('hex')}`
-  const key = [sourceUrl, hashed].find(k => Object.hasOwn(off, k))
-  const o = key ? off[key] : undefined
-  return !!o && (!o.guides || o.guides.includes(guide))
+  return [sourceUrl, hashed].some(key => {
+    const entry = Object.hasOwn(off, key) ? off[key] : undefined
+    return !!entry && (!entry.guides || entry.guides.includes(guide))
+  })
 }
 
 /** Pictures for one guide's sections; [] when nothing fitted (the guide is then done). */
@@ -193,9 +194,10 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
   // The seconds a person took this guide's frames off at (the list's `seconds`, for the guides it names).
   const barred = new Set(Object.values(off).flatMap(o => (o.seconds && o.guides?.includes(e.id) ? o.seconds : [])))
   for (const [i, s] of secs.entries()) {
+    const fig: Figure = { heading: s.heading, moments: [] }
+    out.push(fig)
     const p = plan[i]
     if (!p) continue
-    const fig: Figure = { heading: s.heading, moments: [] }
 
     // Video moments: stills around each planned time, the model picks, no faces.
     const times = [...new Set((p.times ?? []).filter(t => t >= 0 && t <= v.durationSec).slice(0, 3).flatMap(t => [t - 5, t, t + 5, t + 10]))]
@@ -243,9 +245,8 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
         }
       }
     }
-    if (fig.moments.length || fig.photo) out.push(fig)
   }
-  return out
+  return out.some(f => f.moments.length || f.photo) ? keepFigureSlots(out) : []
 }
 
 /** Pictures for video guides that have none yet (entity.video.figures absent). */

@@ -152,6 +152,10 @@ test("videoImages: a Commons file listed off a guide's parts isn't picked for th
   // A file whose page names what its lettering says is listed by the hash of its page.
   const hashed = `sha256:${createHash('sha256').update('https://commons/File:p.jpg').digest('hex')}`
   expect(await picked({ [hashed]: { why: 'lettering is what it shows' } })).toBe('https://commons/File:q.jpg')
+  expect(await picked({
+    'https://commons/File:p.jpg': { why: 'sample', guides: ['youtube-b2'] },
+    [hashed]: { why: 'sample', guides: ['youtube-a1'] },
+  })).toBe('https://commons/File:q.jpg')
   expect(await picked('')).toBe('https://commons/File:p.jpg')
   // A list that is there but can't be read stops the step: read as no list, every photo on it would come back.
   await expect(picked('{"https://commons/File:p.jpg": ')).rejects.toThrow()

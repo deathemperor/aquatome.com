@@ -18,8 +18,8 @@ import { pathToFileURL } from 'node:url'
 // and main's unmarked records won: the chief of staff, 20 Nov 2026); else ours.
 const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && typeof v.step === 'string' && Array.isArray(v.pages) && typeof v.at === 'string'
 const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
-const placesOf = (r, field = 'left') => Array.isArray(r?.[field]) ? r[field].filter(p => typeof p?.file === 'string' && Number.isSafeInteger(p.index) && p.index >= 0) : []
-const placeKey = p => p.occurrence ? `${p.file}#${p.occurrence}` : p.file
+const placeKey = p => `${p.file}:${JSON.stringify(p.path ?? [])}:${p.occurrence ?? 0}`
+const placesOf = (r, field = 'left') => Array.isArray(r?.[field]) ? r[field].filter(p => typeof p?.file === 'string' && Number.isSafeInteger(p.index) && (p.index >= 0 || p.index === -1 && p.path?.[3] === 'photo')) : []
 function mergePlaces(chosen, base, ours, theirs) {
   if (ours.off !== true || theirs.off !== true) return chosen
   const other = chosen === ours ? theirs : ours
@@ -113,6 +113,52 @@ const waitingAndFinal = (o, t) => typeof o === 'string' && typeof t === 'string'
 const LISTED = /^(species|breeds)\/[a-z0-9-]+$/, DAY = /^\d{4}-\d{2}-\d{2}$/
 const listedDays = (k, o, t) => LISTED.test(k) && typeof o === 'string' && typeof t === 'string' && DAY.test(o) && DAY.test(t)
 
+// Part-photo exclusions can be cleared for a guide while another run adds a guide. Keep each membership change
+// relative to the base. A human agreement keeps its guide excluded even when a different held photo is cleared.
+const partFields = ['why', 'guides', 'seconds', 'agreedGuides', 'manualGuides']
+const guideHolds = v => v === undefined || (!!v && typeof v === 'object' && !Array.isArray(v) &&
+  Object.values(v).every(Array.isArray))
+const partOff = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' &&
+  Object.keys(v).every(k => partFields.includes(k) || k === 'holds') && guideHolds(v.holds) &&
+  partFields.slice(1).every(k => v[k] === undefined || Array.isArray(v[k]))
+function partsOff(base, ours, theirs) {
+  const entries = [base, ours, theirs]
+  return entries.every(v => v === undefined || partOff(v)) &&
+    entries.some(v => v && partFields.slice(1).some(k => Array.isArray(v[k])))
+}
+function mergePartOff(base, ours, theirs) {
+  const mergeMembers = (a = [], o = [], t = []) => [...new Set([
+    ...a.filter(value => o.includes(value) && t.includes(value)),
+    ...o.filter(value => !a.includes(value)),
+    ...t.filter(value => !a.includes(value)),
+  ])]
+  const winner = ours ?? theirs
+  if (!winner) return undefined
+  const urls = new Set([base, ours, theirs].flatMap(mark => Object.keys(mark?.holds ?? {})))
+  const holds = Object.fromEntries([...urls].flatMap(url => {
+    const guides = mergeMembers(base?.holds?.[url], ours?.holds?.[url], theirs?.holds?.[url]).sort()
+    return guides.length ? [[url, guides]] : []
+  }))
+  if ([ours, theirs].some(v => v && !v.guides && !v.seconds)) return { why: winner.why, ...(Object.keys(holds).length ? { holds } : {}) }
+  const seconds = mergeMembers(base?.seconds, ours?.seconds, theirs?.seconds).sort((a, b) => a - b)
+  const agreedGuides = mergeMembers(base?.agreedGuides, ours?.agreedGuides, theirs?.agreedGuides).sort()
+  const tracksHolds = [base, ours, theirs].some(v => v?.holds || v?.manualGuides || v?.agreedGuides)
+  const manual = v => {
+    if (!tracksHolds || !v) return v?.manualGuides
+    const attributed = new Set([...(v.agreedGuides ?? []), ...Object.values(v.holds ?? {}).flat()])
+    return [...new Set([...(v.manualGuides ?? []), ...(v.guides ?? []).filter(g => !attributed.has(g))])]
+  }
+  const manualGuides = mergeMembers(manual(base), manual(ours), manual(theirs)).sort()
+  const guides = [...new Set([
+    ...mergeMembers(base?.guides, ours?.guides, theirs?.guides), ...agreedGuides, ...manualGuides, ...Object.values(holds).flat(),
+  ])].sort()
+  if (!guides.length) return undefined
+  return { why: winner.why, guides, ...(seconds.length ? { seconds } : {}),
+    ...(agreedGuides.length ? { agreedGuides } : {}), ...(manualGuides.length ? { manualGuides } : {}),
+    ...(Object.keys(holds).length ? { holds } : {}) }
+
+}
+
 const stagedAlbums = value => value?.albums && !Array.isArray(value.albums) && typeof value.albums === 'object' &&
   Object.values(value.albums).every(count => Number.isSafeInteger(count) && count > 0) ? value.albums : undefined
 const receiptRank = value => value === true || stagedAlbums(value) ? 1
@@ -143,8 +189,9 @@ export function mergeMaps(base, ours, theirs) {
     const side = both ? bothChanged(base, ours, theirs, k)
       : changed && k in ours && k in theirs && waitingAndFinal(ours[k], theirs[k]) ? (WAITING.test(ours[k]) ? theirs : ours)
       : changed && k in ours && k in theirs && listedDays(k, ours[k], theirs[k]) ? (theirs[k] < ours[k] ? theirs : ours)
+      : changed && partsOff(base[k], ours[k], theirs[k]) ? { [k]: mergePartOff(base[k], ours[k], theirs[k]) }
       : !same(ours, k) ? ours : !same(theirs, k) ? theirs : base
-    if (side && k in side) out[k] = side[k]
+    if (side && k in side && side[k] !== undefined) out[k] = side[k]
   }
   return out
 }

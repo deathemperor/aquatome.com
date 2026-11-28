@@ -49,7 +49,7 @@ export const DEAD_SCREEN_PROMPT = `Each numbered tile is what an aquarium handbo
 - dead: true if any picture on it shows a dead fish or other dead animal, or fish as food: at a market or fishmonger's, on ice; on a plate, cooked, fillets; a fish lying on the ground, a road, a floor, a board, a tray, a mesh, a ruler or a tape measure; a big catch hung up or held up by an angler; a preserved, mounted, museum or lab specimen, in a jar, on a specimen plate, or laid out flat on a plain or gridded background for a photo (for a snail, an empty shell; for a plant, a pressed herbarium sheet). A fish on a hook or a line, in the water or not, is a catch: dead. When you can't tell whether a fish lying out of the water is alive, it is dead. Not dead: a live fish in water, on no hook or line (a tank, a pond, a river, a tub, a cup, a bag, a photo tank), a small live fish on no hook or line, held in a hand or a net for a moment, a drawing, painting or graphic.
 - note: a few words on what it shows (for dead: what makes it so, e.g. "fish on a tape measure on a road").
 Answer every tile, by its number.`
-const PER_SHEET = 12
+export const PER_SHEET = 12
 const ALBUM_RETRY_FILE = '_photo-album-dead-retry.json'
 export { acknowledgeAlbumTakeOffs } from './album-takeoffs'
 
@@ -221,7 +221,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       }
     }
   }
-  for (const kind of o.albums ? [] : ['species', 'plants']) {
+  const ownKinds = o.photos ? ['species', 'plants', 'breeds'] : ['species', 'plants']
+  for (const kind of o.albums ? [] : ownKinds) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const file = join(content, kind, id, 'entity.json')
       const e = await readJson<{ photos?: Photo[]; videos?: { youtubeId: string }[] }>(file)

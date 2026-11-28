@@ -3,11 +3,13 @@ import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GuideSchema, type GuideEntity } from '@aq/schema'
+import sharp from 'sharp'
+import { completedDeadVerdict, GuideSchema, type GuideEntity, keepFigureSlots } from '@aq/schema'
 import { LlmError } from './claude'
 import { dhash } from './gallery'
 import type { Media } from './source-photos'
 import { guidePhotoOff, judgeGuidePhotos, PER_SHEET, type GuidePhotoDeps, type GuidePhotoVerdict } from './guide-photos'
+import { takeOffGuidesDead } from './guides-dead'
 import { sharpFrame, stillDone, tileTime, type ImageDeps, type VideoFrames } from './video-images'
 import { frameSharpness } from './still-sharpness'
 import { judgeSheet, ocrHit, ocrOf, type WatermarkDeps, type WatermarkEntry } from './watermarks'
@@ -50,13 +52,17 @@ const sortedJson = (o: Record<string, unknown>) => `${JSON.stringify(Object.from
  *   `_photo-watermarks.json` under the new address, so the watermark step doesn't read it again;
  * - a person, hands included, or a mark added on it (guide-photos.ts's question, which a tile's smudge hid): the still
  *   leaves the page and goes onto `_photo-rejected.json`. A frame that passes carries its verdict (`person: false`, which
- *   a still needs to show) and is in `_photo-guides.json`, so guide-photos doesn't judge it again.
+ *   a still needs to show) and is in `_photo-guides.json`, so guide-photos doesn't judge it again;
+ * - a dead fish or fish as food (the same question's `dead`, the chief of staff, 22 Nov 2026): the frame is uploaded and
+ *   swapped in without `person`, so it doesn't show, and once the guides are written it comes off as guides-dead.ts's
+ *   `takeOffGuidesDead` takes it, held for its second look and restorable until a person has looked.
  * A frame that doesn't show the tile's moment leaves the tile for good (`_video-stills.json`); a grab or a read that
  * fails leaves it for the next run. YouTube throttling, a model failure or three grabs failing in a row stop the run, and
  * the guide in hand is left as it was. `limit`: guides this run.
  */
 export async function videoStills(root: string, d: StillDeps, o: { limit?: number; only?: string[] } = {}) {
-  const report = { done: [] as string[], dropped: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '' }
+  const report = { done: [] as string[], dropped: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '', dead: [] as string[], bare: [] as string[] }
+  const dead = new Map<string, string>()
   const file = (...p: string[]) => join(root, ...p)
   const json = async <T>(path: string): Promise<T> => JSON.parse(await readFile(path, 'utf8').catch(() => '{}')) as T
   const state = await json<StillsState>(file('engine-state', '_video-stills.json'))
@@ -121,6 +127,8 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
         fail('no stream to take frames from'); continue
       }
 
+      const hdKey = (t: number) => `video/${v.youtubeId}/at${t}-hd.webp`
+      const resumed = new Map<Moment, Moment>()
       // 1. The frame at each tile's second, when it shows the tile's moment.
       const grabbed: { m: Moment; t: number; hd: Uint8Array; png: string }[] = []
       let left = 0
@@ -128,12 +136,26 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
         if (stillDone(m, kept)) continue
         if (m.url in rejected) { kept[String(m.t)] = 'rejected'; continue } // never given a new address that escapes it
         try {
+          const shown = frames.storyboard && AT_SECOND.test(m.url) ? tileTime(frames.storyboard, m.t) : m.t
+          const prior = [m.t, shown].map(t => ({ t, url: d.media.urlFor(hdKey(t)) }))
+            .find(frame => completedDeadVerdict(verdicts[frame.url]))
+          if (prior) {
+            const { url, t } = prior
+            const bytes = await d.get(url)
+            const { width, height } = await sharp(bytes).metadata()
+            if (!width || !height) throw new Error('the stored frame has no dimensions')
+            const still: Moment = { ...m, url, t, width, height, sharpness: await frameSharpness(bytes), person: false }
+            const verdict = verdicts[url]!
+            if (verdict.dead) { dead.set(url, verdict.note); delete still.person }
+            resumed.set(m, still)
+            inARow = 0
+            continue
+          }
           const tile = await d.get(m.url)
           let t = m.t
           let hd = await sharpFrame(d.grab, frames.stream, t, tile)
           // A still made while the video's tile interval was misread (storyboardInterval) names a second up to 1.3% early:
           // the frame is at the second its tile really shows, and the still's play button starts there too.
-          const shown = frames.storyboard && AT_SECOND.test(m.url) ? tileTime(frames.storyboard, m.t) : m.t
           if (!hd && shown !== m.t) { hd = await sharpFrame(d.grab, frames.stream, shown, tile); if (hd) { t = shown; retimed++ } }
           inARow = 0
           if (!hd) { kept[String(m.t)] = `the frame at ${m.t} s isn't the tile's moment`; report.kept.push(`${id} t${m.t}`); continue }
@@ -205,17 +227,26 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
       }
 
       // 3. Upload what passed, then the guide with its stills swapped and any dropped.
-      const swap = new Map<Moment, Moment>()
+      const swap = new Map(resumed)
       for (const { m, t, hd } of grabbed) {
         const entry = entries.get(m)
         if (!entry) continue
-        const s = await d.media.put(`video/${v.youtubeId}/at${t}-hd.webp`, hd)
+        const s = await d.media.put(hdKey(t), hd)
         marks[s.url] = entry
         hashes[s.url] = await dhash(hd)
-        verdicts[s.url] = compactVerdict(judged.get(m)!)
-        swap.set(m, { ...m, t, url: s.url, width: s.width, height: s.height, sharpness: await frameSharpness(hd), person: false })
+        const verdict = judged.get(m)!
+        verdicts[s.url] = compactVerdict(verdict)
+        if (verdict.dead) dead.set(s.url, verdict.note)
+        const still: Moment = { ...m, t, url: s.url, width: s.width, height: s.height, sharpness: await frameSharpness(hd), person: false }
+        if (verdict.dead) delete still.person // the tile's verdict isn't the frame's
+        swap.set(m, still)
       }
-      if (swap.size || drop.size || retimed) await save(figures.map(f => ({ ...f, moments: f.moments.filter(m => !drop.has(m)).map(m => swap.get(m) ?? m) })).filter(f => f.moments.length || f.photo))
+      if (swap.size > resumed.size) {
+        await writePhotoState(file('engine-state', '_photo-watermarks.json'), Object.fromEntries(Object.entries(marks).sort()))
+        await writeFile(file('content', 'picture-hashes.json'), sortedJson(hashes))
+        await writePhotoState(file('engine-state', '_photo-guides.json'), Object.fromEntries(Object.entries(verdicts).sort()))
+      }
+      if (swap.size || drop.size || retimed) await save(keepFigureSlots(figures.map(f => ({ ...f, moments: f.moments.filter(m => !drop.has(m)).map(m => swap.get(m) ?? m) }))))
       if (swap.size || drop.size) changed = true
       state[id] = record()
       worked = true
@@ -228,8 +259,11 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
       await writePhotoState(file('engine-state', '_photo-watermarks.json'), Object.fromEntries(Object.entries(marks).sort()))
       await writePhotoState(file('engine-state', '_photo-rejected.json'), rejected)
       await writeFile(file('content', 'picture-hashes.json'), sortedJson(hashes))
-      await writePhotoState(file('engine-state', '_photo-guides.json'), Object.fromEntries(Object.entries(verdicts).sort()))
     }
+    // Finish earlier take-offs even when a later guide failed.
+    const took = await takeOffGuidesDead(root, dead, 'the guide photo check')
+    report.dead = took.off
+    report.bare = took.bare
   }
   return report
 }

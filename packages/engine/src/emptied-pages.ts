@@ -35,12 +35,12 @@ export const SITE_GALLERY_MIN = 1
 export type Read = (path: string) => Promise<string | undefined>
 
 /**
- * The species, plant and guide pages' entity files (from the repository's root) that may name any of `urls`, as the same
+ * The species, plant, breed and guide pages' entity files (from the repository's root) that may name any of `urls`, as the same
  * state as a Read holds them: the pages that may own one as their own photo.
  */
 export type Owners = (urls: string[]) => Promise<string[]>
 
-const OWNER_KINDS = ['species', 'plants', 'guides'] as const
+const OWNER_KINDS = ['species', 'plants', 'breeds', 'guides'] as const
 function ownedAddresses(file: string, raw: string): string[] {
   const page = JSON.parse(raw) as Parameters<typeof guidePhotoUrls>[0] & { photos?: Photo[] }
   return file.startsWith('content/guides/') ? guidePhotoUrls(page) : (page.photos ?? []).flatMap(deadScreenPhotoUrls)

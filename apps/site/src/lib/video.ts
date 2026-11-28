@@ -95,9 +95,14 @@ export function illustrate(lang: Lang, html: string, v: NonNullable<GuideEntity[
   if (!v.figures?.length) return html
   const t = translator(lang)
   const root = parse(html)
-  const byHeading = new Map(v.figures.map(f => [f.heading, f]))
+  const byHeading = new Map<string, NonNullable<typeof v.figures>>()
+  for (const f of v.figures) {
+    const matching = byHeading.get(f.heading)
+    if (matching) matching.push(f)
+    else byHeading.set(f.heading, [f])
+  }
   for (const h of root.querySelectorAll('h2, h3')) { // h2: a heading over sub-sections (lib/toc.ts)
-    const f0 = byHeading.get(h.textContent.replace(/\s+/g, ' ').trim())
+    const f0 = byHeading.get(h.textContent.replace(/\s+/g, ' ').trim())?.shift()
     if (!f0) continue
     // No still under 480p (a storyboard tile, a low-resolution video): the section keeps its words, and the page its
     // video. Then nothing the page already shows: a photo picked for two sections, two stills of the same scene.

@@ -5,7 +5,7 @@ import { readPhotoMap, writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { deadScreenPhotoUrls, IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections, photoRejections } from '@aq/schema'
+import { deadScreenPhotoUrls, isVersionRejection, IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections, photoRejections } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -1163,7 +1163,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const active = withoutClearedWaits({ ...rejected }, marks)
   const remember = captureWaiting(marks, rejectedAt)
   const keepsVersion = (url: string, original: string, blockedOriginal: boolean) =>
-    /^(?:dead|people|waiting): /.test(listedWhy(url)) && (!blockedOriginal || listedWhy(original).startsWith('waiting:'))
+    isVersionRejection(listedWhy(url)) && (!blockedOriginal || listedWhy(original).startsWith('waiting:'))
   const equipmentFiles = new Set(await everyJson('equipment'))
   for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...equipmentFiles, ...glossaryFiles]) {
     const raw = await readFile(file, 'utf8').catch(() => null)
@@ -1185,7 +1185,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       return listed(url) && !protectedParts.has(url) && (!entry || entry[0] in active) &&
         (!entry?.[1].startsWith('waiting:') || (canCapture && !!remember(url)))
     }
-    const before = { ...data }
+    const before = file.includes('/guides/') ? structuredClone(data) : { ...data }
     const removed: string[] = []
     stripPhotos(data, remove, removed, [], keepsVersion)
     placesIn(root, file, before, (url, slot) => !(data.photos as unknown[] | undefined)?.includes(slot.photo) ? remember(url) : undefined, places)

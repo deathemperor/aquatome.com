@@ -6,7 +6,9 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, heldPhotoVersion, reviewedPhotoVersion, GUIDE_LOOKS_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, photoVersionAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
-import { screenDead, type DeadScreenDeps } from './dead-screen'
+import { PER_SHEET, screenDead, type DeadScreenDeps } from './dead-screen'
+import { costLog, leftToday, stepName } from './ceiling'
+import { GUIDE_BACKLOG_PER_SHEET, screenGuidesDead } from './guides-dead'
 import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { writeImageCache } from './image-cache-write'
@@ -51,7 +53,7 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const reviewed = heldPhotoVersion(secondLook)
   const listed = photoRejections(effective, marks, url => reviewed(url) || passed(url))
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
-  for (const kind of ['species', 'plants', 'guides']) {
+  for (const kind of ['species', 'plants', 'breeds', 'guides']) {
     for (const id of await readdir(join(contentRoot, kind)).catch(() => [] as string[])) {
       const file = join(contentRoot, kind, id, 'entity.json')
       const raw = await readFile(file, 'utf8').catch(() => null)
@@ -180,12 +182,28 @@ export const NEW_PHOTO_SHEETS = 14
  * 4 sheets a step, about 960 a day over about 20 faces steps at about $0.02 a sheet, would keep ahead of them.
  */
 export const ALBUM_SHEETS = 0
+/**
+ * Dollars of the faces step's line a day that the backlog leaves for the new photos' screen, whose heaviest day was about
+ * $2 (eight pages runs, the dead-screen change's figures of 21 Nov). The backlog sends a sheet only while more than this
+ * is left today: at about twenty faces runs a day, twelve sheets each would pass the $4 line, and the new photos would
+ * wait a day for their screen.
+ */
+export const NEW_PHOTO_RESERVE = 2
+const faceRoom = () => { const log = costLog(); return log ? leftToday(stepName(), log) : null }
+/**
+ * Sheets of six the step takes after them from the guides' pictures nothing has asked about a dead fish (guides-dead.ts):
+ * their photos, stock photos, then frames (the chief of staff, 22 Nov 2026), within `NEW_PHOTO_RESERVE`. A hand run can
+ * take more (`backlog`). None until the chief of staff's word: on 22 Nov the backlog's question met their mark on neither
+ * model (sonnet at 12 a sheet missed the candiru out of water; opus at 6 flagged a live puffer beside its food and a
+ * spine beside a scale), so it doesn't run (their rule: a miss here is the worse error).
+ */
+export const BACKLOG_SHEETS = 0
 
 const readPhotoRecord = async (root: string, name: string): Promise<Record<string, unknown>> =>
   JSON.parse(await readFile(join(root, 'engine-state', name), 'utf8').catch(() => '{}'))
 
 /**
- * The own photos of fish and plant pages, in page order, that no look has judged for a dead fish (the schema's
+ * The own photos of fish, plant and breed pages, in page order, that no look has judged for a dead fish (the schema's
  * `deadLooked`, the rule the public build hides by) and the never-again list doesn't have (they leave every page anyway).
  */
 async function unjudged(root: string, contentRoot: string): Promise<string[]> {
@@ -211,22 +229,22 @@ async function stillOwed(root: string, contentRoot: string, owed: Record<string,
 
 /**
  * The faces step (cli.ts `faces`, in every pages, sf and photos run before the push): faces first, then the dead-fish
- * screen (dead-screen.ts) on what it owes on species and plant pages: the photos it was owed before, in the order they
+ * screen (dead-screen.ts) on what it owes on species, plant and breed pages: the photos it was owed before, in the order they
  * came, then those new to the face finder in this run, whether or not the face finder could read them, then every other
  * one no look has judged for a dead fish, however it came onto its page (`stillOwed`). It comes after every write
  * of the face pass, since both rewrite the pages.
  *
  * Each owed photo is on a list (DEAD_OWED_FILE in engine-state), and a public build doesn't show it (the schema's
- * load.ts), until the screen, the photo check or a person has judged it, the never-again list has it or no fish or plant
+ * load.ts), until the screen, the photo check or a person has judged it, the never-again list has it or no fish, plant or breed
  * page shows it. The build holds the same line by the looks themselves (the schema's `deadLooked`), list or not. One past the sheets, on a sheet that failed or after a stop (the step's daily line in ceilings.json is `faces`)
  * stays on the list for the next run. The list takes the photos new to the face finder before the face pass writes
  * anything, its record of what it has read last: a list that can't be written stops the step with that record as it
  * was, so they are new to it again in the next run, and wait meanwhile (load.ts: an own photo the face finder hasn't
  * read). The list is written again before the screen runs, so a screen that fails leaves it in force; the screen
  * failing leaves the face pass as written (the chief of staff, 21 Nov 2026: the screen sees every new photo before it
- * can show).
+ * can show). The guides' backlog follows once the page and album queues are empty.
  */
-export async function screenNewPhotos(contentRoot: string, cacheFile: string, d: FaceDeps & { dead: DeadScreenDeps }, rejectedFile?: string, root = join(contentRoot, '..'), o: { albumSheets?: number } = {}): Promise<{ faces: Awaited<ReturnType<typeof dropFacePhotos>>; dead?: Awaited<ReturnType<typeof screenDead>>; deadFailed?: string; owed: number; albums?: Awaited<ReturnType<typeof screenDead>>; albumsFailed?: string }> {
+export async function screenNewPhotos(contentRoot: string, cacheFile: string, d: FaceDeps & { dead: DeadScreenDeps; guideBacklog?: DeadScreenDeps }, rejectedFile?: string, root = join(contentRoot, '..'), o: { albumSheets?: number; backlog?: number; room?: () => number | null } = {}): Promise<{ faces: Awaited<ReturnType<typeof dropFacePhotos>>; dead?: Awaited<ReturnType<typeof screenDead>>; deadFailed?: string; owed: number; albums?: Awaited<ReturnType<typeof screenDead>>; albumsFailed?: string; guides?: Awaited<ReturnType<typeof screenGuidesDead>>; guidesFailed?: string }> {
   const owedFile = join(root, 'engine-state', DEAD_OWED_FILE)
   const before = JSON.parse(await readFile(owedFile, 'utf8').catch((error: NodeJS.ErrnoException) => {
     if (error.code === 'ENOENT') return '{}'
@@ -246,7 +264,7 @@ export async function screenNewPhotos(contentRoot: string, cacheFile: string, d:
   const out: Awaited<ReturnType<typeof screenNewPhotos>> = { faces, owed: Object.keys(owed).length }
   if (out.owed) {
     try {
-      out.dead = await screenDead(root, d.dead, { limit: NEW_PHOTO_SHEETS * 12, photos: new Set(Object.keys(owed)) })
+      out.dead = await screenDead(root, d.dead, { limit: NEW_PHOTO_SHEETS * PER_SHEET, photos: new Set(Object.keys(owed)) })
       const left = await stillOwed(root, contentRoot, owed, today)
       await write(left)
       out.owed = Object.keys(left).length
@@ -257,10 +275,16 @@ export async function screenNewPhotos(contentRoot: string, cacheFile: string, d:
   // Report the album queue even while page photos still have priority.
   const pagesWaiting = out.owed || out.deadFailed || out.dead?.stopped || out.dead?.failed.length
   try {
-    const limit = pagesWaiting ? 0 : (o.albumSheets ?? ALBUM_SHEETS) * 12
+    const limit = pagesWaiting ? 0 : (o.albumSheets ?? ALBUM_SHEETS) * PER_SHEET
     out.albums = await screenDead(root, d.dead, { limit, albums: true })
   } catch (err) {
     out.albumsFailed = photoFailure(err)
+  }
+  const backlog = o.backlog ?? BACKLOG_SHEETS
+  if (backlog > 0 && !out.owed && !out.albumsFailed && !out.albums?.left && !out.albums?.pendingTakeOffs && !out.albums?.stopped && !out.albums?.failed.length) {
+    const room = o.room ?? faceRoom
+    const more = () => { const left = room(); return left == null || left > NEW_PHOTO_RESERVE }
+    try { out.guides = await screenGuidesDead(root, d.guideBacklog ?? d.dead, { limit: backlog * GUIDE_BACKLOG_PER_SHEET, more }) } catch (err) { out.guidesFailed = photoFailure(err) }
   }
   return out
 }

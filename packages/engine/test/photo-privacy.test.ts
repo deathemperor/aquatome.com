@@ -85,7 +85,7 @@ test('the real watermark writer stores no reader or model lettering, and sends o
 
 test('guide and ordinary species writers never persist a model explanation or echo it in their report',async()=>{
  const r=await root();await put(r,'content/guides/private/entity.json',{kind:'care',photos:[{url:'https://example.org/private.png'}]});await put(r,'content/guides/private/vi.json',{name:'Fixture guide'})
- const guides=await screenGuidePhotos(r,{get:async()=>image(),look:async()=>({photos:[{n:1,person:false,mark:true,brand:false,note:trip}]})},{limit:1,only:['private']})
+ const guides=await screenGuidePhotos(r,{get:async()=>image(),look:async()=>({photos:[{n:1,person:false,mark:true,brand:false,dead:false,note:trip}]})},{limit:1,only:['private']})
  expect(guides.judged).toBe(1);expect(JSON.stringify(guides)).not.toContain(trip);expect(await readFile(join(r,'engine-state/_photo-guides.json'),'utf8')).not.toContain(trip)
  const look=vi.fn(async()=>({photos:[{n:1,ok:'yes' as const,person:false,logo:false,typical:true,note:trip}]}))
  const report=await checkPagePhotos(r,{get:async()=>image(),look},{limit:1,only:'alpha'})

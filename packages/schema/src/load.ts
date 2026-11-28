@@ -5,9 +5,9 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, reviewedPhotoVersion, isVersionRejection, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, guidePhotoAllowed, guidePhotoWaits, guideUseKey, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type CreditHoldPhotos, type PhotoScreenEntry } from './photo-screen'
-import { photoAddressSet } from './photo-address'
+import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, askedByCheckOf, DEAD_OWED_FILE, DEAD_SCREEN_FILE, completedDeadVerdict, deadLooked, expandWholePhotoRejections, reviewedPhotoVersion, isVersionRejection, photoClears, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, facePhotoOff, guidePhotoAllowed, guidePhotoWaits, guideUseKey, GUIDE_LOOKS_FILE, GUIDE_UNJUDGED_LIMIT, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type CreditHoldPhotos, type PhotoScreenEntry } from './photo-screen'
 import { photoRejections, retainedOwnMark } from './own-mark'
+import { photoAddressSet } from './photo-address'
 import { ownerCropFitsPage } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
 import { HAND_BOXES } from './hand-boxes'
@@ -235,7 +235,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // A new photo the dead-fish screen still owes a look waits the same way (photo-screen.ts DEAD_OWED_FILE). No list beside
   // the root (the fixture build, a test's store): none waits for it.
   const owed = screen ? await stateRecord<Record<string, string>>(root, DEAD_OWED_FILE) : undefined
-  // So does an own photo of a species, plant or guide page that the face finder has never read (photo-screen.ts
+  // So does an own photo of a species, plant, breed or guide page that the face finder has never read (photo-screen.ts
   // FACES_FILE), wherever it shows. Every such page on disk counts, as the face finder reads every one: one with no text
   // in this language or held back still owns its photos, which another page's album can show. The site's build of the
   // real content needs the record.
@@ -243,13 +243,13 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const heldForCredit = photoAddressSet(creditHoldPhotoUrls(publicBuild
     ? await stateRecord<Record<string, CreditHoldPhotos>>(root, CREDIT_HOLD_FILE) : undefined))
   if (screen && !faces && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', FACES_FILE)}: the face finder's record is missing, so no page's own photo can be shown as read`)
-  // And an own photo of a species or plant page that no look has judged for a dead fish (photo-screen.ts deadLooked),
+  // And an own photo of a species, plant or breed page that no look has judged for a dead fish (photo-screen.ts deadLooked),
   // owed or not: the list is the engine's queue, and one that is behind can't let a photo through (the chief of staff,
   // 22 Nov 2026). With no screen record beside the root (the fixture build, a test's store) none waits for it; the site's
   // build of the real content needs the record.
   const deadScreen = screen ? await stateRecord<Record<string, unknown>>(root, DEAD_SCREEN_FILE) : undefined
   if (screen && !deadScreen && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)}: the dead-fish screen's record is missing, so no photo can be shown as judged for a dead fish`)
-  const secondLook = deadScreen || faces ? await stateRecord<Record<string, { why?: string; off?: boolean; look?: { said?: string } }>>(root, SECOND_LOOK_RECORD) : undefined
+  const secondLook = deadScreen || faces || screen ? await stateRecord<Record<string, { why?: string; off?: boolean; look?: { said?: string } }>>(root, SECOND_LOOK_RECORD) : undefined
   const check = deadScreen ? await stateRecord<Record<string, unknown>>(root, PHOTO_CHECK_FILE) : undefined
   const subjects = deadScreen ? await stateRecord<Record<string, unknown>>(root, PHOTO_SUBJECTS_FILE) : undefined
   const guideLooks = screen ? await stateRecord<Record<string, unknown>>(root, GUIDE_LOOKS_FILE) : undefined
@@ -259,17 +259,18 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const { unread } = await facePhotoStatus(root, faces)
   if (faces && opts.photoScreen === 'required') {
     const retryable = [...unread].filter(url => !rejectedForDead?.(url) && !heldForCredit(url)).length
-    console.log(`${lang}: ${retryable} own photos of species, plant and guide pages wait, the face finder has never read them`)
-    if (retryable > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species, plant and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
+    console.log(`${lang}: ${retryable} own photos of species, plant, breed and guide pages wait, the face finder has never read them`)
+    if (retryable > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species, plant, breed and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
   }
+  const checkedForDead = photoAddressSet(askedByCheckOf(check, subjects))
   const lookedForDead = deadScreen ? deadLooked({ screen: deadScreen, check, subjects, secondLook }) : undefined
   const unjudged = new Set<string>()
   if (lookedForDead) {
     for (const url of await ownDeadPhotoUrls(root)) if (!lookedForDead(url)) unjudged.add(url)
     if (opts.photoScreen === 'required') {
       const retryable = [...unjudged].filter(url => !rejectedForDead?.(url) && !heldForCredit(url)).length
-      console.log(`${lang}: ${retryable} own photos of species and plant pages wait, no look has judged them for a dead fish`)
-      if (retryable > UNJUDGED_DEAD_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species and plant pages that no look has judged for a dead fish (${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)} and the photo check's records). More than ${UNJUDGED_DEAD_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) screens them.`)
+      console.log(`${lang}: ${retryable} own photos of species, plant and breed pages wait, no look has judged them for a dead fish`)
+      if (retryable > UNJUDGED_DEAD_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species, plant and breed pages that no look has judged for a dead fish (${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)} and the photo check's records). More than ${UNJUDGED_DEAD_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) screens them.`)
     }
   }
   // And a guide's own photo or a video guide's part's stock photo the guides' own look hasn't judged (photo-screen.ts
@@ -289,6 +290,11 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,
   // for what names a picture by address alone (the calendar: `photoWaits`).
   const shown = new Set<string>(), waiting = new Set<string>()
+  const guideClear = photoClears(secondLook)
+  const refusedByGuideLook = (url: string) => {
+    const verdict = guideLooks?.[url]
+    return completedDeadVerdict(verdict) && verdict.dead && !guideClear(url) && !checkedForDead(url)
+  }
   const screened = (p: { url: string; thumb?: string; large?: { url: string } }): boolean => {
     if (!screen && !heldForCredit(p.url)) return true
     const waits = waitsFor(p.url)
@@ -423,8 +429,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const retainedGuideMark = photoAddressSet(Object.keys(screen ?? {}).filter(url => retainedOwnMark(url, screen?.[url])))
   const guides = guidePages.map(g => {
     const subject = guideWaits?.subjects.get(g.id)
-    const guidePasses = (p: Photo) => !guideLooks || guidePhotoAllowed(guideLooks[p.url], subject,
-      !!subject && guideWaits?.pendingLegacy.has(guideUseKey(g.id, subject, p.url)), retainedGuideMark(p.url))
+    const guidePasses = (p: Photo) => !refusedByGuideLook(p.url) && (!guideLooks || guidePhotoAllowed(guideLooks[p.url], subject,
+      !!subject && guideWaits?.pendingLegacy.has(guideUseKey(g.id, subject, p.url)), retainedGuideMark(p.url)))
     const photos = cleanPhotos(g.photos).filter(guidePasses)
     if (!g.video?.figures) return { ...g, photos }
     const figures = g.video.figures.map(f => {
@@ -432,7 +438,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
       const photo = version && f.photo && (version.url === f.photo.url
         ? screened(version) && guidePasses(version) ? boxed(version) : undefined
         : cleanPhotos([f.photo]).find(guidePasses))
-      return { ...f, moments: f.moments.filter(screened), photo }
+      return { ...f, moments: f.moments.filter(m => !refusedByGuideLook(m.url) && screened(m)), photo }
     })
     return { ...g, photos, video: { ...g.video, figures } }
   })
@@ -475,13 +481,14 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // A newly passed real album photo immediately leads a formerly generated-only page, even before lead-photos runs.
   // Preserve explicitly fitted heads; add a fitted fallback only after ordinary publication admission.
   const fitsHead = (p: Photo) => p.headFit === 'contain' || photoFitsHead(p)
-  const fishAndPlants = new Set<SpeciesEntity | PlantEntity | BreedEntity>([...species, ...plants])
+  const breedIds = new Set(breeds.map(page => page.id))
   for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>p.headFit==='contain'||!photoFitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && (generatedPages.has(page.id) || (galleries[page.id]??[]).some(p=>!p.generated&&photoFitsWholeHead(p))))) {
     // A non-commercial album photo isn't put first here: the engine's lead step does that, only where it's the one way to
     // show that fish (lead-photo.ts), and one that leads gives way to any open photo here (ncAlone).
     // Promotion turns an album photo into the page's own photo. Keep the ordinary album under its own rule.
     const albumHeads = (galleries[page.id] ?? []).filter(p => !isNonCommercial(p.licence) &&
-      (!lookedForDead || !fishAndPlants.has(page) || lookedForDead(p.url)))
+      (!lookedForDead || lookedForDead(p.url)) &&
+      (!breedIds.has(page.id) || !faces || (Object.hasOwn(faces, p.url) && !facePhotoOff(p.url, faces, secondLook))))
     const all=realPhotosFirst([...new Map([...page.photos,...albumHeads].map(p=>[p.url,p])).values()])
     const albumOnly=page.photos.filter(p=>!fitsHead(p))
     if(albumOnly.length)galleries[page.id]=realPhotosFirst([...new Map([...(galleries[page.id]??[]),...albumOnly].map(p=>[p.url,p])).values()])
