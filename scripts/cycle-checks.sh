@@ -824,7 +824,7 @@ video_recheck_unchanged() {
 # passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
-  local check=1 clash main head swept run video_recheck= batch pulled checked_tree= verification_failed commit publish rejected_commit=
+  local check=1 clash main head swept run video_recheck= batch pulled refreshed checked_tree= verification_failed commit publish rejected_commit=
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
@@ -862,7 +862,8 @@ push_kept() {
       clash=
     fi
     if [ -n "$video_recheck" ]; then
-      if ! pulled=$(git rev-parse HEAD) || ! video_recheck_pull_kept_batch "$batch" origin/main "$pulled"; then
+      if ! refreshed=$(git rev-parse origin/main) || ! pulled=$(git rev-parse HEAD) ||
+        ! video_recheck_pull_kept_batch "$batch" "$refreshed" "$pulled"; then
         KEPT_WHY="the first pull did not retain the video recheck batch"
         return 1
       fi
@@ -870,8 +871,13 @@ push_kept() {
         KEPT_WHY="video recheck rules changed during this run"
         return 1
       fi
+      if ! replan_merged "$clash" "$refreshed"; then
+        KEPT_WHY="could not replan main's calendar"
+        return 1
+      fi
+    else
+      replan_merged "$clash"
     fi
-    replan_merged "$clash"
     # Main's pages put back is a tree the checks haven't seen: on a try after a lost push, back over what the sweep made of
     # them (Grok's read of 19652e876, 14 Nov). main_pages commits only when it changed something, and so do main's holds
     # (main_holds), after it: a page it put back whole is main's already.
@@ -1146,11 +1152,16 @@ keep_lost_push() {
 # line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of
 # 2026-11-08, against an editor's re-plan): its tests failed and the part's photos waited a cycle. So when the calendar
 # is among the clashing files ($1), it is main's, planned again on this cycle's photos, as the curate step plans.
+# Video rechecks pass the fetched main commit ($2) and defer publishing if the replan fails.
 replan_merged() {
   [[ " $1 " == *" content/curation.json "* ]] || return 0
-  git show '@{u}:content/curation.json' > content/curation.json
-  pnpm engine curate || log "curate: failed"
-  git add content/curation.json
+  local main=${2:-'@{u}'}
+  git checkout "$main" -- content/curation.json || return 1
+  if ! pnpm engine curate; then
+    log "curate: failed"
+    [ -z "${2:-}" ] || return 1
+  fi
+  git add content/curation.json || return 1
   git diff --cached --quiet || git commit -q -m "content: the calendar planned again on main's"
 }
 # A clean pull here brings main's holds as push() does (main_holds): a species or plant page merges by field and never

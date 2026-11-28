@@ -740,6 +740,58 @@ test.each(['', '-out2'])('two video batches with the same recovery time both pub
   expect(c.branches()).toEqual([])
 }, slow(60_000))
 
+test.each([
+  ['fresh', false], ['kept', false], ['held', false],
+  ['fresh', true], ['kept', true], ['held', true],
+] as const)('a %s video recheck replans main’s calendar before publishing without upstream (failure: %s)', (kind, fails) => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const saved = `${kind}/video-recheck/${when}`
+  c.sh('echo before > content/curation.json && git add content/curation.json && git commit -qm calendar && git push -q')
+  const batch = c.sh(`
+    echo removed > content/curation.json
+    echo rechecked > content/video.json
+    git add content/curation.json content/video.json
+    git commit -qm 'content: video guides checked again (fixture)'
+    git rev-parse HEAD
+  `)
+  if (kind !== 'fresh') c.sh(`git branch ${saved} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new-code')
+  c.sh(`
+    echo editor > "$HOME/other/content/curation.json"
+    git -C "$HOME/other" add content/curation.json
+    git -C "$HOME/other" commit -qm editor
+    git -C "$HOME/other" push -q
+    git fetch -q origin
+    git branch --unset-upstream
+  `)
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    pnpm() {
+      [ "$1 $2" = "engine curate" ] || return 0
+      printf 'CURATE %s\n' "$(cat content/curation.json)"
+      ${fails ? 'echo incomplete > content/curation.json; return 1' : 'printf "%s, replanned\n" "$(cat content/curation.json)" > content/planned && mv content/planned content/curation.json'}
+    }
+    verify_cycle() { printf 'VERIFIED %s\n' "$(cat content/curation.json)"; }
+    ${kind === 'fresh' ? 'push_video_recheck || echo refused' : 'publish_kept video-recheck'}
+  `)
+  expect(log).toContain('CURATE editor')
+  if (fails) {
+    expect(log).not.toContain('VERIFIED')
+    expect(c.onMain('content/curation.json')).toBe('editor')
+    expect(c.onMain('content/video.json')).toBe('')
+    const branches = c.branches()
+    expect(branches).toHaveLength(1)
+    expect(c.sh(`git rev-parse ${branches[0]}`)).toBe(batch)
+  } else {
+    expect(log).toContain('VERIFIED editor, replanned')
+    expect(c.onMain('content/curation.json')).toBe('editor, replanned')
+    expect(c.onMain('content/video.json')).toBe('rechecked')
+    expect(c.branches()).toEqual([])
+  }
+}, slow(60_000))
+
 test('a fresh video recheck publishes to origin/main without a configured upstream', () => {
   const c = clone()
   c.sh('git branch --unset-upstream && echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')

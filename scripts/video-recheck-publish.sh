@@ -56,6 +56,8 @@ push_video_recheck() {
         git rebase --abort 2>/dev/null || true
         continue
       fi
+    else
+      clash=
     fi
     refreshed=$(git rev-parse origin/main) || break
     if ! pulled=$(git rev-parse HEAD) || ! video_recheck_pull_kept_batch "$batch" "$refreshed" "$pulled"; then
@@ -64,6 +66,10 @@ push_video_recheck() {
     fi
     if ! video_recheck_rules_current; then
       keep_lost_push video-recheck "video recheck rules changed during this run" "$batch"
+      return 1
+    fi
+    if ! replan_merged "$clash" "$refreshed"; then
+      keep_lost_push video-recheck "could not replan main's calendar" "$batch"
       return 1
     fi
     if [ "$refreshed" != "$batch_base" ]; then
