@@ -643,13 +643,13 @@ video_recheck_rules_current() {
       scripts/cycle-checks.sh scripts/video-recheck.sh scripts/video-recheck-publish.sh \
       .nvmrc .npmrc pnpm-workspace.yaml pnpm-lock.yaml ':(glob)**/package.json'
 }
-# A rebase can end at main if it lost its starting commit or if main already contains the work.
-# When no commits remain above main, accept that only if combining the original batch adds nothing.
+# A rebase can skip a patch that main applied and later reverted, even while replaying other commits.
+# When the original commits were rewritten, verify that merging the whole batch would add nothing.
 video_recheck_pull_kept_batch() {
   local pulled upstream combined
   pulled=$(git rev-parse HEAD) && upstream=$(git rev-parse "$2") || return 1
   git merge-base --is-ancestor "$upstream" "$pulled" || return 1
-  if [ "$pulled" != "$upstream" ] || git merge-base --is-ancestor "$1" "$pulled"; then return 0; fi
+  if git merge-base --is-ancestor "$1" "$pulled"; then return 0; fi
   combined=$(git merge-tree --write-tree "$pulled" "$1" 2>/dev/null) || return 1
   [ "$combined" = "$(git rev-parse "$pulled^{tree}")" ]
 }

@@ -592,6 +592,36 @@ test.each([false, true])('a fresh video recheck handles a patch main already app
   if (reverted) expect(c.sh(`git show ${branches[0]}:content/video.json`)).toBe('rechecked')
 }, slow(60_000))
 
+test.each([false, true])('kept video recovery requires the guide change as well as the sweep when main reverted the guide: %s', reverted => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const kept = `kept/video-recheck/${when}`
+  c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')
+  const candidate = c.sh(`echo swept > content/sweep.json && git add content/sweep.json && git commit -qm sweep && git branch ${kept} && git rev-parse HEAD`)
+  c.sh('git reset -q --hard origin/main')
+  c.elsewhere('content/video.json', 'rechecked')
+  if (reverted) c.sh('git -C "$HOME/other" revert --no-edit HEAD && git -C "$HOME/other" push -q')
+  const remoteHead = () => c.sh('git ls-remote origin refs/heads/main | cut -f1')
+  const before = remoteHead()
+  const log = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    publish_kept video-recheck
+  `)
+  if (reverted) {
+    expect(log).toContain("isn't published yet")
+    expect(remoteHead()).toBe(before)
+    expect(c.branches()).toEqual([kept])
+    expect(c.sh(`git rev-parse ${kept}`)).toBe(candidate)
+    expect(c.onMain('content/video.json')).toBe('')
+    expect(c.onMain('content/sweep.json')).toBe('')
+  } else {
+    expect(log).toContain(`LOG published ${kept}`)
+    expect(c.branches()).toEqual([])
+    expect(c.onMain('content/video.json')).toBe('rechecked')
+    expect(c.onMain('content/sweep.json')).toBe('swept')
+  }
+}, slow(60_000))
+
 test('video recheck preparation excludes an ignored fixture parent read by the material loader', async () => {
   const c = clone()
   const fixture = 'apps/site/test/fixture-content'
