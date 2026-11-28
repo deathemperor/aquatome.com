@@ -5,7 +5,7 @@ import { readPhotoMap, writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { completedDeadVerdict, DEAD_SCREEN_FILE, deadScreenPhotoUrls, IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections, heldPhotoVersion, photoVersionAddressSet, photoRejections } from '@aq/schema'
+import { deadScreenPhotoUrls, IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections, photoRejections } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -15,7 +15,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, validSubjectVerdict, type PhotoVerdict } from './photo-check'
-import { permittedPhotoSource, readPhotoSources, readPhotoWaits } from './photo-visibility'
+import { permittedPhotoSource, readPhotoSources, readPhotoWaits, readReviewedPhotoVersion } from './photo-visibility'
 import { CAPTIONED } from './captions'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, mayHoldEmail, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
@@ -42,7 +42,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { rejectedEntry } from './photos'
-import { captureWaiting, entriesDir, gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readPassedBefore, readSecondLook, unlistCleared, withoutClearedWaits, type History, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readSecondLook, unlistCleared, withoutClearedWaits, type History, type Stood } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
@@ -503,10 +503,7 @@ async function neverAgain(root: string) {
   if (rejected !== saved) await writePhotoState(file, rejected)
   const kept = keptOwnMark(rejected, marks)
   const secondLook = await readSecondLook(root)
-  const passed = photoVersionAddressSet(await readPassedBefore(root))
-  const reviewed = heldPhotoVersion(secondLook)
-  const screened = await readPhotoMap(join(root, 'engine-state', DEAD_SCREEN_FILE))
-  const entry = photoRejections(rejected, marks, url => reviewed(url) || passed(url) || completedDeadVerdict(screened[url]))
+  const entry = photoRejections(rejected, marks, await readReviewedPhotoVersion(root))
   // One marked off at its first verdict is off whatever its entry says: a mark the shop's own kept doesn't keep a dead
   // fish on the page (last-photo.ts; the independent reader, 20 Nov).
   const marked = looks(secondLook).off

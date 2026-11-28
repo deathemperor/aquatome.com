@@ -1,11 +1,11 @@
-import { readPhotoMap } from './photo-state'
+import { readReviewedPhotoVersion } from './photo-visibility'
 import { noteAlbumTakeOffs, recordAlbumTakeOffs, recordListedAlbumTakeOffs, type AlbumTakeOffEvidence } from './album-takeoffs'
 import { piece } from './pieces'
 import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, completedDeadVerdict, DEAD_SCREEN_FILE, heldPhotoVersion, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, photoVersionAddressSet, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo, type PhotoRejection } from '@aq/schema'
+import { GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo, type PhotoRejection } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -16,7 +16,7 @@ import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, unfitCommons } from './photos'
-import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readPassedBefore, readSecondLook, withoutClearedWaits, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutClearedWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -554,10 +554,7 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   let openverseFailures = 0
   const today = d.now().toISOString().slice(0, 10)
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
-  const reviewed = heldPhotoVersion(sl)
-  const passed = photoVersionAddressSet(await readPassedBefore(root))
-  const screened = await readPhotoMap(join(root, 'engine-state', DEAD_SCREEN_FILE))
-  const listed = photoRejections(cleanupRejected, {}, url => reviewed(url) || passed(url) || completedDeadVerdict(screened[url]))
+  const listed = photoRejections(cleanupRejected, {}, await readReviewedPhotoVersion(root))
   const effectiveRejection: typeof listed = url => {
     const entry = listed(url)
     return entry?.[1].startsWith('watermark:') && (markKept(url) || markKept(entry[0])) ? undefined : entry

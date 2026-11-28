@@ -314,13 +314,20 @@ export function heldPhotoVersion(records: Record<string, unknown> = {}): (url: s
   }
 }
 
-/** A separately passed or reviewed rendition does not borrow a first refusal from a different crop. */
+/** Keep a rendition’s own review. A live verdict addresses a different crop’s dead-fish refusal only. */
 export function reviewedPhotoVersion(
   reviews?: Record<string, unknown>, check?: Record<string, unknown>, subjects?: Record<string, unknown>, screen?: Record<string, unknown>,
-): (url: string) => boolean {
+): (url: string, refusal?: [string, string]) => boolean {
   const held = heldPhotoVersion(reviews)
   const passed = photoVersionAddressSet(passedBefore(subjects, check))
-  return url => held(url) || passed(url) || completedDeadVerdict(screen?.[url])
+  return (url: string, refusal?: [string, string]) => {
+    if (held(url) || passed(url)) return true
+    if (!refusal || (screen?.[url] as { dead?: unknown } | undefined)?.dead !== false) return false
+    const [address, reason] = refusal
+    const waiting = reason.startsWith('waiting:') ? (reviews?.[address] as LookMark | undefined)?.why : undefined
+    const why = typeof waiting === 'string' ? waiting : reason
+    return why.startsWith('dead:')
+  }
 }
 
 /** An unanswered hold stays with the photo when its source is mirrored. */
