@@ -12,7 +12,7 @@ import { LlmError } from './claude'
 import { contactSheet, stillDone } from './video-images'
 import type { StillsState } from './video-stills'
 import { stripPhotos } from './watermarks'
-import { holdForSecondLook, looks, readSecondLook } from './last-photo'
+import { holdForSecondLook, looks, readSecondLook, verdictAddressSet } from './last-photo'
 
 /**
  * No people and no logos in the pictures the subject check (photo-check.ts) doesn't look at: every guide's photos (the
@@ -203,7 +203,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {} // re-read: entries another step added meanwhile stay
   // A guide's photo that is also the last photo of a species, plant or breed page doesn't go on the list, which would
   // take it off that page too: it waits for a second look (last-photo.ts). It still leaves the guides.
-  const sl = looks(await readSecondLook(root))
+  const sl = looks(await readSecondLook(root), reviewed)
   const ownMark = photoAddressSet(Object.keys(marks).filter(url => retainedOwnMark(url, marks[url])))
   const verdictOff = (url: string, brandKept: boolean) => guidePhotoOff(cache[url], brandKept, ownMark(url))
   const listing = new Map([...items.values()].flatMap(x => {
@@ -212,7 +212,9 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   }))
   const removesWrapper = photoAddressSet([...listing].flatMap(([url, reason]) => versionRejection(reason) ? [] : [url]))
   const last = await holdablePhotoVerdicts(root, now, new Set(listing.keys()), removesWrapper)
-  const heldAddress = photoAddressSet(last.keys())
+  const heldWhole = photoAddressSet([...last.keys()].filter(removesWrapper))
+  const heldVersions = verdictAddressSet([...last.keys()].filter(url => !removesWrapper(url)), new Set(listing.keys()))
+  const heldAddress = (url: string) => heldWhole(url) || heldVersions(url)
   const holding = new Map<string, { why: string; pages: string[] }>()
   for (const x of items.values()) {
     const why = verdictOff(x.url, x.equipment || x.still)
@@ -222,7 +224,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   }
   await holdForSecondLook(root, holding, 'the guide photo check')
   await writePhotoState(state(GUIDE_LOOKS_FILE), Object.fromEntries(Object.entries(cache).sort()))
-  await recordPhotoRefusals(rejectedFile, now, new Map([...listing].filter(([url]) => !heldAddress(url))))
+  await recordPhotoRefusals(rejectedFile, now, new Map([...listing].filter(([url]) => !heldAddress(url))), marks, reviewed)
   await writePhotoState(rejectedFile, now)
   for (const file of files) {
     const raw = await readFile(file, 'utf8')

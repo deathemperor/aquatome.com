@@ -910,8 +910,8 @@ test('a published agreement prunes a capture superseded before its first commit'
   expect(await keptFor(photoAt.url)).toEqual([])
 })
 
-test('a crop cleared on a separate review cannot satisfy the mirror’s recovery', async () => {
-  const { r } = await runRepo({ aaa: [] })
+test.each(['separate clear', 'separate pass', 'clear followed by rebase'])('a separate crop cannot satisfy the mirror’s recovery (%s)', async scenario => {
+  const { r, git } = await runRepo({ aaa: [] })
   const square = { ...photo('square'), url: 'https://live.staticflickr.com/123/456_abc_q.jpg', licence: 'CC BY 4.0' }
   const mirror = { ...square, url: `https://media.aquatome.com/${mirrorPlan(square.url)!.key}` }
   const file = 'content/gallery/aaa.json'
@@ -921,12 +921,26 @@ test('a crop cleared on a separate review cannot satisfy the mirror’s recovery
   const reviews = await json(r, SL)
   const look = { said: 'clear', by: 'reviewer', on: today() }
   reviews[mirror.url].look = look
-  reviews[square.url] = { why, pages: ['species/aaa'], at: today(), step: 'the photo check', look }
+  if (scenario === 'separate pass') {
+    await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({ [square.url]: { ok: 'yes', logo: false } }))
+  } else reviews[square.url] = { why, pages: ['species/aaa'], at: today(), step: 'the photo check', look }
   await writeFile(join(r, SL), JSON.stringify(reviews))
   await writeFile(join(r, file), JSON.stringify({ ...album, photos: [square] }))
 
+  git('add', '-A'); git('commit', '-qm', 'mirror clear awaiting restore')
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD')
   await putBackCleared(r, async () => [])
 
+  expect((await json(r, file)).photos).toEqual([mirror, square])
+  if (scenario !== 'clear followed by rebase') return
+  git('add', '-A'); git('commit', '-qm', 'unpublished mirror restore')
+  git('switch', '-qc', 'concurrent-main', 'refs/remotes/origin/main')
+  await writeFile(join(r, 'editor-note.txt'), 'Unrelated editorial work\n')
+  git('add', '-A'); git('commit', '-qm', 'main advances')
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+  git('switch', '-q', 'main')
+  git('rebase', 'refs/remotes/origin/main')
+  await putBackCleared(r, gitHistory(r))
   expect((await json(r, file)).photos).toEqual([mirror, square])
 })
 
@@ -1837,7 +1851,7 @@ test('retry after recaption and reorder preserves both Flickr aliases and their 
   expect((await json(r, 'content/gallery/aaa.json')).photos).toEqual([corrected, source])
 })
 
-test('a published agreement prunes the private entry of a renumbered capture', async () => {
+test.each(['agree', 'clear'])('a published %s prunes a renumbered capture and its predecessor', async decision => {
   const main = await runRepo({ aaa: [] }), other = await runRepo({ aaa: [] })
   const file = 'content/gallery/aaa.json'
   const plain = photo('same-position')
@@ -1846,14 +1860,21 @@ test('a published agreement prunes the private entry of a renumbered capture', a
   for (const [repo, photo] of [[main, plain], [other, edited]] as const) {
     await holdForSecondLook(repo.r, new Map([[plain.url, hold]]), 'the photo check', today(), new Map([[plain.url, [{ file, index: 0, photo }]]]))
   }
+  await notePlaces(other.r, new Map([[plain.url, [{ file, index: 0, photo: { ...edited, caption: 'Corrected caption' } }]]]))
   const merged = mergeMaps({}, await json(main.r, SL), await json(other.r, SL))
   expect(merged[plain.url].left).toContainEqual(expect.objectContaining({ occurrence: 1, capturedOccurrence: 0 }))
   await writeFile(join(main.r, SL), JSON.stringify(merged))
-  await main.agree()
-  await listAgreed(main.r)
-  main.git('add', '-A'); main.git('commit', '-qm', 'publish the agreement')
+  await writeFile(join(main.r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [plain.url]: waitingEntry(why) }))
+  if (decision === 'agree') {
+    await main.agree()
+    await listAgreed(main.r)
+  } else {
+    await main.clear()
+    expect((await putBackCleared(main.r, gitHistory(main.r))).back).toHaveLength(2)
+  }
+  main.git('add', '-A'); main.git('commit', '-qm', 'publish the decision')
   main.git('update-ref', 'refs/remotes/origin/main', 'HEAD')
-  expect(await keptFor(plain.url)).toHaveLength(2)
+  expect(await keptFor(plain.url)).toHaveLength(3)
 
   await putBackCleared(main.r, gitHistory(main.r))
 

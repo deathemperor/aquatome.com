@@ -166,15 +166,19 @@ test("a video re-check sweeps its work and commits it before its tests, as the v
   expect(commit).toBeLessThan(s.indexOf('verify_cycle'))
 })
 
-test.each(['engine-cycle.sh', 'video-cycle.sh', 'video-recheck.sh'])(
-  '%s keeps the original unpublished commit if its second push sweep fails',
-  filename => {
+test.each([
+  ['engine-cycle.sh', false], ['engine-cycle.sh', true], ['video-cycle.sh', false], ['video-recheck.sh', false],
+] as const)(
+  '%s keeps the original commit when a push sweep fails (initial catch-up: %s)',
+  (filename, initialCatchUp) => {
     const code = script(filename)
     const push = filename === 'engine-cycle.sh'
       ? code.match(/\npush\(\) \{\n[\s\S]*?\n\}/)?.[0]
       : code.match(/\n(?:SWEEP_ORIGINAL_HEAD=.*\n)?for _ in 1 2 3; do\n[\s\S]*?\ndone/)?.[0]
     expect(push).toBeDefined()
     const attemptPush = filename === 'engine-cycle.sh' ? push : `push() ( ${push}\n)`
+    const publish = code.match(/\n(?:SWEEP_ORIGINAL_HEAD=.*\n)?catch_up\nsweep_merged\n[\s\S]*$/)?.[0]
+    if (initialCatchUp) expect(publish).toBeDefined()
     const run = `
       source '${join(ROOT, 'scripts/cycle-checks.sh')}'
       ${attemptPush}
@@ -200,15 +204,17 @@ test.each(['engine-cycle.sh', 'video-cycle.sh', 'video-recheck.sh'])(
       pnpm() {
         [ "$2" != sweep ] && return 0
         echo "sweep $AQ_PHOTO_PRE_REBASE"
-        [ "$attempt" -eq 1 ]
+        [ "$attempt" -lt ${initialCatchUp ? 3 : 2} ]
       }
       main_holds() { return 0; }
       swept_clean() { [ -z "$SWEEP_FAILED" ]; }
       verify_cycle() { [ -z "$SWEEP_FAILED" ]; }
       keep_unpublished() { echo "kept $SWEEP_RETRY_HEAD"; }
-      push || :
+      ${initialCatchUp ? publish : 'push || :'}
     `
-    const out = execSync(run, { shell: '/bin/bash', encoding: 'utf8' })
-    expect(out.trim().split('\n')).toEqual(['sweep run-0', 'sweep run-1', 'kept run-0'])
+    const out = execSync(initialCatchUp ? run.replace('push || exit 1', 'push || :') : run, { shell: '/bin/bash', encoding: 'utf8' })
+    expect(out.trim().split('\n')).toEqual([
+      'sweep run-0', 'sweep run-1', ...(initialCatchUp ? ['sweep run-2'] : []), 'kept run-0',
+    ])
   },
 )

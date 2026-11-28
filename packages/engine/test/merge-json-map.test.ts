@@ -23,6 +23,17 @@ test('moving an incoming capture around a settled edition preserves later incomi
   expect(merged.u.back).toBeUndefined()
 })
 
+test('staged album receipts preserve both album inventories when merged', () => {
+  const url = 'https://media.example/sample.webp'
+  const first = { albums: { 'alpha.json': 1 } }
+  const second = { albums: { 'alpha.json': 2, 'beta.json': 1 } }
+  const expected = { [url]: second }
+  expect(mergeMaps({}, { [url]: first }, { [url]: second })).toEqual(expected)
+  expect(mergeMaps({}, { [url]: second }, { [url]: first })).toEqual(expected)
+  expect(mergeMaps({}, { [url]: true }, { [url]: second })).toEqual(expected)
+  expect(mergeMaps({}, { [url]: { applied: true } }, { [url]: second })).toEqual({ [url]: { applied: true } })
+})
+
 test('keys added, changed or removed on either side all land; untouched keys stay', () => {
   const base = { a: 0, b: 0, c: 0 }
   const ours = { a: 1, b: 0, c: 0, x: 0 }
