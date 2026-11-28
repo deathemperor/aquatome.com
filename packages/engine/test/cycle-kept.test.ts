@@ -665,8 +665,8 @@ test.each([
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
   const suffix = queue === 'kept' ? '-out1' : ''
   const locked = `${queue}/video-recheck/${when}${suffix}`
-  const backup = `${queue}/video-recheck/${when}-save${suffix}`
   const batch = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD')
+  const backup = `${queue}/video-recheck/${when}_${batch}${suffix}`
   c.sh(`mkdir -p .git/refs/heads/${queue}/video-recheck && touch .git/refs/heads/${locked}.lock`)
   if (blockBoth) c.sh(`touch .git/refs/heads/${backup}.lock`)
   const log = c.cycle(`
@@ -694,8 +694,8 @@ test.each([false, true])('a fresh video recheck saves interrupted work when its 
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
   const kept = `kept/video-recheck/${when}`
-  const backup = `${kept}-save`
   const batch = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD')
+  const backup = `${kept}_${batch}`
   c.sh(`mkdir -p .git/refs/heads/kept/video-recheck && touch .git/refs/heads/${kept}.lock`)
   if (blockBoth) c.sh(`touch .git/refs/heads/${backup}.lock`)
   const log = c.cycle(`
@@ -716,6 +716,28 @@ test.each([false, true])('a fresh video recheck saves interrupted work when its 
     expect(c.branches()).toEqual([backup])
     expect(c.sh(`git rev-parse ${backup}`)).toBe(batch)
   }
+}, slow(60_000))
+
+test.each(['', '-out2'])('two video batches with the same recovery time both publish from the kept queue (existing count: %j)', count => {
+  const c = clone()
+  const when = '20261127T030000'
+  const kept = `kept/video-recheck/${when}${count}`
+  const earlier = c.sh(`echo first > content/first.json && git add content/first.json && git commit -qm 'content: video guides checked again (first)' && git branch ${kept} && git rev-parse HEAD`)
+  c.sh("git reset -q --hard origin/main && echo second > content/second.json && git add content/second.json && git commit -qm 'content: video guides checked again (second)'")
+  const log = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    date() {
+      if [ "$*" = '-u +%Y%m%dT%H%M%S' ]; then echo '${when}'; else command date "$@"; fi
+    }
+    keep_lost_push video-recheck refused
+    git reset -q --hard origin/main
+    test "$(git rev-parse ${kept})" = '${earlier}'
+    publish_kept video-recheck
+  `)
+  expect(log).toContain(`LOG published ${kept}`)
+  expect(c.onMain('content/first.json')).toBe('first')
+  expect(c.onMain('content/second.json')).toBe('second')
+  expect(c.branches()).toEqual([])
 }, slow(60_000))
 
 test('a fresh video recheck publishes to origin/main without a configured upstream', () => {

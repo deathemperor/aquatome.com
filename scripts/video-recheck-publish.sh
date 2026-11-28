@@ -19,10 +19,10 @@ sweep_new_video_recheck() {
 }
 
 push_video_recheck() {
-  local try run swept_main tree checked_tree='' refreshed pulled clash verification_failed commit candidate batch
+  local try run batch_base tree checked_tree='' refreshed pulled clash verification_failed commit candidate batch
   batch=$(git rev-parse HEAD) || return 1
   candidate=$batch
-  if ! swept_main=$(git merge-base "$batch" origin/main); then
+  if ! batch_base=$(git merge-base "$batch" origin/main); then
     keep_lost_push video-recheck "could not find the batch's base on origin/main" "$batch"
     return 1
   fi
@@ -35,6 +35,14 @@ push_video_recheck() {
     if ! prepare_video_recheck; then
       keep_lost_push video-recheck "the checkout had changes before publishing" "$batch"
       return 1
+    fi
+    # Reconcile main from the unmodified batch again if a publish attempt lost.
+    if [ "$run" != "$batch" ]; then
+      if ! git reset -q --hard "$batch"; then
+        keep_lost_push video-recheck "could not return to the original video recheck batch" "$batch"
+        return 1
+      fi
+      candidate=$batch
     fi
     if ! net git pull -q --rebase origin main; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
@@ -58,13 +66,12 @@ push_video_recheck() {
       keep_lost_push video-recheck "video recheck rules changed during this run" "$batch"
       return 1
     fi
-    if [ "$refreshed" != "$swept_main" ]; then
-      main_holds "$run" "$refreshed" || true
+    if [ "$refreshed" != "$batch_base" ]; then
+      main_holds "$batch" "$refreshed" || true
       if ! sweep_merged strict; then
         keep_lost_push video-recheck "the sweep did not finish and commit" "$batch"
         return 1
       fi
-      swept_main=$refreshed
     fi
 
     # Check the tree that includes the latest main. A disjoint content change can affect cross-page checks.

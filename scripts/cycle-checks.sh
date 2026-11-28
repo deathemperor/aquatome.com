@@ -279,12 +279,13 @@ keep_unpublished() {
   # Its callers go on to say they aren't publishing, under set -e.
   return 0
 }
-# Preserve the queue and timeout count when the first ref is locked or already in use.
+# Give an occupied timestamp a separate batch identity while preserving the queue and timeout count.
 keep_video_recheck_ref() {
-  local branch=$1 saved=$2 base
-  if ! keep_branch "$branch" "$saved" new >&2; then
-    base=$(uncounted "$branch")
-    branch="$base-save${branch#"$base"}"
+  local branch=$1 saved base
+  saved=$(git rev-parse --verify "$2^{commit}") || return 1
+  base=$(uncounted "$branch")
+  if [ -n "$(batch_names "${base#*/}")" ] || ! keep_branch "$branch" "$saved" new >&2; then
+    branch="${base}_${saved}${branch#"$base"}"
     if ! keep_branch "$branch" "$saved" new >&2; then
       archive_video_recheck_ref "$branch" "$saved" >&2 || log "could not archive $branch at $saved" >&2
       return 1
@@ -836,9 +837,17 @@ push_kept() {
       return 1
     fi
     main=$(git rev-parse origin/main 2>/dev/null || true) run=$(git rev-parse HEAD) swept=
-    if [ -n "$rejected_commit" ] && [ "$run" != "$rejected_commit" ]; then
-      KEPT_WHY="the checkout moved after a rejected video recheck push"
-      return 1
+    if [ -n "$rejected_commit" ]; then
+      if [ "$run" != "$rejected_commit" ]; then
+        KEPT_WHY="the checkout moved after a rejected video recheck push"
+        return 1
+      fi
+      # Reapply main's holds and the sweep to the original batch on each attempt.
+      if ! git reset -q --hard "$batch"; then
+        KEPT_WHY="could not return to the original video recheck batch"
+        return 1
+      fi
+      run=$batch
     fi
     if [ -n "$video_recheck" ]; then
       # A fetch can update origin/main before this try pulls it into the checked tree.
