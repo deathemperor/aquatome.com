@@ -600,6 +600,19 @@ test("main-holds.mjs answers a caller of the older script as it did", () => {
   expect(arbiter.out).not.toContain('harm content/guides/youtube-x/th.json')
 })
 
+test.each([false, true])('the older caller reports the valid hold alongside a malformed page (review changed: %s)', reviewChanged => {
+  const old = { ...heldFor('source'), at: '2026-11-14' }
+  const malformed = reviewChanged ? 'content/guides/youtube-x/th.json' : 'content/guides/youtube-z/vi.json'
+  const thai = reviewChanged ? { th: { fit: old } } : {}
+  const r = push('guides', {
+    base: { held: hold('source'), fit: old, ...thai },
+    main: { held: hold('source'), fit: heldFor('source'), ...(reviewChanged ? { th: { fit: clean } } : {}) },
+    run: { fit: old, ...thai, files: { [malformed]: '{broken json\n' } },
+  }, { oldCaller: true })
+  expect(r.out).toContain('NODE 0')
+  expect(r.out.match(/^hold .*$/gm)).toEqual(['hold content/guides/youtube-x/vi.json'])
+})
+
 test('a release without a new review leaves the run’s hold on its rewritten fish page', () => {
   const body = '<p>Một văn bản mới.</p>'
   const r = push('species', {
@@ -682,6 +695,19 @@ test('recovery leaves a guide open when the saved review matches the outgoing te
   expect(r.pushed.body).toBe(DEFAULT_BODY)
   expect(r.pushedRecord.hash).toBe(defaultHash)
   expect(r.pushed.held).toBeUndefined()
+})
+
+test('recovery holds a queued translation when its saved review omitted a now-visible part', () => {
+  // This batch is already based on main with the diet enabled. Its Thai record is from before that change.
+  const main = { sections: SECTIONS, fit: clean, files: { 'content/one-voice.json': '{}\n' } }
+  const r = push('species', {
+    base: main,
+    main,
+    run: { ...main, th: { sections: SECTIONS, fit: { ...clean, hash: 'diet-hidden' } } },
+  }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushedTh().sections).toEqual(SECTIONS)
+  expect(r.pushedTh().held?.checks).toEqual([])
 })
 
 test('the older caller restores a hold when the only other change is a part selection', () => {

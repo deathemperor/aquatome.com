@@ -71,6 +71,10 @@ const at = (rev, file) => {
   if (!seen.has(k)) seen.set(k, git('ls-tree', '--full-tree', '--name-only', rev, '--', file).trim() ? parseObject(git('show', k), k) : undefined)
   return seen.get(k)
 }
+// An already-running two-argument caller expects each unreadable record to be skipped.
+const legacyAt = (rev, file) => {
+  try { return JSON.parse(git('show', `${rev}:${file}`)) } catch { return undefined }
+}
 // Many files at once, for the harm look-up over every language of the pages compared: one `git cat-file --batch`.
 const atAll = (rev, files) => {
   const want = files.filter(f => !seen.has(`${rev}:${f}`))
@@ -192,7 +196,8 @@ function main() {
   // Releases still to decide on another language's harm: file → the page to write, or undefined to take main's whole.
   const releases = new Map()
   const unread = { checks: [], at: new Date(Date.now() + 7 * 3600_000).toISOString().slice(0, 10) }
-  const fit = { base: at(base, FIT) ?? {}, main: at(main, FIT) ?? {}, head: at('HEAD', FIT) ?? {} }
+  const lookup = run ? at : legacyAt
+  const fit = { base: lookup(base, FIT) ?? {}, main: lookup(main, FIT) ?? {}, head: lookup('HEAD', FIT) ?? {} }
   // Include languages added by the run when main changed which text their page shows.
   const since = rev => withSelection(different(base, rev), base, rev)
   const mainChanged = new Set(run ? since(main) : [])
@@ -201,19 +206,20 @@ function main() {
   for (const f of changed) {
     const [, kind, id, lang] = FILE.exec(f)
     const key = `${lang}/${kind}/${id}`
-    const ours = at('HEAD', f)
-    if (!ours) continue
-    const theirs = at(main, f)
-    const mine = run ? at(run, f) : undefined
     const mainRecord = fit.main[key]
     const recordWon = same(fit.head[key], mainRecord)
     const mainRead = (!run || mainRecord !== undefined) && !same(fit.base[key], mainRecord) && recordWon
+    if (!run && !mainRead) continue
+    const ours = lookup('HEAD', f)
+    if (!ours) continue
+    const theirs = lookup(main, f)
+    const mine = run ? at(run, f) : undefined
     const mainText = run && theirs && same(readAt('HEAD', f, ours), readAt(main, f, theirs))
     const runText = run && mine && same(readAt('HEAD', f, ours), readAt(run, f, mine))
     const release = mainRead && mainText && !theirs.held && (ours.held || mine?.held)
     // Older queued work can carry either side's review after its original merge base is no longer visible.
-    const savedReview = !ours.held && theirs && !mainText &&
-      (mode === 'recovery' ? fit.head[key] : mainRecord && recordWon)
+    const savedReview = !ours.held && !mainText &&
+      (mode === 'recovery' ? fit.head[key] : theirs && mainRecord && recordWon)
     comparisons.push({ f, key, ours, theirs, mine, mainRead, mainText, runText, proof: run && (release || savedReview) })
   }
   const hashes = publishedHashes(comparisons.filter(c => c.proof).map(c => c.f))
@@ -260,7 +266,7 @@ function main() {
   const taken = new Set(out.filter(([what]) => what === 'hold').map(([, f]) => f))
   // A file's hold as this ends, a release aside (decided below): written here, main's taken whole, or the merge's. The
   // older caller decides releases on the merge's holds, as the older script did (a reader of #1703).
-  const heldAtEnd = f => (!run ? at('HEAD', f) : written.has(f) ? written.get(f)[1] : at(taken.has(f) ? main : 'HEAD', f))?.held
+  const heldAtEnd = f => (!run ? legacyAt('HEAD', f) : written.has(f) ? written.get(f)[1] : at(taken.has(f) ? main : 'HEAD', f))?.held
   const harmAtEnd = f => !releases.has(f) && !!heldAtEnd(f)?.checks?.includes('harm')
   // Harm in one language holds the page's every language, as gate.ts does. Of each page this compares, every language
   // file is looked at as the push ends, one the same as main's too: a hold for harm written here, main's taken, or the
