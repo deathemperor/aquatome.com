@@ -83,7 +83,7 @@ pnpm engine watermarks --limit 20 || log "watermarks: failed"
 # (content/video-titles/on.json); then a foreign video without one isn't shown.
 for lang in vi id th ms; do pnpm engine video-titles --lang "$lang" --limit "${VIDEO_TITLES_LIMIT:-3}" || log "video-titles $lang: failed"; done
 # The content rules' safe fixes, as in the GitHub cycle (a new guide whose title promises a count it lacks: the tests fail on it).
-pnpm engine sweep || log "sweep: failed"
+sweep_for_publish
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
 # and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
@@ -99,7 +99,7 @@ pnpm engine sweep || log "sweep: failed"
 export GATE_HELD_MENDS="${GATE_HELD_MENDS:-4}"
 export GATE_MENDS="${GATE_MENDS:-2}"
 gate_or_keep "content: videos" content engine-state docs/review || exit 1
-if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
+if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then [ -z "${SWEEP_FAILED:-}" ] || exit 1; log "no changes"; exit 0; fi
 # Committed before the tests, as engine-cycle.sh does: the next run's reset drops uncommitted work for good, and a commit
 # stays in the reflog to publish by hand (the run of 2026-11-07 lost its work to timeouts).
 git add content engine-state docs/review
@@ -107,6 +107,7 @@ git commit -q -m "content: videos $(date -u +%F)"
 if ! verify_cycle; then keep_unpublished videos; log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
 # The GitHub engine pushes too; the files above merge through their drivers. Lines both changed (the photo verdicts
 # review page) give way to this run's, as engine-cycle.sh does; then the tests run again on the merge.
+SWEEP_ORIGINAL_HEAD=$(git rev-parse HEAD)
 for _ in 1 2 3; do
   # main: the commit this work sits on, not the last main fetched, which a fetch before this pull (catch_up's, stopped
   # after its fetch) may have moved: swept_pull then sees main's commits come in (a reader's catch, 16 Nov).
@@ -116,14 +117,14 @@ for _ in 1 2 3; do
     git rebase --abort 2>/dev/null || true
     if git pull -q --rebase -X theirs; then
       main_holds "$run" || true
-      sweep_merged
+      sweep_merged "$run"
       verify_cycle || { keep_unpublished videos; log "tests failed after that merge, not publishing"; exit 1; }
     else
       git rebase --abort 2>/dev/null || true
     fi
   else
     main_holds "$run" || moved=1
-    if ! swept_pull "$main" || [ -n "$moved" ]; then
+    if ! swept_pull "$main" "$run" || [ -n "$moved" ]; then
       verify_cycle || { keep_unpublished videos; log "tests failed after the sweep on main's changes, not publishing"; exit 1; }
     fi
   fi

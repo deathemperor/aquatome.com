@@ -29,6 +29,7 @@ deploy() { gh workflow run deploy.yml -R "${GITHUB_REPOSITORY:-deathemperor/aqua
 # Push this part's commit on top of whatever landed during the run (code, the other parts' content).
 push() {
   local main run moved
+  local SWEEP_ORIGINAL_HEAD="${SWEEP_ORIGINAL_HEAD:-$(git rev-parse HEAD)}"
   for _ in 1 2 3; do
     # main: the commit this work sits on, not the last main fetched, which a fetch before this pull (catch_up's, stopped
     # after its fetch) may have moved: swept_pull then sees main's commits come in (a reader's catch, 16 Nov).
@@ -42,14 +43,14 @@ push() {
       if net git pull -q --rebase -X theirs; then
         replan_merged "$clash"
         main_holds "$run" || true
-        sweep_merged
+        sweep_merged "$run"
         verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
     else
       main_holds "$run" || moved=1
-      if ! swept_pull "$main" || [ -n "$moved" ]; then
+      if ! swept_pull "$main" "$run" || [ -n "$moved" ]; then
         verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after the sweep on main's changes, not publishing"; return 1; }
       fi
     fi
@@ -429,7 +430,7 @@ fi
 # comments and related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another
 # fish or a map taken off their page, card figures out of bounds hidden, titles promising a count their text lacks
 # rewritten (reviewer-gated) or their number dropped.
-pnpm engine sweep || log "sweep: failed"
+sweep_for_publish
 # A held video guide whose read names only sentences that go whole (the source talking, a foreign shop, a price, a
 # product; advice for a reader elsewhere waits for the mend) has them cut by code with no model, twelve guides a run, each cut sentence kept in
 # engine-state/_video-cut.json for the sentence-only mend to write the true ones back. A guide a cut could break, or one a
@@ -487,8 +488,11 @@ if [ -z "$(git status --porcelain -- content sources apps/site/src/i18n)" ]; the
   # Only the engine's own records changed (pages tried, photo verdicts, pages kept as they were): keep them, or the next
   # cycle redoes that work. The site doesn't read them, so no build and no deploy.
   if [ -n "$(git status --porcelain -- engine-state docs/review)" ]; then
-    git add engine-state docs/review && git commit -q -m "engine: $PART records $(date -u +%F)" && push || exit 1
+    git add engine-state docs/review && git commit -q -m "engine: $PART records $(date -u +%F)" || exit 1
+    if [ -n "${SWEEP_FAILED:-}" ]; then keep_unpublished "$PART"; log "sweep failed, not publishing records"; exit 1; fi
+    push || exit 1
   fi
+  [ -z "${SWEEP_FAILED:-}" ] || exit 1
   # Pages hidden or unhidden on the dashboard since the last deploy still need a build to leave (or rejoin) the lists.
   HIDDEN_JSON="$(curl -sf -H "authorization: Bearer $(cat "$HOME/.config/aquatome/ab-dash-token")" https://aquatome.com/_ab/hidden.json || true)"
   HIDDEN_NOW="$(printf '%s' "$HIDDEN_JSON" | shasum | cut -c1-40)"
@@ -500,9 +504,11 @@ if [ -z "$(git status --porcelain -- content sources apps/site/src/i18n)" ]; the
 fi
 git add content sources engine-state docs/review apps/site/src/i18n
 git commit -q -m "content: engine $PART $(date -u +%F)"
+if [ -n "${SWEEP_FAILED:-}" ]; then keep_unpublished "$PART"; log "sweep failed, not publishing content"; exit 1; fi
 # Checked on top of main as it is now (catch_up), not as it was when the cycle started hours ago: the suite must pass
 # (verify_cycle; deploy.yml builds the real site before it goes live). A commit that fails twice is held, unpublished,
 # unless its tests only ran out of time: then it's kept, and the next cycle publishes it first (keep_unpublished).
+SWEEP_ORIGINAL_HEAD=$(git rev-parse HEAD)
 catch_up
 sweep_merged
 if ! verify_cycle; then

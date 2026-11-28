@@ -5,6 +5,8 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { heldMendsOf } from '../src/gate'
 
+const checks = readFileSync(new URL('../../../scripts/cycle-checks.sh', import.meta.url), 'utf8')
+const sweep = /^sweep_for_publish\(\) \{[\s\S]*?^\}/m.exec(checks)![0]
 const script = readFileSync(new URL('../../../scripts/engine-cycle.sh', import.meta.url), 'utf8')
 
 // The steps from the metric step to the gate, run in one part on one machine with pnpm stood in for: the engine steps
@@ -15,7 +17,7 @@ function stepsRun(part: string, github: boolean, more: Record<string, string> = 
   expect(from).toBeGreaterThan(-1)
   expect(to).toBeGreaterThan(from)
   const dir = mkdtempSync(join(tmpdir(), 'aq-menders-'))
-  const r = spawnSync('bash', ['-c', `set -euo pipefail\nPART=${part}\npart() { [[ " $* " == *" $PART "* ]]; }\nlog() { :; }\npnpm() { echo "$2" >> "${dir}/ran"; }\n${script.slice(from, to)}`], {
+  const r = spawnSync('bash', ['-c', `set -euo pipefail\nPART=${part}\npart() { [[ " $* " == *" $PART "* ]]; }\nlog() { :; }\npnpm() { echo "$2" >> "${dir}/ran"; }\n${sweep}\n${script.slice(from, to)}`], {
     encoding: 'utf8',
     env: { PATH: process.env.PATH, GITHUB_ACTIONS: github ? 'true' : '', ...more },
   })

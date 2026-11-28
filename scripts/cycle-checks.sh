@@ -158,6 +158,7 @@ verify() {
   : >"$TEST_LOG"
   TIMED_OUT=
   if [ -n "${MIGRATE_FAILED:-}" ]; then log "photo records not migrated: not tested, not published"; return 1; fi
+  if [ -n "${SWEEP_FAILED:-}" ]; then log "the sweep on main did not finish: not tested, not published"; return 1; fi
   calm
   export AQ_TEST_TIME_SCALE
   for step in "$@"; do
@@ -224,10 +225,12 @@ keep_unpublished() {
   when=$(date -u +%Y%m%dT%H%M%S)
   if [ -n "${TIMED_OUT:-}" ]; then
     keep_branch "kept/$1/$when-out1" && log "tests ran out of time: this run's work is kept on kept/$1/$when-out1 for the next run"
-  elif [ -n "${MIGRATE_FAILED:-}" ]; then
+  elif [ -n "${MIGRATE_FAILED:-}${SWEEP_FAILED:-}" ]; then
     # The line the run's failure is reported with (engine-cycle.sh finish), as its callers then stop the run.
-    FAILED="photo records not migrated: this run's work is kept on kept/$1/$when for the next run"
-    keep_branch "kept/$1/$when" && log "$FAILED"
+    local reason="photo records not migrated"
+    [ -z "${SWEEP_FAILED:-}" ] || reason="the sweep on main did not finish"
+    FAILED="$reason: this run's work is kept on kept/$1/$when for the next run"
+    keep_branch "kept/$1/$when" "${SWEEP_RETRY_HEAD:-HEAD}" && log "$FAILED"
   else
     # Off main at once: a next run that couldn't fetch would carry on from this commit, and could publish it.
     keep_branch "held/$1/$when" && git reset -q --hard origin/main && log "checks failed twice: this run's work is on held/$1/$when, not published"
@@ -235,9 +238,9 @@ keep_unpublished() {
   # Its callers go on to say they aren't publishing, under set -e.
   return 0
 }
-# HEAD on branch $1, and in the cloud on GitHub's branch of that name.
+# Keep the given commit, defaulting to HEAD, on branch $1 and the same cloud branch.
 keep_branch() {
-  git branch -q -f "$1" HEAD || return 1
+  git branch -q -f "$1" "${2:-HEAD}" || return 1
   engine_cloud || return 0
   net git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
 }
@@ -259,8 +262,9 @@ drop_branch() {
 # and on GitHub a plain push moves a branch on when it's behind. A <to> already there fails it, here and on GitHub
 # (the lease that it isn't there); a delete here that fails takes back the branch just made.
 move_branch() {
-  if engine_cloud; then net git push -q --atomic --force-with-lease="refs/heads/$2:" origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1; fi
-  git branch -q "$2" HEAD || return 1
+  local work="${3:-HEAD}"
+  if engine_cloud; then net git push -q --atomic --force-with-lease="refs/heads/$2:" origin "$work:refs/heads/$2" ":refs/heads/$1" || return 1; fi
+  git branch -q "$2" "$work" || return 1
   git branch -q -D "$1" || { git branch -q -D "$2"; return 1; }
 }
 # `rename_branch <from> <to>`: the same work under another name (its count, count_outs), and in the cloud GitHub's in one
@@ -305,17 +309,23 @@ count_outs() {
     else log "$1 passed and couldn't lose its count, nor have $to beside it: only this run's FAULT line records the pass"; fi
     return 0
   fi
-  [ "$KEPT_WHY" = "tests out of time again" ] || return 0
+  case "$KEPT_WHY" in "tests out of time again"|"the sweep on main did not finish") ;; *) return 0 ;; esac
   n=$(($(outs "$1") + 1))
   if [ "$n" -ge "$OUT_CYCLES" ]; then
     OUT_FAILED=$n KEPT_FAILED=1
-    out_of_time_output "$(uncounted "$1")" "$n"
+    if [ -n "${SWEEP_FAILED:-}" ]; then
+      FAULT="${FAULT:+$FAULT; }$1 reached $n cycles without a finished publication sweep"
+    else
+      out_of_time_output "$(uncounted "$1")" "$n"
+    fi
     return 0
   fi
-  KEPT_WHY="tests out of time again: $n of $OUT_CYCLES cycles in a row"
+  KEPT_WHY="$KEPT_WHY: $n of $OUT_CYCLES cycles in a row"
   to="$(uncounted "$1")-out$n"
   if rename_branch "$1" "$to"; then BRANCH=$to; return 0; fi
-  FAULT="${FAULT:+$FAULT; }$1 ran out of time again and couldn't be renamed $to: it stays as $1, its count not moved on"
+  local why="ran out of time again"
+  [ -z "${SWEEP_FAILED:-}" ] || why="could not finish the sweep"
+  FAULT="${FAULT:+$FAULT; }$1 $why and couldn't be renamed $to: it stays as $1, its count not moved on"
   return 0
 }
 # A check of kept or held work that passed ends its row of time-outs then, before any push is tried (the chief of staff,
@@ -445,7 +455,7 @@ one_name() {
 # keeps it for the run after. Then this run's own work starts from main. `publish_kept <job>`, after the run's install
 # and merge drivers. In the cloud, the job's branches come from GitHub first.
 publish_kept() {
-  local branch held why as
+  local branch held why as held_at
   engine_clone || engine_cloud || return 0
   if engine_cloud; then
     net git fetch -q origin "+refs/heads/kept/$1/*:refs/heads/kept/$1/*" "+refs/heads/held/$1/*:refs/heads/held/$1/*" || log "the kept work on GitHub couldn't be fetched: left for the next run"
@@ -469,10 +479,15 @@ publish_kept() {
     if [ -n "$KEPT_FAILED" ]; then
       # Held at the bound keeps its count, so its one more try out of time again is its last (retry_held); a real
       # failure ends the row.
-      held="held/$(uncounted "${branch#kept/}")${OUT_FAILED:+-out$OUT_FAILED}"
+      held_at=
+      [ -z "${SWEEP_FAILED:-}" ] || held_at="-on$(git rev-parse origin/main)"
+      held="held/$(uncounted "${branch#kept/}")$held_at${OUT_FAILED:+-out$OUT_FAILED}"
       why="failed its tests twice"
-      [ -z "$OUT_FAILED" ] || why="ran out of time $OUT_FAILED cycles in a row"
-      if move_branch "$BRANCH" "$held"; then
+      if [ -n "$OUT_FAILED" ]; then
+        if [ -n "${SWEEP_FAILED:-}" ]; then why="could not finish the sweep $OUT_FAILED cycles in a row"
+        else why="ran out of time $OUT_FAILED cycles in a row"; fi
+      fi
+      if move_branch "$BRANCH" "$held" "${SWEEP_RETRY_HEAD:-HEAD}"; then
         log "$branch $why: on $held, not published"
       else
         log "$branch $why and couldn't be moved to $held: it stays kept for the next run"
@@ -483,6 +498,7 @@ publish_kept() {
       log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run$as"
       # Kept work held back by its records goes on to the next run, never silently: the run reports it when it ends, as
       # a failed run is reported (FAULT, engine-cycle.sh finish; the chief of staff, 13 Nov).
+      [ -z "${SWEEP_FAILED:-}" ] || FAULT="${FAULT:+$FAULT; }$branch isn't published: the sweep on main did not finish, and it stays kept"
       [ -z "${MIGRATE_FAILED:-}" ] || FAULT="${FAULT:+$FAULT; }$branch isn't published: its photo records couldn't be migrated, and it stays kept"
     fi
     net git fetch -q origin || true
@@ -491,7 +507,7 @@ publish_kept() {
   # On the Mac too since 14 Nov: until then a held batch there sat until someone renamed it by hand (13 Nov, three).
   retry_held "$1"
   # Kept work's failed migration is that work's: the run's own goes on to its own (video-cycle.sh tests with no merge).
-  MIGRATE_FAILED=
+  MIGRATE_FAILED= SWEEP_FAILED=
 }
 # A video job's EXIT trap, last: a fault the job went on past (FAULT: kept work its photo records held back) fails the
 # job and is reported on GitHub as a part's failed cycle is (engine-mac.yml), as engine-cycle.sh's finish does for the
@@ -511,12 +527,17 @@ fault_exit() {
 # time in OUT_CYCLES tries in a row (count_outs), moved to <branch>-tried, which nothing tries again. Out of time fewer
 # times, or not pushed, it stays held for the next run's try.
 retry_held() {
-  local branch base tried why as
+  local branch base tried why as held_at
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/held/$1/"); do
     case "$branch" in *-tried) continue ;; esac
     git show-ref -q --verify "refs/heads/$branch" || continue
     one_name "$branch" || continue
     base=$(git merge-base "$branch" origin/main) || continue
+    if [[ "$branch" =~ -on([a-f0-9]{40})(-out[0-9])?$ ]]; then
+      held_at="${BASH_REMATCH[1]}"
+      git cat-file -e "$held_at^{commit}" || continue
+      base="$held_at"
+    fi
     git diff --quiet "$base" origin/main -- . ':!content' ':!sources' ':!engine-state' ':!docs' ':!*.md' && continue
     log "trying $branch once more: main's code has changed since it was held"
     git reset -q --hard "$branch"
@@ -531,8 +552,11 @@ retry_held() {
     if [ -n "$KEPT_FAILED" ]; then
       tried="$(uncounted "$branch")-tried"
       why="failed its tests again"
-      [ -z "$OUT_FAILED" ] || why="ran out of time $OUT_FAILED cycles in a row"
-      if move_branch "$BRANCH" "$tried"; then
+      if [ -n "$OUT_FAILED" ]; then
+        if [ -n "${SWEEP_FAILED:-}" ]; then why="could not finish the sweep $OUT_FAILED cycles in a row"
+        else why="ran out of time $OUT_FAILED cycles in a row"; fi
+      fi
+      if move_branch "$BRANCH" "$tried" "${SWEEP_RETRY_HEAD:-HEAD}"; then
         log "$branch $why: on $tried, not tried again"
       else
         log "$branch $why and couldn't be moved to $tried: it stays held"
@@ -608,7 +632,7 @@ main_holds() {
 push_kept() {
   local check=1 clash main head swept run
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
-  KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
+  KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= SWEEP_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   for _ in 1 2 3; do
     main=$(git rev-parse origin/main 2>/dev/null || true) run=$(git rev-parse HEAD) swept=
     if ! net git pull -q --rebase origin main; then
@@ -635,7 +659,7 @@ push_kept() {
     # would pass a tree whose photo records weren't migrated, which push() never publishes (Grok's read).
     if [ "$(git rev-parse origin/main 2>/dev/null)" != "$main" ] && [ -z "$check" ]; then
       head=$(git rev-parse HEAD)
-      sweep_merged
+      sweep_merged "$run"
       swept=1
       if swept_clean "$head" "$main" "$(git rev-parse origin/main)"; then
         log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
@@ -644,10 +668,11 @@ push_kept() {
       fi
     fi
     if [ -n "$check" ]; then
-      [ -n "$swept" ] || sweep_merged
+      [ -n "$swept" ] || sweep_merged "$run"
       if ! verify_cycle; then
         if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
         elif [ -n "${MIGRATE_FAILED:-}" ]; then KEPT_WHY="its photo records couldn't be migrated"
+        elif [ -n "${SWEEP_FAILED:-}" ]; then KEPT_WHY="the sweep on main did not finish"
         else KEPT_FAILED=1; fi
         return 1
       fi
@@ -781,10 +806,16 @@ verify_cycle() {
 # older code turned main red. So they're rewritten here first, with no model and no decision changed, before the sweep and
 # the tests see them. A migration that fails publishes nothing, and the work is kept for the next run, which migrates and
 # tests it again, never held for it (MIGRATE_FAILED; the Image Lead and the chief of staff, 13 Nov).
+sweep_for_publish() {
+  SWEEP_FAILED= SWEEP_RETRY_HEAD=
+  pnpm engine sweep || { SWEEP_FAILED=1; log "sweep: failed, so nothing is published"; }
+}
 sweep_merged() {
+  local before="${1:-${PRE_SWEEP_HEAD:-}}"
   MIGRATE_FAILED=
   pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
-  pnpm engine sweep || log "sweep: failed"
+  AQ_PHOTO_PRE_REBASE="$before" sweep_for_publish
+  if [ -n "${SWEEP_FAILED:-}" ]; then SWEEP_RETRY_HEAD="${SWEEP_ORIGINAL_HEAD:-$before}"; fi
   git add content sources engine-state docs/review
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
 }
@@ -797,7 +828,7 @@ sweep_merged() {
 swept_pull() {
   [ "$(git rev-parse '@{u}' 2>/dev/null)" = "$1" ] && return 0
   local head; head=$(git rev-parse HEAD)
-  sweep_merged
+  sweep_merged "${2:-}"
   swept_clean "$head" "$1" "$(git rev-parse '@{u}')"
 }
 # The sweep after a pull dates the pages main's commits changed (content/page-dates.json, the sitemap's dates), so it
@@ -828,7 +859,7 @@ swept_pull() {
 # files, on content that loads.
 SWEPT_REPORTS='content/page-dates\.json|docs/review/photo-subjects\.md|engine-state/_photo-no-animal-heads\.json'
 swept_clean() {
-  [ -z "${MIGRATE_FAILED:-}" ] || return 1
+  [ -z "${MIGRATE_FAILED:-}${SWEEP_FAILED:-}" ] || return 1
   if ! git diff --quiet "$2" "$3" -- content/curation.json && ! git diff --quiet "$3" "$1" -- content/curation.json; then
     log "the calendar changed on main and in this run: checked again"
     return 1
@@ -867,7 +898,12 @@ replan_merged() {
 # this main, wouldn't see it (a reader of #1505, 16 Nov 2026). The sweep and the checks come after it (engine-cycle.sh).
 catch_up() {
   local run; run=$(git rev-parse HEAD)
-  if net git pull -q --rebase; then main_holds "$run" || true; return 0; fi
+  PRE_SWEEP_HEAD=
+  if net git pull -q --rebase; then
+    PRE_SWEEP_HEAD=$run
+    main_holds "$run" || true
+    return 0
+  fi
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
 }

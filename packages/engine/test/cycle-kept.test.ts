@@ -628,8 +628,10 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
     // Each "not publishing" after the checks keeps the work first: after the run's commit, after a merge on push, and
     // after the sweep on a clean pull that brought main's commits in.
     const gaveUp = s.split('\n').filter(l => /not publishing/.test(l) && !/gate:/.test(l))
-    expect(gaveUp.length, name).toBe(3)
-    expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(3)
+    // Two more paths keep the engine's content or records after an initial sweep fails.
+    const publishPaths = name === 'engine-cycle.sh' ? 5 : 3
+    expect(gaveUp.length, name).toBe(publishPaths)
+    expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(publishPaths)
     // Kept work is published once a run has installed and set its merge drivers, before it does its own work.
     expect(s, name).toMatch(new RegExp(`pnpm install --frozen-lockfile --silent\\npublish_kept ${job.replace(/[$"]/g, m => `\\${m}`)}\\n`))
     expect(s.indexOf('\npublish_kept '), name).toBeGreaterThan(s.indexOf('merge.entity.driver'))
@@ -640,12 +642,12 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
 // every run's tests failed on them. Here `pnpm` stands in for the migration (`engine photo-privacy --write`: "legacy"
 // becomes "migrated" in engine-state, or it fails) and for the sweep, each call noted in order with the checks, which fail
 // while an old record is left, as the privacy test does.
-function migrating(c: ReturnType<typeof clone>, fails = false) {
+function migrating(c: ReturnType<typeof clone>, fails = false, sweepFails = false) {
   c.sh(`cat > "$HOME/bin/pnpm" <<'EOF'
 #!/bin/sh
 case "$2" in
   photo-privacy) echo migrate >> "$HOME/order"; ${fails ? 'exit 1' : `perl -pi -e 's/legacy/migrated/g' engine-state/*.json`} ;;
-  sweep) echo sweep >> "$HOME/order" ;;
+  sweep) echo sweep >> "$HOME/order"; ${sweepFails ? 'exit 1' : ':'} ;;
 esac
 exit 0
 EOF`)
@@ -663,7 +665,7 @@ const privacy = `checks() { echo tests >> "$HOME/order"; ! grep -q legacy engine
 // As engine-cycle.sh ends: main caught up with, swept and checked, then pushed.
 const ending = `${privacy}; catch_up; sweep_merged; if ! verify_cycle; then keep_unpublished photos; echo "NOT PUBLISHED"; exit 0; fi; git push -q origin HEAD:main`
 // As engine-cycle.sh's push() takes a clean pull: swept, and checked again when that changed anything.
-const pushing = `${privacy}; main=$(git rev-parse '@{u}'); git pull -q --rebase; if ! swept_pull "$main" && ! verify_cycle; then keep_unpublished photos; echo "NOT PUBLISHED"; exit 0; fi; git push -q origin HEAD:main`
+const pushing = `${privacy}; main=$(git rev-parse '@{u}'); run=$(git rev-parse HEAD); git pull -q --rebase; if ! swept_pull "$main" "$run" && ! verify_cycle; then keep_unpublished photos; echo "NOT PUBLISHED"; exit 0; fi; git push -q origin HEAD:main`
 
 test('old-format photo records that a pull brings in are migrated before the tests, and go out migrated', () => {
   const c = clone()
@@ -719,6 +721,80 @@ test('a migration that fails publishes nothing, and the work is kept for the nex
   expect(c.onMain('content/b.json')).toBe('photos')
   expect(c.onMain('engine-state/_photo-watermarks.json')).toBe('migrated')
   expect(c.branches()).toEqual([])
+}, slow(60_000))
+
+test('an unverified merge sweep holds the push and retries the kept work', () => {
+  const c = clone()
+  migrating(c, false, true)
+  c.sh(work)
+  const before = c.sh('git rev-parse HEAD')
+  c.elsewhere('content/c.json', 'sf')
+  const log = c.cycle(pushing)
+  expect(log).toContain('LOG the sweep on main did not finish: not tested, not published')
+  expect(log).toContain('NOT PUBLISHED')
+  expect(c.onMain('content/b.json')).toBe('')
+  const [kept] = c.branches()
+  expect(kept).toMatch(/^kept\/photos\//)
+  expect(c.sh(`git rev-parse ${kept}`)).toBe(before)
+
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  migrating(c)
+  const noteBase = 'pnpm() { if [ "$2" = sweep ]; then echo "$AQ_PHOTO_PRE_REBASE" > "$HOME/recovery-tip"; fi; command pnpm "$@"; }'
+  expect(c.cycle(`${privacy}; ${noteBase}; publish_kept photos`)).toContain('LOG published kept/photos/')
+  expect(c.sh('cat "$HOME/recovery-tip"')).toBe(before)
+  expect(c.onMain('content/b.json')).toBe('photos')
+  expect(c.branches()).toEqual([])
+}, slow(60_000))
+
+
+test('three unfinished publication sweeps retain the original work on a held branch', () => {
+  const c = clone()
+  migrating(c, false, true)
+  c.sh(work)
+  const before = c.sh('git rev-parse HEAD')
+  c.elsewhere('site-code.mjs', 'updated code')
+  c.cycle(pushing)
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  for (let run = 0; run < 3; run++) c.cycle(`${privacy}; publish_kept photos`)
+  const [held] = c.branches()
+  const basis = c.sh('git rev-parse origin/main')
+  expect(held).toMatch(new RegExp(`^held/photos/.+-on${basis}-out3$`))
+  expect(c.sh(`git rev-parse ${held}`)).toBe(before)
+  expect(c.onMain('content/b.json')).toBe('')
+  migrating(c)
+  c.cycle(`${privacy}; publish_kept photos`)
+  expect(c.branches()).toEqual([held])
+  c.elsewhere('site-code.mjs', 'fixed code')
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  expect(c.cycle(`${privacy}; publish_kept photos`)).toContain('published held/photos/')
+  expect(c.onMain('content/b.json')).toBe('photos')
+}, slow(60_000))
+
+test('the engine keeps a content commit when its first sweep fails', () => {
+  const c = clone()
+  migrating(c, false, true)
+  c.sh(work)
+  const guard = /^if .*SWEEP_FAILED.*not publishing content.*$/m.exec(script('engine-cycle.sh'))?.[0]
+  expect(guard).toBeDefined()
+  const output = c.cycle(`${privacy}; code=0; (PART=photos; sweep_for_publish; ${guard}; git push -q origin HEAD:main) || code=$?; echo "code=$code"`)
+  expect(output).toContain('sweep failed, not publishing content')
+  expect(output).toContain('code=1')
+  expect(c.onMain('content/b.json')).toBe('')
+  expect(c.branches()[0]).toMatch(/^kept\/photos\//)
+}, slow(60_000))
+
+test('an initial video sweep failure keeps its recovery out of main', () => {
+  for (const f of ['video-cycle.sh', 'video-recheck.sh']) {
+    const c = clone()
+    migrating(c, false, true)
+    c.sh(work)
+    const initialSweep = /^sweep_for_publish$/m.exec(script(f))?.[0]
+    expect(initialSweep).toBe('sweep_for_publish')
+    const output = c.cycle(`${privacy}; ${initialSweep}; if ! verify_cycle; then keep_unpublished videos; echo "NOT PUBLISHED"; exit 0; fi; git push -q origin HEAD:main`)
+    expect(output).toContain('NOT PUBLISHED')
+    expect(c.onMain('content/b.json')).toBe('')
+    expect(c.branches()[0]).toMatch(/^kept\/videos\//)
+  }
 }, slow(60_000))
 
 // engine-cycle.sh's finish, on its own: a fault the run went on past fails the run when it ends, and on the Mac goes to

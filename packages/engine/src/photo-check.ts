@@ -2,7 +2,7 @@ import { piece, PieceAdmissionError } from './pieces'
 import { errorKind } from './state'
 import { compactRejection, compactVerdict, modelFailureKind, photoHints, photoReason, deadNote, peopleNote, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { writePhotoState } from './photo-state'
-import { writeImageCache } from './image-cache-write'
+import { replacePhotoDocument, writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -12,7 +12,7 @@ import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
 import { galleryPlan } from './gallery-plan'
 import { pickStands, readPersonYes } from './person-yes'
-import { holdForSecondLook, looks, passedBefore, readSecondLook, waitingEntry } from './last-photo'
+import { entriesDir, holdForSecondLook, looks, passedBefore, placesIn, readSecondLook, waitingEntry, withoutClearedWaits, withoutSettledWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, shouldStripPhoto, stripPhotos, type WatermarkEntry } from './watermarks'
 import { keptLast, screenedShop } from './own-mark'
@@ -48,6 +48,13 @@ export type PhotoCheckDeps = {
 /** Sheets the model failed on, each photo by `page url`, which go first in the next run (checkPagePhotos). */
 export const ASIDE_FILE = '_photo-check-aside.json'
 const VERDICTS = ['yes', 'other', 'none', 'unsure', 'dead'] as const
+const STORED_VERDICTS = new Set<unknown>([...VERDICTS, 'habitat', 'no'])
+
+export function validSubjectVerdict(value: unknown): boolean {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false
+  const verdict = value as { ok?: unknown; guide?: unknown }
+  return STORED_VERDICTS.has(verdict.ok) && (verdict.guide === undefined || typeof verdict.guide === 'boolean')
+}
 export const PHOTO_CHECK_SCHEMA = {
   type: 'object', required: ['photos'],
   properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'ok', 'typical', 'young', 'note', 'logo', 'person'], properties: { n: { type: 'number' }, ok: { type: 'string', enum: VERDICTS }, typical: { type: 'boolean' }, young: { type: 'boolean' }, note: { type: 'string' }, logo: { type: 'boolean' }, person: { type: 'boolean' } } } } },
@@ -464,9 +471,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const legacy=Object.fromEntries(Object.entries(rawLegacy).map(([u,v])=>[u,compactVerdict(v)]))
   // The photos that passed the check before this run (last-photo.ts): its verdicts as the run found them.
   const passed = passedBefore(cache, legacy)
-  const rejected = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   // A photo held for a second look, or one it cleared, isn't taken off on a verdict (last-photo.ts).
   const secondLook = await readSecondLook(root)
+  const rejected = withoutClearedWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, secondLook)
   const passedPhoto = photoVersionAddressSet(passed)
   const sl = looks(secondLook, passedPhoto)
   const versionHeld = heldPhotoVersion(secondLook)
@@ -985,7 +992,6 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const url = x.slice(0, x.indexOf(': '))
     return !firstOff.has(url) && !coveredByFirst(url)
   })
-  await holdForSecondLook(root, firstOff, 'the photo check')
   for (const file of heldPages) report.heads.held.push(`${pageOf(file)}: ${((await ownPhotos(file))[0] ?? (await ownPhotos(galleryOf(file)))[0])!.url}`)
   // Each photo a held page would have lost goes on the second look, with its reason (last-photo.ts).
   const holding = new Map<string, { why: string; pages: string[] }>()
@@ -1015,14 +1021,29 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     delete added[url]
     report.blocked = report.blocked.filter(x => !x.startsWith(`${url}: `))
   }
+  // Where each one marked off stood, for its record: the put-back's only trace of one this run brought (last-photo.ts).
+  const stood = new Map<string, Stood[]>()
   const edits = new Map<string, string>()
+  const canCapture = !!entriesDir()
+  const recoverableEdit = (url: string) => {
+    const at = waitingAt(url)
+    if (!at) return true
+    const entry = rejectedAt(url)
+    return canCapture && sl.off(at) && (!entry || entry[1] === waitingEntry(secondLook[at]!.why))
+  }
   for (const file of new Set([...shown.map(x => x.file), ...linkedFiles])) {
+    const capture = (url: string) => {
+      const reason = blockedAs(file, url)
+      return reason && first(reason) ? (firstAliases.get(reason) ?? reason) : refusedFirst(url)?.[0]
+    }
     if (held.has(file)) {
       // A held page keeps what passed before; a first verdict comes off it all the same.
       const raw = await readFile(file, 'utf8')
       const data = JSON.parse(raw) as { photos?: Photo[] }
       const removed: string[] = []
-      stripPhotos(data, url => first(url) || !!refusedFirst(url), removed, [], preservesOriginal)
+      const before = { ...data }
+      stripPhotos(data, url => canCapture && recoverableEdit(url) && !!capture(url), removed, [], preservesOriginal)
+      placesIn(root, file, before, (url, slot) => !data.photos?.includes(slot.photo as Photo) ? capture(url) : undefined, stood)
       if (!removed.length) continue
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
       edits.set(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
@@ -1032,7 +1053,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const data = JSON.parse(raw) as { photos?: Photo[] }
     const before = real(data.photos)[0]?.url
     const removed: string[] = []
-    stripPhotos(data, blocked(file), removed, [], preservesOriginal)
+    const beforeEdit = { ...data }
+    stripPhotos(data, url => recoverableEdit(url) && (canCapture || !capture(url)) && blocked(file)(url), removed, [], preservesOriginal)
+    placesIn(root, file, beforeEdit, (url, slot) => !data.photos?.includes(slot.photo as Photo) ? capture(url) : undefined, stood)
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
     const gallery = galleryId(file)
     if (gallery) for (const p of data.photos ?? []) {
@@ -1103,6 +1126,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
     edits.set(file, out)
   }
+  await holdForSecondLook(root, firstOff, 'the photo check', undefined, stood)
 
   // 3. Verdicts, the blocklist (re-read, so entries another step added meanwhile stay) and the review file.
   // A photo this run lists as another fish, whose answer named a kind we have a page for, keeps that page's id beside
@@ -1114,13 +1138,13 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const kinded = Object.keys(added).filter(u => !(u in listedBefore) && added[u]!.startsWith('not ') && namedKinds.has(u) && !(u in kinds))
   for (const u of kinded) kinds[u] = namedKinds.get(u)!
   if (kinded.length) await writeKinds()
-  const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
+  const now = withoutSettledWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, await readSecondLook(root))
   // One off at its first verdict waits there marked, and isn't counted refused (last-photo.ts).
   for (const [u, why] of Object.entries(added)) if (!(u in now) && !coveredByFirst(u)) { if (firstOff.has(u)) now[u] = waitingEntry(why); else { now[u] = why; report.rejected++ } }
   await writePhotoState(rejectedFile, now)
   // Keep the rejection durable during the page edits. A subject verdict may release the dead-fish wait, so
   // publish it only after every edit has succeeded.
-  for (const [file, out] of edits) await writeFile(file, out)
+  for (const [file, out] of edits) await replacePhotoDocument(file, out)
   await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   // One another step listed meanwhile keeps that step's reason, and no id from this run.
   if (kinded.length) {

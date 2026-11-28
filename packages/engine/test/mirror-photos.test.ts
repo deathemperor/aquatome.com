@@ -123,6 +123,27 @@ test.each(['flickr square placement', 'iNaturalist larger download'])('the mirro
   expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(destination)
 })
 
+test('the uploaded rendition keeps its human clear without copying the source recovery places', async () => {
+  const r = await root()
+  const file = join(r, 'engine-state/_photo-second-look.json')
+  const look = { said: 'clear', by: 'reviewer', on: '2026-11-26' }
+  const left = [{ file: 'content/gallery/astronotus-ocellatus.json', index: 0, capture: '1'.repeat(36) }]
+  await writeFile(file, JSON.stringify({
+    [C1280]: { why: 'dead: withheld', pages: ['species/astronotus-ocellatus'], at: '2026-11-26', step: 'the dead-fish screen',
+      off: true, back: '2026-11-26', settled: left, look },
+  }))
+  const { d } = deps()
+
+  await mirrorPhotos(r, d)
+
+  const mark = JSON.parse(await readFile(file, 'utf8'))
+  expect(mark[C1280].settled).toEqual(left)
+  const copied = mark[d.media.urlFor(mirrorPlan(C1280)!.key)]
+  expect(copied.look).toEqual(look)
+  expect(copied).not.toHaveProperty('settled')
+  expect(copied).toMatchObject({ off: true, back: look.on })
+})
+
 test('a refused crop leaves an independently passed mirror and its verdict intact', async () => {
   const r = await root()
   const square = 'https://live.staticflickr.com/8518/8600709463_7a79b898cf_q.jpg'
@@ -273,13 +294,16 @@ test('a photo off at its first verdict, waiting for its second look, is not copi
 
 test("a second look's clear follows its photo to our bucket, so the verdict copied with it doesn't take it off there", async () => {
   const r = await root()
-  const rec = { why: 'dead: withheld [sha256:' + 'c'.repeat(64) + ']', step: 'the photo check', pages: ['species/astronotus-ocellatus'], at: '2026-11-20', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-20' } }
+  const rec = { why: 'dead: withheld [sha256:' + 'c'.repeat(64) + ']', step: 'the photo check', pages: ['species/astronotus-ocellatus'], at: '2026-11-20', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-20' }, left: [{ file: 'content/species/astronotus-ocellatus/entity.json', index: 0, capture: '08e5e8b4-0eb7-41d7-b0ec-583bc495cdac' }] }
   await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [INAT]: rec }))
   const { d, put } = deps()
   await mirrorPhotos(r, d)
   expect(put).toContain('inaturalist/617421644.webp')
   const sl = JSON.parse(await readFile(join(r, 'engine-state/_photo-second-look.json'), 'utf8'))
-  expect(sl['https://media.aquatome.com/inaturalist/617421644.webp']).toEqual(rec)
+  const mirror = 'https://media.aquatome.com/inaturalist/617421644.webp'
+  const { left: _left, ...review } = rec
+  expect(sl).toEqual({ [INAT]: rec, [mirror]: { ...review, back: rec.look.on } })
+  expect(photoWaitsFor({ deadScreen: { [mirror]: { dead: true } }, secondLook: sl })(mirror)).toBe(false)
 })
 
 test('a previously stored mirror never borrows a missing judgment from the current hotlink', async () => {

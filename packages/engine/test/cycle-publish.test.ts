@@ -14,10 +14,10 @@ test('a cycle sweeps again after each merge with main, before the tests', () => 
   const cycle = script('engine-cycle.sh')
   expect(cycle).toMatch(/\ncatch_up\nsweep_merged\nif ! verify_cycle/)
   // catch_up's clean pull brings main's holds first (main_holds), as push() does, before that sweep and those checks.
-  expect(script('cycle-checks.sh')).toMatch(/if net git pull -q --rebase; then main_holds "\$run" \|\| true; return 0; fi/)
-  expect(cycle).toMatch(/rebase -X theirs; then\n\s*replan_merged "\$clash"\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
-  expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
-  expect(script('video-recheck.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
+  expect(script('cycle-checks.sh')).toMatch(/if net git pull -q --rebase; then\n\s*PRE_SWEEP_HEAD=\$run\n\s*main_holds "\$run" \|\| true\n\s*return 0\n\s*fi/)
+  expect(cycle).toMatch(/rebase -X theirs; then\n\s*replan_merged "\$clash"\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged "\$run"\n\s*verify_cycle/)
+  expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged "\$run"\n\s*verify_cycle/)
+  expect(script('video-recheck.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged "\$run"\n\s*verify_cycle/)
 })
 
 test('what the sweep changes after a merge is committed, and no change leaves no commit', () => {
@@ -42,13 +42,13 @@ test('what the sweep changes after a merge is committed, and no change leaves no
 test("a clean pull that brings main's commits in is swept before the push, and the tests run again only when the sweep changed something", () => {
   // Main's holds put back on a page main read meanwhile (main_holds, push-clash-hold.test.ts) are checked again too.
   for (const f of ['engine-cycle.sh', 'video-cycle.sh', 'video-recheck.sh']) {
-    expect(script(f)).toMatch(/main_holds "\$run" \|\| moved=1\n\s*if ! swept_pull "\$main" \|\| \[ -n "\$moved" \]; then\n\s*verify_cycle \|\|/)
+    expect(script(f)).toMatch(/main_holds "\$run" \|\| moved=1\n\s*if ! swept_pull "\$main" "\$run" \|\| \[ -n "\$moved" \]; then\n\s*verify_cycle \|\|/)
   }
   // Kept work: after a pull that brought main's commits in, checked in full until it has passed; then swept, and checked
   // again only if the sweep changed more than the pages' dates or the migration failed, as a run's own push does, on that
   // one sweep.
-  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$\(git rev-parse origin\/main 2>\/dev\/null\)" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged\n\s*swept=1\n\s*if swept_clean "\$head" "\$main" "\$\(git rev-parse origin\/main\)"; then/)
-  expect(script('cycle-checks.sh')).toMatch(/\n\s*fi\n\s*if \[ -n "\$check" \]; then\n\s*\[ -n "\$swept" \] \|\| sweep_merged/)
+  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$\(git rev-parse origin\/main 2>\/dev\/null\)" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged "\$run"\n\s*swept=1\n\s*if swept_clean "\$head" "\$main" "\$\(git rev-parse origin\/main\)"; then/)
+  expect(script('cycle-checks.sh')).toMatch(/\n\s*fi\n\s*if \[ -n "\$check" \]; then\n\s*\[ -n "\$swept" \] \|\| sweep_merged "\$run"/)
 
   const dir = mkdtempSync(join(tmpdir(), 'aq-pulled-'))
   mkdirSync(join(dir, 'bin'))
@@ -63,7 +63,7 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   sh('git clone -q origin.git other 2>/dev/null && cd other && git config user.email b@example.com && git config user.name b')
   sh('echo run > content/run.json && git add . && git commit -qm run', repo)
   const swept = () => { try { return readFileSync(join(dir, 'swept.log'), 'utf8').trim().split('\n').length } catch { return 0 } }
-  const pull = (env = {}) => sh(`log() { :; }; source '${join(ROOT, 'scripts/cycle-checks.sh')}'; main=$(git rev-parse '@{u}'); git pull -q --rebase 2>/dev/null; swept_pull "$main" && echo push || echo test`, repo, env).trim()
+  const pull = (env = {}) => sh(`log() { :; }; source '${join(ROOT, 'scripts/cycle-checks.sh')}'; main=$(git rev-parse '@{u}'); run=$(git rev-parse HEAD); git pull -q --rebase 2>/dev/null; swept_pull "$main" "$run" && echo push || echo test`, repo, env).trim()
   const onMain = (file: string) => sh(`echo x > content/${file} && git add . && git commit -qm ${file} && git push -q 2>/dev/null`, other)
 
   expect(pull()).toBe('push') // main didn't move: no sweep
@@ -159,9 +159,62 @@ test("a video run's work is committed before its tests, so a run that fails them
 // was left for the next run's reset to drop.
 test("a video re-check sweeps its work and commits it before its tests, as the video job does", () => {
   const s = script('video-recheck.sh')
-  const sweep = s.indexOf('pnpm engine sweep')
+  const sweep = s.indexOf('sweep_for_publish')
   const commit = s.indexOf('git commit -q -m "content: video guides checked again')
   expect(sweep).toBeGreaterThan(s.indexOf('pnpm engine videos --redo'))
   expect(commit).toBeGreaterThan(sweep)
   expect(commit).toBeLessThan(s.indexOf('verify_cycle'))
 })
+
+test.each([
+  ['engine-cycle.sh', false], ['engine-cycle.sh', true], ['video-cycle.sh', false], ['video-recheck.sh', false],
+] as const)(
+  '%s keeps the original commit when a push sweep fails (initial catch-up: %s)',
+  (filename, initialCatchUp) => {
+    const code = script(filename)
+    const push = filename === 'engine-cycle.sh'
+      ? code.match(/\npush\(\) \{\n[\s\S]*?\n\}/)?.[0]
+      : code.match(/\n(?:SWEEP_ORIGINAL_HEAD=.*\n)?for _ in 1 2 3; do\n[\s\S]*?\ndone/)?.[0]
+    expect(push).toBeDefined()
+    const attemptPush = filename === 'engine-cycle.sh' ? push : `push() ( ${push}\n)`
+    const publish = code.match(/\n(?:SWEEP_ORIGINAL_HEAD=.*\n)?catch_up\nsweep_merged\n[\s\S]*$/)?.[0]
+    if (initialCatchUp) expect(publish).toBeDefined()
+    const run = `
+      source '${join(ROOT, 'scripts/cycle-checks.sh')}'
+      ${attemptPush}
+      attempt=0
+      PART=photos
+      log() { :; }
+      sleep() { :; }
+      git() {
+        case "$1 $2" in
+          'merge-base HEAD') echo "main-$attempt" ;;
+          'rev-parse HEAD') echo "run-$attempt" ;;
+          "rev-parse @{u}") echo "main-$attempt" ;;
+          'pull -q') attempt=$((attempt+1)); return 0 ;;
+          'push -q') return 1 ;;
+        esac
+      }
+      net() {
+        case "$2" in
+          pull) attempt=$((attempt+1)); return 0 ;;
+          push) return 1 ;;
+        esac
+      }
+      pnpm() {
+        [ "$2" != sweep ] && return 0
+        echo "sweep $AQ_PHOTO_PRE_REBASE"
+        [ "$attempt" -lt ${initialCatchUp ? 3 : 2} ]
+      }
+      main_holds() { return 0; }
+      swept_clean() { [ -z "$SWEEP_FAILED" ]; }
+      verify_cycle() { [ -z "$SWEEP_FAILED" ]; }
+      keep_unpublished() { echo "kept $SWEEP_RETRY_HEAD"; }
+      ${initialCatchUp ? publish : 'push || :'}
+    `
+    const out = execSync(initialCatchUp ? run.replace('push || exit 1', 'push || :') : run, { shell: '/bin/bash', encoding: 'utf8' })
+    expect(out.trim().split('\n')).toEqual([
+      'sweep run-0', 'sweep run-1', ...(initialCatchUp ? ['sweep run-2'] : []), 'kept run-0',
+    ])
+  },
+)

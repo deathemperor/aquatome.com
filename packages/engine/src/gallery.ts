@@ -1,8 +1,9 @@
 import { piece } from './pieces'
+import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { photoRejections, heldPhotoVersion, photoVersionAddressSet, GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
+import { GallerySchema, heldPhotoVersion, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, photoVersionAddressSet, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -13,7 +14,7 @@ import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, unfitCommons } from './photos'
-import { CLEARED_VERDICT, looks, readPassedBefore, readSecondLook } from './last-photo'
+import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readPassedBefore, readSecondLook, withoutClearedWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -493,8 +494,18 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
       return b
     },
   }
+  const sl = await readSecondLook(root)
   const rejected = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
-  // A Commons, iNaturalist, Flickr or GBIF photo rejected after it moved to our bucket is known there by its key (mirror-photos.ts).
+  const cleanupRejected = withoutClearedWaits({ ...rejected }, sl)
+  const pendingPlaces = new Map<string, string[]>()
+  for (const [url, mark] of Object.entries(sl)) {
+    if (mark.back) continue
+    for (const { file } of mark.left ?? []) {
+      const id = /^content\/gallery\/([^/]+)\.json$/.exec(file)?.[1]
+      if (id) pendingPlaces.set(id, [...(pendingPlaces.get(id) ?? []), url])
+    }
+  }
+  // Keep the intake hold until recovery restores the saved entry. Cleanup can leave an existing cleared copy in place.
   const rejectedPhoto = isRejected(rejected)
   // A photo the photo check took off a page (another fish, none, dead), by its address in our bucket: never back in that
   // page's gallery, from a search or from the queue. A hand seed (gallery-seed.ts) queued a bred discus the owner had
@@ -506,9 +517,30 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   // off at its first verdict, the clear answers only the dead fish there: another fish, nothing of the subject or "no" on
   // its own page still keeps it out, as in the put-back (CLEARED_VERDICT; the chief of staff, 21 Nov). The record names
   // pages as kind/id, the verdicts by id.
-  const sl = await readSecondLook(root)
   const cleared = looks(sl).cleared
-  const clearedOn = (url: string, id: string, ok: PhotoVerdict['ok']) => cleared(url) && sl[url]!.pages.some(p => p.slice(p.indexOf('/') + 1) === id) && (sl[url]!.off !== true || ok === CLEARED_VERDICT)
+  const exactKey = (id: string, url: string) => `${id}\n${url}`
+  const commonsKey = (id: string, url: string) => {
+    const key = photoKey(url)
+    return key?.startsWith('commons/') ? `${id}\n${key}` : undefined
+  }
+  const clearedPages = new Map<string, boolean>()
+  const clearedCommons = new Map<string, boolean>()
+  for (const [url, mark] of Object.entries(sl)) {
+    if (!cleared(url)) continue
+    for (const page of mark.pages) {
+      const id = page.slice(page.indexOf('/') + 1)
+      clearedPages.set(exactKey(id, url), mark.off !== true)
+      const key = commonsKey(id, url)
+      if (key) clearedCommons.set(key, mark.off !== true || clearedCommons.get(key) === true)
+    }
+  }
+  const clearedOn = (url: string, id: string, ok: PhotoVerdict['ok']) => {
+    if (sl[url] && !cleared(url)) return false
+    const direct = clearedPages.get(exactKey(id, url))
+    const key = commonsKey(id, url)
+    const scope = direct ?? (key ? clearedCommons.get(key) : undefined)
+    return scope === true || (scope === false && ok === CLEARED_VERDICT)
+  }
   for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok) && !clearedOn(url, id, v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
   const gbifNames = JSON.parse(await readFile(join(root, 'engine-state/_gbif-names.json'), 'utf8').catch(() => '{}')) as Record<string, { canonicalName: string } | null>
   const looksOn = await albumLooks(root, subjects)
@@ -522,12 +554,12 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
   const reviewed = heldPhotoVersion(sl)
   const passed = photoVersionAddressSet(await readPassedBefore(root))
-  const rejection = photoRejections(rejected, {}, url => reviewed(url) || passed(url))
+  const rejection = photoRejections(cleanupRejected, {}, url => reviewed(url) || passed(url))
   const why = (url: string) => {
     const entry = rejection(url)
     return entry?.[1].startsWith('watermark:') && (markKept(url) || markKept(entry[0])) ? undefined : entry?.[1]
   }
-  await dropRejected(content, why)
+  await dropRejected(root, content, why, captureWaiting(sl, rejection))
   // `shard` [i, n]: every n-th page from the i-th, so n runs can share the work (each still most popular first).
   const plan = (await galleryPlan(root)).filter((t, i) => (!o.only || t.id === o.only) && (!o.shard || i % o.shard[1] === o.shard[0]))
   // Each source's requests: counted against the run's budget, at the pace the source asks for (shared by n shards).
@@ -634,11 +666,13 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
       const seen = new Set([...[...e.photos, ...gallery].flatMap(p => [p.url, p.sourceUrl]), ...other.urls])
       const judged = new Set(st.judged)
       const offHere = isRejected(offBy.get(t.id) ?? {})
+      const awaitingRecovery = photoAddressSet(pendingPlaces.get(t.id) ?? [])
+      const offIntake = (url: string) => offHere(url) || rejectedPhoto(url) || awaitingRecovery(url)
       // A candidate queued before it joined the never-again list (by any address) never reaches the screen.
-      st.queue = st.queue.filter(c => !offHere(c.url) && !rejectedPhoto(c.url))
+      st.queue = st.queue.filter(c => !offIntake(c.url))
       // Its switch off, a non-commercial candidate queued while it was on is never screened.
       if (!nc) st.queue = st.queue.filter(c => !isNonCommercial(c.licence))
-      const isNew = (c: Candidate) => !rejectedPhoto(c.url) && !offHere(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !judged.has(c.key) && !st.queue.some(q => q.key === c.key)
+      const isNew = (c: Candidate) => !offIntake(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !judged.has(c.key) && !st.queue.some(q => q.key === c.key)
       for (const p of [...e.photos, ...gallery]) {
         if (!st.hashes[p.url]) st.hashes[p.url] = await d.get(p.thumb ?? p.url).then(dhash).catch(() => '')
       }
@@ -800,14 +834,24 @@ async function pageOf(root: string, id: string): Promise<Photo[]> {
 }
 
 /** Photos the owner rejected (engine-state/_photo-rejected.json) leave every gallery, the next run after they are listed. */
-async function dropRejected(content: string, why: (url: string) => string | undefined) {
+async function dropRejected(root: string, content: string, why: (url: string) => string | undefined, waiting: (url: string) => string | undefined) {
+  const canCapture = !!entriesDir()
+  const listed = (url: string) => {
+    const reason = why(url)
+    return !!reason && (!reason.startsWith('waiting:') || (canCapture && !!waiting(url)))
+  }
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const file = join(content, 'gallery', f)
     const g = JSON.parse(await readFile(file, 'utf8')) as { photos: Photo[] }
-    const keep = g.photos.filter(p => !shouldStripPhoto(p, url => !!why(url), (url, original, blocked) =>
+    const remove = (p: Photo) => shouldStripPhoto(p, listed, (url, original, blocked) =>
       /^(?:dead|people|waiting): /.test(why(url) ?? '') && (!blocked || why(original)?.startsWith('waiting:') === true),
-    ))
-    if (keep.length < g.photos.length) await writeFile(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
+    )
+    const removing = g.photos.filter(remove)
+    if (!removing.length) continue
+    const stood = new Map<string, Stood[]>()
+    placesIn(root, file, g, (url, slot) => removing.includes(slot.photo as Photo) ? waiting(url) : undefined, stood)
+    await notePlaces(root, stood)
+    await replacePhotoDocument(file, `${JSON.stringify({ ...g, photos: g.photos.filter(p => !removing.includes(p)) }, null, 2)}\n`)
   }
 }
 

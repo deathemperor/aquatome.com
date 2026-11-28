@@ -55,7 +55,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
   const edits = new Map<string, string>()
   // A photo off at its first verdict is coming off every page: it isn't copied, so its waiting entry and its record keep
   // one address (last-photo.ts; the independent reader, 20 Nov).
-  const marked = looks(await readSecondLook(root)).off
+  const marked = looks(await readSecondLook(root)).pendingOff
   const caches = new Map<string, Record<string, unknown>>()
   const recorded = new Set<string>()
   for (const name of URL_KEYED) {
@@ -142,17 +142,30 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
   if (moved.length) for (const [path, cache] of caches) {
     const name = basename(path)
     let n = 0
-    for (const [from, to] of name === '_photo-rejected.json' ? moved : copies) {
-      if (from in cache && !(to in cache)) { cache[to] = cache[from]; n++ }
+    const refusals = name === '_photo-rejected.json'
+    for (const [from, to] of refusals ? moved : copies) if (from in cache && !(to in cache)) {
+      const value = cache[from]
+      if (refusals && typeof value === 'string' && value.startsWith('waiting:')) continue
+      cache[to] = value
+      n++
     }
     if (n) await writePhotoState(path, cache)
   }
-  // A human clear can qualify the rendition it reviewed when those bytes are the ones we uploaded.
+
+  // The same uploaded rendition keeps its review answer. Recovery places still belong to the source record.
   if (copies.length) {
-    const sl = await readSecondLook(root)
-    let n = 0
-    for (const [from, to] of copies) if (sl[from] && photoLookAnswer(sl[from])?.said === 'clear' && !(to in sl)) { sl[to] = sl[from]; n++ }
-    if (n) await writeSecondLook(root, sl)
+    const marks = await readSecondLook(root)
+    let changed = false
+    for (const [from, to] of copies) {
+      const mark = marks[from]
+      const look = photoLookAnswer(mark)
+      if (!mark || look?.said !== 'clear' || to in marks) continue
+      const { why, step, pages, at, off } = mark
+      // This alias has no restore work. Keep the restriction on which verdict its clear answers.
+      marks[to] = { why, step, pages, at, look, ...(off ? { off, back: look.on } : {}) }
+      changed = true
+    }
+    if (changed) await writeSecondLook(root, marks)
   }
   // Keep a source reference available for retry until its transferred records are durable.
   for (const [file, raw] of edits) await writeFile(file, raw)

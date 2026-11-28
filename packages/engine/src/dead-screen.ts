@@ -1,4 +1,5 @@
-import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, reviewedPhotoVersion, FACES_FILE, GUIDE_LOOKS_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, photoVersionAddressSet, photoWaitsFor, publicPhotoVersion, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, reviewedPhotoVersion, FACES_FILE, GUIDE_LOOKS_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, photoVersionAddressSet, photoWaitsFor, publicPhotoVersion, rejectedEntry, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
+import { replacePhotoDocument } from './image-cache-write'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -7,7 +8,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readPassedBefore, readSecondLook, verdictAddressSet, waitingEntry } from './last-photo'
+import { entriesDir, holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, placesIn, readPassedBefore, readSecondLook, verdictAddressSet, waitingEntry, type Stood } from './last-photo'
 import { permittedPhotoSource, readCreditHoldWait, readPhotoSources } from './photo-visibility'
 
 /**
@@ -199,14 +200,16 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const firstOff = new Map([...last].filter(([u]) => !passed(u)))
   const heldByAddress = verdictAddressSet(held.keys(), going)
   const markedByAddress = verdictAddressSet(firstOff.keys(), going)
+  const canCapture = !!entriesDir()
   const holding = new Map<string, { why: string; pages: string[]; off?: true }>()
   type Page = { photos?: Photo[]; videos?: { youtubeId: string }[] }
-  const edits = new Map<string, { raw: string; page: Page }>()
+  const edits = new Map<string, { raw: string; original: Page; page: Page }>()
   const readPage = async (file: string) => {
     const had = edits.get(file)
     if (had) return had
     const raw = await readFile(file, 'utf8')
-    const edit = { raw, page: JSON.parse(raw) as Page }
+    const original = JSON.parse(raw) as Page
+    const edit = { raw, original, page: { ...original } }
     edits.set(file, edit)
     return edit
   }
@@ -224,7 +227,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       if (held.has(it.url)) { holding.set(it.url, { why, pages: held.get(it.url)! }); report.held.push(`${it.key}: ${held.get(it.url)!.join(', ')}`) }
       continue
     }
-    for (const file of it.files) {
+    if (canCapture || !markedByAddress(it.url)) for (const file of it.files) {
       const { page } = await readPage(file)
       if (it.video) page.videos = (page.videos ?? []).filter(v => v.youtubeId !== it.video)
       else page.photos = (page.photos ?? []).filter(p => p.url !== it.url || retainFallback(p))
@@ -240,14 +243,17 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     }
   }
   // A retry can always find the owning photo until its removal or hold is durable.
-  await holdForSecondLook(root, holding, 'the dead-fish screen')
+  const left = new Map<string, Stood[]>()
+  const newFirst = rejectedEntry(Object.fromEntries([...firstOff.keys()].map(url => [url, holding.get(url)!.why])))
+  for (const [file, edit] of edits) placesIn(root, file, edit.original, (url, slot) => edit.page.photos?.includes(slot.photo as Photo) ? undefined : newFirst(url)?.[0], left)
+  await holdForSecondLook(root, holding, 'the dead-fish screen', undefined, left)
   const save = (f: string, data: object) => writePhotoState(state(f), data)
   if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)
   if (off.some(x => !x.video && going.has(x.url) && !heldByAddress(x.url))) await save('_photo-rejected.json', photoRejected)
   if (report.judged) await save('_dead-screen.json', cache)
   for (const [file, { raw, page }] of edits) {
     const next = `${JSON.stringify(page, null, indentOf(raw))}\n`
-    if (next !== raw) await writeFile(file, next)
+    if (next !== raw) await replacePhotoDocument(file, next)
   }
   return report
 }

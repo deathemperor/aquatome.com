@@ -8,6 +8,21 @@ import { expect, test } from 'vitest'
 import { mergeMaps } from '../../../scripts/merge-json-map.mjs'
 import { listAgreed, mendWaiting, unlistCleared, waitingEntry } from '../src/last-photo'
 
+test('moving an incoming capture around a settled edition preserves later incoming occurrences', () => {
+  const file = 'content/gallery/x.json'
+  const mark = { why: 'dead: withheld', step: 'the photo check', pages: ['species/x'], at: '2026-11-20', off: true }
+  const look = { said: 'clear', by: 'the chief of staff', on: '2026-11-21' }
+  const settled = { file, index: 0, capture: 'plain', edition: 'plain' }
+  const first = { file, index: 0, capture: 'altered-first', edition: 'altered' }
+  const second = { file, index: 1, occurrence: 1, capture: 'altered-second', edition: 'altered' }
+
+  const merged = mergeMaps({}, { u: { ...mark, look, back: '2026-11-21', settled: [settled] } }, { u: { ...mark, left: [first, second] } })
+
+  expect(merged.u.settled).toEqual([settled])
+  expect(merged.u.left).toEqual([{ ...first, occurrence: 2, capturedOccurrence: 0 }, second])
+  expect(merged.u.back).toBeUndefined()
+})
+
 test('keys added, changed or removed on either side all land; untouched keys stay', () => {
   const base = { a: 0, b: 0, c: 0 }
   const ours = { a: 1, b: 0, c: 0, x: 0 }
@@ -23,6 +38,62 @@ test("an emptied page both sides listed keeps the earlier day, whichever side ha
   // Not an emptied page's entry: ours, as before.
   expect(mergeMaps({}, { 'https://m/x.webp': '2026-11-21' }, { 'https://m/x.webp': '2026-11-20' })).toEqual({ 'https://m/x.webp': '2026-11-21' })
   expect(mergeMaps({}, { 'species/a': 'waiting' }, { 'species/a': '2026-11-20' })).toEqual({ 'species/a': 'waiting' })
+})
+
+test('a clear keeps recovery places added for the same mark in a concurrent checkout', () => {
+  const mark = { why: 'dead: withheld', step: 'the photo check', pages: ['species/x'], at: '2026-11-20', off: true }
+  const look = { said: 'clear', by: 'the chief of staff', on: '2026-11-21' }
+  const page = { file: 'content/species/x/entity.json', index: 0 }
+  const album = { file: 'content/gallery/x.json', index: 2 }
+  const base = { u: mark }
+  const checked = { u: { ...mark, look, left: [page] } }
+  const captured = { u: { ...mark, left: [album] } }
+  const merged = { u: { ...mark, look, left: [page, album] } }
+  expect(mergeMaps(base, checked, captured)).toEqual(merged)
+  expect(mergeMaps(base, captured, checked)).toEqual(merged)
+  expect(mergeMaps(base, checked, { u: { ...captured.u, why: 'people: withheld' } })).toEqual({ u: { ...captured.u, why: 'people: withheld' } })
+})
+
+test('a clear retains a concurrently replaced capture', () => {
+  const mark = { why: 'dead: withheld', step: 'the dead-fish screen', pages: ['species/x'], at: '2026-11-20', off: true }
+  const original = { file: 'content/species/x/entity.json', index: 0, capture: 'hotlink' }
+  const mirror = { ...original, index: 1, capture: 'credited-mirror' }
+  const base = { u: { ...mark, left: [original] } }
+  const look = { said: 'clear', by: 'reviewer', on: '2026-11-21' }
+  const clear = { u: { ...base.u, look } }
+  const concurrent = { u: { ...mark, left: [mirror] } }
+  const merged = { u: { ...clear.u, left: [mirror] } }
+  expect(mergeMaps(base, clear, concurrent)).toEqual(merged)
+  expect(mergeMaps(base, concurrent, clear)).toEqual(merged)
+})
+
+test('a published settlement wins over a competing first capture of the same place', () => {
+  const mark = { why: 'dead: withheld', step: 'the photo check', pages: ['species/x'], at: '2026-11-20', off: true }
+  const a = { file: 'content/species/x/entity.json', index: 0, capture: 'published' }
+  const b = { ...a, capture: 'parallel' }
+  const done = { u: { ...mark, back: '2026-11-21', look: { said: 'clear', by: 'reviewer', on: '2026-11-21' }, settled: [a] } }
+  const competing = { u: { ...mark, left: [b] } }
+  expect(mergeMaps({ u: mark }, done, competing)).toEqual(done)
+  expect(mergeMaps({ u: mark }, competing, done)).toEqual(done)
+})
+
+test('merging captures retains both pages covered by the verdict', () => {
+  const base = { why: 'dead: withheld', step: 'the photo check', at: '2026-11-20', off: true }
+  const a = { ...base, pages: ['species/a'], left: [{ file: 'content/species/a/entity.json', index: 0 }] }
+  const b = { ...base, pages: ['species/b'], left: [{ file: 'content/species/b/entity.json', index: 0 }] }
+  expect(mergeMaps({}, { u: a }, { u: b })).toEqual({ u: { ...a, pages: ['species/a', 'species/b'], left: [...a.left, ...b.left] } })
+})
+
+test('a pending album capture keeps a concurrent page settlement from Git history', () => {
+  const mark = { why: 'dead: withheld', step: 'the photo check', pages: ['species/x'], at: '2026-11-20', off: true }
+  const look = { said: 'clear', by: 'reviewer', on: '2026-11-21' }
+  const page = { file: 'content/species/x/entity.json', index: 0 }
+  const album = { file: 'content/gallery/x.json', index: 1, capture: 'later-capture' }
+  const restoring = { u: { ...mark, look, back: '2026-11-22', settled: [page] } }
+  const pending = { u: { ...mark, look, left: [album] } }
+  const merged = { u: { ...mark, look, settled: [page], left: [album] } }
+  expect(mergeMaps({ u: { ...mark, look } }, pending, restoring)).toEqual(merged)
+  expect(mergeMaps({ u: { ...mark, look } }, restoring, pending)).toEqual(merged)
 })
 
 test('as a git merge driver: two engine jobs that both append to a photo cache rebase cleanly', async () => {

@@ -292,7 +292,7 @@ export function passedBefore(subjects: Record<string, unknown> = {}, check: Reco
   return urls
 }
 
-type LookMark = { why?: unknown; off?: boolean; originals?: unknown }
+type LookMark = { why?: unknown; off?: boolean; left?: unknown; settled?: unknown; waitingReasons?: unknown; originals?: unknown }
 
 function unansweredHold(record: unknown): boolean {
   const mark = record as LookMark | undefined
@@ -343,6 +343,19 @@ export function facePhotoOff(url: string, faces?: Record<string, unknown>, secon
   return typeof count === 'number' && count > 0 && !cleared(url) && !held(url)
 }
 
+/** One place has already published its clear. A later pending place must not put the whole URL back on the list. */
+export function settledWaiting(reason: unknown, record: unknown): boolean {
+  const mark = record as LookMark | undefined
+  return typeof reason === 'string' && reason.startsWith('waiting:') && typeof mark?.why === 'string' &&
+    Array.isArray(mark.settled) && mark.settled.length > 0 &&
+    (reason === mark.why.replace(/^[^:]+:/, 'waiting:') ||
+      (Array.isArray(mark.waitingReasons) && mark.waitingReasons.some(why =>
+        typeof why === 'string' && reason === why.replace(/^[^:]+:/, 'waiting:'))) ||
+      [...mark.settled, ...(Array.isArray(mark.left) ? mark.left : [])].some(p =>
+        typeof p?.captureWhy === 'string' && reason === p.captureWhy.replace(/^[^:]+:/, 'waiting:'))) &&
+    photoLookAnswer(mark)?.said === 'clear'
+}
+
 /**
  * A waiting rejection remains in force when its mark is missing. A recorded dead verdict holds its URL even if the
  * file it came from still needs to preserve a different fallback version. A last-photo hold or a person's clear can
@@ -351,6 +364,8 @@ export function facePhotoOff(url: string, faces?: Record<string, unknown>, secon
 export function deadPhotoOff(url: string, screen?: Record<string, unknown>, secondLook?: Record<string, unknown>, rejected?: PhotoRejection, cleared = photoClears(secondLook), held = photoHolds(secondLook), firstOff = photoFirstOff(secondLook)): boolean {
   const rejection = rejected?.(url)
   const why = rejection?.[1]
+  const mark = secondLook?.[rejection?.[0] ?? url] as LookMark | undefined
+  if (settledWaiting(why, mark)) return false
   if (typeof why === 'string' && (why.startsWith('dead:') || why.startsWith('people:') || why.startsWith('waiting:'))) return true
   if (cleared(rejection?.[0] ?? url)) return false
   if (firstOff(url)) return true

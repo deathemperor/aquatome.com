@@ -18,16 +18,84 @@ import { pathToFileURL } from 'node:url'
 // and main's unmarked records won: the chief of staff, 20 Nov 2026); else ours.
 const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && typeof v.step === 'string' && Array.isArray(v.pages) && typeof v.at === 'string'
 const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
+const placesOf = (r, field = 'left') => Array.isArray(r?.[field]) ? r[field].filter(p => typeof p?.file === 'string' && Number.isSafeInteger(p.index) && p.index >= 0) : []
+const placeKey = p => p.occurrence ? `${p.file}#${p.occurrence}` : p.file
+function mergePlaces(chosen, base, ours, theirs) {
+  if (ours.off !== true || theirs.off !== true) return chosen
+  const other = chosen === ours ? theirs : ours
+  const differentKind = chosen.why.split(':', 1)[0] !== other.why.split(':', 1)[0]
+  const competing = placesOf(other).some(p => p.capture)
+  const inheritedWaits = [...(chosen.waitingReasons ?? []), ...(other.waitingReasons ?? [])]
+  if (differentKind && !competing && !inheritedWaits.length) return chosen
+  const at = ours.at < theirs.at ? ours.at : theirs.at
+  const datedPlaces = (mark, field) => placesOf(mark, field).map(p => {
+    const { captureDay, captureWhy, ...place } = p
+    const captured = captureDay ?? mark.at
+    const reason = captureWhy ?? mark.why
+    return { ...place, ...(captured === at ? {} : { captureDay: captured }), ...(reason === chosen.why ? {} : { captureWhy: reason }) }
+  })
+  const oldSettled = chosen.why === other.why ? datedPlaces(other, 'settled') : []
+  const settled = new Map([...oldSettled, ...datedPlaces(chosen, 'settled')].map(p => [placeKey(p), p]))
+  const original = new Map(datedPlaces(base).map(p => [placeKey(p), p]))
+  const pending = new Map(datedPlaces(chosen).map(p => [placeKey(p), p]))
+  const incoming = datedPlaces(other)
+  const incomingKeys = new Set(incoming.map(placeKey))
+  const sameCapture = (p, q) => !!p && !!q && p.capture === q.capture && p.index === q.index && p.captureDay === q.captureDay && p.captureWhy === q.captureWhy
+  const distinctEditions = (p, q) => p?.edition && q.edition && p.edition !== q.edition
+  const renumber = place => {
+    const moved = { ...place, occurrence: 1, capturedOccurrence: place.capturedOccurrence ?? place.occurrence ?? 0 }
+    while (pending.has(placeKey(moved)) || settled.has(placeKey(moved)) || original.has(placeKey(moved)) || incomingKeys.has(placeKey(moved))) moved.occurrence++
+    return moved
+  }
+  for (const place of incoming) {
+    if (differentKind && !place.capture) continue
+    const key = placeKey(place)
+    const before = original.get(key)
+    const selected = pending.get(key)
+    const receipt = settled.get(key)
+    if (place.capture && [...pending.values(), ...settled.values()].some(p => p.file === place.file && sameCapture(p, place))) continue
+    if (chosen.back && sameCapture(place, before)) continue
+    if (distinctEditions(selected ?? receipt, place)) {
+      const moved = renumber(place)
+      pending.set(placeKey(moved), moved)
+    } else if (!selected || (sameCapture(selected, before) && !sameCapture(place, before))) pending.set(key, place)
+  }
+  for (const [file, receipt] of settled) {
+    const next = pending.get(file)
+    if (!next) continue
+    // The completed receipt wins over a competing first capture. Only a replacement of that receipt reopens it.
+    if (distinctEditions(receipt, next)) {
+      // Both variants survived the merge even if the first one has already returned.
+      const moved = renumber(next)
+      pending.delete(file)
+      pending.set(placeKey(moved), moved)
+    } else if (sameCapture(receipt, original.get(file)) && !sameCapture(receipt, next)) settled.delete(file)
+    else pending.delete(file)
+  }
+  const { back, left, settled: _settled, ...merged } = chosen
+  merged.at = at
+  if (inheritedWaits.length || (chosen.why !== other.why && competing)) {
+    const reasons = competing ? [...inheritedWaits, other.why] : inheritedWaits
+    merged.waitingReasons = [...new Set(reasons.filter(reason =>
+      reason !== chosen.why && /^(?:dead|people|watermark|logo): withheld \[sha256:[a-f0-9]{64}\]$/.test(reason)))].sort()
+  }
+  if ((settled.size || pending.size) && record(ours) && record(theirs)) merged.pages = [...new Set([...ours.pages, ...theirs.pages])].sort()
+  if (settled.size) merged.settled = [...settled.values()]
+  if (pending.size) return { ...merged, left: [...pending.values()] }
+  const completed = back ?? (chosen.why === other.why ? other.back : undefined)
+  return completed ? { ...merged, back: completed } : merged
+}
+
 function bothChanged(base, ours, theirs, k) {
   if (!(k in ours) || !(k in theirs)) return k in base ? undefined : (k in ours ? ours : theirs)
   const [o, t] = [ours[k], theirs[k]]
   if (answered(o) !== answered(t)) {
     const [a, m] = answered(o) ? [o, t] : [t, o]
-    if (m.off === true && a.look.said === 'clear' && a.why !== m.why) return { [k]: m }
-    return { [k]: m.off === true && a.off !== true ? { ...m, look: a.look } : a }
+    if (m.off === true && a.look.said === 'clear' && a.why !== m.why) return { [k]: mergePlaces(m, base[k], o, t) }
+    return { [k]: m.off === true && a.off !== true ? { ...m, look: a.look } : mergePlaces(a, base[k], o, t) }
   }
   if ((o.off === true) !== (t.off === true)) return o.off === true ? ours : theirs
-  return ours
+  return { [k]: mergePlaces(o, base[k], o, t) }
 }
 
 // A never-again entry (engine-state/_photo-rejected.json) both sides changed, one a waiting entry (last-photo.ts

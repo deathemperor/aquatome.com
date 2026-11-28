@@ -21,6 +21,28 @@ const glaser = {
   photos: [{ url: 'https://m/glaser.webp', source: 'glaser' }], videos: [{ youtubeId: 'a' }, { youtubeId: 'b' }], updatedAt: '2026-10-31',
 }
 
+test('replaying a restored plain photo preserves a credited wrapper sharing its stored address', () => {
+  const plain = { url: 'https://m/shared.webp', caption: 'Plain placement' }
+  const wrapper = { ...plain, caption: 'Credited wrapper', altered: [{ method: 'lanczos3-upscale' }], original: { url: 'https://m/original.webp' } }
+  const neighbor = { url: 'https://m/neighbor.webp' }
+  const added = { url: 'https://m/new.webp' }
+  const base = { photos: [wrapper, neighbor] }
+  const main = { photos: [wrapper, neighbor, added] }
+  const local = { photos: [wrapper, neighbor, plain] }
+  expect(mergeFile(base, main, local).photos).toEqual([wrapper, neighbor, added, plain])
+  expect(mergeFile({ photos: [] }, { photos: [wrapper] }, { photos: [plain] }).photos).toEqual([wrapper, plain])
+  expect(mergeFile({ photos: [] }, { photos: [plain] }, { photos: [wrapper] }).photos).toEqual([plain, wrapper])
+})
+
+test('concurrent wrappers with different saved originals each retain their own credit', () => {
+  const photo = { url: 'https://m/shared.webp', altered: [{ method: 'lanczos3-upscale' }] }
+  const one = { ...photo, author: 'First credit', original: { url: 'https://m/one.webp' } }
+  const two = { ...photo, author: 'Second credit', original: { url: 'https://m/two.webp' } }
+  for (const [main, local] of [[one, two], [two, one]]) {
+    expect(mergeFile({ photos: [] }, { photos: [main] }, { photos: [local] }).photos).toEqual([main, local])
+  }
+})
+
 test('the same new page from two sources: both sources\' figures, places, sections, photos and videos stay', () => {
   expect(merge3(undefined, sf, glaser)).toEqual({
     id: 'pterophyllum-scalare', scientificName: 'Pterophyllum scalare', family: 'Cichlidae', places: ['south-america', 'colombia', 'brazil', 'rio-xingu'],
@@ -28,6 +50,31 @@ test('the same new page from two sources: both sources\' figures, places, sectio
     sections: [...sf.sections, ...glaser.sections],
     photos: [...sf.photos, ...glaser.photos], videos: [{ youtubeId: 'a' }, { youtubeId: 'b' }], updatedAt: '2026-10-31',
   })
+})
+
+test('a concurrently added recovery returns behind its saved preceding neighbor', () => {
+  const head = { url: 'head' }, tail = { url: 'restored' }
+  const base = { photos: [head] }
+  expect(merge3(base, { photos: [tail, head] }, { photos: [head, tail] })).toEqual({ photos: [head, tail] })
+})
+
+test('a restored lead and its next photo stay together before their shared anchor', () => {
+  const lead = { url: 'lead' }, next = { url: 'next' }, tail = { url: 'tail' }
+  const base = { photos: [tail] }
+  expect(merge3(base, { photos: [tail, lead, next] }, { photos: [lead, next, tail] }))
+    .toEqual({ photos: [lead, next, tail] })
+})
+
+test('a restored lead keeps its position when main added a photo during the restore', () => {
+  const head = { url: 'restored', author: 'Sample Credit' }
+  const tail = { url: 'tail' }
+  const added = { url: 'added-on-main' }
+  expect(mergeFile({ photos: [tail] }, { photos: [tail, added] }, { photos: [head, tail] }))
+    .toEqual({ photos: [head, tail, added] })
+  expect(mergeFile({ photos: [] }, { photos: [tail] }, { photos: [head, tail] }))
+    .toEqual({ photos: [head, tail] })
+  expect(mergeFile({ photos: [tail] }, { photos: [tail, head] }, { photos: [head, tail] }))
+    .toEqual({ photos: [head, tail] })
 })
 
 test('changes on an existing page: each side\'s edit lands, a removal stands, a clash goes to theirs', () => {
