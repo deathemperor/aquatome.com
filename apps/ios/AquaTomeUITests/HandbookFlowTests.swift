@@ -224,7 +224,7 @@ final class HandbookFlowTests: XCTestCase {
     // Three tools: "Bể của tôi" and the tank volume calculator, both about a "bể cá", and fish ID ("Đây là cá gì?").
     XCTAssertEqual(all.value as? String, "9")
     XCTAssertEqual(rows(app), 9)
-    for (kind, title, count) in [("fish", "Loài cá", 3), ("guide", "Hướng dẫn", 2), ("video", "Video", 2), ("tool", "Công cụ", 3)] {
+    for (kind, title, count) in [("fish", "Loài cá", 3), ("guide", "Hướng dẫn", 1), ("video", "Video", 2), ("tool", "Công cụ", 3)] {
       let c = chip(app, kind)
       XCTAssertTrue(c.exists, "no \(title)")
       XCTAssertEqual(c.label, title)
@@ -234,6 +234,61 @@ final class HandbookFlowTests: XCTestCase {
     // A kind with nothing found has no chip.
     XCTAssertFalse(chip(app, "plant").exists, "plants, with none found")
     XCTAssertFalse(chip(app, "glossary").exists, "the glossary, with none found")
+  }
+
+  func testAllListsEachKindsBestThreeAndAWayToTheRest() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook",
+                           "-familiar", "5"]
+    app.launchForFlow()
+    app.openTab("Tìm kiếm")
+    search(app, "ca\n")
+    XCTAssertTrue(chip(app, "all").waitForExistence(timeout: 5))
+    XCTAssertTrue(chip(app, "all").isSelected)
+    XCTAssertEqual(chip(app, "all").value as? String, "14")
+    XCTAssertEqual(chip(app, "fish").value as? String, "8")
+    XCTAssertEqual(chip(app, "guide").value as? String, "1")
+    XCTAssertEqual(chip(app, "video").value as? String, "2")
+    let title = app.descendants(matching: .any)["results-fish"].firstMatch
+    XCTAssertTrue(title.waitForExistence(timeout: 5))
+    readsClearly(app, title, "the result kind heading")
+    XCTAssertEqual(rows(app), 9, "three fish, one written guide, two videos and three tools")
+
+    let more = app.buttons["see-all-fish"]
+    repeatUntil(more.exists && more.isHittable, times: 5) { app.swipeUp() }
+    XCTAssertTrue(more.exists && more.isHittable)
+    XCTAssertEqual(more.label, "Xem tất cả 8")
+    XCTAssertFalse(app.buttons["see-all-guide"].exists)
+    XCTAssertFalse(app.buttons["see-all-video"].exists)
+    XCTAssertFalse(app.buttons["see-all-tool"].exists)
+    more.tap()
+    let fish = chip(app, "fish")
+    XCTAssertTrue(fish.waitForExistence(timeout: 5) && fish.isSelected)
+    XCTAssertEqual(rows(app), 8)
+  }
+
+  func testSeeAllReturnsToTheKindChipAtTheLargestText() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook",
+                           "-familiar", "5", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+    app.launchForFlow()
+    app.openTab("Tìm kiếm")
+    search(app, "ca\n")
+    let first = item(app, "Cá đĩa")
+    XCTAssertTrue(first.waitForExistence(timeout: 5) && first.isHittable, "the best fish starts in view")
+    let more = app.buttons["see-all-fish"]
+    let list = app.collectionViews.firstMatch
+    repeatUntil(more.exists && more.isHittable && !(first.exists && first.isHittable), times: 8) {
+      drag(list, from: 0.65, to: 0.28)
+    }
+    XCTAssertTrue(more.exists && more.isHittable)
+    XCTAssertFalse(first.exists && first.isHittable, "the first row is offscreen before the tap")
+    more.tap()
+
+    let fish = chip(app, "fish")
+    XCTAssertTrue(fish.waitForExistence(timeout: 5))
+    XCTAssertTrue(fish.isHittable && fish.isSelected, "the selected chip returned to the top")
+    XCTAssertTrue(first.waitForExistence(timeout: 5) && first.isHittable, "the best fish is back in view")
   }
 
   // A kind picked keeps its chip when the next letters find none of it: the way back to the others.
@@ -267,42 +322,37 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertEqual(rows(app), 9)
   }
 
-  // "c" counted 2,183 over the 200 rows a search lists, with nothing saying so. Three to a page here (`-search-page`),
-  // as 200 are on the site's index.
+  // A filtered list still pages. Three to a page here, as 200 are on the site's index.
   func testMoreFoundThanListedSaysSoAndListsMore() {
-    let app = launch("-search-page", "3")
-    // The keyboard put away, so the button under the rows can be tapped.
+    let app = launch("-search-page", "3", "-familiar", "6")
     search(app, "ca\n")
+    let fish = chip(app, "fish")
+    fish.tap()
     let note = app.staticTexts["more-note"]
     XCTAssertTrue(note.waitForExistence(timeout: 5), "no word under the rows listed")
     XCTAssertEqual(note.label, "Đang hiện 3 trong 9 kết quả. Gõ thêm để thu hẹp.")
-    XCTAssertEqual(chip(app, "all").value as? String, "9")
+    XCTAssertEqual(fish.value as? String, "9")
     app.buttons["more"].tap()
     XCTAssertEqual(note.label, "Đang hiện 6 trong 9 kết quả. Gõ thêm để thu hẹp.")
     app.buttons["more"].tap()
-    // "Xem thêm kết quả" lists the rest in the tap itself, with no search (MoreResults), as the 6 of 9 above is read
-    // straight after its tap. Checked before the rows are counted, which scrolls the list away from the note.
     XCTAssertFalse(note.exists, "still short, with all of it listed")
     XCTAssertEqual(rows(app), 9)
-    chip(app, "fish").tap()
-    // The fish picked (what would leave a note if it had more than 3), then the note.
-    let picked = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isSelected == true"), object: chip(app, "fish"))
-    XCTAssertEqual(XCTWaiter().wait(for: [picked], timeout: 5), .completed, "the fish not picked")
+    chip(app, "tool").tap()
     XCTAssertFalse(note.exists, "short of a kind that has only 3")
     XCTAssertEqual(rows(app), 3)
-    // Another kind picked lists its best 3 again, not as many as the last one had.
-    chip(app, "all").tap()
-    XCTAssertTrue(note.waitForExistence(timeout: 5), "all 9 listed again, not the best 3")
+    fish.tap()
+    XCTAssertTrue(note.waitForExistence(timeout: 5))
     XCTAssertEqual(note.label, "Đang hiện 3 trong 9 kết quả. Gõ thêm để thu hẹp.")
     XCTAssertEqual(rows(app), 3)
   }
 
   // The note under the rows was the footer's secondary: 3.3:1 on the light look's background.
-  func testTheNoteUnderTheRowsReadsClearly() { noteReadsClearly(launch("-search-page", "3")) }
-  func testTheNoteUnderTheRowsReadsClearlyInTheDark() { noteReadsClearly(launch("-search-page", "3", "-dark")) }
+  func testTheNoteUnderTheRowsReadsClearly() { noteReadsClearly(launch("-search-page", "3", "-familiar", "6")) }
+  func testTheNoteUnderTheRowsReadsClearlyInTheDark() { noteReadsClearly(launch("-search-page", "3", "-familiar", "6", "-dark")) }
 
   private func noteReadsClearly(_ app: XCUIApplication) {
     search(app, "ca\n")
+    chip(app, "fish").tap()
     let note = app.staticTexts["more-note"]
     XCTAssertTrue(note.waitForExistence(timeout: 5), "no word under the rows listed")
     readsClearly(app, note, "the note")
@@ -357,7 +407,7 @@ final class HandbookFlowTests: XCTestCase {
   // Typing here redrew the tanks tab's guides and fish picker, and searched again for them, letter by letter: they
   // read the index searched through this tab's search, which each letter changes.
   func testTypingHereLeavesWhatTheTanksTabSearchesAlone() {
-    let app = launch("-watch-tank-searches", "-search-page", "3")
+    let app = launch("-watch-tank-searches", "-search-page", "3", "-familiar", "6")
     let changes = app.staticTexts["tank-search-changes"]
     XCTAssertTrue(changes.waitForExistence(timeout: 5), "not watched")
     // The index coming in is a change: what the tanks tab searches is new.
@@ -365,8 +415,9 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertEqual(XCTWaiter().wait(for: [loaded], timeout: 5), .completed, "the index didn't come in")
     let before = changes.label
     search(app, "ca\n")
-    app.buttons["more"].tap()
     chip(app, "fish").tap()
+    app.buttons["more"].tap()
+    chip(app, "all").tap()
     let field = app.searchFields.firstMatch
     field.tap()
     field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: 2))

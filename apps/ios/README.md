@@ -294,6 +294,8 @@ Debug builds, so they don't see it.
 
 ## The flows on CI
 
+The handbook flows check mixed searches in Tìm. Each kind shows up to three matches, with videos counted separately from written guides. “Xem tất cả” selects that kind and returns to its chip. A kind’s full list still loads a page at a time.
+
 `ios.yml` runs the UI flows in two tiers:
 
 - **A pull request** runs the smoke set, ten flows across the app's main journeys (the app starts and its tabs open, a

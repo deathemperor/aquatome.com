@@ -103,7 +103,10 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     private let rare: Rare?
     public var id: String { path }
 
-    /// Of `kind`, as a search narrowed to it or a list of it takes it: a video guide is a guide, and a video too.
+    /// The kind used for search counts and results. A video guide appears with videos.
+    var searchKind: Kind { kind == .guide && video != nil ? .video : kind }
+
+    /// A video guide belongs to both kinds in reading lists.
     public func `is`(_ kind: Kind) -> Bool { self.kind == kind || (kind == .video && video != nil) }
 
     enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, imgBox, section, about, group, plant, video, parts, words, tax, from, of, card, short }
@@ -722,13 +725,13 @@ public struct HandbookSearch: Sendable {
   /// a page named what was searched for (its name, scientific name or another name, compared as `nameKey` makes them, as
   /// the site's search puts it first: "bảy màu" finds Cá bảy màu before Bảy màu Koi), the name itself, a name that starts
   /// with it, a word of the name that starts with it, the name containing it, then other names, then a tool page's words.
-  /// An empty query lists everything of `kind` (Item.is) in name order, all of it (`limit` is for searches).
+  /// An empty query lists every matching item in name order. The limit applies to ranked searches.
   public func find(_ query: String, kind: HandbookIndex.Kind? = nil, limit: Int = 200) -> [HandbookIndex.Item] {
     findAndCount(query, kind: kind, limit: limit).items
   }
 
   /// What `find` lists, and how many pages the query finds of each kind, as `find` narrowed to that kind takes them
-  /// (Item.is: a video guide counts as a guide and as a video), and in all under nil. Every match is counted, not only
+  /// (video guides count as videos), and in all under nil. Every match is counted, not only
   /// the best 200 listed. Counted in the pass that finds them: matching is what a keystroke costs, and a second pass to
   /// count would nearly double it.
   public func findAndCount(_ query: String, kind: HandbookIndex.Kind? = nil, limit: Int = 200)
@@ -751,8 +754,9 @@ public struct HandbookSearch: Sendable {
     // The marks only once the letters match: a few pages' words split and marked per keystroke, not every page's.
     for e in entries where Self.matches(e, words) && (marked.isEmpty || Self.matches(e.item, marked)) {
       counts[nil, default: 0] += 1
-      for k in HandbookIndex.Kind.allCases where e.item.is(k) { counts[k, default: 0] += 1 }
-      if kind.map(e.item.is) ?? true { ranked.append((q.isEmpty ? 0 : Self.rank(e, q, words, key), e)) }
+      let matchKind = e.item.searchKind
+      counts[matchKind, default: 0] += 1
+      if kind == nil || kind == matchKind { ranked.append((q.isEmpty ? 0 : Self.rank(e, q, words, key), e)) }
     }
     guard !q.isEmpty else { return (ranked.map(\.entry.item), counts) }
     let best = ranked.sorted { ($0.rank, $0.entry.name.count, $0.entry.name) < ($1.rank, $1.entry.name.count, $1.entry.name) }

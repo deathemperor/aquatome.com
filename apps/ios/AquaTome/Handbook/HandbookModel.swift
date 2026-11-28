@@ -40,6 +40,8 @@ final class HandbookModel {
   var counts: [HandbookIndex.Kind?: Int] { searching.counts }
   /// How many the kind picked finds past the rows listed: a page more of them for "Xem thêm kết quả".
   var left: Int { searching.left }
+  /// "Tất cả" picked and two kinds or more found: each kind's best three, the kinds in the order of their best.
+  var sections: [SearchState.Section] { searching.sections }
   func showMore() { searching.showMore() }
 
   /// The index searched, for the tanks tab's guides and fish picker: a copy of the one in `searching`, set with it, so
@@ -310,7 +312,7 @@ final class HandbookModel {
   /// Guides that name these fish and plants (a tank's), the most of them first, then in name order: the written ones,
   /// and the ones made from videos apart, as a species page on the site lists them.
   func guides(about ids: [String]) -> (written: [HandbookIndex.Item], videos: [HandbookIndex.Item]) {
-    let all = search.find("", kind: .guide)
+    let all = search.find("").filter { $0.kind == .guide }
     return (HandbookIndex.guides(about: ids, in: all.filter { $0.video == nil }), HandbookIndex.guides(about: ids, in: all.filter { $0.video != nil }))
   }
 

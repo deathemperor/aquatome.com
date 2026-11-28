@@ -12,28 +12,47 @@ struct HandbookView: View {
   /// On v2's search tab: a fish's or plant's page as v2 draws it (SpeciesPage), with v1's for a part it can't (FullPage).
   @Environment(\.v2Pages) private var v2Pages
 
+  private static let top = "results-top"
+
   var body: some View {
     @Bindable var handbook = handbook
     NavigationStack(path: $path) {
-      List {
-        if handbook.query.isEmpty {
-          HomeList()
-        } else {
-          Section {
-            ForEach(handbook.results) { item in Row(item: item) }
-            // The kind picked has none but others have some: said under the chips, as a row the list scrolls. Laid over
-            // the list, at the largest text it covered the chips, and with the keyboard up its button was under it.
-            if handbook.results.isEmpty, let kind = handbook.kind, handbook.counts[nil, default: 0] > 0 {
-              NoneOfKind(kind: kind).listRowBackground(Color.clear)
+      ScrollViewReader { proxy in
+        List {
+          if handbook.query.isEmpty {
+            HomeList()
+          } else {
+            let sections = handbook.sections
+            Section {
+              if sections.isEmpty {
+                ForEach(handbook.results) { item in Row(item: item) }
+                if handbook.results.isEmpty, let kind = handbook.kind, handbook.counts[nil, default: 0] > 0 {
+                  NoneOfKind(kind: kind).listRowBackground(Color.clear)
+                }
+              }
+            } header: {
+              KindChips().padding(.bottom, 4).listRowInsets(EdgeInsets()).textCase(nil)
+            } footer: {
+              if sections.isEmpty, handbook.left > 0 { MoreResults() }
             }
-          } header: {
-            // The kinds found, under the search field and right above their results, as the reader types (and none
-            // before: the home shows then, which a kind doesn't change). In the list, not a bar over it: a bar's
-            // scroll view reaches up under the navigation bar, and iOS 26 drew none of its chips.
-            KindChips().padding(.bottom, 4).listRowInsets(EdgeInsets()).textCase(nil)
-          } footer: {
-            // More found than listed (a search lists its best 200): says so, under chips that count them all.
-            if handbook.left > 0 { MoreResults() }
+            .id(Self.top)
+
+            ForEach(sections, id: \.kind) { section in
+              Section {
+                ForEach(section.items) { item in Row(item: item) }
+                if section.count > section.items.count {
+                  SeeAll(count: section.count) {
+                    handbook.kind = section.kind
+                    proxy.scrollTo(Self.top, anchor: .top)
+                  }
+                  .accessibilityIdentifier("see-all-\(section.kind.rawValue)")
+                }
+              } header: {
+                Text(section.kind.title).font(.headline).foregroundStyle(Color.primary).textCase(nil)
+                  .accessibilityAddTraits(.isHeader)
+                  .accessibilityIdentifier("results-\(section.kind.rawValue)")
+              }
+            }
           }
         }
       }
@@ -177,6 +196,8 @@ private struct KindChips: View {
       // The chip picked stays in view, as kinds come and go while the reader types and when one is picked at the edge.
       .onChange(of: kinds) { withAnimation { proxy.scrollTo(handbook.kind) } }
       .onChange(of: handbook.kind) { withAnimation { proxy.scrollTo(handbook.kind) } }
+      // The list can recreate this header as "Xem tất cả" returns to it.
+      .onAppear { if handbook.kind != nil { proxy.scrollTo(handbook.kind) } }
     }
     .accessibilityElement(children: .contain)
     .accessibilityLabel("Lọc kết quả")
@@ -233,6 +254,26 @@ private struct MoreResults: View {
         .frame(minHeight: 44)
         .accessibilityIdentifier("more")
     }
+  }
+}
+
+/// The last row of a kind's section that found more than it lists: how many in all, as its chip says.
+private struct SeeAll: View {
+  let count: Int
+  let pick: () -> Void
+
+  var body: some View {
+    Button(action: pick) {
+      HStack {
+        Text("Xem tất cả \(count)")
+        Spacer()
+        Image(systemName: "chevron.right").foregroundStyle(.tertiary).accessibilityHidden(true)
+      }
+      .frame(minHeight: 44)
+      // The whole row answers a tap, the space before the chevron too.
+      .contentShape(.rect)
+    }
+    .buttonStyle(.plain)
   }
 }
 

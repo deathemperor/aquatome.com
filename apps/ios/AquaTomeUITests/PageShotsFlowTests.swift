@@ -28,10 +28,10 @@ final class PageShotsFlowTests: XCTestCase {
   func testAPlant() { shoot("plant-light", "rotala", "Rotala đỏ") }
   func testAGuide() { shoot("guide-light", "nuoi ca neon", "Nuôi cá neon trong bể nhỏ") }
   func testAVideoSeries() { shoot("series-light", "reu hai tu a", "Rêu hại từ A đến Z") }
-  func testASearch() { shootSearch("search-light") }
-  func testASearchInTheDark() { shootSearch("search-dark", dark: true) }
-  func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest) }
-  func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
+  func testASearch() { shootSearch("search-light", more: ["-familiar", "5"]) }
+  func testASearchInTheDark() { shootSearch("search-dark", dark: true, more: ["-familiar", "5"]) }
+  func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest, more: ["-familiar", "5"]) }
+  func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest, more: ["-familiar", "5"]) }
   // The lights in v2, the look the owner's app opens in.
   func testTheLightsTab() { shootLights("lights-light") }
   func testTheLightsTabInTheDark() { shootLights("lights-dark", dark: true) }
@@ -192,7 +192,12 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheTitlesInTheLargestTextInTheDark() { shootTitles("titles-largest-dark", dark: true, size: largest) }
 
   // Three to a page (`-search-page`), so "Xem thêm kết quả" shows on the first screen, as it does under 200 rows.
-  func testASearchFindingMoreThanItLists() { shootSearch("search-more-light", more: ["-search-page", "3"]) }
+  func testASearchFindingMoreThanItLists() {
+    shootSearch("search-more-light", more: ["-search-page", "3", "-familiar", "6"]) { app in
+      app.buttons["kind-fish"].tap()
+      return app.staticTexts["more-note"]
+    }
+  }
   func testAKindASearchFindsNoneOf() { shootSearch("search-none-of-kind-light", typing: "do", then: noneOfPlants) }
   func testAKindASearchFindsNoneOfInTheLargestText() {
     shootSearch("search-none-of-kind-largest-light", size: largest, typing: "do", then: noneOfPlants)
@@ -741,7 +746,8 @@ final class PageShotsFlowTests: XCTestCase {
   /// `then`, after typing, gives what shows once the screen is there: a result row unless it says otherwise.
   private func shootSearch(_ name: String, dark: Bool = false, size: String? = nil, more: [String] = [], typing query: String = "ca\n",
                            then: ((XCUIApplication) -> XCUIElement)? = nil) {
-    let app = launch(dark: dark, size: size, more)
+    let app = launch(dark: dark, size: size, more, look: .v2)
+    app.openTab("Tìm kiếm")
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()

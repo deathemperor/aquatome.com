@@ -119,8 +119,8 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   let s = HandbookSearch([series, video, written])
   #expect(names(s.find("reu", kind: .video)) == ["Rêu hại từ A đến Z", "Cách hạn chế rêu hại"])
   #expect(names(s.find("", kind: .video)) == ["Cách hạn chế rêu hại", "Rêu hại từ A đến Z"])
-  // A video guide is still a guide.
-  #expect(names(s.find("reu", kind: .guide)) == ["Rêu hại và cách trị", "Cách hạn chế rêu hại"])
+  // A video guide is a video, not a guide: the Hướng dẫn chip holds written guides alone (Design's videos spec, 14 Nov).
+  #expect(names(s.find("reu", kind: .guide)) == ["Rêu hại và cách trị"])
   #expect(video.is(.guide) && video.is(.video) && !written.is(.video) && series.is(.video) && !series.is(.guide))
 }
 
@@ -172,13 +172,14 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(s.findAndCount("khong co").counts.isEmpty)
 }
 
-@Test func aVideoGuideCountsAsAGuideAndAsAVideo() {
+// A video guide counts as a video, not a guide: the Hướng dẫn chip holds written guides alone (Design's videos spec, 14 Nov).
+@Test func aVideoGuideCountsAsAVideoNotAGuide() {
   let s = HandbookSearch([
     .init(kind: .video, name: "Rêu hại từ A đến Z", sub: "MJ Aquascaping", path: "/vi/video/reu/", parts: 14),
     .init(kind: .guide, name: "Cách hạn chế rêu hại", path: "/vi/huong-dan/reu-video/", video: 1755),
     .init(kind: .guide, name: "Rêu hại và cách trị", path: "/vi/huong-dan/reu/"),
   ])
-  #expect(s.findAndCount("reu").counts == [nil: 3, .guide: 2, .video: 2])
+  #expect(s.findAndCount("reu").counts == [nil: 3, .guide: 1, .video: 2])
 }
 
 @Test func aLoadReplacedByAnotherIsNotAFailure() {
