@@ -819,6 +819,46 @@ test.each(['fresh', 'kept', 'held'])('a %s video recheck keeps its batch when th
   expect(c.sh(`git show ${branches[0]}:content/video.json`)).toBe('rechecked')
 }, slow(60_000))
 
+test.each([
+  ['fresh', 'fetch'], ['kept', 'fetch'], ['held', 'fetch'],
+  ['fresh', 'clash retry'], ['kept', 'clash retry'], ['held', 'clash retry'],
+] as const)('a %s video recheck rebases only its recorded batch if HEAD advances during %s', (kind, stage) => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const branch = `${kind}/video-recheck/${when}`
+  c.sh("echo rechecked > content/video.json && git add content/video.json && git commit -qm 'content: video guides checked again (fixture)'")
+  if (kind !== 'fresh') c.sh(`git branch ${branch} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new-code')
+  if (stage === 'clash retry') {
+    c.sh('echo editor > "$HOME/other/content/video.json" && git -C "$HOME/other" add content/video.json && git -C "$HOME/other" commit -qm editor && git -C "$HOME/other" push -q')
+  }
+  c.sh('git fetch -q origin')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    net() {
+      if ${stage === 'fetch' ? '[ "$2" = fetch ]' : '{ [ "$2" = rebase ] && [ "$4" = -X ]; }'} && [ ! -f "$HOME/head-advanced" ]; then
+        echo ungated > content/ungated.json
+        git add content/ungated.json && git commit -qm ungated || return 1
+        touch "$HOME/head-advanced"
+      fi
+      "$@"
+    }
+    verify_cycle() {
+      if [ -e content/ungated.json ]; then echo VERIFIED-UNGATED; else echo VERIFIED-GATED; fi
+    }
+    ${kind === 'fresh' ? 'publish_fixture_video_recheck' : 'publish_kept video-recheck'}
+  `)
+  expect(c.sh('test -f "$HOME/head-advanced" && echo advanced')).toBe('advanced')
+  expect(log).toContain('VERIFIED-GATED')
+  expect(log).not.toContain('VERIFIED-UNGATED')
+  // Recovery keeps a page that main already published at the same path.
+  expect(c.onMain('content/video.json')).toBe(kind !== 'fresh' && stage === 'clash retry' ? 'editor' : 'rechecked')
+  expect(c.onMain('code.txt')).toBe('new-code')
+  expect(c.onMain('content/ungated.json')).toBe('')
+  expect(c.branches()).toEqual([])
+}, slow(60_000))
+
 test.each([0, 1])('a fresh video recheck keeps its batch when checkout moves at the final pull (exit %i)', status => {
   const c = clone()
   c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')
@@ -842,11 +882,11 @@ test.each([0, 1])('a fresh video recheck keeps its batch when checkout moves at 
   expect(c.sh(`git show ${branches[0]}:content/video.json`)).toBe('rechecked')
 }, slow(60_000))
 
-test.each(['fresh', 'kept', 'held'])('a %s video recheck keeps its batch when checkout resets at the first rebase', kind => {
+test.each(['fresh', 'kept', 'held'])('a %s video recheck rebases its batch even when HEAD resets to main', kind => {
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
   const branch = `${kind}/video-recheck/${when}`
-  const candidate = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD')
+  c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')
   if (kind !== 'fresh') c.sh(`git branch ${branch} && git reset -q --hard origin/main`)
   c.elsewhere('code.txt', 'new')
   c.sh('git fetch -q origin')
@@ -860,14 +900,13 @@ test.each(['fresh', 'kept', 'held'])('a %s video recheck keeps its batch when ch
       fi
       "$@"
     }
-    ${kind === 'fresh' ? 'publish_fixture_video_recheck || echo refused' : 'publish_kept video-recheck'}
+    ${kind === 'fresh' ? 'publish_fixture_video_recheck' : 'publish_kept video-recheck'}
   `)
-  expect(log).toContain(kind === 'fresh' ? 'refused' : "isn't published yet")
-  expect(c.onMain('content/video.json')).toBe('')
-  const branches = c.branches()
-  if (kind === 'fresh') expect(branches).toEqual([expect.stringMatching(/^kept\/video-recheck\/\d{8}T\d{6}$/)])
-  else expect(branches).toEqual([branch])
-  expect(c.sh(`git rev-parse ${branches[0]}`)).toBe(candidate)
+  expect(c.sh('test -f "$HOME/moved-checkout" && echo reset')).toBe('reset')
+  expect(log).toContain(kind === 'fresh' ? 'pushed (GitHub deploys it)' : `published ${branch}`)
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.onMain('code.txt')).toBe('new')
+  expect(c.branches()).toEqual([])
 }, slow(60_000))
 
 test.each([false, true])('a fresh video recheck handles a patch main already applied, then reverted: %s', reverted => {

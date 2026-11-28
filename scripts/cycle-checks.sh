@@ -809,13 +809,14 @@ video_recheck_fetch_main() {
   git rev-parse --verify 'FETCH_HEAD^{commit}'
 }
 video_recheck_rebase() {
-  local clash
-  net git rebase -q "$1" && return 0
+  local upstream=$1 batch=$2 clash
+  # An explicit commit makes Git start from the batch even if the checkout moved.
+  net git rebase -q "$upstream" "$batch" && return 0
   clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
   git rebase --abort 2>/dev/null || return 1
   [ -n "$clash" ] || return 1
   log "another job changed the same files: $clash"
-  net git rebase -q -X theirs "$1" && return 0
+  net git rebase -q -X theirs "$upstream" "$batch" && return 0
   git rebase --abort 2>/dev/null || true
   return 1
 }
@@ -976,16 +977,16 @@ push_kept() {
         KEPT_WHY="could not return to the original video recheck batch"
         return 1
       fi
-      run=$batch
     fi
     if [ -n "$video_recheck" ]; then
+      run=$batch
       if ! refreshed=$(video_recheck_fetch_main) || ! outgoing=$(video_recheck_outgoing_commits "$batch"); then
         KEPT_WHY="could not check whether the video recheck reached main"
         return 1
       fi
       if video_recheck_push_reached_main "$outgoing" "$refreshed"; then return 0
       elif [ "$?" != 1 ]; then KEPT_WHY="could not check whether the video recheck reached main"; return 1; fi
-      if ! video_recheck_rebase "$refreshed"; then
+      if ! video_recheck_rebase "$refreshed" "$batch"; then
         KEPT_WHY="could not rebase the video recheck onto main"
         return 1
       fi

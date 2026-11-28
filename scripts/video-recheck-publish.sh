@@ -168,7 +168,7 @@ publish_video_recheck_batch() {
       log "main already contains the verified video recheck commit"
       return 0
     elif [ "$?" != 1 ]; then break; fi
-    if ! video_recheck_rebase "$refreshed"; then
+    if ! video_recheck_rebase "$refreshed" "$batch"; then
       log "could not rebase the video recheck onto main"
       continue
     fi
