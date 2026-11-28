@@ -93,7 +93,7 @@ if (args.step) nameStep(args.step)
 
 type Post = { id: string; topic: string; post: string; short: string; tank: PostTank }
 type Form = 'post' | 'posttank' | 'tank'
-type Turn = { wordsAt?: number; id: string; post: string; topic: string; form: Form; text?: string; blocks?: unknown[]; suggestions?: string[]; stopped?: string; calls?: number; asked?: string[]; timing?: { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean }[]; ms: number; usd: number; failed?: string }
+type Turn = { wordsAt?: number; id: string; post: string; topic: string; form: Form; inputHash?: string; text?: string; blocks?: unknown[]; suggestions?: string[]; stopped?: string; calls?: number; asked?: string[]; named?: string[]; timing?: { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean }[]; ms: number; usd: number; failed?: string }
 const SUBJECTS = ['dying', 'sick', 'algae', 'cycling', 'stocking'] as const
 const FORMS = args.forms!.split(',') as Form[]
 const hash = (...xs: unknown[]) => createHash('sha256').update(JSON.stringify(xs)).digest('hex').slice(0, 16)
@@ -173,21 +173,24 @@ async function answer() {
     const onCost = (usd: number) => { paid += usd }
     const tanks = f === 'post' ? [] : [savedTank(p.tank)]
     const found = given.get(`${p.id}-${f === 'tank' ? 'tank' : 'post'}`)
+    const question = asked(p, f)
+    const inputHash = hash(args.model, question, tanks, found ?? [], args.site)
+    const turn = { id, post: p.id, topic: p.topic, form: f, inputHash }
     try {
       const run = await answerQuestion({
-        send: boardSender({ billed, healthy: await healthyKeys(keys, store, Date.now()), store, clientFor, log: timing, t0: began, onCost }), model: args.model, lang: 'vi', question: asked(p, f), earlier: [], start: {}, handbook: hb, tanks: async () => tanks,
+        send: boardSender({ billed, healthy: await healthyKeys(keys, store, Date.now()), store, clientFor, log: timing, t0: began, onCost }), model: args.model, lang: 'vi', question, earlier: [], start: {}, handbook: hb, tanks: async () => tanks,
         // As the Worker: the handover is asked whenever there's a tank (handoverFor decides), its search what --given found.
-        ...(tanks.length && handoverFor ? { handover: () => handoverFor({ question: asked(p, f), start: {}, tanks, hb, lang: 'vi', search: async () => found ?? [] }) } : {}),
+        ...(tanks.length && handoverFor ? { handover: () => handoverFor({ question, start: {}, tanks, hb, lang: 'vi', search: async () => found ?? [] }) } : {}),
         onText: () => undefined,
       })
       // Stopped at the billed line (the agent's loop hands back what its send threw): asked again on the next run, and
       // an answer that came is kept, since it was paid for.
       if (!run.answer?.text && (run.error instanceof BilledLimit || billed.stopped) && !paid) return
       const toolUses = run.history.flatMap((m: any) => (Array.isArray(m.content) ? m.content : []).filter((b: any) => b.type === 'tool_use').map((b: any) => `${b.name} ${JSON.stringify(b.input)}`))
-      done.set(id, { id, post: p.id, topic: p.topic, form: f, text: run.answer?.text, blocks: run.blocks, suggestions: run.answer?.suggestions, stopped: run.stopped, calls: run.calls, asked: toolUses, timing, ms: Date.now() - began, usd: paid, ...(run.answer ? {} : { failed: String(run.error?.message ?? run.stopped).slice(0, 160) }) })
+      done.set(id, { ...turn, text: run.answer?.text, blocks: run.blocks, suggestions: run.answer?.suggestions, stopped: run.stopped, calls: run.calls, asked: toolUses, named: run.named, timing, ms: Date.now() - began, usd: paid, ...(run.answer ? {} : { failed: String(run.error?.message ?? run.stopped).slice(0, 160) }) })
     } catch (e: any) {
       if (billed.stopped && !paid) return
-      done.set(id, { id, post: p.id, topic: p.topic, form: f, ms: Date.now() - began, usd: paid, failed: String(e?.message ?? e).slice(0, 160) })
+      done.set(id, { ...turn, ms: Date.now() - began, usd: paid, failed: String(e?.message ?? e).slice(0, 160) })
     }
     if (++n % 10 === 0) await writeTurns(args.arm!, done)
   }), Number(args.concurrency))
