@@ -141,12 +141,14 @@ push_video_recheck() {
 
 publish_video_recheck_batch() {
   local try run batch_base tree checked_tree='' refreshed pulled calendar outgoing verification_failed commit candidate batch=$1
+  local video_publish_head='' holds_status
   candidate=$batch
   if ! batch_base=$(git merge-base "$batch" origin/main); then
     keep_lost_push video-recheck "could not find the batch's base on origin/main" "$batch"
     return 1
   fi
   for try in 1 2 3; do
+    video_publish_head=
     run=$(git rev-parse HEAD) || break
     if [ "$run" != "$candidate" ]; then
       keep_lost_push video-recheck "the video recheck checkout moved between publish attempts" "$batch"
@@ -178,6 +180,7 @@ publish_video_recheck_batch() {
       continue
     fi
     pulled=$VIDEO_RECHECK_REBASED
+    video_publish_head=$pulled
     if ! video_recheck_rules_current; then
       keep_lost_push video-recheck "video recheck rules changed during this run" "$batch"
       return 1
@@ -191,7 +194,12 @@ publish_video_recheck_batch() {
       return 1
     fi
     if [ "$refreshed" != "$batch_base" ]; then
-      main_holds "$batch" "$refreshed" || true
+      holds_status=0
+      main_holds "$batch" "$refreshed" || holds_status=$?
+      if [ "$holds_status" = 2 ]; then
+        keep_lost_push video-recheck "could not restore main's holds" "$batch"
+        return 1
+      fi
       if ! sweep_merged strict; then
         keep_lost_push video-recheck "the sweep did not finish and commit" "$batch"
         return 1
@@ -204,8 +212,8 @@ publish_video_recheck_batch() {
     fi
 
     # Check the tree that includes the latest main. A disjoint content change can affect cross-page checks.
-    candidate=$(git rev-parse HEAD) || break
-    if ! tree=$(video_recheck_tree "$candidate" "$pulled"); then
+    candidate=$video_publish_head
+    if ! tree=$(video_recheck_tree); then
       keep_lost_push video-recheck "the video recheck checkout differed from its commit before verification" "$batch"
       return 1
     fi
@@ -231,7 +239,9 @@ publish_video_recheck_batch() {
       continue
     fi
     commit=$(git rev-parse HEAD) || break
-    if ! git merge-base --is-ancestor "$candidate" "$commit"; then
+    if [ "$commit" != "$candidate" ] &&
+      { [ "$commit" != "$(git rev-parse --verify 'FETCH_HEAD^{commit}')" ] ||
+        ! git merge-base --is-ancestor "$candidate" "$commit"; }; then
       keep_lost_push video-recheck "the checkout moved outside the verified video recheck history" "$batch"
       return 1
     fi

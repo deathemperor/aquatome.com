@@ -213,12 +213,15 @@ test.each(['failed sweep', 'failed sweep commit', 'tracked write during verifica
   const c = clone()
   const kept = 'kept/video-recheck/20261127T030000'
   c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${kept} && git reset -q --hard origin/main`)
-  if (reason === 'failed sweep commit') {
-    c.sh('printf "#!/bin/sh\\nexit 1\\n" > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit')
-  }
   c.cycle(`
     AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
     TEST_FAILURES_DIR="$HOME/check-logs"
+    ${reason === 'failed sweep commit' ? `
+      git() {
+        if [ "$1" = update-ref ] && [ "$3" = 'content: sweep on main as it is now' ]; then return 1; fi
+        command git "$@"
+      }
+    ` : ''}
     ${reason === 'tracked write during verification'
       ? 'checks() { echo changed > content/a.json; echo "check changed an input"; }'
       : `pnpm() { if [ "$1 $2" = "engine sweep" ]; then echo fixed > content/a.json; echo partial > content/partial.json; return ${reason === 'failed sweep' ? 1 : 0}; fi; }; checks() { [ "$(cat content/a.json)" = fixed ]; }`}
@@ -964,6 +967,29 @@ test.each([0, 1])('a fresh video recheck keeps its batch when checkout moves at 
   expect(c.sh(`git show ${branches[0]}:content/video.json`)).toBe('rechecked')
 }, slow(60_000))
 
+test('a fresh video recheck rejects an unexpected same-tree commit after the final pull', () => {
+  const c = clone()
+  const batch = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    net() {
+      "$@" || return "$?"
+      if [ "$2" = pull ] && [ "$4" = --no-rebase ]; then
+        git commit --allow-empty -qm 'unexpected local commit'
+      fi
+    }
+    verify_cycle() { echo VERIFIED; }
+    publish_fixture_video_recheck || echo refused
+  `)
+  expect(log).toContain('VERIFIED')
+  expect(log).toContain('refused')
+  expect(c.onMain('content/video.json')).toBe('')
+  const queued = c.branches()
+  expect(queued).toHaveLength(1)
+  expect(c.sh(`git rev-parse ${queued[0]}`)).toBe(batch)
+}, slow(60_000))
+
 test.each(['fresh', 'kept', 'held'])('a %s video recheck rebases its batch even when HEAD resets to main', kind => {
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
@@ -1070,6 +1096,41 @@ test.each(['fresh', 'kept', 'held'])('a %s video recheck preserves its batch if 
   if (kind === 'fresh') expect(branches).toEqual([expect.stringMatching(/^kept\/video-recheck\/\d{8}T\d{6}$/)])
   else expect(branches).toEqual([branch])
   expect(c.sh(`git rev-parse ${branches[0]}`)).toBe(batch)
+}, slow(60_000))
+
+test.each([
+  ['fresh', false], ['kept', false], ['held', false],
+  ['fresh', true], ['kept', true], ['held', true],
+] as const)('a %s video recheck rejects a commit made during the sweep (sweep edits: %s)', (kind, edited) => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const branch = `${kind}/video-recheck/${when}`
+  const batch = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD')
+  if (kind !== 'fresh') c.sh(`git branch ${branch} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new')
+  c.sh('git fetch -q origin')
+  const remote = () => c.sh('git ls-remote origin refs/heads/main | cut -f1')
+  const previous = remote()
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    pnpm() {
+      if [ "$1 $2" = 'engine sweep' ]; then
+        echo ungated > content/ungated.json
+        git add content/ungated.json && git commit -qm ungated || return 1
+        echo SWEEP-MOVED-HEAD
+        ${edited ? 'echo swept > content/a.json' : ':'}
+      fi
+    }
+    verify_cycle() { echo VERIFIED; }
+    ${kind === 'fresh' ? 'publish_fixture_video_recheck || echo refused' : 'publish_kept video-recheck'}
+  `)
+  expect(log).toContain('SWEEP-MOVED-HEAD')
+  expect(log).not.toContain('VERIFIED')
+  expect(remote()).toBe(previous)
+  const queued = c.branches()
+  expect(queued).toHaveLength(1)
+  expect(c.sh(`git rev-parse ${queued[0]}`)).toBe(batch)
 }, slow(60_000))
 
 test.each([
