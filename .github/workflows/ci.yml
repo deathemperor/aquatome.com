@@ -23,6 +23,7 @@ jobs:
     outputs:
       site: ${{ steps.files.outputs.site }}
       review: ${{ steps.files.outputs.review }}
+      dashboard: ${{ steps.files.outputs.dashboard }}
     steps:
       # A pull request that changes only the iOS app (apps/ios, its two workflows) skips the site's checks: ios.yml and
       # testflight.yml check it. protocols/ is the site's too. Anything else, or a list gh can't give (a diff of over 300
@@ -33,14 +34,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           PR: ${{ github.event.pull_request.number }}
         run: |
-          site=true review=false
+          site=true review=false dashboard=false
           if [ "$GITHUB_EVENT_NAME" = pull_request ] && files="$(gh pr diff "$PR" -R "$GITHUB_REPOSITORY" --name-only)" && [ -n "$files" ]; then
             if ! grep -qvE '^(apps/ios/|\.github/workflows/(ios|testflight)\.yml$)' <<< "$files"; then site=false; fi
             if grep -q '^apps/site/src/' <<< "$files"; then review=true; fi
+            if grep -qE '^apps/site/(worker/admin/|e2e/dashboard-charts\.spec\.ts)' <<< "$files"; then dashboard=true; fi
           fi
           echo "site checks: $site, AI review: $review"
-          echo "site=$site" >> "$GITHUB_OUTPUT"
-          echo "review=$review" >> "$GITHUB_OUTPUT"
+          printf '%s\n' "site=$site" "review=$review" "dashboard=$dashboard" >> "$GITHUB_OUTPUT"
   # A pull request says what it changes for readers, app users and the content, in its body's "## Changelog" section
   # (AGENTS.md, "Pull requests"; scripts/changelog.mjs): the daily report and the change log read it. The body is read as
   # it is now, not as the event had it, so a body fixed after the push passes when this job is run again. fix.yml's PRs
@@ -100,6 +101,15 @@ jobs:
         run: scripts/install-browser.sh chromium
       - name: Browser checks on the fixture build, as a phone and a computer
         run: pnpm --filter site e2e
+        env:
+          DASHBOARD_SHOTS: ${{ needs.changes.outputs.dashboard == 'true' && format('{0}/dashboard-shots', runner.temp) || '' }}
+      - name: Keep dashboard comparisons
+        if: ${{ !cancelled() && needs.changes.outputs.dashboard == 'true' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: dashboard-shots
+          path: ${{ runner.temp }}/dashboard-shots
+          if-no-files-found: ignore
       # What the owner's report draws and a material page's edge, in the browser the owner's iPhone has, and a fish
       # page's photo column in a computer's Safari. Chromium has none of their faults.
       - name: Install WebKit for Playwright

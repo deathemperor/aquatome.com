@@ -80,7 +80,8 @@ export function contentPage(c: ContentPage): string {
   body += `<p class="lede">${contentLede(s, c.now, tz)}</p>
 <nav class="jump" aria-label="On this page"><ul>${JUMP.map(([id, label]) => `<li><a href="#${id}">${label}</a></li>`).join('')}</ul></nav>`
   body += qualityHtml(c.quality) + totalsHtml(s) + growthHtml(c.now, s, c.snapshots, tz) + engineHtml(c.now, s, tz) + gapsHtml(s, c.low, c.reads, tz) + photosHtml(s) + readsHtml(c.reads) + talkHtml(c.talk) + clicksHtml(c.clicks, c.now, tz) + sourcesHtml(s)
-  const notes = countingNotes(`<h3>The score</h3><p class="note">${esc(QUALITY_HELP)}</p>`)
+  const history = !isFailed(c.snapshots) && c.snapshots.length >= 2 ? `<p class="note">${esc(growthNote(c.now, tz))}</p>` : ''
+  const notes = countingNotes(`<h3>The score</h3><p class="note">${esc(QUALITY_HELP)}</p>`, history)
   return page('/_ab/noi-dung/', 'Content and engine', body + notes, c.now, tz)
 }
 
@@ -131,6 +132,8 @@ const GROWTH_NONE = 'The totals are saved once a night; growth shows after two n
 const signed = (n: number) => `${n > 0 ? '+' : n < 0 ? '−' : ''}${fmt(Math.abs(n))}`
 const BY_SOURCE_HEAD = ['Source', 'Items added']
 /** What "Growth" draws once two nights are kept: two charts, what each source added, and the note on how it's kept. */
+const growthNote = (now: Date, tz: string) => `The totals are saved once a night, ${savedNote(now, tz)} (your time): a day’s column is what the 24 hours to that save added. The last column is what was added since the last save, from the build on the site. A night that didn’t save is carried by the next save; a day with no figures is hatched.`
+
 function growthParts(now: Date, s: ContentStats, snaps: Snapshot[], tz: string) {
   const open = openDay(now)
   // From the first day with a save before it (earlier ones aren't days of this count) to the day the next save closes.
@@ -159,7 +162,7 @@ function growthParts(now: Date, s: ContentStats, snaps: Snapshot[], tz: string) 
     charts,
     sourceTitle: `By source, since ${esc(dayLabel(from.day))}`,
     sources: bySource.map(x => ({ label: esc(s.sources[x.id]?.name ?? x.id), value: x.n })) as Ranked[],
-    note: `The totals are saved once a night, ${savedNote(now, tz)} (your time): a day’s column is what the 24 hours to that save added. The last column is what was added since the last save, from the build on the site. A night that didn’t save is carried by the next save; a day with no figures is hatched.`,
+    note: growthNote(now, tz),
   }
 }
 
@@ -170,8 +173,7 @@ function growthHtml(now: Date, s: ContentStats, snaps: Soft<Snapshot[]>, tz: str
   const p = growthParts(now, s, snaps, tz)
   const [growth, translations] = p.charts
   out += `<div class="charts">${dayChart({ ...growth!, lanes: 'growth' })}${dayChart({ ...translations!, lanes: 'translations' })}`
-  out += `<figure class="chart" aria-labelledby="n-src"><figcaption><h3 id="n-src">${p.sourceTitle}</h3></figcaption>${rankTable(p.sources, BY_SOURCE_HEAD, signed)}</figure></div>
-<p class="note">${p.note}</p></section>`
+  out += `<figure class="chart" aria-labelledby="n-src"><figcaption><h3 id="n-src">${p.sourceTitle}</h3></figcaption>${rankTable(p.sources, BY_SOURCE_HEAD, signed)}</figure></div></section>`
   return out
 }
 function growthBlocks(now: Date, s: ContentStats, snaps: Soft<Snapshot[]>, tz: string): Block[] {

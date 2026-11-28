@@ -267,7 +267,21 @@ function fromHtml(html: string) {
       if (n.nodeType !== 1) continue
       const tag = n.tagName
       // Explanatory text is still checked below. The web groups it under its own closing heading.
-      if (tag === 'SECTION' && n.classList.contains('counting-notes')) continue
+      if (tag === 'SECTION' && (n.classList.contains('counting-notes') || n.getAttribute('aria-labelledby') === 'product-links')) continue
+      if (tag === 'DIV' && n.classList.contains('quality-lead')) {
+        const window = txt(n.querySelector('.search-window'))
+        out.figures.push({ label: 'Pages with data', value: txt(n.querySelector('.scored')) },
+          { label: 'Ranked', value: txt(n.querySelector('.ranked')) },
+          window === 'the daily job hasn’t run'
+            ? { label: 'Search Console', value: 'not yet', sub: window }
+            : { label: 'Search Console', value: window })
+      }
+      if (tag === 'DIV' && n.classList.contains('fish-lead')) {
+        const linked = txt(n.querySelector('.linked-share .delta'))
+        out.figures.push({ label: 'Claude calls', value: txt(n.querySelector('.call-count')), delta: txt(n.querySelector('.calls-change .delta')) },
+          { label: 'Claude cost', value: txt(n.querySelector('.call-cost')), delta: txt(n.querySelector('.cost-change .delta')) },
+          { label: 'Led to a page', value: txt(n.querySelector('.linked-share b')), ...(linked ? { delta: linked } : {}) })
+      }
       if ((tag === 'H2' || tag === 'H3') && !n.id.endsWith('-t')) out.headings.push(`${tag[1]} ${txt(n)}${tag === 'H2' && n.id ? ` #${n.id}` : ''}`)
       else if (tag === 'SECTION' && n.classList.contains('comments')) {
         out.comments = commentsOf(n)
@@ -287,7 +301,7 @@ function fromHtml(html: string) {
       } else if (tag === 'DIV' && n.classList.contains('kpi')) {
         const label = txt(n.querySelector('dt'))
         const value = txt(n.querySelector('dd.v .number') ?? n.querySelector('dd.v'))
-        const tabs = label === 'Readers' && /^of ([\d,]+) tabs$/.exec(txt(n.querySelector('dd.v small')))
+        const tabs = out.title === 'Readers' && label === 'Readers' && /^of ([\d,]+) tabs$/.exec(txt(n.querySelector('dd.v small')))
         if (tabs) out.figures.push({ label: 'Tabs', value: tabs[1]! })
         out.figures.push({ label, value, ...(n.querySelector('dd.sub') ? { sub: txt(n.querySelector('dd.sub')) } : {}), ...(n.querySelector('.delta') ? { delta: txt(n.querySelector('.delta')) } : {}) })
         continue
@@ -379,6 +393,14 @@ for (const [key, variants] of Object.entries(VARIANTS)) {
         }
       }
       const at = `${key}, ${name}`
+      if (key === 'noi-dung') {
+        // The ranking threshold is in the shared explanation below the web lists.
+        const ranked = j.figures.find(f => f.label === 'Ranked')
+        if (ranked) {
+          expect(h.text, at).toContain('A page is ranked once it has')
+          delete ranked.sub
+        }
+      }
       expect(j.title, at).toBe(h.title)
       expect(j.headings, at).toEqual(h.headings)
       expect(j.figures, at).toEqual(h.figures)
@@ -400,7 +422,20 @@ for (const [key, variants] of Object.entries(VARIANTS)) {
       expect((s.periods ?? []).map(p => ({ ...p, on: p.key === s.period })), at).toEqual(h.periods)
       if (s.periods) expect(h.periodMenu, at).toEqual({ shown: s.periods.find(p => p.key === s.period)!.label, links: h.periodLinks })
       // Every note is on the page, word for word.
-      for (const n of j.notes) expect(h.text.replace(/\s/g, ''), `${at}: ${n}`).toContain(norm(n).replace(/\s/g, '').replace(/·/g, ''))
+      for (const n of j.notes) {
+        if (key === 'affiliate' && n.startsWith('Products:')) {
+          // The app's catalog note is a small labeled table on the web.
+          const status = dom(html()).querySelector('section[aria-labelledby="product-links"]')
+          expect(txt(status?.querySelector('h2')), at).toBe('Product links')
+          for (const [code, label] of [['ok', 'Working'], ['gone', 'Gone']]) {
+            const count = new RegExp(`\\b${code} ([\\d,]+)`).exec(n)?.[1] ?? '0'
+            const row = status?.querySelectorAll('tbody tr').find(r => txt(r.querySelector('th, td')) === label)
+            expect(txt(row?.querySelectorAll('th, td')[1]), at).toBe(count)
+          }
+          const checked = n.match(/last checked:\s*(.+)$/i)?.[1] ?? ''
+          expect(txt(status?.querySelector('.note')), at).toBe(`Last checked: ${norm(checked)}`)
+        } else expect(h.text.replace(/\s/g, ''), `${at}: ${n}`).toContain(norm(n).replace(/\s/g, '').replace(/·/g, ''))
+      }
     }
   })
 }
@@ -457,8 +492,9 @@ test("in dark, the first screen's red reads apart from rust, and as text on the 
   const ratio = (a: string, b: string) => { const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m); return (x! + 0.05) / (y! + 0.05) }
   expect(ratio(tok('red'), tok('rust'))).toBeGreaterThanOrEqual(1.4)
   expect(ratio(tok('red'), tok('plate'))).toBeGreaterThanOrEqual(4.5)
-  // The red is the first screen's alone: a fault's dot, a fall's figure, a zero day's tick.
-  expect(css.match(/var\(--red\)/g)).toHaveLength(3)
+  // Red marks the first screen's faults and the Fish ID page's unusable keys.
+  expect(css).toContain('.key-status .bad{color:var(--red)}')
+  expect(css.match(/var\(--red\)/g)).toHaveLength(4)
 })
 
 /** Where a need, a line or a tile leads on the web: its section's page (at its anchor), or its address. */

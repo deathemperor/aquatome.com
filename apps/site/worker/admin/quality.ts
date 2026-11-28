@@ -3,7 +3,7 @@ import { querySessions, type Session } from '../readers'
 import type { Wanted } from '../wanted'
 import { COUNTED, EVENTS, eventsSql, num } from './ae'
 import { cellOf, figures, heading, note, table, textOf, type Block } from './blocks'
-import { detailCard, esc, fmt, type Tile } from './chart'
+import { esc, fmt, type Tile } from './chart'
 import { pageIndex, pagePathOf, type PageInfo } from './content'
 import type { ContentStats } from './content-shape'
 
@@ -261,7 +261,8 @@ export function qualityHtml(q: Quality | { failed: string } | undefined): string
   let out = `<h2 id="chat-luong">${QUALITY_TITLE}</h2>`
   if (!q) return `${out}<p class="muted">Not loaded: no Analytics Engine or content.json.</p>`
   if ('failed' in q) return `${out}<p class="muted">Couldn’t load: ${esc(q.failed)}</p>`
-  out += detailCard(parts(q).tilesOf)
+  const searchWindow = q.search ? `${q.search.from} to ${q.search.to}` : 'the daily job hasn’t run'
+  out += `<div class="card detail-card quality-lead"><p class="fig"><span class="ranked">${fmt(q.ranked)}</span> <small>ranked of <span class="scored">${fmt(q.scored)}</span> pages with data</small></p><p class="note">Search Console · <span class="search-window">${esc(searchWindow)}</span></p></div>`
   for (const [id, title, sub] of LISTS) {
     const xs = id === 'gaps' ? gapRows(q.gaps) : rowsOf(q[id])
     out += `<h3 id="q-${id}">${title}</h3><p class="muted">${esc(sub)}</p>`

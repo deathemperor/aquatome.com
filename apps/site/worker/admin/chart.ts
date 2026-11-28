@@ -84,6 +84,8 @@ export type DayChart = {
    * stack keeps its key, without totals (the figures above the chart give them).
    */
   bare?: boolean
+  /** Show the active day instead of period totals in the web chart’s readout. */
+  selectDay?: boolean
   /** The content page gives each series its own row and shares one selected day across the rows. */
   lanes?: 'growth' | 'translations'
 }
@@ -102,11 +104,13 @@ export function dayChart(c: DayChart): string {
   const n = c.days.length
   const series = c.series.slice(0, 3)
   const all = c.whole ? [...series, c.whole] : series
+  const listed = [...all, ...(c.also ?? [])]
+  const selectDay = Boolean(c.selectDay || c.bare || c.lanes)
   const at = (s: Series, i: number) => (known(s.values[i]) ? s.values[i]! : null)
   const laneMax = c.lanes ? series.map(s => Math.max(1, ...s.values.map(v => known(v) ? Math.abs(v) : 0))) : []
   const head = `<h3 id="${c.id}-t">${esc(c.title)}</h3>`
   const hasFigures = all.some(s => c.days.some((_, i) => c.lanes ? at(s, i) !== null : Boolean(at(s, i))))
-  if (!n || !hasFigures) return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}</figcaption><p class="empty">${esc(c.empty ?? 'No figures in this period yet.')}</p></figure>`
+  if (!n || (!selectDay && !hasFigures)) return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}</figcaption><p class="empty">${esc(c.empty ?? 'No figures in this period yet.')}</p></figure>`
 
   // The scale: zero, the round top above the tallest stack (or whole), and as far below as a negative day reaches.
   const sum = (i: number, sign: 1 | -1) => series.reduce((t, s) => t + Math.max(0, sign * (at(s, i) ?? 0)), 0)
@@ -116,7 +120,7 @@ export function dayChart(c: DayChart): string {
   const nice = (m: number) => (m > 0 ? niceTop(m) : 0)
   const top = nice(Math.max(...up, ...whole))
   const bottom = nice(Math.max(...down, ...whole.map(w => -w)))
-  const pct = (v: number) => (100 * v) / (top + bottom)
+  const pct = (v: number) => (100 * v) / (top + bottom || 1)
   const zero = pct(bottom)
   // Counts (no format given) never get a half-way tick of 2.5; a chart with a negative side keeps to its ends.
   const half = top && !bottom && (c.format || money || (top / 2) % 1 === 0) ? [top / 2] : []
@@ -132,6 +136,7 @@ export function dayChart(c: DayChart): string {
   // Today's bar: the last when it isn't over, or `today` on a chart that runs past it (a week, Monday to Sunday), whose
   // later days are still to come. A chart kept by a nightly save says its own words for its last day (`lastSays`).
   const now = todayOf(c)
+  const start = selectDay ? (now >= 0 ? now : last) : -1
   const isToday = (i: number) => i === now && !c.lastSays
   const toCome = (i: number) => now >= 0 && i > now
   const named = (i: number) =>
@@ -141,7 +146,9 @@ export function dayChart(c: DayChart): string {
   const shown = (v: number | null) => (v === null ? '—' : format(v))
 
   const words = bare ? barWords(c) : undefined
-  const tip = (i: number) => (words ? ` data-t="${esc(words.readouts[i]!.title)}" data-x="${esc(words.readouts[i]!.detail)}"` : '')
+  const valuesAt = (i: number) => c.lanes
+    ? [shown(unrecorded(i) ? null : all.reduce((sum, s) => sum + (at(s, i) ?? 0), 0))]
+    : (selectDay ? listed : all).map(s => shown(at(s, i)))
   const seg = (cls: string[], b: number, h: number) => `<i class="${cls.join(' ')}" style="--b:${f2(b)};--h:${f2(h)}"></i>`
   const cols = c.days.map((_, i) => {
     const vals = series.map(s => at(s, i))
@@ -172,9 +179,9 @@ export function dayChart(c: DayChart): string {
         below -= v
       }
     })
-    const cls = [i === now ? 'today' : '', unrecorded(i) && !toCome(i) ? 'miss' : ''].filter(Boolean).join(' ')
-    const values = c.lanes ? shown(unrecorded(i) ? null : vals.reduce<number>((sum, v) => sum + (v ?? 0), 0)) : all.map(s => shown(at(s, i))).join('|')
-    return `<li${cls ? ` class="${cls}"` : ''} data-d="${esc(when(i))}" data-v="${esc(values)}"${tip(i)}>${marks}</li>`
+    if (selectDay && !c.lanes && !unrecorded(i) && !marks) marks = seg(['zero-mark'], zero, 0)
+    const cls = [i === now ? 'today' : '', i === start ? 'on' : '', unrecorded(i) && !toCome(i) ? 'miss' : ''].filter(Boolean).join(' ')
+    return `<li${cls ? ` class="${cls}"` : ''} data-d="${esc(when(i))}" data-v="${esc(valuesAt(i).join('|'))}">${marks}</li>`
   }).join('')
 
   // Every seventh day back from the last (the overview's weeks), or every fourth week, and the first when it stands clear of them.
@@ -190,25 +197,28 @@ export function dayChart(c: DayChart): string {
 
   const totals = all.map(s => c.days.reduce((t, _, i) => t + (at(s, i) ?? 0), 0))
   const key = (s: Series, k: number) => (all.length > 1 ? `<i class="key ${s === c.whole ? 'whole' : s.tone ?? `s${k + 1}`}"></i>` : '')
-  const readValues = c.lanes ? `<span class="v"><b>${esc(format(totals.reduce((sum, v) => sum + v, 0)))}</b> ${esc(c.lanes === 'translations' ? 'translated' : 'added')}</span>`
-    : all.map((s, k) => `<span class="v">${key(s, k)}<b>${esc(format(totals[k]!))}</b>${all.length > 1 ? ` ${esc(s.label)}` : ''}</span>`).join('')
-  const readout = `<p class="readout${all.length > 1 && !c.lanes ? ' multi' : ''}${weekly ? ' wk' : ''}" aria-live="polite"><span class="when">${n} ${per}${n === 1 ? '' : 's'}</span>${readValues}<span class="hint" aria-hidden="true"></span></p>`
+  const initialValues = selectDay ? valuesAt(start) : totals.map(value => format(value))
+  const readSeries = selectDay ? listed : all
+  const readValues = c.lanes
+    ? `<span class="v"><b>${esc(initialValues[0]!)}</b> ${c.lanes === 'translations' ? 'translated' : 'added'}</span>`
+    : readSeries.map((s, k) => `<span class="v">${selectDay ? '' : key(s, k)}<b>${esc(initialValues[k]!)}</b>${selectDay || readSeries.length > 1 ? ` ${esc(selectDay ? lowerFirst(s.label) : s.label)}` : ''}</span>`).join('')
+  const periodLabel = `${n} ${per}${n === 1 ? '' : 's'}`
+  const readout = `<p class="readout${readSeries.length > 1 && !c.lanes ? ' multi' : ''}${weekly ? ' wk' : ''}" aria-live="polite"><span class="when">${esc(selectDay ? when(start) : periodLabel)}</span>${readValues}<span class="hint" aria-hidden="true"></span></p>`
+  const periodTotal = c.lanes ? `<p class="fig">${esc(format(totals.reduce((sum, value) => sum + value, 0)))} <small>${c.lanes === 'translations' ? 'translations' : 'new items'} in ${periodLabel}</small></p>` : ''
 
   const heights = c.whole ? whole : up
   const peak = heights.indexOf(Math.max(...heights))
   const gaps = c.days.filter((_, i) => unrecorded(i)).length
   const desc = `${n} ${per}${n === 1 ? '' : 's'}, from ${dm(0)} to ${dm(last)}. ${all.map((s, k) => `${s.label}: ${format(totals[k]!)} in all`).join('; ')}. Highest: ${weekly ? `the week of ${dm(peak)}` : dm(peak)}.${gaps ? ` ${fmt(gaps)} ${per}${gaps === 1 ? '' : 's'} not recorded.` : ''} The arrow keys read each ${per}.`
-  const tipLine = bare ? '<p class="tip" aria-live="polite"><b></b><span></span></p>' : ''
   const plot = c.lanes
-    ? `<div class="plot lanes" data-plot data-start="${now}" role="group" tabindex="0" style="--n:${n};--lanes:${series.length}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d"><div class="lane-labels" aria-hidden="true">${series.map(s => `<span>${esc(s.label)}</span>`).join('')}</div><div class="area" aria-hidden="true"><ol class="cols">${cols}</ol></div><div class="lane-totals" aria-hidden="true">${totals.map(v => `<b>${esc(format(v))}</b>`).join('')}</div><div class="xax" aria-hidden="true">${xAxis}</div></div>`
-    : `<div class="plot${named7 ? ' named' : ''}" data-plot role="group" tabindex="0" style="--n:${n};--gut:${gutter}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d">${tipLine}<div class="yax" aria-hidden="true">${yAxis}</div><div class="area" aria-hidden="true"><div class="grid">${grid}</div><ol class="cols">${cols}</ol></div><div class="xax" aria-hidden="true">${xAxis}</div></div>`
+    ? `<div class="plot lanes" data-plot data-start="${start}" role="group" tabindex="0" style="--n:${n};--lanes:${series.length}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d"><div class="lane-labels" aria-hidden="true">${series.map(s => `<span>${esc(s.label)}</span>`).join('')}</div><div class="area" aria-hidden="true"><ol class="cols">${cols}</ol></div><div class="lane-totals" aria-hidden="true">${totals.map(v => `<b>${esc(format(v))}</b>`).join('')}</div><div class="xax" aria-hidden="true">${xAxis}</div></div>`
+    : `<div class="plot${named7 ? ' named' : ''}" data-plot data-start="${start}" role="group" tabindex="0" style="--n:${n};--gut:${gutter}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d"><div class="yax" aria-hidden="true">${yAxis}</div><div class="area" aria-hidden="true"><div class="grid">${grid}</div><ol class="cols">${cols}</ol></div><div class="xax" aria-hidden="true">${xAxis}</div></div>`
 
-  const listed = [...all, ...(c.also ?? [])]
   const rows = c.days.map((d, i) => [d, i] as const).reverse().filter(([, i]) => !toCome(i)).map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${i === now ? (c.lastSays ? ` (${esc(c.lastSays)})` : weekly ? ' (this week)' : ' (today)') : ''}</th>${listed.map(s => `<td>${esc(shown(at(s, i)))}</td>`).join('')}</tr>`).join('')
   const table = `<details><summary>The figures</summary><div class="scroll"><table><thead><tr><th>${weekly ? 'Week' : 'Day'}</th>${listed.map(s => `<th>${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></details>`
   // Bare: a stack's key under the bars, without totals; one series needs none (the title, or the figure above, names it).
-  const legend = bare && all.length > 1 ? `<p class="legend" aria-hidden="true">${all.map((s, k) => `<span>${key(s, k)}${esc(s.label)}</span>`).join('')}</p>` : ''
-  return `<figure class="chart${bare ? ' bare' : ''}" aria-labelledby="${c.id}-t"><figcaption>${head}${bare ? '' : readout}</figcaption>${plot}<p class="vh" id="${c.id}-d">${esc(desc)}</p>${legend}${table}</figure>`
+  const legend = selectDay && !c.lanes && all.length > 1 ? `<p class="legend" aria-hidden="true">${all.map((s, k) => `<span>${key(s, k)}${esc(s.label)}</span>`).join('')}</p>` : ''
+  return `<figure class="chart${bare ? ' bare' : ''}${selectDay ? ' day-pick' : ''}" aria-labelledby="${c.id}-t"><figcaption>${head}${periodTotal}${readout}</figcaption>${plot}<p class="vh" id="${c.id}-d">${esc(desc)}</p>${legend}${table}</figure>`
 }
 
 export type Readout = { title: string; detail: string }
@@ -253,7 +263,7 @@ export type Ranked = { label: string; value: number; cells?: string[]; /** The p
  * numbers line up in their own column. A negative value draws to the left of a zero mark. `label` and `cells` are HTML,
  * escaped by the caller; `head`: the label's column, the value's, then one per cell; `part` names what `part` counts.
  */
-export function rankTable(rows: Ranked[], head: string[], format: (n: number) => string = n => fmt(n), opts: { part?: string; shareOf?: number } = {}): string {
+export function rankTable(rows: Ranked[], head: string[], format: (n: number) => string = n => fmt(n), opts: { part?: string; shareOf?: number; stackOnPhone?: boolean } = {}): string {
   const vals = rows.map(r => r.value).filter(Number.isFinite)
   const hi = Math.max(0, ...vals)
   const lo = Math.min(0, ...vals)
@@ -266,12 +276,13 @@ export function rankTable(rows: Ranked[], head: string[], format: (n: number) =>
     return `<span class="bar${r.value < 0 ? ' neg' : ''}${part ? ' parts' : ''}" style="--x:${f2(r.value < 0 ? zero - w : zero)};--w:${f2(w)}">${part}</span>`
   }
   const track = (r: Ranked) => `<span class="track${lo < 0 ? ' signed' : ''}"${lo < 0 ? ` style="--z:${f2(zero)}"` : ''} aria-hidden="true">${bar(r)}</span>`
+  const labelAttr = (i: number) => opts.stackOnPhone ? ` data-label="${esc(head[i] ?? '')}"` : ''
   const body = rows.map(r => {
     const share = opts.shareOf ? ` class="share" style="--share:${f2(100 * Math.min(1, Math.max(0, r.value / opts.shareOf)))}%"` : ''
-    return `<tr${share}><th><span class="lb">${r.label}</span>${share ? '' : track(r)}</th><td>${esc(format(r.value))}</td>${(r.cells ?? []).map(c => `<td>${c}</td>`).join('')}</tr>`
+    return `<tr${share}><th><span class="lb">${r.label}</span>${share ? '' : track(r)}</th><td${labelAttr(1)}>${esc(format(r.value))}</td>${(r.cells ?? []).map((c, i) => `<td${labelAttr(i + 2)}>${c}</td>`).join('')}</tr>`
   }).join('')
   const key = !opts.shareOf && opts.part && rows.some(r => known(r.part)) ? `<caption><span><i class="key s1"></i>${esc(opts.part)}</span><span><i class="key whole"></i>${esc(head[1] ?? '')}</span></caption>` : ''
-  return `<div class="scroll"><table class="rank">${key}<thead><tr>${head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${body || `<tr><td colspan="${head.length}" class="none">None yet.</td></tr>`}</tbody></table></div>`
+  return `<div class="scroll"><table class="rank${opts.stackOnPhone ? ' stack-narrow' : ''}">${key}<thead><tr>${head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${body || `<tr><td colspan="${head.length}" class="none">None yet.</td></tr>`}</tbody></table></div>`
 }
 
 /**

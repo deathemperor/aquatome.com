@@ -426,7 +426,9 @@ export function scoreboardPage(s: Scoreboard, tz = HOME_TZ): string {
   }).join('')
   const later = `<section aria-labelledby="g-later"><h2 id="g-later">Not measured yet</h2><ul class="gaps">${s.notYet.map(x => `<li><p><b>${esc(x.name)}.</b> ${esc(x.needs)}</p></li>`).join('')}</ul></section>`
   const figures = KEY_METRICS.map(k => keyTile(s, metric(s, k)))
-  const charts = weekCharts(s)
+  const charts = weekCharts(s).map(c => ({ ...c, selectDay: true }))
+  const tabs = metric(s, 'sessions').now
+  if (tabs !== null) figures[1] = { ...figures[1]!, unit: `of ${fmt(tabs)} tabs` }
   const monday = s.weeks.at(-1)!
   const body = `<h1>Scoreboard</h1><p class="lede">This week, ${dayLabel(monday)} to ${dayLabel(plusDays(monday, 6))}, so far</p>
 ${s.failed.beacon ? failedBox(PARTS.beacon, { failed: s.failed.beacon }) : ''}

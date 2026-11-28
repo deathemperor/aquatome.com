@@ -8,7 +8,7 @@ import { isViPage, withoutVi } from '../paths'
 import type { Excluded, Readers } from '../readers'
 import { CHOOSER_FROM, CHOOSER_OUR_RUNS, CHOOSER_SCRIPT_FROM, type LangAsks } from '../lang-ask'
 import type { Wanted } from '../wanted'
-import { chipHtml, chipOf, countryLabel, dayChart, dayLabel, dayName, deltaOf, detailCard, esc, fmt, lastDays, rankTable, spark, tiles, usd, type Chip, type DayChart, type Ranked, type Tile } from './chart'
+import { chipHtml, chipOf, countryLabel, dayChart, dayLabel, dayName, deltaHtml, deltaOf, detailCard, esc, fmt, lastDays, rankTable, spark, tiles, usd, type Chip, type DayChart, type Ranked, type Tile } from './chart'
 import { chart, failedNote, figures, heading, note, rankBlock, table, tableHtml, textOf, type Action, type Block, type Cell, type PhotoItem, type RankRow, type Section, type TextTone } from './blocks'
 import type { AccountStats, Waiting } from './data'
 import type { ContentStats, Snapshot } from './content'
@@ -440,8 +440,18 @@ export function fishIdPage(f: FishPage): string {
   const menu = `<nav class="filters periods" aria-label="Period"><details class="pmenu"><summary>${esc(p.span.label)}</summary><div>${links}</div></details><span class="seg">${links}</span></nav>`
   let body = `<h1>Fish ID</h1>${menu}`
   if (isFailed(f.stats)) body += failedBox('the fish ID log', f.stats)
-  else body += `<h3>${esc(p.span.heading)}</h3>${detailCard(p.figures!, dayChart({ ...p.chart!, bare: true }))}`
-  body += `<h2 id="key">Anthropic keys</h2>${isFailed(f.keys) ? failedBox('the keys’ state', f.keys) : !p.keys ? `<p class="muted">${NO_KEYS}</p>` : `${tableHtml(p.keys.table)}${tableHtml(p.keys.detail)}${p.keys.bad ? `<p class="failed">${esc(p.keys.bad)}</p>` : ''}`}`
+  else {
+    const [calls, cost, linked] = p.figures!
+    const compared = [
+      calls?.delta && `<span class="calls-change">Calls ${deltaHtml(calls.delta)}</span>`,
+      cost?.delta && `<span class="cost-change">cost ${deltaHtml(cost.delta)}</span>`,
+      linked && `<span class="linked-share"><b>${esc(linked.value)}</b> led to a page${linked.delta ? ` · ${deltaHtml(linked.delta)}` : ''}</span>`,
+    ].filter(Boolean).join(' · ')
+    body += `<h3>${esc(p.span.heading)}</h3><div class="card detail-card fish-lead">
+<p class="call-label">Calls to Claude</p><p class="fig"><span class="call-count">${esc(calls!.value)}</span> <small>calls · <span class="call-cost">${esc(cost!.value)}</span></small></p>
+<p class="note">${compared}</p>${dayChart({ ...p.chart!, bare: true })}</div>`
+  }
+  body += `<h2 id="key">Anthropic keys</h2>${isFailed(f.keys) ? failedBox('the keys’ state', f.keys) : !p.keys ? `<p class="muted">${NO_KEYS}</p>` : `<div class="key-status">${tableHtml(p.keys.table)}</div>${tableHtml(p.keys.detail)}${p.keys.bad ? `<p class="failed">${esc(p.keys.bad)}</p>` : ''}`}`
   if (p.unmatched) body += `<h2>Guessed often, no page yet</h2>${rankTable(p.unmatched, UNMATCHED_HEAD)}`
   if (p.folded.length) body += `<h2>More figures</h2>${p.folded.map(x => tableHtml(x, { wide: true })).join('')}`
   body += `<p><a href="${RUNS_PATH}">Each run: what Claude thought and looked up (kept 365 days) →</a></p>`
@@ -590,7 +600,7 @@ export function readersPage(now: Date, r: Soft<Readers> | undefined, tz = HOME_T
     notes.push(`<p class="note">${p.lede}</p>`)
     body += `<p class="lede">The last ${r.days} days · ${esc(dayName(localDay(now, tz)))} so far</p>
 ${detailCard([{ ...p.tiles[1]!, unit: `of ${fmt(r.sessions)} tabs` }])}
-<h2>By day and source</h2><div class="charts">${dayChart(p.chart)}</div>
+<h2>By day and source</h2><div class="charts">${dayChart({ ...p.chart, selectDay: true })}</div>
 <section aria-labelledby="r-src"><h3 id="r-src">Sources</h3>${rankTable(p.sources, SOURCE_HEAD, undefined, { shareOf: r.sessions })}</section>
 <div class="split"><section><h2>Most read pages</h2>${rankTable(p.pages, PAGE_VIEWS_HEAD)}</section>
 <section><h2>Readers’ countries</h2>${rankTable(countries, COUNTRY_HEAD, undefined, { shareOf: r.readers })}</section></div>`
@@ -600,8 +610,8 @@ ${detailCard([{ ...p.tiles[1]!, unit: `of ${fmt(r.sessions)} tabs` }])}
       notes.push(`<p class="note">${back.lede}</p>`)
     }
     const o = leftOutParts(r, tz, now)
-    body += `<h2>${SIDE_TITLE}</h2>${rankTable(o.side, SIDE_HEAD)}
-<h2>${LEFT_OUT_TITLE}</h2>${rankTable(o.rows, LEFT_OUT_HEAD)}${o.bursts.length ? `<ul>${o.bursts.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}`
+    body += `<h2>${SIDE_TITLE}</h2>${rankTable(o.side, SIDE_HEAD, undefined, { stackOnPhone: true })}
+<h2>${LEFT_OUT_TITLE}</h2>${rankTable(o.rows, LEFT_OUT_HEAD, undefined, { stackOnPhone: true })}${o.bursts.length ? `<ul>${o.bursts.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}`
     notes.push(`<p class="note">${o.sideNote}</p>`, `<p class="note">${o.lede}</p>`)
   }
   if (asks && isFailed(asks)) body += `<h2>${ASKS_TITLE}</h2>${failedBox('the language chooser (Analytics Engine)', asks)}`
@@ -653,12 +663,22 @@ function affiliateParts(clicks: Soft<Clicks>, a: Soft<AffSummary>, now: Date, tz
   }
 }
 
+function productLinkStatus(a: AffSummary, now: Date, tz: string) {
+  const count = (status: string) => a.status.find(row => row.status === status)?.n ?? 0
+  const rows: Cell[][] = [
+    [{ text: 'Working' }, { text: fmt(count('ok')) }],
+    [{ text: 'Gone' }, { text: fmt(count('gone')), tone: 'bad' }],
+  ]
+  const checkedAt = a.lastCheck ? timeTag(a.lastCheck, tz, now) : 'never'
+  return `<section aria-labelledby="product-links"><h2 id="product-links">Product links</h2>${tableHtml(table(['Status', 'Links'], rows))}<p class="note">Last checked: ${checkedAt}</p></section>`
+}
+
 export function affiliatePage(clicks: Soft<Clicks>, a: Soft<AffSummary>, now = new Date(), tz = HOME_TZ): string {
   const p = affiliateParts(clicks, a, now, tz)
-  const chartHtml = isFailed(p.chart) ? failedBox('clicks by day', p.chart) : dayChart(p.chart)
+  const chartHtml = isFailed(p.chart) ? failedBox('clicks by day', p.chart) : dayChart({ ...p.chart, selectDay: true })
   const tables = isFailed(p.tables) ? failedBox('the affiliate tables', p.tables) : `<div class="split"><section><h2>By shop · 14 days</h2>${rankTable(p.tables.networks, NETWORK_HEAD, undefined, { shareOf: p.tables.networks.reduce((sum, row) => sum + row.value, 0) })}</section>
 <section><h2>Pages that send the most · 14 days</h2>${rankTable(p.tables.top, TOP_HEAD)}</section></div>
-<p class="note">${p.tables.products}</p>`
+${isFailed(a) ? '' : productLinkStatus(a, now, tz)}`
   const window = `The last 30 days · ${esc(dayName(localDay(now, HOME_TZ)))} so far`
   const total = isFailed(clicks) ? '' : `<p class="fig">${fmt(clicks.clicks.reduce((sum, n) => sum + n, 0))} <small>clicks to the shops in 30 days</small></p>`
   const byDay = isFailed(clicks) ? chartHtml : `<div class="card detail-card">${total}${chartHtml}</div>`
@@ -884,7 +904,7 @@ export function accountsPage(a: Soft<AccountStats>, now = new Date(), tz = HOME_
   if (isFailed(a)) return page('/_ab/tai-khoan/', 'Accounts', body + failedBox('the figures', a) + notes, now, tz)
   const p = accountsParts(a)
   body += detailCard(p.tiles.slice(0, 2)) + tiles(p.tiles.slice(2))
-  body += `<h2>By day</h2><div class="charts">${dayChart(p.charts[0]!)}</div>
+  body += `<h2>By day</h2><div class="charts">${dayChart({ ...p.charts[0]!, selectDay: true, also: [{ label: 'the day before', values: a.days.map((_, i) => a.newUsers[i - 1] ?? null) }] })}</div>
 <h2>How they sign in</h2>${rankTable(p.credentials, CRED_HEAD, undefined, { shareOf: p.credentials.reduce((sum, row) => sum + row.value, 0) })}`
   return page('/_ab/tai-khoan/', 'Accounts', body + notes, now, tz)
 }
