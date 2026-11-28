@@ -667,7 +667,7 @@ reset_recovery_checkout() {
 
 # Keep untracked inputs outside the dedicated video recheck checkout so its sweep cannot stage them.
 archive_video_recheck_inputs() {
-  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive file to files
+  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive file to files dir
   files=$(video_recheck_local_files) || return 1
   [ -n "$files" ] || return 0
   mkdir -p "$parent" || return 1
@@ -681,6 +681,15 @@ archive_video_recheck_inputs() {
   while IFS= read -r -d '' file; do
     to="$archive/files/$file"
     mkdir -p "$(dirname "$to")" && mv -- "$file" "$to" || return 1
+    # Empty entity directories are visible to the loader and invisible to Git.
+    dir=${file%/*}
+    while :; do
+      case "$dir" in
+        content/*|sources/*|engine-state/*|docs/review/*) rmdir "$dir" 2>/dev/null || break ;;
+        *) break ;;
+      esac
+      dir=${dir%/*}
+    done
   done < "$archive/paths"
 }
 

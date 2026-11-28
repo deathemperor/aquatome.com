@@ -488,6 +488,29 @@ test.each(['fresh', 'kept'])('a %s video recheck pushes the commit whose tree pa
   expect(c.onMain('content/newer.json')).toBe('')
 }, slow(60_000))
 
+test('a held video recheck whose tree passed can publish after an untracked species directory is archived', () => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const held = `held/video-recheck/${when}`
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${held} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new')
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  c.sh('mkdir -p content/species/local-only && echo untracked > content/species/local-only/entity.json')
+  const log = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    checks() {
+      for directory in content/species/*; do
+        [ ! -d "$directory" ] || [ -f "$directory/entity.json" ] || return 1
+      done
+    }
+    publish_kept video-recheck
+  `)
+  expect(log).toContain(`LOG published ${held}`)
+  expect(c.branches()).toEqual([])
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/content/species/local-only/entity.json')).toBe('untracked')
+}, slow(60_000))
+
 test('a held video recheck stays eligible for retry if its failing verification changed tracked files', () => {
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
