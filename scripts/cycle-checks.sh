@@ -682,13 +682,13 @@ video_recheck_tree() {
   local status files
   status=$(git status --porcelain=v1 --untracked-files=no) &&
     files=$(video_recheck_local_files) &&
-    [ -z "$status$files" ] && git rev-parse 'HEAD^{tree}'
+    [ -z "$status$files" ] && git rev-parse "${1:-HEAD}^{tree}"
 }
 
 # A hard reset can replace an untracked file when the destination commit tracks that path.
 reset_recovery_checkout() {
-  if [ "$1" = video-recheck ] && ! archive_video_recheck_inputs; then
-    log "could not preserve untracked video recheck files before resetting"
+  if [ "$1" = video-recheck ] && ! archive_video_recheck_checkout; then
+    log "could not preserve the video recheck checkout before resetting"
     return 1
   fi
   git reset -q --hard "$2"
@@ -696,7 +696,7 @@ reset_recovery_checkout() {
 
 # Keep untracked inputs outside the dedicated video recheck checkout so its sweep cannot stage them.
 archive_video_recheck_inputs() {
-  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive file to files
+  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive file to files dir
   files=$(video_recheck_local_files) || return 1
   [ -n "$files" ] || return 0
   mkdir -p "$parent" || return 1
@@ -710,7 +710,29 @@ archive_video_recheck_inputs() {
   while IFS= read -r -d '' file; do
     to="$archive/files/$file"
     mkdir -p "$(dirname "$to")" && mv -- "$file" "$to" || return 1
+    # Empty entity directories are visible to the loader and invisible to Git.
+    dir=${file%/*}
+    while :; do
+      case "$dir" in
+        content/*|sources/*|engine-state/*|docs/review/*) rmdir "$dir" 2>/dev/null || break ;;
+        *) break ;;
+      esac
+      dir=${dir%/*}
+    done
   done < "$archive/paths"
+}
+
+# Preserve staged and working edits before a reset, even when an attempt could not commit a sweep.
+archive_video_recheck_checkout() {
+  archive_video_recheck_inputs || return 1
+  if git diff --quiet && git diff --cached --quiet; then return 0; fi
+  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive
+  mkdir -p "$parent" || return 1
+  archive=$(mktemp -d "$parent/video-recheck-checkout.XXXXXXXX") || return 1
+  git rev-parse HEAD > "$archive/head" &&
+    git diff --no-ext-diff --no-textconv --binary --cached > "$archive/staged.patch" &&
+    git diff --no-ext-diff --no-textconv --binary > "$archive/working.patch" || return 1
+  log "saved the video recheck checkout at $archive"
 }
 
 # Use only in the dedicated video recheck checkout.
@@ -731,7 +753,7 @@ video_recheck_unchanged() {
 # passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
-  local check=1 clash main head swept run video_recheck= checked_tree= verification_failed
+  local check=1 clash main head swept run video_recheck= checked_tree= verification_failed commit publish
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
@@ -809,14 +831,18 @@ push_kept() {
       check=
       [ -z "$BRANCH" ] || [ -n "$PASS_UNRECORDED" ] || ended_row
     fi
-    if [ -n "$video_recheck" ] && [ "$(video_recheck_tree)" != "$checked_tree" ]; then
-      KEPT_WHY="the video recheck checkout differed from the verified tree before publishing"
-      return 1
+    publish=HEAD:main
+    if [ -n "$video_recheck" ]; then
+      if ! commit=$(git rev-parse HEAD) || [ "$(video_recheck_tree "$commit")" != "$checked_tree" ]; then
+        KEPT_WHY="the video recheck checkout differed from the verified tree before publishing"
+        return 1
+      fi
+      publish="$commit:refs/heads/main"
     fi
     if engine_cloud && [ -n "$BRANCH" ]; then
-      net git push -q --atomic origin HEAD:main ":refs/heads/$BRANCH" && return 0
+      net git push -q --atomic origin "$publish" ":refs/heads/$BRANCH" && return 0
     else
-      net git push -q origin HEAD:main && return 0
+      net git push -q origin "$publish" && return 0
     fi
     sleep "${PUSH_PAUSE:-30}"
   done
