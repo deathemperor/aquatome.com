@@ -217,15 +217,18 @@ function main() {
     const mainText = run && theirs && same(readAt('HEAD', f, ours), readAt(main, f, theirs))
     const runText = run && mine && same(readAt('HEAD', f, ours), readAt(run, f, mine))
     const release = mainRead && mainText && !theirs.held && (ours.held || mine?.held)
-    // Older queued work can carry either side's review after its original merge base is no longer visible.
-    const savedReview = !ours.held && !mainText &&
-      (mode === 'recovery' ? fit.head[key] : theirs && mainRecord && recordWon)
+    // Older queued work can carry a stale or absent review after its original merge base is no longer visible.
+    // Require a review whenever recovery would put text live that main does not already have open.
+    const alreadyOpen = mainText && !theirs.held
+    const savedReview = !ours.held && (mode === 'recovery'
+      ? !alreadyOpen
+      : theirs && !mainText && mainRecord && recordWon)
     comparisons.push({ f, key, ours, theirs, mine, mainRead, mainText, runText, proof: run && (release || savedReview) })
   }
-  const hashes = publishedHashes(comparisons.filter(c => c.proof).map(c => c.f))
+  const hashes = publishedHashes(comparisons.filter(c => c.proof && typeof fit.head[c.key]?.hash === 'string').map(c => c.f))
   for (const { f, key, ours, theirs, mine, mainRead, mainText, runText, proof } of comparisons) {
     if (proof && (typeof hashes[key] !== 'string' || hashes[key] !== fit.head[key]?.hash)) {
-      if (!ours.held) written.set(f, ['keep', withHeld(ours, mine?.held ?? unread)])
+      if (!ours.held) written.set(f, ['keep', withHeld(ours, mine?.held ?? (mainText ? theirs.held : undefined) ?? unread)])
       continue
     }
     if (runText && mine.held && !ours.held && (!mainText || !mainRead)) {

@@ -697,17 +697,40 @@ test('recovery leaves a guide open when the saved review matches the outgoing te
   expect(r.pushed.held).toBeUndefined()
 })
 
-test('recovery holds a queued translation when its saved review omitted a now-visible part', () => {
+test.each(['stale', 'missing'] as const)('recovery holds a queued translation without a review of a now-visible part (%s)', review => {
   // This batch is already based on main with the diet enabled. Its Thai record is from before that change.
   const main = { sections: SECTIONS, fit: clean, files: { 'content/one-voice.json': '{}\n' } }
   const r = push('species', {
     base: main,
     main,
-    run: { ...main, th: { sections: SECTIONS, fit: { ...clean, hash: 'diet-hidden' } } },
+    run: { ...main, th: { sections: SECTIONS, fit: review === 'stale' ? { ...clean, hash: 'diet-hidden' } : undefined } },
   }, { kept: true, mainDidNotMove: true })
   expect(r.out).toContain('CODE 0')
   expect(r.pushedTh().sections).toEqual(SECTIONS)
   expect(r.pushedTh().held?.checks).toEqual([])
+})
+
+test.each(['stale', 'missing', 'matching'] as const)('recovery requires a review of the outgoing text before releasing an unchanged held guide (%s)', review => {
+  const main = { held: hold('source'), fit: { ...heldFor('source'), hash: 'old-text' } }
+  const r = push('guides', {
+    base: main,
+    main,
+    run: { fit: review === 'missing' ? undefined : { ...clean, hash: review === 'matching' ? defaultHash : 'old-text' } },
+  }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.body).toBe(DEFAULT_BODY)
+  expect(r.pushed.held).toEqual(review === 'matching' ? undefined : main.held)
+})
+
+test('recovery can update a cover without a review when the same text is already live', () => {
+  const r = push('guides', {
+    base: {},
+    main: {},
+    run: { extra: { cover: 'Ảnh mới' } },
+  }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.cover).toBe('Ảnh mới')
+  expect(r.pushed.held).toBeUndefined()
 })
 
 test('the older caller restores a hold when the only other change is a part selection', () => {

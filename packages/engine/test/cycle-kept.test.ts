@@ -766,7 +766,8 @@ test.each(['unchanged', 'late edit', 'gate failure', 'an unrelated staged edit',
       from_main
       publish_kept video-recheck
     `)
-    expect(c.onMain(guide)).toBe(namedPage('approved'))
+    // The fake gate changed the guide but supplied no saved review for recovery.
+    expect(JSON.parse(c.onMain(guide))).toMatchObject({ name: 'approved', held: { checks: [] } })
     expect(c.onMain('README.md')).toBe('public')
     expect(c.onMain(rubric)).toBe('pinned')
     expect(c.branches()).toEqual([])
