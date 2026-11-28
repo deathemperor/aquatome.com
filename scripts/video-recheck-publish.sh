@@ -19,7 +19,7 @@ sweep_new_video_recheck() {
 }
 
 push_video_recheck() {
-  local try run batch_base tree checked_tree='' refreshed pulled clash verification_failed commit candidate batch
+  local try run batch_base tree checked_tree='' refreshed pulled verification_failed commit candidate batch
   batch=$(git rev-parse HEAD) || return 1
   candidate=$batch
   if ! batch_base=$(git merge-base "$batch" origin/main); then
@@ -44,22 +44,10 @@ push_video_recheck() {
       fi
       candidate=$batch
     fi
-    if ! net git pull -q --rebase origin main; then
-      clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
-      git rebase --abort 2>/dev/null || true
-      if [ -z "$clash" ]; then
-        log "could not pull main before checking the video recheck"
-        continue
-      fi
-      log "another job changed the same files: $clash"
-      if ! net git pull -q --rebase -X theirs origin main; then
-        git rebase --abort 2>/dev/null || true
-        continue
-      fi
-    else
-      clash=
+    if ! refreshed=$(video_recheck_fetch_main) || ! video_recheck_rebase "$refreshed"; then
+      log "could not rebase the video recheck onto main"
+      continue
     fi
-    refreshed=$(git rev-parse origin/main) || break
     if ! pulled=$(git rev-parse HEAD) || ! video_recheck_pull_kept_batch "$batch" "$refreshed" "$pulled"; then
       keep_lost_push video-recheck "the first pull did not retain the video recheck batch" "$batch"
       return 1
@@ -68,7 +56,7 @@ push_video_recheck() {
       keep_lost_push video-recheck "video recheck rules changed during this run" "$batch"
       return 1
     fi
-    if ! replan_merged "$clash" "$refreshed"; then
+    if ! replan_video_recheck_calendar "$batch" "$refreshed"; then
       keep_lost_push video-recheck "could not replan main's calendar" "$batch"
       return 1
     fi

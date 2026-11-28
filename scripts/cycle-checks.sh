@@ -640,16 +640,16 @@ retry_held() {
 # a path the kept work also wrote as moved, not added, and the kept version won (that day too). The kept work's are what
 # any of its commits added, not only what its last one has: the rebase replays each commit, and a page it added and a
 # later commit deleted was added on main's and then deleted, main's page with it (Codex's read, 14 Nov). All in a commit
-# of its own. `main_pages <branch>`, after the pull.
+# of its own. `main_pages <branch> [<main>]`, after the pull.
 main_pages() {
-  local base pages files
-  base=$(git merge-base "$1" origin/main) || return 0
-  pages=$(comm -12 <(ever_added "$base" "$1" | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) <(added "$base" origin/main | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) |
+  local base pages files upstream=${2:-origin/main}
+  base=$(git merge-base "$1" "$upstream") || return 0
+  pages=$(comm -12 <(ever_added "$base" "$1" | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) <(added "$base" "$upstream" | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) |
     while read -r page; do git cat-file -e "$base:$page" 2>/dev/null || echo "$page"; done)
-  files=$(comm -12 <(ever_added "$base" "$1") <(added "$base" origin/main) | while read -r file; do grep -qxF "${file%/*}" <<<"$pages" || echo "$file"; done)
+  files=$(comm -12 <(ever_added "$base" "$1") <(added "$base" "$upstream") | while read -r file; do grep -qxF "${file%/*}" <<<"$pages" || echo "$file"; done)
   [ -n "$pages$files" ] || return 0
   # shellcheck disable=SC2086 # content paths have no spaces
-  git checkout --no-overlay origin/main -- $pages $files
+  git checkout --no-overlay "$upstream" -- $pages $files
   git diff --cached --quiet && return 0
   git commit -q -m "content: main's pages as main has them ($(grep -c . <<<"$pages" || true) pages and $(grep -c . <<<"$files" || true) other files a later run published first)"
   log "$1: $(grep -c . <<<"$pages" || true) pages and $(grep -c . <<<"$files" || true) other files a later run published first stay as main has them"
@@ -707,6 +707,32 @@ video_recheck_recovery_parent() {
   else
     git rev-parse "$1"
   fi
+}
+# Read the commit fetched for this attempt, then use it even if main advances during a rebase.
+video_recheck_fetch_main() {
+  net git fetch -q origin main >&2 || return 1
+  git rev-parse --verify 'FETCH_HEAD^{commit}'
+}
+video_recheck_rebase() {
+  local clash
+  net git rebase -q "$1" && return 0
+  clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
+  git rebase --abort 2>/dev/null || return 1
+  [ -n "$clash" ] || return 1
+  log "another job changed the same files: $clash"
+  net git rebase -q -X theirs "$1" && return 0
+  git rebase --abort 2>/dev/null || true
+  return 1
+}
+# The first conflicting commit may be earlier than the batch's calendar edit.
+replan_video_recheck_calendar() {
+  local base tip
+  base=$(git merge-base "$1" "$2") || return 1
+  for tip in "$1" "$2"; do
+    if git diff --quiet "$base" "$tip" -- content/curation.json; then return 0
+    elif [ "$?" != 1 ]; then return 1; fi
+  done
+  replan_merged content/curation.json "$2"
 }
 # A rebase can skip a patch that main applied and later reverted, even while replaying other commits.
 # Main can also revert the exact batch after taking it. If the tip moved, check that it still includes the batch.
@@ -850,20 +876,12 @@ push_kept() {
       run=$batch
     fi
     if [ -n "$video_recheck" ]; then
-      # A fetch can update origin/main before this try pulls it into the checked tree.
-      main=$(git merge-base "$run" "$main") || { KEPT_WHY="could not find the video recheck's base"; return 1; }
-    fi
-    if ! net git pull -q --rebase origin main; then
-      clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
-      git rebase --abort 2>/dev/null || true
-      net git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; KEPT_WHY="a clash with main"; return 1; }
-      check=1
-    else
-      clash=
-    fi
-    if [ -n "$video_recheck" ]; then
-      if ! refreshed=$(git rev-parse origin/main) || ! pulled=$(git rev-parse HEAD) ||
-        ! video_recheck_pull_kept_batch "$batch" "$refreshed" "$pulled"; then
+      if ! refreshed=$(video_recheck_fetch_main) || ! video_recheck_rebase "$refreshed"; then
+        KEPT_WHY="could not rebase the video recheck onto main"
+        return 1
+      fi
+      main=$(git merge-base "$run" "$refreshed") || { KEPT_WHY="could not find the video recheck's base"; return 1; }
+      if ! pulled=$(git rev-parse HEAD) || ! video_recheck_pull_kept_batch "$batch" "$refreshed" "$pulled"; then
         KEPT_WHY="the first pull did not retain the video recheck batch"
         return 1
       fi
@@ -871,19 +889,27 @@ push_kept() {
         KEPT_WHY="video recheck rules changed during this run"
         return 1
       fi
-      if ! replan_merged "$clash" "$refreshed"; then
+      if ! replan_video_recheck_calendar "$batch" "$refreshed"; then
         KEPT_WHY="could not replan main's calendar"
         return 1
       fi
     else
+      clash=
+      if ! net git pull -q --rebase origin main; then
+        clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
+        git rebase --abort 2>/dev/null || true
+        net git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; KEPT_WHY="a clash with main"; return 1; }
+        check=1
+      fi
+      refreshed=$(git rev-parse origin/main 2>/dev/null || true)
       replan_merged "$clash"
     fi
     # Main's pages put back is a tree the checks haven't seen: on a try after a lost push, back over what the sweep made of
     # them (Grok's read of 19652e876, 14 Nov). main_pages commits only when it changed something, and so do main's holds
     # (main_holds), after it: a page it put back whole is main's already.
     head=$(git rev-parse HEAD)
-    [ -z "$BRANCH" ] || main_pages "${batch:-$BRANCH}"
-    main_holds "$run" origin/main || true
+    [ -z "$BRANCH" ] || main_pages "${batch:-$BRANCH}" "$refreshed"
+    main_holds "$run" "$refreshed" || true
     [ "$(git rev-parse HEAD)" = "$head" ] || check=1
     # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
     # main, it's checked in full; once it has, its lost push goes again as a run's own push does (push(), swept_pull):
@@ -893,12 +919,12 @@ push_kept() {
     # code (the Site lead and the chief of staff, 15 Nov).
     # That sweep is the one the check sees, if it runs: a second would clear a failed migration's flag, and the tests
     # would pass a tree whose photo records weren't migrated, which push() never publishes (Grok's read).
-    if [ "$(git rev-parse origin/main 2>/dev/null)" != "$main" ] && [ -z "$check" ]; then
+    if [ "$refreshed" != "$main" ] && [ -z "$check" ]; then
       head=$(git rev-parse HEAD)
       sweep_merged "$video_recheck" || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
       swept=1
       if [ -z "$video_recheck" ]; then
-        if swept_clean "$head" "$main" "$(git rev-parse origin/main)"; then
+        if swept_clean "$head" "$main" "$refreshed"; then
           log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
         else
           check=1

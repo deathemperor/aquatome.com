@@ -547,7 +547,7 @@ test.each([0, 1])('a fresh video recheck keeps its batch when checkout moves at 
   expect(c.sh(`git show ${branches[0]}:content/video.json`)).toBe('rechecked')
 }, slow(60_000))
 
-test.each(['fresh', 'kept', 'held'])('a %s video recheck keeps its batch when checkout resets at the first pull', kind => {
+test.each(['fresh', 'kept', 'held'])('a %s video recheck keeps its batch when checkout resets at the first rebase', kind => {
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
   const branch = `${kind}/video-recheck/${when}`
@@ -559,7 +559,7 @@ test.each(['fresh', 'kept', 'held'])('a %s video recheck keeps its batch when ch
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
     net() {
-      if [ "$2" = pull ] && [ "$4" = --rebase ] && [ ! -f "$HOME/moved-checkout" ]; then
+      if [ "$2" = rebase ] && [ ! -f "$HOME/moved-checkout" ]; then
         touch "$HOME/moved-checkout"
         git reset -q --hard origin/main
       fi
@@ -741,25 +741,29 @@ test.each(['', '-out2'])('two video batches with the same recovery time both pub
 }, slow(60_000))
 
 test.each([
-  ['fresh', false], ['kept', false], ['held', false],
-  ['fresh', true], ['kept', true], ['held', true],
-] as const)('a %s video recheck replans main’s calendar before publishing without upstream (failure: %s)', (kind, fails) => {
+  ['fresh', false, false], ['kept', false, false], ['held', false, false],
+  ['fresh', true, false], ['kept', true, false], ['held', true, false],
+  ['fresh', false, true], ['kept', false, true], ['held', false, true],
+] as const)('a %s video recheck replans main’s calendar after an earlier guide conflict (failure: %s, main moves: %s)', (kind, fails, mainMoves) => {
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
   const saved = `${kind}/video-recheck/${when}`
-  c.sh('echo before > content/curation.json && git add content/curation.json && git commit -qm calendar && git push -q')
+  c.sh('echo before > content/curation.json && echo before > content/video.json && git add content && git commit -qm calendar && git push -q')
   const batch = c.sh(`
-    echo removed > content/curation.json
     echo rechecked > content/video.json
-    git add content/curation.json content/video.json
+    git add content/video.json
     git commit -qm 'content: video guides checked again (fixture)'
+    echo removed > content/curation.json
+    git add content/curation.json
+    git commit -qm 'content: sweep (fixture)'
     git rev-parse HEAD
   `)
   if (kind !== 'fresh') c.sh(`git branch ${saved} && git reset -q --hard origin/main`)
   c.elsewhere('code.txt', 'new-code')
   c.sh(`
-    echo editor > "$HOME/other/content/curation.json"
-    git -C "$HOME/other" add content/curation.json
+    echo other-guide > "$HOME/other/content/video.json"
+    ${mainMoves ? ':' : 'echo editor > "$HOME/other/content/curation.json"'}
+    git -C "$HOME/other" add content
     git -C "$HOME/other" commit -qm editor
     git -C "$HOME/other" push -q
     git fetch -q origin
@@ -768,6 +772,24 @@ test.each([
   const log = c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    sleep() { :; }
+    ${mainMoves ? `
+      net() {
+        if [ "$2" = rebase ] && [ ! -e "$HOME/editor-landed" ]; then
+          local status=0
+          "$@" || status=$?
+          if [ "$status" != 0 ]; then
+            echo editor > "$HOME/other/content/curation.json"
+            git -C "$HOME/other" add content/curation.json &&
+              git -C "$HOME/other" commit -qm 'calendar editor' &&
+              git -C "$HOME/other" push -q || return 1
+            touch "$HOME/editor-landed"
+          fi
+          return "$status"
+        fi
+        "$@"
+      }
+    ` : ''}
     pnpm() {
       [ "$1 $2" = "engine curate" ] || return 0
       printf 'CURATE %s\n' "$(cat content/curation.json)"
@@ -780,12 +802,13 @@ test.each([
   if (fails) {
     expect(log).not.toContain('VERIFIED')
     expect(c.onMain('content/curation.json')).toBe('editor')
-    expect(c.onMain('content/video.json')).toBe('')
+    expect(c.onMain('content/video.json')).toBe('other-guide')
     const branches = c.branches()
     expect(branches).toHaveLength(1)
     expect(c.sh(`git rev-parse ${branches[0]}`)).toBe(batch)
   } else {
-    expect(log).toContain('VERIFIED editor, replanned')
+    const verified = log.match(/^VERIFIED .*$/gm)
+    expect(verified).toEqual(mainMoves ? ['VERIFIED removed', 'VERIFIED editor, replanned'] : ['VERIFIED editor, replanned'])
     expect(c.onMain('content/curation.json')).toBe('editor, replanned')
     expect(c.onMain('content/video.json')).toBe('rechecked')
     expect(c.branches()).toEqual([])
