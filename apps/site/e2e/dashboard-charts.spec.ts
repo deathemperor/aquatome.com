@@ -318,6 +318,7 @@ test.describe('in Vietnam', () => {
     await expect(values).toHaveText(['0', '3'])
     await expect(chart.locator('.cols li.today.on .zero-mark')).toBeVisible()
     const top = () => chart.locator('[data-plot]').evaluate(p => p.getBoundingClientRect().top + scrollY)
+    await page.evaluate(() => document.fonts.ready)
     const before = await top()
     const yesterday = chart.locator('.cols li').nth(28)
     if (isMobile) await yesterday.tap()
@@ -391,7 +392,7 @@ test('the six dashboard screens supply parity captures from the checked fixture'
       if (name === 'scoreboard') {
         await expect(page.locator('#w-star-t + .readout b')).toHaveText('12')
         await expect(page.locator('#w-readers-t + .readout b')).toHaveText(['21', '33'])
-        await expect(page.locator('figure.day-pick .today.on').filter({ has: page.locator('i.cap') })).toHaveCount(2)
+        await expect(page.locator('figure.day-pick .today.on i.cap').filter({ visible: true })).toHaveCount(2)
       }
       await page.screenshot({ path: join(directory!, `${name}-${width}-${look}.png`), fullPage: true, scale: 'css' })
       if (look === 'light' && (name === 'fish-id' || name === 'content')) {

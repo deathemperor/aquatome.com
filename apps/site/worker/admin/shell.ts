@@ -293,7 +293,7 @@ summary:hover{color:var(--ink)}
 /* A section's chart shows the active day's figures above the plot. */
 .bare .plot{grid-template-columns:0 minmax(0,1fr);grid-template-rows:100px 26px;margin-top:8px}
 .bare .cols i{width:min(56px,calc(100% - 8px))}
-.day-pick .readout{align-content:start;min-height:2.5rem;gap:0 8px}
+.day-pick .readout{align-content:start;min-height:3rem;gap:0 8px}
 .day-pick .readout .when{order:1;flex:0 0 auto;margin-inline-start:auto}
 .day-pick .readout b{font:600 .93rem/1.5 var(--sans);font-variant-numeric:tabular-nums}
 .day-pick .plot .cols li:not(.on) > i{opacity:.55}
@@ -464,7 +464,7 @@ i.sci{font-style:italic}
 /* New pages: the kinds' total and today's, then a line a kind: its name, its seven days, its total and today's */
 .card .top{display:flex;align-items:baseline;gap:6px;margin:0;color:var(--muted);font-weight:600;font-size:14px;max-width:none}
 .card .top .fig{color:var(--ink)}
-.card .today{margin-left:auto;font-weight:400;font-size:13px}
+.card .top .today{margin-left:auto;font-weight:400;font-size:13px}
 .t{font-size:13px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums;min-width:28px}
 .t.good{color:var(--moss)}
 .kinds{display:grid;grid-template-columns:max-content minmax(0,1fr) max-content max-content;gap:6px 8px;align-items:end;margin-top:6px}
