@@ -250,9 +250,7 @@ test.each(['startup', 'after recovery'])('video recheck refuses leftover files a
     touch "$HOME/archive"
     TEST_FAILURES_DIR="$HOME/archive"
     checks() { echo local-only > content/material-parent.json; }
-    publish_kept video-recheck
-    source '${helper}'
-    prepare_video_recheck && exit 2
+    publish_kept video-recheck && exit 2
     echo refused
   `)
   expect(c.branches()).toEqual([kept])
@@ -310,6 +308,49 @@ test('a video recheck cannot pass on a retry using a file the first check create
   expect(c.branches()).toEqual([kept])
   expect(c.onMain('content/video.json')).toBe('')
   expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/content/retry-input.json')).toBe('generated')
+}, slow(60_000))
+
+test('video recheck verification does not export its checkout hash into a check', () => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${kept} && git reset -q --hard origin/main`)
+  const log = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    checks() { ! env | grep -Eq '^(VERIFY_TREE|video_verify_tree)='; }
+    publish_kept video-recheck
+  `)
+  expect(log).toContain(`LOG published ${kept}`)
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+}, slow(60_000))
+
+test.each(['kept', 'held'])('video recheck preserves untracked files if a %s batch cannot archive them before reset', prefix => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const branch = `${prefix}/video-recheck/${when}`
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${branch} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new')
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  const log = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    touch "$HOME/archive"
+    TEST_FAILURES_DIR="$HOME/archive"
+    checks() {
+      echo from-main > "$HOME/other/content/retry-input.json"
+      git -C "$HOME/other" add content/retry-input.json
+      git -C "$HOME/other" commit -qm concurrent
+      git -C "$HOME/other" push -q
+      echo local-only > content/retry-input.json
+      return 1
+    }
+    publish_kept video-recheck && exit 2
+    echo refused
+  `)
+  expect(log).toContain('could not preserve untracked video recheck files before resetting')
+  expect(log).toContain('refused')
+  expect(c.branches()).toEqual([branch])
+  expect(c.onMain('content/video.json')).toBe('')
+  expect(c.onMain('content/retry-input.json')).toBe('from-main')
+  expect(c.sh('cat content/retry-input.json')).toBe('local-only')
 }, slow(60_000))
 
 test('a fresh video publish archives another checkout file before the merge sweep can stage it', () => {
@@ -834,7 +875,7 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
     // after the sweep on a clean pull that brought main's commits in.
     if (name === 'video-recheck.sh') {
       expect(s, name).toContain('\npush_video_recheck\n')
-      expect(script('video-recheck-publish.sh')).toMatch(/if \[ -n "\$verification_failed" \]; then\n\s*keep_unpublished video-recheck\n.*not publishing.*\n\s*return 1/)
+      expect(script('video-recheck-publish.sh')).toMatch(/if \[ "\$verification_failed" != 0 \]; then\n\s*keep_unpublished video-recheck\n.*not publishing.*\n\s*return 1/)
     } else {
       const gaveUp = s.split('\n').filter(l => /not publishing/.test(l) && !/gate:/.test(l))
       expect(gaveUp.length, name).toBe(3)
