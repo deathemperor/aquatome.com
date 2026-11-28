@@ -643,11 +643,21 @@ video_recheck_rules_current() {
       scripts/cycle-checks.sh scripts/video-recheck.sh scripts/video-recheck-publish.sh \
       .nvmrc .npmrc pnpm-workspace.yaml pnpm-lock.yaml ':(glob)**/package.json'
 }
+# A rebase can end at main if it lost its starting commit or if main already contains the work.
+# When no commits remain above main, accept that only if combining the original batch adds nothing.
+video_recheck_pull_kept_batch() {
+  local pulled upstream combined
+  pulled=$(git rev-parse HEAD) && upstream=$(git rev-parse "$2") || return 1
+  git merge-base --is-ancestor "$upstream" "$pulled" || return 1
+  if [ "$pulled" != "$upstream" ] || git merge-base --is-ancestor "$1" "$pulled"; then return 0; fi
+  combined=$(git merge-tree --write-tree "$pulled" "$1" 2>/dev/null) || return 1
+  [ "$combined" = "$(git rev-parse "$pulled^{tree}")" ]
+}
 # Content loaders can read ignored paths within their input directories. last-run.json is a local run report.
 video_recheck_local_files() {
   git ls-files --others --exclude-standard "$@" &&
     git ls-files --others --ignored --exclude-standard "$@" -- \
-      content sources engine-state docs/review apps/site/.hidden.json apps/site/test/fixture-content \
+      content sources engine-state docs/review apps/site/.hidden.json apps/site/test/fixture-content apps/site/test/engine-state \
       ':(exclude)engine-state/last-run.json'
 }
 # Content checks enumerate entity directories, even though Git cannot track a directory with no files.
@@ -754,9 +764,15 @@ push_kept() {
     else
       clash=
     fi
-    if [ -n "$video_recheck" ] && ! video_recheck_rules_current; then
-      KEPT_WHY="video recheck rules changed during this run"
-      return 1
+    if [ -n "$video_recheck" ]; then
+      if ! video_recheck_pull_kept_batch "$run" origin/main; then
+        KEPT_WHY="the first pull did not retain the video recheck batch"
+        return 1
+      fi
+      if ! video_recheck_rules_current; then
+        KEPT_WHY="video recheck rules changed during this run"
+        return 1
+      fi
     fi
     replan_merged "$clash"
     # Main's pages put back is a tree the checks haven't seen: on a try after a lost push, back over what the sweep made of

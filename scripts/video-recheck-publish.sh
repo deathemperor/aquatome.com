@@ -45,11 +45,15 @@ push_video_recheck() {
         continue
       fi
     fi
+    refreshed=$(git rev-parse '@{u}') || break
+    if ! video_recheck_pull_kept_batch "$run" "$refreshed"; then
+      keep_lost_push video-recheck "the first pull did not retain the video recheck batch" "$run"
+      return 1
+    fi
     if ! video_recheck_rules_current; then
       keep_lost_push video-recheck "video recheck rules changed during this run" "$run"
       return 1
     fi
-    refreshed=$(git rev-parse '@{u}') || break
     if [ "$refreshed" != "$base" ]; then
       main_holds "$run" || true
       if ! sweep_merged strict; then
