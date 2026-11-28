@@ -727,7 +727,7 @@ video_recheck_rebase() {
 # Keep the whole batch through the rebase, except a calendar that must be replanned on main.
 # Comparing against the original base catches patches Git skipped after main applied and then reverted them.
 video_recheck_reconcile_batch() {
-  local batch=$1 upstream=$2 pulled=$3 base edits calendar='' combined status=0
+  local batch=$1 upstream=$2 pulled=$3 base tip edits calendar=content/curation.json combined status=0
   git merge-base --is-ancestor "$upstream" "$pulled" || return 1
   # The guide commit starts the batch, before any sweep commits. Main can already share part of that history.
   base=$(git log -1 --first-parent --format=%P --grep='^content: video guides checked again ' "$batch") || return 1
@@ -735,14 +735,11 @@ video_recheck_reconcile_batch() {
     base=$(git merge-base "$pulled" "$batch") || return 1
     if [ "$base" = "$batch" ]; then base=$(git rev-parse "$batch^") || return 1; fi
   fi
-  if git diff --quiet "$base" "$upstream" -- content/curation.json; then
-    :
-  else
-    [ "$?" = 1 ] || return 1
-    # A calendar patch followed by its undo can still overwrite main as the commits replay.
-    edits=$(git rev-list -1 --full-history --first-parent "$base..$batch" -- content/curation.json) || return 1
-    if [ -n "$edits" ]; then calendar=content/curation.json; fi
-  fi
+  # Rebase considers patches in both histories, even when either side later undid its calendar edit.
+  for tip in "$batch" "$upstream"; do
+    edits=$(git rev-list -1 --full-history "$base..$tip" -- "$calendar") || return 1
+    if [ -z "$edits" ]; then calendar=; break; fi
+  done
   if [ "$pulled" != "$batch" ]; then
     combined=$(git merge-tree --write-tree --name-only --no-messages --merge-base="$base" "$pulled" "$batch" 2>/dev/null) || status=$?
     if [ -n "$calendar" ]; then

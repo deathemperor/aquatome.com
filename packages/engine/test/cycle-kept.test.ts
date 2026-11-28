@@ -819,6 +819,7 @@ test.each([
   ['fresh', 'undo'], ['kept', 'undo'],
   ['fresh', 'cherry-picked'], ['kept', 'cherry-picked'], ['held', 'cherry-picked'],
   ['kept', 'guide reverted'], ['kept', 'replan failed'],
+  ['fresh', 'main reverted'], ['kept', 'main reverted'], ['held', 'main reverted'], ['kept', 'merged revert'],
 ] as const)('a %s video recheck preserves main’s calendar after %s', (kind, history) => {
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
@@ -828,14 +829,20 @@ test.each([
   const calendar = c.sh("echo batch-calendar > content/curation.json && git commit -qam 'sweep calendar' && git rev-parse HEAD")
   if (history === 'undo') c.sh('git revert --no-edit HEAD')
   const batch = c.sh('git rev-parse HEAD')
+  const editorReverted = history === 'main reverted' || history === 'merged revert'
+  const mainCalendar = editorReverted ? 'before' : 'editor'
   if (kind !== 'fresh') c.sh(`git branch ${saved} && git reset -q --hard origin/main`)
   c.elsewhere('code.txt', 'new-code')
   c.sh(`
     git -C "$HOME/other" fetch -q "$PWD" '${calendar}'
     ${history === 'guide reverted' ? `git -C "$HOME/other" cherry-pick '${guide}' && git -C "$HOME/other" revert --no-edit HEAD` : ':'}
+    ${history === 'merged revert' ? 'git -C "$HOME/other" switch -qc editorial' : ':'}
     ${history === 'undo' ? ':' : `git -C "$HOME/other" cherry-pick '${calendar}'`}
-    echo editor > "$HOME/other/content/curation.json"
-    git -C "$HOME/other" commit -qam 'editor changes calendar'
+    ${editorReverted ? 'git -C "$HOME/other" revert --no-edit HEAD' : `
+      echo editor > "$HOME/other/content/curation.json"
+      git -C "$HOME/other" commit -qam 'editor changes calendar'
+    `}
+    ${history === 'merged revert' ? 'git -C "$HOME/other" switch -q main && git -C "$HOME/other" merge -q --no-ff editorial -m "editorial changes"' : ':'}
     git -C "$HOME/other" push -q
     git fetch -q origin
   `)
@@ -845,12 +852,12 @@ test.each([
     pnpm() {
       [ "$1 $2" = "engine curate" ] || return 0
       printf 'CURATE %s\n' "$(cat content/curation.json)"
-      ${history === 'replan failed' ? 'echo incomplete > content/curation.json; return 1' : 'echo editor-replanned > content/curation.json'}
+      ${history === 'replan failed' ? 'echo incomplete > content/curation.json; return 1' : `echo ${mainCalendar}-replanned > content/curation.json`}
     }
     verify_cycle() { printf 'VERIFIED %s\n' "$(cat content/curation.json)"; }
     ${kind === 'fresh' ? 'push_video_recheck || echo refused' : 'publish_kept video-recheck'}
   `)
-  if (history !== 'guide reverted') expect(log).toContain('CURATE editor')
+  if (history !== 'guide reverted') expect(log).toContain(`CURATE ${mainCalendar}`)
   if (history === 'guide reverted' || history === 'replan failed') {
     expect(log).not.toContain('VERIFIED')
     expect(c.onMain('content/curation.json')).toBe('editor')
@@ -858,8 +865,8 @@ test.each([
     expect(c.branches()).toEqual([saved])
     expect(c.sh(`git rev-parse ${saved}`)).toBe(batch)
   } else {
-    expect(log).toContain('VERIFIED editor-replanned')
-    expect(c.onMain('content/curation.json')).toBe('editor-replanned')
+    expect(log).toContain(`VERIFIED ${mainCalendar}-replanned`)
+    expect(c.onMain('content/curation.json')).toBe(`${mainCalendar}-replanned`)
     expect(c.onMain('content/video.json')).toBe('rechecked')
     expect(c.branches()).toEqual([])
   }
