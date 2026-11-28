@@ -7,7 +7,7 @@ import { replacePhotoDocument, writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { completedDeadVerdict, DEAD_SCREEN_FILE, deadScreenPhotoUrls, heldPhotoVersion, isVersionRejection, originalPhotoRefusals, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoVersionAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, type Photo as ContentPhoto } from '@aq/schema'
+import { DEAD_SCREEN_FILE, deadScreenPhotoUrls, isVersionRejection, originalPhotoRefusals, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoVersionAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, reviewedPhotoVersion, type Photo as ContentPhoto } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -477,9 +477,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const rejected = withoutClearedWaits((await readJson<Record<string, string>>(rejectedFile)) ?? {}, secondLook)
   const passedPhoto = photoVersionAddressSet(passed)
   const sl = looks(secondLook, passedPhoto)
-  const versionHeld = heldPhotoVersion(secondLook)
   const screened = await readJson<Record<string, unknown>>(join(root, 'engine-state', DEAD_SCREEN_FILE))
-  const separateHold = (url: string) => versionHeld(url) || passedPhoto(url) || completedDeadVerdict(screened?.[url])
+  const separateHold = reviewedPhotoVersion(secondLook, legacy, cache, screened)
   const rejectedAt = photoRejections(rejected, {}, separateHold)
   const markedAt = photoRejections(Object.fromEntries(Object.entries(secondLook)
     .filter(([url]) => sl.off(url))
