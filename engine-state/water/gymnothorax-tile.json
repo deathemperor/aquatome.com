@@ -1,12 +1,18 @@
 {
   "id": "gymnothorax-tile",
-  "input": "d9b80d605c048f5e",
-  "at": "2026-11-08T11:09:01.157Z",
+  "input": "a46a6ccb8ce984fd",
+  "at": "2026-11-21T13:19:51.975Z",
   "claims": [
     {
       "kind": "brackish",
       "source": "seriouslyfish",
       "quote": "This species is not a true freshwater fish and should be maintained in brackish conditions.",
+      "ok": true
+    },
+    {
+      "kind": "brackish",
+      "source": "glaser",
+      "quote": "But practice shows that this moray eel species is much more persistent in brackish or sea water (15-30 grams of salt per liter), as known from other fish species of the tidal zone, such as Scats, Monos etc.",
       "ok": true
     }
   ]

@@ -13,7 +13,10 @@
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/d39e9d8ce6109072.webp": "3c9a9b0f0c9e89cc",
   "https://media.aquatome.com/commons/fbb7bba202977dba.webp": "3f0f4f6f1f0f0743",
-  "https://media.aquatome.com/inaturalist/377653440.webp": "41cc8c8c94302666"
+  "https://media.aquatome.com/inaturalist/377653440.webp": "41cc8c8c94302666",
+  "https://media.aquatome.com/glaser/c2035ad49b7fa880.webp": "352745478d9cc1c2",
+  "https://media.aquatome.com/glaser/4dc0c50bf993983b.webp": "4a22ac06c48c4949",
+  "https://media.aquatome.com/glaser/e8b1bbaa817fab6b.webp": "4d4c03032f67c7c3"
  },
  "commons": "2026-11-02",
  "inat": {
@@ -26,6 +29,9 @@
  },
  "gbif": {
   "key": 5962669,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

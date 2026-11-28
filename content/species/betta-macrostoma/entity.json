@@ -11,7 +11,8 @@
     "marudi",
     "brunei",
     "mendarem",
-    "sarawak"
+    "sarawak",
+    "borneo"
   ],
   "range": {
     "native": {
@@ -78,14 +79,14 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
-          "min": 22,
-          "max": 28
+          "min": 20,
+          "max": 25
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
           "min": 20,
           "max": 25
@@ -94,14 +95,14 @@
     ],
     "ph": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
-          "min": 5,
-          "max": 7
+          "min": 4,
+          "max": 6
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
           "min": 4,
           "max": 6
@@ -110,19 +111,15 @@
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 11.5
-      },
-      {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "bwaquatics",
+        "value": 11
       }
     ],
     "difficulty": [
-      {
-        "source": "bwaquatics",
-        "value": 6
-      },
       {
         "source": "seriouslyfish",
         "value": 4
@@ -148,8 +145,8 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
-      "html": "<ul><li>Wild-caught Betta macrostoma from Marudi, from the Betta unimaculata complex.</li><li>IUCN Red List: VU (Vulnerable)</li><li>Maximum size: 4.5 inches (about 11.5 cm)</li><li>Temperature: 72–82°F (22–28°C)</li><li>pH: 5.0–7.0</li><li>TDS: ~60–100</li><li>Breeding: mouthbrooder</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostoma-marudi-wild-betta-fish",
+      "html": "<ul><li>Belongs to the Betta unimaculata complex.</li><li>IUCN Red List: Vulnerable.</li><li>Temperament: aggressive.</li><li>Paternal mouthbrooder.</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -158,10 +155,22 @@
       "html": "<p>The Brunei beauty, Betta macrostoma, is a large paternal mouthbrooding labyrinth fish endemic to Brunei and the northern tip of Sarawak, Borneo. It grows to 100 mm SL, and males are red with a red patch on the opercle and an ocellus in the dorsal fin. It lives in still, shady pools at the top of rainforest waterfalls. Listed as Vulnerable by the IUCN, it has been banned from export by the Sultan of Brunei.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostoma-marudi-wild-betta-fish",
+      "html": "<p>Betta macrostoma is one of the most sought-after wild bettas for its size and colour. It is more sensitive to water conditions than other large bettas. Fish offered are wild caught in northern Borneo.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
       "html": "<p>Endemic to Borneo where it's known only from Brunei Darussalam and the northern tip of the Malaysian state of Sarawak. In Brunei there exist a number of known localities along the Mendarem River and in Labi rainforest, all in the administrative area of Labi which borders Sarawak to the south.</p><p>The Sarawak populations are restricted to the district of Baram, close to the town of Marudi. Populations from different localities have been observed to exhibit differences in colouration and patterning and these should therefore be maintained separately in aquaria.</p><p>The restricted natural range of this species has led it to be added to the IUCN Red List of Threatened Species, on which it is listed as Vulnerable (D2). The 'D2' criterion refers to the 'acute restriction in its area of occupancy' and signifies that a given species could become critically endangered or extinct in a very short space of time. As a result the Sultan of Brunei has banned the species from export, meaning that most of the fish in the hobby are likely to originate from Sarawak where the species is not protected by law.</p><p>Brunei fish are still available but it has not been possible to confirm whether these are being exported illegally or whether the ban applies only to wild caught specimens and the ones currently being exported are captive-bred. It also appears that the area in which the Sarawak habitats lie will be turned into an oil palm plantation in the future.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostoma-marudi-wild-betta-fish",
+      "html": "<p>Northern Borneo.</p>"
     },
     {
       "key": "habitat",
@@ -170,10 +179,22 @@
       "html": "<p>Has been collected from still, shady pools at the top of rainforest waterfalls in both Brunei and Sarawak. Substrates appear to be composed mainly of gravel/rocks of varying sizes plus some leaf litter from the surrounding vegetation, although one locality in Brunei is described as 'clayey'.</p><p>The water is relatively fast-flowing and quite clear although it seems to be slightly brown in colour, likely the artefact of dissolved humic acids and other chemicals released by decaying organic material.</p><p>The fish are found in still pools along the main river channels and quiet sections of tributaries, each of which contains just a single adult or adult pair, or several juveniles.</p><p>The dissolved mineral content is almost always negligible, the pH has been measured between 4.4-5.7 depending on habitat, and the only sympatric fish species recorded to date is Rasbora tubbi. A red-coloured shrimp Machrobrachium sp. shrimp is also typical at most localities and may comprise an important part of the natural diet.</p>"
     },
     {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostoma-marudi-wild-betta-fish",
+      "html": "<p>In the wild it lives in shady rainforest streams: still, shady pools above rainforest waterfalls and quiet stretches of streams, with very soft water measured at pH 4.4 to 5.7.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
       "html": "<p>An aquarium with base measurements of 80 × 30 cm or equivalent is sufficient for a pair. Volume: about 72 litres.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostoma-marudi-wild-betta-fish",
+      "html": "<p>Recommended 1 pair per 10 gallons (40 litres), or 80 litres for breeding.</p>"
     },
     {
       "key": "maintenance",
@@ -182,10 +203,16 @@
       "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance. Driftwood roots and branches can be used and placed such a way that a few shady spots are formed.</p><p>If you can't find driftwood of the desired shape common beech or oak is safe to use if thoroughly dried and stripped of bark. Clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter, with beech, oak or Ketapang almond leaves all suitable, can further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial.</p><p>Like others in the genus this species seems to do best under fairly dim lighting. You could add aquatic plant species that can survive under such conditions such as Microsorum pteropus, Taxiphyllum barbieri or perhaps some potted Cryptocoryne spp., and a few patches of floating vegetation would be useful to diffuse the light entering the tank.</p><p>Filtration need not be too strong, with an air-powered sponge filter set to turn over gently adequate. Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostoma-marudi-wild-betta-fish",
+      "html": "<p>Fish in this complex are very prone to ich and velvet during the first few weeks after import, so watch new arrivals closely. Newly imported macrostoma are also prone to fungal infections.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
-      "html": "<p>TDS ~60–100; pH 5.0–7.0; temperature 72–82°F (22–28°C). Cooler temperatures are preferred, but higher temperatures induce coloration and breeding behaviour.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostoma-marudi-wild-betta-fish",
+      "html": "<ul><li>Temperature: 20–25°C (cooler than most bettas)</li><li>pH: 4.0–6.0</li><li>TDS: 60 to 100</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -196,8 +223,8 @@
     {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
-      "html": "<p>Carnivorous. Fed on live, frozen and dry foods, such as blackworms, frozen bloodworms and pellets.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostoma-marudi-wild-betta-fish",
+      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -208,8 +235,8 @@
     {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
-      "html": "<p>Like many species in this complex, with the largest bettas, they can be aggressive. They are best kept in a species-only tank, as they can eat anything that fits in their big mouth.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostoma-marudi-wild-betta-fish",
+      "html": "<p>Aggressive. Best kept in a species-only tank, since they will eat any fish that fits in their mouth. Males fight hard, and the weaker fish in a random pairing can be killed, so watch new pairs closely and give plenty of cover.</p>"
     },
     {
       "key": "behaviour",
@@ -224,10 +251,16 @@
       "html": "<p>Males tend to grow larger, are more colourful, have a broader head shape and more extended fins than females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostoma-marudi-wild-betta-fish",
+      "html": "<p>Males are red with a red gill-plate patch, a dark eye-spot (ocellus) in the dorsal fin and banding in the caudal fin. Unlike most of the complex, the gill plate has no iridescent scales. Females are less colourful. Body is long and stocky with a large head and big mouth (macrostoma means \"large mouth\").</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
-      "html": "<p>Mouthbrooder.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostoma-marudi-wild-betta-fish",
+      "html": "<p>Paternal mouthbrooder. The male holds the eggs in his mouth for anywhere from 14 to 35 days before releasing free-swimming fry. Males are prone to swallowing the brood if disturbed, so keep the tank very quiet. Fry need humid air above the water for the labyrinth organ to develop properly; don't overfeed them.</p>"
     },
     {
       "key": "reproduction",
@@ -250,6 +283,17 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/5d77165291ef928d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5d77165291ef928d-480.webp",
+      "width": 695,
+      "height": 346,
+      "licence": "dùng với sự cho phép",
+      "author": "Haji Badaruddin / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
+      "caption": "Males from Marudi in dominance battle. The alpha fish is on the left, signified by more intense colouration and undamaged fins.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/bwaquatics/be7cb897ac33ec19.webp",
       "thumb": "https://media.aquatome.com/bwaquatics/be7cb897ac33ec19-480.webp",
       "width": 1200,
@@ -260,15 +304,14 @@
       "source": "bwaquatics"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/5d77165291ef928d.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/5d77165291ef928d-480.webp",
-      "width": 695,
-      "height": 346,
+      "url": "https://media.aquatome.com/bwaquatics/be7cb897ac33ec19.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/be7cb897ac33ec19-480.webp",
+      "width": 1200,
+      "height": 675,
       "licence": "dùng với sự cho phép",
-      "author": "Haji Badaruddin / Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
-      "caption": "Males from Marudi in dominance battle. The alpha fish is on the left, signified by more intense colouration and undamaged fins.",
-      "source": "seriouslyfish"
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
+      "source": "bwaquatics"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/24ba88ae63b18831.webp",
@@ -290,9 +333,44 @@
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
       "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/d97b0799be9f2931.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/d97b0799be9f2931-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
+      "source": "bwaquatics"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "51-VJGQdi2s",
+      "title": "How I Nearly Killed My RARE Wild Betta Macrostoma...TWICE!",
+      "durationSec": 622,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0Sjh9iX4wrc",
+      "title": "Betta Macrostoma - I Have Fry! Miracle Babies and New LOW PH Setup",
+      "durationSec": 1130,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HgWZHgXU12Q",
+      "title": "Planted Blackwater Tank for my Betta Macrostoma Fry",
+      "durationSec": 851,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hwguWvqghsI",
+      "title": "Vorstellung: Betta Macrostoma, die Schönheit von Brunei",
+      "durationSec": 350,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -320,5 +398,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-20"
 }

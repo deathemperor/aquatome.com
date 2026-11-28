@@ -1,0 +1,57 @@
+{
+  "id": "apistogramma-taeniata",
+  "native": {
+    "input": "ce115358dc5f68c3",
+    "at": "2026-11-20T01:55:49.831Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma taeniata",
+    "status": "ACCEPTED",
+    "taxonKey": 2371257,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        81
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        19
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-20T01:55:49.831Z"
+  }
+}

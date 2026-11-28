@@ -278,14 +278,14 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_costae_en/",
-      "html": "<p>This tetra originates from Brazil (Rio Sao Francisco and Itapicuru). It reaches a maximum length of about 7 cm. It is an attractive schooling fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-costae-2/",
+      "html": "<p>It reaches a maximum length of about 7 cm. An attractive schooling fish.</p>"
     },
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_costae_en/",
-      "html": "<p>Brazil: Rio Sao Francisco and Itapicuru.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-costae-2/",
+      "html": "<p>This tetra originates from Brazil (Rio Sao Francisco and Itapicuru).</p>"
     }
   ],
   "photos": [
@@ -295,8 +295,38 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_costae_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/642e862d6880eade.webp",
+      "thumb": "https://media.aquatome.com/glaser/642e862d6880eade-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-costae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8280ddc859bdcebb.webp",
+      "thumb": "https://media.aquatome.com/glaser/8280ddc859bdcebb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-costae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a3724c204fdc03eb.webp",
+      "thumb": "https://media.aquatome.com/glaser/a3724c204fdc03eb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-costae-2/",
       "source": "glaser"
     }
   ],
@@ -349,5 +379,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-20"
 }

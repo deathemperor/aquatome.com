@@ -24,10 +24,11 @@
       "regions": [
         "Borneo",
         "Sumatra",
-        "Muar River",
-        "Kapuas"
+        "Muar",
+        "Tasek Bera"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
@@ -48,15 +49,8 @@
           "quote": "In Peninsular Malaysia localities include the Selai and Muar rivers in Johor state and the blackwater swamp lake of Tasek Bera in Pahang state while in Sumatra the only report we've been able to find seems to refer to the Lalah River, Riau province in the east of the island.",
           "countries": [],
           "regions": [
-            "Muar River"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Records from Borneo are confusing. It was once thought restricted to southern (Indonesian) parts of the island and has been recorded from various rivers and streams within the lower Kapuas River basin and the Ketungau river in West Kalimantan (Kalimantan Barat) province as well as tributaries of the Sebangau and lower Mentaya rivers in Central Kalimantan (Kalimantan Tengah).",
-          "countries": [],
-          "regions": [
-            "Kapuas"
+            "Muar",
+            "Tasek Bera"
           ]
         }
       ]

@@ -1,0 +1,48 @@
+{
+  "id": "astroblepus-mojicai",
+  "native": {
+    "input": "fb21739a3b330ca7",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Colombia, Department of Nariño.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Telembí River",
+        "source": "scotcat",
+        "quote": "Tributary of the Telembí River, municipality of Barbacoas.",
+        "ok": true
+      },
+      {
+        "name": "River Peje",
+        "source": "scotcat",
+        "quote": "River Peje, tributary Nambi.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus mojicai",
+    "status": "ACCEPTED",
+    "taxonKey": 9611632,
+    "datasets": [],
+    "native": [
+      "CO"
+    ],
+    "requests": 2,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "id": "copella-meinkeni",
   "native": {
-    "input": "77db751e90395889",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "9f2d57f5667e4857",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "BR",
@@ -55,6 +55,12 @@
         "quote": "Current knowledge suggests this species is native to the central Amazon region with the rios Javari and Trombetas representing the upstream and downstream limits of its known distribution, respectively.",
         "ok": false,
         "why": "its name is not in the quote"
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "Orinoco and Rio Negro.",
+        "ok": true
       }
     ],
     "disputed": [],

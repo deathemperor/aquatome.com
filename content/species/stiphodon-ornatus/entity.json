@@ -19,6 +19,7 @@
         "Sumatra"
       ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
@@ -86,6 +87,10 @@
       {
         "source": "seriouslyfish",
         "value": 7
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -103,6 +108,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/stiphodon-ornatus-2/",
+      "html": "<p>This beautiful freshwater goby was originally described as a subspecies of Stiphodon elegans. Males grow about 6 cm long, females stay a little smaller.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-ornatus",
@@ -117,14 +128,20 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/wonderful_neon_gobies_arrived_en/",
-      "html": "<p>The Neon gobies of the genus Stiphodon are very difficult to determine, for the larvae develop in marine environment; so the species have a very wide distribution. The adult fish, however, live exclusively in freshwater.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/stiphodon-ornatus-2/",
+      "html": "<p>It originates from West Sumatra (Indonesia).</p>"
     },
     {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-ornatus",
       "html": "<p>Members of this genus are near-exclusive inhabitants of short coastal streams with habitats often lying above waterfalls or cataracts. This makes them inaccessible to the majority of fishes although other gobiids and eleotrids often occur syntopically, sometimes alongside two or more Stiphodon species. Amphidromous Macrobrachium spp. shrimp and neritid snails are the commonest invertebrates to be found.</p><p>The gradient of the streams varies depending on locality, and Stiphodon spp. inhabiting the fastest-flowing and/or living above waterfalls generally lack extended dorsal-fin rays/spines, and the first dorsal-fin is rounded in shape and approximately the same height as the second dorsal-fin. In contrast, those possessing a 'taller' first dorsal-fin with one or more extended rays (characters usually if not always more apparent in males) tend to live in slower-moving streams and not climb waterfalls as part of their life cycle (Watson, 2008). S. ornatus falls into the latter group although details of its natural habitats have not been available to date.</p><p>Substrates are normally of bedrock with scattered jumbles of rocks and boulders, and while riparian vegetation and submerged leaf litter are common, aquatic plants aren't usually present. Evidence exists to suggest that different Stiphodon spp. actively choose a particular substrate type over another, with some appearing to focus on rocks or boulders within a particular size range. The range of substrate sizes chosen by females also appears to be significantly narrower than that for males in some cases, so resource partitioning may be occurring between and/or within species depending on locality.</p><p>The most favourable habitats all contain very clear, well-oxygenated water which, allied with the tropical sun, facilitates the development of a rich biofilm carpeting submerged surfaces. Sicydiines are such successful colonisers of these niche environments due to aspects of their morphology which allow them to both utilise this as a food source and employ a remarkable breeding strategy (see 'Reproduction').</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/stiphodon-ornatus-2/",
+      "html": "<p>It lives in clear streams.</p>"
     },
     {
       "key": "aquariumSize",
@@ -143,12 +160,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-ornatus",
       "html": "<ul><li>Temperature: 20–28°C; increased surface agitation is needed to maintain dissolved oxygen levels towards the upper end of this range.</li><li>pH: 6.5–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
-    },
-    {
-      "key": "waterConditions",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/wonderful_neon_gobies_arrived_en/",
-      "html": "<p>They prefer clear, clean and fast running water.</p>"
     },
     {
       "key": "equipment",
@@ -171,8 +182,8 @@
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/wonderful_neon_gobies_arrived_en/",
-      "html": "<p>Neon gobies feed on Aufwuchs.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/stiphodon-ornatus-2/",
+      "html": "<p>Stiphodon ornatus feeds on Aufwuchs, i.e. it feeds on algae and the small creatures that live in them. In the aquarium any form of dry, frozen and live food is gladly accepted.</p>"
     },
     {
       "key": "behaviour",
@@ -189,8 +200,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/wonderful_neon_gobies_arrived_en/",
-      "html": "<p>The males can change their coloration in a glimpse; the mating coloration is species-specific. Different species look extremely similar in neutral colour, see for example the picture with Stiphodon cf. atratus and S. ornatus.</p><p>Neon gobies are very peaceful fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/stiphodon-ornatus-2/",
+      "html": "<p>Stiphodon live in a flock; only to spawn do single males settle down and establish a territory.</p>"
     },
     {
       "key": "dimorphism",
@@ -205,10 +216,22 @@
       "html": "<p>Its colours show most when the fish are most comfortable, especially in the dominant males of the group.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/stiphodon-ornatus-2/",
+      "html": "<p>Males and females look so different in Stiphodon ornatus (and most other Stiphodon species) that one could think they are different species, and in fact they are often offered as different species by suppliers. The females of all Stiphodon species are white with black longitudinal stripes. One can hardly distinguish the females of the different Stiphodon species (there are 37).</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-ornatus",
       "html": "<p>Observations of courtship behaviour and the occasional spawning exist but to date no-one has managed to raise fry of any Stiphodon spp. in captivity. This is undoubtedly attributable to their complex amphidromous breeding strategy in which adults live and spawn in freshwater streams but the initially pelagic post-hatch larvae are washed downstream to the sea where the post-larval fry spend the first part of their life developing in marine conditions. Once they reach a certain stage of development they begin to migrate upstream, a journey which sometimes includes spectacular climbs up and over waterfalls or other obstructions.</p><p>Females are extraordinarily fecund for their size and can deposit as many as 10,000 eggs in a single spawning event. These are tiny (~0.5 mm in diameter), pyriform, and attached to solid surfaces by filaments, normally being placed on the underside of rocks. It's thought that reduced egg size and high fecundity are advantageous since the large number of fry offsets risks such as predation or the possibility of excessive dispersal at sea, and their small size allows them to feed on microscopic plankton.</p><p>Spawning is initiated by the intensely-coloured male as he attempts to coax females to his chosen spawning site while fending off rivals. It usually occurs under rocks and captive males have also been observed to dive head first into the substrate followed by a female at the climax of courtship. Once fertilised the mass of eggs, which can number in the thousands, is guarded by the male during the incubation period of less than 24 hours in studied cases.</p><p>The fry hatch as undeveloped larvae with a large yolk sac attached and lacking a mouth, anus, or functioning eyes. The yolk sac is absorbed in 3-4 days and during that period they must reach the ocean, probably the reason why incubation is short as early hatching gives them a better chance of success. The fact that Stiphodon spp. are only found in relatively short, steep streams is also thought related to this downstream dispersal.</p><p>The larvae initially exist among the plankton in a pelagic form before coming to settle on the substrate within the shallow surf zone. In one study the pelagic larvae of S. percnopterygionus were found to be transparent and possess an emarginate caudal-fin whereas 'settled' larvae (those no longer swimming in the water column) were pigmented. Interestingly the range of standard length for the pelagic larvae (13.5–14.2 mm) was greater than that of settled larvae (12.7–13.6 mm). The pelagic larval duration (PLD), i.e. the length of the larval phase, was found to vary between 78-146 days and be longer at colder temperatures. During the annual cool spell between December and April the activity of the gonads reduces considerably in both sexes and the fish probably stop breeding, while peak breeding season is June-November.</p><p>Once settled on the substrate the larvae begin to lose their temporary specialisations such as the emarginate caudal-fin and begin their journey upstream to join the adults. They may need to travel several kilometres inland, often over cascades or through stretches of rapidly-flowing water. The pelvic fins are fused into a disc designed for suction which allow the juveniles to adhere to hard surfaces and climb steep gradients, in some cases even ascending vertical waterfalls with overhanging rocks. This journey can take several months but the fish are sexually mature within a year and since their natural lifespan is only thought to be around two years are likely to begin spawning soon after, if not immediately, on arrival to the breeding grounds.</p><p>Amphidromy in sicydiine gobies isn't unique to members of Stiphodon and is displayed by all other genera. McDowall (2007) gave a list of potential benefits to fishes employing such a breeding strategy, hypothesising that it may facilitate colonisation of new islands emerging in volcanic areas and/or allow recolonisation of streams following events such as volcanic eruptions/rapid changes in water flow during the wet season. He also considered that leaving the marine environment can be seen as a trade-off in that since amphidromous gobies are often the only fishes found in their habitats predators are virtually non-existent, but the available food sources are far less diverse than in the ocean. The ability to graze biofilm appears to be essential for success.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/stiphodon-ornatus-2/",
+      "html": "<p>Breeding in an aquarium is hardly possible, because the tiny juveniles develop in the sea, and rearing marine fish is very demanding due to the difficulty of obtaining the correct food. They spawn in caves, mostly under stones. The male guards the spawn until the tiny larvae hatch. The water current drifts them into the sea, where the larvae spend the first weeks of their life. Then they migrate into fresh water, which they do not leave for the rest of their lives.</p>"
     },
     {
       "key": "notes",
@@ -219,8 +242,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/wonderful_neon_gobies_arrived_en/",
-      "html": "<p>The specimens belong in all probability for the larger part to the species Stiphodon ornatus, among them are a few Stiphodon weberi as by-catch.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/stiphodon-ornatus-2/",
+      "html": "<p>Even without the possibility to reproduce them, Stiphodon offer many exciting observation possibilities.</p>"
     },
     {
       "key": "references",
@@ -235,15 +258,15 @@
       "thumb": "https://media.aquatome.com/commons/c83717396c0c1a69-480.webp",
       "width": 960,
       "height": 639,
-      "licence": "CC BY 3.0",
-      "author": "Laurent Pasteur",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stiphodon_ornatus.jpg",
-      "caption": "France, by Laurent Pasteur",
       "large": {
         "url": "https://media.aquatome.com/commons/c83717396c0c1a69-large.webp",
         "width": 1804,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 3.0",
+      "author": "Laurent Pasteur",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stiphodon_ornatus.jpg",
+      "caption": "France, by Laurent Pasteur"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/2f7d8b123e511605.webp",
@@ -277,6 +300,36 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-ornatus",
       "caption": "Image sequence showing colour changes in a single male specimen of the large form.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5c9c90c0934e5b23.webp",
+      "thumb": "https://media.aquatome.com/glaser/5c9c90c0934e5b23-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/stiphodon-ornatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/788c8857b1ee4650.webp",
+      "thumb": "https://media.aquatome.com/glaser/788c8857b1ee4650-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/stiphodon-ornatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/58d89e96b9dd44a4.webp",
+      "thumb": "https://media.aquatome.com/glaser/58d89e96b9dd44a4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/stiphodon-ornatus-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -320,5 +373,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-21"
 }

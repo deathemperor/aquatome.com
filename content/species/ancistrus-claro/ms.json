@@ -19,13 +19,17 @@
     "dimorphism:seriouslyfish": "<p>Ikan jantan dewasa mempunyai odontod yang berkembang baik pada sirip dada dan operkulum, serta sesungut (tentakel) di kepala, manakala ikan betina tidak mempunyainya.</p>",
     "reproduction:seriouslyfish": "<p>Bertelur di dalam gua, dan ikan jantan yang menjaga telur serta anak.</p><p>Ia telah banyak kali berjaya dibiakkan dalam akuarium, dan dalam tangki matang yang dijaga dengan baik, anak ikan mungkin mula muncul tanpa sebarang campur tangan.</p>",
     "notes:seriouslyfish": "<p>Spesies ini kadang-kadang dikelirukan dengan ikan yang belum dikenal pasti seperti A. sp. 'L352'.</p><p>Ia boleh dibezakan daripada spesies lain yang rapat dalam genus yang sama melalui sesungut maksila yang agak panjang dan terpisah daripada bibir bawah, serta corak warna berupa bintik-bintik kecil di kepala dan garisan berbentuk cacing pada badan bagi ikan jantan, dan bintik-bintik kecil di seluruh kepala dan badan bagi ikan betina.</p><p>Ancistrus ialah genus yang pelbagai dan kini mengandungi lebih daripada 60 spesies sah, bertaburan dari Panama di Amerika Tengah hingga ke lembangan Río de la Plata, Argentina.</p><p>Ahli genus ini dibezakan daripada loricariid lain kerana mempunyai duri interoperkulum yang berkembang baik dan tiada sisik keras (plat) serta odontod pada pinggir hadapan muncung, yang sebaliknya diliputi sesungut berisi.</p>",
-    "references:seriouslyfish": "<ul><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Bifi, A. G., C. S. Pavanelli and C. H. Zawadzki (2009). Three new species of Ancistrus Kner, 1854 (Siluriformes: Loricariidae) from the Rio Iguaçu basin, Paraná State, Brazil. Zootaxa 2275, 41-59</li></ul>"
+    "references:seriouslyfish": "<ul><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Bifi, A. G., C. S. Pavanelli and C. H. Zawadzki (2009). Three new species of Ancistrus Kner, 1854 (Siluriformes: Loricariidae) from the Rio Iguaçu basin, Paraná State, Brazil. Zootaxa 2275, 41-59</li></ul>",
+    "quickFacts:glaser": "<p>Salah satu spesies Ancistrus yang paling kecil ialah Ancistrus claro, yang dikenali sebagai LDA 8 sebelum ia diperihalkan secara saintifik. Ia membesar paling panjang 6-8 cm sahaja.</p>",
+    "habitat:glaser": "<p>Ikan keli ini berasal dari anak sungai berair jernih yang arusnya deras di bahagian hulu lembangan sungai Rio Paraguay-Paraná.</p>",
+    "dimorphism:glaser": "<p>Jantina ikan ini tidak semudah spesies Ancistrus lain untuk dibezakan, kerana sama seperti wanita kerdil dalam \"Lord of the Rings\" karya Tolkien, ikan betina ancistrus kerdil ini juga mempunyai janggut yang lebat.</p>"
   },
   "quality": {
-    "score": 0.95,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.95
+      "seriouslyfish": 0.95,
+      "glaser": 0.85
     }
   }
 }

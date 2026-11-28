@@ -1,0 +1,19 @@
+{
+  "slug": "ca-lau-kieng-hypostomus-borellii",
+  "name": "Cá lau kiếng Hypostomus borellii",
+  "altNames": [],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Hypostomus borellii (Boulenger, 1897)</li><li>Tên đồng nghĩa: Plecostomus borellii</li><li>Nơi thu mẫu chuẩn: Misión de San Francisco, sông Pilcomayo, Bolivia.</li><li>Sách đỏ IUCN: chưa đánh giá</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: thượng lưu và trung lưu sông Pilcomayo (La Plata, Paraná, Paraguay, Pilcomayo).</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa có tài liệu nào nói tới.</p>",
+    "references:planetcatfish": "<p>Bollettino dei Musei di Zoologia ed Anatomia Comparata della R. Università di Torino v. 12 (no. 279), pp 2.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.9
+    },
+    "reason": "thin"
+  }
+}

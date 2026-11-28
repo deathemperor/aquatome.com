@@ -1,8 +1,13 @@
 {
   "slug": "guadalquivir",
-  "name": "Guadalquivir",
+  "name": "Sungai Guadalquivir",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-23T01:45:39.782Z"
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

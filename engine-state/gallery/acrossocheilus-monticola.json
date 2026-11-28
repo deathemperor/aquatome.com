@@ -1,6 +1,12 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:466357130",
+  "inat:466357137",
+  "inat:466357142",
+  "inat:466357108",
+  "inat:669493817"
+ ],
  "hashes": {},
  "commons": "2026-11-03",
  "inat": {
@@ -14,5 +20,13 @@
  "gbif": {
   "key": 2366413,
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 366641070,
+  "done": true
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-24"
 }

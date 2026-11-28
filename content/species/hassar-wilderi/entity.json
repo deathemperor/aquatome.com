@@ -1,0 +1,115 @@
+{
+  "id": "hassar-wilderi",
+  "scientificName": "Hassar wilderi",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Hassar",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "tocantins"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1529",
+      "html": "<p>Scientific name: Hassar wilderi Kindle, 1895.</p><p>Common name: Iheringi-Hassar (Germany).</p><p>Type locality: Touceira, on Rio Tocantins, Brazil.</p><p>Etymology: Hassar: from the Aruac name of the fish.</p><p>Size: 250 mm SL.</p><p>IUCN Red List category: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1529",
+      "html": "<p>South America: Tocantins River basin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1529",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1529",
+      "html": "<p>Annals of the New York Academy of Sciences v. 8 (art. 9). for 1894, pp 251.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/f2b2f011ba08cfda.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f2b2f011ba08cfda-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/hassar_wilderi.htm",
+      "caption": "Hassar wilderi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4ba1dcd314da06ae.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4ba1dcd314da06ae-480.webp",
+      "width": 500,
+      "height": 323,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/hassar_wilderi.htm",
+      "caption": "Hassar wilderi",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ho5ISzKNepQ",
+      "title": "South American catfishes Tenellus Hassar wilderi Bunocephalus verrucosus Platystacus cotylephorus",
+      "durationSec": 101,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Dz69lUuZMB4",
+      "title": "綠海豚鐵甲武士 | Hassar wilderi",
+      "durationSec": 6,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "g84pzr7vCV8",
+      "title": "#Hassar_wilderi #巴西綠海豚鐵甲#L037 #哈密瓜_蛇皮異型#wild_fish#悠遊魚坊yoyofishroom",
+      "durationSec": 37,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 lít",
+        "bể cá lớn nuôi cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn nuôi cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

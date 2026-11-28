@@ -1,8 +1,8 @@
 {
   "id": "boraras-merah",
   "native": {
-    "input": "1195703220e075c5",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "789271114abc2456",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "ID",
@@ -16,30 +16,16 @@
         "code": "ID",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "Boraras merah is native to the peat swamp forests and slow-moving blackwater streams of Borneo and parts of Sumatra (Indonesia).",
+        "quote": "Boraras merah is a tiny nano rasbora endemic to southern Borneo, Indonesia.",
         "words": "Indonesia",
-        "ok": true
-      },
-      {
-        "code": "ID",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The type specimens were collected from the Jelai Bila river basin at Nataik Sedawak, presumably a settlement of some kind, near the town of Sukamara in the Indonesian province of Kalimantan Tengah (Central Kalimantan).",
-        "words": "Indonesian",
         "ok": true
       }
     ],
     "regions": [
       {
         "name": "Borneo",
-        "source": "bwaquatics",
-        "quote": "Boraras merah is native to the peat swamp forests and slow-moving blackwater streams of Borneo and parts of Sumatra (Indonesia).",
-        "ok": true
-      },
-      {
-        "name": "Sumatra",
-        "source": "bwaquatics",
-        "quote": "Boraras merah is native to the peat swamp forests and slow-moving blackwater streams of Borneo and parts of Sumatra (Indonesia).",
+        "source": "seriouslyfish",
+        "quote": "Boraras merah is a miniature cyprinid from southern Borneo, described from the Jelai Bila river basin near Sukamara in Central Kalimantan, Indonesia.",
         "country": "ID",
         "ok": true
       },
@@ -52,8 +38,15 @@
       },
       {
         "name": "Borneo",
-        "source": "seriouslyfish",
-        "quote": "Appears endemic to southern Borneo.",
+        "source": "bwaquatics",
+        "quote": "Boraras merah is a tiny nano rasbora endemic to southern Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Jelai Bila",
+        "source": "bwaquatics",
+        "quote": "It was first collected in the Jelai Bila basin near Sukamara, Central Kalimantan; \"merah\" is the local word for red.",
         "ok": true
       }
     ],

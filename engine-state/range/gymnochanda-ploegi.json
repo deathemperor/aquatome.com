@@ -1,38 +1,29 @@
 {
   "id": "gymnochanda-ploegi",
   "native": {
-    "input": "baa4671e83224a2b",
-    "at": "2026-11-08T13:58:00.601Z",
-    "claims": [
-      {
-        "code": "ID",
-        "status": "native",
-        "source": "bwaquatics",
-        "quote": "Peat-swamp and forest-stream systems of West Kalimantan (Borneo), Indonesia.",
-        "words": "Indonesia",
-        "ok": true
-      }
-    ],
+    "input": "b48c27ebda80cba5",
+    "at": "2026-11-20T12:03:34.993Z",
+    "claims": [],
     "regions": [
       {
-        "name": "Borneo",
+        "name": "Kapuas Lakes",
         "source": "bwaquatics",
-        "quote": "Peat-swamp and forest-stream systems of West Kalimantan (Borneo), Indonesia.",
-        "country": "ID",
+        "quote": "It comes from the Sanggau and Kapuas Lakes areas of West Kalimantan, Borneo.",
         "ok": true
       },
       {
-        "name": "Kalimantan",
+        "name": "Borneo",
         "source": "bwaquatics",
-        "quote": "Peat-swamp and forest-stream systems of West Kalimantan (Borneo), Indonesia.",
-        "country": "ID",
+        "quote": "It comes from the Sanggau and Kapuas Lakes areas of West Kalimantan, Borneo.",
         "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "ID"
+      ],
       "sourcesOnly": []
     }
   },
@@ -41,10 +32,8 @@
     "status": "ACCEPTED",
     "taxonKey": 8026320,
     "datasets": [],
-    "native": [
-      "ID"
-    ],
+    "native": [],
     "requests": 2,
-    "at": "2026-11-08T13:58:00.601Z"
+    "at": "2026-11-20T12:03:34.993Z"
   }
 }

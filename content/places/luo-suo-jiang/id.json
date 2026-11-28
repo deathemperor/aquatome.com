@@ -3,6 +3,12 @@
   "name": "Luo Suo Jiang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-20T01:46:20.974Z",
+    "why": "\"Luo Suo Jiang\" keeps the Chinese word \"Jiang\" (river) untranslated, whereas Indonesian atlases write \"Sungai\" plus the name, so the form is \"Sungai Luosuo\" or similar."
+  },
   "quality": {
     "score": 0.86,
     "indexable": true

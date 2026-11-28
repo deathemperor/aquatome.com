@@ -50,6 +50,32 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/221896098.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/221896098-480.webp",
+      "width": 1016,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "bernhard_hiller",
+      "sourceUrl": "https://www.inaturalist.org/photos/221896098",
+      "caption": "Cua len Trung Quốc sống giữa đá và cỏ ven bờ",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/221896105.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/221896105-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "bernhard_hiller",
+      "sourceUrl": "https://www.inaturalist.org/photos/221896105",
+      "caption": "Cua len Trung Quốc bò trên bờ sỏi đá",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/commons/97e9f20eea277e5a.webp",
       "thumb": "https://media.aquatome.com/commons/97e9f20eea277e5a-480.webp",
       "width": 1200,
@@ -60,48 +86,6 @@
       "caption": "Cua len Trung Quốc bò trên nền đá lát ngoài trời",
       "best": false,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/136932974.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/136932974-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Andrea",
-      "sourceUrl": "https://www.inaturalist.org/photos/136932974",
-      "caption": "Cua len Trung Quốc trưởng thành bên bờ nước, nhìn rõ càng lông",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/136933306.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/136933306-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Andrea",
-      "sourceUrl": "https://www.inaturalist.org/photos/136933306",
-      "caption": "Cua len Trung Quốc đang bò trên đá ven sông",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/48091203.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/48091203-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-SA",
-      "author": "Dr. Guido Bohne",
-      "sourceUrl": "https://www.inaturalist.org/photos/48091203",
-      "caption": "Cua len Trung Quốc bò trên mặt gỗ ven bờ",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/79305987d7c0fc1c.webp",
@@ -260,9 +244,22 @@
       "best": true,
       "kind": "habitat",
       "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/48091203.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/48091203-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Dr. Guido Bohne",
+      "sourceUrl": "https://www.inaturalist.org/photos/48091203",
+      "caption": "Cua len Trung Quốc bò trên mặt gỗ ven bờ",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 134,
-  "updatedAt": "2026-11-19",
-  "builtAt": "2026-11-19"
+  "seen": 154,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }

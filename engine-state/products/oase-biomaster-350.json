@@ -1,0 +1,446 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Flow rate (max)",
+      "value": "1,100 l/h",
+      "source": 4
+    },
+    {
+      "key": "Max head height",
+      "value": "1.40 m",
+      "source": 4
+    },
+    {
+      "key": "Filter media volume",
+      "value": "5.6 l",
+      "source": 4
+    },
+    {
+      "key": "Pre-filter volume",
+      "value": "0.5 l",
+      "source": 4
+    },
+    {
+      "key": "Dimensions",
+      "value": "240 x 240 x 425 mm",
+      "source": 4
+    },
+    {
+      "key": "Aquarium size",
+      "value": "up to 350 l",
+      "source": 4
+    },
+    {
+      "key": "Power consumption",
+      "value": "18 W",
+      "source": 0
+    },
+    {
+      "key": "Power supply",
+      "value": "230 V / 50 Hz",
+      "source": 0
+    },
+    {
+      "key": "Hose connection",
+      "value": "Ø16 mm (Fi 16)",
+      "source": 1
+    },
+    {
+      "key": "Origin",
+      "value": "Made in Italy, German engineering; UL certified (per shop)",
+      "source": 0
+    },
+    {
+      "key": "Included",
+      "value": "Filter sponge/wool and basic filter media; heater not included",
+      "source": 3
+    },
+    {
+      "key": "Warranty (VN shop)",
+      "value": "3 years from receipt, detachable parts excluded (Thủy sinh Bích Phương)",
+      "source": 0
+    },
+    {
+      "key": "Warranty (VN shop)",
+      "value": "1 year official warranty, detachable parts excluded (Tạp hóa thủy sinh, ShrimpHome)",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "BioMaster 250",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "900 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "15 W",
+          "source": 0
+        },
+        {
+          "key": "Head height",
+          "value": "1.3 m",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "4.4 l",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 37 cm",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "under 250 l",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 350",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,100 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "18 W",
+          "source": 0
+        },
+        {
+          "key": "Head height",
+          "value": "1.4 m",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "5.6 l",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 43 cm",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "under 350 l",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 600",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,250 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "22 W",
+          "source": 0
+        },
+        {
+          "key": "Head height",
+          "value": "1.8 m",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "6.8 l",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 48 cm",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "under 600 l",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 850",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,550 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "32 W",
+          "source": 0
+        },
+        {
+          "key": "Head height",
+          "value": "2.2 m",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "8 l",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24 x 24 x 54 cm",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "under 800 l (as listed by shop)",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster Thermo 350",
+      "specs": [
+        {
+          "key": "Heater",
+          "value": "Integrated, removable 200 W heater",
+          "source": 5
+        },
+        {
+          "key": "Rated flow",
+          "value": "300 gph at 5.9 ft head",
+          "source": 5
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/oase-biomaster-filter-loc-thung-cao-cap",
+      "variant": "BioMaster 350",
+      "vnd": 7440000,
+      "source": 0
+    },
+    {
+      "shop": "Mỹ Đình Aquarium",
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-350/",
+      "variant": "BioMaster 350 (listing may be old)",
+      "vnd": 6200000,
+      "source": 2
+    },
+    {
+      "shop": "Tạp hóa thủy sinh",
+      "url": "http://taphoathuysinh.com/loc-thung-oase-biomaster-350-id1403.html",
+      "variant": "BioMaster 350 ver2 (reference price)",
+      "vnd": 8500000,
+      "source": 1
+    },
+    {
+      "shop": "ShrimpHome",
+      "url": "https://shrimphome.vn/loc-thung-oase-biomaster-2-filter-250-350-600-850",
+      "variant": "BioMaster 2 350",
+      "vnd": 8910000,
+      "source": 3
+    },
+    {
+      "shop": "Mỹ Đình Aquarium",
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-thermo-350/",
+      "variant": "BioMaster Thermo 350",
+      "vnd": 7100000,
+      "source": 12
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Meant for tanks under about 350 litres.",
+      "source": 0
+    },
+    {
+      "fact": "Works in both freshwater and marine tanks.",
+      "source": 9
+    },
+    {
+      "fact": "For the Thermo version, the reviewer found the 200 W built-in heater too weak for large tanks and suggests also running a backup heater.",
+      "source": 5
+    },
+    {
+      "fact": "The reviewer thinks the many removable parts may make it a poor pick for beginners.",
+      "source": 5
+    },
+    {
+      "fact": "You can fit a heating element to the plain BioMaster 350 later on.",
+      "source": 9
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Has a built-in pump on top for priming; in one test it took about 5–6 presses to start the siphon, the canister filled in under a minute and air cleared in 10–15 seconds.",
+      "source": 5
+    },
+    {
+      "fact": "The EasyClean pre-filter comes out on its own, so you can clean it often without opening the main media; this protects the main filter wool.",
+      "source": 0
+    },
+    {
+      "fact": "Flow can be adjusted at several points on the filter.",
+      "source": 0
+    },
+    {
+      "fact": "Handle safety locks and check valves in the hose connections help prevent spills when you disconnect it.",
+      "source": 0
+    },
+    {
+      "fact": "When servicing, clean the pre-filter sponges, the spray bar and the underside of the head; some parts must be unlocked in a set order.",
+      "source": 5
+    },
+    {
+      "fact": "Oase advises taking out and cleaning the impeller, and replacing it if it is worn or damaged.",
+      "source": 8
+    },
+    {
+      "fact": "Ships with basic media only; you can swap in your own media.",
+      "source": 0
+    },
+    {
+      "fact": "If you buy online in Vietnam, film the unboxing to back up any warranty claim.",
+      "source": 3
+    }
+  ],
+  "issues": [
+    {
+      "fact": "The most common complaint is an impeller hum that starts after a few months; some owners fixed it by adding a soft spacer at the impeller support.",
+      "source": 7
+    },
+    {
+      "fact": "The 350 and larger sizes are reported to run slightly louder than the 250, at roughly 41–44 dB measured close to the head; other owners still call it quieter than Eheim.",
+      "source": 7
+    },
+    {
+      "fact": "Biofilm on the impeller and its housing can make it noisier.",
+      "source": 7
+    },
+    {
+      "fact": "Leaks mostly show up right after maintenance; one long-term owner keeps a spare inlet/outlet adapter.",
+      "source": 6
+    },
+    {
+      "fact": "Some users report trouble with priming and trapped air.",
+      "source": 7
+    },
+    {
+      "fact": "In one test, measured flow was far below the rating: about 138 gph with media against 300 gph claimed.",
+      "source": 5
+    },
+    {
+      "fact": "The Thermo version has four seal points, which means more places that could leak.",
+      "source": 5
+    },
+    {
+      "fact": "BioMaster 2 is a redesign that a VN shop says has more than 25% higher flow, and it costs more (8.91 million VND vs about 6.2–7.44 million for the first version).",
+      "source": 3
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Eheim",
+      "model": "Classic 2215 (350)",
+      "why": "A cheaper, simpler and long-proven canister for tanks up to 350 l. It flows less (620 l/h, 15 W) and has no pre-filter module.",
+      "source": 13
+    },
+    {
+      "brand": "Eheim",
+      "model": "Professionel 4+ 350 (2273)",
+      "why": "A direct rival for 180–350 l tanks, rated at 1,050 l/h on 16 W.",
+      "source": 11
+    },
+    {
+      "brand": "JBL",
+      "model": "CristalProfi e902 greenline",
+      "why": "Uses less power (11 W, 900 l/h), has a bigger 7.6 l canister and a patented pre-filter. Suits 90–300 l tanks.",
+      "source": 10
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://thuysinhbichphuong.vn/oase-biomaster-filter-loc-thung-cao-cap",
+      "title": "OASE BIOMASTER FILTER - Lọc thùng cao cấp (Thủy sinh Bích Phương)",
+      "kind": "shop"
+    },
+    {
+      "url": "http://taphoathuysinh.com/loc-thung-oase-biomaster-350-id1403.html",
+      "title": "Lọc thùng OASE BIOMASTER 350 ver2 (Tạp hóa thủy sinh)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-350/",
+      "title": "Lọc OASE Biomaster 350 - Mỹ Đình Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shrimphome.vn/loc-thung-oase-biomaster-2-filter-250-350-600-850",
+      "title": "Lọc thùng Oase BioMaster 2 Filter 250/350/600/850 (ShrimpHome)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.oase.com/en/products-a-z/family/product/p/42742-biomaster-350.html",
+      "title": "OASE BioMaster 350 Technical Data",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://thecichlidstage.com/oase-biomaster-thermo-350-canister-review/",
+      "title": "OASE BioMaster Thermo 350 canister review - The Cichlid Stage",
+      "kind": "review"
+    },
+    {
+      "url": "https://www.ukaps.org/forum/threads/living-with-an-oase-biomaster.74276",
+      "title": "Living with an Oase BioMaster - UKAPS",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.ukaps.org/forum/threads/noisy-biomaster.73770/",
+      "title": "Noisy BioMaster - UKAPS",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.oase.com/en/aquarium/inspiration-guides/aquarium-filter-troubleshooting",
+      "title": "Aquarium filter troubleshooting - OASE",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.azaqua.nl/en/filters/oase-biomaster-350",
+      "title": "Oase BioMaster 350 - Azaqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.jbl.de/en-au/productsv2/detail/25193574",
+      "title": "JBL CRISTALPROFI e902 greenline",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.aquasabi.com/EHEIM-professionel-4-350",
+      "title": "EHEIM professionel 4+ 350 - Aquasabi",
+      "kind": "shop"
+    },
+    {
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-thermo-350/",
+      "title": "Lọc OASE Biomaster Thermo 350 - Mỹ Đình Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.chewy.com/eheim-classic-2215-aquarium-filter/dp/183799",
+      "title": "Eheim Classic 2215 Aquarium Filter - Chewy",
+      "kind": "shop"
+    }
+  ]
+}

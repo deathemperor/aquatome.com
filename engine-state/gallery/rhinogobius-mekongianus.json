@@ -1,6 +1,9 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "gbif:1317282002:3dbe8baaf8bdf683",
+  "gbif:1317620908:dd90bf77aae91054"
+ ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/e9e752d5a8d8ffaa.webp": "9f8b662ecb6ccf47",
   "https://media.aquatome.com/seriouslyfish/00a10faf050cac78.webp": "264f9fcd9bc73fbf"
@@ -13,5 +16,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2377648,
+  "next": null
  }
 }

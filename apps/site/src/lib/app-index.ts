@@ -1,12 +1,12 @@
-import { boxFractions, cleanPhoto, FIRST_GUIDES, FIRST_PLANTS, frameOf, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, unmarked, type BreedEntity, type Chip, type Content, type Curation, type GuideEntity, type Localized, type Loop, type Photo, type PlantEntity, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
+import { boxFractions, cleanPhoto, FIRST_GUIDES, FIRST_PLANTS, frameOf, isNonCommercial, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, unmarked, type BreedEntity, type Chip, type Content, type Curation, type GuideEntity, type Localized, type Loop, type Photo, type PlantEntity, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
 import type { Box, KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
 import { photoCredit } from './cite'
 import { curationFor, loopOf, type AppCuration } from './curation'
 import { categoriesIn } from './equipment'
-import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
-import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
+import { APP_GROUP_LABELS, categoryLabel, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
+import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder, type OffCards } from './home'
 import { resizeOf, sameShape, smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
 import { termListing } from './glossary-page'
@@ -39,7 +39,11 @@ export type AppItem = {
   sub?: string
   /** Other names, for search. */
   aka?: string[]
-  /** A tool page's own title, the line under its heading and its description, for search. */
+  /**
+   * Words a search finds the page by and the page never shows as a name: a tool page's own title, the line under its
+   * heading and its description; a glossary term's link phrases ("sống theo đàn" for Cá đàn), which its other names
+   * don't list (linkNames).
+   */
   words?: string[]
   /** A tool's short name, as its card on the tools page (/vi/cong-cu/) has it: what the app's tiles say. */
   short?: string
@@ -322,7 +326,7 @@ const foundBox = (p: Photo) => !!p.subject && !(p.subject.x0 <= 0 && p.subject.y
  * member's photo whose fish a 3:2 crop keeps (a box the engine found, and frameOf covers), no banner, none another chip
  * shows, 640 px wide or more first.
  */
-export function chipsFor(lang: Lang, c: Content, everySpecies: Content['species'], chips: Chip[], listed: { species: Content['species']; breeds: Content['breeds'] }): AppChip[] {
+export function chipsFor(lang: Lang, c: Content, everySpecies: Content['species'], chips: Chip[], listed: { species: Content['species']; breeds: Content['breeds'] }, avoid: OffCards = {}): AppChip[] {
   const byId = new Map(everySpecies.map(s => [s.id, s])), breedById = new Map(c.breeds.map(b => [b.id, b]))
   const baseOf = (b: BreedEntity) => {
     if (b.kind === 'hybrid') return undefined
@@ -349,7 +353,9 @@ export function chipsFor(lang: Lang, c: Content, everySpecies: Content['species'
     const ranked = [...x.members].sort((a, b) => at(a.id) - at(b.id) || Math.min(b.photos.length, 3) - Math.min(a.photos.length, 3) || a.t.name.localeCompare(b.t.name, lang))
     // The members' heads first, the photo each card leads with and the engine ranked best; then their other photos, so a
     // head that doesn't qualify leaves the member's next photo in the running. 640 px wide or more first, within each.
-    const fits = (p: Photo) => !p.generated && unmarked(p) && !refusedByCards(p) && foundBox(p) && frameOf(p.width / p.height, boxFractions(p), CHIP_RATIO).fit === 'cover'
+    // No non-commercial photo: a chip stands for many fish (the chief of staff's rule, 17 Nov). None the calendar keeps off
+    // cards (`avoid`), as with the featured fish and the group tiles.
+    const fits = (p: Photo) => !p.generated && unmarked(p) && !isNonCommercial(p.licence ?? '') && !Object.hasOwn(avoid, p.url) && !refusedByCards(p) && foundBox(p) && frameOf(p.width / p.height, boxFractions(p), CHIP_RATIO).fit === 'cover'
     // Whose each photo is, the first member to show it: a head, or a photo from a member's page text (Cá chuột's).
     const owner = new Map<Photo, string>()
     const own = (p: Photo, id: string) => { if (!owner.has(p)) owner.set(p, id); return p }
@@ -383,7 +389,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const guideAt = new Map<string, string>(), guideLead = new Map<string, string>()
   const words = (labels: Record<string | number, string>) => Object.fromEntries(Object.entries(labels).map(([k, v]) => [k, t(v)]))
   const labels: AppLabels = {
-    group: words(GROUP_LABELS), section: words(GUIDE_KIND_LABELS), ...(Object.fromEntries(Object.entries(PLANT_LABELS).map(([k, v]) => [k, words(v)])) as Pick<AppLabels, keyof typeof PLANT_LABELS>),
+    group: words(APP_GROUP_LABELS), section: words(GUIDE_KIND_LABELS), ...(Object.fromEntries(Object.entries(PLANT_LABELS).map(([k, v]) => [k, words(v)])) as Pick<AppLabels, keyof typeof PLANT_LABELS>),
     taxon: words({ title: RANKS[0], order: RANKS[1], family: RANKS[2], genus: RANKS[3], intro: TAXON_INTRO }),
     origin: words({ title: ORIGINS, intro: PLACE_INTRO }),
     placeTitle: words(PLACE_TITLES), placeIntro: words(PLACE_INTROS),
@@ -399,8 +405,8 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const regionName = regionNames(c.placeNames)
   const taxa = served(lang, '/vi/phan-loai/x/')
   if (served(lang, '/vi/ca/x/')) {
-    // A group the site has no word for (a handful of fish) is "Loài khác", as the app shows it.
-    const groupOf = new Map(everySpecies.map(s => [s.id, s.group in GROUP_LABELS ? s.group : 'other']))
+    // A group the app has no word for (a handful of fish, format.ts APP_GROUP_LABELS) is "Loài khác", as the app shows it.
+    const groupOf = new Map(everySpecies.map(s => [s.id, s.group in APP_GROUP_LABELS ? s.group : 'other']))
     // The same species the app gets pages of.
     for (const s of appSpecies(lang, c)) {
       const f = toIndexItem(s, traits.get(s.id))
@@ -458,8 +464,15 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     home.guides = leadGuides(c).filter(g => appGuideImage(c, g)).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
   if (served(lang, '/vi/thuat-ngu/x/')) {
-    // A term's English name is among its other names: the chat's search and the app's read them from here.
-    for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', id: g.id, name: g.t.name, aka: aka([g.t.name, ...g.t.altNames].includes(g.en) ? g.t.altNames : [...g.t.altNames, g.en]), path: at(`/vi/thuat-ngu/${g.t.slug}/`), ...termListing(lang, c, g) }))
+    // A term's English name is among its other names, and its link phrases are words to find it by: the chat's search and
+    // the app's read both from here, and neither shows a link phrase as a name (the glossary's split, 18 Nov 2026).
+    for (const g of appGlossary(lang, c)) {
+      const names = [g.t.name, ...g.t.altNames].includes(g.en) ? g.t.altNames : [...g.t.altNames, g.en]
+      // Each once, in any case, and none that is already one of its names.
+      const seen = new Set([g.t.name, ...names].map(n => n.trim().toLowerCase()))
+      const words = (g.t.linkNames ?? []).map(n => n.trim()).filter(n => n && !seen.has(n.toLowerCase()) && Boolean(seen.add(n.toLowerCase())))
+      items.push(clean({ kind: 'glossary', id: g.id, name: g.t.name, aka: aka(names), words: words.length ? words : undefined, path: at(`/vi/thuat-ngu/${g.t.slug}/`), ...termListing(lang, c, g) }))
+    }
   }
   // Vietnamese pilot pages stay out of Google. No native page shards yet: an app opens them on the web once it knows the
   // kind, and today's skips them, as it does any kind it doesn't know (AquaTomeKit's Handbook.swift).
@@ -488,9 +501,14 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   // and guides are Curation's lists in their order, each page only as this index lists it (one that stops passing reader
   // fit drops out), then the home's own ranking: a language with fewer of Curation's pages (most are Vietnamese) still
   // fills its shelf.
-  const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img).map(i => [i.id, i.path]))
+  // No fish or plant led by a non-commercial photo: a shelf features them (the chief of staff's rule, 17 Nov).
+  const ncLed = (xs: { id: string; photos: Photo[] }[]) => new Set(xs.filter(x => x.photos.some(p => isNonCommercial(p.licence ?? ''))).map(x => x.id))
+  const fishNc = ncLed([...c.species, ...c.breeds]), plantNc = ncLed(c.plants)
+  // Nor one whose photo the calendar keeps off cards, as the row before it (`avoid`; #1772's reader, 21 Nov).
+  const offCards = new Set([...c.species, ...c.breeds].filter(x => Object.hasOwn(cur?.calendar.avoid ?? {}, pagePhoto(x.photos)?.url ?? '')).map(x => x.id))
+  const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img && !fishNc.has(i.id ?? '') && !offCards.has(i.id ?? '')).map(i => [i.id, i.path]))
   const popular = [...STAPLE_SPECIES, ...POPULAR.map(slugify)].flatMap(id => pictured.get(id) ?? [])
-  const plantAt = new Map(items.filter(i => i.kind === 'plant').map(i => [i.id, i.path]))
+  const plantAt = new Map(items.filter(i => i.kind === 'plant' && !plantNc.has(i.id ?? '')).map(i => [i.id, i.path]))
   home.browse = {
     fish: [...new Set([...row.fish, ...popular])].slice(0, BROWSE.fish),
     plants: [...new Set([...FIRST_PLANTS.flatMap(id => plantAt.get(id) ?? []), ...listed('plants')])].slice(0, BROWSE.plants),
@@ -521,7 +539,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     }
     const boxAt = (u: string) => (own.has(u) ? own.get(u) : copies.get(u) ?? undefined)
     Object.assign(home, curationFor(cur.calendar, lang, cur.today, ref => { const p = refs.get(ref); return p && paths.has(p) ? p : undefined }, c.cards, c.photoWaits, boxAt, ref => guideLead.get(ref)))
-    const chips = chipsFor(lang, c, everySpecies, cur.calendar.chips, { species: appSpecies(lang, c), breeds: appBreeds(lang, c) })
+    const chips = chipsFor(lang, c, everySpecies, cur.calendar.chips, { species: appSpecies(lang, c), breeds: appBreeds(lang, c) }, cur.calendar.avoid)
     const guidePath = new Map(appGuides(lang, c).map(g => [g.id, at(`/vi/huong-dan/${g.t.slug}/`)]))
     const hand = (ids: string[] = []) => ids.flatMap(id => guidePath.get(id) ?? [])
     const byId = new Map(cur.calendar.chips.map(ch => [ch.id, ch.guides]))

@@ -8,25 +8,30 @@
   "places": [
     "south-america",
     "brazil",
-    "mato-grosso"
+    "mato-grosso",
+    "rio-tapajos"
   ],
   "range": {
     "native": {
       "countries": [
         "BR"
       ],
-      "regions": [],
+      "regions": [
+        "Rio Tapajós"
+      ],
       "sources": [
         "glaser"
       ],
       "quotes": [
         {
           "source": "glaser",
-          "quote": "This small (about 4 cm) species of tetra originates from the Mato Grosso region in Brazil.",
+          "quote": "This small (about 4 cm) species of tetra originates from the upper Rio Tapajós basin in the Mato Grosso state in Brazil.",
           "countries": [
             "BR"
           ],
-          "regions": []
+          "regions": [
+            "Rio Tapajós"
+          ]
         }
       ]
     },
@@ -182,18 +187,84 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-phaeonota/",
-      "html": "<p>This small (about 4 cm) species of tetra originates from the Mato Grosso region in Brazil. It is the only species of Moenkhausia with such a colour pattern.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-phaeonota-4/",
+      "html": "<p>This small (about 4 cm) species of tetra originates from the upper Rio Tapajós basin in the Mato Grosso state in Brazil. It is the only species of Moenkhausia with such a colour pattern.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-phaeonota-4/",
+      "html": "<p>Upper Rio Tapajós basin, Mato Grosso state, Brazil.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-phaeonota-4/",
+      "html": "<p>If one observes the live fish, the behaviour is reminiscent of croaking tetras (Stevardiinae).</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-phaeonota/",
-      "html": "<p>Already in the original scientific description (1979), the author mentioned that this generic placement could only be provisional. This makeshift stands until today. Sadly, this charming tetra is only very rarely available. If one observes the live fish, the behaviour is reminiscent of croaking tetras (Stevardiinae).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-phaeonota-4/",
+      "html": "<p>In the original scientific description (1979), the author already mentioned that the generic placement could only be provisional. This provisional placement still stands today for Moenkhausia phaeonota. Sadly, this charming tetra is only very rarely available.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/7e98368ddef8ea17.webp",
+      "thumb": "https://media.aquatome.com/glaser/7e98368ddef8ea17-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-phaeonota-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c71a013ae85a23e4.webp",
+      "thumb": "https://media.aquatome.com/glaser/c71a013ae85a23e4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-phaeonota-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/27941833ff72bfdc.webp",
+      "thumb": "https://media.aquatome.com/glaser/27941833ff72bfdc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-phaeonota-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/aa08446b707b7e5c.webp",
+      "thumb": "https://media.aquatome.com/glaser/aa08446b707b7e5c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-phaeonota-4/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "jfvgpGvt74Q",
+      "title": "Moenkhausia phaeonota",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "G_rD74hQcaE",
+      "title": "金帶費洛塔燈Moenkhausia phaeonota",
+      "durationSec": 73,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -216,5 +287,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-21"
 }

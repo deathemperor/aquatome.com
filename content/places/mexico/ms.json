@@ -3,6 +3,12 @@
   "name": "Mexico",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-20T07:05:44.163Z",
+    "why": "Malay (Malaysia) writes the country as \"Mexico\" in English-style spelling only in some contexts, but the standard Malay name per DBP is \"Mexico\"/\"Mexiko\"; the common atlas form is \"Mexico\", though the given name is identical to the English/Vietnamese form."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

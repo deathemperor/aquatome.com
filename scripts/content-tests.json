@@ -409,9 +409,12 @@
     "packages/engine/test/cycle-cool.test.ts": "the cycle's scripts on repositories it makes in the temp folder",
     "packages/engine/test/cycle-due.test.ts": "scripts/engine-due.sh in a temp home",
     "packages/engine/test/cycle-gate.test.ts": "the cycle's scripts on repositories it makes in the temp folder",
+    "packages/engine/test/cycle-kept-cloud.test.ts": "kept and held publishing against temporary Git repositories with stubbed checks",
     "packages/engine/test/cycle-kept.test.ts": "the cycle's scripts on repositories it makes in the temp folder",
+    "packages/engine/test/cycle-languages.test.ts": "one block of the cycle's script in bash, with pnpm, node and the log stand-ins",
     "packages/engine/test/cycle-menders.test.ts": "the cycle's menders, with pnpm a stand-in",
     "packages/engine/test/cycle-net.test.ts": "a stand-in cycle script in the temp folder",
+    "packages/engine/test/cycle-publish.test.ts": "publishing and sweep scripts against temporary Git repositories with stubbed checks and pnpm",
     "packages/engine/test/cycle-timeouts.test.ts": "the cycle's checks on stand-in steps in the temp folder",
     "packages/engine/test/cycle-turns.test.ts": "the checks queue's scripts on a temp home's queue",
     "packages/engine/test/image-subprocess.test.ts": "a stand-in image tool in the temp folder",
@@ -419,6 +422,7 @@
     "packages/engine/test/ios-27-daily.test.ts": "the daily script in a temp home",
     "packages/engine/test/machine-load.test.ts": "install scripts into a temp home, git on repositories in the temp folder",
     "packages/engine/test/main-merge.test.ts": "the hook on repositories in the temp folder",
+    "packages/engine/test/merge-json-map.test.ts": "git and scripts/merge-json-map.mjs (the merge driver) on a scratch repository in the system temp folder",
     "packages/engine/test/photo-backfill.test.ts": "vitest on one of its own tests, in a temp home, on content it writes in the temp folder",
     "packages/engine/test/push-clash-hold.test.ts": "the cycle's scripts, main-holds.mjs and the merge drivers on repositories it makes in the temp folder",
     "packages/engine/test/quiet-recording.test.ts": "the recording script and the queue's lock in a temp home (on a Mac)",
@@ -428,6 +432,7 @@
     "packages/engine/test/start-clean.test.ts": "vitest on two cycle test files",
     "packages/engine/test/test-scratch.test.ts": "printf of the temp folder's name",
     "packages/engine/test/test-time-scale.test.ts": "the cycle's checks on stand-in steps in the temp folder",
+    "packages/engine/test/video-hold.test.ts": "the sweep's emptied-pages part: one git call in the temp folder the test writes its guide in, which is no repository, so it stops there",
     "packages/schema/test/content-trace.test.ts": "vitest on its own probe, which opens two content files and a folder only to see the trace record them, into a trace file of its own"
   }
 }

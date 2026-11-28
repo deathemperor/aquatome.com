@@ -29,8 +29,6 @@
   "range": {
     "native": {
       "countries": [
-        "PE",
-        "UY",
         "AR",
         "BO",
         "BR",
@@ -38,23 +36,36 @@
         "GF",
         "GY",
         "PY",
+        "PE",
         "SR",
-        "VE"
+        "TT",
+        "VE",
+        "UY"
       ],
       "regions": [
         "Río de la Plata",
         "Trinidad"
       ],
       "sources": [
-        "glaser",
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
-          "source": "glaser",
-          "quote": "This morph comes from Peru (Puerto Maldonado).",
+          "source": "seriouslyfish",
+          "quote": "Records exist from Argentina, Bolivia, Brazil, Colombia, French Guiana, Guyana, Paraguay, Peru, Suriname, Trinidad and Tobago and Venezuela, but this gigantic range seems more akin to that of a complex of similar-looking, distinct taxa rather than a single species.",
           "countries": [
-            "PE"
+            "AR",
+            "BO",
+            "BR",
+            "CO",
+            "GF",
+            "GY",
+            "PY",
+            "PE",
+            "SR",
+            "TT",
+            "VE"
           ],
           "regions": []
         },
@@ -70,22 +81,6 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "Records exist from Argentina, Bolivia, Brazil, Colombia, French Guiana, Guyana, Paraguay, Peru, Suriname, Trinidad and Tobago and Venezuela, but this gigantic range seems more akin to that of a complex of similar-looking, distinct taxa rather than a single species.",
-          "countries": [
-            "AR",
-            "BO",
-            "BR",
-            "CO",
-            "GF",
-            "GY",
-            "PY",
-            "SR",
-            "VE"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
           "quote": "Type locality is 'Trinidad Island, West Indies', and it still occurs in some river systems of central and southern parts of the island.",
           "countries": [],
           "regions": [
@@ -96,12 +91,12 @@
     },
     "records": {
       "taxonKey": 2342606,
-      "total": 734,
-      "fetched": "2026-11-05",
+      "total": 712,
+      "fetched": "2026-11-20",
       "countries": [
         [
           "BR",
-          445
+          446
         ],
         [
           "VE",
@@ -110,10 +105,6 @@
         [
           "PY",
           89
-        ],
-        [
-          "TT",
-          34
         ],
         [
           "GF",
@@ -126,6 +117,10 @@
         [
           "CO",
           12
+        ],
+        [
+          "TT",
+          11
         ],
         [
           "SR",
@@ -362,14 +357,14 @@
         [
           -61.875,
           9.84375,
-          33,
-          0
+          10,
+          10
         ],
         [
           -61.875,
           11.25,
           1,
-          0
+          1
         ],
         [
           -60.46875,
@@ -782,6 +777,12 @@
         [
           -49.21875,
           -14.0625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
           1,
           1
         ],

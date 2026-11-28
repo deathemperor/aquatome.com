@@ -1,0 +1,101 @@
+{
+  "id": "pareuchiloglanis-rhabdurus",
+  "scientificName": "Pareuchiloglanis rhabdurus",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Pareuchiloglanis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "vietnam",
+    "red-river"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [
+        "Red River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Red River drainage in northern Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Red River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341107,
+      "total": 3,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "VN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          22.5,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1411",
+      "html": "<p>Scientific name: Pareuchiloglanis rhabdura Ng, 2004. Family: Sisoridae. Size: 90 mm (3.5 in) SL. IUCN Red List status: Data Deficient.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1411",
+      "html": "<p>Asia: Red River drainage in northern Vietnam.</p><p>Type locality: Cao Bo stream (Bac Trao river) near camp 1, Vi Xuyen District, Red River (Song Hong) drainage, Ha Giang Province, Vietnam.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1411",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1411",
+      "html": "<p>Identification: differs from its congeners chiefly by a slender body (8.7% SL) and caudal peduncle (4.2% SL; 4.2 times in caudal peduncle length), as well as a combination of the following characters: length of adipose-fin base 34.7% SL; dorsal to adipose distance 12.2% SL; caudal peduncle length 17.6% SL; snout length 57.0% HL; interorbital distance 25.5% HL; adipose and caudal fins separate; and ventral limit of gill opening to base of first pectoral-fin element.</p><p>Etymology: from the Greek rhabdos, meaning rod, and oura, meaning tail, in reference to the slender caudal peduncle of this species. Used as an adjective.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1411",
+      "html": "<p>Zootaxa No. 428 7 Fig. 3</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-21"
+}

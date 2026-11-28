@@ -1,8 +1,8 @@
 {
   "id": "aphyosemion-australe",
   "native": {
-    "input": "24ca3ab0ead9684f",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "5183d1405e01d0dd",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "GA",
@@ -18,6 +18,14 @@
         "source": "seriouslyfish",
         "quote": "Described from 'Cap Gentil', now known as Cape Lopez, close to the mouth of the Ogooué River, Gabon and is distributed in lowland areas along much of the country's coastline plus that of Congo which borders Gabon to the south.",
         "words": "Congo",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It was discovered due to aquarium imports from Gabon (Ogooué River estuary, Port-Gentil, Cape Lopez, northwestern Gabon), from where it was first brought in 1913.",
+        "words": "Gabon",
         "ok": true
       }
     ],

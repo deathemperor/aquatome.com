@@ -6,13 +6,15 @@
     "Oscar"
   ],
   "sections": {
-    "notes:glaser": "<p>Ở Nam Mỹ, không có chi cichlid cỡ lớn nào mà người ta còn hiểu ít như chi cá oscar (Astronotus). Hiện chỉ có hai loài được công nhận rộng rãi là A. ocellatus và A. crassipinnis. Nhưng thật ra còn nhiều loài nữa, nhìn bằng mắt thường cũng dễ thấy. Một trong số đó là A. zebra, gần đây đã được nhập về nhiều lần.</p><p>Mới đây có một lô cá oscar nhập từ Paraguay (Rio Paraguay, gần Asuncion). Rất có thể chúng thuộc loài A. crassipinnis, nhưng với hiểu biết hiện nay thì chỉ cá từ Rio Guaporé mới chắc chắn gọi là A. crassipinnis được. Vì thế lô cá này mang tên A. cf. crassipinnis. Chữ \"cf.\" là viết tắt của từ Latin \"conferre\", nghĩa là \"so sánh (với)\".</p><p>Hoa văn mỗi con khác nhau nhiều, nhưng loài cá rất đẹp này vẫn có vài nét riêng. Thứ nhất, màu nền của thân rất sẫm, gần như đen. Thứ hai, vùng vây lưng không có các đốm mắt (ocellus), thứ vốn rất đặc trưng ở A. ocellatus.</p><p>Astronotus crassipinnis có vẻ nhỏ hơn A. ocellatus một chút. Con dài nhất từng đo được của loài này là 24 cm chiều dài chuẩn (không tính vây đuôi). Cá trong lô nhập về dài 14-18 cm (tính cả vây đuôi). Lô này chỉ có 7 con, hy vọng là trong số ít ỏi đó sẽ có con bắt cặp và đẻ.</p>"
+    "behaviour:glaser": "<p>Cá tai tượng non có tập tính chung của mọi cá Astronotus non: chúng rất cần sống cùng đồng loại. Màu sặc sỡ của cá tai tượng non thật ra là để ngụy trang. Chúng tụ thành đàn khá đông và bơi sát nhau, đến mức kẻ săn mồi nhìn vào lại tưởng là một con cá to.</p><p>Khi đốm mắt đặc trưng hiện ra ở gốc đuôi là lúc cá bắt đầu mất hoa văn của cá non. Từ đó, cá tai tượng non chuyển sang sống riêng lẻ hơn (hoặc theo nhóm nhỏ). Đốm mắt này để đánh lừa kẻ săn mồi, vì lúc vồ mồi chúng nhắm vào mắt con mồi.</p>",
+    "diet:glaser": "<p>Từ cỡ này trở lên, cá tai tượng thích ăn cá nhỏ. Nuôi trong bể thì chúng cũng ăn mọi loại thức ăn mặn, chắc bụng dành cho cá ăn thịt.</p>",
+    "notes:glaser": "<p>Hiện có cá tai tượng non rất đẹp nhập từ Brazil, bán dưới tên \"Astronotus crassipinnis\". Loài A. crassipinnis có ở Brazil, nhưng không có cách nào kiểm tra xem định danh này đúng hay sai. Số cá này bị nghi là cá trại.</p><p>Chưa ai biết những con cá tai tượng này lớn lên trông ra sao, nên chưa thể định danh chắc chắn về mặt khoa học. Nhưng cứ đoán thì khá chắc là loài Astronotus này cũng dài tới khoảng 25-30 cm.</p>"
   },
   "quality": {
-    "score": 0.95,
+    "score": 0.7,
     "indexable": false,
     "bySource": {
-      "glaser": 0.95
+      "glaser": 0.7
     },
     "reason": "thin"
   },
@@ -20,6 +22,6 @@
     "checks": [
       "source"
     ],
-    "at": "2026-11-10"
+    "at": "2026-11-21"
   }
 }

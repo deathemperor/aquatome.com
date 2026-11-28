@@ -1,12 +1,23 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:535097126",
+  "inat:564671456",
+  "inat:566771976",
+  "inat:566771999",
+  "inat:568986927"
+ ],
  "hashes": {
   "https://media.aquatome.com/scotcat/585f652ab8e50013.webp": "e640e4e4b5bca4fa",
   "https://media.aquatome.com/scotcat/0cd39da7661df054.webp": "062d68f1f027f8c1",
   "https://media.aquatome.com/scotcat/6049b68c6f3eb0f9.webp": "fbdbcfeccce616a2",
   "https://media.aquatome.com/seriouslyfish/d15daf28909a03ea.webp": "0002064723035622",
-  "https://media.aquatome.com/scotcat/593d6d998eb34e7e.webp": "ffbf2569191b39a1"
+  "https://media.aquatome.com/scotcat/593d6d998eb34e7e.webp": "ffbf2569191b39a1",
+  "https://media.aquatome.com/glaser/bf84c0ea96036620.webp": "f3676f73600e9cf3",
+  "https://media.aquatome.com/glaser/01504491c6f003e4.webp": "1b1cade8e48c9c8c",
+  "https://media.aquatome.com/glaser/ed82074b5c04cd7b.webp": "ca70b080cab0b073",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/535097126/large.jpg": "5a59f9b273f03267",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/564671456/large.jpg": "b163c3a1010d3f38"
  },
  "commons": "2026-11-06",
  "inat": {
@@ -20,5 +31,13 @@
  "gbif": {
   "key": 2342559,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 313830589,
+  "done": true
+ },
+ "exhausted": "2026-11-25"
 }

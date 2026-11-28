@@ -1,0 +1,205 @@
+{
+  "id": "hyphessobrycon-procyon",
+  "scientificName": "Hyphessobrycon procyon",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-aripuana"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio Madeira",
+        "Rio Aripuanã"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Rio Aripuanã in the middle basin of the Rio Madeira.",
+          "countries": [],
+          "regions": [
+            "Rio Madeira",
+            "Rio Aripuanã"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8858752,
+      "total": 20,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "BR",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          -8.4375,
+          17
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          1
+        ],
+        [
+          -59.0625,
+          -7.03125,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6,
+          "max": 6.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-procyon-2/",
+      "html": "<p>H. procyon reaches a length of 4-5 cm. They are easy to keep tetras, which have no special demands on water and food.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-procyon-2/",
+      "html": "<p>One of the still very expensive tetra novelties in the aquarium is the very, very pretty Hyphessobrycon procyon. It looks confusingly similar to the kitty tetra, H. heliacus, at first glance. H. procyon and H. heliacus form a species complex together with the also very similar H. peugeoti and H. lowae. For differentiation see the article of Hans-Georg Evers in the journal Amazonas No 99/2021: 22-27, there is also a detailed breeding report on H. procyon.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-procyon-2/",
+      "html": "<p>Rio Aripuanã in the middle basin of the Rio Madeira.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-procyon-2/",
+      "html": "<p>Aquatic plants are not damaged, H. procyon are very peaceful among themselves and against other species of fish. The males like to display among themselves, which is wonderful to look at and ends without injuries. The best way to keep these tetras is in groups of 10 or more, the sex ratio is not important, but there should be at least two males.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/c5672f0b2e8f4b14.webp",
+      "thumb": "https://media.aquatome.com/glaser/c5672f0b2e8f4b14-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-procyon-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d91f1e0a204e2427.webp",
+      "thumb": "https://media.aquatome.com/glaser/d91f1e0a204e2427-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-procyon-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2b89bcaeccafce74.webp",
+      "thumb": "https://media.aquatome.com/glaser/2b89bcaeccafce74-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-procyon-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0b492d94c6168d64.webp",
+      "thumb": "https://media.aquatome.com/glaser/0b492d94c6168d64-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-procyon-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "uVh_DYHMt20",
+      "title": "Rio Juma biotop aquarium. Hyphessobrycon procyon",
+      "durationSec": 85,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "N5J-zObBlhk",
+      "title": "Raccoon Tetra Breeding SECRETS You Never Knew Existed! | Serendib Aquatics",
+      "durationSec": 1027,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YQyz7WzO-6c",
+      "title": "How I bred Raccoon tetras (Tank Setup & Tips) Hyphessobrycon procyon PT1",
+      "durationSec": 723,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1Ley9hZ8Snw",
+      "title": "Meet the Raccoon Tetra - Hyphessobrycon procyon",
+      "durationSec": 31,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "lá bàng khô",
+        "than bùn cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

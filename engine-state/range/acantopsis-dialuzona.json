@@ -1,8 +1,8 @@
 {
   "id": "acantopsis-dialuzona",
   "native": {
-    "input": "6da0ba108066f214",
-    "at": "2026-11-09T23:57:44.132Z",
+    "input": "2cec2b839da49061",
+    "at": "2026-11-22T12:48:24.036Z",
     "claims": [
       {
         "code": "ID",
@@ -22,9 +22,9 @@
       },
       {
         "code": "TH",
-        "status": "native",
+        "status": "doubtful",
         "source": "seriouslyfish",
-        "quote": "A survey of the Phrom River, Chaiyaphum Province, north-eastern Thailand recorded what was identified as A. choirorhynchos (currently synonymous with A. dialuzona) living alongside numerous other species including Pangio anguillaris, P. oblonga, Acanthopsoides gracilentus, Esomus metallicus, Rasbora myersi, R. paviana, Cyclocheilichthys armatus, C. repasson, Osteochilus waandersii, Puntius brevis, 'Puntius' binotatus, 'P.' orphoides, Garra cambodgiensis, Gyronicheilus aymonieri and three species of Mastacembelus.",
+        "quote": "As currently understood it certainly occurs throughout the Greater Sunda Islands of Sumatra, Borneo and Java plus Peninsular Malaysia and possibly Thailand.",
         "words": "Thailand",
         "ok": true
       }
@@ -47,19 +47,14 @@
         "source": "seriouslyfish",
         "quote": "As currently understood it certainly occurs throughout the Greater Sunda Islands of Sumatra, Borneo and Java plus Peninsular Malaysia and possibly Thailand.",
         "ok": true
-      },
-      {
-        "name": "Phrom River",
-        "source": "seriouslyfish",
-        "quote": "A survey of the Phrom River, Chaiyaphum Province, north-eastern Thailand recorded what was identified as A. choirorhynchos (currently synonymous with A. dialuzona) living alongside numerous other species including Pangio anguillaris, P. oblonga, Acanthopsoides gracilentus, Esomus metallicus, Rasbora myersi, R. paviana, Cyclocheilichthys armatus, C. repasson, Osteochilus waandersii, Puntius brevis, 'Puntius' binotatus, 'P.' orphoides, Garra cambodgiensis, Gyronicheilus aymonieri and three species of Mastacembelus.",
-        "country": "TH",
-        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "TH"
+      ],
       "sourcesOnly": []
     }
   },
@@ -86,7 +81,7 @@
       ],
       [
         "d8cd16ba-bb74-4420-821e-083f2bac17c2",
-        6
+        3
       ],
       [
         "4caf2040-83ad-4fa7-ba13-005bced721eb",
@@ -135,10 +130,9 @@
     ],
     "native": [
       "ID",
-      "MY",
-      "TH"
+      "MY"
     ],
     "requests": 12,
-    "at": "2026-11-05T19:44:13.099Z"
+    "at": "2026-11-22T12:48:24.036Z"
   }
 }

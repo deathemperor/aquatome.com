@@ -1,8 +1,8 @@
 {
   "id": "corydoras-desana",
   "native": {
-    "input": "e3063f84904e6cf9",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "07cb6f5a47c1da38",
+    "at": "2026-11-23T01:48:47.136Z",
     "claims": [
       {
         "code": "BR",
@@ -15,20 +15,19 @@
     ],
     "regions": [
       {
-        "name": "Rio Tiquié",
+        "name": "Tiquié",
         "source": "planetcatfish",
         "quote": "Known only from upriver in the Igarapé Castanha, a tributary of the rio Tiquié (Amazon, Middle Amazon (Solimões), Negro, Upper Negro, Uaupés, Tiquié).",
         "ok": true
       },
       {
-        "name": "Rio Negro",
+        "name": "Amazon",
         "source": "planetcatfish",
         "quote": "Known only from upriver in the Igarapé Castanha, a tributary of the rio Tiquié (Amazon, Middle Amazon (Solimões), Negro, Upper Negro, Uaupés, Tiquié).",
-        "ok": false,
-        "why": "its name is not in the quote"
+        "ok": true
       },
       {
-        "name": "Amazon",
+        "name": "Negro",
         "source": "planetcatfish",
         "quote": "Known only from upriver in the Igarapé Castanha, a tributary of the rio Tiquié (Amazon, Middle Amazon (Solimões), Negro, Upper Negro, Uaupés, Tiquié).",
         "ok": true

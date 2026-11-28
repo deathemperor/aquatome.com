@@ -1,7 +1,17 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "inat:517310574",
+  "inat:517310614",
+  "inat:517310665",
+  "inat:517316826"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/bwaquatics/8cc38e06ddaf1eca.webp": "f6aeb30e2c50982a",
+  "https://media.aquatome.com/processed/78589f44af889a965023df1404ad0adf.webp": "c3c3f1968f3c7442",
+  "https://media.aquatome.com/bwaquatics/07331825d3058bed.webp": "9d6d35998d0da1c9",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/517310665/large.jpg": "a595389a3524162c"
+ },
  "inat": {
   "taxon": 618890,
   "pass": "done",
@@ -17,6 +27,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 287701054,
+  "done": true
  },
  "exhausted": "2026-11-10"
 }

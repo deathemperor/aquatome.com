@@ -1,9 +1,58 @@
 {
   "id": "hymenochirus-boettgeri",
   "native": {
-    "input": "45491b7bb9317e4e",
-    "at": "2026-11-08T22:57:48.089Z",
-    "claims": [],
+    "input": "5cad4accd0a55454",
+    "at": "2026-11-22T12:48:24.036Z",
+    "claims": [
+      {
+        "code": "CF",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Hymenochirus boettgeri occurs in the Central African Republic, the Democratic Republic of the Congo, Nigeria, Gabon, Equatorial Guinea and Cameroon.",
+        "words": "Central African Republic",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Hymenochirus boettgeri occurs in the Central African Republic, the Democratic Republic of the Congo, Nigeria, Gabon, Equatorial Guinea and Cameroon.",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Hymenochirus boettgeri occurs in the Central African Republic, the Democratic Republic of the Congo, Nigeria, Gabon, Equatorial Guinea and Cameroon.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Hymenochirus boettgeri occurs in the Central African Republic, the Democratic Republic of the Congo, Nigeria, Gabon, Equatorial Guinea and Cameroon.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "GQ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Hymenochirus boettgeri occurs in the Central African Republic, the Democratic Republic of the Congo, Nigeria, Gabon, Equatorial Guinea and Cameroon.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Hymenochirus boettgeri occurs in the Central African Republic, the Democratic Republic of the Congo, Nigeria, Gabon, Equatorial Guinea and Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
     "regions": [],
     "disputed": [],
     "outranked": [],
@@ -38,15 +87,15 @@
         2
       ],
       [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
         "861d3d64-f762-11e1-a439-00145eb45e9a",
         2
       ],
       [
         "64be02e0-0c64-11dd-84d1-b8a03c50a862",
-        1
-      ],
-      [
-        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
         1
       ],
       [
@@ -66,8 +115,15 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-08T22:57:48.089Z"
+    "native": [
+      "CF",
+      "CD",
+      "NG",
+      "GA",
+      "GQ",
+      "CM"
+    ],
+    "requests": 12,
+    "at": "2026-11-22T12:48:24.036Z"
   }
 }

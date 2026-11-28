@@ -1,8 +1,8 @@
 {
   "id": "ailia-coila",
   "native": {
-    "input": "e8e33fa962d30f81",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "50856e00224f7cc3",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
       {
         "code": "PK",
@@ -32,6 +32,38 @@
         "code": "NP",
         "status": "native",
         "source": "scotcat",
+        "quote": "Asia: Pakistan, India, Bangladesh and Nepal.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Pakistan, India, Bangladesh and Nepal.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Pakistan, India, Bangladesh and Nepal.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Pakistan, India, Bangladesh and Nepal.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "planetcatfish",
         "quote": "Asia: Pakistan, India, Bangladesh and Nepal.",
         "words": "Nepal",
         "ok": true

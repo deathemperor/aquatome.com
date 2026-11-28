@@ -86,6 +86,19 @@
       "kind": "detail"
     },
     {
+      "url": "https://media.aquatome.com/commons/21590cf933433137.webp",
+      "thumb": "https://media.aquatome.com/commons/21590cf933433137-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Stefan.lefnaer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_s._str._sl8.jpg",
+      "caption": "Rong đuôi chó mọc trên bãi sỏi ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/commons/c52f17caa6a975a8.webp",
       "thumb": "https://media.aquatome.com/commons/c52f17caa6a975a8-480.webp",
       "width": 1200,
@@ -132,6 +145,22 @@
       "caption": "Rong đuôi chó mọc dày trên mặt nước ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/84f4d74977befc35.webp",
+      "thumb": "https://media.aquatome.com/tropica/84f4d74977befc35-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/84f4d74977befc35-large.webp",
+        "width": 1493,
+        "height": 933
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ceratophyllumdemersum(021APOR)/4434",
+      "source": "tropica",
+      "kind": "submersed"
     },
     {
       "url": "https://media.aquatome.com/commons/d2848a550a002309.webp",
@@ -290,22 +319,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/tropica/84f4d74977befc35.webp",
-      "thumb": "https://media.aquatome.com/tropica/84f4d74977befc35-480.webp",
-      "width": 1200,
-      "height": 750,
-      "large": {
-        "url": "https://media.aquatome.com/tropica/84f4d74977befc35-large.webp",
-        "width": 1493,
-        "height": 933
-      },
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ceratophyllumdemersum(021APOR)/4434",
-      "source": "tropica",
-      "kind": "submersed"
-    },
-    {
       "url": "https://media.aquatome.com/commons/56a3195a6e9fff29.webp",
       "thumb": "https://media.aquatome.com/commons/56a3195a6e9fff29-480.webp",
       "width": 1200,
@@ -342,17 +355,6 @@
       "kind": "emersed"
     },
     {
-      "url": "https://media.aquatome.com/tropica/299ee1d7658d0d57.webp",
-      "thumb": "https://media.aquatome.com/tropica/299ee1d7658d0d57-480.webp",
-      "width": 1200,
-      "height": 1200,
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ceratophyllumdemersum(021APOR)/4434",
-      "source": "tropica",
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/52b3191f1eadd40b.webp",
       "thumb": "https://media.aquatome.com/commons/52b3191f1eadd40b-480.webp",
       "width": 1200,
@@ -365,7 +367,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 100,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-02"
+  "seen": 120,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }

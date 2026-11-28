@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { fitKey } from '../src/fit'
-import { firstRun, frontEarly, frontHeld, frontPlan, laneFirst, offLane, orderFront, type HeldMark } from '../src/fit-front'
+import { firstRun, frontEarly, frontHeld, frontPlan, laneFirst, offLane, orderFront, readFirst, type HeldMark } from '../src/fit-front'
 import list from '../src/fit-front.json'
 import type { Page } from '../src/pages'
 
@@ -139,4 +139,43 @@ test('the pages with a foreign product share the front with the lane, one for on
   const laneProduct = frontPlan({ ...list, products: 'ahead' }, ran, ranked, held, p => product(p) || p.id === 'l1')
   expect(laneProduct.order.map(key)).toEqual([key(m1), key(m2), key(m3), key(l1), key(l2), key(other)])
   expect([...laneProduct.products].sort()).toEqual([key(l1), key(m1), key(m2), key(m3)].sort())
+})
+
+// The chief of staff, 20 Nov 2026: open pages a person changed by hand get the checklist read first in line, and that read
+// takes no place from the rewrite. They are a list of their own (read), ahead of the front list in the read alone.
+test("the pages fixed by hand are read first, ahead of the front list, and the rewrite's list doesn't change", () => {
+  const a = page('guides', 'a'), b = page('species', 'b'), c = page('plants', 'c')
+  expect(readFirst({ read: [key(a)], front: [key(b), key(a)] }).front).toEqual([key(a), key(b)])
+  expect(readFirst({ front: [key(b)] }).front).toEqual([key(b)])
+  expect(orderFront(readFirst({ read: [key(c)], front: [key(b)] }), [a, b, c]).map(key)).toEqual([key(c), key(b), key(a)])
+  // The guides of #1705 and #1712, the crab bowl's (#1720), the cutter's five (#1721) and the held-and-dropped three
+  // (#1723); then the 12 open pages a clashed push left with no read of their text, ten fish pages and two video guides
+  // (the chief of staff, 21 Nov 2026; the thirteenth, 3jqe5KGD9lI, is among the cutter's five); then the egg scatterers'
+  // guide, its photo captions changed by hand after the gate let it out, open with no read of that text (the chief of
+  // staff, 21 Nov 2026). Each a page on the site.
+  expect(list.read).toHaveLength(33)
+  expect(new Set(list.read).size).toBe(33)
+  expect(list.read.at(-1)).toBe('vi/guides/aquariumcoop-blogs-aquarium-how-to-breed-egg-scatterers')
+  for (const k of list.read) {
+    const [, kind, id] = k.split('/')
+    expect(existsSync(join(ROOT, 'content', kind!, id!, 'vi.json')), k).toBe(true)
+  }
+  expect(list.read.filter(k => k.split('/')[1] === 'species')).toHaveLength(10)
+  expect(list.front.filter(k => list.read.includes(k))).toEqual([])
+  expect(list.front).toHaveLength(32)
+})
+
+// #1718's reader: a page on `read` with a foreign product found on it, or held, would still take a place in the rewrite.
+test('a page on the read list takes no place in the rewrite, a foreign product or a hold on it included', () => {
+  const r = page('guides', 'r'), m = page('guides', 'm'), l = page('species', 'l'), other = page('species', 'other')
+  const held = new Map([[key(r), mark('2026-11-14')], [key(l), mark('2026-11-13')]])
+  const product = (p: { id: string }) => p.id === 'r' || p.id === 'm'
+  const list = { ...front, lane: true, products: 'ahead', cleared: true, front: [key(r)], read: [key(r)] }
+  const plan = frontPlan(list, undefined, [other, r, m, l], held, product)
+  expect(plan.order.map(key)).toEqual([key(m), key(l), key(other)])
+  expect([...plan.products]).toEqual([key(m)])
+  expect([...plan.mend].sort()).toEqual([key(l), key(m)].sort())
+  expect(plan.lane.has(key(r))).toBe(false)
+  // Off the list, it takes its place in the lane.
+  expect(frontPlan({ ...list, read: [] }, undefined, [other, r, m, l], held, product).order.map(key)).toEqual([key(m), key(r), key(l), key(other)])
 })

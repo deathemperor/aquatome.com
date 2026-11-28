@@ -1,0 +1,133 @@
+{
+  "id": "crossoloricaria-venezuelae",
+  "scientificName": "Crossoloricaria venezuelae",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Crossoloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "lake-maracaibo",
+    "colombia",
+    "magdalena"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 18
+      },
+      {
+        "source": "scotcat",
+        "value": 18
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1495",
+      "html": "<ul><li>Scientific name: Crossoloricaria venezuelae (Schultz, 1944)</li><li>IUCN Red List status: Least Concern</li><li>Etymology: (Greek) Krossoi = tassel + (Latin) lorica, loricare = cuirass or corslet of leather (a suit of armour made of leather).</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_venezuelae.htm",
+      "html": "<p>Family: Loricariidae. Common name: none. Size: 18 cm. Temperature: 22–26°C. pH: 6.0–7.0.</p><p>Synonym: Loricaria variegata venezuelae.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1495",
+      "html": "<p>South America: Lake Maracaibo drainage. Type locality: Río Palmar at the bridge about 70 km southwest of Maracaibo, Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_venezuelae.htm",
+      "html": "<p>South America: Lake Maracaibo drainage (Schultz, 1944); also Magdalena River basin, Colombia. Type locality: Río Palmar at the bridge about 70 km southwest of Maracaibo [Venezuela].</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_venezuelae.htm",
+      "html": "<p>Provide hiding places and a sandy substrate where this species likes to bury itself.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_venezuelae.htm",
+      "html": "<p>Insect larvae.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1495",
+      "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_venezuelae.htm",
+      "html": "<p>Description: This genus is similar looking to the Pseudohemiodon genera but the latter has bony plates on the underneath whereas Crossoloricaria is nearly naked apart from a line of small platelets along the medial ventral line.</p><p>Etymology: The specific name venezuelae: Of Venezuela, referring to type locality in Lake Maracaibo drainage, and to the “courtesy shown [to Schultz] while collecting specimens there in 1942”.</p><p>IUCN Red List: Assessed as Least Concern due to the relatively wide distribution and relatively intact surrounding habitat. While there is an inferred increase in habitat degradation and water pollution within the species distribution, it is thought that the number of relatively well conserved river tributaries which lead to the lake provide sufficient habitat that this species is not adversely affected. However, further research into the impact these threats have on C. venezuelae would be useful in confirming this species status (LC), (needs updating IUCN 2009).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_venezuelae.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2016. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 10/2016 ).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23"
+}

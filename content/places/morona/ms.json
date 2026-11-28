@@ -3,6 +3,12 @@
   "name": "Morona",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:06:00.858Z",
+    "why": "Morona is a Peruvian region/district (Morona in Loreto, also a river and Ecuadorian province), and Malay atlases would typically add the kind word \"Wilayah\" or \"Daerah\" (e.g. \"Wilayah Morona\"), so the bare name is only partly adequate."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

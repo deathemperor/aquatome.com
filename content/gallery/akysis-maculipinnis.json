@@ -1,7 +1,22 @@
 {
   "id": "akysis-maculipinnis",
-  "photos": [],
-  "seen": 0,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/638960146.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/638960146-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "muangpaisuetrong",
+      "sourceUrl": "https://www.inaturalist.org/photos/638960146",
+      "caption": "Cá Akysis maculipinnis nằm trên nền cát trong bể chụp ảnh nhỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    }
+  ],
+  "seen": 2,
+  "updatedAt": "2026-11-25",
+  "builtAt": "2026-11-25"
 }

@@ -1,7 +1,10 @@
 {
  "queue": [],
  "judged": [
-  "File:Poptella paraguayensis (53345).jpg"
+  "File:Poptella paraguayensis (53345).jpg",
+  "inat:359549012",
+  "inat:365148760",
+  "inat:763722506"
  ],
  "hashes": {},
  "commons": "2026-11-13",
@@ -12,5 +15,13 @@
    "research": 0,
    "agree": 165117355
   }
+ },
+ "gbif": {
+  "key": 2353928,
+  "next": null
+ },
+ "inatNc": {
+  "after": 414821052,
+  "done": true
  }
 }

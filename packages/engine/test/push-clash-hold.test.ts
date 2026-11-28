@@ -603,7 +603,7 @@ test('the older caller restores a hold when the only other change is a part sele
 })
 
 test("every push that compares main's holds stops on a comparison that failed", () => {
-  for (const s of ['engine-cycle.sh', 'video-cycle.sh', 'video-recheck.sh', 'cycle-checks.sh']) {
+  for (const s of ['engine-cycle.sh', 'video-cycle.sh', 'video-recheck-publish.sh', 'cycle-checks.sh']) {
     const calls = readFileSync(join(ROOT, 'scripts', s), 'utf8').split('\n').filter(l => /\bmain_holds "\$run"/.test(l) && !/^\s*#/.test(l))
     expect(calls.length, s).toBeGreaterThan(0)
     for (const l of calls) {

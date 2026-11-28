@@ -1,14 +1,14 @@
 {
   "id": "pseudacanthicus-leopardus",
   "native": {
-    "input": "d1cef5ed57ee82a8",
-    "at": "2026-11-16T17:28:41.839Z",
+    "input": "d3a9f2c78f0dc5a9",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "L114, Pseudacanthicus cf. leopardus, is a loricariid collected mostly in the rio Negro basin in Brazil, particularly the rio Demini.",
+        "quote": "Mostly collected in the rio Negro basin, Amazonas state, Brazil, and in particular the rio Demini, a northern tributary flowing into the central Negro in the municipality of Barcelos.",
         "words": "Brazil",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "GY",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "P. leopardus was described from the Rupununi River in Guyana, so the identity of this fish remains unconfirmed.",
+        "quote": "P. leopardus was described from the Rupununi River in Guyana and the identity of this fish thus remains unconfirmed.",
         "words": "Guyana",
         "ok": true
       },
@@ -24,15 +24,7 @@
         "code": "BR",
         "status": "native",
         "source": "glaser",
-        "quote": "One of the most popular Pseudacanthicus is L114 which originates from the middle Rio Negro basin in Brazil.",
-        "words": "Brazil",
-        "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "glaser",
-        "quote": "The real P. leopardus originates from the border region of Brazil and Guyana.",
+        "quote": "One of the most popular Pseudacanthicus is L114, which originates from the middle Rio Negro basin in Brazil.",
         "words": "Brazil",
         "ok": true
       },
@@ -40,7 +32,7 @@
         "code": "GY",
         "status": "native",
         "source": "glaser",
-        "quote": "The real P. leopardus originates from the border region of Brazil and Guyana.",
+        "quote": "However, the real P. leopardus originates from the border region of Brazil and Guyana.",
         "words": "Guyana",
         "ok": true
       }
@@ -49,28 +41,22 @@
       {
         "name": "Rio Negro",
         "source": "seriouslyfish",
-        "quote": "L114, Pseudacanthicus cf. leopardus, is a loricariid collected mostly in the rio Negro basin in Brazil, particularly the rio Demini.",
+        "quote": "Mostly collected in the rio Negro basin, Amazonas state, Brazil, and in particular the rio Demini, a northern tributary flowing into the central Negro in the municipality of Barcelos.",
         "country": "BR",
         "ok": true
       },
       {
         "name": "Rupununi River",
         "source": "seriouslyfish",
-        "quote": "P. leopardus was described from the Rupununi River in Guyana, so the identity of this fish remains unconfirmed.",
+        "quote": "P. leopardus was described from the Rupununi River in Guyana and the identity of this fish thus remains unconfirmed.",
         "country": "GY",
         "ok": true
       },
       {
         "name": "Rio Negro",
         "source": "glaser",
-        "quote": "One of the most popular Pseudacanthicus is L114 which originates from the middle Rio Negro basin in Brazil.",
+        "quote": "One of the most popular Pseudacanthicus is L114, which originates from the middle Rio Negro basin in Brazil.",
         "country": "BR",
-        "ok": true
-      },
-      {
-        "name": "Takutu",
-        "source": "glaser",
-        "quote": "The fish were collected in the Takutu river that belongs to the system of the upper Rio Branco.",
         "ok": true
       },
       {

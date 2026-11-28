@@ -1,0 +1,16 @@
+{
+  "slug": "wet-tropics",
+  "name": "Wet Tropics",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-23T01:44:51.536Z",
+    "why": "\"Wet Tropics\" is left in English, whereas a Malaysian atlas would translate the descriptive name into Malay, as \"Tropika Basah\"."
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false
+  }
+}

@@ -20,7 +20,8 @@
         "Manimala"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -29,12 +30,6 @@
           "countries": [
             "IN"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Mundakayam lies within the Western Ghats mountains and M. triangularis has since been recorded to occur in river systems draining both sides of that range in the states of Kerala and Tamil Nadu, where it's said to be locally abundant.",
-          "countries": [],
           "regions": [
             "Western Ghats"
           ]
@@ -125,6 +120,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -137,6 +136,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
@@ -148,10 +151,22 @@
       "html": "<ul><li>Max size: 60 mm standard length (SL)</li><li>Aquarium size: 75 × 30 cm</li><li>Temperature: 18–25.5°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Difficulty: moderate</li><li>Needs a group; choose tankmates carefully; needs a well-established tank</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul><p>The zodiac loach, Mesonoemacheilus triangularis, is a loach from the Western Ghats of Kerala and Tamil Nadu in southern India. Also called the 'Batik loach', it is relatively common in the aquarium trade. Pale, black-edged saddles along the back and a similar set of bars from the belly set it apart from its congeners. Aquarists differ on its temperament, some finding it peaceful and others territorial and aggressive.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-triangularis-2/",
+      "html": "<p>The Zodiak Loach, Mesonoemacheilus triangularis, is a well recognizable loach from South India. It becomes approximately 6 cm long and is easy to maintain.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-triangularis",
       "html": "<p>The type locality is given by Day as 'the hills at Mundikyum' which appears to correspond to the small town now known as Mundakayam, in Kottayam District of Kerala state, South India, through which runs the river Manimala.</p><p>Mundakayam lies within the Western Ghats mountains and M. triangularis has since been recorded to occur in river systems draining both sides of that range in the states of Kerala and Tamil Nadu, where it's said to be locally abundant.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-triangularis-2/",
+      "html": "<p>The species occurs endemically in the Western Ghats of South India. The loaches of Asia are an enormously species-rich fish group, and a great part of the species has not yet been scientifically described, similar to the cory catfish in South America.</p>"
     },
     {
       "key": "habitat",
@@ -208,6 +223,12 @@
       "html": "<p>This species is also referred to by the alternative vernacular name 'Batik loach' and is relatively common in the aquarium trade.</p><p>It's easily-distinguished from congeners by body patterning which comprises a series of pale, oblique saddle-like markings edged in black and running along the dorsal surface, plus a similar set of bars originating from the otherwise plain ventral surface.</p><p>The number and positioning of these is variable, and in some individuals they break up to an extent, forming additional blotches of random size, shape and number.</p><p>Older specimens tend to have more diverse patterning whereas in many younger fish the markings are conjoined forming a series of &lt;-shaped bands.</p><p>With regard to the remaining members of the genus, only M. guentheri is regularly exported for the aquarium trade and is easily told apart since its body patterning comprises rows of yellowish, dark-edged spots, as does that of M. herrei.</p><p>M. petrubanarescui has dark body stripes, M. menoni a reticulated pattern of dark bands and blotches, M. pambarensis more branched dorsal-fin rays (8-10, usually 9, vs. 7-8 in M. guentheri) plus an elongate body the depth of which fits more than 5.5 times into the SL, M. pulchellus also has more branched dorsal-fin rays (always 10) and M. remadevii lacks dark markings in the fins.</p><p>All Mesonoemacheilus spp. are endemic to rivers draining the Western Ghats and the genus is separated from the closely-related Nemacheilus by members possessing two pairs of rostral barbels which are confluent at their bases vs. rostral barbels present but not confluent.</p><p>In addition, the lips are usually less deeply-furrowed in Mesonoemacheilus than Nemacheilus spp. while Bãnãrescu and Nalbant (1995) noted that Mesonoemacheilus is the only nemacheilid genus exhibiting a greater degree of brownish than whitish colouration.</p><p>According to Rema Devi and Indra (2002) Acoura savona from northern India uniquely shares both this feature plus possession of confluent rostral barbels and this may warrant further study, though it appears that this suggestion has not been followed to date.</p><p>The family Nemacheilidae is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-triangularis-2/",
+      "html": "<p>The genus Mesonoemacheilus differs from Nemacheilus only in some minor anatomical details.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-triangularis",
@@ -225,9 +246,64 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/mesonoemacheilus-triangularis",
       "caption": "Young adult specimen.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8ee4986974e61264.webp",
+      "thumb": "https://media.aquatome.com/glaser/8ee4986974e61264-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-triangularis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8d4c422313e64544.webp",
+      "thumb": "https://media.aquatome.com/glaser/8d4c422313e64544-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-triangularis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2345891996a9a550.webp",
+      "thumb": "https://media.aquatome.com/glaser/2345891996a9a550-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/mesonoemacheilus-triangularis-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "rD9PWoCwUUg",
+      "title": "Mesonoemacheilus triangularis \"Batik/Zodiac Loach\" at The Cichlid Exchange 10.27.23",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "c-8ffUbTmzc",
+      "title": "Habitat of Mesonoemacheilus triangularis in the Kuntipuzha river system [Watch in HD]",
+      "durationSec": 128,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "eWcLqGTalyk",
+      "title": "The Batik/Zodiac Loach - Mesonoemacheilus triangularis",
+      "durationSec": 89,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "LbnC_Ql5QiA",
+      "title": "Biotope aquarium. Malabar. 100 L",
+      "durationSec": 139,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -258,5 +334,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-20"
 }

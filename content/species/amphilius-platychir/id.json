@@ -13,13 +13,20 @@
     "equipment:scotcat": "<p>Bisa dipelihara di akuarium dengan substrat kerikil berbutir kecil atau pasir, banyak tanaman air, dan arus ringan untuk meniru habitat aslinya. Sediakan susunan batu dan gua.</p>",
     "diet:scotcat": "<p>Jentik nyamuk, cacing sutra, cyclops, kutu air, cacing grindal, pakan nabati, pakan tablet, dan pakan serpihan.</p>",
     "notes:scotcat": "<p>Etimologi: Nama spesies platychir berasal dari platy, pipih atau lebar; dan cheiros, tangan, merujuk pada jari-jari sirip dada yang lebar seperti kipas.</p><p>Daftar Merah IUCN: spesies ini tersebar luas tanpa ancaman besar yang diketahui dan digolongkan sebagai Risiko Rendah (Least Concern). Karena ada penelitian yang mengindikasikan adanya spesies kriptik yang belum dideskripsikan di dalam kompleks A. platychir, penelitian lanjutan mengenai taksonomi dan sebaran spesies ini masih diperlukan (IUCN 2020).</p>",
-    "references:scotcat": "<p>Diouf, K. &amp; Entsua-Mensah, M. 2020. Amphilius platychir. The IUCN Red List of Threatened Species 2020.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Seegers, Lothar; The Catfishes of Africa. A handbook for identification and maintenance. Tetra Verlag GmbH. 604p.</p>"
+    "references:scotcat": "<p>Diouf, K. &amp; Entsua-Mensah, M. 2020. Amphilius platychir. The IUCN Red List of Threatened Species 2020.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Seegers, Lothar; The Catfishes of Africa. A handbook for identification and maintenance. Tetra Verlag GmbH. 604p.</p>",
+    "quickFacts:planetcatfish": "<ul><li>Nama ilmiah: Amphilius platychir (Günther, 1864)</li><li>Nama umum: Mountain barbel</li><li>Lokasi tipe: Sierra Leone</li><li>Daftar Merah IUCN: Risiko Rendah (Least Concern) (terakhir dinilai 2019)</li></ul>",
+    "distribution:planetcatfish": "<p>Afrika: Sierra Leone, Guinea, dan Pantai Gading. Laporan dari Ghana dan Tanzania masih perlu dikonfirmasi. Diketahui ada di Sungai Senegal, Niger, Gambia, Corubal, Konkouré, dan Little Scarcies. Dilaporkan juga dari Sungai Luongo, sistem sungai Kongo, Zambia.</p>",
+    "habitat:planetcatfish": "<p>Sebagian besar spesies amphiliid ditemukan di perairan berarus deras, yaitu sungai kecil berbatu yang jernih di dataran tinggi atau di jeram sungai-sungai besar di dataran rendah. Spesies Amphilius telah beradaptasi dengan arus deras dan habitat berbatu. Adaptasi bentuk tubuh untuk habitat ini antara lain sirip dada dan sirip perut yang melebar dengan jari-jari pertama yang menebal, tubuh pipih, mata yang menghadap ke atas, dan gelembung renang yang mengecil. Sirip perut yang besar, bersama dengan tubuhnya, membentuk cakram isap yang lemah sehingga ikan ini bisa menempel di bebatuan.</p>",
+    "diet:planetcatfish": "<p>Pakan spesies Amphilius dilaporkan sebagian besar terdiri dari serangga air yang hidup di dasar perairan.</p>",
+    "reproduction:planetcatfish": "<p>Belum ada laporan pemijahan.</p>",
+    "references:planetcatfish": "<p>Catalogue of the fishes in the British Museum v. 5, pp 134.</p>"
   },
   "quality": {
     "score": 0.75,
     "indexable": true,
     "bySource": {
-      "scotcat": 0.75
+      "scotcat": 0.75,
+      "planetcatfish": 0.85
     }
   },
   "held": {

@@ -292,7 +292,24 @@
       "html": "<p>Lamboj, A., D. Bartel and E. Dell’ampio (2014): Revision of the Pelvicachromis taeniatus-group (Perciformes), with revalidation of the taxon Pelvicachromis kribensis (Boulenger, 1911) and description of a new species. Cybium v. 38 (no. 3): 205-222.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/407759432.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/407759432-480.webp",
+      "width": 1024,
+      "height": 690,
+      "licence": "CC BY-NC-SA",
+      "author": "jeanlouisamiet",
+      "sourceUrl": "https://www.inaturalist.org/photos/407759432",
+      "caption": "Cá kribensis sọc đực bên đá đen",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/407759432-large.webp",
+        "width": 1780,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "xicQC4e1C3o",

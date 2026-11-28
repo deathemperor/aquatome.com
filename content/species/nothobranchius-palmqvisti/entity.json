@@ -22,7 +22,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-palmqvisti-2/",
       "source": "glaser"
     },
@@ -32,7 +32,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-palmqvisti-2/",
       "source": "glaser"
     },
@@ -42,7 +42,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-palmqvisti-2/",
       "source": "glaser"
     }
@@ -74,5 +74,29 @@
     }
   ],
   "productSlots": [],
-  "updatedAt": "2026-11-19"
+  "updatedAt": "2026-11-19",
+  "range": {
+    "records": {
+      "taxonKey": 2348701,
+      "total": 6,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "TZ",
+          5
+        ],
+        [
+          "KE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          37.96875,
+          -5.625,
+          6
+        ]
+      ]
+    }
+  }
 }

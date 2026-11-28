@@ -25,10 +25,16 @@
       "quotes": [
         {
           "source": "glaser",
-          "quote": "The species is endemic to Lake Valencia in Venezuela (including some tributary rivers).",
+          "quote": "The species lives endemically in Lake Valencia in Venezuela, so it only occurs there (including some inflows and outflows).",
           "countries": [
             "VE"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Valencia and surrounding waters, Venezuela.",
+          "countries": [],
           "regions": [
             "Lake Valencia"
           ]
@@ -112,8 +118,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_pittieri_en/",
-      "html": "<p>The Diamond tetra has been present in the hobby since 1933. Usually only bred specimens are available; only every now and then some wild-collected ones appear in the trade. At first glance the fish may look a bit unspectacular, but this is deceptive. In the right light the adult fish glitter and glimmer in a breathtaking way and show why they really deserve the name Diamond tetra.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-pittieri-2/",
+      "html": "<p>The diamond tetra (Moenkhausia pittieri) has been in the hobby since 1933. Usually it is only in the trade as offspring, very rarely a few wild catches come in.</p>"
     },
     {
       "key": "quickFacts",
@@ -124,8 +130,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_pittieri_en/",
-      "html": "<p>The species is endemic to Lake Valencia in Venezuela (including some tributary rivers).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-pittieri-2/",
+      "html": "<p>The species lives endemically in Lake Valencia in Venezuela, so it only occurs there (including some inflows and outflows).</p>"
     },
     {
       "key": "distribution",
@@ -186,53 +192,89 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/makunaima-pittieri",
       "html": "<p>This species is something of an \"ugly duckling\", as it's usually sold as a fairly bland looking, silvery juvenile. Given time and a good diet it develops into a magnificent fish as an adult, that really does sparkle like a diamond. A big shoal of these in a planted tank looks stunning.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-pittieri-2/",
+      "html": "<p>At first sight the diamond tetra may seem a bit inconspicuous, but the glittering and sparkling fish in the right light are really a show and fully deserve the name diamond tetra. Add to that the lushly developed, flowing fins…</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/418d3413b40026b6.webp",
+      "thumb": "https://media.aquatome.com/commons/418d3413b40026b6-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "Dnoerholm",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MoenkhausiaPittieri.jpg",
-      "caption": "Moenkhausia pittieri",
-      "thumb": "https://media.aquatome.com/commons/418d3413b40026b6-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/418d3413b40026b6-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Dnoerholm",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MoenkhausiaPittieri.jpg",
+      "caption": "Moenkhausia pittieri"
     },
     {
       "url": "https://media.aquatome.com/commons/4ab298448e877a13.webp",
+      "thumb": "https://media.aquatome.com/commons/4ab298448e877a13-480.webp",
       "width": 924,
       "height": 827,
       "licence": "CC0",
       "author": "Rosieandgingerbits",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamond_Tetra.jpg",
-      "caption": "A male diamond tetra in a planted aquarium",
-      "thumb": "https://media.aquatome.com/commons/4ab298448e877a13-480.webp"
+      "caption": "A male diamond tetra in a planted aquarium"
     },
     {
       "url": "https://media.aquatome.com/commons/859016112b0437a8.webp",
+      "thumb": "https://media.aquatome.com/commons/859016112b0437a8-480.webp",
       "width": 960,
       "height": 539,
       "licence": "CC BY-SA 4.0",
       "author": "SOK",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moenkhausia_pittieri_young_fish_in_aquarium.jpg",
-      "caption": "Diamond tetra, young individual in aquarium",
-      "thumb": "https://media.aquatome.com/commons/859016112b0437a8-480.webp"
+      "caption": "Diamond tetra, young individual in aquarium"
     },
     {
       "url": "https://media.aquatome.com/commons/273011b320ded9fa.webp",
+      "thumb": "https://media.aquatome.com/commons/273011b320ded9fa-480.webp",
       "width": 960,
       "height": 1280,
       "licence": "CC BY 4.0",
       "author": "Justmakingphotos",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamond_Tetra_with_Cloudy_Eye.jpg",
-      "caption": "This is a Diamond Tetra with a cloudy eye.",
-      "thumb": "https://media.aquatome.com/commons/273011b320ded9fa-480.webp"
+      "caption": "This is a Diamond Tetra with a cloudy eye."
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5d015d0b79343b9f.webp",
+      "thumb": "https://media.aquatome.com/glaser/5d015d0b79343b9f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-pittieri-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4d827e541f8434bf.webp",
+      "thumb": "https://media.aquatome.com/glaser/4d827e541f8434bf-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-pittieri-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/504d7b1f48213dbf.webp",
+      "thumb": "https://media.aquatome.com/glaser/504d7b1f48213dbf-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-pittieri-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -283,5 +325,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-22"
 }

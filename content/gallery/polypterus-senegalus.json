@@ -6,30 +6,30 @@
       "thumb": "https://media.aquatome.com/commons/38c7a857f754412f-480.webp",
       "width": 1200,
       "height": 680,
-      "licence": "CC BY 2.0",
-      "author": "Elma",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senegalus.jpg",
-      "caption": "Cá khủng long Senegal màu vàng nâu trong bể nền tối",
       "large": {
         "url": "https://media.aquatome.com/commons/38c7a857f754412f-large.webp",
         "width": 2063,
         "height": 1168
-      }
+      },
+      "licence": "CC BY 2.0",
+      "author": "Elma",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senegalus.jpg",
+      "caption": "Cá khủng long Senegal màu vàng nâu trong bể nền tối"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/625544895.webp",
       "thumb": "https://media.aquatome.com/inaturalist/625544895-480.webp",
       "width": 1024,
       "height": 680,
-      "licence": "CC BY",
-      "author": "Matthew Inabinett",
-      "sourceUrl": "https://www.inaturalist.org/photos/625544895",
-      "caption": "Cá khủng long Senegal màu bạc xám trong bể cát có đá",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/625544895-large.webp",
         "width": 1807,
         "height": 1200
-      }
+      },
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/625544895",
+      "caption": "Cá khủng long Senegal màu bạc xám trong bể cát có đá"
     },
     {
       "url": "https://media.aquatome.com/commons/b9b8bf7ba7e2b6ac.webp",
@@ -88,30 +88,30 @@
       "thumb": "https://media.aquatome.com/commons/d7ac46635fc173c6-480.webp",
       "width": 1200,
       "height": 900,
-      "licence": "Public domain",
-      "author": "Mitternacht90 at en.wikipedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senegal_Bichir.JPG",
-      "caption": "Cá khủng long Senegal bơi trên sỏi màu trong bể cảnh",
       "large": {
         "url": "https://media.aquatome.com/commons/d7ac46635fc173c6-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "Public domain",
+      "author": "Mitternacht90 at en.wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senegal_Bichir.JPG",
+      "caption": "Cá khủng long Senegal bơi trên sỏi màu trong bể cảnh"
     },
     {
       "url": "https://media.aquatome.com/commons/04da2bd6351a9b42.webp",
       "thumb": "https://media.aquatome.com/commons/04da2bd6351a9b42-480.webp",
       "width": 1200,
       "height": 668,
-      "licence": "CC BY 2.0",
-      "author": "Elma",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polyterus_Senegalus_2.jpg",
-      "caption": "Cá khủng long Senegal nhìn nghiêng, thân dài màu xám nâu",
       "large": {
         "url": "https://media.aquatome.com/commons/04da2bd6351a9b42-large.webp",
         "width": 2159,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 2.0",
+      "author": "Elma",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polyterus_Senegalus_2.jpg",
+      "caption": "Cá khủng long Senegal nhìn nghiêng, thân dài màu xám nâu"
     },
     {
       "url": "https://media.aquatome.com/commons/cd737f1927b0f68b.webp",
@@ -162,9 +162,35 @@
       "author": "5snake5",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polypterus_senegalus_-_Senegal-Fl%C3%B6sselhecht_Portrait.jpg",
       "caption": "Cá khủng long Senegal màu xám đậm trên nền sỏi trắng"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/429437863.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/429437863-480.webp",
+      "width": 1024,
+      "height": 512,
+      "licence": "CC BY-NC",
+      "author": "H.Grenier",
+      "sourceUrl": "https://www.inaturalist.org/photos/429437863",
+      "caption": "Thân và vây ngực cá khủng long Senegal trong bể kính",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/470388021.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/470388021-480.webp",
+      "width": 1024,
+      "height": 512,
+      "licence": "CC BY-NC",
+      "author": "H.Grenier",
+      "sourceUrl": "https://www.inaturalist.org/photos/470388021",
+      "caption": "Cá khủng long Senegal với các vây lưng răng cưa trong bể kính",
+      "best": true,
+      "kind": "other",
+      "setup": false
     }
   ],
-  "seen": 34,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 50,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

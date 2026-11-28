@@ -3,6 +3,12 @@
   "name": "อีนีรีดา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:11:24.354Z",
+    "why": "The Thai transliteration is plausible but the Spanish \"Inírida\" (stress on ní) would be written อีนิรีดา in Thai, and \"อีนีรีดา\" has an odd long vowel on the second syllable. Also no region word like จังหวัด/แผนก is given, though Guainía is a department and Inírida is its capital."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { gbifSynonyms } from '../src/gbif'
-import { addPlantSynonyms, binomialsIn, formerNamesInText, HOBBY_NAMES, plantSynonyms } from '../src/plant-synonyms'
+import { addPlantSynonyms, binomialsIn, formerNamesInText, HOBBY_NAMES, PLANT_SYNONYMS_OFF, plantSynonyms } from '../src/plant-synonyms'
 
 // 2026-11-02, the built-page checker on aquatome.com: "rêu Java (Vesicularia dubyana)", "Amazon sword (Echinodorus
 // amazonicus)", "Pygmy chain sword (Echinodorus tenellus)" linked plant pages that listed none of those old names.
@@ -80,6 +80,9 @@ const gbifHttp = (urls: string[] = []) => async (url: string) => {
   return GBIF[k]
 }
 
+// The step as it was before it went off (20 Nov).
+const on = { off: false as const }
+
 test("GBIF's other names: its accepted name for a synonym, then that name's synonyms at species rank; nothing for a fuzzy or genus match", async () => {
   expect(await gbifSynonyms('Helanthium tenellum', gbifHttp())).toEqual(['Alisma tenellum', 'Echinodorus tenellus'])
   expect(await gbifSynonyms('Taxiphyllum barbieri', gbifHttp())).toEqual(['Ectropothecium barbieri', 'Isopterygium barbieri'])
@@ -102,7 +105,7 @@ test('the backfill writes only pages whose names change, after the scientific na
   await write('species', 'betta-splendens', { 'entity.json': { scientificName: 'Betta splendens', sections: [{ html: 'Isopterygium barbieri on wood' }] } })
   const before = await readFile(join(root, 'content/plants/bucephelandra-sp/entity.json'), 'utf8')
   const urls: string[] = []
-  const r = await addPlantSynonyms(root, gbifHttp(urls))
+  const r = await addPlantSynonyms(root, gbifHttp(urls), on)
   expect(r).toEqual({ changed: ['helanthium-tenellum: Echinodorus tenellus', 'taxiphyllum-barbieri: Vesicularia dubyana, Isopterygium barbieri'], failed: [] })
   const raw = await readFile(join(root, 'content/plants/helanthium-tenellum/entity.json'), 'utf8')
   expect(raw).toBe(`${JSON.stringify({ id: 'helanthium-tenellum', scientificName: 'Helanthium tenellum', synonyms: ['Echinodorus tenellus'], difficulty: 1, sections: [{ key: 'notes', source: 'tropica', sourceUrl: 'u', html: '<p>x</p>' }], updatedAt: '2026-10-01' }, null, 4)}\n`)
@@ -110,10 +113,10 @@ test('the backfill writes only pages whose names change, after the scientific na
   expect(urls.some(u => u.includes('Bucephelandra'))).toBe(false)
   // The next run: nothing changes, GBIF isn't asked again, and a page's own synonyms don't count as pages writing them.
   const n = urls.length
-  expect(await addPlantSynonyms(root, gbifHttp(urls))).toEqual({ changed: [], failed: [] })
+  expect(await addPlantSynonyms(root, gbifHttp(urls), on)).toEqual({ changed: [], failed: [] })
   expect(urls).toHaveLength(n)
   await write('guides', 'g', { 'vi.json': { body: '<p>Cỏ nhật bản phủ nền.</p>' } })
-  expect((await addPlantSynonyms(root, gbifHttp(urls))).changed).toEqual(['helanthium-tenellum: (none)'])
+  expect((await addPlantSynonyms(root, gbifHttp(urls), on)).changed).toEqual(['helanthium-tenellum: (none)'])
   expect(JSON.parse(await readFile(join(root, 'content/plants/helanthium-tenellum/entity.json'), 'utf8'))).not.toHaveProperty('synonyms')
 })
 
@@ -122,7 +125,30 @@ test('a plant whose GBIF lookup fails keeps the names it has until the next run'
   await mkdir(join(root, 'content/plants/helanthium-tenellum'), { recursive: true })
   const file = join(root, 'content/plants/helanthium-tenellum/entity.json')
   await writeFile(file, `${JSON.stringify({ id: 'helanthium-tenellum', scientificName: 'Helanthium tenellum', synonyms: ['Echinodorus tenellus'], sections: [] }, null, 2)}\n`)
-  const r = await addPlantSynonyms(root, async () => { throw new Error('HTTP 503 for api.gbif.org') })
+  const r = await addPlantSynonyms(root, async () => { throw new Error('HTTP 503 for api.gbif.org') }, on)
   expect(r).toEqual({ changed: [], failed: ['Helanthium tenellum'] })
   expect(JSON.parse(await readFile(file, 'utf8')).synonyms).toEqual(['Echinodorus tenellus'])
+})
+
+test('off until its fix: a cycle or a hand run asks GBIF for nothing, writes no file, and the names on plant pages stay as they are (the chief of staff, 20 Nov)', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-syn-'))
+  const kept = '{"Helanthium tenellum":[]}\n'
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'engine-state/_gbif-synonyms.json'), kept)
+  // One page with its names, one whose own text gives a former name it doesn't have yet.
+  const page = (id: string, scientificName: string, html: string, extra: Record<string, unknown> = {}) => ({ id, scientificName, ...extra, sections: [{ key: 'notes', source: 'tropica', sourceUrl: 'u', html }] })
+  const files: Record<string, string> = {
+    'helanthium-tenellum': `${JSON.stringify(page('helanthium-tenellum', 'Helanthium tenellum', '<p>x</p>', { synonyms: ['Alisma tenellum'] }), null, 2)}\n`,
+    'taxiphyllum-barbieri': `${JSON.stringify(page('taxiphyllum-barbieri', 'Taxiphyllum barbieri', '<p>Formerly Isopterygium barbieri.</p>'), null, 2)}\n`,
+  }
+  for (const [id, raw] of Object.entries(files)) {
+    await mkdir(join(root, 'content/plants', id), { recursive: true })
+    await writeFile(join(root, 'content/plants', id, 'entity.json'), raw)
+  }
+  const asked: string[] = []
+  expect(await addPlantSynonyms(root, async u => { asked.push(u); return {} })).toEqual({ changed: [], failed: [], off: PLANT_SYNONYMS_OFF })
+  expect(PLANT_SYNONYMS_OFF).toBeTruthy()
+  expect(asked).toEqual([])
+  expect(await readFile(join(root, 'engine-state/_gbif-synonyms.json'), 'utf8')).toBe(kept)
+  for (const [id, raw] of Object.entries(files)) expect(await readFile(join(root, 'content/plants', id, 'entity.json'), 'utf8')).toBe(raw)
 })

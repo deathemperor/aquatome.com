@@ -1,9 +1,7 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {
-  "https://media.aquatome.com/seriouslyfish/4400febe16743798.webp": "b42868781e9682e0"
- },
+ "hashes": {},
  "commons": "2026-11-09",
  "inat": {
   "taxon": 613440,
@@ -12,5 +10,17 @@
    "research": 0,
    "agree": 0
   }
- }
+ },
+ "gbif": {
+  "key": 7940010,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
+ },
+ "exhausted": "2026-11-21"
 }

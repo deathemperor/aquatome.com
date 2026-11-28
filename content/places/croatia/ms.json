@@ -3,6 +3,12 @@
   "name": "Croatia",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.05,
+    "at": "2026-11-20T01:52:47.059Z",
+    "why": "The Malay name for the country is \"Croatia\" in Malaysian atlases? No: Malay uses \"Croatia\" in DBP usage, but the standard Malay form is \"Croatia\" (also seen as \"Kroasia\" in Indonesian), so this spelling is acceptable."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

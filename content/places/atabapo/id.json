@@ -3,6 +3,12 @@
   "name": "Atabapo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:08:04.963Z",
+    "why": "The source sentence places Atabapo as a river in Venezuela's Amazonas state, so \"Atabapo\" alone drops the kind word \"Sungai\" that an Indonesian atlas would use (Sungai Atabapo)."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

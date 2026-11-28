@@ -1,0 +1,86 @@
+{
+  "id": "harttia-guianensis",
+  "scientificName": "Harttia guianensis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Harttia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "french-guiana",
+    "approuague",
+    "suriname",
+    "marowijne"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 17.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1551",
+      "html": "<ul><li>Scientific name: Harttia guianensis Rapp Py-Daniel &amp; Oliveira, 2001</li><li>Etymology: Lorica, Loricare = cuirass or corslet of leather (a suit of armour made of leather).</li><li>IUCN Red List: Least Concern (last assessed 2023).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1551",
+      "html": "<p>South America: coastal rivers of the Guianas, including the Approuague and Sinnamary in French Guiana and the Marowijne in Suriname. Type locality: Approuague River, Saut Athanase, 4°11'N, 52°19'W, French Guiana.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1551",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1551",
+      "html": "<p>Ichthyological Exploration of Freshwaters v. 12 (no. 1): pp88, Fig. 6.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/805493e43b0f95a2.webp",
+      "width": 960,
+      "height": 445,
+      "licence": "CC0",
+      "author": "Fréderic Melki",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Harttia_guianensis_(Mitaraka_Mountains,_French_Guiana).png",
+      "caption": "A wild specimen of catfish species Harttia guianensis, photographed in a stream running through the Mitaraka Mountains of French Guiana.",
+      "thumb": "https://media.aquatome.com/commons/805493e43b0f95a2-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau củ chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-25"
+}

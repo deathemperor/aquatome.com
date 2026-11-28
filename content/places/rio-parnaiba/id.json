@@ -1,8 +1,13 @@
 {
   "slug": "rio-parnaiba",
-  "name": "Parnaíba",
+  "name": "Sungai Parnaíba",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-20T07:09:14.438Z"
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

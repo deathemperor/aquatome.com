@@ -22,7 +22,8 @@
         "Ogooué",
         "Mitemele River",
         "Mbei",
-        "Komo"
+        "Komo",
+        "Abanga River"
       ],
       "sources": [
         "seriouslyfish"
@@ -40,6 +41,14 @@
             "Mitemele River",
             "Mbei",
             "Komo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Abanga River, between first and second rapids, Ogowe River system, Gabon', corresponding to the Abanga River basin, a northern tributary of the middle Ogooué system in Gabon, western Africa.",
+          "countries": [],
+          "regions": [
+            "Abanga River"
           ]
         }
       ]
@@ -132,6 +141,13 @@
           "min": 20,
           "max": 26
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -169,6 +185,15 @@
         "source": "seriouslyfish",
         "value": 2
       }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 2,
+          "max": 3
+        }
+      }
     ]
   },
   "sections": [
@@ -179,10 +204,22 @@
       "html": "<ul><li>Max size: 50 mm SL (2.0 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 6.5–7.5</li><li>Hardness: 3–12 dGH</li><li>Difficulty: 2 of 8</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_striatum_en/",
+      "html": "<p>Common name: Red Striped Killi. Bred by German breeders.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-striatum",
       "html": "<p>Needs a tight-fitting lid as this species is known to jump. This species is an accomplished jumper so the cover must fit tightly.</p><p>The red-striped lyretail, Aphyosemion striatum, is a killifish from coastal Equatorial Guinea and Gabon, as far south as the lower Ogooué basin. It inhabits perennial lowland rainforest streams, pools and freshwater swamps. Easy to breed and relatively long-lived, since it is not an annual species, it is a good beginner's killifish, though a shy one easily out-competed by more vigorous fishes.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_striatum_en/",
+      "html": "<p>Killifish as a whole are often still regarded as sensitive, short-living fishes that cannot be kept in community tanks. However, this is wrong. The Aphyosemion species that attach the eggs on substrates and hatch the eggs under water (in other species – the so-called annual species – the eggs have to be kept dry for a while) live as comparatively long as other fish of similar size, e.g. 2-3 years. A. striatum belongs to the long-living group. The fish are not very sensitive, but they look good only when kept in the correct environment.</p>"
     },
     {
       "key": "distribution",
@@ -209,10 +246,22 @@
       "html": "<p>A dark substrate should be used and the aquarium should have dense areas of planting and pieces of wood to serve as cover. The use of floating plants to further diffuse the light is also recommended.</p><p>This species is an accomplished jumper so the cover must fit tightly.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_striatum_en/",
+      "html": "<p>The tank setup has to be quite dark and should contain a lot of underwater plants. Then the fish feel safe and display their bright colours.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-striatum",
       "html": "<ul><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 6.5–7.5</li><li>Hardness: 3–12 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_striatum_en/",
+      "html": "<p>Hardness and pH are of lesser importance for successful keeping, but in general the water should be poor in bacteria and the pH should not be higher than 7.5. The water temperature can be between 22 and 28°C, with the lower temperatures preferred.</p>"
     },
     {
       "key": "diet",
@@ -221,10 +270,22 @@
       "html": "<p>Aphyosemion species feed largely on aquatic and terrestrial invertebrates in the wild.</p><p>In captivity small live or frozen foods such as Daphnia or bloodworm are preferred although the fish will also accept good quality flake in most cases.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_striatum_en/",
+      "html": "<p>Aphyosemion striatum feeds on any type of regular ornamental fish food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-striatum",
       "html": "<p>A. striatum can be kept in a community arrangement provided tankmates are chosen with care. This is a very peaceful, relatively shy species and will easily be out-competed by more vigorous fishes.</p><p>Ideal choices include tetras, cyprinids, dwarf cichlids, Corydoras catfishes, small Loricariids and peaceful Anabantoids which grow large enough to avoid being eaten.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_striatum_en/",
+      "html": "<p>Aphyosemion are a bit shy and slow, so it is a very bad idea to keep them with tough and fast-swimming fish, like many cichlids or the tiger barb. Small and peaceful fish, like many tetras, rasboras, anabantoids or small catfish species, are perfect tankmates.</p>"
     },
     {
       "key": "dimorphism",
@@ -254,31 +315,86 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/6be9cab7aee7abed.webp",
+      "thumb": "https://media.aquatome.com/commons/6be9cab7aee7abed-480.webp",
       "width": 960,
       "height": 720,
-      "licence": "CC BY-SA 4.0",
-      "author": "Alexander Prokoshev",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aphyosemion_striatum_pair.jpg",
-      "caption": "Juvenile adults male and female of Aphyosemion striatum",
-      "thumb": "https://media.aquatome.com/commons/6be9cab7aee7abed-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/6be9cab7aee7abed-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Alexander Prokoshev",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aphyosemion_striatum_pair.jpg",
+      "caption": "Juvenile adults male and female of Aphyosemion striatum"
     },
     {
       "url": "https://media.aquatome.com/commons/c6e6056b029f40fe.webp",
+      "thumb": "https://media.aquatome.com/commons/c6e6056b029f40fe-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Alexander Prokoshev",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aphyosemion_striatum_(tmp_placeholder).jpg",
-      "caption": "Aphyosemion striatum juvenile adult male",
-      "thumb": "https://media.aquatome.com/commons/c6e6056b029f40fe-480.webp"
+      "caption": "Aphyosemion striatum juvenile adult male"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7d743a8d9ddbebda.webp",
+      "thumb": "https://media.aquatome.com/glaser/7d743a8d9ddbebda-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_striatum_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/807a05ec581b273c.webp",
+      "thumb": "https://media.aquatome.com/glaser/807a05ec581b273c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_striatum_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/aee759966f9231ab.webp",
+      "thumb": "https://media.aquatome.com/glaser/aee759966f9231ab-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_striatum_en/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "RSNBGDBKW1o",
+      "title": "Aphyosemion Striatum LEC 93/29",
+      "durationSec": 59,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "oRwj5N5JDUI",
+      "title": "Nadir Türler: Aphyosemion Striatum Akvaryumu (45 Litre, Pipo Filtre, Killifish)",
+      "durationSec": 385,
+      "lang": "tr"
+    },
+    {
+      "youtubeId": "NYuavOVzZH0",
+      "title": "Meet the Fish - Aphyosemion Striatum Lambarene",
+      "durationSec": 323,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dDkceAt8WBI",
+      "title": "Distribution de nourriture Aphyosemion striatum",
+      "durationSec": 61,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -309,5 +425,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-22"
 }

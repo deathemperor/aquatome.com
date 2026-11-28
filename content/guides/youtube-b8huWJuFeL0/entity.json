@@ -1,0 +1,105 @@
+{
+  "id": "youtube-b8huWJuFeL0",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=b8huWJuFeL0",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-23",
+  "video": {
+    "youtubeId": "b8huWJuFeL0",
+    "title": "How To Build An Aquarium Filter Cheap (Part 1-2)",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 1381,
+    "publishedAt": "2021-01-24",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D1WIxQi0sr79irnMFnlLzqJ",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/b8huWJuFeL0/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Higer",
+        "t": 515
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 557
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "brand": "Eheim Jager",
+        "t": 312
+      },
+      {
+        "category": "khac",
+        "brand": "CJ",
+        "t": 282
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Nước chạy qua sump như thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/b8huWJuFeL0/p1-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/b8huWJuFeL0/p1-TmV3X1N1bXAuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Gtstricky",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
+          "caption": "Sump acrylic nhiều ngăn đang được lắp đặt, có máy skimmer đặt bên trong."
+        }
+      },
+      {
+        "heading": "Lắp giá treo túi lọc",
+        "moments": [
+          {
+            "t": 770,
+            "url": "https://media.aquatome.com/video/b8huWJuFeL0/at770-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh viền nhựa đen của bể sump, chỗ có gờ nhỏ chìa ra.",
+            "sharpness": 90.6
+          }
+        ]
+      },
+      {
+        "heading": "Lắp bơm, sưởi và vệ sinh túi lọc",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/b8huWJuFeL0/p6-ha3dhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/b8huWJuFeL0/p6-ha3dhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Ewkaa",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
+          "caption": "Cây sưởi bể cá có giác hút, dây điện cuộn gọn."
+        }
+      }
+    ]
+  }
+}

@@ -1,7 +1,13 @@
 {
  "queue": [],
  "judged": [
-  "File:Bagarius rutilus.jpg"
+  "File:Bagarius rutilus.jpg",
+  "inat:68022941",
+  "inat:109112670",
+  "inat:132534230",
+  "inat:215753470",
+  "inat:215753443",
+  "inat:215753548"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/d9541e4f67808d63.webp": "001836172d430000"
@@ -18,5 +24,9 @@
  "gbif": {
   "key": 2341216,
   "next": null
+ },
+ "inatNc": {
+  "after": 127109805,
+  "done": true
  }
 }

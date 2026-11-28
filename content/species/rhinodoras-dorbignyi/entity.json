@@ -12,7 +12,8 @@
     "paraguay",
     "uruguay",
     "argentina",
-    "brazil"
+    "brazil",
+    "rio-de-la-plata"
   ],
   "range": {
     "native": {
@@ -362,6 +363,13 @@
           "min": 20,
           "max": 25
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
       }
     ],
     "ph": [
@@ -369,6 +377,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 6,
+          "max": 7
+        }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
           "max": 7
         }
       }
@@ -385,6 +400,10 @@
     "sizeCm": [
       {
         "source": "seriouslyfish",
+        "value": 30
+      },
+      {
+        "source": "planetcatfish",
         "value": 30
       }
     ],
@@ -409,10 +428,22 @@
       "html": "<p>Rhinodoras dorbignyi is a talking catfish from the Rio Paraná basin in Bolivia, Paraguay, Uruguay, Argentina and Brazil. It shelters among roots or submerged vegetation in slow-moving and standing waters. Shy and nocturnal, it grows to at least 30 cm and will eat smaller fish, although it is otherwise totally unaggressive.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1504",
+      "html": "<ul><li>Scientific name: Rhinodoras dorbignyi (Kner, 1855)</li><li>Common name: Marbled Thorny Catfish</li><li>Synonyms: Doras dorbignyi, Doras nebulosus</li><li>Type locality: Rio de la Plata, South America</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-dorbignyi",
       "html": "<p>Found throughout the enormous Rio Paraná basin in Bolivia, Paraguay, Uruguay, Argentina and Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1504",
+      "html": "<p>South America: Paraná River basin. La Plata, Paraná.</p>"
     },
     {
       "key": "habitat",
@@ -439,6 +470,12 @@
       "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 6.0–7.0</li><li>Hardness: 5–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1504",
+      "html": "<ul><li>pH: 6.5–7.0</li><li>Temperature: 20–25°C</li><li>Hardness: 10 dH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-dorbignyi",
@@ -463,10 +500,28 @@
       "html": "<p>Unreported in the hobby.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1504",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-dorbignyi",
       "html": "<p>At present there's not a great deal of information available regarding this species. It seems to be fairly easy to keep, and makes a nice, unusual addition to larger community tanks.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1504",
+      "html": "<p>Etymology: Rhinodoras comes from the Greek rhinos, meaning nose, and doras, meaning skin (also a word commonly used in forming generic names for doradids); in reference to the unusual snout morphology. Pronunciation: rye no door ass.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1504",
+      "html": "<p>Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 17, pp 149 [60], Pl. 5 (fig. 9).</p>"
     }
   ],
   "photos": [
@@ -523,5 +578,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-23"
 }

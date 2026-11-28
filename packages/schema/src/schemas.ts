@@ -55,8 +55,13 @@ const Alteration = z.object({
   checks:z.object({species:HashPair,ownership:HashPair,noTrace:HashPair.optional(),preservation:HashPair.optional()}).optional(),
 })
 const OriginalPicture = z.object({ url: z.string(), width: z.number(), height: z.number(), thumb: z.string().optional(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional() })
-/** `sourceCaption`: the source's own description of the photo, kept where our caption replaces it (the album step), for the engine's genus rule; no page shows it. */
-const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), sourceCaption: z.string().optional(), source: SourceId.optional(), ownerCrop: z.object({ id: z.string(), pixelHash: Hash }).optional(), headFit: z.literal("contain").optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional(), subject: PixelBox.optional() })
+/**
+ * `sourceCaption`: the source's own description of the photo, kept where our caption replaces it (the album step), for the engine's genus rule; no page shows it.
+ * `report`: Unsplash's download address for the photo (unsplash.ts), asked once when it is added; no page shows it. A
+ * glossary run reads its entity through this schema and writes back what it parsed, so a field it lacks is lost: Lũa's and
+ * Nền cát's photos lost theirs on every run (20 Nov 2026).
+ */
+const Photo = z.object({ url: z.string(), thumb: z.string().optional(), report: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), sourceCaption: z.string().optional(), source: SourceId.optional(), ownerCrop: z.object({ id: z.string(), pixelHash: Hash }).optional(), headFit: z.literal("contain").optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional(), subject: PixelBox.optional() })
 export const PhotoSchema = Photo
 /**
  * `originalTitle`, `generated` and `ownTitle` are the loader's (videosForPage): the engine writes none. `ownTitle`: a foreign

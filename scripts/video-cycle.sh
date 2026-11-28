@@ -11,6 +11,7 @@ log() { echo "$(date -u +%FT%TZ) $*"; }
 # the Mac's load to fall, and run once more when tests ran out of time. Without the wait, the tests at a load of 667 on
 # 16 cores (2026-11-07) ran out of their 30 s twice in a row and held back the videos.
 TEST_LOG=/tmp/aquatome-videos-test.log
+[ -n "${GITHUB_ACTIONS:-}" ] || TEST_FAILURES_DIR="$HOME/.cache/aquatome/engine-check-failures"
 # shellcheck disable=SC1091
 source scripts/cycle-checks.sh
 # The GitHub engine's clock (it also runs hourly on its own, when installed): a cycle when none started for 2 h 50 min.

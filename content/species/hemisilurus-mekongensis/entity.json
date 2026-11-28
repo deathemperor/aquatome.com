@@ -1,0 +1,88 @@
+{
+  "id": "hemisilurus-mekongensis",
+  "scientificName": "Hemisilurus mekongensis",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Hemisilurus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "mekong"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 80
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1564",
+      "html": "<p>Hemisilurus mekongensis Bornbusch &amp; Lundberg, 1989. Size: 800 mm SL (Fishbase lists 800 mm TL). Etymology: from the Greek hemi- meaning half and Silurus, the word for catfish. Type locality: Mun River at Ban Dan, Khong Chiam District, Ubon Ratchathani Province, Thailand, depth to 4 metres.</p><p>Identification: wide fringed membranous maxillary barbel in females; a single patch of vomerine teeth; pectoral-fin spine thin and smooth in females and thin with weak serrations in males. Posterior nostril above and behind eye.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1564",
+      "html": "<p>Asia: endemic to the Mekong basin. IUCN Red List category: Least Concern (last assessed 2011).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1564",
+      "html": "<p>Inhabits large upland rivers and enters flooded forest. Found in rapids and in deep slow reaches.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1564",
+      "html": "<p>Feeds on worms, plants, animal debris and insects.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1564",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1564",
+      "html": "<p>Copeia 1989 (no. 2), pp 435, Figs. 1-4.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "2dc_hG-16G8",
+      "title": "ปลาดังแดง Hemisilurus mekongensis",
+      "durationSec": 67,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gJQ3QY-iQSI",
+      "title": "Hemisilurus mekongensis",
+      "durationSec": 46,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wNuWTNfms8g",
+      "title": "ปลาดังแดง2",
+      "durationSec": 10,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "RNCIch4i20A",
+      "title": "ปลาดังแดง น้ำโขง",
+      "durationSec": 107,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-25"
+}

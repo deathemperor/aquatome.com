@@ -26,18 +26,6 @@
       "kind": "female"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/335517017.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/335517017-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Daniel Schelesky",
-      "sourceUrl": "https://www.inaturalist.org/photos/335517017",
-      "caption": "Cá sặc mật ong màu cam đỏ trong bể kính",
-      "best": true,
-      "kind": "form"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/335350604.webp",
       "thumb": "https://media.aquatome.com/inaturalist/335350604-480.webp",
       "width": 1024,
@@ -83,8 +71,19 @@
       "sourceUrl": "https://www.flickr.com/photos/133894824@N08/33533255680",
       "caption": "Cá sặc mật ong đực màu vàng trong bể thủy sinh",
       "best": true,
-      "kind": "male",
-      "unchecked": true
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/335517017.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/335517017-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Daniel Schelesky",
+      "sourceUrl": "https://www.inaturalist.org/photos/335517017",
+      "caption": "Cá sặc mật ong màu cam đỏ trong bể kính",
+      "best": true,
+      "kind": "form"
     },
     {
       "url": "https://media.aquatome.com/commons/5862689f364b51b5.webp",
@@ -121,9 +120,22 @@
       "caption": "Cá sặc mật ong màu cam bơi gần mặt nước",
       "best": false,
       "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/343078493.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/343078493-480.webp",
+      "width": 1024,
+      "height": 461,
+      "licence": "CC BY-NC",
+      "author": "Rahul kumar",
+      "sourceUrl": "https://www.inaturalist.org/photos/343078493",
+      "caption": "Cá sặc mật ong cái bơi giữa cây thủy sinh trong bể",
+      "best": true,
+      "kind": "female",
+      "setup": false
     }
   ],
-  "seen": 14,
-  "updatedAt": "2026-11-11",
-  "builtAt": "2026-11-11"
+  "seen": 21,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

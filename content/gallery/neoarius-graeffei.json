@@ -12,50 +12,7 @@
       "caption": "Hai cá da trơn bơi trong nước ngoài tự nhiên",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/191005071.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/191005071-480.webp",
-      "width": 874,
-      "height": 751,
-      "licence": "CC BY",
-      "author": "ronavery",
-      "sourceUrl": "https://www.inaturalist.org/photos/191005071",
-      "caption": "Cá da trơn bơi gần mặt nước trong sông",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/312814635.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/312814635-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "luluchouette",
-      "sourceUrl": "https://www.inaturalist.org/photos/312814635",
-      "caption": "Hai con cá da trơn bơi trong nước đục ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/539501889.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/539501889-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Patrick Connolly",
-      "sourceUrl": "https://www.inaturalist.org/photos/539501889",
-      "caption": "Cá da trơn sống ở mép nước ven bờ, nhìn trực diện",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/ad0f98c4bb194fc4.webp",
@@ -69,23 +26,33 @@
       "sourceCaption": "Blue Catfish (Neoarius graeffei). Species of fish.",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/commons/4871cc2e584712ed.webp",
-      "thumb": "https://media.aquatome.com/commons/4871cc2e584712ed-480.webp",
-      "width": 1200,
-      "height": 801,
-      "licence": "CC0",
-      "author": "Richard Fuller",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neoarius_graeffei_22674828.jpg",
-      "caption": "Cá da trơn nhạt màu bơi trong nước đục",
-      "sourceCaption": "Blue Catfish (Neoarius graeffei)",
+      "url": "https://media.aquatome.com/inaturalist/191005071.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/191005071-480.webp",
+      "width": 874,
+      "height": 751,
+      "licence": "CC BY",
+      "author": "ronavery",
+      "sourceUrl": "https://www.inaturalist.org/photos/191005071",
+      "caption": "Cá da trơn bơi gần mặt nước trong sông",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/312814635.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/312814635-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "luluchouette",
+      "sourceUrl": "https://www.inaturalist.org/photos/312814635",
+      "caption": "Hai con cá da trơn bơi trong nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/740787571.webp",
@@ -98,8 +65,7 @@
       "caption": "Cá da trơn trong hộp kính nhỏ chụp tại hiện trường",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 51,

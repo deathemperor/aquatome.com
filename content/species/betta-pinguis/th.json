@@ -20,10 +20,10 @@
     "references:seriouslyfish": "<ul><li>Tan, H. H. and M. Kottelat (1998). Two new species of Betta (Teleostei: Osphronemidae) from the Kapuas Basin, Kalimantan Barat, Borneo. Raffles Bulletin of Zoology 46(1), 41-51</li><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6
+      "seriouslyfish": 0.8
     }
   }
 }

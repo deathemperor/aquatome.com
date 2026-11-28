@@ -16,10 +16,11 @@
     "references:seriouslyfish": "<ul><li>Nijssen, H. and I. J. H. Isbrücker (1980). Three new Corydoras species from French Guiana and Brazil (Pisces, Siluriformes, Callichthyidae). Netherlands Journal of Zoology 30(3), 494-503</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.88,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.9
+      "seriouslyfish": 0.9,
+      "glaser": 0.88
     }
   }
 }

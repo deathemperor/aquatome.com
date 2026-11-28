@@ -3,6 +3,12 @@
   "name": "จังหวัดเคป",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T01:18:09.904Z",
+    "why": "Cape Province is historically called \"จังหวัดเคป\" in Thai, which is a reasonable form, but Thai atlases usually write \"แหลมเคป\" or \"จังหวัดเคปทางตะวันตก/ตะวันออก/เหนือ\" for the current provinces, and the historic province is typically \"จังหวัดเคป\" only loosely."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

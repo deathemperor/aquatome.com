@@ -11,7 +11,8 @@
     "kalimantan",
     "malaysia",
     "sarawak",
-    "borneo"
+    "borneo",
+    "bintan"
   ],
   "range": {
     "native": {
@@ -23,19 +24,23 @@
         "Borneo",
         "Sumatra",
         "Riau Archipelago",
-        "Bangka Island"
+        "Bangka"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
         {
-          "source": "seriouslyfish",
-          "quote": "Numerous records also exist from the Indonesian provinces of West Kalimantan (Kalimantan Barat), Central Kalimantan (Kalimantan Tengah) and South Kalimantan (Kalimantan Selatan), but the species appears not to occur in the north of the island.",
+          "source": "bwaquatics",
+          "quote": "It occurs in the ancient peat swamp forests of Borneo, Bangka and Sumatra, Indonesia.",
           "countries": [
             "ID"
           ],
-          "regions": []
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -50,10 +55,8 @@
           "quote": "Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations.",
           "countries": [],
           "regions": [
-            "Borneo",
-            "Sumatra",
             "Riau Archipelago",
-            "Bangka Island"
+            "Bangka"
           ]
         }
       ]
@@ -127,6 +130,13 @@
           "min": 4,
           "max": 6
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 4.5,
+          "max": 4.5
+        }
       }
     ],
     "gh": [
@@ -145,6 +155,10 @@
       },
       {
         "source": "bwaquatics",
+        "value": 2
+      },
+      {
+        "source": "glaser",
         "value": 2
       }
     ],
@@ -175,6 +189,21 @@
       "html": "<p>Sundadanio axelrodi is a miniature cyprinid from Borneo, where it inhabits black water streams and pools associated with forest peat swamps. Originally described as Rasbora axelrodi, it is the only member of its genus. Several colour forms exist depending on locality, normally labelled 'red', 'green' or 'blue', and they are best not mixed. Very peaceful but timid, it does best alone or with similarly sized species, in a group of at least 20-30.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>The tiny dwarfs of the genus Sundadanio were listed in the genus Rasbora until 1999. At that time only one species was known, namely S. axelrodi. Later other species were imported. They were still nameless, but clearly differed in color. Thus, there were blue, green and red Sundadanio. In 2011 the genus was revised and now it includes 8 species.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này rất hiếm gặp ở tiệm cá hay hội chợ cá cảnh. Một người nuôi loài này lâu năm thấy cá tìm được thì thường đã yếu. Theo người này, nhiều nơi nhập sỉ thả cá vừa về vào nước thường, rồi khi cá phải chống chọi với các loại vi khuẩn thì đa số không qua khỏi. Một người bán sỉ quen của người này thì thả cá từ Indonesia về ngay vào xô nước đen ngâm lá bàng, pH chừng 5, và lứa cá người này lấy từ đó lên tốt.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
@@ -185,6 +214,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
       "html": "<p>Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations. Numerous records also exist from the Indonesian provinces of West Kalimantan (Kalimantan Barat), Central Kalimantan (Kalimantan Tengah) and South Kalimantan (Kalimantan Selatan), but the species appears not to occur in the north of the island. It exists in several colour forms depending on locality; fish from the south and east of Sarawak state in Malaysian Borneo are green/blue in colour while those found in the west are red/orange, for example. It would be useful if these variants were labelled with the collection details by hobbyists and scientists alike in order to preserve bloodlines and maintain greater accuracy, although normally they are just labelled with the distinguishing colour, e.g. 'red', 'green' or 'blue'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>Two blue-colored species can be distinguished only microscopically: S. axelrodi from Bintan and S. gargula from Bangka. Bangka is located off the west coast of Sumatra, Bintan off the coast of Singapore.</p>"
     },
     {
       "key": "habitat",
@@ -199,6 +234,21 @@
       "html": "<p>Inhabits black water streams and pools associated with ancient forest peat swamps. The water is stained brown due to the release of tannins and other chemicals released by decomposing organic matter and the substrate is scattered with fallen leaves, twigs and branches. Such environments characteristically contain very soft (negligible hardness), acidic (pH as low as 4.0) water and are often dimly-lit due to the forest canopy above and dense marginal vegetation. Across much of Southeast Asia these precious biotopes are under threat from rubber/palm oil plantations, building developments and other human activities.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ở những khu rừng đầm lầy nơi chi này sống, nắng thường không chiếu được tới đáy. Nhìn xuống nước có lẽ chỉ thấy được chừng nửa mét, sâu hơn là tối đen.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>In nature they live in very soft, dark colored black water with a very acidic pH (pH around 4.5, no hardness detectable).</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
@@ -211,10 +261,28 @@
       "html": "<p>A group can be housed and will breed in a tank with dimensions of only 30 × 20 × 20 cm (12.5 litres), although water quality may become an issue unless strictly monitored. Something measuring around 45 × 20 × 20 cm (29.5 litres) or more is preferable for long-term care.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này lâu năm giữ đàn 16–17 con trong bể nano khoảng 30 lít, ít hơn đàn 20–30 con vẫn hay được khuyên. Người này chọn bể nhỏ để ngày nào cũng soi kỹ được vây cá, xem có đốm trắng hay dấu hiệu bệnh gì không. Ở bể lớn thì khó theo dõi sát như vậy.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
       "html": "<p>Best kept in a densely-planted tank and is an excellent choice for the carefully-aquascaped set-up. The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel. Filtration does not need to be particularly strong as it mostly hails from sluggish waters and may struggle if there is a fast current. To see it at its best a biotope-style set-up can also make an interesting project. A soft, sandy substrate is probably the best choice, to which can be added a few driftwood roots and branches, placed in such a way that plenty of shady spots are formed. If driftwood of the desired shape cannot be found, common beech or oak is safe to use if thoroughly dried and stripped of bark.</p><p>The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and, as well as offering even more cover for the fish, brings with it the growth of microbe colonies as decomposition occurs. These tiny creatures can provide a valuable secondary food source for fry whilst the tannins and other chemicals released by the decaying leaves are thought to be beneficial for blackwater fish species such as this. Leaves can be left in the tank to break down fully or removed and replaced every few weeks. Allow the wood and leaves to stain the water.</p><p>A small net bag filled with aquarium-safe peat can also be added to the filter or hung over the edge of the tank to aid in the simulation of black water conditions. Alternatively obtain some genuine peat fibre and simply drop a few handfuls into the tank. This will become completely saturated with water after a few days and sink to the bottom where it can look really effective. Provided a good routine of water maintenance is practiced no adverse effects should occur using either peat or leaves in an aquarium.</p><p>Fairly dim lighting should be used to simulate the conditions the fish would encounter in nature. Aquatic plants that can survive under such conditions can be added, such as Microsorum pteropus, Taxiphyllum barbieri or Cryptocorynes, and a few patches of floating vegetation would be really useful to diffuse the light entering the tank too.</p><p>Note that this fish should not be added to a biologically immature tank as it can be susceptible to swings in water chemistry, and a regime of regular, small (10% or less of tank volume) water changes is recommended in order to minimise stress.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này lâu năm thấy cá khó nhất là lúc mới về, còn khi đã quen bể thì khá khỏe. Đây là kinh nghiệm của người này:</p><ul><li>Lứa đầu 15–20 con bị thối vây mà người này không để ý, chỉ hai ngày là mất cả đàn.</li><li>Với lứa thứ hai, người này chuẩn bị từ vài tuần trước, ngâm một nắm lớn lá bàng trong xô to cho nước sậm màu. Cá về trong túi nước đen, khoảng 20 lít nước đó được đổ vào bể 30 lít, phần còn lại là nước trong.</li><li>Sau đó người này thay nước từ từ trong khoảng 10–15 ngày, chừng hai tuần thì nước bể mới trong hẳn. Lúc cá chưa quen bể, thay nước dày quá sẽ hại cá.</li><li>Khoảng ba bốn tuần sau khi về, vài con có đốm trắng trên vây và vây bị khuyết. Người này cho thuốc trị vào bể, nước ngả xanh rồi khoảng một ngày sau trong lại. Cá chịu thuốc tốt và vây mọc lại sau ba đến bốn tuần.</li><li>Khi cá đã ổn định, người này thay khoảng 50% nước mỗi tuần, và thấy nhiệt độ lên xuống trong một khoảng nhất định cũng không ảnh hưởng gì. Để bể không nhiễm thêm vi khuẩn, người này cũng không thả thêm cá hay tép mới vào.</li></ul>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "waterConditions",
@@ -247,6 +315,15 @@
       "html": "<p>Omnivore with a carnivorous tendency; eats small insects and crustaceans in the wild. Offer small live or frozen foods such as baby brine shrimp, daphnia or chopped bloodworms. Pellets are also fed.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này lâu năm cho cá mới về ăn toàn artemia mới nở, rồi trong vài ngày chuyển dần sang cám viên nhỏ. Người này thấy cá không ăn thức ăn nổi trên mặt nước mà chỉ đớp thức ăn đang trôi ngang qua. Chúng cũng chê đồ cứng, cám phải thật mềm và nhỏ thì mới chịu ăn.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
@@ -257,6 +334,15 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
       "html": "<p>It is very peaceful but does not make an ideal community fish due to its small size and rather timid nature. It will do best when maintained alone or with similarly-sized species that enjoy comparable water conditions such as Boraras, Eirmotus, Trigonostigma. If geography is not an issue it will probably also thrive alongside small South American characins such as Nannostomus anduzei, N. mortenthaleri, Paracheirodon simulans, Hyphessobrycon amandae or perhaps Lepidarchus adonis from western Africa.</p><p>It's a schooling species by nature and really should be kept in a group of at least 20-30 specimens. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours and some interesting behaviour as they compete with one another for female attention.</p><p>Mixing the different colour forms is not advised, as unnecessary hybridisation might occur.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này lâu năm thả chung với tép mà tép vẫn sinh sản được trong bể, vì cá không săn tép con. Người này cũng ít khi thấy cá ngoi lên mặt nước kiếm ăn.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "dimorphism",
@@ -271,6 +357,12 @@
       "html": "<p>Males have a neon blue to blue-green sheen along the upper body with red-orange highlights, and show red-orange in the fins. Females are plainer. Fins are clear to reddish.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>Sundadanio males are clearly distinguished from females by their intense black zone in the anal fin.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
@@ -283,6 +375,12 @@
       "html": "<p>This species has not been bred often in the hobby, which is probably down to the fact it does not appreciate fluctuating water conditions, making it difficult to arrange separate spawning/rearing tanks. Reports do exist, however, and the greatest successes have been when the adult fish are maintained alone as a good-sized group in heavily-planted, mature aquaria.</p><p>The pH should ideally be below 6.0 with other parameters within the ranges suggested here, the most important factor being that they remain stable. The simulation of blackwater conditions using leaves and real peat fibre is thought to be highly beneficial due to the microorganisms which proliferate in such set-ups. Bright lighting is best avoided. Feed the fish with plenty of live and frozen foods and they should come into spawning condition, and if the tank contains the requisite balance between cover, water conditions and microfauna, fry should start to appear without further intervention.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>Breeding in normal tap water is not successful; it requires near-natural conditions.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
@@ -293,6 +391,21 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
       "html": "<p>These fish do not like changes in water conditions. Make changes slowly.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này được mô tả vào những năm 1970, có lẽ là năm 1976 hoặc 1977. Một người nuôi loài này lâu năm cho rằng chi Sundadanio hiện có khoảng tám loài đã được mô tả, chứ không chỉ có một loài, và các loài này đều sống ở rừng đầm lầy nước đen.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "html": "<p>These miniature fish grow to only about 1.5-2 cm in length.</p>"
     },
     {
       "key": "references",
@@ -333,9 +446,45 @@
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
       "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9d950d9c7c3f3ac6.webp",
+      "thumb": "https://media.aquatome.com/glaser/9d950d9c7c3f3ac6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7c7845071fba671c.webp",
+      "thumb": "https://media.aquatome.com/glaser/7c7845071fba671c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0aaa986a60f91943.webp",
+      "thumb": "https://media.aquatome.com/glaser/0aaa986a60f91943-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/sundadanio-cf-axelrodi-blue-rasbora-sp-aff-axelrodi-blue-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
+    {
+      "youtubeId": "qW6vuki1OM8",
+      "title": "Sundadanio axelrodi",
+      "durationSec": 619,
+      "lang": "de"
+    },
     {
       "youtubeId": "nnXoxeVVMbc",
       "title": "Neon Blue Rasbora: What I Learned",
@@ -390,5 +539,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-19"
+  "updatedAt": "2026-11-23",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=qW6vuki1OM8",
+      "title": "Sundadanio axelrodi"
+    }
+  ]
 }

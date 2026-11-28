@@ -1,0 +1,20 @@
+{
+  "slug": "ca-microphysogobio-tafangensis",
+  "name": "Cá Microphysogobio tafangensis",
+  "altNames": [],
+  "sections": {
+    "distribution:glaser": "<p>Loài này đến từ tỉnh Chiết Giang ở miền nam Trung Quốc. Nó là loài đặc hữu ở đây, tức là cả thế giới chỉ có ở hệ thống sông Tiền Đường (Qiantang), con sông quan trọng nhất của tỉnh.</p>",
+    "habitat:glaser": "<p>Chiết Giang không nằm trong vùng nhiệt đới mà có khí hậu cận nhiệt đới. Mùa đông, nhiệt độ xuống dưới 10°C một chút, còn mùa hè thì lên tới 30°C.</p>",
+    "waterConditions:glaser": "<p>Vì vậy không nên nuôi loài cá này quá ấm. Tốt nhất là để nhiệt độ thay đổi theo mùa.</p>",
+    "equipment:glaser": "<p>Ngoài tự nhiên chúng sống ở suối chảy xiết, nên trong bể cũng cần dòng chảy mạnh và nước trong. Nền nên là cát lẫn sỏi nhỏ.</p>",
+    "behaviour:glaser": "<p>Chúng hiền, không gây sự với nhau và với cá khác.</p>"
+  },
+  "quality": {
+    "score": 0.88,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.88
+    },
+    "reason": "thin"
+  }
+}

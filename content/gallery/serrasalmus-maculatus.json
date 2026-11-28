@@ -2,33 +2,6 @@
   "id": "serrasalmus-maculatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/261716099.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/261716099-480.webp",
-      "width": 866,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "demianlescano",
-      "sourceUrl": "https://www.inaturalist.org/photos/261716099",
-      "caption": "Cá piranha nhỏ trong nước bên cạnh thước đo, ảnh chụp thực địa",
-      "best": true,
-      "kind": "juvenile",
-      "setup": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/332944646.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/332944646-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "R Vasconcellos",
-      "sourceUrl": "https://www.inaturalist.org/photos/332944646",
-      "caption": "Cá piranha vàng bơi trong nước xanh",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/59924296.webp",
       "thumb": "https://media.aquatome.com/inaturalist/59924296-480.webp",
       "width": 1024,
@@ -53,9 +26,74 @@
       "best": true,
       "kind": "habitat",
       "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/332944646.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/332944646-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "R Vasconcellos",
+      "sourceUrl": "https://www.inaturalist.org/photos/332944646",
+      "caption": "Cá piranha vàng bơi trong nước xanh",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/68900604.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/68900604-480.webp",
+      "width": 1024,
+      "height": 825,
+      "licence": "CC BY-NC",
+      "author": "oscar_galli_merino",
+      "sourceUrl": "https://www.inaturalist.org/photos/68900604",
+      "caption": "Cá piranha đốm bơi trong môi trường nước tự nhiên gần cây thủy sinh",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/498345193.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/498345193-480.webp",
+      "width": 1024,
+      "height": 731,
+      "licence": "CC BY-NC",
+      "author": "pabloscazzina",
+      "sourceUrl": "https://www.inaturalist.org/photos/498345193",
+      "caption": "Cá piranha đang bơi dưới nước trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/498346965.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/498346965-480.webp",
+      "width": 1024,
+      "height": 598,
+      "licence": "CC BY-NC",
+      "author": "pabloscazzina",
+      "sourceUrl": "https://www.inaturalist.org/photos/498346965",
+      "caption": "Cá piranha bơi gần đáy cát dưới nước tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/498346922.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/498346922-480.webp",
+      "width": 1024,
+      "height": 931,
+      "licence": "CC BY-NC",
+      "author": "pabloscazzina",
+      "sourceUrl": "https://www.inaturalist.org/photos/498346922",
+      "caption": "Cá piranha bơi trong nước đục ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 60,
-  "updatedAt": "2026-11-15",
-  "builtAt": "2026-11-15"
+  "seen": 240,
+  "updatedAt": "2026-11-23",
+  "builtAt": "2026-11-23"
 }

@@ -1,14 +1,22 @@
 {
   "id": "danio-feegradei",
   "native": {
-    "input": "249a7a54e4bc82eb",
-    "at": "2026-11-07T16:21:07.852Z",
+    "input": "f4fe4e26a88b8bcb",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "MM",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Currently considered endemic to the Rakhine Yoma/Arakan mountains in Rakhine state, western Myanmar; this range forms a natural barrier which cuts the state off from the remainder of the country.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Danio feegradei was first described by the Indian ichthyologist S. L. Hora in 1937 from a single specimen originating from the Thandwe river in Myanmar (former Burma).",
         "words": "Myanmar",
         "ok": true
       }
@@ -18,6 +26,13 @@
         "name": "Rakhine Yoma",
         "source": "seriouslyfish",
         "quote": "Currently considered endemic to the Rakhine Yoma/Arakan mountains in Rakhine state, western Myanmar; this range forms a natural barrier which cuts the state off from the remainder of the country.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Thandwe river",
+        "source": "glaser",
+        "quote": "Danio feegradei was first described by the Indian ichthyologist S. L. Hora in 1937 from a single specimen originating from the Thandwe river in Myanmar (former Burma).",
         "country": "MM",
         "ok": true
       }

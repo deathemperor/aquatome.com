@@ -1,4 +1,32 @@
 {
   "id": "dong-danh",
-  "en": "Synonym"
+  "en": "Synonym",
+  "refs": [
+    {
+      "url": "https://www.fishbase.se/manual/fishbasethe_synonyms_table.htm",
+      "title": "The SYNONYMS Table"
+    },
+    {
+      "url": "https://blog.calacademy.org/scientists/catalog-of-fishes-glossary",
+      "title": "Eschmeyer's Catalog of Fishes Glossary"
+    },
+    {
+      "url": "https://www.aqueon.com/articles/whats-in-a-fishs-name",
+      "title": "What's in a Fish's Name?"
+    },
+    {
+      "url": "https://vi.wikipedia.org/wiki/Cá_bảy_màu",
+      "title": "Cá bảy màu"
+    },
+    {
+      "url": "https://vi.wikipedia.org/wiki/Danh_pháp_đồng_nghĩa",
+      "title": "Danh pháp đồng nghĩa"
+    }
+  ],
+  "related": [
+    "dac-huu",
+    "ca-hoang-da",
+    "luu-vuc",
+    "biotope"
+  ]
 }

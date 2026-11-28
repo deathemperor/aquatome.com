@@ -12,22 +12,7 @@
       "caption": "Hoa Limnophila aquatica màu trắng tím nở ngoài tự nhiên",
       "best": true,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/191539779.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/191539779-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Aravinth",
-      "sourceUrl": "https://www.inaturalist.org/photos/191539779",
-      "caption": "Cụm hoa Limnophila aquatica trắng tím giữa đồng cỏ hoang",
-      "best": true,
-      "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/191539812.webp",
@@ -40,8 +25,7 @@
       "caption": "Cành hoa Limnophila aquatica trắng tím nở rộ ngoài tự nhiên",
       "best": true,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/tropica/34a8486e1ca57b35.webp",
@@ -52,8 +36,7 @@
       "author": "Tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Limnophilaaquatica(046TC)/30333",
       "source": "tropica",
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/tropica/ee9aa38fd7b8528e.webp",
@@ -64,8 +47,7 @@
       "author": "Tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Limnophilaaquatica(046TC)/30333",
       "source": "tropica",
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/72f11539e6593890.webp",
@@ -78,6 +60,19 @@
       "caption": "Bụi Cây Limnophila aquatica mọc dưới nước trong bể có cá thần tiên",
       "best": true,
       "kind": "submersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/191539779.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/191539779-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Aravinth",
+      "sourceUrl": "https://www.inaturalist.org/photos/191539779",
+      "caption": "Cụm hoa Limnophila aquatica trắng tím giữa đồng cỏ hoang",
+      "best": true,
+      "kind": "flower",
+      "setup": false
     }
   ],
   "seen": 4,

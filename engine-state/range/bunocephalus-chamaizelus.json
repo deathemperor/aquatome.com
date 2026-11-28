@@ -1,0 +1,74 @@
+{
+  "id": "bunocephalus-chamaizelus",
+  "native": {
+    "input": "c264978790383073",
+    "at": "2026-11-20T01:55:49.831Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Essequibo River basin, Guyana.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Essequibo",
+        "source": "scotcat",
+        "quote": "South America: Essequibo River basin, Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Potaro",
+        "source": "scotcat",
+        "quote": "IUCN Red List: the species has a restricted range in the Essequibo-Potaro and Cuyuni-Mazaruni basins.",
+        "ok": true
+      },
+      {
+        "name": "Cuyuni",
+        "source": "scotcat",
+        "quote": "IUCN Red List: the species has a restricted range in the Essequibo-Potaro and Cuyuni-Mazaruni basins.",
+        "ok": true
+      },
+      {
+        "name": "Mazaruni",
+        "source": "scotcat",
+        "quote": "IUCN Red List: the species has a restricted range in the Essequibo-Potaro and Cuyuni-Mazaruni basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bunocephalus chamaizelus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340602,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ]
+    ],
+    "native": [
+      "GY"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T01:55:49.831Z"
+  }
+}

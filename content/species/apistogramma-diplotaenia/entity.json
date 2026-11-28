@@ -5,8 +5,31 @@
   "family": "Cichlidae",
   "genus": "Apistogramma",
   "group": "cichlids",
-  "places": [],
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
   "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This unusual Apistogramma species originates from the black water of the Rio Negro, where it lives mostly over bare sandy bottoms in larger breeding colonies.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 2371234,
       "total": 25,
@@ -75,25 +98,38 @@
       ]
     }
   },
-  "dataCard": {},
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_diplotaenia_en/",
-      "html": "<p>This dwarf cichlid is one of the most unusual members of the large genus Apistogramma. The very slim animals have a pattern of two longitudinal stripes. This is unique among Apistogramma and makes A. diplotaenia unmistakable.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-diplotaenia-german-bred/",
+      "html": "<p>The double stripe (= the translation of the word diplotaenia) is still a rare occurrence in the aquarium. With a maximum total length of 5 cm (i.e. including the caudal fin) it belongs to the smallest cichlid species at all.</p>"
     },
     {
-      "key": "beforeYouBuy",
+      "key": "habitat",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_diplotaenia_en/",
-      "html": "<p>Sadly this species is offered only very rarely. Both wild-collected and bred fish are currently available.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-diplotaenia-german-bred/",
+      "html": "<p>This unusual Apistogramma species originates from the black water of the Rio Negro, where it lives mostly over bare sandy bottoms in larger breeding colonies.</p>"
     },
     {
-      "key": "behaviour",
+      "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_diplotaenia_en/",
-      "html": "<p>Wild-caught males almost lose the double stripes in dominant or aggressive mood and get an orange-yellow band instead. All in all, in Apistogramma diplotaenia the females have the trousers on and are the more attractive fish, too.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-diplotaenia-german-bred/",
+      "html": "<p>For successful breeding you have to reach pretty deep into the bag of tricks of water chemistry and the animals are also relatively unproductive.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-diplotaenia-german-bred/",
+      "html": "<p>Like all Apistogramma species it is polychromatic, i.e. there are different color variations within a population. The best known are blue colorings of A. diplotaenia, but there are also yellow-red animals.</p>"
     }
   ],
   "photos": [
@@ -159,6 +195,36 @@
         "width": 850,
         "height": 567
       }
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/243ff693ae53ed1e.webp",
+      "thumb": "https://media.aquatome.com/glaser/243ff693ae53ed1e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-diplotaenia-german-bred/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/37bb4d9a2af13c07.webp",
+      "thumb": "https://media.aquatome.com/glaser/37bb4d9a2af13c07-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-diplotaenia-german-bred/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/555d938a090b5cc5.webp",
+      "thumb": "https://media.aquatome.com/glaser/555d938a090b5cc5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-diplotaenia-german-bred/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -185,5 +251,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-22"
 }

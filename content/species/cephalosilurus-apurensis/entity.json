@@ -7,7 +7,8 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "venezuela"
+    "venezuela",
+    "apure"
   ],
   "range": {
     "native": {
@@ -148,6 +149,19 @@
       {
         "source": "glaser",
         "value": 30
+      },
+      {
+        "source": "planetcatfish",
+        "value": 48
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.4,
+          "max": 7.8
+        }
       }
     ]
   },
@@ -157,6 +171,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/cephalosilurus-apurensis/",
       "html": "<p>Cephalosilurus apurensis attains a maximum length of about 30 cm. It is a large, predatory catfish and a much sought-after species among fans of such fish.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1525",
+      "html": "<p>Scientific name: Lophiosilurus apurensis (Mees, 1978). Common names: Apure Jelly Catfish, Orange Catfish. Synonyms: Cephalosilurus apurensis, Pseudopimelodus apurensis. Size: 480 mm SL (about 48 cm). Identification: dull yellow background colour, different from the orange background colour of C. fowleri.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -169,10 +189,89 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/cephalosilurus-apurensis/",
       "html": "<p>The species appears to be endemic to Venezuela, meaning its distribution is restricted to that country.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1525",
+      "html": "<p>South America: Rio Arichuna, Apure, Venezuela. Orinoco, Middle Orinoco, Apurito, Matiyure, Arichuna. Type locality: Río Arichuna, near San Pedro, Rincón hondo, Apure, Venezuela.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1525",
+      "html": "<p>The original description notes that specimens were collected in \"brown\" water with high turbidity, slow current and a substrate of mud and leaves. The water was 26.5 °C with a pH of 5.5.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1525",
+      "html": "<p>pH 6.4 - 7.8.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1525",
+      "html": "<p>Caves, driftwood, sand, floating plants.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1525",
+      "html": "<p>Will eat any \"meaty\" type foods with a little variety thrown in: fish (previously frozen or fresh), krill, shrimp, earthworms, mice, rats, sinking pellets, shrimp pellets. In nature, eats live fish of considerable size, although feeding live fish in captivity to this species is not necessary. Aside from being controversial from an ethical perspective, it risks introducing parasites and other potential diseases.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1525",
+      "html": "<p>Very aggressive and not shy. One aquarist reports their large female attempted to eat 10-inch (25 cm) cichlids, with death coming to the cichlid by suffocation. Although unable to swallow them, she would hold them by the entire head to the gill plates until they expired and would continue holding on even while the fish was being yanked from her. Best kept alone or in the most bullish of considerably larger company.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1525",
+      "html": "<p>Females are larger and much more aggressive; dimorphism is very distinguishable by venting, especially at larger sizes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1525",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1525",
+      "html": "<p>A great pet fish, very personable, taking food from your hands (be careful to keep them out of harm's way - you might get bitten).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1525",
+      "html": "<p>Zoologische Mededelingen (Leiden) v. 53 (no. 23), pp 253, Pl. 1.</p>"
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "IGh4fFtkziM",
+      "title": "Feeding Movie【Cephalosilurus apurensis】オレンジキャットフィッシュ",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eufSOw-imy4",
+      "title": "Cephalosilurus apurensis – Apure Jelly Catfish",
+      "durationSec": 8,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VeW9HYiwOv0",
+      "title": "Cephalosilurus apurensis/jelly catfish hand feed",
+      "durationSec": 11,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -196,5 +295,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-05"
+  "updatedAt": "2026-11-23"
 }

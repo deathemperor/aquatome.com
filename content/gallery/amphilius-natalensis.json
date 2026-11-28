@@ -26,9 +26,35 @@
       "best": true,
       "kind": "other",
       "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/246514952.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/246514952-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Matthew Burnett",
+      "sourceUrl": "https://www.inaturalist.org/photos/246514952",
+      "caption": "Cá da trơn núi Natal nhìn từ trên xuống trong khay trắng",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/246514958.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/246514958-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Matthew Burnett",
+      "sourceUrl": "https://www.inaturalist.org/photos/246514958",
+      "caption": "Cá da trơn núi Natal nhìn gần từ trên xuống trong khay",
+      "best": true,
+      "kind": "other",
+      "setup": true
     }
   ],
-  "seen": 3,
-  "updatedAt": "2026-11-16",
-  "builtAt": "2026-11-16"
+  "seen": 6,
+  "updatedAt": "2026-11-21",
+  "builtAt": "2026-11-21"
 }

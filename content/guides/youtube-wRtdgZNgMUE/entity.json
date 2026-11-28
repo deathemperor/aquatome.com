@@ -1,0 +1,148 @@
+{
+  "id": "youtube-wRtdgZNgMUE",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=wRtdgZNgMUE",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-22",
+  "video": {
+    "youtubeId": "wRtdgZNgMUE",
+    "title": "STOP Poisoning Your Aquarium Fish, Keep It Balanced Instead",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 557,
+    "publishedAt": "2022-12-11",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D3mItEJ8GQDmujL3JTwCH_l",
+      "position": 4
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/wRtdgZNgMUE/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Echinodorus sp."
+    ],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Complete",
+        "t": 110
+      },
+      {
+        "category": "khac",
+        "brand": "Seachem",
+        "model": "Prime",
+        "t": 120
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "t": 360
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "t": 440
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Nitrat trong bể từ đâu ra",
+        "moments": [
+          {
+            "t": 15,
+            "url": "https://media.aquatome.com/video/wRtdgZNgMUE/at15-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá cichlid sọc xanh đen bơi cạnh khối đá trong bể.",
+            "sharpness": 264.4,
+            "person": false
+          },
+          {
+            "t": 25,
+            "url": "https://media.aquatome.com/video/wRtdgZNgMUE/at25-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá cichlid sọc xanh bơi gần đá, nước bể trong xanh.",
+            "sharpness": 282,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/wRtdgZNgMUE/p0-5Y2xlKHpoKS5wbmc.webp",
+          "thumb": "https://media.aquatome.com/video/wRtdgZNgMUE/p0-5Y2xlKHpoKS5wbmc-480.webp",
+          "width": 960,
+          "height": 608,
+          "licence": "Public domain",
+          "author": "User Hkchan123 on zh.wikipedia 原作者：Ilmari Karonen；翻譯：就是要你冷",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Nitrogen_Cycle(zh).png",
+          "caption": "Sơ đồ chu trình nitơ trong bể: thức ăn thành amoniac, nitrit rồi nitrat."
+        }
+      },
+      {
+        "heading": "Dấu hiệu cá đang chịu nitrat cao",
+        "moments": [
+          {
+            "t": 95,
+            "url": "https://media.aquatome.com/video/wRtdgZNgMUE/at95-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá cam bơi giữa bể thủy sinh nhiều cây.",
+            "sharpness": 532,
+            "person": false
+          },
+          {
+            "t": 110,
+            "url": "https://media.aquatome.com/video/wRtdgZNgMUE/at110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá nhỏ bơi gần đá và cây lá rộng trong bể.",
+            "sharpness": 220.9,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Tìm ra vì sao nitrat lên cao",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/wRtdgZNgMUE/p3-bV9maXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/wRtdgZNgMUE/p3-bV9maXNoZXMuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "KannanVM",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
+          "caption": "Bể cá vàng nhỏ với sỏi nền, loại cá thải nhiều nên nitrat dễ tăng."
+        }
+      },
+      {
+        "heading": "Bể nuôi cá phá cây thì sao",
+        "moments": [
+          {
+            "t": 435,
+            "url": "https://media.aquatome.com/video/wRtdgZNgMUE/at435-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cây um tùm với đàn cá neon bơi giữa các bụi cây.",
+            "sharpness": 127.3
+          },
+          {
+            "t": 450,
+            "url": "https://media.aquatome.com/video/wRtdgZNgMUE/at450-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá neon bơi giữa những bụi cây lá dài xanh mướt trong bể.",
+            "sharpness": 476.1,
+            "person": false
+          }
+        ]
+      }
+    ]
+  }
+}

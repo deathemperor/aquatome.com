@@ -20,7 +20,8 @@
         "Irrawaddy"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -95,6 +96,10 @@
       {
         "source": "seriouslyfish",
         "value": 6.9
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -118,6 +123,12 @@
       "html": "<ul><li>Difficulty: Moderate. Rated moderate because it needs a well-established tank and stable water.</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra-spilota-2/",
+      "html": "<p>Garra spilota is a species from Burma that is striking due to its spot pattern. It grows up to 8 cm long.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/garra-spilota",
@@ -128,6 +139,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/garra-spilota",
       "html": "<p>Probably endemic to the Rakhine Yoma/Arakan mountains in Rakhine state, western Myanmar, a range forming a natural barrier isolating most the area from the remainder of the country.</p><p>It was originally collected in 1998 from the Naung Pin Thar Chaung, a small stream within the Irrawaddy watershed which runs alongside a logging road and drains the eastern face of the Rakhine Yoma. Subsequent commercial collections may have occured at additional localities as Kullander's team had only four days in which to complete their fieldwork and this proved insufficient to explore the region fully (S. O. Kullander pers. comm.).</p><p>Type locality is 'Irrawaddy River drainage, Naung Pin Thar Chaung, a small stream at logging road about 1 kilometer from Ngathaingchaung-Gwa road, 17°31'44\"N, 94°48'46\"E, Ayeyarwaddy Division, Myanmar'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra-spilota-2/",
+      "html": "<p>Burma.</p>"
     },
     {
       "key": "habitat",
@@ -160,10 +177,22 @@
       "html": "<p>Although it will graze algae if available this species is not an exclusive herbivore. Offer meaty foods such as live or frozen chironomid larvae (bloodworm), Tubifex, Artemia, chopped prawn, etc., along with good quality, sinking dried products, at least some of which should contain a significant proportion of vegetable matter such as Spirulina or similar.</p><p>Fresh fruit and vegetables such as cucumber, melon, blanched spinach or courgette can be offered occasionally and home-made, gelatine-bound recipes containing a mixture of dried fish food, puréed shellfish, fresh fruit and vegetables, are also proven to work well.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra-spilota-2/",
+      "html": "<p>In nature, algae growing on stones, plants and pieces of wood and the microorganisms living in them – together called „Aufwuchs“ – are the food basis for many fish species, which are therefore often used in aquariums as algae eaters. Like all Garra species, Garra spilota is an excellent algae exterminator.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/garra-spilota",
       "html": "<p>Relatively peaceful and makes a good subject for the well-chosen, larger community of stream-dwelling Indochinese species.</p><p>It seems to appreciate the company of its own kind and is not as territorial or competitive with conspecifics as some Garra spp. A group of at least of 3-4 specimens should be considered the minimum.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra-spilota-2/",
+      "html": "<p>Among each other and against other fish Garra spilota are completely peaceful.</p>"
     },
     {
       "key": "dimorphism",
@@ -234,6 +263,36 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/garra-spilota",
       "caption": "Subadult.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/14a149c9dfda3a83.webp",
+      "thumb": "https://media.aquatome.com/glaser/14a149c9dfda3a83-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra-spilota-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/09cd63f3e8df85fe.webp",
+      "thumb": "https://media.aquatome.com/glaser/09cd63f3e8df85fe-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra-spilota-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5a73691c488735ad.webp",
+      "thumb": "https://media.aquatome.com/glaser/5a73691c488735ad-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra-spilota-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -292,5 +351,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-20"
 }

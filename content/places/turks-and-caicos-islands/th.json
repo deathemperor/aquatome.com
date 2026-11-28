@@ -3,6 +3,12 @@
   "name": "หมู่เกาะเติกส์และเคคอส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-20T11:59:11.082Z",
+    "why": "Thai atlases write เติกส์แอนด์เคคอส (or เติกส์และเคคอส), and the name is usually เกาะ/หมู่เกาะเติกส์และเคคอส; this spelling is close but \"เติกส์\" with \"และ\" is acceptable, though the common form is หมู่เกาะเติกส์และหมู่เกาะเคคอส."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

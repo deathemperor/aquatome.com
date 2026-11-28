@@ -326,3 +326,11 @@ test("a new species page's group fits its order; a page on file keeps the group 
   const onFile = { ...fresh.entity, group: 'loaches' }
   expect(mergeSpecies({ entity: onFile, vi: fresh.vi }, page({ scientificName: 'Macrognathus caudiocellatus', group: 'other' }), { ...ctx('glaser'), taxon: eel }).entity.group).toBe('loaches')
 })
+
+// 22 Nov 2026: a word on neither group table (gbif.ts GROUPS) stood as a new page's group, and the site had no name for it.
+test("a new species page in a word the engine has no group for goes where its order puts it", () => {
+  const catfish = { ...taxon, canonicalName: 'Corydoras paleatus', order: 'Siluriformes', family: 'Callichthyidae', genus: 'Corydoras' }
+  expect(mergeSpecies({}, page({ scientificName: 'Corydoras paleatus', group: 'plecos' }), { ...ctx('seriouslyfish'), taxon: catfish }).entity.group).toBe('catfish')
+  const puffer = { ...taxon, canonicalName: 'Tetraodon mbu', order: 'Tetraodontiformes', family: 'Tetraodontidae', genus: 'Tetraodon' }
+  expect(mergeSpecies({}, page({ scientificName: 'Tetraodon mbu', group: 'pufferfish' }), { ...ctx('seriouslyfish'), taxon: puffer }).entity.group).toBe('other')
+})

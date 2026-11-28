@@ -1,0 +1,188 @@
+{
+  "id": "pseudobunocephalus-timbira",
+  "scientificName": "Pseudobunocephalus timbira",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Pseudobunocephalus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "mearim"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Tocantins",
+        "Mearim"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Lower Tocantins and the Mearim river drainages, in North and Northeast of Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Tocantins",
+            "Mearim"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10396980,
+      "total": 8,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "BR",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -50.625,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          -50.625,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_timbira.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern, because it has a wide distribution and no specific threats are known (IUCN 2021).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_timbira.htm",
+      "html": "<p>South America: Lower Tocantins and the Mearim river drainages, in North and Northeast of Brazil.</p><p>Type Locality: Jundiá Creek, Mearim River basin, Alto Alegre do Pindaré, Maranhão, Brazil, 3°39'14\"S, 45°42'19\"W.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_timbira.htm",
+      "html": "<p>Small species that can probably be kept as per other members of this family with a quiet tank with sand and plants.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_timbira.htm",
+      "html": "<p>Tablet foods and small live foods.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_timbira.htm",
+      "html": "<p>Pseudobunocephalus timbira, new species, is described from streams of the lower Tocantins and the Mearim river drainages, in North and Northeast of Brazil. It is distinguished from P. bifidus and P. iheringii by having a gracile body not surpassing 34 mm SL (vs. robust body, reaching up to 59 mm SL, respectively), and from P. lundbergi, P. amazonicus, P. rugosus and P. quadriradiatus by a number of skeletal and fin features (Leão et al.).</p><p>Etymology: The genus name combines the Greek word pseudes, meaning false or deceptive, with the aspredinid genus Bunocephalus, alluding to members of this genus having previously been mistaken for juveniles of various species of Bunocephalus. The specific name timbira is for the Timbira indigenous groups who live in the area (lower Tocantins and Mearim river basins in Maranhão, Pará and Tocantins states, Brazil) where this catfish occurs.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_timbira.htm",
+      "html": "<p>Friel, J.P. 2008 Pseudobunocephalus, a new genus of banjo catfish with the description of a new species from the Orinoco River system of Colombia and Venezuela (Siluriformes: Aspredinidae). Neotropical Ichthyology 6(3):293-300.</p><p>Leão, Carvalho, Reis &amp; Wosiacki. A new species of Pseudobunocephalus Friel, 2008 (Siluriformes: Aspredinidae) from the lower Tocantins and Mearim river drainages, North and Northeast of Brazil. Zootaxa 4586 (1): 109–126.</p><p>Rodríguez-Olarte, D., DoNascimiento, CD, Taphorn, D.C., Mojica, J.I., Usma, S. &amp; Marrero, C. 2021. Pseudobunocephalus timbira. The IUCN Red List of Threatened Species 2021.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/ff894021bbb7695b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ff894021bbb7695b-480.webp",
+      "width": 500,
+      "height": 323,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Henry Sabaj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_timbira.htm",
+      "caption": "Pseudobunocephalus timbira - dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d1658f8d19419a70.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d1658f8d19419a70-480.webp",
+      "width": 500,
+      "height": 341,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Henry Sabaj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_timbira.htm",
+      "caption": "Pseudobunocephalus timbira",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá da trơn",
+        "thức ăn sống cỡ nhỏ cho cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể thủy sinh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh dễ trồng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

@@ -21,9 +21,9 @@ final class TanksModel {
   private(set) var problem: Problem?
   private let file: URL
   /// Readers' demand (docs/my-tanks-sync.md): where a save sends what it put on a tank without a page, and whether the
-  /// handbook has a page for one (then it isn't sent). The app sets them.
+  /// handbook has a page for one (then it isn't sent), asked once its index is read. The app sets them.
   @ObservationIgnored var wanted: Wanted?
-  @ObservationIgnored var hasPage: (UnlistedEntry) -> Bool = { _ in false }
+  @ObservationIgnored var hasPage: @MainActor (UnlistedEntry) async -> Bool = { _ in false }
   /// The app's anonymous telemetry: a tank added, or not. The app sets it.
   @ObservationIgnored var telemetry: Telemetry?
   #if DEBUG
@@ -86,8 +86,11 @@ final class TanksModel {
   /// changed later isn't new). Only the reader's own saves: not a sync, nor a page's (it sends its own).
   private func saved(_ t: Tank?, before: Tank?) {
     guard let wanted, let t else { return }
-    for e in t.unlistedAdded(since: before) where !hasPage(e) {
+    for e in t.unlistedAdded(since: before) {
       Task {
+        // Once the index is read: while it reads, which pages there are isn't known, and an entry left then was never
+        // sent (Codex, 21 Nov).
+        guard await !hasPage(e) else { return }
         #if DEBUG
         if await wanted.send(e) { wantedForTests.append(String(decoding: wanted.request(e).httpBody ?? Data(), as: UTF8.self)) }
         #else
@@ -155,7 +158,8 @@ final class TanksModel {
   // MARK: Lights, remembered as the site's light page does (a failed save shows on this tab; the light goes on working)
 
   /// The tank a light met for the first time goes on, when there is none yet.
-  static let newTankName = String(localized: "Bể của tôi")
+  /// In the app's language as a light first connects: a name kept once written, as the reader's own.
+  static var newTankName: String { String(localized: "Bể của tôi", bundle: .app) }
 
   /// A Chihiros light just connected: its saved record, or a new one on the first tank.
   func metLight(bleName: String, model: String) {
@@ -342,19 +346,19 @@ struct TankFields: Equatable {
 func litresText(_ l: Double, digits: Int? = nil) -> String {
   let style = FloatingPointFormatStyle<Double>.number.locale(.app).rounded(rule: .toNearestOrAwayFromZero)
     .precision(.fractionLength(0...(digits ?? (l < 100 ? 1 : 0))))
-  return String(localized: "\(l.formatted(style)) lít")
+  return String(localized: "\(l.formatted(style)) lít", bundle: .app)
 }
 
 /// Substrates the site lists (Known.substrate), with its labels. A value from a newer client is shown as it is.
 enum Substrate {
   static func label(_ value: String) -> String {
     switch value {
-    case "soil": String(localized: "Phân nền (aqua soil)")
-    case "sand": String(localized: "Cát")
-    case "gravel": String(localized: "Sỏi")
-    case "lava": String(localized: "Đá nham thạch")
-    case "bare": String(localized: "Không trải nền")
-    case "other": String(localized: "Nền khác")
+    case "soil": String(localized: "Phân nền (aqua soil)", bundle: .app)
+    case "sand": String(localized: "Cát", bundle: .app)
+    case "gravel": String(localized: "Sỏi", bundle: .app)
+    case "lava": String(localized: "Đá nham thạch", bundle: .app)
+    case "bare": String(localized: "Không trải nền", bundle: .app)
+    case "other": String(localized: "Nền khác", bundle: .app)
     default: value
     }
   }

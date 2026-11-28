@@ -369,7 +369,7 @@ struct Lockup: View {
   /// The line under a page's name: a fish's scientific name, a plant's, a video series' count, a guide's kind; none for
   /// kit, under its own heading.
   static func line(_ item: HandbookIndex.Item) -> String? {
-    if item.kind == .video, let n = item.parts { return String(localized: "\(n) video") }
+    if item.kind == .video, let n = item.parts { return String(localized: "\(n) video", bundle: .app) }
     return item.subUnderName ?? (item.kind == .equipment ? nil : item.kindTitle)
   }
 }

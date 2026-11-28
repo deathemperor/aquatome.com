@@ -1,7 +1,8 @@
 import { expect, test } from 'vitest'
-import { CHECKLIST, dealerNotice, dealerShelf, doseGroups, fitCounts, fitDue, fitFindings, fitKey, fitOrder, fitPrompt, fitReport, fitRules, fitText, hasDose, keepCautions, keepDoses, keepFit, productOf, readFit, runFit, SHELF_WHY, type FitCheck, type FitDose } from '../src/fit'
+import { CHECKLIST, dealerNotice, dealerShelf, doseGroups, fitCounts, fitDue, fitFindings, fitKey, fitOrder, fitPrompt, fitReport, fitRules, fitText, hasDose, keepCautions, keepDoses, keepFit, openUnread, productOf, readFit, runFit, SHELF_WHY, type FitCheck, type FitDose } from '../src/fit'
 import { LlmError, type Llm } from '../src/claude'
 import type { Page } from '../src/pages'
+import { retiredTo } from '@aq/schema'
 import { mkdtemp, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -293,10 +294,34 @@ test('the report counts and never lists a page', () => {
   const a = page('<p>Mua trên Amazon.</p>', { id: 'a-secret-slug' })
   const entry = { at: '2026-11-08', hash: fitText(a).hash, model: 'm', findings: [], products: ['Hikari', 'hikari', 'Ich-X'] }
   const md = fitReport([a], { 'vi/guides/a-secret-slug': entry })
-  expect(md).toContain('| Vietnamese | 1 | 1 | 1 | 1 | 1 |') // its product and its shop
+  expect(md).toContain('| Vietnamese | 1 | 1 | – | 1 | 1 | 1 |') // its product and its shop; no holds given, no open count
   expect(md).toContain('- hikari: 1') // a product to look up next
   expect(md).not.toContain('a-secret-slug')
   expect(md).not.toContain('ich-x')
+})
+
+// The chief of staff, 20 Nov 2026: until a push can't publish a page no read covers, the report counts the open pages
+// whose text no saved read is of, which nothing else reads.
+test('the report counts the open pages whose text no read is of, and leaves the held ones out', () => {
+  const read = page('<p>Ổn.</p>', { id: 'read' })
+  const changed = page('<p>Đã sửa.</p>', { id: 'changed' })
+  const none = page('<p>Chưa đọc.</p>', { id: 'none' })
+  const held = page('<p>Bị giữ.</p>', { id: 'held' })
+  const entry = (p: Page, hash = fitText(p).hash) => ({ at: '2026-11-08', hash, model: 'm', findings: [], products: [] })
+  const state = { 'vi/guides/read': entry(read), 'vi/guides/changed': entry(changed, 'old text'), 'vi/guides/held': entry(held, 'old text') }
+  const holds = new Map([['content/guides/held/vi.json', { checks: ['source'], at: '2026-11-08' }]])
+  // Read as it is: not counted; read on older text, or never: counted; held: not counted, the gate reads it.
+  expect(openUnread([read, changed, none, held], state, holds, 'vi')).toBe(2)
+  expect(fitReport([read, changed, none, held], state, holds)).toContain('| Vietnamese | 4 | 1 | 2 |')
+  expect(openUnread([read, changed, none, held], state, new Map(), 'vi')).toBe(3)
+})
+
+// A reader of #1731: a retired guide is no page (the site leaves it out, its addresses forwarding), so it isn't counted.
+test('a retired guide is not among the open pages no read covers', () => {
+  const gone = page('<p>Đã nghỉ.</p>', { id: 'aquariumcoop-blogs-aquarium-aquarium-shopping-list' })
+  expect(retiredTo(gone.id)).toBe('guides')
+  expect(openUnread([gone], {}, new Map(), 'vi')).toBe(0)
+  expect(openUnread([page('<p>Đã nghỉ.</p>', { id: 'still-here' })], {}, new Map(), 'vi')).toBe(1)
 })
 
 test('the counts: pages with a finding by check, and in all with words apart', () => {

@@ -1,0 +1,135 @@
+{
+  "id": "auchenipterichthys-longimanus",
+  "native": {
+    "input": "c67fa02556907442",
+    "at": "2026-11-23T01:48:47.136Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Lower and middle Amazon, Tocantins, and Orinoco river basins. Type locality: River Capin, Para [Brazil].",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Lower and middle Amazon, Tocantins, and Orinoco river basins. Type locality: River Capin, Para [Brazil].",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
+        "source": "scotcat",
+        "quote": "South America: Lower and middle Amazon, Tocantins, and Orinoco river basins. Type locality: River Capin, Para [Brazil].",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Lower and middle Amazon, Tocantins, and Orinoco river basins. Type locality: River Capin, Para [Brazil].",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Auchenipterichthys longimanus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344719,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        279
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        53
+      ],
+      [
+        "3f6e022f-240e-4288-b655-84d5904d4ca6",
+        49
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        24
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        16
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        11
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        7
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        4
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ],
+      [
+        "967a00a1-297b-478c-8c86-cf801e93a6af",
+        1
+      ],
+      [
+        "e90a588b-0eed-4077-8a4f-7e61da35b3f8",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-23T01:48:47.136Z"
+  }
+}

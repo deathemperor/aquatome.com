@@ -3,6 +3,12 @@
   "name": "Mangar",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:35:07.960Z",
+    "why": "\"Mangar\" is a bare proper name that keeps the source spelling, but the place is a region (likely a Kabupaten/district in Indonesia), and an atlas in Malaysia would normally add a kind word such as \"Wilayah\" or \"Daerah\"; the name is also unverified."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

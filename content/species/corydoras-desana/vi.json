@@ -5,7 +5,9 @@
     "Cá chuột orca",
     "CW011",
     "Orca Cory",
-    "Kopansermalle"
+    "Kopansermalle",
+    "Cá chuột Tukano Longnose",
+    "Tukano Longnose"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<p>Corydoras desana Lima &amp; Sazima, 2017. Tên thường gọi: CW011, Orca Cory, Kopansermalle (Đan Mạch).</p><p>Nhận dạng: Muốn nhận ra một con Corydoras, bạn nhìn hai hàng giáp xương chạy dọc hai bên thân và đếm tia vây lưng, giống này có dưới 10 tia. Người ta hay nhầm Corydoras nhất với các giống khác cùng phân họ là Brochis, Scleromystax và Aspidoras.</p><p>Danh sách đỏ IUCN: Thiếu dữ liệu (đánh giá lần cuối năm 2020).</p>",
@@ -15,13 +17,16 @@
     "behaviour:planetcatfish": "<p>Đây là loài cá hiền, sống theo đàn, nuôi chung bể cộng đồng được.</p>",
     "dimorphism:planetcatfish": "<p>Cá cái to hơn và thân đầy đặn hơn cá đực. Bạn nhìn từ trên xuống sẽ thấy rõ nhất. Khi trưởng thành, cá đực thường có chóp vây nhọn chứ không tròn.</p>",
     "reproduction:planetcatfish": "<p>Chưa có thông tin. Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>aqua, International Journal of Ichthyology v. 23 (no. 1), pp 20, Figs. 1-3, 4a.</p>"
+    "references:planetcatfish": "<p>aqua, International Journal of Ichthyology v. 23 (no. 1), pp 20, Figs. 1-3, 4a.</p>",
+    "quickFacts:glaser": "<p>Có vài loài Corydoras hiếm khi được nhập về, mà có nhập thì cũng chỉ lèo tèo vài con, nên với người mê cá chuột chúng vẫn là giấc mơ chưa thành. Một trong những loài đẹp nhất nhóm này lúc đầu được gọi là \"Tukano Longnose\". Sau đó nó mang mã CW011, rồi cuối cùng được mô tả khoa học với tên Corydoras desana.</p>",
+    "beforeYouBuy:glaser": "<p>Ngoài tự nhiên, loài này không hẳn là hiếm. Có điều chúng sống lẻ từng con và rất nhát. Thế nên trong một đợt có thể bắt được hàng nghìn con Corydoras tukano, số Longnose dính lưới chỉ được một hai con.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "glaser": 0.92
     }
   }
 }

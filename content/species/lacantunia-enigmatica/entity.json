@@ -1,0 +1,81 @@
+{
+  "id": "lacantunia-enigmatica",
+  "scientificName": "Lacantunia enigmatica",
+  "order": "Siluriformes",
+  "family": "Lacantuniidae",
+  "genus": "Lacantunia",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "mexico",
+    "usumacinta"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 42.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1555",
+      "html": "<p>Lacantunia enigmatica Rodiles-Hernández, Hendrickson &amp; Lundberg, 2005. Family Lacantuniidae. Maximum size 427 mm SL. IUCN Red List: Vulnerable (last assessed 2018).</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1555",
+      "html": "<p>This fish has a very restricted distribution in the wild and is very unlikely to enter the aquarium trade. To scientists, this fish represents an intriguing puzzle, probably representing a now isolated evolution of North American ancestry. The local common name, Madre de juil, translates into mother of juil (juil being the native species of Rhamdia; Heptapteridae).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1555",
+      "html": "<p>North America: Mexico. Usumacinta, Chixoy, La Pasión. Type locality: Reserva de la Biosfera Montes Azules, Selva Lacandona, Río Lacantún, Río Usumacinta basin, Chiapas, Mexico.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1555",
+      "html": "<p>Found in fast flowing, steep gradient and rocky stretches of the river as well as deep pools.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1555",
+      "html": "<p>Likely a nocturnal hunter. Gut content analysis of wild specimens revealed a diet including fishes, crabs, prawns and large, tough seeds.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1555",
+      "html": "<p>No apparent sexual dimorphism beyond the shape of the urogenital papilla.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1555",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1555",
+      "html": "<p>Externally this fish bears a passing resemblance to an Ictalurid or perhaps Ariid. It is an overall brownish colour with attractive paler edges to the pectoral and pelvic fins. Youngsters may be spotted.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1555",
+      "html": "<p>Zootaxa No. 1000, pp 10, Figs. 1-2, 4-6.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-25"
+}

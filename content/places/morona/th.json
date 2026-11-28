@@ -3,6 +3,12 @@
   "name": "โมโรนา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:54:06.173Z",
+    "why": "The transliteration โมโรนา is phonetically right for Morona, but it omits the kind word (a region/province, so \"แคว้น\" or \"จังหวัด\" in Thai atlas style). Morona is also a Peruvian district in Loreto, so the \"region\" label is doubtful."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

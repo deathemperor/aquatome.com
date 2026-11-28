@@ -76,15 +76,15 @@
       "thumb": "https://media.aquatome.com/commons/f0553a93f9444fa7-480.webp",
       "width": 1200,
       "height": 753,
-      "licence": "CC BY-SA 4.0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Helostoma_temminkii_02.jpg",
-      "caption": "Cá hôn màu xám xanh lục cận cảnh, vảy rõ nét",
       "large": {
         "url": "https://media.aquatome.com/commons/f0553a93f9444fa7-large.webp",
         "width": 1913,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Helostoma_temminkii_02.jpg",
+      "caption": "Cá hôn màu xám xanh lục cận cảnh, vảy rõ nét"
     },
     {
       "url": "https://media.aquatome.com/commons/129c3c20091d7196.webp",
@@ -157,9 +157,35 @@
       "author": "Igor Balashov",
       "sourceUrl": "https://www.inaturalist.org/photos/319810426",
       "caption": "Cá hôn màu cam hồng bơi dưới nước"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/410169290.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/410169290-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Irfan Nurarifin",
+      "sourceUrl": "https://www.inaturalist.org/photos/410169290",
+      "caption": "Cá hôn bơi trong bể ảnh nhỏ, nhìn nghiêng",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/410503354.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/410503354-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Irfan Nurarifin",
+      "sourceUrl": "https://www.inaturalist.org/photos/410503354",
+      "caption": "Cá hôn sọc vàng nâu trong bể ảnh nhỏ, nhìn rõ",
+      "best": true,
+      "kind": "other",
+      "setup": true
     }
   ],
-  "seen": 43,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 83,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

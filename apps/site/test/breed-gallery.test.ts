@@ -5,13 +5,13 @@ import { fileURLToPath } from 'node:url'
 import { GallerySchema, loadAll } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { breedGallery } from '../src/lib/breeds'
-import { GALLERY_MIN } from '../src/lib/gallery'
+import { hasAlbum } from '../src/lib/photo-page'
 import { distinctPhotos } from '../src/lib/pictures'
 
 const fixture = fileURLToPath(new URL('./fixture-content', import.meta.url))
 
 // The engine's gallery step writes a breed's gallery as a species' (content/gallery/<breed id>.json, best picks and kinds).
-test('a breed\'s gallery file follows its page photos, and gives it a gallery page once they reach 6', async () => {
+test('a breed\'s gallery file follows its page photos, with an album from one photo', async () => {
   const root = await mkdtemp(join(tmpdir(), 'aq-breed-gallery-'))
   await cp(fixture, root, { recursive: true })
   const photo = (i: number) => ({
@@ -26,13 +26,13 @@ test('a breed\'s gallery file follows its page photos, and gives it a gallery pa
     const b = c.breeds.find(x => x.id === 'pigeon-blood-discus')!
     return { b, photos: breedGallery(c, b), page: distinctPhotos(c, breedGallery(c, b)) }
   }
-  // Its page has 2 photos: the second, then the gallery's 4, are 5, one short of a gallery page (anh.astro's rule).
+  await gallery(0)
+  const short = await shown()
+  expect(short.b.photos).toHaveLength(2)
+  expect(short.page).toEqual([short.b.photos[1]])
+  expect(hasAlbum(short.page)).toBe(true)
+
   await gallery(4)
-  let s = await shown()
-  expect(s.b.photos).toHaveLength(2)
+  const s = await shown()
   expect(s.photos.map(p => p.sourceUrl)).toEqual([s.b.photos[1]!.sourceUrl, ...[1, 2, 3, 4].map(i => `https://commons.wikimedia.org/wiki/File:G${i}.jpg`)])
-  expect(s.page.length).toBeLessThan(GALLERY_MIN)
-  await gallery(5)
-  s = await shown()
-  expect(s.page).toHaveLength(GALLERY_MIN)
 })

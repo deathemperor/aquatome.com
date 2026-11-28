@@ -1,0 +1,359 @@
+{
+  "id": "ancistrus-leucostictus",
+  "scientificName": "Ancistrus leucostictus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Ancistrus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "mazaruni",
+    "essequibo"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GF",
+        "GY"
+      ],
+      "regions": [
+        "Essequibo",
+        "Demerara-Berbice",
+        "Mazaruni River"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "From the Guyana states (French Guiana, Guyana and Surinam) there are for various reasons hardly any commercial ornamental fish exports.",
+          "countries": [
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Ancistrus leucostictus is endemic to Guyana, distributed throughout the middle and upper Essequibo River, and Demerara-Berbice River system.",
+          "countries": [
+            "GY"
+          ],
+          "regions": [
+            "Demerara-Berbice"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Essequibo River basin and possibly all main Guianan rivers to the Oyapock River.",
+          "countries": [],
+          "regions": [
+            "Essequibo"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "This is also true for Ancistrus leucostictus, which was brought back from a tributary of the Mazaruni River near its confluence with the Essequibo River by traveling aquarists in 2000.",
+          "countries": [],
+          "regions": [
+            "Mazaruni River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961382,
+      "total": 97,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "GF",
+          53
+        ],
+        [
+          "GY",
+          27
+        ],
+        [
+          "SR",
+          13
+        ],
+        [
+          "BR",
+          2
+        ],
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          -60.46875,
+          2.8125,
+          9,
+          9
+        ],
+        [
+          -59.0625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          2.8125,
+          5,
+          5
+        ],
+        [
+          -59.0625,
+          4.21875,
+          7,
+          6
+        ],
+        [
+          -57.65625,
+          1.40625,
+          5,
+          1
+        ],
+        [
+          -57.65625,
+          4.21875,
+          5,
+          0
+        ],
+        [
+          -56.25,
+          1.40625,
+          3,
+          0
+        ],
+        [
+          -54.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          2.8125,
+          15,
+          15
+        ],
+        [
+          -54.84375,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          2.8125,
+          12,
+          12
+        ],
+        [
+          -53.4375,
+          4.21875,
+          19,
+          19
+        ],
+        [
+          -52.03125,
+          2.8125,
+          4,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      },
+      {
+        "source": "scotcat",
+        "value": 11
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-leucostictus-2/",
+      "html": "<p>From the Guyana states (French Guiana, Guyana and Surinam) there are for various reasons hardly any commercial ornamental fish exports. The ornamental fish originating there, e.g. the glow-light tetra, are therefore practically exclusively traded as bred specimens. This is also true for Ancistrus leucostictus, which was brought back from a tributary of the Mazaruni River near its confluence with the Essequibo River by traveling aquarists in 2000.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_leucostictus.htm",
+      "html": "<p>South America: Essequibo River basin and possibly all main Guianan rivers to the Oyapock River. Type locality: Essequibo [Guyana].</p><p>Ancistrus leucostictus is endemic to Guyana, distributed throughout the middle and upper Essequibo River, and Demerara-Berbice River system. The extent of occurrence (EOO) is estimated at 33,159 km2, and the area of occupancy (AOO) at 14,676 km2. However, it is expected that the species also occurs in similar habitats along other portions of these basins. The species has a wide distribution, and the local impacts related to mining in the Potaro and Berbice rivers are therefore unlikely to affect its long-term persistence. Thus, Ancistrus leucostictus is listed as Least Concern (LC), (IUCN 2022).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_leucostictus.htm",
+      "html": "<p>Quite an easy species to keep as long as there is adequate aeration in the aquarium and giving them a choice of pipes, stones or rockwork.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_leucostictus.htm",
+      "html": "<p>Vegetable foods such as cucumber and courgette and also tablet and meaty foods.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_leucostictus.htm",
+      "html": "<p>Typical Ancistrus shape with both sexes sporting bristles to the head area with the male having the larger and more impressive tentacles. Males have long, forked tentacles on the snout.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_leucostictus.htm",
+      "html": "<p>The female lays her eggs in caves or crevices that the male has chosen and cleaned, as a cluster. The male usually then guards the eggs after ejecting the female. The fry then cling to the sides of the cave and when they use up their yolk sac, which is around the four to seven day period, they will be ready to feed on infusoria, vegetable matter, brine shrimp nauplii or micro worms. In a community tank a few will survive if enough hiding places are afforded to them. (Up to 100 yellow eggs of 3 mm diameter are guarded by the male in a cave).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_leucostictus.htm",
+      "html": "<p>Description: More than 20 teeth in each half jaw; teeth weak and slender or filiform; snout with a wide naked margin; evertible interopercular odontodes hook-like. Body brown with large whitish spots.</p><p>Etymology: The specific name leucostictus: leukos, white; stictus, spotted, referring to \"pure white dots\" scattered over entire body and over all the fins.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_leucostictus.htm",
+      "html": "<p>Fisch-Muller, S., 2003. Loricariidae-Ancistrinae (Armored catfishes). p. 373-400. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2018. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2018 ).</p><p>Mol, H.A. Jan, The Freshwater Fishes of Suriname. BRILL, Leiden Boston, 2012. 889 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/942345184dfdd16a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/942345184dfdd16a-480.webp",
+      "width": 500,
+      "height": 188,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Henry Sabaj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_leucostictus.htm",
+      "caption": "Ancistrus leucostictus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/895e9c643461aca2.webp",
+      "thumb": "https://media.aquatome.com/glaser/895e9c643461aca2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-leucostictus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0c1172b7a3f95364.webp",
+      "thumb": "https://media.aquatome.com/glaser/0c1172b7a3f95364-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-leucostictus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/eccac034eb4a4353.webp",
+      "thumb": "https://media.aquatome.com/glaser/eccac034eb4a4353-480.webp",
+      "width": 850,
+      "height": 1151,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-leucostictus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "sfVppb1-mRE",
+      "title": "Ancistrus Leucostictus(L43) -samec hlida",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WBGKhNUkx5k",
+      "title": "Ancistrus leucostictus bredding",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2-hdwRF7HVY",
+      "title": "Ancistrus Leucostictus L43 - rosteme",
+      "durationSec": 48,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Gb5X481AZMk",
+      "title": "Ancistrus Leucostictus egg in tumbler",
+      "durationSec": 39,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên chìm cho cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 60cm",
+        "máy bơm sục khí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

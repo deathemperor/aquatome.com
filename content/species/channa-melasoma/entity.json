@@ -22,7 +22,9 @@
         "MY",
         "SG",
         "PH",
-        "ID"
+        "ID",
+        "MM",
+        "LA"
       ],
       "regions": [
         "Borneo",
@@ -32,7 +34,8 @@
         "Palawan"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -67,13 +70,22 @@
             "ID"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The animals described here came from the mountainous part of northern Thailand, the Golden Triangle between Thailand, Burma and Laos.",
+          "countries": [
+            "MM",
+            "LA"
+          ],
+          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 2391562,
-      "total": 36,
-      "fetched": "2026-11-07",
+      "total": 37,
+      "fetched": "2026-11-20",
       "countries": [
         [
           "MY",
@@ -81,7 +93,7 @@
         ],
         [
           "TH",
-          4
+          5
         ],
         [
           "SG",
@@ -156,6 +168,12 @@
           1.40625,
           2,
           2
+        ],
+        [
+          102.65625,
+          15.46875,
+          1,
+          1
         ],
         [
           112.5,
@@ -369,7 +387,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-melasoma-2/",
       "source": "glaser"
     },
@@ -379,7 +397,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-melasoma-2/",
       "source": "glaser"
     },
@@ -389,7 +407,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-melasoma-2/",
       "source": "glaser"
     }

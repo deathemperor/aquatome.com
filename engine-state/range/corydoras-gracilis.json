@@ -1,17 +1,9 @@
 {
   "id": "corydoras-gracilis",
   "native": {
-    "input": "8b22fc1cd3f28202",
-    "at": "2026-11-08T06:57:58.844Z",
+    "input": "bdc44ab31120d86c",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Gastrodermus gracilis, long known as Corydoras gracilis, is a small armoured catfish from the central Amazon basin in Brazil, known from the rio Juriti in Pará to the rio Juma in Amazonas.",
-        "words": "Brazil",
-        "ok": true
-      },
       {
         "code": "BR",
         "status": "native",
@@ -38,6 +30,13 @@
       },
       {
         "name": "Rio Juriti",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin in Brazil, where its known range extends from the rio Juriti in Pará state to the rio Juma, a tributary of the rio Aripuanã within the rio Madeira watershed in Amazonas state.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Juma",
         "source": "seriouslyfish",
         "quote": "Native to the central Amazon basin in Brazil, where its known range extends from the rio Juriti in Pará state to the rio Juma, a tributary of the rio Aripuanã within the rio Madeira watershed in Amazonas state.",
         "country": "BR",

@@ -6,68 +6,68 @@
       "thumb": "https://media.aquatome.com/inaturalist/748819447-480.webp",
       "width": 1024,
       "height": 768,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/748819447-large.webp",
+        "width": 1472,
+        "height": 1104
+      },
       "licence": "CC BY",
       "author": "Tom Ferguson",
       "sourceUrl": "https://www.inaturalist.org/photos/748819447",
       "caption": "Cá đực vàng cam trên nền đá",
       "best": true,
-      "kind": "male",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/748819447-large.webp",
-        "width": 1472,
-        "height": 1104
-      }
+      "kind": "male"
     },
     {
       "url": "https://media.aquatome.com/commons/1ab6cab2c60600a5.webp",
       "thumb": "https://media.aquatome.com/commons/1ab6cab2c60600a5-480.webp",
       "width": 960,
       "height": 540,
+      "large": {
+        "url": "https://media.aquatome.com/commons/1ab6cab2c60600a5-large.webp",
+        "width": 1000,
+        "height": 563
+      },
       "licence": "CC BY-SA 3.0 de",
       "author": "Der Regenbogenfisch",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudomugil_gertrudae_ARUII_Maennchen.jpg",
       "caption": "Nhóm cá đực vây đốm đẹp trong bể thủy sinh",
       "best": true,
-      "kind": "group",
-      "large": {
-        "url": "https://media.aquatome.com/commons/1ab6cab2c60600a5-large.webp",
-        "width": 1000,
-        "height": 563
-      }
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/commons/7d9fae1ead0c1889.webp",
       "thumb": "https://media.aquatome.com/commons/7d9fae1ead0c1889-480.webp",
       "width": 960,
       "height": 533,
+      "large": {
+        "url": "https://media.aquatome.com/commons/7d9fae1ead0c1889-large.webp",
+        "width": 2160,
+        "height": 1200
+      },
       "licence": "CC BY-SA 4.0",
       "author": "Atulbhats",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Getrudae_Rainbowfish.jpg",
       "caption": "Cá có đốm bơi trên thảm cỏ thủy sinh",
       "best": true,
-      "kind": "other",
-      "large": {
-        "url": "https://media.aquatome.com/commons/7d9fae1ead0c1889-large.webp",
-        "width": 2160,
-        "height": 1200
-      }
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/691921393.webp",
       "thumb": "https://media.aquatome.com/inaturalist/691921393-480.webp",
       "width": 1024,
       "height": 1024,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/691921393-large.webp",
+        "width": 1200,
+        "height": 1200
+      },
       "licence": "CC BY",
       "author": "Tom Ferguson",
       "sourceUrl": "https://www.inaturalist.org/photos/691921393",
       "caption": "Cá đực màu vàng cam trong bể kính",
       "best": false,
-      "kind": "male",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/691921393-large.webp",
-        "width": 1200,
-        "height": 1200
-      }
+      "kind": "male"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/691924598.webp",
@@ -80,18 +80,6 @@
       "caption": "Hai cá màu vàng cam trong bể",
       "best": false,
       "kind": "pair"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/691923446.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/691923446-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Tom Ferguson",
-      "sourceUrl": "https://www.inaturalist.org/photos/691923446",
-      "caption": "Cá trưởng thành bơi trong bể nền đá tối",
-      "best": false,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/746460013.webp",
@@ -140,9 +128,112 @@
       "caption": "Cá màu vàng bơi trong bể kính",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/691923446.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/691923446-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Tom Ferguson",
+      "sourceUrl": "https://www.inaturalist.org/photos/691923446",
+      "caption": "Cá trưởng thành bơi trong bể nền đá tối",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/370167477.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/370167477-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Cemone Hedges",
+      "sourceUrl": "https://www.inaturalist.org/photos/370167477",
+      "caption": "Cá mắt xanh đốm đực vây đẹp trong hộp chụp ngoài tự nhiên",
+      "best": true,
+      "kind": "male",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/384343577.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/384343577-480.webp",
+      "width": 474,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Cemone Hedges",
+      "sourceUrl": "https://www.inaturalist.org/photos/384343577",
+      "caption": "Cá mắt xanh đốm màu vàng trong bể nuôi",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/462683918.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/462683918-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "l_a_moar",
+      "sourceUrl": "https://www.inaturalist.org/photos/462683918",
+      "caption": "Hai cá mắt xanh đốm trong hộp nhỏ",
+      "best": false,
+      "kind": "pair",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/436088691.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/436088691-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Hiroya Kidoguchi",
+      "sourceUrl": "https://www.inaturalist.org/photos/436088691",
+      "caption": "Hai cá mắt xanh đốm trong hộp trong suốt",
+      "best": false,
+      "kind": "group",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/734713686.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/734713686-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "fraserasquith",
+      "sourceUrl": "https://www.inaturalist.org/photos/734713686",
+      "caption": "Cá mắt xanh đốm trong hộp nhỏ giữa lá khô",
+      "best": false,
+      "kind": "habitat",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/729374011.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/729374011-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Indra Bone",
+      "sourceUrl": "https://www.inaturalist.org/photos/729374011",
+      "caption": "Cá mắt xanh đốm trong hộp chụp ảnh ngoài tự nhiên",
+      "best": false,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/745897110.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/745897110-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Richard Johnson",
+      "sourceUrl": "https://www.inaturalist.org/photos/745897110",
+      "caption": "Cá mắt xanh đốm trong hộp ảnh nhỏ chụp ngoài thực địa",
+      "best": true,
+      "kind": "other",
+      "setup": true
     }
   ],
-  "seen": 22,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 44,
+  "updatedAt": "2026-11-24",
+  "builtAt": "2026-11-24"
 }

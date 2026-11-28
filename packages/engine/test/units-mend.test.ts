@@ -274,6 +274,25 @@ test('a body or an FAQ a person fixed keeps its figures, and the page stays held
   }
 })
 
+// The Writing Lead's lines of 20 Nov 2026 went into two video guides' summaries by hand. A body fixed by hand keeps its
+// summary, the body in short (youtube.ts), so the mark keeps the summary's lines here too.
+test("a summary line of a guide whose body a person fixed keeps its figures", async () => {
+  const root = await held('<p>Cá cho bể nhỏ.</p>', [])
+  const f = join(root, GUIDE)
+  await writeFile(f, JSON.stringify({ ...JSON.parse(await readFile(f, 'utf8')), summary: ['Bể 115 lít là vừa.'] }, null, 2))
+  const p = (await loadPages(join(root, 'content'), ['vi'])).find(x => x.id === 'youtube-r53ZQW0m8VM')!
+  const part = fitText(p).parts.find(x => x.field === 'summary.0')!.id
+  const state: FitState = { [fitKey(p)]: { at: '2026-11-09', hash: fitText(p).hash, model: 'm', products: [], findings: [{ check: 'units', part, quote: 'Bể 115 lít là vừa', why: 'converted', by: 'model' }], checklist: 3 } }
+  await writeFile(join(root, 'engine-state/_fit.json'), `${JSON.stringify(state)}\n`)
+  // Without the mark it mends there, so the mark is what keeps it.
+  expect((await unitsMend(root, { now: after, dryRun: true })).mended.map(m => m.figures)).toEqual([['115 lít -> 120 lít']])
+  await writeFile(f, JSON.stringify({ ...JSON.parse(await readFile(f, 'utf8')), bodyFixed: true }, null, 2))
+  const before = await readFile(f, 'utf8')
+  const r = await unitsMend(root, { now: after })
+  expect(r.mended).toEqual([])
+  expect(await readFile(f, 'utf8')).toBe(before)
+})
+
 test('the guide writer\'s figure check lets the water a dose goes into keep its exact conversion, and only that', () => {
   expect(amountsOutside('Pha 5 ml vào 38 lít nước.', 'Add 5 ml per 10 gallons of water.')).toEqual([])
   expect(amountsOutside('Pha 5 ml vào 114 lít nước.', 'Add 5 ml to 30 gallons of water.')).toEqual([])

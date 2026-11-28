@@ -1,10 +1,14 @@
 {
   "id": "otocinclus-flexilis",
-  "summary": "Cá otocinclus flexilis dài 6 cm, hợp người nuôi bể thủy sinh muốn có cá ăn rêu mà không phá cây. Nuôi theo đàn thì chúng sống với nhau tốt. Cần nước mát 20–25 °C, pH 6–7,8, độ cứng 2–25 dGH. Điểm khó nhất là tránh để nước nóng kéo dài, vì có thể làm cá gặp vấn đề; với cá khác chúng cũng có thể hơi hay giành chỗ.",
+  "summary": "Loài này hợp người có bể thủy sinh nước mát và muốn nuôi một đàn cá ăn rêu cỡ 6 cm, vì cá không phá cây mà vẫn giữ rêu trong tầm kiểm soát. Giữ nước 20–25 °C, pH 6–7,8, độ cứng 2–25 dGH. Điểm khó nhất là nước nóng kéo dài, vì dễ làm cá gặp vấn đề, và với cá khác chúng có thể hơi hay giành chỗ.",
   "mistakes": [
-    "Để nước nóng kéo dài: giữ nước trong khoảng 20–25 °C, vì nóng liên tục có thể làm cá gặp vấn đề."
+    "Để bể nóng kéo dài: nên giữ nước trong khoảng 20–25 °C."
   ],
   "speciesUpdatedAt": "2026-11-14",
-  "generatedAt": "2026-11-14T23:41:55.114Z",
-  "review": "approved"
+  "writtenFrom": "533cbb11c7626e98",
+  "generatedAt": "2026-11-20T02:00:54.318Z",
+  "review": "pending",
+  "problems": [
+    "\"vì dễ làm cá gặp vấn đề\": the page only says prolonged hot water \"có thể khiến cá gặp vấn đề\" (can cause problems). \"Dễ\" (easily) makes the hedge stronger than the page does."
+  ]
 }

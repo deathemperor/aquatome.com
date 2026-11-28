@@ -1,0 +1,60 @@
+{
+  "id": "corydoras-sipaliwini",
+  "native": {
+    "input": "cfa549b23891b85c",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Originally the species comes from Surinam, where it was first collected in the Sipaliwini River.",
+        "words": "Surinam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sipaliwini River",
+        "source": "glaser",
+        "quote": "Originally the species comes from Surinam, where it was first collected in the Sipaliwini River.",
+        "country": "SR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras sipaliwini",
+    "status": "ACCEPTED",
+    "taxonKey": 2342729,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        12
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "SR"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T07:12:58.512Z"
+  }
+}

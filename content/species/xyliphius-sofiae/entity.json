@@ -1,0 +1,141 @@
+{
+  "id": "xyliphius-sofiae",
+  "scientificName": "Xyliphius sofiae",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Xyliphius",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "amazon"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Amazonas"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Río Amazonas, main channel in the vicinity of Iquitos, Maynas, Loreto, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Amazonas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9603551,
+      "total": 0,
+      "fetched": "2026-11-20",
+      "countries": [],
+      "cells": []
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_sofiae.htm",
+      "html": "<ul><li>IUCN Red List: Data Deficient</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_sofiae.htm",
+      "html": "<p>South America: Río Amazonas, main channel in the vicinity of Iquitos, Maynas, Loreto, Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_sofiae.htm",
+      "html": "<p>Xyliphius live buried in the sand and perhaps gravel of swift flowing streams.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_sofiae.htm",
+      "html": "<p>Xyliphius sofiae is described from a single specimen, which lacks eyes and pigment (pale colour), with five branchiostegal rays and an elongated, narrowly rounded snout tip. The anal fin has modally nine rays, and the lateral line extends onto the base of the caudal-fin rays. The species was described in 2017 by Sabaj, Carvalho &amp; Reis.</p><p>Etymology: the genus name Xyliphius derives from the Greek xylephion, 'a little piece of wood', referring to the woodlike appearance of the type species. The specific name sofiae honours the first author's daughter, Sofia, 'for inspiring wisdom in her father'.</p><p>IUCN Red List: Data Deficient. It is known only from a single specimen from the Amazon river near Iquitos. The species could have a restricted distribution and be naturally rare, but further research on its distribution and population is required. It is unknown whether it is susceptible to impacts in the region (e.g. pollution from Iquitos).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_sofiae.htm",
+      "html": "<p>Rodríguez-Olarte, D., DoNascimiento, CD, Mojica, J.I., Usma, S., Villa-Navarro, F. &amp; Marrero, C. 2021. Xyliphius sofiae. The IUCN Red List of Threatened Species 2021. Tiago P. Carvalho, Roberto E. Reis, and Mark H. Sabaj; Description of a New Blind and Rare Species of Xyliphius (Siluriformes: Aspredinidae) from the Amazon Basin Using High-Resolution Computed Tomography. Copeia 2017 105 (1), 14-28. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/6515d912049e6d1f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6515d912049e6d1f-480.webp",
+      "width": 500,
+      "height": 315,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_sofiae.htm",
+      "caption": "Xyliphius sofiae: dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/2ed930ae06076d13.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2ed930ae06076d13-480.webp",
+      "width": 500,
+      "height": 587,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_sofiae.htm",
+      "caption": "Xyliphius sofiae: dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/292d69e76bb04fb2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/292d69e76bb04fb2-480.webp",
+      "width": 500,
+      "height": 374,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_sofiae.htm",
+      "caption": "Xyliphius sofiae: dorsal head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-20"
+}

@@ -1,0 +1,97 @@
+{
+  "id": "synodontis-fuelleborni",
+  "scientificName": "Synodontis fuelleborni",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Synodontis",
+  "group": "catfish",
+  "places": [
+    "chau-phi",
+    "tanzania",
+    "lake-rukwa"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 18
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1423",
+      "html": "<p>Synodontis fuelleborni Hilgendorf &amp; Pappenheim, 1903. Family Mochokidae. Size: 18 cm SL. Temperature: 20–25°C. IUCN Red List status: Least Concern.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1423",
+      "html": "<p>Africa: Lake Rukwa and Rufigi basin in Tanzania. Type locality: Songwe, Lake Rukwa, east of Lake Tanganyika, Tanzania.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1423",
+      "html": "<p>Mann (1964a) concluded that there was a more dominant vegetable component in the diet.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1423",
+      "html": "<p>Lay the fish in your hand with its head toward your palm and the tail toward your fingers. Hold the dorsal spine between your middle and ring finger so the fish is belly up. The genital pore is in a small furrow of tissue (in healthy fish) and will be obstructed by the pelvic fins. Pull down on the tail gently to arch the spine and the pelvic fins will stand and the furrow open to display the genital pore and the anus. The male has a somewhat ridged genital papilla on which the spermatoduct is on the back side, facing the tail fin. A gravid female will also show an extended papilla but the oviduct is on the ventral side of the papilla (and may also show a little redness if really gravid). A thin or emaciated female will have just two pink pores, the oviduct and the anus.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1423",
+      "html": "<p>Unreported. It is thought they spawn in the wild in April or May. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1423",
+      "html": "<p>All species in the genus Synodontis have a hardened head cap with a humeral process behind the gill opening, pointed towards the rear. The dorsal and pectoral fins have a hardened, serrated first ray. The caudal fin is always forked. There is one pair of maxillary barbels, and two pairs of mandibular barbels that are often branched. These fish produce audible sounds when disturbed by rubbing the base of the pectoral spine against the pectoral girdle.</p><p>Ricardo (1939) described it as dark yellowish green, mottled or marbled with bright yellow; fins grey with dark spots arranged irregularly in transverse series. A freshly caught fish was bright yellow with an olive tinge, marbled with irregular dark olive-brown spots. In captivity the yellow ground colour got darker and the marbling more prominent. Juveniles have a coarser pattern than adults but are generally similar.</p><p>FishBase lists 192 mm TL. Specimens recorded from the Rufigi system may be a different species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1423",
+      "html": "<p>Sitzungsber. Ges. Naturf. Freunde Berlin 1903 (no. 6) - pp265; The Fishes of the Lake Rukwa Drainage, Seegers pg.240</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nheo đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

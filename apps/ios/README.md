@@ -23,7 +23,9 @@ group written together, their colour, daily timer and clock, and, since they rep
 them kept on their records, known by their address (`bleAddress`), as docs/my-tanks-sync.md describes. The profile button at the top right of each tab opens **Tài khoản**, a sheet
 (as the App Store's), laid out as iOS's settings: the aquatome.com account (below: who is signed in and since when, the
 sync's state with the one button that helps, a passkey), the owner's dashboard for the owner's account (with its to-dos
-counted), the app's icon and the pages kept to read offline (opening their shelf on Tìm), the anonymous statistics'
+counted), the app's icon, its language (shown at once, every tab back at its first screen in it and the sheet staying open
+in its words; kept as iOS's Settings → AquaTome → Language keeps it) and the pages kept to read offline (opening their
+shelf on Tìm), the anonymous statistics'
 switch and the posters blocked on this phone (their own page), the site's about, contact and privacy pages (in the
 browser), then signing out, deleting the account and the app's version. It says so when the server offers no accounts or
 can't be reached (the account signed in on the phone shows as last seen, with its last sync), and the button carries a
@@ -147,7 +149,9 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
   public project never holds the team ID.
 
 A new string in the code: add its Indonesian, Malay and Thai to `Localizable.xcstrings` (Xcode adds the key when it
-builds); `check-strings.py` fails CI otherwise. Reuse the site's translation when the Vietnamese is the same
+builds); `check-strings.py` fails CI otherwise. A `String(localized:)` or `AttributedString(localized:)` passes
+`bundle: .app`, the language the reader picked while the app runs (without it, the lookup stays in the language the app
+opened in); `check-strings.py` fails one without it, naming its file and line (`scripts/localized_calls.py`). Reuse the site's translation when the Vietnamese is the same
 (`apps/site/src/i18n/{id,ms,th}.json`). `pnpm --filter @aq/engine exec tsx scripts/translate-app.ts ms` fills a
 language's missing strings in both catalogs: the site's first, then Opus.
 

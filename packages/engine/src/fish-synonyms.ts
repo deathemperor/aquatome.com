@@ -7,6 +7,11 @@ type Http = (url: string) => Promise<unknown>
 const CACHE = 'engine-state/_gbif-synonyms.json'
 const BINOMIAL = /^[A-Z][a-z]+ [a-z]+(?:-[a-z]+)?$/
 const key = (n: string) => n.trim().toLowerCase()
+/**
+ * Off until its fix (the owed read of 20 Nov: a refusal doesn't stop its requests to GBIF, and its file is written in
+ * place): no request, from a cycle or by hand. The names it kept stay as they are. The chief of staff, 20 Nov.
+ */
+export const FISH_SYNONYMS_OFF: string | undefined = 'off until its fix (the chief of staff, 20 Nov)'
 
 /**
  * Every fish's older scientific names from GBIF (`gbifSynonyms`: the accepted name when the page's is a synonym, and the
@@ -15,7 +20,9 @@ const key = (n: string) => n.trim().toLowerCase()
  * species rank keeps [] (a fuzzy match can be another fish). The chief of staff, 2026-11-12: Commons files some fish
  * under an older name (Acheilognathus macropterus), and search and name checks can use them too.
  */
-export async function fetchFishSynonyms(root: string, http: Http, o: { limit: number; gap?: number; sleep?: (ms: number) => Promise<void> }) {
+export async function fetchFishSynonyms(root: string, http: Http, o: { limit: number; gap?: number; sleep?: (ms: number) => Promise<void>; off?: string | false }) {
+  const off = o.off ?? FISH_SYNONYMS_OFF
+  if (off) return { asked: 0, failed: [] as string[], left: 0, off }
   const file = join(root, CACHE)
   const cache = JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Record<string, string[]>
   const report = { asked: 0, failed: [] as string[], left: 0 }

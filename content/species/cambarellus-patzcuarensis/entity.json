@@ -19,7 +19,8 @@
         "Lake Pátzcuaro"
       ],
       "sources": [
-        "glaser"
+        "glaser",
+        "aquariumbreeder"
       ],
       "quotes": [
         {
@@ -93,6 +94,52 @@
       {
         "source": "glaser",
         "value": 4
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 3,
+          "max": 18
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 2,
+          "max": 2
+        }
       }
     ]
   },
@@ -104,16 +151,94 @@
       "html": "<p>The orange dwarf lobster, Cambarellus patzcuarensis, grows only up to 3–4 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-mexican-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Common names: Dwarf Mexican Crayfish, Mexican Crayfish, Orange Crayfish</li><li>Optimal tank size: 10 gallons (about 40 litres)</li><li>Breeding: easy to medium</li><li>Optimal KH: 3–15</li><li>Optimal TDS: 200–300 (100–500)</li><li>Nitrate: less than 20 ppm</li><li>Diet: detritivore / omnivore</li><li>Temperament: conditionally peaceful</li><li>Life span: up to 2 years</li><li>Colour forms: orange, brown, rust, marbled</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-mexican-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The Dwarf Mexican crayfish is robust, tolerant and relatively easy to breed. It will not limit your options as drastically as its bigger cousins do, and in some cases it can be one of the best candidates for beginners. However, if you keep it in a community tank with fish or shrimp, the risk of aggression remains.</p><p>The term Dwarf Mexican crayfish refers to several different species of Cambarellus. Belonging to the family Cambaridae, they are among the few types of crayfish that can be kept in captivity relatively safely. Other crayfish (blue crayfish, red crayfish, marbled crayfish, Cherax destructor, etc.) are known as killers and diggers, because they kill other fish, dig at the bottom of the tank and completely destroy plants.</p><p>Of the 17 currently recognized taxa described in or assigned to the genus Cambarellus, little analysis exists. They all look very similar and are all small (about 4–5 cm), so they can be called dwarf crayfish. On the market many dwarf crayfish are classified by colour: Cambarellus ninae (brown), Cambarellus montezumae (yellow), Cambarellus patzcuarensis (orange), Cajun Dwarf Crayfish Cambarellus shufeldtii (grey/reddish to brown), Brazos Dwarf Crayfish Cambarellus texanus (olive to brown), Cambarellus diminutus (the smallest crayfish in the world; grey/reddish to brown or blue) and Cambarellus puer (orange-red to light brown).</p><p>This colour-based classification is unreliable, because these species can crossbreed. Some aquarists believe the orange C. patzcuarensis is no longer a pure line but a hybrid of C. montezumae and C. patzcuarensis (bred for better or more intense colour), so nobody can be sure which species they have.</p><p>Dwarf Mexican crayfish (Cambarellus patzcuarensis) is listed on the IUCN Red List of endangered species.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cambarellus_patzcuarensis_en/",
       "html": "<p>Origin: Lake Pátzcuaro in Mexico.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-mexican-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The Dwarf Mexican crayfish comes from Lake Pátzcuaro, a volcanic crater lake in Michoacán, southwest of the city of Morelia, Mexico.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-mexican-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Lake Pátzcuaro is an alkaline lake: according to research, its inorganic carbon is dominated by carbonates (30%) and bicarbonates (70%). pH values are similar in most locations, but the lowest value (pH 8.8) was observed in the north basin. In nature, Dwarf Mexican crayfish are found in lava sandy areas. Wild individuals are mostly tan, brown and rust coloured.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-mexican-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>This crayfish suits smaller tanks (maximum length 4–5 cm). No more than two should be kept in a 10-gallon (40 litre) tank and no more than four in a 20-gallon (80 litre) tank.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-mexican-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Like shrimp, crayfish are extremely sensitive to nitrate and ammonia. If the tank is not cycled, do not add the crayfish to cycle it: they will not survive.</p><p>This is a very hardy animal, but regular water changes are vital to its health. Proper filtration together with water changes keeps the crayfish well oxygenated.</p><p>Provide lots of hiding places to reduce stress (during moulting) and territorial battles. In a tank with many secluded places, even a crowded one, it is rare for any specimen to lose a claw; otherwise they can seriously harm or even kill one another. Driftwood, rocks and plants are crucial. Despite their hardiness, it is better to acclimate them.</p><h3>Moulting</h3><p>Like shrimp, Dwarf Mexican crayfish shed their exoskeleton in order to grow and to regrow lost limbs. An adult sheds only up to five times a year, whereas a juvenile moults every 7 to 10 days. During moulting they look for a place to hide, under a shell or in a crack between rocks, because they are defenseless until the new exoskeleton hardens.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-mexican-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Keep the temperature at 18–24°C. According to some studies these crayfish easily tolerate 15–31°C, and they have even been found in a pond where the temperature fluctuated between 31 and 37°C during the year. In another study testing 18, 22 and 26°C (each ± 1°C), significant differences were found in female survival and viability but not in the percentage of spawning: viability was highest at 26°C and female survival highest at 18°C.</p><p>Keep pH at least 7.5–8.0, as the species comes from the alkaline Lake Pátzcuaro. Many aquarists report keeping them at pH 6.0–7.0 as well, although this is not recommended. They also prefer water with high TDS.</p><h3>Substrate</h3><p>Many decapods live on the bottom of inland waters, so substrate type matters. In a 100-day study of juvenile orange Dwarf Mexican crayfish on six substrates (pebble 3–5 mm, sand 800–1000 μm, white calcite 800–1000 μm, greyish-black basalt 300–500 μm, in a 0.5 cm layer, and bare glass as control), the crayfish gained significantly more weight on basalt, and bare glass gave the lowest growth. Given a choice, they also spent more time on basalt. Basalt, with its small particles and greyish-black colour, is close to the natural lava sand substrate of this species.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-mexican-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Because the offspring are very tiny (about 2 mm), the filter intake should be covered with a sponge or net, as with baby shrimp. A sponge (Matten) filter is considered the best option: its large surface area lets plenty of microorganisms colonize and keep the water clean, and the current it produces will not endanger the baby crayfish.</p><p>Do not keep the water level in the aquarium too high, as these crayfish are excellent escape artists: they have strong legs to climb out of the tank and can spend some time out of the water.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-mexican-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Dwarf Mexican crayfish spend almost all their time scavenging and wandering around. They are omnivores and prefer organic food. They enjoy blackworms, crushed snails, earthworms and brine shrimp. Algae wafers are a special treat. They will eat basically anything thrown into the tank, so feed bottom-dwelling live food along with sinking pellets of any brand. They also enjoy vegetables such as shelled peas and zucchini.</p><p>Supplement the diet with specialized invertebrate foods so they get enough calcium for the exoskeleton.</p><p>Many aquarists noticed that snails and any meaty foods are preferred and help them grow much faster. Algae wafers and vegetables should only be a supplemental diet; the main diet needs to be meat (protein).</p><p>Colour-enhancing foods such as Hikari Shrimp Cuisine, Hikari Micro Wafers and Hikari Tropical Crab Cuisine can help maintain or improve the bright orange colour.</p><p>How often to feed is a delicate balance with tankmates (fish or shrimp): overfeeding fouls the water, but the crayfish must be fed enough not to go after shrimp or fish, and the shrimp must be fed enough to grow the colony.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cambarellus_patzcuarensis_en/",
       "html": "<p>These dwarf lobsters are slightly aggressive among each other.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-mexican-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Compared to many other crayfish, the Dwarf Mexican crayfish is peaceful, but only to some degree. Despite their size they are quite territorial, defending their homes and threatening each other when they come too close. Males in particular can be aggressive towards their own kind, and an overpopulated tank will be \"regulated\" by the crayfish themselves. From time to time one or two will lose a claw, which grows back.</p><h3>Fish tankmates</h3><p>Do not keep aggressive fish with them, and provide lots of shells, gravel and other hiding places. They can react defensively and behave aggressively towards a fish if threatened: they cannot kill most fish, but will take chunks out of fins. Each crayfish has its own personality, so some people have had success in community tanks while others have had disastrous results. Small fish, snails and plants can be housed with them, for example guppies, mollies, boraras and dwarf swordtails, and even the offspring of these species survive. Only ill and weak specimens are removed by the crayfish. With a big fish in the tank, the crayfish will hide during the day; make sure the hiding places are too small for the big fish to enter.</p><h3>Shrimp and snail tankmates</h3><p>Results are mixed and depend on the individual. Some people keep them with dwarf shrimp without problems, but this is not a good idea if you plan to breed dwarf shrimp. The crayfish are almost twice as big (with few exceptions, like Amano or bamboo shrimp), and a moulting shrimp is an easy meal. Healthy shrimp are usually too fast, so the crayfish mostly catch ill, slow or weak ones. Even baby crayfish may try to catch baby shrimp. Feeding the crayfish reduces the chances of attacks. They can eat bladder (pest) snails but may also nip off the antennae of larger snails.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-mexican-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Males and females can be told apart by the lower part of the abdomen (the lower part of the white section of the underbelly). Males have an extra set of pleopods used for internal fertilization, forming a triangular-ish cluster of small legs. Females have a seminal receptacle and lack these extra pleopods behind the walking legs; instead there is a small nub.</p><p>It is easy to tell the sexes apart once they reach about 1.5 cm, at around 2 months old.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-mexican-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Breeding is easy and needs little intervention. You need at least one male and one female. The male flips over and pins down the female and deposits sperm near her sperm receptacle. The female then folds her tail under her body so she can fertilize her eggs.</p><p>In a study, spawning was highest at 18°C (89%), and females spawned more than once at 18 and 22°C. The spawning rate was lower at 22 and 26°C (about 66.67%). The initial size of reproduction and spawning was 23–25 mm, and they mature at around 2.5–3 months old.</p><h3>Eggs</h3><p>Females usually carry 20 to 40 eggs, and big females up to 60. The female uses her appendages to keep the eggs clean and oxygenated, and her body protects them. Temperature plays a big role: females retained on average 13.92 to 21.69 eggs, the lowest at 26°C and the largest number at 18°C. Hatching usually takes 3–4 weeks depending on temperature. Egg loss is attributed to experience: young females lose many eggs through lack of care, and loss is also proportional to size, so small females lose more eggs than larger ones.</p><h3>Hatching and babies</h3><p>Dark spots (developing eyes) on the eggs mean they are about to hatch. After hatching, babies can cling to the mother in a curled position for a few days, completely defenseless until their shells harden, and can only wiggle rather than walk. They can be fed the same food as adults in smaller portions. The females usually do not attack their babies in the first few days, but this is not a rule, so ideally isolate the babies (for example in a small plastic container inside the tank). Many people who keep babies with adults have poor success.</p><p>Do not keep different generations together. Babies are very aggressive, especially larger ones towards smaller ones, even with a small size difference; only babies of similar size are relatively safe together. In early stages feed the babies daily, or they will die of hunger or aggression. When well fed they will not cannibalize each other, though mock fights occur. Hatchlings and juveniles should be removed to their own containers, as adults often eat them. Once they are about 1.5–2 cm, they can be put with the adults.</p><p>If hatched eggs fall off the mother, scoop them up gently and keep them in a safe place in the tank; they may still develop. A DIY egg tumbler can increase the chances of survival.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-mexican-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Besides the wild type, the Dwarf Mexican crayfish is available in bright colour morphs that differ dramatically from the drab wild colouring. The orange colour morph originated in the Netherlands (bred by Juan Carlos Merino in the 1990s). Also called \"CPO – Cambarellus patzcuarensis var orange\", it is a very attractive and popular strain that has completely taken over the pet niche for this species. This mutation comes from captive breeding, not from the wild.</p><p>The lifespan is only about 2 years, though they have been known to live a little longer.</p>"
     }
   ],
   "photos": [
@@ -175,5 +300,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-15"
+  "updatedAt": "2026-11-21"
 }

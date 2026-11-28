@@ -8,13 +8,18 @@
     "maintenance:scotcat": "<p>Bể nuôi loài này chắc chắn phải có dòng chảy, vì ngoài tự nhiên chúng sống ở các dòng suối chảy xiết. Bạn cũng nên bố trí chỗ trốn trong bể. Có chỗ trốn thì cá khỏe hơn và thấy an toàn hơn với môi trường xung quanh.</p>",
     "diet:scotcat": "<p>Ngoài tự nhiên, chúng ăn rất tham côn trùng thủy sinh và ấu trùng côn trùng. Trong bể, bạn có thể cho ăn bo bo (Daphnia) sống hoặc đông lạnh, kèm các loại thức ăn đông lạnh như trùng huyết và cyclops.</p>",
     "notes:scotcat": "<p>Từ nguyên: Tên loài marginatus nghĩa là \"có viền\", ý chỉ viền trắng ở tất cả các vây.</p><p>Danh sách Đỏ IUCN: Đây là loài cá da trơn cỡ nhỏ, lớn nhanh nhưng sức sinh sản thấp. Vì vậy nó dễ bị khai thác quá mức, dù loài này có nhiều quần thể. Đập chắn sông và ô nhiễm nước (chủ yếu từ nông nghiệp) là hai nguyên nhân chính khiến quần thể và môi trường sống của chúng suy giảm. Từ đó có thể suy ra quần thể đã giảm 25-29% trong 10 năm qua. IUCN vì thế xếp loài này vào nhóm Sắp bị đe dọa, tức là đã tiệm cận ngưỡng để xếp vào nhóm bị đe dọa (IUCN 2024).</p>",
-    "references:scotcat": "<p>ScotCat Factsheet no. 128. Feb.2007. Zhang, E. 2024. Liobagrus marginatus. The IUCN Red List of Threatened Species 2024.</p>"
+    "references:scotcat": "<p>ScotCat Factsheet no. 128. Feb.2007. Zhang, E. 2024. Liobagrus marginatus. The IUCN Red List of Threatened Species 2024.</p>",
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Liobagrus marginatus (Günther, 1892)</li><li>Nhận dạng: vây đuôi có viền màu sáng hơn.</li><li>Danh sách Đỏ IUCN: chưa đánh giá</li></ul>",
+    "distribution:planetcatfish": "<p>Châu Á: Tứ Xuyên, Trung Quốc. Mẫu chuẩn thu ở các suối núi đổ vào sông Mân (Min), Tứ Xuyên, Trung Quốc.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa có ghi chép nào về việc loài này đẻ trong bể.</p>",
+    "notes:planetcatfish": "<p>Nguồn gốc tên: ghép từ chữ Hy Lạp leios nghĩa là trơn nhẵn và bagrus, tên thường dùng để gọi cá da trơn. Tên này lấy từ cái đầu trơn nhẵn của cá.</p><p>Tên đồng nghĩa: Amblyceps marginatus, Leiobagrus marginatus.</p>"
   },
   "quality": {
-    "score": 0.88,
+    "score": 0.78,
     "indexable": true,
     "bySource": {
-      "scotcat": 0.88
+      "scotcat": 0.88,
+      "planetcatfish": 0.78
     }
   }
 }

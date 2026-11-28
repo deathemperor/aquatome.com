@@ -22,6 +22,16 @@ export function licenceUrl(licence: string): string | undefined {
 }
 
 /**
+ * The picture a fish's page offers to shares and search (`og:image`, its Article's image): its head, but never a
+ * non-commercial one, which shows only on its own page and card; the site's own default stands in (the chief of staff's
+ * rule, 17 Nov).
+ */
+export const shareImage = (photos: Pick<Photo, 'url' | 'licence'>[]): string | undefined => {
+  const head = photos[0]
+  return head && !isNonCommercial(head.licence) ? head.url : undefined
+}
+
+/**
  * A licence's page as the credits list links it: Unsplash's with AquaTome's UTM, as Unsplash asks of every link to it
  * (unsplash.ts); the others as licenceUrl. Structured data names the page itself.
  */
@@ -42,8 +52,13 @@ export function alterationNotice(p: Pick<Photo, 'licence' | 'altered'>): 'Ảnh 
   if (p.altered.every(a => a.method === 'mark-crop') && !ccRequiresChangeNote(p.licence)) return
   return 'Ảnh đã chỉnh sửa'
 }
-/** A gallery page needs enough photos to be worth a page of its own. */
-export const GALLERY_MIN = 6
+/** One distinct album photo can open the viewer over its page. */
+export const GALLERY_MIN = 1
+/**
+ * The app's album shows from six photos, as before 20 Nov 2026: the site's strip went to one, and the app keeps its six
+ * (Design, 20 Nov 2026).
+ */
+export const APP_GALLERY_MIN = 6
 /** Photos shown in the strip on the species page. */
 export const GALLERY_STRIP = 8
 /** Thumbnails at most in a fish page's photo column on a tall computer screen: the strip's, then the gallery's next ones. */
@@ -52,17 +67,17 @@ export const GALLERY_COLUMN = 40
 /**
  * "Xem tất cả" under a strip of an album of `photos` (GalleryStrip.astro; the Design Lead, 18 Nov): there unless the
  * strip shows every photo, each a thumb or one the page shows already (null in `shown` or `more`, at its place).
- * `phone`: a wrapped strip (not a column) shows 6 thumbs on a phone, so one of 7 or 8 keeps it there alone. `fit`: in a
+ * A strip that shows them all measures its own row instead (scripts/album.ts): "Xem tất cả" shows while a thumb is out of
+ * view, at any width (the strip's reader, 21 Nov: a row of eight at 700 px hid its last ones with no button). `fit`: in a
  * column with `more` thumbs, which a tall screen shows as many of as fit, the places of the photos the page shows
  * already, for the album's script to hide it when the column shows the rest (scripts/album.ts).
  */
 export function seeAll(photos: number, shown: readonly unknown[], more: readonly unknown[], column: boolean) {
   const slots = [...shown, ...more]
   const every = Array.from({ length: photos }, (_, i) => i < shown.length || (i < slots.length && !slots[i])).every(Boolean)
-  const phone = every && !column && shown.filter(Boolean).length > 6
-  const all = !every || phone
+  const all = !every
   const fit = all && column && more.some(Boolean) ? slots.flatMap((p, i) => (p ? [] : [i])).join(' ') : undefined
-  return { all, phone, fit }
+  return { all, fit }
 }
 
 /** Photo sites by the address of a photo's own page. */

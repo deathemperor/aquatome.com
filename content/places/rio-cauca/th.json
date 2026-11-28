@@ -3,6 +3,12 @@
   "name": "เกากา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-20T01:51:21.693Z",
+    "why": "\"เกากา\" is a Thai transcription of Cauca but omits the river word แม่น้ำ that Thai atlases use, and the spelling is a poor fit for the Spanish pronunciation (คาวกา)."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

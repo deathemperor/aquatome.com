@@ -5,13 +5,15 @@
   "family": "Callichthyidae",
   "genus": "Corydoras",
   "group": "catfish",
+  "lNumber": "CW 27",
   "places": [
     "south-america",
     "venezuela",
     "orinoco",
     "suriname",
     "guyana",
-    "brazil"
+    "brazil",
+    "colombia"
   ],
   "range": {
     "native": {
@@ -150,10 +152,22 @@
       "html": "<p>The spotted cory, Hoplisoma brevirostre, long known as Corydoras brevirostris, is an armoured catfish usually said to occur in the Orinoco system in Venezuela and coastal Suriname. It was described from an aquarium specimen and its wider distribution is somewhat vague. It belongs to a group of similar congeners, including H. melanistium, Brochis delphax and B. ephippifera, that are widely misidentified, and is generally identified by a short, rounded snout and dark bars in the caudal fin.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-cf-brevirostris-cw-27-highfin-2/",
+      "html": "<p>A limited number of this extraordinary Corydoras was received from Colombia. The overall appearance is very much like Corydoras brevirostris (formerly known as Corydoras melanistius brevirostris), but CW 27 has a much higher dorsal fin and the \"glowspot\" on the nape is much brighter.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-brevirostre",
       "html": "<p>Hoplisoma brevirostre was described from an aquarium specimen apparently exported from the Río Orinoco drainage in Venezuela, and its wider distribution is somewhat vague, usually being given as the Orinoco system plus unnamed coastal rivers in Suriname.</p><p>This represents a somewhat disjunct pattern of distribution and if correct the species is also likely to occur in Guyana.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-cf-brevirostris-cw-27-highfin-2/",
+      "html": "<p>Colombia.</p>"
     },
     {
       "key": "maintenance",
@@ -209,6 +223,36 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-brevirostre",
       "caption": "Specimen from the German aquarium trade.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/473b8c7407a5305b.webp",
+      "thumb": "https://media.aquatome.com/glaser/473b8c7407a5305b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-cf-brevirostris-cw-27-highfin-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9c571a085139b84a.webp",
+      "thumb": "https://media.aquatome.com/glaser/9c571a085139b84a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-cf-brevirostris-cw-27-highfin-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4b7cb1a0ed57814c.webp",
+      "thumb": "https://media.aquatome.com/glaser/4b7cb1a0ed57814c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-cf-brevirostris-cw-27-highfin-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -255,5 +299,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-23"
 }

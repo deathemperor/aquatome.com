@@ -1703,6 +1703,14 @@
     "done": "skipped",
     "reason": "no scientific name given"
   },
+  "DFnXL1tdsik": {
+    "at": "2026-11-24",
+    "title": "Unboxing Rare Bettas and Tetras From Moonlight Aquatics",
+    "channel": "Steenfott Aquatics",
+    "kind": "other",
+    "done": "skipped",
+    "reason": "unboxing, several species, shop order"
+  },
   "dG7Ic2CvpoI": {
     "at": "2026-11-07",
     "title": "Exploring A 60 Year Old Issue of Tropical Fish Hobbyist Magazine!",
@@ -3774,16 +3782,26 @@
     "reason": "expedition"
   },
   "O0DF-fc3NbM": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Betta Smaragdina: Care, Habitat and Tips for Emerald Bettas",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Betta smaragdina",
+    "page": "species/betta-smaragdina",
+    "done": "low",
+    "score": 0.6,
+    "reason": "beforeYouBuy: \"cá bán ra thường đã lẫn máu loài khác\" repeats the PAGE's notes, which already say the fish are crossed with B. mahachaiensis and B. splendens.; beforeYouBuy: \"ngoài tiệm cá\" is not in the video; the speaker only says true strains are rare in the aquarium trade."
   },
   "O1DLCzJYHhI": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "1 year update of the Filament Barbs (Dawkinsia filamentosa )",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Dawkinsia filamentosa",
+    "page": "species/dawkinsia-filamentosa",
+    "done": "low",
+    "score": 0.74,
+    "reason": "[maintenance] The video plainly contradicts the page, which says Microsorum, Bolbitis and Anubias can be grown. NEW never says it differs from the page. It only hints at this with \"kể cả loại khỏe\", where it should say so openly.; [maintenance] \"khuyên dứt khoát là không nuôi loài này chung với cây thật\" is written near enough as a rule. The advice comes from one keeper's tank, so it needs clearer framing as that keeper's own experience."
   },
   "o25nEqBOeXc": {
     "at": "2026-11-07",
@@ -3794,10 +3812,12 @@
     "reason": "8 species"
   },
   "O335IQE-nwk": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Endler´s Livebearer (RED CHEST SADDLEBACK - Class K)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "o5eyhUQilgw": {
     "at": "2026-11-07",
@@ -3808,10 +3828,14 @@
     "reason": "book review, many species"
   },
   "o8kFvl5duq8": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Discover the Enchanting Sterbai Corydoras: A Must-Have for any Aquarium",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Corydoras sterbai",
+    "page": "species/corydoras-sterbai",
+    "done": "added",
+    "score": 0.82
   },
   "o8v-JO2phNI": {
     "at": "2026-11-18",
@@ -3830,10 +3854,15 @@
     "reason": "show pair selection advice"
   },
   "oCNgBx6j9PY": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Red Velvet Swordtail Fish (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Xiphophorus hellerii",
+    "page": "species/xiphophorus-hellerii",
+    "done": "low",
+    "score": 0.6,
+    "reason": "\"dọc mép thùy dưới vây đuôi, tức là dọc theo cây kiếm\": the video says the black stripe runs along the lower lobe of the anal fin, not the tail fin or sword. This changes where the stripe is.; \"đồ thực vật chiếm phần lớn trong thức ăn\": the video says only \"a large part\" of the diet is vegetation. \"Phần lớn\" reads as most, which overstates it."
   },
   "oEPCdzB3qZk": {
     "at": "2026-11-07",
@@ -3986,10 +4015,14 @@
     "reason": "several species"
   },
   "p1gcQEYnW5I": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Meet the Nego Dagua Tetra: A Closer Look at Hyphessobrycon negodagua",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Hyphessobrycon negodagua",
+    "page": "species/hyphessobrycon-negodagua",
+    "done": "new page",
+    "score": 0.8
   },
   "p2RHCOv-z-E": {
     "at": "2026-11-07",
@@ -4040,10 +4073,14 @@
     "reason": "many species list"
   },
   "pDL703qE4w4": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Strawberry Leporinus - Leporinus granti - Rare Freshwater Tropical Aquarium Fish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Leporinus granti",
+    "page": "species/leporinus-granti",
+    "done": "new page",
+    "score": 0.96
   },
   "pFqzYnG_zlY": {
     "at": "2026-11-07",
@@ -4102,10 +4139,14 @@
     "reason": "disease general"
   },
   "PSy6YDg3fug": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Saddleback Loach - Homaloptera Orthogoniata - Rare Freshwater Loach Aquarium Fish Profile",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Homaloptera orthogoniata",
+    "page": "species/homaloptera-orthogoniata",
+    "done": "added",
+    "score": 0.8
   },
   "ptOLs3ZBnB0": {
     "at": "2026-11-11",
@@ -4138,16 +4179,22 @@
     "reason": "aquascape"
   },
   "PXFIlVo_ihU": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "DWARF ANCHOR CATISH SPECIES PROFILE",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "pxhkIYRxa0Q": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "The Most Underrated Rainbowfish? | Millennium Rainbowfish",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Glossolepis pseudoincisus",
+    "page": "species/glossolepis-pseudoincisus",
+    "done": "new page",
+    "score": 0.92
   },
   "pyPB6VaP6o4": {
     "at": "2026-11-07",
@@ -4166,16 +4213,26 @@
     "reason": "accessories/products"
   },
   "q7ykTVcGOUU": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "Carpet Plant - Micro Sword (Lileaopsis brasiliensis)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Lilaeopsis brasiliensis",
+    "page": "plants/lilaeopsis-brasiliensis",
+    "done": "low",
+    "score": 0.6,
+    "reason": "\"Một người nuôi loài này lâu năm\": the video never says the keeper has kept it for years, so \"lâu năm\" is invented.; \"vẫn lên được thảm\": the video only says the plant keeps growing without CO2 or fertilizer. It doesn't say it forms a carpet."
   },
   "Q80bX9fgzro": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "Sagittaria Subulata - Easy to Keep Foreground Carpet Plant",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Sagittaria subulata",
+    "page": "plants/sagittaria-subulata",
+    "done": "low",
+    "score": 0.6,
+    "reason": "\"Người này cũng chỉ dùng phân nhét, không châm phân nước\" – the video says tablet fertilizer only, no liquid fertilizer; OK, but the page already says nền giàu dinh dưỡng/phân nhét when substrate poor, partial overlap.; \"Có CO2 thì thảm dày nhanh hơn, nhưng ... không cần\" – the page already says CO2 is not required (\"Không châm CO2 thì cây vẫn lên tốt\"), so it duplicates the page."
   },
   "QfdQ9WSt2po": {
     "at": "2026-11-07",
@@ -4186,10 +4243,15 @@
     "reason": "fish room update"
   },
   "qixOoS3J0gE": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "Dappled Whiptail: A Little Weird, a Lot to Like",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Rineloricaria melini",
+    "page": "species/rineloricaria-melini",
+    "done": "low",
+    "score": 0.7,
+    "reason": "[beforeYouBuy] gives ~13 cm and ~15 cm (excluding tail), but the page says max 9–12 cm. The text never says it differs from the page or how.; [diet] 'Một người nuôi lâu năm cho rằng' – the video never says the speaker is a long-time keeper; 'lâu năm' is invented."
   },
   "QjzRqIvfxpM": {
     "at": "2026-11-07",
@@ -4199,11 +4261,21 @@
     "done": "skipped",
     "reason": "aquarium product review"
   },
-  "qmToRXs_1NI": {
-    "at": "2026-11-07",
-    "title": "The BEST Freshwater Puffer Fish: The Congo Spotted Puffer",
+  "QMk-WoaDmGQ": {
+    "at": "2026-11-20",
+    "title": "Same Species, Two Colors. Meet the Green Whiptail Catfish",
     "channel": "Steenfott Aquatics",
     "kind": "profile"
+  },
+  "qmToRXs_1NI": {
+    "at": "2026-11-21",
+    "title": "The BEST Freshwater Puffer Fish: The Congo Spotted Puffer",
+    "channel": "Steenfott Aquatics",
+    "kind": "profile",
+    "species": "Tetraodon schoutedeni",
+    "page": "species/tetraodon-schoutedeni",
+    "done": "new page",
+    "score": 0.95
   },
   "QoK-t-jw4tI": {
     "at": "2026-11-07",
@@ -4214,16 +4286,23 @@
     "reason": "general tip"
   },
   "qSYgR3ZQGXk": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "How to Breed Red Panda Barbs/Melon Barbs - Haludaria Fasciata Aquarium Fish Breeding (Step by Step)",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Haludaria fasciata",
+    "page": "species/haludaria-fasciata",
+    "done": "low",
+    "score": 0.68,
+    "reason": "Hatching timeline: the page says eggs hatch in 24–48 h and fry swim free about 24 h later. The video has free swimming on day 5. NEW says \"Tới ngày thứ năm cá mới tự bơi được\" but never states that this differs from the page.; \"Sáng hôm sau con đực sẽ đẻ với vài con cái\" is written as a general rule. The page already says fish usually spawn the next morning. In the video this was one trap in one tank."
   },
   "qTqPnneb0xE": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "Endler's Livebearer - ENDLERS (Species Profile & Judging)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "QVJVHMkCv90": {
     "at": "2026-11-18",
@@ -4234,10 +4313,14 @@
     "reason": "two-species comparison"
   },
   "qW6vuki1OM8": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "Sundadanio axelrodi",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Sundadanio axelrodi",
+    "page": "species/sundadanio-axelrodi",
+    "done": "added",
+    "score": 0.86
   },
   "QW8QzMILr0w": {
     "at": "2026-11-07",
@@ -4248,10 +4331,15 @@
     "reason": "science on guppies generally"
   },
   "QWU4gaLGNJo": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "Long-Snouted Pipefish: The Largest Freshwater Pipefish",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Doryichthys boaja",
+    "page": "species/doryichthys-boaja",
+    "done": "low",
+    "score": 0.62,
+    "reason": "[habitat] 'Cũng có ghi chép gặp loài này ở cửa sông' goes against the page, which says the fish lives only in freshwater and is never found in brackish water. NEW never says it differs from the page or how.; [maintenance] 'Chỉ thả cá vào bể đã chạy lâu… đừng thả vào bể mới set hôm qua' turns the presenter's 'I would' into a flat rule. It should be written as one keeper's experience."
   },
   "qxH8rU51Wjw": {
     "at": "2026-11-18",
@@ -4262,10 +4350,14 @@
     "reason": "tank setup"
   },
   "QyaJCTK6ByA": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "Java Moss \"Taxiphyllum barbieri\" (Perfect Plant for Fish Breeding, Shrimps or Aquascaping)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Taxiphyllum barbieri",
+    "page": "plants/taxiphyllum-barbieri",
+    "done": "added",
+    "score": 0.77
   },
   "R-1rQYWF_qY": {
     "at": "2026-11-07",
@@ -4276,10 +4368,13 @@
     "reason": "expedition"
   },
   "r0dgL36Ccvw": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "The Rainbow Nano Danio: Gold Ring Danios  |(Brachydanio tinwini) Care Guide & Background Info",
     "channel": "FISHTORY",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Brachydanio tinwini",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "r2EEVAFDSmY": {
     "at": "2026-11-07",
@@ -4290,16 +4385,23 @@
     "reason": "fish room tour"
   },
   "R2WBeiemNjY": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "Red Rili Shrimp (Neocaridina davidi var) Freshwater Shrimp Aquarium Shrimp Profile & Care Guide",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Neocaridina davidi",
+    "page": "species/neocaridina-davidi",
+    "done": "low",
+    "score": 0.68,
+    "reason": "\"thân thường trong mờ với đốm hoặc sọc nâu\": the page's distribution section already says wild shrimp are translucent with brown blotches, so this repeats it.; \"Tép rili không có ngoài tự nhiên. Đây là dòng màu người ta chọn lọc từ tép cherry\": the page already lists rili as a colour strain of the cherry shrimp. The overlap is partial, and it adds little beyond the page."
   },
   "R85C4mP4bOc": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "PLATY FISH BREEDING (All You Need to Know)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "rA2AM8wvzvk": {
     "at": "2026-11-18",
@@ -4340,10 +4442,12 @@
     "kind": "profile"
   },
   "RojHgUR0XUc": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "The Mysterious Morse Code Tetra",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "RpgefN1xPzE": {
     "at": "2026-11-07",
@@ -4354,10 +4458,15 @@
     "reason": "summer ponds, several species"
   },
   "rPIBlO0OHWA": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "Endler’s Livebearers Feeding Time | RARE Poecilia Wingei Varieties Collection",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Poecilia wingei",
+    "page": "species/poecilia-wingei",
+    "done": "low",
+    "score": 0.45,
+    "reason": "[reproduction] 'tách bằng lưới đẻ' — the video says breeding nets to keep pure strains, but the page says nets/boxes are unsuitable; the text doesn't say it differs from the page.; [diet] 'Đồ tươi gần với thức ăn ngoài tự nhiên của chúng và kích cá đẻ' — the video says live foods mimic their natural diet and promote breeding; the page already says they eat benthic animals in the wild, so this overlaps."
   },
   "rRJNK-qaTE8": {
     "at": "2026-11-07",
@@ -4376,10 +4485,14 @@
     "reason": "general myths"
   },
   "RuKdueNJkhA": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "The Story Behind Myloplus aylan - Blue Hook Silver Dollar",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Myloplus aylan",
+    "page": "species/myloplus-aylan",
+    "done": "new page",
+    "score": 0.97
   },
   "rVZRyYEP5rM": {
     "at": "2026-11-07",
@@ -4396,10 +4509,14 @@
     "kind": "profile"
   },
   "S_TJCcn6DqQ": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "Barhead Pipefish: The Freshwater Relative of the Seahorse",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Microphis leiaspis",
+    "page": "species/microphis-leiaspis",
+    "done": "new page",
+    "score": 0.8
   },
   "s0xWgL-DFFg": {
     "at": "2026-11-07",
@@ -4409,11 +4526,21 @@
     "done": "skipped",
     "reason": "15 species"
   },
+  "S1gyPFtcPAU": {
+    "at": "2026-11-21",
+    "title": "Aquatic Plants Are In A Chemical War! Why Water Changes Clean Far More Than Fish Waste & Ammonia",
+    "channel": "FISHTORY",
+    "kind": "other",
+    "done": "skipped",
+    "reason": "General topic on water changes and plant chemistry, not one species"
+  },
   "Sg6IxODpfdg": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "BLUE AURA SHRIMP (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "sHg_xHC75Ok": {
     "at": "2026-11-07",
@@ -4424,10 +4551,15 @@
     "reason": "unboxing, several species"
   },
   "sHJLeZ1fRFM": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "Cambarellus  patzcuarensis \"orange\"  CPO",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Cambarellus patzcuarensis",
+    "page": "species/cambarellus-patzcuarensis",
+    "done": "low",
+    "score": 0.62,
+    "reason": "behaviour: 'bể nano cỡ 40 lít' – the video says about 10 gallons or 30 liters, so the figure is wrong; reproduction: 'khoảng 2–3 tuần... thì trên mẹ đã có ấu trùng' conflicts with the page's 'Trứng thường nở sau 3–4 tuần'. NEW doesn't say it differs from the page or how"
   },
   "sHlDsn7v7Hw": {
     "at": "2026-11-18",
@@ -4454,10 +4586,12 @@
     "reason": "fish room"
   },
   "SNFJ3-9YNH0": {
-    "at": "2026-11-07",
+    "at": "2026-11-22",
     "title": "This Corydoras Doesn’t Look Real… Meet CW217",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "sntTQ-e6GgE": {
     "at": "2026-11-07",
@@ -4532,10 +4666,15 @@
     "reason": "hybrid breeding project update"
   },
   "Tfzdew5HB7o": {
-    "at": "2026-11-07",
+    "at": "2026-11-23",
     "title": "The Least Killifish - Tiny Fish: HUGE Impact On Science & History! Heterandria formosa Care Guide.",
     "channel": "FISHTORY",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Heterandria formosa",
+    "page": "species/heterandria-formosa",
+    "done": "low",
+    "score": 0.68,
+    "reason": "\"Mỗi con cái cho khoảng 30–100 con trong 2–3 năm sống\": the page gives a maximum lifespan of 1.5 years. The note doesn't say the video differs, so the conflict is hidden.; \"một người nuôi lâu năm lại chọn nuôi 2–3 con cái cho mỗi con đực\": the page says 3–4 males per female. The note doesn't say plainly that the video says the opposite. The word \"lại\" only hints at it."
   },
   "TI_O6Ai5HeA": {
     "at": "2026-11-07",
@@ -4584,16 +4723,21 @@
     "reason": "Product: aquarium light"
   },
   "tscVdxWPPqE": {
-    "at": "2026-11-07",
+    "at": "2026-11-23",
     "title": "Molly Fish (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "TTWZFycGGUE": {
-    "at": "2026-11-07",
+    "at": "2026-11-23",
     "title": "Notopala sp \" Blue Berry \"",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Notopala sp.",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "tuPpz3XQXNI": {
     "at": "2026-11-07",
@@ -4610,10 +4754,15 @@
     "kind": "profile"
   },
   "tymXrGKqu7E": {
-    "at": "2026-11-07",
+    "at": "2026-11-23",
     "title": "Beginner’s Guide to Cherry Shrimp | Easy Freshwater Shrimp for Aquariums",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Neocaridina davidi",
+    "page": "species/neocaridina-davidi",
+    "done": "low",
+    "score": 0.6,
+    "reason": "\"Một người nuôi loài này lâu năm\": the video never says the speaker is a long-time keeper, so this experience is invented.; aquariumSize 30–40 lít differs from the page's \"từ khoảng 40 lít trở lên\", but NEW does not say the video differs or how."
   },
   "u-1eWOZMj8s": {
     "at": "2026-11-07",
@@ -4632,10 +4781,14 @@
     "reason": "show event"
   },
   "u0svxKbRPL4": {
-    "at": "2026-11-07",
+    "at": "2026-11-23",
     "title": "✨ Peugeot Tetra (Hyphessobrycon peugeoti) — A Hidden Gem of the Freshwater World ✨",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Hyphessobrycon peugeoti",
+    "page": "species/hyphessobrycon-peugeoti",
+    "done": "new page",
+    "score": 0.92
   },
   "u9IvgivF-9E": {
     "at": "2026-11-18",
@@ -4660,10 +4813,15 @@
     "reason": "water problems guide"
   },
   "UCBItkKpEww": {
-    "at": "2026-11-07",
+    "at": "2026-11-23",
     "title": "Ember / Fire Tetra - Hyphessobrycon amandae",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Hyphessobrycon amandae",
+    "page": "species/hyphessobrycon-amandae",
+    "done": "low",
+    "score": 0.72,
+    "reason": "[diet] \"rồi chỉ thích món đó\" overstates the video. It only says the fish \"can develop preferences for certain foods\".; [diet] The list \"artemia, cyclops, bo bo… cám vảy\" is already on the PAGE's diet section, so it adds little that is new."
   },
   "UdtsP5EAPwo": {
     "at": "2026-11-07",
@@ -4715,16 +4873,23 @@
     "reason": "no page, and GBIF has no species of that name"
   },
   "Uk506lYGh-g": {
-    "at": "2026-11-07",
+    "at": "2026-11-23",
     "title": "False Armatus/Colossus Corydoras - CW045 - Rare Catfish Freshwater Fish Profile & Care Guide",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Corydoras colossus",
+    "page": "species/corydoras-colossus",
+    "done": "new page",
+    "score": 0.95
   },
   "uKyZixINLRU": {
-    "at": "2026-11-07",
+    "at": "2026-11-23",
     "title": "Discover the Mischievous Rosy Loach (Tuberoschistura arakensis/Yunnanilus sp)",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Tuberoschistura arakensis",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "uLIFwT9pniE": {
     "at": "2026-11-07",
@@ -4815,22 +4980,32 @@
     "reason": "shop tank tour"
   },
   "UYidJ_lGFmw": {
-    "at": "2026-11-07",
+    "at": "2026-11-23",
     "title": "PEA PUFFER SPECIES PROFILE.",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "uZU__YFihCo": {
-    "at": "2026-11-07",
+    "at": "2026-11-23",
     "title": "This Corydoras Isn’t What You Think… (Scleromystax barbatus)",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Scleromystax barbatus",
+    "page": "species/scleromystax-barbatus",
+    "done": "low",
+    "score": 0.55,
+    "reason": "[aquariumSize] 'bể dài khoảng 90 cm, từ 150 lít trở lên': the video says a 3-ft tank, about 40 gallons and up. 150 L is an invented conversion, and the 90 cm figure sits oddly beside the page's 120 cm without saying it differs.; [waterConditions] 'Đừng nuôi ở 27 °C trở lên': the video says 80+ °F water, which is about 27 °C. This is a loose conversion, and the rule is not framed as one keeper's advice."
   },
   "V1YIRWvlejc": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "The World's Smallest Tetra Hides A Shocking Surprise: An Organ NEW to Science! Nanofish Priocharax",
     "channel": "FISHTORY",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Priocharax rex",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "v5WzGwZpGPs": {
     "at": "2026-11-07",
@@ -4849,10 +5024,15 @@
     "reason": "opinion"
   },
   "v6s82Rn891w": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "Celebes rainbow (Marosatherina ladigesi)  species profile",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Marosatherina ladigesi",
+    "page": "species/marosatherina-ladigesi",
+    "done": "low",
+    "score": 0.7,
+    "reason": "[reproduction] \"Cá bột mới bơi được cần trùng cỏ hoặc nước xanh\": the page already says fry need trùng cỏ-type food, so this repeats it.; [reproduction] The yarn spawning mop is close to the page's \"búi sợi nylon làm giá đẻ\", so it partly repeats the page."
   },
   "V8N5eLPTbno": {
     "at": "2026-11-07",
@@ -4863,10 +5043,15 @@
     "reason": "safety how-to"
   },
   "VAEUBxw1OSw": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "Pelia Moss \"Monosolenium tenerum\" (Easy to keep Aquarium Moss)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Monosolenium tenerum",
+    "page": "plants/monosolenium-tenerum",
+    "done": "low",
+    "score": 0.7,
+    "reason": "The video says the moss is slow growing. The page says growth is medium and \"trung bình đến nhanh\". NEW says \"mọc chậm\" as one keeper's view but never says it differs from the page.; \"phải mất gần một năm mới thành một bụi vừa phải\": the video only says the keeper grew what is shown in a bit less than a year. \"vừa phải\" is an invented size."
   },
   "VaqCL4xyHYw": {
     "at": "2026-11-07",
@@ -4893,10 +5078,14 @@
     "reason": "lake location"
   },
   "vgsLgjNbqeU": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "Meet the Mischievous Lipstick Goby, Sicyopus rubicundus - Freshwater Goby",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Sicyopus rubicundus",
+    "page": "species/sicyopus-rubicundus",
+    "done": "new page",
+    "score": 0.9
   },
   "vHkatl9oAgo": {
     "at": "2026-11-07",
@@ -4939,10 +5128,15 @@
     "reason": "product review"
   },
   "vS19C2GR5us": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "The Best Algae Eater for Big Aquariums - Garra flavatra.( Panda Garra)",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Garra flavatra",
+    "page": "species/garra-flavatra",
+    "done": "low",
+    "score": 0.72,
+    "reason": "[notes] \"chưa từng thấy con nào dài quá 8–9 cm\" repeats the page's 9 cm size (sizeCm 9, \"dài tới 9 cm\"). It adds little beyond that figure and doesn't say how it differs from the 8–10 cm in articles.; [dimorphism] \"Cá cái tròn mình hơn\" and the head tubercles on males are already on the page. Only the white colour and the link to breeding season are new."
   },
   "VsaH4KzQCls": {
     "at": "2026-11-07",
@@ -5032,6 +5226,16 @@
     "done": "skipped",
     "reason": "old footage"
   },
+  "W780ni6bKgw": {
+    "at": "2026-11-21",
+    "title": "Keeping Black Ruby Barbs: What I Learned",
+    "channel": "FishLoft",
+    "kind": "profile",
+    "species": "Pethia nigrofasciata",
+    "page": "species/pethia-nigrofasciata",
+    "done": "added",
+    "score": 0.86
+  },
   "W7ISk2WI3zA": {
     "at": "2026-11-07",
     "title": "Top Aquarium Mosses for Aquascaping & Shrimp Tanks",
@@ -5057,16 +5261,23 @@
     "reason": "fishing lure"
   },
   "wf9sfleenwc": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "Quick Dip into The Reticulated Hillstream Loach - Sewellia lineolata",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "whisper: ValueError: Unsupported language: zxx"
   },
   "wFhK6oQfUXk": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "Amano Snow Shrimp - Caridina multidentata \"Snow\"",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Caridina multidentata",
+    "page": "species/caridina-multidentata",
+    "done": "low",
+    "score": 0.55,
+    "reason": "\"Tép Amano có một dòng màu mới tên là Snow\": the video says 'Cardinal multidentata Snow' is a colour variant. It never calls it Amano, and the page treats Amano as the species, so this is a loose link.; \"Lứa tép trắng này thả vào bể bình thường có đèn một thời gian thì lại lên màu tự nhiên\": the video says this about 'die anderen von dem Deutschen', meaning other shrimp kept by the German wholesaler. It does not say it about the earlier white shrimp from the breeder, so the attribution is shaky."
   },
   "WGmcAebQiUk": {
     "at": "2026-11-18",
@@ -5093,10 +5304,15 @@
     "reason": "vlog"
   },
   "wlqvoANtEQY": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "ASSASSIN SNAILS SPECIES PROFILE",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Clea helena",
+    "page": "species/anentome-helena",
+    "done": "low",
+    "score": 0.4,
+    "reason": "\"không phải ốc thường mà là một loài ốc whelk\": the video says it is \"not actually a snail\" and calls it a \"whelk\" in a garbled way. Whelk is an inference, and the page already calls it a snail.; \"Ốc sát thủ dễ mua, tiệm nào cũng hay có\": the video says \"widely available\". \"Tiệm nào cũng hay có\" overstates this."
   },
   "wmDLTQNRFA4": {
     "at": "2026-11-07",
@@ -5171,16 +5387,22 @@
     "reason": "shrimp color genetics, many lines"
   },
   "WyLro8TAUmM": {
-    "at": "2026-11-07",
+    "at": "2026-11-24",
     "title": "Strawberry Leporinus",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "X_n4L6CUFWg": {
-    "at": "2026-11-07",
+    "at": "2026-11-25",
     "title": "Get to Know the Playful Panda Garra, Garra flavatra - Popular Aquarium Fish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Garra flavatra",
+    "page": "species/garra-flavatra",
+    "done": "added",
+    "score": 0.85
   },
   "X0PY-fQPEfc": {
     "at": "2026-11-07",
@@ -5227,6 +5449,12 @@
     "kind": "other",
     "done": "skipped",
     "reason": "conservation problem, wild"
+  },
+  "XF-PP7cdsdo": {
+    "at": "2026-11-20",
+    "title": "Keeping Platy Fish: What I Learned",
+    "channel": "FishLoft",
+    "kind": "profile"
   },
   "xhi5lF7shKI": {
     "at": "2026-11-07",
@@ -5293,10 +5521,12 @@
     "reason": "food deep dive, not a species page"
   },
   "xPQzJa2CvuY": {
-    "at": "2026-11-07",
+    "at": "2026-11-25",
     "title": "Platy Fish (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "Xry0LnxTpu0": {
     "at": "2026-11-07",
@@ -5347,10 +5577,15 @@
     "reason": "tank setup"
   },
   "XzI-SP6ZWoM": {
-    "at": "2026-11-07",
+    "at": "2026-11-25",
     "title": "Borneo Red Fin Silver Shark - Cyclocheilichthys janthochir - Rare Barb Fish Profile & Care Guide",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Cyclocheilichthys janthochir",
+    "page": "species/cyclocheilichthys-janthochir",
+    "done": "low",
+    "score": 0.6,
+    "reason": "[distribution] \"Loài này chỉ có ở lưu vực sông Kapuas\" repeats what the page already says (endemic, Kapuas collection locality), so it adds nothing new.; [notes] Body and fin description (silver body, red fins, black stripe) repeats the page's identification text (red marks on dorsal and caudal fins, black stripe along the body). Only the transparent fins and the torpedo shape are new."
   },
   "y-kWuJb76c4": {
     "at": "2026-11-07",

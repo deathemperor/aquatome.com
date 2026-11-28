@@ -1,0 +1,207 @@
+{
+  "id": "ada-power-sand",
+  "brand": "ADA",
+  "model": "Power Sand",
+  "category": "phan-nen",
+  "type": "phan",
+  "specs": [
+    {
+      "key": "Product line",
+      "value": "Power Sand Advance is the current version and replaces Power Sand Basic/Special",
+      "source": 0
+    },
+    {
+      "key": "Material",
+      "value": "Porous natural volcanic rock combined with humus",
+      "source": 5
+    },
+    {
+      "key": "Additives included",
+      "value": "Bacter 100, Clear Super, Tourmaline BC (bamboo charcoal powder)",
+      "source": 0
+    },
+    {
+      "key": "Nutrients",
+      "value": "Organic nutrients that release slowly plus inorganic nutrients; more nutrient types than Power Sand Basic",
+      "source": 1
+    },
+    {
+      "key": "Size by tank height",
+      "value": "S: up to 40 cm; M: 40–60 cm; L: over 60 cm",
+      "source": 0
+    },
+    {
+      "key": "Bag volume",
+      "value": "S: 2 L; M: 6 L; L: 6 L",
+      "source": 5
+    },
+    {
+      "key": "Origin",
+      "value": "Japan",
+      "source": 1
+    },
+    {
+      "key": "Warranty",
+      "value": "None (listed as no warranty)",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "Power Sand Advance S",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "2 L",
+          "source": 5
+        },
+        {
+          "key": "Tank height",
+          "value": "40 cm or less",
+          "source": 1
+        },
+        {
+          "key": "Example dose",
+          "value": "1 bag for about 54–80 L (60×30×35 cm)",
+          "source": 5
+        }
+      ]
+    },
+    {
+      "name": "Power Sand Advance M",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "6 L",
+          "source": 5
+        },
+        {
+          "key": "Tank height",
+          "value": "40–60 cm",
+          "source": 1
+        },
+        {
+          "key": "Example dose",
+          "value": "1 bag for about 160–300 L (100×40×50 to 120×45×45 cm)",
+          "source": 5
+        }
+      ]
+    },
+    {
+      "name": "Power Sand Advance L",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "6 L",
+          "source": 5
+        },
+        {
+          "key": "Tank height",
+          "value": "Over 60 cm",
+          "source": 1
+        },
+        {
+          "key": "Example dose",
+          "value": "1 bag for about 540–680 L (180×60×60 cm)",
+          "source": 5
+        }
+      ]
+    },
+    {
+      "name": "Power Sand Special S/M/L (older version, still sold by some shops)",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "S 2 L, M 6 L, L 18 L",
+          "source": 7
+        },
+        {
+          "key": "Difference",
+          "value": "More nutrients than the standard version; contains Bacter 100 and Clear Super",
+          "source": 4
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.adana.co.jp/en/aquajournal/na-products-story-04/",
+      "title": "ADA – A Products Story #04 Power Sand Advance",
+      "kind": "manufacturer",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://www.greendeal.vn/ada-power-sand-advance",
+      "title": "Greendeal – ADA Power Sand Advance",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://thuysinhtim.vn/cot-nen-ada-powder-sand-advance-l",
+      "title": "Thủy Sinh Tím – Cốt nền ADA Power Sand Advance L",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://thuysinhtim.vn/cot-nen-ada-powder-sand-advance-s",
+      "title": "Thủy Sinh Tím – Cốt nền ADA Power Sand Advance S",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://www.aquasabi.de/aquascaping-wiki-en_substrate_ada-power-sand",
+      "title": "Aquasabi Wiki – ADA Power Sand",
+      "kind": "review",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://www.aquasabi.de/ADA-Power-Sand-Advance_1",
+      "title": "Aquasabi – ADA Power Sand Advance",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://mdaqua.com.vn/san-pham/cot-nen-ada-power-sand-special-size-m-6lit/",
+      "title": "Mỹ Đình Aquarium – Cốt nền ADA Power Sand Size M (6L)",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://becanhatdinh.com/san-pham/cot-nen-thuy-sinh-ada-power-sand-special-s-m-l/",
+      "title": "Bể cá Nhật Đình – ADA Power Sand Special S M L",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://shopthuysinh.com/cot-nen-thuy-sinh-ada-power-sand-special",
+      "title": "ShopThuySinh – ADA Power Sand Special",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://aquaplantshub.com/vi/phan-lot-nen-thuy-sinh-ada-power-sand-advance-size-s-2l/",
+      "title": "Aquaplantshub – ADA Power Sand Advance S 2L",
+      "kind": "other",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://www.aquaticquotient.com/forum/showthread.php/9108-Using-ADA-power-sand?p=88524",
+      "title": "Aquatic Quotient forum – Using ADA power sand",
+      "kind": "forum",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://barrreport.com/threads/power-sand.4071/post-25677",
+      "title": "Barr Report forum – Power sand",
+      "kind": "forum",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://thuysinhbichphuong.com/sp/ada-power-sand-advance-cot-nen-cao-cap",
+      "title": "Thủy Sinh Bích Phương – product listing",
+      "kind": "shop",
+      "at": "2026-11-21"
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

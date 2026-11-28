@@ -1,11 +1,7 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {
-  "https://media.aquatome.com/scotcat/46dc967dacffb64c.webp": "803a6f6d14940000",
-  "https://media.aquatome.com/scotcat/6f35c6ec5218ff8f.webp": "10b428786f763430",
-  "https://media.aquatome.com/scotcat/7009af99eb7df639.webp": "3030767f74682820"
- },
+ "hashes": {},
  "inat": {
   "taxon": 608666,
   "pass": "done",
@@ -18,5 +14,13 @@
  "gbif": {
   "key": 2340538,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
+ },
+ "exhausted": "2026-11-21"
 }

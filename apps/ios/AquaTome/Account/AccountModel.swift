@@ -277,10 +277,10 @@ final class AccountModel {
     } catch AccountError.refused("provider_off") {
       // Turned off on the server since the app asked: the button goes.
       offersGoogle = false
-      say(String(localized: "Đăng nhập bằng Google đang tắt: đăng nhập cách khác."), bad: true)
+      say(String(localized: "Đăng nhập bằng Google đang tắt: đăng nhập cách khác.", bundle: .app), bad: true)
     } catch is GoogleError, AccountError.refused("bad_token"), AccountError.refused("bad_nonce") {
       // Another sign-in's answer, Google saying no, or a token or nonce the server won't take (one left 10 minutes).
-      say(String(localized: "Google chưa xác nhận được: thử lại."), bad: true)
+      say(String(localized: "Google chưa xác nhận được: thử lại.", bundle: .app), bad: true)
     } catch {
       say(problem(error), bad: true)
     }
@@ -338,25 +338,23 @@ final class AccountModel {
       // Signed out meanwhile (a sync told the session had ended): nothing to show.
       guard self.token == token else { return }
       signedIn(u)
-      say(String(localized: "Đã thêm passkey. Lần sau bấm “Đăng nhập bằng passkey” rồi mở khóa bằng Face ID, vân tay hoặc mã PIN của máy."))
+      say(String(localized: "Đã thêm passkey. Lần sau bấm “Đăng nhập bằng passkey” rồi mở khóa bằng Face ID, vân tay hoặc mã PIN của máy.", bundle: .app))
     } catch AccountError.refused("reauth_needed") {
       again = true
     } catch is PasskeySignInCancelled {
     } catch is PasskeyExists {
-      say(String(localized: "Máy này đã có passkey của tài khoản này."))
+      say(String(localized: "Máy này đã có passkey của tài khoản này.", bundle: .app))
     } catch AccountError.signedOut {
       ended()
     } catch AccountError.refused("bad_passkey") {
-      say(String(localized: "Chưa thêm được passkey: thử lại."), bad: true)
+      say(String(localized: "Chưa thêm được passkey: thử lại.", bundle: .app), bad: true)
     } catch {
       say(problem(error), bad: true)
     }
   }
 
-  /// The app's language, for the Turnstile check and the mail: one the site has, else Vietnamese.
-  static var lang: String {
-    SiteLanguage.of(Bundle.main.preferredLocalizations).code
-  }
+  /// The app's language as shown now, for the Turnstile check and the mail: one the site has.
+  static var lang: String { AppLanguageNow.code }
   var turnstilePage: URL { api.turnstilePage(lang: Self.lang) }
 
   /// Emails a sign-in code, with a token from the Turnstile check (used either way). Whether it was sent; if not, the
@@ -441,8 +439,8 @@ final class AccountModel {
       UserDefaults.standard.set(Array(heldTanks), forKey: Self.keptHeldTanks)
       syncs += 1
       let added = tanks.tanks.count - before
-      syncFault = r.refused.isEmpty ? nil : .failed(String(localized: "\(r.refused.count) bản ghi không hợp lệ nên chưa vào tài khoản."), retry: false)
-      if first && added > 0 { say(String(localized: "Đã thêm \(added) bể từ tài khoản.")) }
+      syncFault = r.refused.isEmpty ? nil : .failed(String(localized: "\(r.refused.count) bản ghi không hợp lệ nên chưa vào tài khoản.", bundle: .app), retry: false)
+      if first && added > 0 { say(String(localized: "Đã thêm \(added) bể từ tài khoản.", bundle: .app)) }
       else if message?.bad == true { message = nil }
     } catch _ where token != sent {
       // Stale, as above: nothing to say about a session that has gone.
@@ -525,7 +523,7 @@ final class AccountModel {
       return
     }
     forget()
-    say(String(localized: "Đã đăng xuất. Các bể vẫn còn trên máy này."))
+    say(String(localized: "Đã đăng xuất. Các bể vẫn còn trên máy này.", bundle: .app))
   }
 
   /// Deletes the account and the tanks in it; the phone's stay. An account that signs in with Apple is confirmed with
@@ -540,7 +538,7 @@ final class AccountModel {
       do {
         code = try await apple.authorize(nonceHash: nil).code
       } catch {
-        say(String(localized: "Chưa xóa: cần đăng nhập lại bằng Apple để xác nhận."), bad: true)
+        say(String(localized: "Chưa xóa: cần đăng nhập lại bằng Apple để xác nhận.", bundle: .app), bad: true)
         return
       }
     }
@@ -548,7 +546,7 @@ final class AccountModel {
     do {
       try await api.deleteAccount(token: token, appleCode: code)
       forget()
-      say(String(localized: "Đã xóa tài khoản. Các bể vẫn còn trên máy này."))
+      say(String(localized: "Đã xóa tài khoản. Các bể vẫn còn trên máy này.", bundle: .app))
     } catch AccountError.signedOut {
       ended()
     } catch AccountError.refused("apple_reauth") {
@@ -611,22 +609,25 @@ final class AccountModel {
 
   private func say(_ text: String, bad: Bool = false) { message = (text, bad) }
 
+  /// Another language picked (AquaTomeApp.speak): the line said in the old one goes, as what it told is done.
+  func clearMessage() { message = nil }
+
   private func problem(_ e: Error) -> String {
     switch e as? AccountError {
-    case .offline: String(localized: "Không có mạng: thử lại khi có mạng.")
-    case .newerStore: String(localized: "Tài khoản có dữ liệu từ bản ứng dụng mới hơn: cập nhật AquaTome để đồng bộ.")
-    case .refused("rate_limited"): String(localized: "Thử quá nhiều lần: đợi một lát rồi thử lại.")
-    case .refused("too_many"): String(localized: "Tài khoản đã đủ chỗ (200 bể, 400 đèn): xóa bớt rồi đồng bộ lại.")
-    case .refused("credential_in_use"): String(localized: "Cách đăng nhập này đã thuộc một tài khoản khác.")
-    case .refused("apple_other_account"): String(localized: "Đó là một Apple ID khác: đăng nhập bằng Apple ID của tài khoản này.")
-    case .refused("apple_revoke_failed"): String(localized: "Apple chưa xác nhận được: thử lại.")
-    case .refused("apple_reauth"): String(localized: "Chưa xóa: cần đăng nhập lại bằng Apple để xác nhận.")
-    case .refused("bad_email"): String(localized: "Địa chỉ email chưa đúng.")
-    case .refused("bad_passkey"): String(localized: "Passkey này không mở được tài khoản nào: đăng nhập cách khác.")
-    case .refused("bad_code"): String(localized: "Mã không đúng hoặc đã hết hạn: kiểm tra lại, hoặc gửi mã mới.")
-    case .refused("turnstile"): String(localized: "Không qua được kiểm tra chống spam, vui lòng thử lại.")
-    case .refused("mail_failed"): String(localized: "Chưa gửi được email: thử lại sau.")
-    default: String(localized: "Có lỗi, chưa làm được: thử lại.")
+    case .offline: String(localized: "Không có mạng: thử lại khi có mạng.", bundle: .app)
+    case .newerStore: String(localized: "Tài khoản có dữ liệu từ bản ứng dụng mới hơn: cập nhật AquaTome để đồng bộ.", bundle: .app)
+    case .refused("rate_limited"): String(localized: "Thử quá nhiều lần: đợi một lát rồi thử lại.", bundle: .app)
+    case .refused("too_many"): String(localized: "Tài khoản đã đủ chỗ (200 bể, 400 đèn): xóa bớt rồi đồng bộ lại.", bundle: .app)
+    case .refused("credential_in_use"): String(localized: "Cách đăng nhập này đã thuộc một tài khoản khác.", bundle: .app)
+    case .refused("apple_other_account"): String(localized: "Đó là một Apple ID khác: đăng nhập bằng Apple ID của tài khoản này.", bundle: .app)
+    case .refused("apple_revoke_failed"): String(localized: "Apple chưa xác nhận được: thử lại.", bundle: .app)
+    case .refused("apple_reauth"): String(localized: "Chưa xóa: cần đăng nhập lại bằng Apple để xác nhận.", bundle: .app)
+    case .refused("bad_email"): String(localized: "Địa chỉ email chưa đúng.", bundle: .app)
+    case .refused("bad_passkey"): String(localized: "Passkey này không mở được tài khoản nào: đăng nhập cách khác.", bundle: .app)
+    case .refused("bad_code"): String(localized: "Mã không đúng hoặc đã hết hạn: kiểm tra lại, hoặc gửi mã mới.", bundle: .app)
+    case .refused("turnstile"): String(localized: "Không qua được kiểm tra chống spam, vui lòng thử lại.", bundle: .app)
+    case .refused("mail_failed"): String(localized: "Chưa gửi được email: thử lại sau.", bundle: .app)
+    default: String(localized: "Có lỗi, chưa làm được: thử lại.", bundle: .app)
     }
   }
 }

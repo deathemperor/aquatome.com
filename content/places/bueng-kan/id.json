@@ -1,8 +1,13 @@
 {
   "slug": "bueng-kan",
-  "name": "Bueng Kan",
+  "name": "Provinsi Bueng Kan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-20T17:36:46.671Z"
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

@@ -1,8 +1,13 @@
 {
   "slug": "algoa-bay",
-  "name": "อ่าวแอลโกอา",
+  "name": "อ่าวอัลโกอา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-21T01:16:22.952Z"
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

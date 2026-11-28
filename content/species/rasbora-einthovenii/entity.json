@@ -351,6 +351,10 @@
       {
         "source": "seriouslyfish",
         "value": 9
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -374,6 +378,12 @@
       "html": "<ul><li>Max size: 90 mm SL (3.5 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 22–26°C (72–79°F)</li><li>pH: not recorded</li><li>Hardness: 2–10 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "html": "<p>A typical companion fish of harlequin barbs (Trigonostigma), chocolate gouramis (Sphaerichthys) and other blackwater fish is Rasbora einthovenii. The species is unfortunately very rarely imported, although it has a large range.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-einthovenii",
@@ -386,16 +396,34 @@
       "html": "<p>Native to southern Thailand, Peninsular Malaysia, Singapore and the Greater Sunda islands of Borneo and Sumatra. In Thailand it has been recorded from close to the towns of Sungai Padi, Sungai Golok and Tak Bai all of which are in the district of Narathiwat and close to the border with Peninsular Malaysia. There it is more widely-distributed and has been collected from areas of peat swamp forest in the states of Penang, Selangor and Johor. In Singapore it has been observed at Nee Soon Swamp, one of the last remaining pockets of pristine freshwater forest swamp found on the island. On the Indonesian island of Sumatra localities include Harau Valley in West Sumatra province, Bagan Siapiapi in Riau province and various members of the Riau Islands province including Bintan, Pulau Sugi and Natuna Besar (Bunguran Island). It appears to be restricted to the north and west of Borneo with numerous records existing from the Malaysian states of Sarawak and Sabah, Brunei Darussalam and the Indonesian province of West Kalimantan. It is also found on Labuan Island off the coast of Sabah.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "html": "<p>It is found on the large Sunda islands of Sumatra and Borneo, on the Malay Peninsula and in southern Thailand in suitable biotopes.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-einthovenii",
       "html": "<p>Mostly inhabits black water streams and rivers associated with ancient forest peat swamps. The water is stained brown due to the release of tannins and other chemicals released by decomposing organic matter and the substrate scattered with fallen leaves, twigs and branches. Such environments characteristically contain very soft (negligible hardness), acidic (pH as low as 3.0) water and are often dimly-lit due to the forest canopy above. Across much of Southeast Asia these biotopes are under threat from rubber/palm oil plantations, building developments and other human activities. It can also be found swimming in clear waters in some areas.</p>"
     },
     {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "html": "<p>Usually it is found in moderately flowing, small streams, which are only a few meters wide and 1-2 meters deep.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-einthovenii",
       "html": "<p>It's an active species and a tank measuring at least 120 × 30 × 30 cm (~108 litres) is needed to house a group.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "html": "<p>Rasbora einthovenii usually reaches a length of 5-6 cm, but can grow up to 9 cm in exceptional cases.</p>"
     },
     {
       "key": "maintenance",
@@ -422,10 +450,22 @@
       "html": "<p>This species is very peaceful indeed making it an ideal resident of the well-furnished community tank. As it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, dwarf cichlids, catfish and loaches. In a biotope set-up you could try it alongside other Malaysian/Bornean blackwater species. There are many suitable choices but some of the more commonly exported examples include Striuntius lineatus, Puntius pentazona, Trigonopoma gracile, T. pauciperforatum, Brevibora dorsiocellata and Pangio (kuhli) loaches.</p><p>It is a gregarious species by nature and really should be kept in a group of at least six to get the best out of it in the aquarium. The fish show better colours in the presence of conspecifics, are less nervous and the display on the whole is far more natural-looking.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "html": "<p>It is a perfect community fish for well planted aquariums with dark substrate and peaceful fish, such as labyrinths, barbs, etc.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-einthovenii",
       "html": "<p>Sexually mature females are noticeably rounder-bellied and often a little larger than males.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "html": "<p>External sex differences are only weakly pronounced, males are slightly smaller and more delicate than females.</p>"
     },
     {
       "key": "reproduction",
@@ -434,10 +474,22 @@
       "html": "<p>It is not certain whether it has been bred in the hobby although it should certainly be possible. Like most cyprinids this species is an egg-scattering, continuous spawner that exhibits no parental care. That is to say when the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without human intervention. However if you want to increase the yield of fry a slightly more controlled approach is required, and upscaling an approach that has proven successful for smaller members of the genus is suggested.</p><p>The adult group can still be conditioned together but one or more long, shallow, say 75 × 30 × 30 cm (71 litre) containers should also be set up and half-filled with water. These should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through it but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works very well for other species. The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An internal power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank.</p><p>When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container. Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding small amounts of live and frozen foods. Several spawning events will probably occur before a female is spent of eggs. The adults will likely eat any eggs they find and are best removed after a couple of days at which point the power filter should be switched for a mature sponge-type unit in order to avoid fry being sucked into the mechanism.</p><p>Incubation in Rasbora eggs is temperature-dependant to an extent but usually takes between 18 and 48 hours with the young free-swimming 24 to 48 hours later. Initial food should be Paramecium or similar introducing Artemia nauplii and/or microworm once the fry are large enough to accept them.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "html": "<p>They are typical free spawners, caring for spawn and juveniles only insofar as they see them as a change from their usual diet.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-einthovenii",
       "html": "<p>This is one of the more commonly-seen rasboras in the hobby and is ideal for the medium-sized community set-up. It shares some close similarities with R. jacobsoni but can be most easily identified by the fact it lacks dark reticulated scales above the lateral stripe. This stripe also has noticeably more uneven or \"crinkly\" edges in R. einthovenii than in R. jacobsoni or indeed any other species of laterally-striped Rasbora. A further distinguishing combination of characters for both these species is the pinkish background colour to the body and the fact that the lateral stripe extends through and beyond the eye of the fish. R. jacobsoni is endemic to northern Sumatra and hence rarely seen in the hobby. R. einthovenii exhibits variable patterning across its range according to locality with some forms possessing a more indistinct or even broken lateral stripe. Most of these have not been seen in the hobby as the majority of fish entering the trade are captive-bred for the purpose.</p><p>Rainboth's 'Fishes of the Cambodian Mekong' characterised members of Rasbora by possession of an unbranched, non-spiny first dorsal fin ray and seven soft dorsal rays, origin of the dorsal fin in the middle of the body, five branched anal fin rays, a small mouth not extending below the eye and a lack of barbels. It's long been recognised as a polyphyletic lineage as noted by Kottelat (1999) amongst others, and in 2010 the results of a phylogenetic analysis by T. Y. Liao et al. suggested a number of changes in order to improve the taxonomy. The authors found species of rasborin genera to actually represent a monophyletic grouping existing in six clades and erected four new genera (all containing former members of Rasbora) in order to preserve monophyly of the existing groups i.e. Boraras, Horadandia, Rasbora, Rasboroides and Trigonostigma. According to the authors the first two clades are monotypic; R. brittani should now be referred to as Kottelatia brittani and R. dorsiocellata as Brevibora dorsiocellata. The third clade comprises Boraras brigittae, Horadandia atukorali, Rasboroides vaterifloris, Trigonostigma heteromorpha and three species previously included in Rasbora but also moved into new genera; Trigonopoma gracile, T. pauciperforatum and Rasbosoma spilocerca. The results for B. brigittae and T. heteromorpha were found to be inconclusive in some respects and further work regarding their phylogenetic position was recommended. The fourth clade includes Rasbora semilineata, R. borapetensis, R. rubrodorsalis and an undescribed fish similar to R. beauforti. Clade five consists of R. daniconius, R. hubbsi, R. paucisqualis, R. wilpita, R. kobonensis, R. ornata and R. cf. daniconius. Clade six, meanwhile, is subdivided into two groupings. The first contains R. einthovenii, R. elegans and R. cephalotaenia and the second R. lateristriata, R. argyrotaenia, R. volzii, R. paviana, R. rasbora (plus an undescribed, similar fish), R. caudimaculata and R. trilineata. As this final clade contains the type species (see below) its members retain the generic name Rasbora as do clade five species because they don't differ sufficiently to warrant the erection of a new genus/genera. Unfortunately many species weren't included in the analysis, meaning inevitable questions are raised regarding the correct placement of the 40 or so other Rasboras, in particular.</p><p>As the genus had previously been split into various 'species groups' (groups of closely-related species) dating back to Brittan (1972, who referred to them as 'species complexes') Liao et al. proposed the following arrangement whilst noting it may be subject to change with further phylogenetic studies:</p><ul><li>R. semilineata species group: R. semilineata, R. borapetensis, R. rubrodorsalis.</li><li>R. trifasciata species group: R. trifasciata, R. amplistriga, R. api, R. bankanensis, R. dies, R. ennealepis, R. hubbsi, R. johannae, R. kluetensis, R. meinkeni, R. nodulosa, R. paucisqualis, R. rutteni, R. sarawakensis, R. taytayensis, R. tobana, R. truncata, R. tuberculata.</li><li>R. daniconius species group: R. daniconius, R. armitagei, R. dandia, R. kobonensis, R. labiosa, R. microcephalus, R. ornata, R. wilpita.</li><li>R. einthovenii species group: R. einthovenii, R. cephalotaenia, R. elegans, R. jacobsoni, R. kalochroma, R. kottelati, R. nematotaenia, R. patrickyapi, R. tubbi.</li><li>R. argyrotaenia species group: R. argyrotaenia, R. aprotaenia, R. aurotaenia, R. baliensis, R. borneensis, R. bunguranensis, R. dusonensis, R. evereti, R. hobelmani, R. hossi, R. lateristriata, R. laticlavia, R. leptosoma, R. philippina, R. septentrionalis, R. spilotaenia, R. steineri, R. tawarensis, R. tornieri, R. volzii.</li><li>R. sumatrana species group: R. sumatrana, R. atridorsalis, R. calliura, R. caudimaculata, R. dorsinotata, R. notura, R. paviana, R. rasbora, R. subtilis, R. trilineata, R. vulgaris.</li><li>Not classified: R. beauforti, R. chrysotaenia, R. gerlachi (validity in question), R. lacrimula (said to compare most closely with R. dies and R. semilineata which are members of the R. trifasciata and R. semilineata groups, respectively) R. kalbarensis, R. reticulata, R. vulcanus (possibly not Rasboras) and R. zanzibarensis (identity in question).</li></ul><p>NB - this list has been amended from that published in Liao et al. to reflect subsequent new species descriptions and taxonomical changes.</p><p>Shortly afterwards a paper investigating systematics of the subfamily Danioninae was published by Tang et al. (2010). Their results differed wildly from those of Liao et al. and the four new genera plus Boraras and Trigonostigma were synonymised with Rasbora based on an incomplete knowledge of relationships within the group, an approach they describe as 'more conservative'. Though perhaps neither conclusion is satisfactory, the system of Liao et al. has been adopted pending future studies, if only because of a preference to retain Boraras and Trigonostigma.</p><p>The identity of the type species, often given as R. rasbora in the past, is no longer in question; when Bleeker first referred to the name Rasbora in 1859 only four nominal members were included of which R. cephalotaenia (known as Leuciscus cephalotaenia at the time) should be considered the type. Howes (1980) suggested the separation of a number of species into the new genus Parluciosoma with type species P. (Rasbora) argyrotaenia but the monophyly of that grouping was not recovered by Liao et al..</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "html": "<p>At first sight R. einhovenii resembles the ubiquitous longitudinal striped rasboras of Southeast Asia (Rasbora paviana and related species), but a closer look reveals the species-typical characteristics: the somewhat stocky build with the relatively blunt head profile, the fact that the longitudinal black stripe runs through the middle of the caudal fin (this ends at the base of the caudal fin in all other longitudinal striped rasboras), and the delicate blue and pink longitudinal stripes above the prominent black band.</p>"
     },
     {
       "key": "references",
@@ -449,28 +501,58 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/5327aa06d598b896.webp",
+      "thumb": "https://media.aquatome.com/commons/5327aa06d598b896-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "CC BY-SA 3.0",
-      "author": "Lerdsuwa",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora_einthovenii.jpg",
-      "caption": "Brilliant rasbora Rasbora einthovenii",
-      "thumb": "https://media.aquatome.com/commons/5327aa06d598b896-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/5327aa06d598b896-large.webp",
         "width": 1300,
         "height": 866
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Lerdsuwa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora_einthovenii.jpg",
+      "caption": "Brilliant rasbora Rasbora einthovenii"
     },
     {
       "url": "https://media.aquatome.com/commons/fc38ed4b81448561.webp",
+      "thumb": "https://media.aquatome.com/commons/fc38ed4b81448561-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "serwacy01-",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora_e.jpg",
-      "caption": "brilliant rasbora (Rasbora einthovenii)",
-      "thumb": "https://media.aquatome.com/commons/fc38ed4b81448561-480.webp"
+      "caption": "brilliant rasbora (Rasbora einthovenii)"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6c512fa30ce9a447.webp",
+      "thumb": "https://media.aquatome.com/glaser/6c512fa30ce9a447-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/565a7df7fff23773.webp",
+      "thumb": "https://media.aquatome.com/glaser/565a7df7fff23773-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b916324c78014190.webp",
+      "thumb": "https://media.aquatome.com/glaser/b916324c78014190-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-einthovenii-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -504,5 +586,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-23"
 }

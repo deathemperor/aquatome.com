@@ -244,6 +244,10 @@
       {
         "source": "scotcat",
         "value": 42.5
+      },
+      {
+        "source": "planetcatfish",
+        "value": 35
       }
     ]
   },
@@ -255,10 +259,22 @@
       "html": "<ul><li>Common name: Guri Sea Catfish</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1543",
+      "html": "<p>Genidens genidens (Cuvier, 1829), the Guri Sea Catfish. Type locality: Tropical America. Maximum size 350 mm SL.</p>"
+    },
+    {
       "key": "distribution",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/ariidae/genidens_genidens.htm",
       "html": "<p>Western Atlantic: Guyana south to La Plata River estuary (Argentina).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1543",
+      "html": "<p>Southwest Atlantic: Atlantic draining rivers of southern South America, including Southern Atlantic Draining Rivers and Guanabara Bay.</p>"
     },
     {
       "key": "habitat",
@@ -267,10 +283,28 @@
       "html": "<p>The Guri Sea Catfish (Genidens genidens) can be found off the coast of southern Bahia, Brazil, and Uruguay.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1543",
+      "html": "<p>Brackish water.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1543",
+      "html": "<p>Males have larger heads and mouths than females, probably due to their different roles during reproduction: males are mouth-brooders, incubating fertilized eggs and juveniles in their mouths.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/ariidae/genidens_genidens.htm",
       "html": "<p>They migrate in large schools to fresh water, where they spawn in spring. The males carry out incubation of the eggs and leave their young in fresh water, where they grow and develop, to later return to the sea.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1543",
+      "html": "<p>Unreported in the aquarium.</p>"
     },
     {
       "key": "notes",
@@ -283,6 +317,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/ariidae/genidens_genidens.htm",
       "html": "<p>Acero, A. &amp; Bentancur, R. 2010. Genidens genidens (errata version published in 2017). The IUCN Red List of Threatened Species 2010.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 10/2023 ).</p><p>Mazzoni, R., J. Petito and J.C. Miranda, 2000. Reproductive biology of Genidens genidens, a catfish from the Maricá Lagoon, RJ. Ciéncia e Cultura 52(2):121-126.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1543",
+      "html": "<p>Le Règne Animal (Edition 2) v. 2, pp 294.</p>"
     }
   ],
   "photos": [
@@ -298,7 +338,20 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Qi902ZYP3qQ",
+      "title": "BAGRE DE MAR (Genidens barbus)",
+      "durationSec": 7,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "CLsZgoYvtmw",
+      "title": "Falando sobre o bagre branco do mar??",
+      "durationSec": 287,
+      "lang": "en"
+    }
+  ],
   "productSlots": [],
-  "updatedAt": "2026-11-18"
+  "updatedAt": "2026-11-25"
 }

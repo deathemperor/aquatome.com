@@ -1,0 +1,91 @@
+#!/usr/bin/env bash
+# Sourced by video-recheck.sh after the common cycle helpers are loaded.
+
+# Fresh work has yet to pass the gate. Save a failed sweep separately from batches recovery can publish.
+sweep_new_video_recheck() {
+  pnpm engine sweep && return 0
+  local branch
+  branch="sweep-failed/video-recheck/$(date -u +%Y%m%dT%H%M%S)"
+  log "video recheck sweep failed before the gate: nothing published"
+  if [ -n "$(git status --porcelain -- content engine-state docs/review)" ]; then
+    if git checkout -q -b "$branch" && git add content engine-state docs/review &&
+      git commit -q -m "content: video recheck sweep failed before the gate"; then
+      log "video recheck work is on $branch for a fresh sweep and gate"
+    else
+      log "could not save video recheck work on $branch"
+    fi
+  fi
+  return 1
+}
+
+push_video_recheck() {
+  local try run base tree checked_tree='' refreshed clash verification_failed
+  for try in 1 2 3; do
+    run=$(git rev-parse HEAD) || break
+    if ! prepare_video_recheck; then
+      keep_lost_push video-recheck "the checkout had changes before publishing" "$run"
+      return 1
+    fi
+    base=$(git merge-base "$run" '@{u}') || break
+    if ! net git pull -q --rebase; then
+      clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
+      git rebase --abort 2>/dev/null || true
+      if [ -z "$clash" ]; then
+        log "could not pull main before checking the video recheck"
+        continue
+      fi
+      log "another job changed the same files: $clash"
+      if ! net git pull -q --rebase -X theirs; then
+        git rebase --abort 2>/dev/null || true
+        continue
+      fi
+    fi
+    if ! video_recheck_rules_current; then
+      keep_lost_push video-recheck "video recheck rules changed during this run" "$run"
+      return 1
+    fi
+    refreshed=$(git rev-parse '@{u}') || break
+    if [ "$refreshed" != "$base" ]; then
+      main_holds "$run" || [ $? = 1 ] || { keep_lost_push video-recheck "main's holds couldn't be compared" "$run"; return 1; }
+      if ! sweep_merged strict; then
+        keep_lost_push video-recheck "the sweep did not finish and commit" "$run"
+        return 1
+      fi
+    fi
+
+    # Check the tree that includes the latest main. A disjoint content change can affect cross-page checks.
+    if ! tree=$(video_recheck_tree); then
+      keep_lost_push video-recheck "the video recheck checkout differed from its commit before verification" "$run"
+      return 1
+    fi
+    if [ "$checked_tree" != "$tree" ] || [ -n "${MIGRATE_FAILED:-}" ]; then
+      verification_failed=0
+      verify_cycle "$tree" || verification_failed=$?
+      if ! video_recheck_unchanged "$tree" || [ "$verification_failed" = 2 ]; then
+        keep_lost_push video-recheck "the video recheck checkout changed during verification" "$run"
+        return 1
+      fi
+      if [ "$verification_failed" != 0 ]; then
+        keep_unpublished video-recheck
+        log "tests failed, not publishing (see $TEST_LOG)"
+        return 1
+      fi
+      checked_tree=$tree
+    fi
+
+    # Main may have moved during the checks. A fast-forward-only pull means it cannot combine divergent trees here.
+    # If anything came in, the next attempt integrates and checks it before a push can run.
+    if ! net git pull -q --no-rebase --ff-only || [ "$(video_recheck_tree)" != "$checked_tree" ]; then
+      log "main moved or could not be reached after the checks: trying a fresh pull before publishing"
+      continue
+    fi
+    if net git push -q; then
+      log "pushed (GitHub deploys it)"
+      return 0
+    fi
+    if [ "$try" -lt 3 ]; then sleep 30; fi
+  done
+  log "could not publish after three attempts"
+  keep_lost_push video-recheck
+  return 1
+}

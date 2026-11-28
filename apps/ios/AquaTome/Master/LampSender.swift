@@ -14,19 +14,60 @@ enum LampRadio {
     BluetoothLampAir()
     #endif
   }()
+  /// The light's gap between two broadcasts, whichever sends them: about two seconds (on 14 Nov it didn't take an orange
+  /// begun 0.9 s after a yellow it took had ended). `-lamp-gap <seconds>` in a debug build, so a flow can act while a
+  /// send waits its turn.
+  nonisolated static let gap: Duration = {
+    #if DEBUG
+    let args = ProcessInfo.processInfo.arguments
+    if let i = args.firstIndex(of: "-lamp-gap"), i + 1 < args.count, let s = Double(args[i + 1]) { return .seconds(s) }
+    #endif
+    return .seconds(2)
+  }()
   /// Who broadcasts now. A stop from another (the card's three seconds ending after the button took over) is ignored.
   private static var holder: ObjectIdentifier?
+  /// When the last broadcast ended, the card's or the button's: the next, either's, waits the gap after it. Kept here,
+  /// not by the card, which may not have seen the button's step (Đèn not showing).
+  private(set) static var lastEnded: ContinuousClock.Instant?
 
+  /// A start Bluetooth had and cut before it answered (stopped, replaced, or Bluetooth reset as it began) may have gone:
+  /// its end is marked as it's told, so the next broadcast, either's, waits the gap after it (Codex, 20 Nov).
   static func start(_ uuids: [String], by who: AnyObject, allowed: @escaping @MainActor () -> Bool = { true },
-                    done: @escaping @MainActor (LampAirError?) -> Void) {
+                    done told: @escaping @MainActor (LampAirError?) -> Void) {
     holder = ObjectIdentifier(who)
+    let done: @MainActor (LampAirError?) -> Void = { e in
+      if e == .cut { lastEnded = .now }
+      told(e)
+    }
     air.start(uuids, allowed: allowed, done: done)
   }
 
+  /// Whether `who` still broadcasts: false once another took the broadcaster, or after a stop.
+  static func holds(_ who: AnyObject) -> Bool { holder == ObjectIdentifier(who) }
+
+  /// The end is marked before the broadcast stops: the stop answers a start not yet answered at once, and the card's
+  /// answer may ask for its next send there, which must wait the gap after this one (Fable, 20 Nov).
   static func stop(by who: AnyObject) {
-    guard holder == ObjectIdentifier(who) else { return }
+    guard holds(who) else { return }
     holder = nil
+    lastEnded = .now
     air.stop()
+  }
+
+  /// The broadcaster for `who` (the button's lamp step): another's broadcast still going (the card's three seconds) ends
+  /// here, and the step then waits the gap after it, as after any other.
+  static func take(by who: AnyObject) {
+    guard let h = holder, h != ObjectIdentifier(who) else { return }
+    holder = nil
+    lastEnded = .now
+    air.stop()
+  }
+
+  /// Returns once the gap after the last broadcast has passed (at once if it has).
+  static func gapPassed() async {
+    while let e = lastEnded, ContinuousClock.now < e + gap {
+      do { try await Task.sleep(until: e + gap, clock: .continuous) } catch { return }
+    }
   }
 }
 
@@ -60,7 +101,8 @@ enum LampMemory {
 }
 
 /// A lamp command as the owner's recordings send it: off; on; or on, then the colour. Each for three seconds, two
-/// seconds apart (a colour begun 0.9 s after another ended wasn't taken, 14 Nov).
+/// seconds apart (a colour begun 0.9 s after another ended wasn't taken, 14 Nov); the first after the light's gap since
+/// the last broadcast, the card's included, whose send still going ends first.
 @MainActor
 @Observable
 final class LampSender {
@@ -92,7 +134,12 @@ final class LampSender {
     let list = Self.recordings(c)
     guard !list.isEmpty else { return .failed }
     for (i, r) in list.enumerated() {
-      if i > 0 { try? await Task.sleep(for: .seconds(2)) }
+      if i > 0 {
+        try? await Task.sleep(for: .seconds(2))
+      } else {
+        LampRadio.take(by: self)
+        await LampRadio.gapPassed()
+      }
       #if DEBUG
       if i > 0, let wait = Self.colourWait { try? await Task.sleep(for: .seconds(wait)) }
       #endif
@@ -125,11 +172,11 @@ extension LampAirError {
   /// What the lamp's card says of it.
   var line: String {
     switch self {
-    case .off: String(localized: "Bật Bluetooth để gửi lệnh tới đèn.")
-    case .refused: String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
-    case .unsupported: String(localized: "Máy này không có Bluetooth.")
-    case .failed: String(localized: "Không gửi được lệnh tới đèn. Thử lại.")
-    case .cut: String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.")
+    case .off: String(localized: "Bật Bluetooth để gửi lệnh tới đèn.", bundle: .app)
+    case .refused: String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.", bundle: .app)
+    case .unsupported: String(localized: "Máy này không có Bluetooth.", bundle: .app)
+    case .failed: String(localized: "Không gửi được lệnh tới đèn. Thử lại.", bundle: .app)
+    case .cut: String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.", bundle: .app)
     }
   }
 }

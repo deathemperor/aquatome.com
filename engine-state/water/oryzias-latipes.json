@@ -2,5 +2,9 @@
   "id": "oryzias-latipes",
   "input": "6136ac48556b5026",
   "at": "2026-11-19T08:05:29.596Z",
-  "claims": []
+  "claims": [],
+  "failed": {
+    "at": "2026-11-24T17:13:02.948Z",
+    "error": "claude failed (1): other"
+  }
 }

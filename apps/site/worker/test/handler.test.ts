@@ -162,7 +162,9 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
 test('dashboard: a part that can\'t load says why in its place; the rest of the page renders', async () => {
   const { vi } = await import('vitest')
   const db = testD1()
-  await db.prepare("INSERT INTO clicks_daily VALUES (?, 'shopee', 'thuc-an', 'species:x', 'search', 4)").bind(new Date().toISOString().slice(0, 10)).run()
+  // Yesterday's, in Vietnam: the first screen counts seven whole days.
+  const yesterday = new Date(Date.now() + 7 * 3600_000 - 86400_000).toISOString().slice(0, 10)
+  await db.prepare("INSERT INTO clicks_daily VALUES (?, 'shopee', 'thuc-an', 'species:x', 'search', 4)").bind(yesterday).run()
   const { owner } = await signedIn(db)
   const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc' } as Partial<Env>)
   // Analytics Engine refuses every query; KV can't list.
@@ -172,10 +174,23 @@ test('dashboard: a part that can\'t load says why in its place; the rest of the 
     const r = await handle(get('/_ab/', { ...browser, cookie: owner }), e)
     expect(r.status).toBe(200)
     const html = await r.text()
-    expect(html).toContain('analytics engine sql 422: Unknown function')
-    expect(html).toContain('Readers didn’t load')
-    expect(html).toContain('4 shop clicks') // today's, from D1, in the last three days
+    // The first screen says a part didn't load, on its card and in Needs you, each a link to the part's page, and that
+    // page says why: Design's first screen is five cards, each a tap into its part, and a read that failed shows its
+    // words on its own page (docs/design dashboard-revamp, direction.md and pages-spec.md).
+    const readers = /<section class="card" aria-labelledby="readers">.*?<\/section>/s.exec(html)?.[0] ?? ''
+    // The card's figures are the beacon's: it opens the scoreboard, whose page has the beacon's error.
+    expect(readers).toContain('<a href="/_ab/thanh-cong/">Readers</a>')
+    expect(readers).toContain('Couldn’t load the readers’ beacon')
+    expect(html).toMatch(/<a href="\/_ab\/doc-gia\/">(?:(?!<\/a>).)*Readers didn’t load/s)
+    expect(html).not.toContain('analytics engine sql 422')
+    const why = await (await handle(get('/_ab/doc-gia/', { ...browser, cookie: owner }), e)).text()
+    expect(why).toContain('analytics engine sql 422: Unknown function')
+    // The rest renders: the shop clicks, from D1.
+    expect(html).toContain('<a href="/_ab/affiliate/"><span>Affiliate</span><span class="fig">4 · +4</span></a>')
     expect(fetch.mock.calls.every(([u]) => String(u).startsWith('https://api.cloudflare.com/client/v4/accounts/acc/analytics_engine/sql'))).toBe(true)
+    // The scoreboard, the Readers card's page while the beacon fails, says why too (it also reads the live checks).
+    const board = await (await handle(get('/_ab/thanh-cong/', { ...browser, cookie: owner }), e)).text()
+    expect(board).toContain('analytics engine sql 422: Unknown function')
     const fish = await (await handle(get('/_ab/nhan-dien-ca/', { ...browser, cookie: owner }), e)).text()
     expect(fish).toContain('Couldn’t load the fish ID log')
     expect(fish).toContain('Anthropic keys')
@@ -288,7 +303,7 @@ test('an old /vi/… address answers 301 to the same path without /vi, query kep
     ['/vi/cong-cu/nuoi-chung/?ca=ca-neon-vua:10', '/cong-cu/nuoi-chung/?ca=ca-neon-vua:10'],
     ['/vi/ca/ca-dia/index.md', '/ca/ca-dia/index.md'],
     // An old photo page: its page, not /ca/…/anh/ and then the page.
-    ['/vi/ca/ca-neon-vua/anh/', '/ca/ca-neon-vua/'], ['/vi/cay/cryptocoryne-wendtii/anh/?x=1', '/cay/cryptocoryne-wendtii/?x=1'],
+    ['/vi/ca/ca-neon-vua/anh/', '/ca/ca-neon-vua/?album=1'], ['/vi/cay/cryptocoryne-wendtii/anh/?x=1', '/cay/cryptocoryne-wendtii/?x=1&album=1'],
   ]) {
     const r = await handle(get(from!), e)
     expect([r.status, r.headers.get('location')], from).toEqual([301, to])
@@ -539,7 +554,11 @@ test("a fish's or plant's album address 301s to its page for good (the album ope
   const table = { '/ca/old/anh/': '/ca/x/' }
   const live = ['/ca/x/', '/cay/y/', '/ca/old/']
   const { e } = env({ ASSETS: { fetch: async (r: Request) => { const p = new URL(r.url).pathname; return p === '/redirects.json' ? Response.json(table) : live.includes(p) ? new Response(PAGE, { headers: { 'content-type': 'text/html; charset=utf-8' } }) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } }) } } as unknown as Fetcher })
-  for (const [from, to] of [['/ca/x/anh/', '/ca/x/'], ['/cay/y/anh/', '/cay/y/'], ['/ca/x/anh', '/ca/x/'], ['/ca/x/anh/?a=1', '/ca/x/?a=1']]) {
+  for (const [from, to] of [['/ca/x/anh/', '/ca/x/?album=1'], ['/cay/y/anh/', '/cay/y/?album=1'], ['/ca/x/anh', '/ca/x/?album=1'], ['/ca/x/anh/?a=1', '/ca/x/?a=1&album=1'],
+    // An album the old address had already goes, or the page's script reads it first and the viewer doesn't open.
+    ['/ca/x/anh/?album=0', '/ca/x/?album=1'], ['/ca/x/anh/?a=1&album=0&b=2', '/ca/x/?a=1&b=2&album=1'], ['/ca/x/anh/?album', '/ca/x/?album=1'],
+    // However its name is written (the second reader, 21 Nov); one only in a value stays.
+    ['/ca/x/anh/?%61lbum=0', '/ca/x/?album=1'], ['/ca/x/anh/?a=%61lbum', '/ca/x/?a=%61lbum&album=1']]) {
     const r = await handle(get(from!), e)
     expect([r.status, r.headers.get('location')], from).toEqual([301, to])
     expect((await follow(r, e)).status, from).toBe(200)
@@ -548,7 +567,7 @@ test("a fish's or plant's album address 301s to its page for good (the album ope
     expect((await handle(get(path), e)).status, path).toBe(404)
   }
   const renamed = await handle(get('/ca/old/anh/'), e)
-  expect([renamed.status, renamed.headers.get('location')]).toEqual([301, '/ca/x/'])
+  expect([renamed.status, renamed.headers.get('location')]).toEqual([301, '/ca/x/?album=1'])
   live.push('/ca/x/anh/')
   const existing = await handle(get('/ca/x/anh/'), e)
   expect([existing.status, existing.headers.get('location')]).toEqual([200, null])
@@ -572,7 +591,7 @@ test("Indonesian, Thai and Malay fish and plant album addresses 301 to their pag
     for (const [i, gallery] of galleries.entries()) {
       for (const from of [gallery, gallery.slice(0, -1), `${gallery}?a=1`]) {
         const r = await handle(get(from), e)
-        expect([r.status, r.headers.get('location')], from).toEqual([301, `${parents[i]}${from.includes('?') ? '?a=1' : ''}`])
+        expect([r.status, r.headers.get('location')], from).toEqual([301, `${parents[i]}${from.includes('?') ? '?a=1&' : '?'}album=1`])
         expect((await follow(r, e)).status, from).toBe(200)
       }
       expect((await handle(get(gallery.replace(/\/(x|y)\//, '/missing/')), e)).status).toBe(404)

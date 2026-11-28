@@ -251,26 +251,20 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/95fd26c2471b9638.webp",
-      "thumb": "https://media.aquatome.com/scotcat/95fd26c2471b9638-480.webp",
-      "width": 500,
-      "height": 336,
-      "licence": "dùng với sự cho phép",
-      "author": "Pablo Granados-Dieseldorff / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_assimilis.htm",
-      "caption": "Ariopsis assimilis: Guatemala, Laguna Lachua, Coban, Alta Verapaz",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/74dfa6364d1d1171.webp",
-      "thumb": "https://media.aquatome.com/scotcat/74dfa6364d1d1171-480.webp",
-      "width": 500,
-      "height": 285,
-      "licence": "dùng với sự cho phép",
-      "author": "Nhering Daniel Ortiz Lobo / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_assimilis.htm",
-      "caption": "Ariopsis assimilis: Puerto Cortés, Puerto Cortés, Cortés, HN",
-      "source": "scotcat"
+      "url": "https://media.aquatome.com/inaturalist/582355947.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/582355947-480.webp",
+      "width": 1024,
+      "height": 714,
+      "licence": "CC BY-NC",
+      "author": "= raul martinez",
+      "sourceUrl": "https://www.inaturalist.org/photos/582355947",
+      "caption": "Cá da trơn biển Maya bơi trong nước xanh ven bờ",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/582355947-large.webp",
+        "width": 1720,
+        "height": 1200
+      }
     }
   ],
   "videos": [

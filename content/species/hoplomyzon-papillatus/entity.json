@@ -10,6 +10,61 @@
     "ecuador",
     "rio-aguarico"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC"
+      ],
+      "regions": [
+        "Napo",
+        "Portuguesa",
+        "Rio Aguarico"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Ecuador, Napo Province, Rio Aguarico, about 1 km upstream from confluence with Rio Shushufindi, lat. 0°17'S, long. 76°25.4'W.",
+          "countries": [
+            "EC"
+          ],
+          "regions": [
+            "Rio Aguarico"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Napo and Portuguesa River basins.",
+          "countries": [],
+          "regions": [
+            "Napo",
+            "Portuguesa"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340539,
+      "total": 1,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -50,30 +105,7 @@
       "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Froese, R. and D. Pauly. Editors. 2022. FishBase. World Wide Web electronic publication. www.fishbase.org, version (04/2022).</p><p>Stewart, D.J. 1985. A review of the South American catfish tribe Hoplomyzontini (Pisces, Aspredinidae) with descriptions of new species from Ecuador. ResearchGate.</p><p>Taphorn, D.C., Villa-Navarro, F., Rodríguez-Olarte, D., Mojica, J.I. &amp; DoNascimiento, CD. 2021. Hoplomyzon papillatus. The IUCN Red List of Threatened Species 2021.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/594674e5b6c93b32.webp",
-      "thumb": "https://media.aquatome.com/scotcat/594674e5b6c93b32-480.webp",
-      "width": 500,
-      "height": 191,
-      "licence": "dùng với sự cho phép",
-      "author": "Nathan Lujan / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_papillatus.htm",
-      "caption": "Hoplomyzon papillatus: dorsal view",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/76773cf38fed47b1.webp",
-      "thumb": "https://media.aquatome.com/scotcat/76773cf38fed47b1-480.webp",
-      "width": 500,
-      "height": 206,
-      "licence": "dùng với sự cho phép",
-      "author": "Nathan Lujan / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_papillatus.htm",
-      "caption": "Hoplomyzon papillatus: ventral view",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [],
   "updatedAt": "2026-11-19"

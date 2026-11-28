@@ -19,7 +19,8 @@
         "Rio Madeira"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "bwaquatics"
       ],
       "quotes": [
         {
@@ -75,16 +76,16 @@
   "dataCard": {
     "ph": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
-          "min": 6,
+          "min": 5.6,
           "max": 7
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
-          "min": 5.6,
+          "min": 6,
           "max": 7
         }
       }
@@ -95,6 +96,13 @@
         "value": {
           "min": 21,
           "max": 27
+        }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 26
         }
       }
     ],
@@ -111,6 +119,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "bwaquatics",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -134,10 +146,16 @@
       "html": "<p>The smudge spot cory, Hoplisoma simile, long known as Corydoras similis, is an armoured catfish from the Rio Madeira basin in Brazil. Several species can be confused with it at first glance, including Gastrodermus guapore, H. caudimaculatum, C. ourastigma and Brochis spectabilis, but they are easily told apart on close examination. H. caudimaculatum has a much darker, better-defined blotch at the caudal peduncle, and the long-snouted C. ourastigma has a grey or black blotch where H. simile has a blueish one.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/corydoras-similis",
+      "html": "<p>Hoplisoma similis (formerly Corydoras similis), the Smudge Spot Cory, is an uncommon species of corydoras, sometimes known as the Violet Cory. IUCN Red List: Not Evaluated. Origin of the fish offered: tank raised.</p><p>Coloration: pale tan to olive body with small dark spots and a bluish to violet smudge on the rear of the body and tail base. Short-snouted, stocky armored catfish with clear fins and a spotted dorsal fin.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/corydoras-similis",
-      "html": "<p>This is a very cool uncommon species of corydoras. It is sometimes known as the violet cory catfish. They are very peaceful and suitable for many community tanks. Just don't keep them with big fish that can try to eat them, as it will likely result in the death of both fish.</p>"
+      "html": "<p>Do not keep them with big fish that may try to eat them; it will likely result in the death of both fish.</p>"
     },
     {
       "key": "distribution",
@@ -146,10 +164,22 @@
       "html": "<p>Found in the Rio Madeira Basin, Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/corydoras-similis",
+      "html": "<p>Described in 1991 from a tributary of the Rio Madeira near Ariquemes, Rondônia, Brazil. The name means \"similar\", for its likeness to C. ourastigma.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-simile",
       "html": "<p>Small tributaries, creeks, pools and areas of flooded forest.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/corydoras-similis",
+      "html": "<p>Streams of the Rio Madeira basin over sand.</p>"
     },
     {
       "key": "aquariumSize",
@@ -164,10 +194,16 @@
       "html": "<p>Hoplisoma simile will thrive in a tank set up to replicate an Amazon biotope. This would be very simple to arrange. Use a substrate of river sand and add a few driftwood branches (if you can't find driftwood of the desired shape, common beech is safe to use if thoroughly dried and stripped of bark) and twisted roots. A few handfuls of dried leaves (again beech can be used, or oak leaves are also suitable) would complete the natural feel. Aquatic plants are not a feature of this species' natural waters. Allow the wood and leaves to stain the water the colour of weak tea, removing old leaves and replacing them every few weeks so they don't rot and foul the water. A small net bag filled with aquarium-safe peat can be added to the filter to aid in the simulation of black water conditions. Use fairly dim lighting. Alternatively, it also does well in a more standard, preferably well-planted tank.</p><p>A good maintenance regime is essential with this species as it's sensitive to deteriorating water conditions. As with all corys, don't use undergravel filtration and ensure the substrate is kept scrupulously clean. These cats are sensitive to poorly-maintained or dirty substrates and can lose their barbels if kept in poor conditions.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/corydoras-similis",
+      "html": "<p>Soft sand to protect the barbels, with cover from wood and plants.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/corydoras-similis",
-      "html": "<p>Currently kept in a pH of 6-7 but they can adapt to a variety of pH.</p>"
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: currently kept at 6 to 7, but they can adapt to a variety of pH.</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -182,10 +218,16 @@
       "html": "<p>Omnivorous and easy to feed. Use a good quality sinking pellet or tablet as the staple diet. Supplement this with live and frozen foods such as Daphnia, Artemia, bloodworm and similar.</p>"
     },
     {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/corydoras-similis",
+      "html": "<p>Currently feeding on blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/corydoras-similis",
-      "html": "<p>They are best kept in groups as they like to school here and there.</p>"
+      "html": "<p>Very peaceful and suitable for many community tanks. Best kept in groups of 5 or more, as they like to school here and there.</p><p>Max size: about 4 cm standard length (about 5 cm total length).</p>"
     },
     {
       "key": "behaviour",
@@ -204,6 +246,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-simile",
       "html": "<p>Can be spawned in a similar fashion to other Corydoras. Set up the breeding tank (45 × 30 × 30 cm or similar is a good size), with either a bare bottom, sand or fine gravel substrate. Use air-powered sponge or box-type filtration as fry won't be sucked into these and provide some clumps of vegetation such as java moss. A temperature of around 24 °C and a pH of 6.5 should be fine. Filtering the water through peat is useful, as is the use of RO water.</p><p>It's always better to have a higher ratio of males to females when breeding corys and 2 males per female is recommended. Condition the group on a varied diet of live, frozen and dried foods. When the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>It's worth observing a couple of notes on general cory breeding at this point. Many species are seasonal spawners, breeding during the wet season in their native countries. This occurs at the same time of year as the UK winter, so if summer breeding attempts are failing, it may be worth waiting until winter before trying again. Additionally, it can take several years for certain species to become sexually mature, so be patient. Finally, different tactics may sometimes be required, such as timing of water changes, oxygenation levels etc. It's also been suggested that the addition of water from a tank containing spawning or just spawned corys (this can be the same or a different species) may induce spawning behaviour in some of the more \"difficult\" species. It's likely that this can be attributed to hormones released by the spawning fish acting as a chemical trigger. Basically, if you aren't having any luck, don't be afraid of trying different approaches.</p><p>If the fish decide to spawn, they will usually lay their eggs on the tank glass, often in an area where water flow is quite high. Spawning behaviour is characterised by an initial increase in activity and excitement, before males begin to actively pursue females. A receptive female will allow a male to caress her with his barbels, before the pair take up the classic \"t-position\", in which the male grasps the females barbels between his pectoral fin and body. He then releases some sperm and it's thought that this passes through the mouth and gills of the female, being directed towards her pelvic fins. These she uses to form a 'basket', into which she deposits a single egg (although up to 4 may be released). Once this is fertilised, she swims away to find a suitable place to deposit the egg, before the cycle is repeated. If you spawn the fish in a group situation, you will often see multiple males chasing a female as she goes to deposit an egg, in an effort to be the next chosen to fertilise them.</p><p>The adults will eat the eggs given the opportunity, so once spawning is complete you have a couple of choices. Either remove the adults and raise the brood in the same tank, or move the eggs and raise the fry elsewhere. If you decide to move the eggs, you'll find they're quite robust, and can usually be gently rolled up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated. Wherever you decide to hatch the eggs, it's always best to add a few drops of methylene blue to the water to prevent fungussing. Even then, some eggs will probably fungus, and these should be removed as soon as they're spotted in order to prevent the fungus spreading. Other options include adding an alder cone to the hatching container (these release various beneficial chemicals). Some hobbyists even use certain species of freshwater shrimp to pick any fungal spores from healthy eggs. Cherry shrimp, Neocardina heteropoda work well. These will eat diseased eggs, but leave healthy ones unharmed.</p><p>The eggs hatch in 3-5 days and once the fry have used up their yolk sacs, they'll accept microworm and brine shrimp nauplii as first foods. They seem to be less susceptible to disease when kept over a thin layer of sand, rather than in a bare-bottomed setup.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/corydoras-similis",
+      "html": "<p>Spawns in the classic corydoras T-position; 2 males per female works well. Condition with live foods, then do a cooler water change. Move eggs to a separate container to protect them.</p>"
     },
     {
       "key": "notes",
@@ -272,5 +320,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-21"
 }

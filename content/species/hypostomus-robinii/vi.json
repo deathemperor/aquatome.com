@@ -1,0 +1,24 @@
+{
+  "slug": "ca-lau-kieng-trinidad",
+  "name": "Cá lau kiếng Trinidad",
+  "altNames": [
+    "Cá tỳ bà Trinidad",
+    "Trinidad Pleco"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Hypostomus robinii Valenciennes, 1840</li><li>Tên thường gọi: cá lau kiếng Trinidad (Trinidad Pleco)</li><li>Nơi thu mẫu chuẩn: đảo Trinidad, Tây Ấn</li></ul>",
+    "distribution:planetcatfish": "<p>Trinidad và Tobago: các con sông trên đảo Trinidad.</p>",
+    "habitat:planetcatfish": "<p>Loài này sống ở những con suối nước trong, chảy xiết.</p>",
+    "diet:planetcatfish": "<p>Chúng ăn periphyton, tức lớp tảo và sinh vật nhỏ bám trên các bề mặt dưới nước.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có tài liệu nào nói về cách loài này sinh sản.</p>",
+    "references:planetcatfish": "<p>Histoire naturelle des poissons v. 15, pp 501.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  }
+}

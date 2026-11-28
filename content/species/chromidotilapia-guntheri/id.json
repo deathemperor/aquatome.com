@@ -21,10 +21,10 @@
     "references:seriouslyfish": "<ul><li>Lamboj, A. (2002). Chromidotilapia mrac, a new species of Cichlidae (Teleostei: Perciformes) from Gabon. Ichthyological Exploration of Freshwaters 13(3), 251-256</li><li>Lamboj, A. (2003). Chromidotilapia melaniae and C. nana, two new cichlid species (Perciformes, Cichlidae) from Gabon, Central Africa. Zootaxa 143, 1-15</li><li>Lamboj, A. (2004). The Cichlid Fishes of Western Africa. Birgit Schmettkamp Verlag, 1-256</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.93,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.7
+      "seriouslyfish": 0.93
     }
   }
 }

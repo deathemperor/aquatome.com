@@ -19,10 +19,10 @@
     "references:seriouslyfish": "<ul><li>Benziger, A., S. Philip, R. Raghavan, P. H. Anvar Ali, M. Sukumaran, J. C. Tharian, N. Dahanukar, F. Baby, R. Peter, K. Rema Devi, K. V. Radhakrishnan, M. A. Aniffa, R. Britz, and A. Antunes (2011). Unraveling a 146 Years Old Taxonomic Puzzle: Validation of Malabar Snakehead, Species-Status and Its Relevance for Channid Systematics and Evolution. PLoS ONE 6(6), e21272</li><li>Day, F. (1865). On the fishes of Cochin, on the Malabar coast of India. Part I. Acanthopterygii. Proceedings of the Zoological Society of London 1865 (pt 1), 2-40</li><li>Brede, N. and P. Antler (2009). Schlangenkopffische—Die Gattungen Channa und Parachanna. Natur und Tier Verlag, Münster, 62 pp.</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6
+      "seriouslyfish": 0.85
     }
   }
 }

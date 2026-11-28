@@ -30,9 +30,7 @@
       "regions": [
         "Amazon",
         "Orinoco",
-        "Essequibo",
-        "Rio Pindaré",
-        "Rio Uatumã"
+        "Essequibo"
       ],
       "sources": [
         "seriouslyfish"
@@ -59,22 +57,6 @@
           "regions": [
             "Orinoco",
             "Essequibo"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Three specimens collected in the rio Pindaré, Maranhão state, Brazil represent the only known record of a cynodontid species in northeastern Brazil.",
-          "countries": [],
-          "regions": [
-            "Rio Pindaré"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "It occurs sympatrically with the congener C. septenarius in the rio Uatumã, Brazil and the two also occur in proximity in the rio Branco and rio Trombetas systems.",
-          "countries": [],
-          "regions": [
-            "Rio Uatumã"
           ]
         }
       ]
@@ -783,6 +765,10 @@
       {
         "source": "seriouslyfish",
         "value": 28
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -800,16 +786,34 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
+      "html": "<p>Cynodon gibbus is a predatory fish that feeds on small fish. The maximum length is about 30 cm.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/cynodon-gibbus",
       "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>Cynodon gibbus is a cynodontid from much of the Amazon basin, the middle and lower Orinoco, and the Rupununi River in Guyana. A pelagic fish of main river channels and larger tributaries, it grows to around 280 mm SL. It is rare in the trade but arguably more suitable for the home aquarium than some of its better-known relatives, given its size and relatively docile behaviour. Being easily dominated, it is best kept alone or with similarly sized, non-aggressive fishes.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
+      "html": "<p>Only very rarely this \"vampire predator tetra\" gets into aquarium tanks, because this species is extremely sensitive. The specimens received from Peru are very stable and in good health.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/cynodon-gibbus",
       "html": "<p>This species is widely distributed, known from much of the Amazon basin from the Ríos Marañon and Ucayali in the west (Peru) to the rios Purus, Madeira, Branco, Amazonas, Trombetas, Xingu, and Tocantins in the east (Brazil).</p><p>Three specimens collected in the rio Pindaré, Maranhão state, Brazil represent the only known record of a cynodontid species in northeastern Brazil.</p><p>It also occurs in middle and lower portions of the Río Orinoco basin, Venezuela and the Rupununi River in the upper Essequibo basin, Guyana.</p><p>Type locality was originally given as 'Brazilian rivers' by Agassiz but the specimens were apparently destroyed or lost so a neotype with locality 'Lago Manacapuru, Amazonas State, Brazil' was designated by Toledo-Piza (2000).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
+      "html": "<p>The species is very widespread in the Amazon and Orinoco.</p>"
     },
     {
       "key": "habitat",
@@ -871,9 +875,52 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/cynodon-gibbus",
       "caption": "Adult individual in the aquarium.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/85bc9426e0c383ee.webp",
+      "thumb": "https://media.aquatome.com/glaser/85bc9426e0c383ee-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/43dffaf44d495de0.webp",
+      "thumb": "https://media.aquatome.com/glaser/43dffaf44d495de0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/906b58cb3cf0b22f.webp",
+      "thumb": "https://media.aquatome.com/glaser/906b58cb3cf0b22f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/cynodon_gibbus_en/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "IrzfEYhuhz8",
+      "title": "7 types of VAMPIRE FISH or CYNODONTINAE  (a real monster fish)",
+      "durationSec": 498,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "Tb0Y3KJZzfw",
+      "title": "Huapeta Pez Vampiro - Vampire Fish - Hydrolycus Tatauaia and Cynodon Gibbus",
+      "durationSec": 132,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -902,5 +949,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-22"
 }

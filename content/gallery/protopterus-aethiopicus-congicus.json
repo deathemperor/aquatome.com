@@ -2,20 +2,33 @@
   "id": "protopterus-aethiopicus-congicus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/527524483.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/527524483-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Zach Johnson",
-      "sourceUrl": "https://www.inaturalist.org/photos/527524483",
-      "caption": "Nhiều cá phổi cẩm thạch vân đá trong xô xanh",
+      "url": "https://media.aquatome.com/inaturalist/342222708.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/342222708-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "César María Aguilar Gómez",
+      "sourceUrl": "https://www.inaturalist.org/photos/342222708",
+      "caption": "Cá phổi cẩm thạch bơi trong vũng bùn giữa rễ cây",
       "best": true,
-      "kind": "group",
-      "setup": true
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/342222709.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/342222709-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "César María Aguilar Gómez",
+      "sourceUrl": "https://www.inaturalist.org/photos/342222709",
+      "caption": "Cá phổi cẩm thạch sống trong bùn ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 3,
-  "updatedAt": "2026-11-17",
-  "builtAt": "2026-11-17"
+  "seen": 37,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }

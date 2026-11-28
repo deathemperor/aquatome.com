@@ -117,5 +117,37 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-19"
+  "updatedAt": "2026-11-19",
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Chao Phraya"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is imported from Thailand, where it inhabits the Chao Phraya river.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11122269,
+      "total": 0,
+      "fetched": "2026-11-20",
+      "countries": [],
+      "cells": []
+    }
+  }
 }

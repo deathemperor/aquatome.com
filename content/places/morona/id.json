@@ -1,8 +1,13 @@
 {
   "slug": "morona",
-  "name": "Morona",
+  "name": "Distrik Morona",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-20T01:46:53.341Z"
+  },
   "quality": {
     "score": 0.86,
     "indexable": true

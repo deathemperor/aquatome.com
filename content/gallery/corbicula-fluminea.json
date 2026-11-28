@@ -87,32 +87,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/7805280.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/7805280-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "B. Phalan",
-      "sourceUrl": "https://www.inaturalist.org/photos/7805280",
-      "caption": "Hai con trai Corbicula vỏ nâu vàng trên nền sỏi cát",
-      "best": false,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/17889135.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/17889135-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Julien Renoult",
-      "sourceUrl": "https://www.inaturalist.org/photos/17889135",
-      "caption": "Đàn hến Corbicula fluminea dày đặc trên đáy sỏi dưới nước",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/17889134.webp",
       "thumb": "https://media.aquatome.com/inaturalist/17889134-480.webp",
       "width": 1024,
@@ -123,36 +97,32 @@
       "caption": "Hến Corbicula còn sống nằm trên đáy bùn dưới nước",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/18266482.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/18266482-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/21687724.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/21687724-480.webp",
       "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Alison Northup",
-      "sourceUrl": "https://www.inaturalist.org/photos/18266482",
-      "caption": "Hến Corbicula fluminea trên nền sỏi đá ven bờ",
+      "height": 838,
+      "licence": "CC0",
+      "author": "Cindy Gilbert",
+      "sourceUrl": "https://www.inaturalist.org/photos/21687724",
+      "caption": "Hến vàng sống nửa chìm trong cát dưới nước",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/18782647.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/18782647-480.webp",
-      "width": 1024,
-      "height": 768,
+      "url": "https://media.aquatome.com/inaturalist/7805280.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/7805280-480.webp",
+      "width": 768,
+      "height": 1024,
       "licence": "CC BY",
-      "author": "Nicolas Olejnik",
-      "sourceUrl": "https://www.inaturalist.org/photos/18782647",
-      "caption": "Hến Corbicula vỏ vàng xanh giữa đá cuội ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "author": "B. Phalan",
+      "sourceUrl": "https://www.inaturalist.org/photos/7805280",
+      "caption": "Hai con trai Corbicula vỏ nâu vàng trên nền sỏi cát",
+      "best": false,
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/8765938.webp",
@@ -177,6 +147,19 @@
       "caption": "Trai Corbicula vỏ vàng trên nền sỏi ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/17889135.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/17889135-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://www.inaturalist.org/photos/17889135",
+      "caption": "Đàn hến Corbicula fluminea dày đặc trên đáy sỏi dưới nước",
+      "best": true,
+      "kind": "group",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/1938872.webp",
@@ -250,9 +233,22 @@
       "best": true,
       "kind": "habitat",
       "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/21678745.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/21678745-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Evan M. Raskin",
+      "sourceUrl": "https://www.inaturalist.org/photos/21678745",
+      "caption": "Hến chui trong cát, lộ ống thở dưới nước",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 360,
-  "updatedAt": "2026-11-19",
-  "builtAt": "2026-11-19"
+  "seen": 380,
+  "updatedAt": "2026-11-22",
+  "builtAt": "2026-11-22"
 }

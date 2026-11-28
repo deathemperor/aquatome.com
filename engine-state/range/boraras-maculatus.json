@@ -1,8 +1,8 @@
 {
   "id": "boraras-maculatus",
   "native": {
-    "input": "1bf98c5b3abff9f3",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "4fa73a6f82f60870",
+    "at": "2026-11-21T07:12:58.512Z",
     "claims": [
       {
         "code": "MY",
@@ -32,24 +32,24 @@
         "code": "MY",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "Malaysia, Indonesia (Sumatra) and south-east Thailand.",
+        "quote": "Boraras maculatus lives in blackwater peat swamp forests of Peninsular Malaysia, southern Thailand, Singapore and eastern Sumatra; the type locality is Muar, Johor.",
         "words": "Malaysia",
-        "ok": true
-      },
-      {
-        "code": "ID",
-        "status": "native",
-        "source": "bwaquatics",
-        "quote": "Malaysia, Indonesia (Sumatra) and south-east Thailand.",
-        "words": "Indonesia",
         "ok": true
       },
       {
         "code": "TH",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "Malaysia, Indonesia (Sumatra) and south-east Thailand.",
+        "quote": "Boraras maculatus lives in blackwater peat swamp forests of Peninsular Malaysia, southern Thailand, Singapore and eastern Sumatra; the type locality is Muar, Johor.",
         "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Boraras maculatus lives in blackwater peat swamp forests of Peninsular Malaysia, southern Thailand, Singapore and eastern Sumatra; the type locality is Muar, Johor.",
+        "words": "Singapore",
         "ok": true
       },
       {
@@ -59,14 +59,29 @@
         "quote": "Described from Bandar Maharani, now more often referred to as Muar, district in Johor state, southern Peninsular Malaysia and distributed throughout the country with range extending into southern (peninsular) Thailand, eastern Sumatra, Singapore and the island of Bintan in Riau Islands province, Indonesia.",
         "words": "Indonesia",
         "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The full type locality is 'Bukit Terah, Bandar Maharani [= Muar], Johore, Malaysia'.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Dwarf rasbora inhabits the malayian peninsula, southern Thailand and Sumatra.",
+        "words": "Thailand",
+        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Sumatra",
-        "source": "bwaquatics",
-        "quote": "Malaysia, Indonesia (Sumatra) and south-east Thailand.",
-        "country": "ID",
+        "source": "seriouslyfish",
+        "quote": "The dwarf rasbora, Boraras maculatus, is a miniature cyprinid from Peninsular Malaysia, southern Thailand, eastern Sumatra, Singapore and Bintan.",
         "ok": true
       },
       {
@@ -77,12 +92,16 @@
         "ok": true
       },
       {
-        "name": "Peninsular Malaysia",
-        "source": "seriouslyfish",
-        "quote": "The dwarf rasbora, Boraras maculatus, is a miniature cyprinid from Peninsular Malaysia, southern Thailand, eastern Sumatra, Singapore and Bintan.",
-        "country": "MY",
-        "ok": false,
-        "why": "a country"
+        "name": "Sumatra",
+        "source": "bwaquatics",
+        "quote": "Boraras maculatus lives in blackwater peat swamp forests of Peninsular Malaysia, southern Thailand, Singapore and eastern Sumatra; the type locality is Muar, Johor.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "glaser",
+        "quote": "The Dwarf rasbora inhabits the malayian peninsula, southern Thailand and Sumatra.",
+        "ok": true
       }
     ],
     "disputed": [],

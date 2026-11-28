@@ -1,0 +1,64 @@
+{
+  "id": "astroblepus-rosei",
+  "native": {
+    "input": "17356c5c3f46824b",
+    "at": "2026-11-22T00:38:58.151Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Pacific coastal drainages of Cajamarca, Peru. Type locality: Río Jequetepeque, Llallán, Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Jequetepeque",
+        "source": "scotcat",
+        "quote": "South America: Pacific coastal drainages of Cajamarca, Peru. Type locality: Río Jequetepeque, Llallán, Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus rosei",
+    "status": "ACCEPTED",
+    "taxonKey": 2342107,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        6
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-22T00:38:58.151Z"
+  }
+}

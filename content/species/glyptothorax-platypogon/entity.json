@@ -1,0 +1,142 @@
+{
+  "id": "glyptothorax-platypogon",
+  "scientificName": "Glyptothorax platypogon",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Glyptothorax",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "citarum",
+    "malaysia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.6,
+          "max": 7.6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1554",
+      "html": "<p>Type locality: Java, Indonesia. Size: 100 mm (SL). Sexing: unknown. IUCN Red List: Least Concern (last assessed 2019).</p><p>Sisorid catfishes of the genus Glyptothorax are benthic inhabitants of torrential waters of rivers and streams in montane and submontane parts of tropical Asia. The members of the genus are adapted to attach themselves to rocks and boulders against strong currents by means of a thoracic adhesive apparatus comprising grooves and folded pleats of skin parallel or oblique to the longitudinal axis of the body. The genus has a wide distribution, ranging from Turkey and Syria in the west, to India and China in the east, and extending further southeastward to Indonesia. With 84 nominal species, Glyptothorax are the most speciose genus of catfishes in Asia; 67 species were treated as valid by Thomson &amp; Page (2006).</p><p>Colouration is not a good character for identification among Glyptothorax; the shape of the adhesive apparatus and locality information are more useful.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1554",
+      "html": "<p>Asia: Indonesia and Malaysia. Indonesian waters, Citarum.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1554",
+      "html": "<p>pH 6.6–7.6. Temperature 18–22°C. Fast, cool and well oxygenated water is a must.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1554",
+      "html": "<p>A sandy/gravel bottom and enough rocks/driftwood to partially deflect the current and for the fish to hide in.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1554",
+      "html": "<p>Not a picky feeder once acclimatized. Will eat prepared and frozen foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1554",
+      "html": "<p>Can be kept alone or in groups. A peaceful species suitable for the hillstream biotope tank. Best kept in a well-oxygenated tank with strong current. Ideal tankmates include balitorine loaches such as Homaloptera, fast-swimming cyprinids such as Danio or Barilius, and smaller mastacembelids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1554",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1554",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1554",
+      "html": "<p>Histoire naturelle des poissons v. 15, pp152.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Ulbm2LI8b-A",
+      "title": "Glyptothorax platypogon /joko ripuh fish feeding and fighting",
+      "durationSec": 171,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KjPiGnPlNwg",
+      "title": "Playing with Glyptothorax platypogon a.k.a Joko ripuh",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eTDy7bTC69A",
+      "title": "ikan air tawar yang sudah sangat langka #Glyptothorax platypogon #feedshorts #viralvideo #shortvideo",
+      "durationSec": 11,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo sóng bể cá",
+        "bơm tạo dòng chảy",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sỏi nền bể",
+        "đá thủy sinh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-25"
+}

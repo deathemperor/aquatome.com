@@ -3,6 +3,12 @@
   "name": "Longjin",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:34:27.383Z",
+    "why": "\"Longjin\" is the pinyin form kept as-is, which is acceptable for a Chinese place name, but the record gives \"region\" with no clear referent and Malay atlases typically add a kind word such as \"Daerah\" or \"Wilayah\" for a region."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

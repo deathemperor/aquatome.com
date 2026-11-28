@@ -4,14 +4,20 @@
   "File:Epalzeorhynchos kalopterus1.jpg",
   "File:Epalzeorhynchos kalopterus2.jpg",
   "File:Flying fox.jpg",
-  "File:Epalzeorhynchos kalopterus Bleeker.jpg"
+  "File:Epalzeorhynchos kalopterus Bleeker.jpg",
+  "inat:509760718",
+  "inat:547963772",
+  "inat:547963829",
+  "inat:547963889",
+  "inat:747800510"
  ],
  "hashes": {
   "https://media.aquatome.com/glaser/f4914bc51f9efaf3.webp": "eb75dc1e39676e5e",
   "https://media.aquatome.com/commons/3842c3b3366920ed.webp": "8c82442041812363",
   "https://media.aquatome.com/commons/4978ce7ceab738d2.webp": "266634050d4e0f19",
   "https://media.aquatome.com/seriouslyfish/70d925303d618a19.webp": "c4929078c0f1b0f2",
-  "https://media.aquatome.com/seriouslyfish/cf0f75f0fb660e51.webp": "3637337186740505"
+  "https://media.aquatome.com/seriouslyfish/cf0f75f0fb660e51.webp": "3637337186740505",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/509760718/large.jpg": "dc8f8d8f9c8c3733"
  },
  "inat": {
   "taxon": 1316223,
@@ -28,6 +34,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 406970578,
+  "done": true
  },
  "exhausted": "2026-11-08"
 }

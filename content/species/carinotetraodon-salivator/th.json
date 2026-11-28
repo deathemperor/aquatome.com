@@ -22,10 +22,10 @@
     "references:seriouslyfish": "<ul><li>Tan, H. H. (1999). A new species of Carinotetraodon from Sumatra and Borneo and validity of C. borneensis (Teleostei: Tetraodontidae). Ichthyological Exploration of Freshwaters 10(4), 345-354</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Ebert, K. (2001). The puffers of fresh and brackish waters. Aqualog, Rodgau, 1-96</li><li>Lim, K. K. P. and M. Kottelat (1995). Carinotetraodon salivator, a new species of pufferfish from Sarawak, Malaysia (Teleostei: Tatraodontidae). Japanese Journal of Ichthyology 41(4), 359-365</li><li>Britz, R. and M. Kottelat (1999). Carinotetraodon imitator, a new freshwater pufferfish from India (Teleostei: Tetraodontiformes). Journal of South Asian Natural History 4(1), 39-47</li><li>Yamanoue, Y., M. Miya, H. Doi, K. Mabuchi, H. Sakai and M. Nishida (2011). Multiple Invasions into Freshwater by Pufferfishes (Teleostei: Tetraodontidae): A Mitogenomic Perspective. PLoS ONE 6(2), e17410</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6
+      "seriouslyfish": 0.8
     }
   }
 }

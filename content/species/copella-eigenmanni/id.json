@@ -20,10 +20,10 @@
     "references:seriouslyfish": "<ul><li>Zarske, A. and J. Géry (2006). Zur Identität von Copella nattereri (Steindachner, 1876) einschließlich der Beschreibung einer neuen Art (Teleostei: Characiformes: Lebiasinidae). Zoologische Abhandlungen (Dresden) 56, 15-46</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Zarske, A. (2011). Beiträge zur Kenntnis der Vertreter der Gattungen Pyrrhulina VALENCIENNES, 1846 und Copella MYERS, 1956 des nordöstlichen Südamerika (Teleostei: Characiformes: Lebiasinidae). Vertebrate Zoology 61(1), 13-45</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Regan, C. T. (1912). A revision of the South American characid fishes of the genera Chalceus, Pyrrhulina, Copeina, and Pogonocharax. Annals and Magazine of Natural History (Series 8) v. 10 (no. 58), 387-395</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.86,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.7
+      "seriouslyfish": 0.86
     }
   }
 }

@@ -14,14 +14,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/465316527.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/465316527-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/465316675.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/465316675-480.webp",
       "width": 1024,
-      "height": 1024,
+      "height": 683,
       "licence": "CC BY",
       "author": "Patrick Hacker",
-      "sourceUrl": "https://www.inaturalist.org/photos/465316527",
-      "caption": "Thảm Lá sồi Mexico xanh mọc trên bùn ẩm",
+      "sourceUrl": "https://www.inaturalist.org/photos/465316675",
+      "caption": "Cụm Lá sồi Mexico vươn lên mặt nước",
       "best": true,
       "kind": "emersed"
     },
@@ -38,14 +38,14 @@
       "kind": "flower"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/465316675.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/465316675-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/610993787.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/610993787-480.webp",
       "width": 1024,
-      "height": 683,
+      "height": 1024,
       "licence": "CC BY",
-      "author": "Patrick Hacker",
-      "sourceUrl": "https://www.inaturalist.org/photos/465316675",
-      "caption": "Cụm Lá sồi Mexico vươn lên mặt nước",
+      "author": "Ricardo Jaimes-López",
+      "sourceUrl": "https://www.inaturalist.org/photos/610993787",
+      "caption": "Bụi Lá sồi Mexico mọc cạn với nhiều hoa trắng",
       "best": true,
       "kind": "emersed"
     },
@@ -60,18 +60,6 @@
       "caption": "Lá sồi Mexico nở hoa trắng nổi trên mặt nước",
       "best": true,
       "kind": "flower"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/610993787.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/610993787-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Ricardo Jaimes-López",
-      "sourceUrl": "https://www.inaturalist.org/photos/610993787",
-      "caption": "Bụi Lá sồi Mexico mọc cạn với nhiều hoa trắng",
-      "best": true,
-      "kind": "emersed"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/15000590.webp",
@@ -98,28 +86,28 @@
       "kind": "submersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/465316679.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/465316679-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/465321822.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/465321822-480.webp",
       "width": 1024,
-      "height": 683,
+      "height": 768,
       "licence": "CC BY",
       "author": "Patrick Hacker",
-      "sourceUrl": "https://www.inaturalist.org/photos/465316679",
-      "caption": "Ngọn Lá sồi Mexico nổi trên mặt nước",
+      "sourceUrl": "https://www.inaturalist.org/photos/465321822",
+      "caption": "Lá sồi Mexico màu xanh nhạt nổi trên mặt nước",
       "best": false,
       "kind": "emersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/481998009.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/481998009-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/481998031.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/481998031-480.webp",
       "width": 768,
       "height": 1024,
       "licence": "CC BY",
       "author": "Andrea Villarreal Rodríguez",
-      "sourceUrl": "https://www.inaturalist.org/photos/481998009",
-      "caption": "Thảm Lá sồi Mexico phủ kín với nhiều hoa trắng",
+      "sourceUrl": "https://www.inaturalist.org/photos/481998031",
+      "caption": "Thảm Lá sồi Mexico ra hoa trắng bên dòng suối",
       "best": false,
-      "kind": "flower"
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/123606727.webp",
@@ -134,15 +122,27 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/465321822.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/465321822-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/481998009.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/481998009-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Andrea Villarreal Rodríguez",
+      "sourceUrl": "https://www.inaturalist.org/photos/481998009",
+      "caption": "Thảm Lá sồi Mexico phủ kín với nhiều hoa trắng",
+      "best": false,
+      "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/465316527.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/465316527-480.webp",
       "width": 1024,
-      "height": 768,
+      "height": 1024,
       "licence": "CC BY",
       "author": "Patrick Hacker",
-      "sourceUrl": "https://www.inaturalist.org/photos/465321822",
-      "caption": "Lá sồi Mexico màu xanh nhạt nổi trên mặt nước",
-      "best": false,
+      "sourceUrl": "https://www.inaturalist.org/photos/465316527",
+      "caption": "Thảm Lá sồi Mexico xanh mọc trên bùn ẩm",
+      "best": true,
       "kind": "emersed"
     },
     {
@@ -158,16 +158,16 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/481998031.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/481998031-480.webp",
-      "width": 768,
-      "height": 1024,
+      "url": "https://media.aquatome.com/inaturalist/465316679.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/465316679-480.webp",
+      "width": 1024,
+      "height": 683,
       "licence": "CC BY",
-      "author": "Andrea Villarreal Rodríguez",
-      "sourceUrl": "https://www.inaturalist.org/photos/481998031",
-      "caption": "Thảm Lá sồi Mexico ra hoa trắng bên dòng suối",
+      "author": "Patrick Hacker",
+      "sourceUrl": "https://www.inaturalist.org/photos/465316679",
+      "caption": "Ngọn Lá sồi Mexico nổi trên mặt nước",
       "best": false,
-      "kind": "habitat"
+      "kind": "emersed"
     }
   ],
   "seen": 28,

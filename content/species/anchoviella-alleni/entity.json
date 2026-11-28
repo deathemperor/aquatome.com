@@ -9,6 +9,109 @@
     "south-america",
     "peru"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2414280,
+      "total": 56,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "PE",
+          30
+        ],
+        [
+          "BR",
+          25
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -4.21875,
+          2
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          3
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          13
+        ],
+        [
+          -73.125,
+          -4.21875,
+          9
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          1
+        ],
+        [
+          -70.3125,
+          0,
+          3
+        ],
+        [
+          -67.5,
+          -5.625,
+          1
+        ],
+        [
+          -66.09375,
+          -9.84375,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          2
+        ],
+        [
+          -61.875,
+          2.8125,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          9
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          6
+        ],
+        [
+          -47.8125,
+          -8.4375,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -25,22 +128,10 @@
       "html": "<p>Anchoviella alleni is one of the very few representatives of the anchovy family (Engraulididae) that lives exclusively in freshwater. The species attains a maximum length of about 10 cm.</p>"
     },
     {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/anchoviella-alleni-2/",
-      "html": "<p>The fish were imported from Peru.</p>"
-    },
-    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/anchoviella-alleni-2/",
       "html": "<p>The supposed males are more slender, slightly larger and the swim bladder has a different shape, compared with the supposed females.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/anchoviella-alleni-2/",
-      "html": "<p>The specimens received were about half of the maximum size, around 5 cm.</p>"
     }
   ],
   "photos": [
@@ -50,7 +141,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/anchoviella-alleni-2/",
       "source": "glaser"
     },
@@ -60,7 +151,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/anchoviella-alleni-2/",
       "source": "glaser"
     },
@@ -70,7 +161,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/anchoviella-alleni-2/",
       "source": "glaser"
     },
@@ -80,7 +171,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/06-herrings-relationship/anchoviella-alleni-2/",
       "source": "glaser"
     }

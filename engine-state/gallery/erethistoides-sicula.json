@@ -1,0 +1,31 @@
+{
+ "queue": [],
+ "judged": [],
+ "hashes": {
+  "https://media.aquatome.com/scotcat/b840aeb4947c6b89.webp": "8ccc5571b9743490",
+  "https://media.aquatome.com/scotcat/b8cffe435ad1c20e.webp": "e6aa2aa8b8343496",
+  "https://media.aquatome.com/scotcat/6b7e2ae66e5239aa.webp": "666232181c9acaad",
+  "https://media.aquatome.com/scotcat/de4d1e18074b3a5a.webp": "6c49abe809083e36"
+ },
+ "inat": {
+  "taxon": 100341,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 334891047
+  }
+ },
+ "commons": "2026-11-23",
+ "gbif": {
+  "key": 2341537,
+  "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-24"
+}

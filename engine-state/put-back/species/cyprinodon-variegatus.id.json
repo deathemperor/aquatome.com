@@ -1,0 +1,39 @@
+{
+ "at": "2026-11-20T07:38:24Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Cyprinodon variegatus yang ditawarkan ini berasal dari sebuah atap garasi di Jerman selatan.",
+   "why": "Describes the source shop's own stock and its story as if the reader knew it."
+  }
+ ],
+ "text": {
+  "slug": "sheepshead-minnow",
+  "name": "Sheepshead minnow",
+  "altNames": [
+   "Sheepshead pupfish",
+   "Variegated pupfish",
+   "Pupfish"
+  ],
+  "sections": {
+   "distribution:seriouslyfish": "<p>Lokasi tipenya tercatat sebagai 'Carolinas, Amerika Serikat', tetapi spesies ini punya sebaran yang sangat luas. Sebarannya membentang ke selatan dari negara bagian Massachusetts di timur laut Amerika Serikat, menyusuri pesisir Atlantik sampai timur laut Meksiko, Bahama, dan Antilles. Ada juga beberapa catatan dari timur laut Amerika Selatan (Venezuela).</p>",
+   "habitat:seriouslyfish": "<p>Umumnya paling banyak ditemukan di perairan payau hingga hipersalin, seperti rawa asin pesisir, laguna, dan muara.</p><p>Di Pulau San Salvador, Bahama, spesies ini tampaknya menjadi induk dari satu kelompok spesies yang hidup secara simpatrik. Kelompok spesies itu memanfaatkan sumber daya yang beragam tetapi spesifik, dengan beberapa adaptasi morfologi yang luar biasa.</p>",
+   "aquariumSize:seriouslyfish": "<p>Akuarium dengan ukuran alas 60 × 30 cm atau yang setara (sekitar 54 liter) masih bisa dibilang cukup untuk satu pasang. Namun, seperti kebanyakan anggota famili Cyprinodontidae, spesies ini paling baik dipelihara berkelompok di akuarium atau wadah yang lebih besar.</p>",
+   "maintenance:seriouslyfish": "<p>Penataannya tidak perlu terlalu rumit, asalkan ada banyak sekat yang memutus garis pandang.</p><p>Sediakan banyak tempat berlindung, misalnya tanaman air, wool mop, dan sebagainya. Kalau memakai filter, yang terbaik adalah filter spons dengan aerator, karena filter jenis ini tidak akan merusak telur atau burayak.</p><p>Pencahayaan tidak penting, tetapi boleh dipakai kalau mau. Sebisa mungkin, upayakan alga berfilamen tumbuh.</p>",
+   "references:seriouslyfish": "<ul><li>Martin, C. H. and P. C. Wainwright (2013). Remarkable Species Flock of Cyprinodon Pupfishes Endemic to San Salvador Island, Bahamas. Bulletin of the Peabody Museum of Natural History 54(2), 231-240</li><li>Martin, C. H. and P. C. Wainwright (2013). Multiple Fitness Peaks on the Adaptive Landscape Drive Adaptive Radiation in the Wild. Science 339(6116), 208-211</li><li>Martin, C. H. and P. C. Wainwright (2011). Trophic novelty is linked to extremes rates of morphological diversification in two adaptive radiations of Cyprinodon pupfishes. Evolution 65(8), 2197-2212</li></ul>",
+   "quickFacts:glaser": "<p>Pupfish dari genus Cyprinodon bisa dibilang hidup di \"alam antara\" bagi ikan. Dulu, wilayah yang sekarang menjadi kawasan gurun di bagian barat Amerika Serikat dan utara Meksiko adalah hamparan danau yang sangat luas, dan ikan-ikan di sana hidup bak di surga. Namun, selama ribuan tahun danau-danau itu perlahan mengering. Kini, beberapa spesies pupfish hanya bisa ditemukan di satu kubangan air kecil di tengah gurun, misalnya Devils Hole Pupfish (Cyprinodon diabolis). Karena itu, sebagian dari 49 spesies Cyprinodon yang saat ini diakui sangat terancam punah, bahkan ada yang sudah punah, sebab kalau air tanah surut atau kolamnya tercemar, habislah riwayatnya.</p><p>Namun, ada juga spesies seperti Cyprinodon variegatus yang sebarannya luas dan sama sekali tidak terancam. Semua ikan jagoan bertahan hidup ini sanggup menghadapi satu hal: fluktuasi suhu yang tajam (sampai 20 °C antara siang dan malam) serta perubahan kadar garam yang cepat. C. variegatus juga ditemukan di perairan hipersalin (yang kadar garamnya lebih tinggi daripada air laut), tetapi di sisi lain ada juga populasi yang hidup sepenuhnya di air tawar.</p>",
+   "notes:glaser": "<p>Cyprinodon variegatus yang ditawarkan ini berasal dari sebuah atap garasi di Jerman selatan. Mereka sudah hidup di sana bertahun-tahun dan berkembang biak dengan lancar. Mau matahari terik atau hujan deras, mereka tidak peduli, semuanya sanggup mereka jalani. Satu-satunya yang tidak boleh terjadi adalah airnya membeku, karena bahkan pupfish pun tidak tahan dengan itu.</p>"
+  },
+  "quality": {
+   "score": 0.85,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.85,
+    "seriouslyfish": 0.85
+   }
+  }
+ }
+}

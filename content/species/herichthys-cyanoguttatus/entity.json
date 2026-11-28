@@ -27,7 +27,7 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The only species of cichlid occuring naturally in the USA, it inhabits the Rio Grande drainage in both the southern United States and Mexico.",
+          "quote": "The Texas cichlid, Herichthys cyanoguttatus, is native to the Rio Grande drainage in the southern United States and Mexico.",
           "countries": [
             "US",
             "MX"
@@ -480,8 +480,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pearl_cichlids_german_bred_ones_available__en/",
-      "html": "<ul><li>Maximum reported length: about 30 cm.</li><li>Young German-bred fish are offered at 4–5 cm.</li><li>Large specimens are among the most colorful cichlids.</li></ul>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/herichthys-carpinte-2/",
+      "html": "<p>The maximum length is almost 30 cm. The fish are very high-backed and are among the most splendid cichlids.</p>"
     },
     {
       "key": "distribution",
@@ -492,8 +492,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pearl_cichlids_german_bred_ones_available__en/",
-      "html": "<p>The large spotted form is believed to belong to the species Herichthys carpinte, which originates from Mexico, whereas the small spotted form is thought to represent the \"real\" Herichthys cyanoguttatum. The latter is the only native cichlid of the US and the northernmost species of cichlid at all.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/herichthys-carpinte-2/",
+      "html": "<p>It is believed that the large spotted form belongs to the species Herichthys carpinte and originates from Mexico, while H. cyanoguttatum is smaller spotted and the only species originally native to the USA (Texas). It is the most northern occurring cichlid species at all.</p>"
     },
     {
       "key": "habitat",
@@ -552,8 +552,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pearl_cichlids_german_bred_ones_available__en/",
-      "html": "<p>The Pearl cichlid was imported and successfully bred in Germany as early as 1902. Since then its name has changed several times: formerly known as Cichlasoma cyanoguttatum, it is now placed in the genus Herichthys.</p><p>Pearl cichlids are almost forgotten nowadays.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/herichthys-carpinte-2/",
+      "html": "<p>The Texas cichlid was successfully introduced to Germany and bred as early as 1902. In the meantime the species has undergone several name changes. In former times it was called Cichlasoma cyanoguttatum; today it is placed in the genus Herichthys. The pearl cichlid has fallen into oblivion nowadays.</p>"
     }
   ],
   "photos": [
@@ -576,9 +576,64 @@
       "author": "Mbrickn",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:BGSU_Herichthys_cyanoguttatus.jpg",
       "caption": "BGSU Herichthys cyanoguttatus (Texas Cichlid) in an aquarium"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/cff5d2fa8c512a14.webp",
+      "thumb": "https://media.aquatome.com/glaser/cff5d2fa8c512a14-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/herichthys-carpinte-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/52e8849760745062.webp",
+      "thumb": "https://media.aquatome.com/glaser/52e8849760745062-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/herichthys-carpinte-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/26df3b72b401a6f1.webp",
+      "thumb": "https://media.aquatome.com/glaser/26df3b72b401a6f1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/herichthys-carpinte-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "-DelChvMfkY",
+      "title": "Texas Cichlid in nature - wild Herichthys cyanoguttatus habitat",
+      "durationSec": 211,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Mf3uefIg_m4",
+      "title": "Beautiful Green Texas Cichlid😍 #shorts",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cslER1WU1jA",
+      "title": "How to Keep Texas Cichlids (Care Guide & Species Profile)",
+      "durationSec": 534,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tjuq6tUA-no",
+      "title": "Texas Cichlid",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -608,5 +663,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-22"
 }

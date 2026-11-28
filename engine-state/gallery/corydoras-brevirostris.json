@@ -2,7 +2,10 @@
  "queue": [],
  "judged": [],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/898b0cb7d3568b5a.webp": "75f34ee979613027"
+  "https://media.aquatome.com/seriouslyfish/898b0cb7d3568b5a.webp": "75f34ee979613027",
+  "https://media.aquatome.com/glaser/473b8c7407a5305b.webp": "b3f2343c1cfcd8f4",
+  "https://media.aquatome.com/glaser/9c571a085139b84a.webp": "95a1b1f540c0c0c3",
+  "https://media.aquatome.com/glaser/4b7cb1a0ed57814c.webp": "2231b7f4c0c0c0e0"
  },
  "inat": {
   "taxon": 1561458,
@@ -15,6 +18,9 @@
  "commons": "2026-11-08",
  "gbif": {
   "key": 2342751,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

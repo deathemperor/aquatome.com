@@ -54,6 +54,19 @@
       "setup": false
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/83054187.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/83054187-480.webp",
+      "width": 1020,
+      "height": 765,
+      "licence": "CC BY-SA",
+      "author": "João Pedro Gato",
+      "sourceUrl": "https://www.inaturalist.org/photos/83054187",
+      "caption": "Cua đực càng trắng lớn trên bãi bùn",
+      "best": true,
+      "kind": "male",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/60318367.webp",
       "thumb": "https://media.aquatome.com/inaturalist/60318367-480.webp",
       "width": 1024,
@@ -77,6 +90,19 @@
       "caption": "Hai con cua đang gần nhau trên cát",
       "best": false,
       "kind": "pair",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/125446576.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/125446576-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Pedo Reis",
+      "sourceUrl": "https://www.inaturalist.org/photos/125446576",
+      "caption": "Cua chân cam ở cửa hang trên nền bùn",
+      "best": false,
+      "kind": "habitat",
       "setup": false
     },
     {
@@ -106,18 +132,17 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/83054187.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/83054187-480.webp",
-      "width": 1020,
-      "height": 765,
-      "licence": "CC BY-SA",
-      "author": "João Pedro Gato",
-      "sourceUrl": "https://www.inaturalist.org/photos/83054187",
-      "caption": "Cua đực càng trắng lớn trên bãi bùn",
+      "url": "https://media.aquatome.com/inaturalist/22002121.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/22002121-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Charlotte Kirchner",
+      "sourceUrl": "https://www.inaturalist.org/photos/22002121",
+      "caption": "Cua đực càng lớn trong chậu trắng",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/83286393.webp",
@@ -130,22 +155,7 @@
       "caption": "Cua đực càng trắng bên vũng nước trên bãi bùn",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/135483716.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/135483716-480.webp",
-      "width": 461,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Luis Ferreira",
-      "sourceUrl": "https://www.inaturalist.org/photos/135483716",
-      "caption": "Cua đực giơ càng lớn bên cửa hang",
-      "best": true,
-      "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/83054196.webp",
@@ -158,35 +168,7 @@
       "caption": "Ba con cua đàn trên bãi bùn ven biển",
       "best": false,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/125446576.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/125446576-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Pedo Reis",
-      "sourceUrl": "https://www.inaturalist.org/photos/125446576",
-      "caption": "Cua chân cam ở cửa hang trên nền bùn",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/22002121.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/22002121-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Charlotte Kirchner",
-      "sourceUrl": "https://www.inaturalist.org/photos/22002121",
-      "caption": "Cua đực càng lớn trong chậu trắng",
-      "best": true,
-      "kind": "male",
-      "setup": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/26792812.webp",
@@ -262,6 +244,19 @@
       "author": "Francesco Cecere",
       "sourceUrl": "https://www.inaturalist.org/photos/60503256",
       "caption": "Cua đực mai tím, mắt cam, trên bãi cát",
+      "best": true,
+      "kind": "male",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/135483716.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/135483716-480.webp",
+      "width": 461,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Luis Ferreira",
+      "sourceUrl": "https://www.inaturalist.org/photos/135483716",
+      "caption": "Cua đực giơ càng lớn bên cửa hang",
       "best": true,
       "kind": "male",
       "setup": false

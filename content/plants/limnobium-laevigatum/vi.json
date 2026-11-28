@@ -39,5 +39,12 @@
       "tropica": 0.8,
       "aquariumbreeder": 0.3
     }
+  },
+  "held": {
+    "checks": [
+      "harm",
+      "source"
+    ],
+    "at": "2026-11-20"
   }
 }

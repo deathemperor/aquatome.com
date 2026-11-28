@@ -1,0 +1,83 @@
+{
+  "id": "pseudolithoxus-kelsorum",
+  "native": {
+    "input": "0128f53d547e61d8",
+    "at": "2026-11-22T00:38:58.151Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This interesting catfish from Venezuela is offered only very rarely.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It lives in the tributaries of the middle Orinoco in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Venezuela, Amazonas State, Orinoco River drainage.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "It lives in the tributaries of the middle Orinoco in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Venezuela, Amazonas State, Orinoco River drainage.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudolithoxus kelsorum",
+    "status": "ACCEPTED",
+    "taxonKey": 6167984,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T19:07:52.042Z"
+  }
+}

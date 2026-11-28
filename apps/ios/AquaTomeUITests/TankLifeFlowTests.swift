@@ -280,6 +280,26 @@ final class TankLifeFlowTests: XCTestCase {
 
   // MARK: What the handbook has no page for (docs/my-tanks-sync.md, "Entries without a page")
 
+  /// Two fish added by name while the index is on its way (`-index-later`, held by the test): once it's read, the one the
+  /// handbook has no page for is sent as wanted, and Cá neon's scientific name, which has one, isn't. Sent at the save, Cá
+  /// neon went as wanted (Fable, 21 Nov); left while the index read, neither ever went (Codex, 21 Nov).
+  func testFishAddedByNameBeforeTheIndexIsReadAreSentOnceItIs() {
+    let gates = Gates()
+    let app = launch("-seed-tanks", "life", "-index-later", "-test-gates", gates.path)
+    openTank(app)
+    for sci in ["Rhinogobius duospilus", "Paracheirodon innesi"] {
+      searchLife(app, sci).tap()
+      XCTAssertTrue(app.textFields["new-name"].waitForExistence(timeout: 5), "no form to add \(sci)")
+      app.buttons["new-save"].tap()
+      XCTAssertTrue(life(app, sci).waitForExistence(timeout: 5), "\(sci) isn't on the tank")
+    }
+    XCTAssertFalse(waitForWanted(app, "duospilus", timeout: 2), "sent before the index was read: \(wanted(app))")
+    gates.open("index-later")
+    let sent = #"{"kind":"fish","name":"Rhinogobius duospilus","sci":"Rhinogobius duospilus"}"#
+    XCTAssertTrue(waitForWanted(app, sent, timeout: 10), "not sent once the index was read: \(wanted(app))")
+    XCTAssertEqual(wanted(app), sent, "a fish the handbook has a page for was sent as wanted")
+  }
+
   func testAddsAFishWithoutAPageByNameSendsItOnceAndKeepsItAfterARelaunch() {
     var app = launch("-seed-tanks", "life")
     openTank(app)

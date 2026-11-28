@@ -14,7 +14,8 @@
     "tocantins",
     "bolivia",
     "guyana",
-    "essequibo"
+    "essequibo",
+    "amazon"
   ],
   "range": {
     "native": {
@@ -27,12 +28,13 @@
         "GY"
       ],
       "regions": [
+        "Amazon",
         "Essequibo",
-        "Tocantins",
-        "Amazon"
+        "Tocantins"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "planetcatfish"
       ],
       "quotes": [
         {
@@ -47,9 +49,9 @@
             "GY"
           ],
           "regions": [
+            "Amazon",
             "Essequibo",
-            "Tocantins",
-            "Amazon"
+            "Tocantins"
           ]
         }
       ]
@@ -310,6 +312,13 @@
           "min": 21,
           "max": 25
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 21,
+          "max": 24
+        }
       }
     ],
     "ph": [
@@ -318,6 +327,13 @@
         "value": {
           "min": 5.5,
           "max": 7.5
+        }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.8,
+          "max": 7.4
         }
       }
     ],
@@ -334,6 +350,10 @@
       {
         "source": "seriouslyfish",
         "value": 70
+      },
+      {
+        "source": "planetcatfish",
+        "value": 53
       }
     ],
     "tankCm": [
@@ -357,10 +377,28 @@
       "html": "<p>The giant Raphael catfish, Megalodoras uranoscopus, is a large doradid recorded from the Essequibo, Tocantins and Amazon river systems. It is also known in the US as the 'ripsaw catfish', and older literature often refers to it as M. irwini, now a junior synonym. Growing to 600 to 700 mm, it is very peaceful and can be combined with many other species in suitably sized systems.</p><ul><li>Difficulty: Difficult, because it needs a tank at least 2 m long</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=143",
+      "html": "<p>Megalodoras uranoscopus (Eigenmann &amp; Eigenmann, 1888). Type locality: Lake Hyanuary, Amazonas, Brazil. Maximum size 530 mm SL. Etymology: Megalodoras comes from the Greek mega (large) and doras (skin), in reference to the large size.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=143",
+      "html": "<p>This particular catfish is not commonly imported but is appealing for its attractive colour pattern which remains with age.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
       "html": "<p>Recorded from the rios Essequibo, Tocantins and Amazon in the countries of Ecuador, Colombia, Peru, Brazil, Bolivia and Guyana. Type locality is Lake Hyanuary, close to the rainforest city of Manaus, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=143",
+      "html": "<p>South America: Amazon, Tocantins and Essequibo River basins.</p>"
     },
     {
       "key": "habitat",
@@ -387,10 +425,28 @@
       "html": "<ul><li>Temperature: 21–25°C</li><li>pH: 5.5–7.5</li><li>Hardness: 1–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=143",
+      "html": "<ul><li>pH: 5.8–7.4</li><li>Temperature: 21–24°C</li><li>Hardness: up to 25 dGH</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=143",
+      "html": "<p>Large pieces of bogwood and clean plastic drainpipe of suitable diameter for them to hide under. Ideally heater guards should be provided in order for the fish not to burn themselves. External filtration is a good idea.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
       "html": "<p>An omnivore feeding chiefly on aquatic gastropods and the fallen fruits of terrestrial plants in nature with its rumoured fondness for snails having led to it being referred to as the \"mother of snails\" catfish. Aquarium feeding is uncomplicated but offer a varied diet composed of quality, sinking dried foods, fruit and vegetables plus molluscs/shellfish and the occasional live earthworm. It requires an increasing, and substantial, amount of food as it grows and once settled will often rise to the surface at meal times.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=143",
+      "html": "<p>Diet should include aquatic snails, catfish pellets, earthworms, prawns, catfish tablets and frozen bloodworm.</p>"
     },
     {
       "key": "behaviour",
@@ -399,10 +455,22 @@
       "html": "<p>Very peaceful and in suitably sized systems it can be combined with many other species. Potential tankmates include characids such as Metynnis or Myleus spp., cichlids such as Cichla and Geophagus, larger loricariids, other similarly-sized doradids like Pseudodoras niger, Potamotrygon or Osteoglossum spp.. This species is proven to fare best when maintained in a conspecific group and ideally a group of 4 or more should be purchased.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=143",
+      "html": "<p>Peaceful if somewhat bulky!</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
       "html": "<p>Adult females appear larger and heavier-bodied than males, and the genital papillae differ in structure.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=143",
+      "html": "<p>Unknown.</p>"
     },
     {
       "key": "reproduction",
@@ -411,10 +479,22 @@
       "html": "<p>Undergoes extensive seasonal migrations which appear to relate directly to the reproductive cycle, and has never been bred in captivity.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=143",
+      "html": "<p>Unreported in the home aquarium.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
       "html": "<p>This species is also known by the vernacular name \"ripsaw catfish\" (U.S.) and was often referred to by the scientific name M. irwini, now considered a junior synonym of M. uranoscopus, in older literature. Within the family Doradidae the genus Megalodoras is considered most closely-related to Lithodoras, Centrodoras and Platydoras, respectively.</p><p>Members of the family Doradidae can be distinguished from all other Siluriformes by possession of a unique infranuchal scute, a dermal bone consisting of an elongate plate formed by expansion of a ligament located between the posterior nuchal plate and the rib on the sixth vertebra. This feature is associated with the lateral line canal and represents the first in a series of prominent midlateral scutes exhibited by most doradids. There are two major lineages recognised within the family, one with simple barbels and a comparatively flattened head, the other with fimbriate barbels and a relatively deep head.</p><p>Within the order Siluriformes doradids are most closely related to the family Auchenipteridae, most commonly referred to as 'driftwood' catfishes by aquarists, and these two were grouped together in the superfamily Doradoidea by Sullivan et al. (2006). In their molecular phylogenetic analysis Doradoidea appeared to form a sister group pairing with the family Aspredinidae (banjo catfishes) with this constituting a significant departure from earlier hypotheses in which the African family Mochokidae and Asian Sisoridae were assumed to be most closely-associated with doradids and aspredinids, respectively. The authors stopped short of naming this putative Aspredinidae-Doradoidea clade, for the time being at least, ostensibly because certain prominent theories of fish biogeography would require substantial re-assessment if it were accepted.</p><p>Doradids are often referred to collectively as 'talking catfishes' in reference to the fact that many of them are able to produce audible sounds. In some genera (e.g. Acanthodoras, Agamyxis) these are produced via stridulation of the pectoral spines within their sockets, with the pelvic girdle possibly involved in projection of the resultant noise. The 'elastic-spring apparatus' is also used to produce sound, this comprising a highly-specialised arrangement of the parapophyses of the fourth vertebrae, the swim bladder plus associated muscles and ligaments.</p><p>Take care when netting doradids for any reason since the pectoral fin spines and body scutes easily become entangled in the mesh of standard aquarium nets and can break human skin in many cases.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=143",
+      "html": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 1 (pt 2), pp159.</p>"
     }
   ],
   "photos": [
@@ -452,7 +532,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "ulc1q7pyWYM",
+      "title": "Мегалодорас ирвина, Megalodoras Uranoscopus (irwini). Описание, содержание и уход",
+      "durationSec": 548,
+      "lang": "ru"
+    },
+    {
+      "youtubeId": "Moyu-itzzvM",
+      "title": "NEW MONSTER CATFISH - MEGALODORAS URANOSCOPUS - THE IRWINI CATFISH",
+      "durationSec": 1227,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YwJkreAld4c",
+      "title": "Irwini catfish (Megalodoras uranoscopus) -24”",
+      "durationSec": 71,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XsUohq6xb2Y",
+      "title": "Megalodoras uranoscopus PIMENTAL",
+      "durationSec": 17,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -482,5 +587,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-22"
 }

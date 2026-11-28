@@ -1,0 +1,445 @@
+{
+  "id": "trachelyopterichthys-taeniatus",
+  "scientificName": "Trachelyopterichthys taeniatus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Trachelyopterichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "brazil",
+    "rio-guapore"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Guaporé"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper Amazon River basin. Type locality: Rio Guaporé, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Amazon",
+            "Rio Guaporé"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344606,
+      "total": 47,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "BR",
+          31
+        ],
+        [
+          "VE",
+          13
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          7,
+          0
+        ],
+        [
+          -67.5,
+          4.21875,
+          3,
+          0
+        ],
+        [
+          -67.5,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          0,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 18
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/trachelyopterichthys-taeniatus-4/",
+      "html": "<p>Among the driftwood catfishes are some quite attractive coloured species. This is a bit astonishing, for these catfishes are usually strictly night active and hide during daytimes in caves or crevices. However, well settled animals usually come out of their holes at feeding times in the aquarium.</p><p>Trachelyopterichthys taeniatus belongs to the really attractive species. It is not a small fish, but attains a total length of about 15 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterichthys_taeniatus.htm",
+      "html": "<ul><li>Common name: Striped Woodcat</li><li>Synonym: Trachelyopterus taeniatus</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterichthys_taeniatus.htm",
+      "html": "<p>South America: Upper Amazon River basin. Type locality: Rio Guaporé, Brazil.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterichthys_taeniatus.htm",
+      "html": "<p>Relatively peaceful but will eat smaller fish when larger. Provide floating plants for seclusion as this is a nocturnal species. Provide caves/pipes for hiding out during the daylight hours.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/trachelyopterichthys-taeniatus-4/",
+      "html": "<p>This is worth knowing, for small fish, like cardinals, are among the common food items of the catfish. Otherwise it is peaceful towards tankmates.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/trachelyopterichthys-taeniatus-4/",
+      "html": "<p>In males the first rays of the anal fin are modified, as internal insemination occurs in T. taeniatus.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterichthys_taeniatus.htm",
+      "html": "<p>The anal fin is the key to the sexual dimorphism of this genus; think of the male and female of most livebearer fish (Goodeidae family) and you will not be too far away with this assumption. The female has a normal anal fin but the male's is modified into a copulatory organ with the first and second ray thickened and longer; it is thought that the male uses this to clasp the female during the spawning embrace.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/trachelyopterichthys-taeniatus-4/",
+      "html": "<p>In T. taeniatus internal insemination occurs. The eggs are laid later without the males. As far as is known, this fish has not yet been bred under aquarium conditions, but this may simply be due to the fact that it is only very rarely offered.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterichthys_taeniatus.htm",
+      "html": "<p>As with all of this family, internal fertilization takes place. The eggs are laid on a previously cleaned surface.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterichthys_taeniatus.htm",
+      "html": "<p>Etymology: Trachelyopterichthys: from the Greek trachelos, meaning neck, pteron, meaning fin and ichthys, meaning fish; in reference to the long cranial shield, giving the appearance that the dorsal fin starts in the region of the neck. The specific name taeniatus means striped or banded.</p><p>IUCN Red List: although there is little information available on this species, it is assessed as Least Concern due to its wide range and no direct threats (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterichthys_taeniatus.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p. Frederico, R.G. 2023. Trachelyopterichthys taeniatus. The IUCN Red List of Threatened Species 2023. ScotCat Factsheet. April 2024. no. 334.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/5a79a2cb183806fd.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5a79a2cb183806fd-480.webp",
+      "width": 500,
+      "height": 398,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterichthys_taeniatus.htm",
+      "caption": "Trachelyopterichthys taeniatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/2d3036bc393fc0e7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2d3036bc393fc0e7-480.webp",
+      "width": 500,
+      "height": 311,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterichthys_taeniatus.htm",
+      "caption": "Trachelyopterichthys taeniatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/84d2379f854ea389.webp",
+      "thumb": "https://media.aquatome.com/scotcat/84d2379f854ea389-480.webp",
+      "width": 500,
+      "height": 431,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterichthys_taeniatus.htm",
+      "caption": "Trachelyopterichthys taeniatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b882bfdfdbeb49d8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b882bfdfdbeb49d8-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterichthys_taeniatus.htm",
+      "caption": "Trachelyopterichthys taeniatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/531262e73db3bfef.webp",
+      "thumb": "https://media.aquatome.com/glaser/531262e73db3bfef-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/trachelyopterichthys-taeniatus-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0520972bd0d92f77.webp",
+      "thumb": "https://media.aquatome.com/glaser/0520972bd0d92f77-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/trachelyopterichthys-taeniatus-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2577d6c98481c861.webp",
+      "thumb": "https://media.aquatome.com/glaser/2577d6c98481c861-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/trachelyopterichthys-taeniatus-4/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "XY4mSxSB50A",
+      "title": "Trachelyopterichthys taeniatus spawning",
+      "durationSec": 18,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2Yg1i8Hnimo",
+      "title": "Trachelyopterichthys taeniatus spawning!",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "v7c1QNG1FVU",
+      "title": "Trachelyopterichthys taeniatus feeding",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KAEnuSKd6UM",
+      "title": "Hos Kungälvs Akvarium: matdags för trachelyopterichthys taeniatus (Randig trämal)",
+      "durationSec": 46,
+      "lang": "sv"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá thủy sinh lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "thức ăn chìm cho cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

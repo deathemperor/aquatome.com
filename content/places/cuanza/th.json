@@ -3,6 +3,12 @@
   "name": "กวานซา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T01:19:02.461Z",
+    "why": "The region is Cuanza (Kwanza) in Angola, and Thai atlases write it as กวนซา, often with a province word (แคว้น/จังหวัด); กวานซา lengthens the vowel and leaves out the kind word."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

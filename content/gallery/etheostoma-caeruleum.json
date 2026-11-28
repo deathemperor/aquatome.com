@@ -67,34 +67,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/114070170.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/114070170-480.webp",
-      "width": 1024,
-      "height": 630,
-      "licence": "CC BY",
-      "author": "moxostoma",
-      "sourceUrl": "https://www.inaturalist.org/photos/114070170",
-      "caption": "Cá đực cận cảnh với sọc xanh lam và cam rực rỡ",
-      "best": true,
-      "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/114070753.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/114070753-480.webp",
-      "width": 1024,
-      "height": 613,
-      "licence": "CC BY",
-      "author": "moxostoma",
-      "sourceUrl": "https://www.inaturalist.org/photos/114070753",
-      "caption": "Cá đực cận cảnh đầu và vây lưng xanh cam",
-      "best": true,
-      "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/28855816.webp",
       "thumb": "https://media.aquatome.com/inaturalist/28855816-480.webp",
       "width": 1024,
@@ -170,8 +142,33 @@
       "caption": "Cá đực màu sặc sỡ trong bể ảnh nhỏ",
       "best": true,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/114070170.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/114070170-480.webp",
+      "width": 1024,
+      "height": 630,
+      "licence": "CC BY",
+      "author": "moxostoma",
+      "sourceUrl": "https://www.inaturalist.org/photos/114070170",
+      "caption": "Cá đực cận cảnh với sọc xanh lam và cam rực rỡ",
+      "best": true,
+      "kind": "male",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/114070753.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/114070753-480.webp",
+      "width": 1024,
+      "height": 613,
+      "licence": "CC BY",
+      "author": "moxostoma",
+      "sourceUrl": "https://www.inaturalist.org/photos/114070753",
+      "caption": "Cá đực cận cảnh đầu và vây lưng xanh cam",
+      "best": true,
+      "kind": "male",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/26310938.webp",
@@ -223,22 +220,7 @@
       "caption": "Cá đực trong hộp trong suốt bên bờ suối",
       "best": false,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/123844554.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/123844554-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "laiet17",
-      "sourceUrl": "https://www.inaturalist.org/photos/123844554",
-      "caption": "Cá đực trong hộp ảnh trong suốt, vây lưng xanh",
-      "best": false,
-      "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/125123773.webp",
@@ -251,8 +233,7 @@
       "caption": "Cá đực sẫm màu trong khay trắng",
       "best": false,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/71509701.webp",

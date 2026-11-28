@@ -1,0 +1,341 @@
+{
+  "id": "ageneiosus-pardalis",
+  "scientificName": "Ageneiosus pardalis",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Ageneiosus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "lake-maracaibo",
+    "colombia",
+    "magdalena",
+    "panama",
+    "tuira"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "PA",
+        "VE"
+      ],
+      "regions": [
+        "Lake Maracaibo",
+        "Magdalena",
+        "Cauca",
+        "San Juan",
+        "Tuira"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Río Cauca [Colombia].",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species is broadly distributed throughout Atlantic and Pacific slope drainages in Panama, Colombia and Venezuela.",
+          "countries": [
+            "PA",
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Lake Maracaibo basin and the Magdalena, Cauca, San Juan and Tuira River basins.",
+          "countries": [],
+          "regions": [
+            "Lake Maracaibo",
+            "Magdalena",
+            "Cauca",
+            "San Juan",
+            "Tuira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344515,
+      "total": 9719,
+      "fetched": "2026-11-23",
+      "countries": [
+        [
+          "CO",
+          9697
+        ],
+        [
+          "VE",
+          11
+        ],
+        [
+          "PA",
+          8
+        ],
+        [
+          "BO",
+          2
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -78.75,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          5.625,
+          23,
+          23
+        ],
+        [
+          -77.34375,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          -77.34375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          5.625,
+          13,
+          13
+        ],
+        [
+          -75.9375,
+          7.03125,
+          6904,
+          6904
+        ],
+        [
+          -75.9375,
+          8.4375,
+          1529,
+          1529
+        ],
+        [
+          -75.9375,
+          9.84375,
+          201,
+          201
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          5.625,
+          6,
+          6
+        ],
+        [
+          -74.53125,
+          7.03125,
+          330,
+          330
+        ],
+        [
+          -74.53125,
+          8.4375,
+          592,
+          592
+        ],
+        [
+          -74.53125,
+          9.84375,
+          87,
+          87
+        ],
+        [
+          -73.125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 45
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_pardalis.htm",
+      "html": "<p>Family: Auchenipteridae. Size: 45 cm. Temperature: 22–24°C. pH: 6.5–7.5. Common name: none.</p><p>This genus was previously placed in its own family, Ageneiosidae, and some publications still follow this classification.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_pardalis.htm",
+      "html": "<p>South America: Lake Maracaibo basin and the Magdalena, Cauca, San Juan and Tuira River basins. Type locality: Río Cauca [Colombia].</p><p>The species is broadly distributed throughout Atlantic and Pacific slope drainages in Panama, Colombia and Venezuela.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_pardalis.htm",
+      "html": "<p>A large tank with plenty of swimming space is needed.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_pardalis.htm",
+      "html": "<p>Meat based.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_pardalis.htm",
+      "html": "<p>As with other members of the genus, they are fine as juveniles, but as they mature they become predatory, so they need to be kept with fish that are not too small.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_pardalis.htm",
+      "html": "<p>Etymology: the genus name Ageneiosus means beardless, referring to the very small maxillary barbels. The specific name pardalis means like a leopard, referring to the reticulated or spotted pattern on the head and back.</p><p>IUCN Red List: assessed as Least Concern (IUCN 2020). Extent of Occurrence is estimated at 390,343 km2. Total population size is unknown. The population trend is inferred to be in decline, but the rate is unknown. The primary threats are heavy metal pollution associated with mining and overfishing, which are producing inferred continuous declines in habitat quality and the number of mature individuals.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/ageneiosus_pardalis.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (01/2017). Mallinson, J. &amp; Lyons, T.J. 2020. Ageneiosus pardalis. The IUCN Red List of Threatened Species 2020. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "thức ăn đông lạnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

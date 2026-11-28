@@ -1,8 +1,13 @@
 {
   "slug": "hau-giang",
-  "name": "Hau Giang",
+  "name": "Provinsi Hau Giang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.82,
+    "at": "2026-11-23T01:45:57.088Z"
+  },
   "quality": {
     "score": 0.95,
     "indexable": true

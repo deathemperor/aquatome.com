@@ -9,7 +9,8 @@
     "africa",
     "democratic-republic-of-the-congo",
     "cameroon",
-    "republic-of-the-congo"
+    "republic-of-the-congo",
+    "congo"
   ],
   "range": {
     "native": {
@@ -18,20 +19,31 @@
         "CM",
         "CG"
       ],
-      "regions": [],
+      "regions": [
+        "Congo"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The clown Synodontis, Synodontis decorus, is a large catfish from the Democratic Republic of Congo, Cameroon and the Republic of Congo.",
+          "quote": "Democratic Republic of Congo, Cameroon, Republic of Congo.",
           "countries": [
             "CD",
             "CM",
             "CG"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "One of the most beautiful squeaker catfish (Synodontis) comes from the Congo: Synodontis decorus.",
+          "countries": [],
+          "regions": [
+            "Congo"
+          ]
         }
       ]
     },
@@ -257,6 +269,13 @@
           "min": 22,
           "max": 27
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -281,6 +300,10 @@
       {
         "source": "seriouslyfish",
         "value": 30
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -304,6 +327,12 @@
       "html": "<p>The clown Synodontis, Synodontis decorus, is a large catfish from the Democratic Republic of Congo, Cameroon and the Republic of Congo. The first ray of its dorsal fin is greatly extended, and it has filamentous maxillary barbels, a feature shared with only two other members of the genus. Growing to 30 cm SL, it is secretive and nocturnal, and too large for the general community, though peaceful with fish it cannot swallow.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-decorus-2/",
+      "html": "<p>One of the most beautiful squeaker catfish (Synodontis) comes from the Congo: Synodontis decorus. The slender species grows about 20-30 cm long and is relatively peaceful.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-decorum",
@@ -316,10 +345,22 @@
       "html": "<p>It is usually found in slow moving areas of rivers and flooded zones.</p>"
     },
     {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-decorus-2/",
+      "html": "<p>The animals live in rivers, but not in areas with strong currents.</p><p>In the Congo, larger Synodontis decorus are so common that they became a preferred prey of fin-eating characins of the species Eugnathichthys eetveldii. The Eugnathichthys have even developed an almost identical coloration as mimicry, which allows them to sneak up on the squeaker catfish unnoticed. On the Congo's edible fish markets one rarely finds larger S. decorus with intact caudal fins, that's how effective the Eugnathichthys are. Conversely, Synodontis juveniles are almost always undamaged, so hunting these loners is probably not worthwhile for the fin-eaters.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-decorum",
       "html": "<p>Standard length: 30 cm SL.</p><p>Aquarium base: 120 × 45 cm.</p><p>Volume: ~205 litres (120 × 45 × 38 cm).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-decorus-2/",
+      "html": "<p>The aquarium should be a large one according to the final size of these animals.</p>"
     },
     {
       "key": "maintenance",
@@ -328,10 +369,22 @@
       "html": "<p>Provide an aquarium with soft substrate, rocks, pieces of driftwood and twisted roots arranged to form hiding places suits. Floating vegetation is also recommended in order to diffuse the light entering the tank. Other planting is beneficial but not essential.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-decorus-2/",
+      "html": "<p>In the aquarium the animals are easy to care for. Even if the animals are diurnally active, they should have as many roots etc. as possible at their disposal where they can seek cover.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-decorum",
       "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 6.0–8.0</li><li>Hardness: 3–25 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-decorus-2/",
+      "html": "<p>They do not make any special demands on the water composition. The water temperature should be between 22 and 26°C, occasionally a little above or below does no harm.</p>"
     },
     {
       "key": "diet",
@@ -340,10 +393,22 @@
       "html": "<p>Synodontis are omnivorous and are most unfussy in terms of feeding. Frozen, live and dried foods are all accepted. It also relishes vegetable matter in the form of shelled peas, cucumber etc., which it will rasp at with the teeth in its lower jaw.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-decorus-2/",
+      "html": "<p>They eat any commercial ornamental fish food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-decorum",
       "html": "<p>Not recommended for the general community due to its large adult size. It is quite peaceful with fish it cannot swallow however, and makes a good bottom dweller for a larger community tank. It is not as territorial as many Synos and can even be maintained in a group in a suitably sized tank. Good tankmates include larger barbs and characins, large cichlids and Loricariids. Do not keep with any species that may nip its dorsal filament.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-decorus-2/",
+      "html": "<p>One must always consider that all squeaker catfish have a hierarchy among each other, where \"social biting\" is absolutely necessary and not alarming, since it only comes to superficial, quickly healing wounds. One should therefore care for squeaker catfish in groups if possible; individual animals can (but don't have to) become a plague for other fish if they try to take these as substitute partners. Small fish that fit in the mouth are also seen as food supplements by omnivores, so possible tankmates should not be too small.</p><p>In the wild, adult S. decorus typically live in groups of 10-50 individuals, while juveniles up to about 8 cm long are solitary. Synodontis decorus is a diurnal species, which makes it particularly recommended for aquarium keeping.</p><p>The conspicuous pennant, i.e. the extended dorsal fin ray, and the very contrasting striped caudal fin are, it is assumed, a signal to conspecifics and serve the swarm cohesion. Small young animals under 8 cm length do not yet have an extended dorsal fin ray.</p>"
     },
     {
       "key": "dimorphism",
@@ -352,10 +417,22 @@
       "html": "<p>Adult male fish are slightly darker in colouration and are smaller than females. It can also be sexed by examining the genital papillae. This is not for the amateur however. The fish should be held ventral side up in the palm of your hand. The dorsal fin should be taken between your middle and ring fingers in order to avoid being pierced by the sharp dorsal fin rays. The genital area you are looking for is concealed beneath the pelvic fins. This can be exposed by pulling (gently) on the caudal fin. A male fish will exhibit an extended papillae which should be pointed and ridged. The spermatoduct can be seen on the caudal side. Females also have a clearly visible papillae but this is more rounded and the oviduct is on the opposite side to the male's spermatoduct.</p><p>Most species of medium/large Synodontis can be sexed using this method but it should be noted that most species take 2 years or more to reach sexual maturity.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-decorus-2/",
+      "html": "<p>Externally recognizable sex differences are not known for Synodontis decorus, females are only more corpulent at spawning time.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-decorum",
       "html": "<p>Not achieved under natural conditions in aquaria although captive breeding has occurred in Eastern Europe via the use of hormone injections. Many of the young fish that come onto the market may have been produced in this way. In nature S. decorus breeds in areas of seasonal flooding that are rich in micro-organisms. They are egg scatterers and exhibit no parental care.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-decorus-2/",
+      "html": "<p>The spawning behaviour has not been reported so far, they are probably free-spawners without further care for their brood.</p>"
     },
     {
       "key": "notes",
@@ -367,21 +444,76 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/b80dee14f9be1f1f.webp",
+      "thumb": "https://media.aquatome.com/commons/b80dee14f9be1f1f-480.webp",
       "width": 960,
       "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "John P. Friel Ph.D.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_decorus_53146686.jpg",
-      "caption": "Decorated Squeaker (Synodontis decorus)",
-      "thumb": "https://media.aquatome.com/commons/b80dee14f9be1f1f-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/b80dee14f9be1f1f-large.webp",
         "width": 1280,
         "height": 960
-      }
+      },
+      "licence": "CC BY 4.0",
+      "author": "John P. Friel Ph.D.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_decorus_53146686.jpg",
+      "caption": "Decorated Squeaker (Synodontis decorus)"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ac652359a5e3df80.webp",
+      "thumb": "https://media.aquatome.com/glaser/ac652359a5e3df80-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-decorus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fbbf6f759b080a89.webp",
+      "thumb": "https://media.aquatome.com/glaser/fbbf6f759b080a89-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-decorus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d1884b57293bc84d.webp",
+      "thumb": "https://media.aquatome.com/glaser/d1884b57293bc84d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/synodontis-decorus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "L_W7N9hzfWk",
+      "title": "Synodonis Decorus #22 Daniken Aquatics Top 100 Fish of the Fish House",
+      "durationSec": 352,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "e683if4dZg8",
+      "title": "A rare sighting of my BIG SYNODONTIS 🫨",
+      "durationSec": 6,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JfOAROu6VTY",
+      "title": "Three adult Synodontis decorus couldn't handle jerk tank but doing well in another tank finally",
+      "durationSec": 225,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bKowuG7FeOE",
+      "title": "Synodontis decorus Bevis & Butthead fight in 240 gal just as they had done in 1800 gal but no damage",
+      "durationSec": 110,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -410,5 +542,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-20"
 }

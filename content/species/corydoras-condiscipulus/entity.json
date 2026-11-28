@@ -211,9 +211,58 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
       "caption": "This species has a longer snout than the similar-looking C. oiapoquensis.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3ca645e1bc30120d.webp",
+      "thumb": "https://media.aquatome.com/glaser/3ca645e1bc30120d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-condiscipulus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c915af20e86d615f.webp",
+      "thumb": "https://media.aquatome.com/glaser/c915af20e86d615f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-condiscipulus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9f8177b599998da6.webp",
+      "thumb": "https://media.aquatome.com/glaser/9f8177b599998da6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-condiscipulus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "-k3mkfo6iu4",
+      "title": "Corydoras condiscipulus OIAPOQUE",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cLwvUXC3dHY",
+      "title": "Corydoras condiscipulus in Brasilien",
+      "durationSec": 59,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "o52RtSDgQok",
+      "title": "Oyapock tank",
+      "durationSec": 93,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -243,5 +292,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-25"
 }

@@ -3,6 +3,12 @@
   "name": "ตูอีรา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-21T19:05:33.571Z",
+    "why": "Tuira is a region/river in Darién, Panama; Thai transliteration would be ตุยรา (Tuira = \"ตุยรา\"), and \"ตูอีรา\" splits the syllables unnaturally and lacks a kind word like แม่น้ำ/เขต."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

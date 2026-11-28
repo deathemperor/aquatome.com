@@ -6,6 +6,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import sharp from 'sharp'
 import { ArchiveRefused } from '../src/archive'
+import { LockBusy } from '../src/mac-lock'
 import { LlmError } from '../src/claude'
 import { ChallengeError } from '../src/fetch'
 import { runEngine, soft } from '../src/run'
@@ -85,7 +86,9 @@ test('full run writes entity, translation, places, snapshot, state, changelog; b
   const entity = JSON.parse(t['/content/species/paracheirodon-axelrodi/entity.json']!)
   expect(entity).toMatchObject({ family: 'Characidae', places: ['south-america', 'brazil', 'rio-negro'] })
   expect(entity.photos).toHaveLength(4) // best source photos, copied once, credited to the source
-  expect(entity.photos[0]).toMatchObject({ source: 'seriouslyfish', author: 'Seriously Fish', sourceUrl: `${SF}paracheirodon-axelrodi`, caption: 'Adult male individual.' })
+  // Stored with the line its figure prints (the chief of staff, 10 and 17 Nov 2026), as "<line> / Seriously Fish"; the
+  // fixture's line is a real page's, so it isn't written here.
+  expect(entity.photos[0]).toMatchObject({ source: 'seriouslyfish', author: expect.stringMatching(/^\S.* \/ Seriously Fish$/), sourceUrl: `${SF}paracheirodon-axelrodi`, caption: 'Adult male individual.' })
   expect(calls).toMatchObject({ images: 4, commons: 0 })
   expect(JSON.parse(t['/content/species/paracheirodon-axelrodi/vi.json']!)).toMatchObject({ slug: 'ca-neon-vua', quality: { indexable: true } })
   expect(t['/content/places/rio-negro/entity.json']).toContain('"river"')
@@ -199,6 +202,20 @@ test('the archive refusing this Mac: the source stops, no page is marked, and th
   const r = await runEngine({ ...d, archive }, { sources: ['planetcatfish', 'seriouslyfish'] })
   expect(asked).toBe(1)
   expect(r.errors.join('\n')).toMatch(/planetcatfish: not read: the archive refused this Mac: no request before 2026-11-10T12:00:00.000Z/)
+  expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
+  expect(JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
+})
+
+test("the Mac's lock on the archive held elsewhere: the source stops as on a refusal, no page is marked, and none loses an attempt", async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  const pages = [9, 10].map(n => `https://www.planetcatfish.com/common/species.php?species_id=${n}`)
+  let asked = 0
+  const busy = 'the lock on 127.0.0.1:1 was held 600 s, at every try, by one process or more: nothing was asked, and this is no refusal'
+  const archive = { ...d.fetcher, text: async () => `${pages.join('\n')}\n`, get: async () => { asked++; throw new LockBusy(busy) } }
+  const r = await runEngine({ ...d, archive }, { sources: ['planetcatfish', 'seriouslyfish'] })
+  expect(asked).toBe(1)
+  expect(r.errors).toContain(`planetcatfish: not read: ${busy}`)
   expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
   expect(JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
 })
@@ -354,6 +371,114 @@ test("a page whose credits are still to learn is read only on its own turn: not 
   for (const p of photos) expect(credits[p.url]).toMatchObject({ page: url, at: '2026-10-28' })
 })
 
+test("a page on the line-read list is read once though it isn't due: our photos credited to its publisher alone take their pictures' lines, with no model call, and it leaves the list", async () => {
+  // The chief of staff, 17 Nov 2026: one read of each page whose pictures' lines the stored copy keeps without their place.
+  const root = await fresh()
+  await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
+  const url = `${SF}paracheirodon-axelrodi`, file = join(root, 'content/species/paracheirodon-axelrodi/entity.json')
+  // As a photo stored before its page's line was read: the publisher alone.
+  const stored = JSON.parse(await readFile(file, 'utf8'))
+  for (const p of stored.photos) p.author = 'Seriously Fish'
+  await writeFile(file, JSON.stringify(stored, null, 2))
+  await writeFile(join(root, 'engine-state/_credit-lines.json'), JSON.stringify({ [url]: { source: 'seriouslyfish', at: '2026-11-20', by: 'the chief of staff' } }))
+  const once = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  expect((await runEngine(once.d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish).toMatchObject({ fetched: 1, processed: 0 })
+  expect(once.calls.llm).toBe(0)
+  const authors = (JSON.parse(await readFile(file, 'utf8')).photos as { author: string }[]).map(p => p.author)
+  expect(authors.length).toBeGreaterThan(0)
+  expect(authors.every(a => a.endsWith(' / Seriously Fish'))).toBe(true)
+  expect(JSON.parse(await readFile(join(root, 'engine-state/_credit-lines.json'), 'utf8'))).toEqual({})
+  // Off the list, the page waits for its own turn again.
+  expect((await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(0)
+})
+
+test('a page the list leaves to its own turn is not read early', async () => {
+  const root = await fresh()
+  await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
+  const url = `${SF}paracheirodon-axelrodi`
+  await writeFile(join(root, 'engine-state/_credit-lines.json'), JSON.stringify({ [url]: { source: 'seriouslyfish', at: '2026-11-20', by: 'the chief of staff', turn: true } }))
+  expect((await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(0)
+  expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/_credit-lines.json'), 'utf8')))).toEqual([url])
+})
+
+test('a page the list reads early is read early once: after a failed request or a failed read of its lines, it waits for its own turn', async () => {
+  const lines = (root: string) => readFile(join(root, 'engine-state/_credit-lines.json'), 'utf8').then(JSON.parse)
+  for (const fail of ['request', 'network', 'lines'] as const) {
+    const root = await fresh()
+    await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
+    const url = `${SF}paracheirodon-axelrodi`
+    const before = JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8'))[url]
+    await writeFile(join(root, 'engine-state/_credit-lines.json'), JSON.stringify({ [url]: { source: 'seriouslyfish', at: '2026-11-20', by: 'the chief of staff' } }))
+    const failing = deps(root, { urls: ['paracheirodon-axelrodi'] })
+    if (fail === 'request') failing.d.fetcher.get = async () => { throw new Error('HTTP 404') }
+    else if (fail === 'network') failing.d.fetcher.get = async () => { throw new Error('net::ERR_CONNECTION_RESET') }
+    else failing.d.media.urlFor = () => { throw new Error('no media address') }
+    expect((await runEngine(failing.d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(1)
+    expect((await lines(root))[url]).toMatchObject({ turn: true })
+    // A failed request leaves the page's state as it was: no error state brings it back before its own turn, at the next
+    // run (a network fault) or after six hours (any other).
+    if (fail !== 'lines') expect(JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8'))[url]).toEqual(before)
+    for (const at of ['2026-10-28T10:00:00Z', '2026-10-28T17:00:00Z']) {
+      const later = deps(root, { urls: ['paracheirodon-axelrodi'] })
+      later.d.now = () => new Date(at)
+      expect((await runEngine(later.d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(0)
+    }
+    expect(Object.keys(await lines(root))).toEqual([url])
+  }
+})
+
+test("a page read for its lines and processed in one go names no stored photo past its other copies: one named by another line holds the rest", async () => {
+  // Found in Codex's read, 20 Nov 2026: the photo step named a stored copy by its own page alone, after the line read had
+  // held it for a copy named by another line.
+  const root = await fresh()
+  await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
+  const url = `${SF}paracheirodon-axelrodi`, file = join(root, 'content/species/paracheirodon-axelrodi/entity.json'), album = join(root, 'content/gallery/paracheirodon-axelrodi.json')
+  const stored = JSON.parse(await readFile(file, 'utf8'))
+  for (const p of stored.photos) p.author = 'Seriously Fish'
+  await writeFile(file, JSON.stringify(stored, null, 2))
+  await mkdir(join(root, 'content/gallery'), { recursive: true })
+  await writeFile(album, JSON.stringify({ id: 'paracheirodon-axelrodi', photos: stored.photos.map((p: { author: string }) => ({ ...p, author: 'Bo Sample / Seriously Fish' })) }, null, 2))
+  await writeFile(join(root, 'engine-state/_credit-lines.json'), JSON.stringify({ [url]: { source: 'seriouslyfish', at: '2026-11-20', by: 'the chief of staff' } }))
+  const r = await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'], force: true, only: /paracheirodon-axelrodi/ })
+  expect(r.perSource.seriouslyfish).toMatchObject({ fetched: 1, processed: 1 })
+  const authors = (JSON.parse(await readFile(file, 'utf8')).photos as { author: string }[]).map(p => p.author)
+  expect(authors.length).toBeGreaterThan(0)
+  expect(authors.every(a => a === 'Seriously Fish')).toBe(true)
+  expect((JSON.parse(await readFile(album, 'utf8')).photos as { author: string }[]).every(p => p.author === 'Bo Sample / Seriously Fish')).toBe(true)
+})
+
+test("a ScotCat page on the list asks each picture page once, though the same read names our photos and processes the page; a picture page that fails keeps the page on the list for its own turn", async () => {
+  // Found in Codex's read, 20 Nov 2026: the line read and the page's photos each read the picture pages, and a failed one
+  // took the page off the list with its lines unread.
+  for (const failing of [false, 'thrown', 'answered'] as const) {
+    const root = await fresh()
+    const page = 'https://www.scotcat.com/examplidae/examplia_sampla.htm'
+    const pics = [1, 2].map(n => `https://www.scotcat.com/examplidae/examplia_sampla${n}.htm`)
+    await mkdir(join(root, 'engine-state'), { recursive: true })
+    await writeFile(join(root, 'engine-state/_credit-lines.json'), JSON.stringify({ [page]: { source: 'scotcat', at: '2026-11-20', by: 'the chief of staff' } }))
+    const { d } = deps(root)
+    const asked = new Map<string, number>()
+    d.fetcher.links = async (u: string) => (u.endsWith('family.htm') ? [page] : [])
+    d.fetcher.get = async (u: string) => {
+      asked.set(u, (asked.get(u) ?? 0) + 1)
+      const n = pics.indexOf(u)
+      if (failing === 'thrown' && n === 1) throw new Error('net::ERR_CONNECTION_RESET')
+      // The browser's fetcher returns an error page rather than failing.
+      if (failing === 'answered' && n === 1) return { status: 404, html: '<html><body><img src="/examplidae/notfound.jpg" width="900" height="600"><p>&copy; Bo Sample</p></body></html>', finalUrl: u }
+      if (n >= 0) return { status: 200, html: `<html><body><img src="/examplidae/big${n}.jpg" width="900" height="600"><p>&copy; Ann Example</p></body></html>`, finalUrl: u }
+      return { status: 200, html: `<html><body><div class="top-padding-10"><h1>Examplia sampla</h1><p>A small catfish from Sampletown.</p><a href="examplia_sampla1.htm"><img src="t1.jpg"></a><a href="examplia_sampla2.htm"><img src="t2.jpg"></a></div></body></html>`, finalUrl: u }
+    }
+    const r = await runEngine(d, { sources: ['scotcat'] })
+    expect(r.perSource.scotcat?.fetched).toBe(1)
+    for (const u of pics) expect(asked.get(u)).toBe(1)
+    const left = JSON.parse(await readFile(join(root, 'engine-state/_credit-lines.json'), 'utf8'))
+    if (failing) {
+      expect(left[page]).toMatchObject({ turn: true })
+      expect(r.errors.some(e => e.startsWith(`${page}: 1 picture page not read`))).toBe(true)
+    } else expect(left).toEqual({})
+  }
+})
+
 test("a credit read that fails is ours, not the page's: the page keeps its read and its turn, and its credits wait for the next one", async () => {
   const root = await fresh()
   await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
@@ -456,6 +581,32 @@ test('the network gone: the source stops after 3 pages in a row, so the rest kee
   const r = await runEngine(d, { sources: ['seriouslyfish'] })
   expect(r.perSource.seriouslyfish).toMatchObject({ fetched: 3, errors: 3 })
   expect(r.errors.at(-1)).toMatch(/seriouslyfish: stopping: 3 pages in a row failed on the network/)
+})
+
+test("a source answering 429 page after page: it stops after 3 in a row, as with the network gone, and the pages after them keep their attempts (the chief of staff, 20 Nov)", async () => {
+  const root = await fresh()
+  const { d } = deps(root, { urls: ['f1', 'f2', 'f3', 'f4', 'f5'] })
+  const asked: string[] = []
+  d.fetcher.get = async (u: string) => { asked.push(u); return { status: 429, html: '<html><head><title>Slow down</title></head><body><p>Please wait.</p></body></html>', finalUrl: u } }
+  const r = await runEngine(d, { sources: ['seriouslyfish'] })
+  expect(asked).toHaveLength(3)
+  expect(r.perSource.seriouslyfish).toMatchObject({ fetched: 3, errors: 3 })
+  expect(r.errors.at(-1)).toMatch(/seriouslyfish: stopping: 3 pages in a row failed on the network \(HTTP 429\)/)
+  const state = JSON.parse(await readFile(join(root, 'engine-state', 'seriouslyfish.json'), 'utf8'))
+  expect(Object.keys(state).map(u => u.slice(SF.length))).toEqual(['f1', 'f2', 'f3'])
+  // A page the source answers with its own error (404, 403) ends a run of failures, as before: two timeouts, a 404 and
+  // a timeout don't stop it (a reader's point).
+  const root2 = await fresh()
+  const { d: d2 } = deps(root2, { urls: ['g1', 'g2', 'g3', 'g4', 'g5'] })
+  const asked2: string[] = []
+  d2.fetcher.get = async (u: string) => {
+    asked2.push(u)
+    if (u.endsWith('g3')) return { status: 404, html: '<html><head><title>Not found</title></head><body><p>Gone.</p></body></html>', finalUrl: u }
+    throw new Error('page.goto: Timeout 45000ms exceeded.')
+  }
+  const r2 = await runEngine(d2, { sources: ['seriouslyfish'] })
+  expect(asked2).toHaveLength(5)
+  expect(r2.errors.some(e => /stopping/.test(e))).toBe(false)
 })
 
 test('a usage limit uses none of the page\'s attempts', async () => {

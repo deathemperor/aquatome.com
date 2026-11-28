@@ -160,9 +160,10 @@
       "key": "maintenance",
       "source": "aquatome",
       "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
-      "html": "<p>Cá hay rỉa những cây lá mỏng, mềm. Nên chọn cây cứng cáp, chịu được vài vết cắn. Loài này nhạy với nước bẩn và với nước đổi thông số đột ngột. Thay ít nước mà đều đặn thì hơn là lâu lâu mới thay một lần thật nhiều.</p>",
+      "html": "<p>Cá hay rỉa những cây lá mỏng, mềm. Nên chọn cây cứng cáp, chịu được vài vết cắn. Loài này nhạy với nước bẩn và với nước đổi thông số đột ngột. Thay ít nước mà đều đặn thì hơn là lâu lâu mới thay một lần thật nhiều.</p>\n<p>Loài này tò mò, hay lục lọi quanh lũa đá. Một người nuôi thấy chúng tìm vụn thức ăn hoặc rêu tóc để rỉa ở những chỗ đó. Tuy vậy, chúng bơi ở khoảng nước trống là chính. Người này chừa trống phía trước bể để đàn cá có chỗ bơi thoải mái.</p>",
       "refs": [
-        0
+        0,
+        1
       ]
     },
     {
@@ -178,10 +179,28 @@
       "html": "<p>Wild fish are probably foragers feeding on diatoms, algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này ăn nhanh và giành ăn dữ. Lúc cho ăn, cần để ý xem cá nuôi chung có được phần hay không. Một người nuôi loài này thấy đàn cá hăng đến mức đã hơn một lần có con nhảy khỏi bể ngay lúc đang cho ăn.</p>",
+      "refs": [
+        1
+      ]
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pethia-nigrofasciata",
       "html": "<p>Generally very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>As it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, rainbowfish, anabantoids, catfishes, and loaches.</p><p>It's a schooling species by nature, and at least 6-10 specimens should be purchased.</p><p>Maintaining it in such numbers will not only make the fish less skittish but result in a more effective, natural looking display, plus males will develop better colours in the presence of conspecific rivals.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này lâu năm thấy chúng rất bền. Đàn cá của người này để yên cho cá chuột Corydoras, cá otto và tép Amano nuôi chung. Chúng hiếu động, bơi khắp mọi ngóc ngách trong bể, và hễ có người đi ngang là ùa ra mặt kính xin ăn.</p><p>Người này bắt đầu với 7 con rồi tăng dần lên khoảng 15 con, và thấy con đực lên màu đẹp nhất khi đàn có cả đực lẫn cái. Con đực nào trội nhất thì màu cũng rực nhất. Nhìn độ đỏ trên từng con là đoán được thứ bậc trong đàn.</p>",
+      "refs": [
+        1
+      ]
     },
     {
       "key": "dimorphism",
@@ -193,9 +212,10 @@
       "key": "dimorphism",
       "source": "aquatome",
       "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
-      "html": "<p>Ở con đực, màu đen và đỏ không chỉ có trên thân mà còn lan ra cả vây lưng lẫn vây hậu môn. Con cái thì bụng tròn hơn.</p>",
+      "html": "<p>Ở con đực, màu đen và đỏ không chỉ có trên thân mà còn lan ra cả vây lưng lẫn vây hậu môn. Con cái thì bụng tròn hơn.</p>\n<p>Cá non bán ở tiệm thì đực cái trông gần như nhau và hơi xỉn màu. Một người nuôi loài này lâu năm để ý thấy con đực non đã có chút ửng đỏ trên thân, tuy rất nhạt. Cũng theo kinh nghiệm của người này, con đực lên màu khá muộn. Càng lớn thì mõm càng đỏ, thân càng sẫm, đến khi đủ lớn thì đực và cái trông khác hẳn nhau.</p>",
       "refs": [
-        0
+        0,
+        1
       ]
     },
     {
@@ -223,9 +243,10 @@
       "key": "notes",
       "source": "aquatome",
       "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
-      "html": "<p>Ngoài tự nhiên, loài này bị xếp vào diện sắp nguy cấp.</p>",
+      "html": "<p>Ngoài tự nhiên, loài này bị xếp vào diện sắp nguy cấp.</p>\n<p>Một người nuôi loài này lâu năm thấy màu con đực thay đổi rõ trong ngày. Chúng rực nhất vào sáng sớm, có lẽ là lúc chúng đẻ, và lúc khuya.</p>",
       "refs": [
-        0
+        0,
+        1
       ]
     },
     {
@@ -249,6 +270,12 @@
     }
   ],
   "videos": [
+    {
+      "youtubeId": "W780ni6bKgw",
+      "title": "Keeping Black Ruby Barbs: What I Learned",
+      "durationSec": 241,
+      "lang": "en"
+    },
     {
       "youtubeId": "iWF4XFUHuD8",
       "title": "Black Ruby Barb/Purplehead Barb - Pethia nigrofasciata -  Aquarium Fish Species Spotlight",
@@ -286,11 +313,15 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-17",
+  "updatedAt": "2026-11-21",
   "refs": [
     {
       "url": "https://www.youtube.com/watch?v=iWF4XFUHuD8",
       "title": "Black Ruby Barb/Purplehead Barb - Pethia nigrofasciata -  Aquarium Fish Species Spotlight"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=W780ni6bKgw",
+      "title": "Keeping Black Ruby Barbs: What I Learned"
     }
   ]
 }

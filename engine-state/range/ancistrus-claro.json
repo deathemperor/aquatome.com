@@ -1,54 +1,37 @@
 {
   "id": "ancistrus-claro",
   "native": {
-    "input": "edf9b84f83a3c32d",
-    "at": "2026-11-06T06:16:32.822Z",
+    "input": "d12b2f0621d69525",
+    "at": "2026-11-21T07:12:58.512Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Ancistrus claro, the gold marble bristlenose catfish (LDA 008), is a suckermouth catfish from the rios Claro and Coxipó in Mato Grosso, Brazil.",
-        "words": "Brazil",
-        "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Rio Claro, above the bridge, in the direction of Chappada dos Guimaraes, Mato Grosso State, Brazil'.",
+        "quote": "Collected from the rios Claro and Coxipó within the upper rio Cuiabá drainage in Mato Grosso state, central Brazil.",
         "words": "Brazil",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Rio Claro",
-        "source": "seriouslyfish",
-        "quote": "Collected from the rios Claro and Coxipó within the upper rio Cuiabá drainage in Mato Grosso state, central Brazil.",
-        "country": "BR",
-        "ok": false,
-        "why": "its name is not in the quote"
-      },
-      {
-        "name": "Rio Coxipó",
-        "source": "seriouslyfish",
-        "quote": "Collected from the rios Claro and Coxipó within the upper rio Cuiabá drainage in Mato Grosso state, central Brazil.",
-        "country": "BR",
-        "ok": false,
-        "why": "its name is not in the quote"
-      },
-      {
-        "name": "Rio Cuiabá",
+        "name": "Cuiabá",
         "source": "seriouslyfish",
         "quote": "Collected from the rios Claro and Coxipó within the upper rio Cuiabá drainage in Mato Grosso state, central Brazil.",
         "country": "BR",
         "ok": true
       },
       {
-        "name": "Rio Paraguay",
+        "name": "Paraguay",
         "source": "seriouslyfish",
         "quote": "The Cuiabá is itself a tributary of the rio Paraguay and its lower reaches flow through the Pantanal wetlands.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Rio Paraguay-Paraná",
+        "source": "glaser",
+        "quote": "The catfish originates from clear water streams with a strong current in the upper part of the Rio Paraguay-Paraná river basin.",
         "ok": true
       }
     ],
@@ -90,5 +73,9 @@
     ],
     "requests": 11,
     "at": "2026-11-06T06:16:32.822Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-24T23:11:38.206Z",
+    "error": "claude failed (1): other"
   }
 }

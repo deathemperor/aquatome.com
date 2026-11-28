@@ -10,7 +10,13 @@ export type Listing = { kind: 'sitemap'; url: string; prefix: string | string[] 
  * name, as the run prints how many each rule left out, and the words, hyphen-separated as an address has them.
  */
 export type Drop = readonly [name: string, words: RegExp]
-export type IdeaSource = { id: SourceId; name: string; list: Listing; magazine?: true; drop?: readonly Drop[] }
+/**
+ * `viaArchive`: while its own site refuses (a block on record, or a refusal in this run), its listing is read from the
+ * Internet Archive's copy, and the post behind the day's guide on its idea too (ideas.ts), by the engine's own Archive
+ * reader (archive.ts), at its pace and with its rest (the owner, 20 Nov 2026: "Pratical fishkeeping: use internet
+ * archive"; 9 Nov: "any site that are often blocked should use the same way").
+ */
+export type IdeaSource = { id: SourceId; name: string; list: Listing; magazine?: true; drop?: readonly Drop[]; viaArchive?: true }
 
 /**
  * The magazine's posts about someone, not a topic, or not a topic at all (the chief of staff, 14 Nov 2026): its sections are
@@ -36,7 +42,7 @@ export const IDEA_SOURCES: IdeaSource[] = [
   { id: 'aquahouse', name: 'Aqua House', list: { kind: 'wordpress', base: 'https://aquahouse.vn', category: 'tin-tuc-aqua' } },
   { id: 'cacanhtailoc', name: 'Cá Cảnh Tài Lộc', list: { kind: 'sitemap', url: 'https://cacanhtailoc.com/sitemap_blogs_1.xml', prefix: 'https://cacanhtailoc.com/blogs/tin-tuc/' } },
   {
-    id: 'practicalfishkeeping', name: 'Practical Fishkeeping', magazine: true, drop: MAGAZINE_DROP,
+    id: 'practicalfishkeeping', name: 'Practical Fishkeeping', magazine: true, drop: MAGAZINE_DROP, viaArchive: true,
     list: { kind: 'sitemap', url: 'https://www.practicalfishkeeping.co.uk/sitemap-1.xml', prefix: ['features/', 'fishkeeping-answers/', 'beginners-hub/'].map(s => `https://www.practicalfishkeeping.co.uk/${s}`) },
   },
 ]
@@ -46,7 +52,8 @@ export const ideaHost = (s: IdeaSource) => new URL(s.list.kind === 'sitemap' ? s
 
 /**
  * The magazine's hosts, which research never opens (the chief of staff, 14 Nov 2026): research's call returns only its
- * answer, so nothing records what it opened. Its titles are ideas, and its guides are researched from other sources.
- * Opening its posts is a later change, once what research opens is recorded and the owner has answered.
+ * answer, so nothing records what it opened. Its titles are ideas. The one post behind a day's guide on its idea is read
+ * by the engine itself, from the Archive's copy, and handed to research as text (ideas.ts, 21 Nov 2026); research still
+ * opens neither the magazine nor the Archive (cycle-only.ts).
  */
 export const NEVER_RESEARCHED: readonly string[] = IDEA_SOURCES.filter(s => s.magazine).flatMap(s => [ideaHost(s), `*.${ideaHost(s)}`])

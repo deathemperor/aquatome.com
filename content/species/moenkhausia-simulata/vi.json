@@ -1,0 +1,24 @@
+{
+  "slug": "ca-moenkhausia-simulata",
+  "name": "Cá Moenkhausia simulata",
+  "altNames": [],
+  "sections": {
+    "notes:glaser": "<p>Gần đây có một loài tetra rất hiếm được nhập từ Peru về. Rất có thể đó là Moenkhausia simulata, nhưng lô cá mới này có màu hơi khác so với M. simulata mà người ta đã biết trước đây. Mọi loài tetra khác có kiểu nhiều sọc ngang (Astyanax lineatus, A. kullanderi, A. superbus, Bario spp., Hollandichthys spp., Hyphessobrycon hexastichos, Markiana nigripinnis, Moenkhausia agnesae, M. latissima, M. rara, M. simulata và Pseudochalceus lineatus) thì hoặc trông khác hẳn, hoặc sống ở vùng khác hẳn, hoặc cả hai. Có thể số cá nhập về là một loài khoa học chưa mô tả, rất giống M. simulata.</p>",
+    "dimorphism:glaser": "<p>Cách phân biệt đực cái ở loài này khá thú vị. Con đực có vây mỡ to hơn hẳn con cái.</p>",
+    "behaviour:glaser": "<p>Loài tetra này đối xử với nhau khá dữ. Muốn những màn rượt đuổi không làm rách vây thì bể phải rộng hết mức có thể, bày nhiều chỗ che khuất, và nuôi càng đông con càng tốt.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-20"
+  }
+}

@@ -3,6 +3,12 @@
   "name": "ชีเร",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-21T19:05:11.571Z",
+    "why": "\"ชีเร\" is the Shire name without the Thai kind word \"แม่น้ำ\", and the usual Thai transliteration is \"ไชร์\" or \"ชิเร\", so the name is incomplete."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

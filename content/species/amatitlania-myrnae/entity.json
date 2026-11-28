@@ -8,7 +8,8 @@
   "places": [
     "north-america",
     "costa-rica",
-    "panama"
+    "panama",
+    "central-america"
   ],
   "range": {
     "native": {
@@ -72,6 +73,13 @@
           "min": 23,
           "max": 26
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -96,6 +104,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -119,10 +131,28 @@
       "html": "<p>Cryptoheros myrnae is a Central American cichlid from the Atlantic slope of Costa Rica and Panama. It was collected from a river with clear, shallow, swiftly flowing water over sand. Moderately aggressive, especially when breeding, it spawns in caves and breeds quite easily. Males are larger and more brightly coloured, and a spawning female turns black on her lower half with a large copper-coloured spot.</p><ul><li>Max size: ♂ 100 mm SL, ♀ 80 mm SL</li><li>Aquarium size: 90 × 30 cm</li><li>Temperature: 23–26°C</li><li>pH: 7.0–8.5</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cryptoheros-myrnae-rio-sarapiqui-2/",
+      "html": "<p>Central American cichlids often require large aquariums, not so much because of their swimming needs, but because they form territories and are often unbearably aggressive in aquariums that are too small. There are also dwarf cichlids among the Central Americans, which do not grow larger than 10 cm. The beautiful Cryptoheros species belong to them, also C. myrnae.</p><p>Owners of medium (standard) aquariums can therefore enjoy Central American cichlids and their varied, interesting behaviour and fiery colours.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cryptoheros-myrnae-rio-sarapiqui-2/",
+      "html": "<p>Regular fishing trips to the countries of origin cannot be assumed to be possible nowadays, and commercial imports from there never existed. Conserving the species in the aquarium is therefore of special importance, and wherever possible it is important to breed \"true to species\", i.e. on a population basis. Offspring with locality designation (Rio Sarapiqui) are available; the animals are German offspring.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amatitlania-myrnae",
       "html": "<p>Atlantic slope of Costa Rica and Panama.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cryptoheros-myrnae-rio-sarapiqui-2/",
+      "html": "<p>Costa Rica, where C. myrnae occurs in rivers on the Atlantic side.</p>"
     },
     {
       "key": "habitat",
@@ -149,10 +179,22 @@
       "html": "<ul><li>Temperature: 23–26°C</li><li>pH: 7.0–8.5</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cryptoheros-myrnae-rio-sarapiqui-2/",
+      "html": "<p>The water values are unimportant for care and breeding; any drinking water is suitable. The temperature can be between 22 and 28°C, and medium values have proven themselves.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amatitlania-myrnae",
       "html": "<p>Not fussy and will accept most foods. Live and frozen bloodworm, Artemia, chopped prawn/shrimp, etc., should form a good proportion of the diet, though good quality dried foods may also be used. Try to ensure the fish receive some vegetable matter in the form of proprietary products with added Spirulina or fresh blanched greens, peas or similar.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cryptoheros-myrnae-rio-sarapiqui-2/",
+      "html": "<p>Every usual ornamental fish food is eaten.</p>"
     },
     {
       "key": "behaviour",
@@ -161,10 +203,22 @@
       "html": "<p>Moderately aggressive species, especially when breeding. Keep it with other Central American cichlids only in a tank large enough to allow each species space to form an adequate territory. Shoals of peaceful mid and upper-water dwelling species are probably the best choice for tankmates. In its natural waters it can be found living alongside livebearers such as Poecilia and Alfaro spp., plus characins, including Astyanax aeneus, and freshwater gobies.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cryptoheros-myrnae-rio-sarapiqui-2/",
+      "html": "<p>This peaceful, hardly burrowing species is suitable for suitably furnished and stocked community aquariums. It is very interesting when the animals show territorial differences: they then colour deep black in the face and on the chest within seconds.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amatitlania-myrnae",
       "html": "<p>The male is larger and more brightly coloured, particularly when in spawning condition. The female has a dark spot in the dorsal fin, and when spawning her lower half turns black with a large copper-coloured spot.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cryptoheros-myrnae-rio-sarapiqui-2/",
+      "html": "<p>The sexes can be distinguished well starting from a size of approximately 3 cm. Then the females develop a black and white spot in the dorsal fin.</p>"
     },
     {
       "key": "reproduction",
@@ -182,28 +236,58 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/2df97d7202d571e2.webp",
+      "thumb": "https://media.aquatome.com/commons/2df97d7202d571e2-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "Dnoerholm",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amatitlania_myrnae_-_Cryptoheros_myrnae.jpg",
-      "caption": "Amatitlania myrnae",
-      "thumb": "https://media.aquatome.com/commons/2df97d7202d571e2-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/2df97d7202d571e2-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Dnoerholm",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amatitlania_myrnae_-_Cryptoheros_myrnae.jpg",
+      "caption": "Amatitlania myrnae"
     },
     {
       "url": "https://media.aquatome.com/commons/e5eea4785f2ebea2.webp",
+      "thumb": "https://media.aquatome.com/commons/e5eea4785f2ebea2-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "serwacy01-",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amatitlania_myrnae.jpg",
-      "caption": "Amatitlania myrnae in Wrocław Zoological Garden",
-      "thumb": "https://media.aquatome.com/commons/e5eea4785f2ebea2-480.webp"
+      "caption": "Amatitlania myrnae in Wrocław Zoological Garden"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ad57e98fbdf96e17.webp",
+      "thumb": "https://media.aquatome.com/glaser/ad57e98fbdf96e17-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cryptoheros-myrnae-rio-sarapiqui-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/177ef336ecde5fca.webp",
+      "thumb": "https://media.aquatome.com/glaser/177ef336ecde5fca-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cryptoheros-myrnae-rio-sarapiqui-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f7d7d15f01b0d5b2.webp",
+      "thumb": "https://media.aquatome.com/glaser/f7d7d15f01b0d5b2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cryptoheros-myrnae-rio-sarapiqui-2/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -235,5 +319,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-25"
 }

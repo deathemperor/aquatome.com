@@ -1,6 +1,7 @@
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises'
 import { dirname } from 'node:path'
 import { parse } from 'node-html-parser'
+import { LockBusy, type Release } from './mac-lock'
 import { isChallenge } from './outline'
 
 /**
@@ -10,7 +11,8 @@ import { isChallenge } from './outline'
  */
 export const WAYBACK = 'https://web.archive.org'
 /**
- * Between two calls to the archive. Each is two requests, the redirect to a capture and the capture itself. At 5 s the
+ * Between two calls to the archive. Each is two requests, the redirect to a capture and the capture itself (each counted:
+ * ArchiveFetcher.call). At 5 s the
  * archive answered 429 and then refused the connection within a few pages (2Hr Aquarist, November 2026); this stays
  * under 15 requests a minute.
  */
@@ -39,11 +41,85 @@ export function errorGot(e: unknown): string {
   const code = (x.name === 'TimeoutError' || x.name === 'AbortError' ? x.name : undefined) ?? text(x.cause?.code) ?? text(x.code)
   return code ? `${code} (${x.message ?? ''})` : (x.message ?? String(e))
 }
-type Fetch = (url: string, init?: { headers?: Record<string, string>; signal?: AbortSignal }) => Promise<{ ok: boolean; status: number; headers: { get(name: string): string | null }; text(): Promise<string>; arrayBuffer(): Promise<ArrayBuffer> }>
+type Fetch = (url: string, init?: { headers?: Record<string, string>; signal?: AbortSignal; redirect?: 'manual' }) => Promise<{ ok: boolean; status: number; headers: { get(name: string): string | null }; text(): Promise<string>; arrayBuffer(): Promise<ArrayBuffer> }>
+
+/**
+ * The Archive's redirects, followed one by one so each is a request counted and capped like any (Codex, 21 Nov 2026: an
+ * automatic follow sent two requests for one counted), and only on the Archive's own host: one that points anywhere else
+ * (a site the engine may not read but through the Archive) is no copy, never followed.
+ */
+const REDIRECTS = new Set([301, 302, 303, 307, 308])
+export const MAX_HOPS = 5
+
+/**
+ * The Archive's rest on file couldn't be read under the lock (Codex, 22 Nov 2026: a read error taken as no rest would send
+ * during another job's refusal): nothing was asked, and it is no refusal. `code`: the file system's, never the path.
+ */
+export class RestUnreadable extends Error {
+  constructor(readonly code: string) { super(`the archive's rest on this Mac can't be read (${code}): nothing was asked, and this is no refusal`) }
+}
+
+/**
+ * What stops a step reading through the Archive, with nothing wrong with the page it was on, so the page waits rather than
+ * being marked, losing an attempt or losing its pictures: the Archive's refusal, the Mac's lock on it held elsewhere past
+ * its wait, and the rest on file unreadable (Codex, 22 Nov 2026).
+ */
+export const archiveStops = (e: unknown): e is Error => e instanceof ArchiveRefused || e instanceof LockBusy || e instanceof RestUnreadable
+
+/** A capped reader has made the requests it was allowed (ArchiveFetcher.capped): none was made, and it is no refusal. */
+export class AsksSpent extends Error {
+  constructor(readonly cap: number) { super(`the ${cap} requests allowed of the archive here are spent`) }
+}
+
+/** The page an Archive address is a copy of (`/web/<stamp><flags>/<page>`), by its bare host, path and query; none for the index's. */
+const copyPage = (at: string) => {
+  const u = new URL(at)
+  const m = /^\/web\/\d+[a-z_]*\/(.+)$/.exec(u.pathname + u.search)?.[1]
+  if (!m) return undefined
+  try { const p = new URL(m); return `${p.hostname.toLowerCase().replace(/^www\./, '')}${p.pathname.replace(/\/+$/, '')}${p.search}` } catch { return m }
+}
+/** A copy the Archive has nothing for: no copy, unlike its being down (a 5xx) or not answering. */
+export const noCopy = (e: unknown) => /^no archived copy/.test((e as Error).message) && !/\(HTTP 5\d\d\)/.test((e as Error).message)
 
 export class ArchiveFetcher {
-  /** `restFile`: where the wait is kept, outside any checkout, since it's this Mac the archive refuses. */
-  constructor(private d: { fetch: Fetch; now: () => Date; sleep: (ms: number) => Promise<void>; ua: string; restFile: string }) {}
+  /** Requests this reader has made: each try counts, a retry after a network failure and each redirect followed too. */
+  asked = 0
+  private cap = Number.POSITIVE_INFINITY
+  /**
+   * Called before each request is made, after the cap and the rest let it: where a capped reader's requests are kept. It
+   * runs under the Mac's lock, so it never reads the Archive itself: that read would wait on the lock its own call holds.
+   */
+  private onAsk?: () => Promise<void>
+  /** Called before each request, before the rest is read again: a capped reader's own pace. Nor does it read the Archive. */
+  private pace?: () => Promise<void>
+  /** The pages whose copy the Archive answered with a 403 in this run: shared by the capped readers made from this one. */
+  private forbidden = new Set<string>()
+  /**
+   * Why the Mac's lock couldn't be had in this run (LockBusy), shared by the capped readers made from this one: the rest of
+   * the run asks nothing, at once, rather than wait again at each page. No refusal, so no rest is written.
+   */
+  private busy: { why?: string } = {}
+  /**
+   * `restFile`: where the wait is kept, outside any checkout, since it's this Mac the archive refuses. `lock`: the Mac's one
+   * lock on the Archive (mac-lock.ts), held by each request from its rest check to its answer, by every reader in every
+   * checkout, so no request goes out past a refusal another just got, and no answer clears a wait another just began.
+   */
+  constructor(private d: { fetch: Fetch; now: () => Date; sleep: (ms: number) => Promise<void>; ua: string; restFile: string; lock: () => Promise<Release> }) {}
+
+  /**
+   * The same reader (name, pace, rest) allowed `n` requests at most: the next throws AsksSpent before it is made. `pace`
+   * runs first, then the rest is read again, then `onAsk`, just before the request is made, so a request is counted even if
+   * the run dies while it is out, and one the rest stops is never counted (Codex, 21 Nov 2026).
+   */
+  capped(n: number, onAsk?: () => Promise<void>, pace?: () => Promise<void>): ArchiveFetcher {
+    const r = new ArchiveFetcher(this.d)
+    r.cap = Math.max(0, n)
+    r.onAsk = onAsk
+    r.pace = pace
+    r.forbidden = this.forbidden
+    r.busy = this.busy
+    return r
+  }
 
   /** Latest copy: the Wayback Machine serves the capture nearest the stamp, and today is after every capture. */
   private today() { return this.d.now().toISOString().slice(0, 10).replace(/-/g, '') }
@@ -53,53 +129,139 @@ export class ArchiveFetcher {
     const at = this.d.now().toISOString()
     const until = new Date(this.d.now().getTime() + waitMs).toISOString()
     await mkdir(dirname(this.d.restFile), { recursive: true })
-    await writeFile(this.d.restFile, `${JSON.stringify({ until, waitMs, got, at } satisfies Rest)}\n`)
+    // Written whole or not at all (Codex, 22 Nov 2026): a reader never finds it half written.
+    const tmp = `${this.d.restFile}.${process.pid}.tmp`
+    await writeFile(tmp, `${JSON.stringify({ until, waitMs, got, at } satisfies Rest)}\n`)
+    await rename(tmp, this.d.restFile)
     console.log(`archive: counted as refused at ${at}, it got ${got}: no request before ${until}`)
     return new ArchiveRefused(until)
   }
 
-  /** One request, none during a refusal's wait, and one longer wait if the network fails. The request after a wait gets no second try. */
+  /**
+   * One request, none during a refusal's wait, and one longer wait if the network fails; the Archive's redirects followed
+   * (REDIRECTS), each a request of its own. The request after a wait gets no second try, and the wait ends only on the
+   * Archive's answer itself, not on a redirect to it nor on a 403: a refusal on the next request doubles the wait as before.
+   * Each request holds the Mac's lock from reading the rest again to its answer, the rest written or cleared (the chief of
+   * staff, 21 Nov 2026); its pace and the minute's wait after a failure are outside it. `at`: the address that answered.
+   */
   private async call(url: string) {
-    const rest = JSON.parse(await readFile(this.d.restFile, 'utf8').catch(() => 'null')) as Rest | null
-    if (rest && this.d.now().getTime() < new Date(rest.until).getTime()) throw new ArchiveRefused(rest.until)
-    for (let attempt = 0; ; attempt++) {
-      let r
-      try {
-        r = await this.d.fetch(url, { headers: { 'user-agent': this.d.ua }, signal: AbortSignal.timeout(90_000) })
-      } catch (e) {
-        if (rest || (e as { cause?: { code?: string } }).cause?.code === 'ECONNREFUSED') throw await this.refused(rest, errorGot(e))
-        if (attempt > 0) throw new Error(`the archive isn't answering (${(e as Error).message})`)
-        await this.d.sleep(60_000)
-        continue
-      }
-      if (r.status === 429) throw await this.refused(rest, `HTTP ${r.status}`)
-      if (rest) {
-        console.log(`archive: answered after the wait, at ${this.d.now().toISOString()}, with HTTP ${r.status}: reading carries on`)
-        await rm(this.d.restFile, { force: true })
-      }
+    // No file is no rest; any other failure to read it, or a file with no time in it (`null` too), is no answer either way
+    // (Codex, 22 Nov 2026: `{}` and `null` read as no rest).
+    const resting = async (): Promise<Rest | null> => {
+      const text = await readFile(this.d.restFile, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return undefined; throw e })
+      if (text === undefined) return null
+      const r = JSON.parse(text) as Rest | null
+      if (typeof r?.until !== 'string' || Number.isNaN(Date.parse(r.until))) throw new RestUnreadable('no time in it')
       return r
+    }
+    // A first look, before the lock: one it can't read (another job's, mid-write, as an older engine wrote it) is left to the
+    // look under the lock, the one that counts (Codex, 22 Nov 2026).
+    let rest = await resting().catch(() => null)
+    if (rest && this.d.now().getTime() < new Date(rest.until).getTime()) throw new ArchiveRefused(rest.until)
+    let at = url
+    for (let attempt = 0, hops = 0; ; attempt++) {
+      if (this.asked >= this.cap) throw new AsksSpent(this.cap)
+      await this.pace?.()
+      if (this.busy.why) throw new LockBusy(`${this.busy.why}; nothing more is asked of the archive in this run`)
+      const release = await this.d.lock().catch((e: unknown) => {
+        if (e instanceof LockBusy) this.busy.why = e.message
+        throw e
+      })
+      let failed = false
+      try {
+        // The run's busy lock again (Codex, 22 Nov 2026): another call on this reader may have given up on it while this one
+        // waited, and then this one had it.
+        if (this.busy.why) throw new LockBusy(`${this.busy.why}; nothing more is asked of the archive in this run`)
+        // The cap again, under the lock (Codex, 22 Nov 2026): two calls on one reader may both have passed it while waiting.
+        if (this.asked >= this.cap) throw new AsksSpent(this.cap)
+        // Read again just before the request (Codex, 21 Nov 2026): another job on this Mac may have been refused while this
+        // one waited its pace or the lock, or had the one answer that ends a wait.
+        const now = await resting().catch((e: NodeJS.ErrnoException) => { throw e instanceof RestUnreadable ? e : new RestUnreadable(e.code ?? e.name) })
+        if (now && this.d.now().getTime() < new Date(now.until).getTime()) throw new ArchiveRefused(now.until)
+        rest = now
+        await this.onAsk?.()
+        this.asked++
+        let r
+        try {
+          r = await this.d.fetch(at, { headers: { 'user-agent': this.d.ua }, signal: AbortSignal.timeout(90_000), redirect: 'manual' })
+        } catch (e) {
+          if (rest || (e as { cause?: { code?: string } }).cause?.code === 'ECONNREFUSED') throw await this.refused(rest, errorGot(e))
+          if (attempt > 0) throw new Error(`the archive isn't answering (${(e as Error).message})`)
+          failed = true
+        }
+        if (r) {
+          if (r.status === 429) throw await this.refused(rest, `HTTP ${r.status}`)
+          // A 403 (the owner's rule on refusals, the chief of staff, 21 Nov 2026): from the index, a refusal; on one page's copy,
+          // no copy of that page, but on a second page's in the same run, the reader shut out, a refusal. None ends a rest.
+          if (r.status === 403) {
+            const page = copyPage(at)
+            if (!page) throw await this.refused(rest, 'HTTP 403 from the index')
+            if (this.forbidden.size && !this.forbidden.has(page)) throw await this.refused(rest, `HTTP 403 on a second page's copy in this run (${page}, after ${[...this.forbidden].join(', ')})`)
+            this.forbidden.add(page)
+            return { r, at }
+          }
+          if (REDIRECTS.has(r.status)) {
+            const to = r.headers.get('location')
+            // A redirect to nowhere is no answer, and the rest stands (Codex, 21 Nov 2026): on a page's copy, no copy of it; from
+            // the index, the index not answering, as any of its failures but a 4xx (get).
+            if (!to) throw new Error(copyPage(at) ? `no archived copy (HTTP ${r.status} to no address)` : `HTTP ${r.status} to no address from ${new URL(at).host}`)
+            const next = new URL(to, at)
+            if (next.hostname !== new URL(WAYBACK).hostname) throw new Error(`no archived copy (the archive points off itself, to ${next.hostname})`)
+            if (++hops > MAX_HOPS) throw new Error(`no archived copy (more than ${MAX_HOPS} redirects)`)
+            at = next.href
+            // A new request: its own try if the network fails.
+            attempt = -1
+            continue
+          }
+          if (rest) {
+            console.log(`archive: answered after the wait, at ${this.d.now().toISOString()}, with HTTP ${r.status}: reading carries on`)
+            // Only the wait this request was the one after (Codex, 21 Nov 2026): another job refused meanwhile wrote a new one.
+            // One it can't read now is left as it is: the answer stands, and the wait ends on its own.
+            if ((await resting().catch(() => null))?.until === rest.until) await rm(this.d.restFile, { force: true })
+            rest = null
+          }
+          return { r, at }
+        }
+      } finally {
+        await release()
+      }
+      if (failed) await this.d.sleep(60_000)
     }
   }
 
-  /** `id_` is the page as it was captured, without the archive's toolbar or rewritten links. */
+  /**
+   * `id_` is the page as it was captured, without the archive's toolbar or rewritten links. The copy's date: the Archive's
+   * own header, else the capture's stamp in the address that answered. `copyOf`: the page that address is a copy of, which a
+   * redirect may have made another (the page itself moved, or the Archive sent its home page).
+   */
   private async capture(stamp: string, url: string) {
-    const r = await this.call(`${WAYBACK}/web/${stamp}id_/${url}`)
+    const { r, at } = await this.call(`${WAYBACK}/web/${stamp}id_/${url}`)
     const html = await r.text()
     if (!r.ok) throw new Error(`no archived copy (HTTP ${r.status})`)
     const date = r.headers.get('memento-datetime')
-    return { challenge: isChallenge(html.match(/<title>([^<]*)/i)?.[1]?.trim() ?? '', html), page: { status: r.status, html, finalUrl: url, ...(date ? { capturedAt: new Date(date).toISOString() } : {}) } }
+    const m = /^\/web\/(\d+)[a-z_]*\/(.+)$/.exec(new URL(at).pathname + new URL(at).search)
+    const s = m?.[1]?.length === 14 ? m?.[1] : undefined
+    const capturedAt = date ? new Date(date).toISOString() : s ? `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}T${s.slice(8, 10)}:${s.slice(10, 12)}:${s.slice(12, 14)}.000Z` : undefined
+    return { challenge: isChallenge(html.match(/<title>([^<]*)/i)?.[1]?.trim() ?? '', html), page: { status: r.status, html, finalUrl: url, copyOf: m?.[2] ?? url, ...(capturedAt ? { capturedAt } : {}) } }
   }
 
-  /** The newest copy; if that is a browser check, the next newest of the last few that isn't. */
-  async get(url: string): Promise<{ status: number; html: string; finalUrl: string; capturedAt?: string }> {
+  /**
+   * The newest copy; if that is a browser check, the next newest of the last few that isn't, one that can't be read passed
+   * over (one with no copy of its own). Anything else stops it there, a refusal, the requests allowed spent, the Archive
+   * not answering: what it hasn't asked is not "no copy".
+   */
+  async get(url: string): Promise<{ status: number; html: string; finalUrl: string; copyOf: string; capturedAt?: string }> {
     const newest = await this.capture(this.today(), url)
     if (!newest.challenge) return newest.page
     await this.d.sleep(ARCHIVE_POLITE)
-    const stamps = (await this.text(capturesQuery(url)).catch(e => { if (e instanceof ArchiveRefused) throw e; return '' })).split('\n').filter(Boolean).reverse()
+    // The index's answer that it holds nothing (a 4xx) is no copies; its being down, or not answering, stops it (Codex, 21
+    // Nov 2026), as a copy's 5xx does: the Archive not answering is not "no copy".
+    const stamps = (await this.text(capturesQuery(url)).catch(e => { if (!/^HTTP 4\d\d from /.test((e as Error).message)) throw e; return '' })).split('\n').filter(Boolean).reverse()
     for (const stamp of stamps) {
       await this.d.sleep(ARCHIVE_POLITE)
-      const older = await this.capture(stamp, url)
-      if (!older.challenge) return older.page
+      // A 403 is no copy of this page, and its older copies aren't asked either (Fable, 21 Nov 2026).
+      const older = await this.capture(stamp, url).catch(e => { if (!noCopy(e) || /\(HTTP 403\)/.test((e as Error).message)) throw e; return undefined })
+      if (older && !older.challenge) return older.page
     }
     throw new Error('no archived copy (the archive holds a browser-check page)')
   }
@@ -108,7 +270,7 @@ export class ArchiveFetcher {
   async text(url: string): Promise<string> {
     // The index is often briefly down: a 5xx, or a "Temporarily Offline" page served as 200. Three more tries, waiting longer each time.
     for (let attempt = 0; ; attempt++) {
-      const r = await this.call(url)
+      const { r } = await this.call(url)
       const body = r.ok ? await r.text() : ''
       if (r.ok && !/^\s*</.test(body)) return body
       if (r.status < 500 && !r.ok) throw new Error(`HTTP ${r.status} from ${new URL(url).host}`)
@@ -118,7 +280,7 @@ export class ArchiveFetcher {
   }
 
   async bytes(url: string): Promise<Uint8Array> {
-    const r = await this.call(`${WAYBACK}/web/${this.today()}im_/${url}`)
+    const { r } = await this.call(`${WAYBACK}/web/${this.today()}im_/${url}`)
     if (!r.ok) throw new Error(`no archived image (HTTP ${r.status})`)
     // PlanetCatfish answers image hotlinks with a page, and the archive kept that page.
     if (!/^image\//.test(r.headers.get('content-type') ?? '')) throw new Error(`no archived image (${r.headers.get('content-type')})`)
@@ -133,6 +295,9 @@ export class ArchiveFetcher {
     })
   }
 }
+
+/** What a step needs of the reader: a page's newest good copy, the archive's own text (its capture index), and a cap on its requests. */
+export type ArchiveReader = Pick<ArchiveFetcher, 'get' | 'text' | 'capped' | 'asked'>
 
 /** Capture-index query: every URL archived under `prefix` with a good capture, one row per URL. */
 export const cdxQuery = (prefix: string) => `${WAYBACK}/cdx/search/cdx?${new URLSearchParams({ url: `${prefix}*`, fl: 'original', filter: 'statuscode:200', collapse: 'urlkey' })}`

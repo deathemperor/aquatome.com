@@ -1,0 +1,58 @@
+{
+  "id": "olivaichthys-viedmensis",
+  "scientificName": "Olivaichthys viedmensis",
+  "order": "Siluriformes",
+  "family": "Diplomystidae",
+  "genus": "Olivaichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 32
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1435",
+      "html": "<ul><li>Scientific name: Olivaichthys viedmensis (MacDonagh, 1931)</li><li>Common name: Velvety Catfish</li><li>Synonym: Diplomystes viedmensis</li><li>Etymology: Latin, oliva = olive + Greek, ichthys = fish.</li><li>Breeding: unreported.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1435",
+      "html": "<p>South America: Negro River and tributaries in Argentina. Type locality: Río Negro, vicinity of Viedma, Province of Río Negro, Argentina.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1435",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1435",
+      "html": "<p>Notas Preliminares del Museo de La Plata v. 1 - pp65</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "MfEiw5MRANM",
+      "title": "Bagre Otuno (Diplomystes viedmensis)",
+      "durationSec": 15,
+      "lang": "es"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-22"
+}

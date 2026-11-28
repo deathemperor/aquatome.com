@@ -157,7 +157,7 @@ final class PageShotsFlowTests: XCTestCase {
     size.name = "chat-parity-thu-gon-frame"
     size.lifetime = .keepAlways
     add(size)
-    XCTAssertGreaterThanOrEqual(close.frame.height, 44, "Thu gọn under 44 pt")
+    XCTAssertGreaterThanOrEqual(heightOnPixels(close), 44, "Thu gọn under 44 pt")
   }
   func testFishId() { shootFishId("fish-id-light") }
   func testFishIdInTheDark() { shootFishId("fish-id-dark", dark: true) }

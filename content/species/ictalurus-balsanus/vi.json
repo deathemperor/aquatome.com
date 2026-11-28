@@ -1,0 +1,19 @@
+{
+  "slug": "ca-ictalurus-balsanus",
+  "name": "Cá Ictalurus balsanus",
+  "altNames": [],
+  "sections": {
+    "distribution:planetcatfish": "<p>Trung Mỹ: sông Ixtla ở Puente de Ixtla, bang Morelos, Mexico. Mẫu chuẩn được thu ở sông Río Ixtla, đoạn chảy qua Puente de Ixtla, Morelos, Mexico. Loài này mang tên lưu vực sông Río Balsas, nơi người ta thu được mẫu chuẩn.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa có tài liệu nào ghi lại chuyện loài này sinh sản.</p>",
+    "notes:planetcatfish": "<p>Nguồn gốc tên gọi: Ictalurus ghép từ hai chữ Hy Lạp, ichthys là cá và ailouros là mèo. Nghĩa đen của nó là \"cá mèo\", tức cá da trơn (catfish). Danh lục Đỏ IUCN: chưa đánh giá.</p>",
+    "references:planetcatfish": "<p>Bulletin of the U. S. Fish Commission v. 19. 1899, pp 118, Fig. 2.</p>"
+  },
+  "quality": {
+    "score": 0.92,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.92
+    },
+    "reason": "thin"
+  }
+}

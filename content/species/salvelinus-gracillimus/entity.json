@@ -1,0 +1,73 @@
+{
+  "id": "salvelinus-gracillimus",
+  "scientificName": "Salvelinus gracillimus",
+  "order": "Salmoniformes",
+  "family": "Salmonidae",
+  "genus": "Salvelinus",
+  "group": "other",
+  "places": [
+    "africa",
+    "niger",
+    "chad",
+    "gambia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 29
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1431",
+      "html": "<ul><li>Scientific name: Salvelinus gracillimus Regan, 1909</li><li>Type locality: Loch of Girlsta, Tingwall, Shetlands, U.K.</li><li>Etymology: Named for the country of Gambia, its type locality.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1431",
+      "html": "<p>Africa: Niger, Chad, Gambia, Géba, Taja, Waange, Volta and Ouémé basins.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1431",
+      "html": "<p>Omnivore, feeds on algae, nymphs, arthropods and molluscs.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1431",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1431",
+      "html": "<p>Considered to be a synonym of Synodontis schall by Lévêque et al. (1989: 120) and Paugy (in Lévêque et al., 1992).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1431",
+      "html": "<p>Annals and Magazine of Natural History (Series 8) v. 3 (no. 13), pp 115, Fig. 2a.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-22"
+}

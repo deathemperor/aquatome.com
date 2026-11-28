@@ -1,0 +1,168 @@
+{
+  "id": "pao-abei",
+  "scientificName": "Pao abei",
+  "order": "Tetraodontiformes",
+  "family": "Tetraodontidae",
+  "genus": "Pao",
+  "group": "other",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "xe-bangfai"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "html": "<p>Pao abei grows to about 10 cm in length. Regarding water chemistry the animals are undemanding, any tap water is suitable, pH should be between 6 and 8, water temperature around 24°C.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "html": "<p>This beautiful and – by Pao standards – peaceful freshwater pufferfish originates from the Mekong River basin in Laos (type locality: the Xe Bangfai River near Ban Geng Sahwang); it is considered endemic (= only occurring there) in the Xe Bangfai.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "html": "<p>While Pao cochinchinensis is a rather aggressive species, which can often only be kept singly in the long run, a permanent group keeping of P. abei is quite possible.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "html": "<p>In contrast to Pao turgidus, which occurs in the same river, P. abei has a large eye spot (ocellus) below the dorsal fin. In P. turgidus, all spots on the body are the same size. Unfortunately P. abei can only be identified without any doubt if it shows a mood dependent coloration. This coloration occurs during courtship and when the fish is very excited. If the fish is not in this mood, it cannot be distinguished from the “common” Pao cochinchinensis, which also occurs in the Xe Bangfai. That is why there are always doubts about which of the two species one is looking at.</p><p>The external unique point of P. abei is therefore only one of several possible mood-related colorations, which consists of yellow or orange dots on a dark background.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "html": "<p>They are substrate spawners, the clutch is guarded by the male until the larvae hatch. The breeding of P. abei has been successful more often.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/bfd412af59b68923.webp",
+      "thumb": "https://media.aquatome.com/glaser/bfd412af59b68923-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b961861a20347c42.webp",
+      "thumb": "https://media.aquatome.com/glaser/b961861a20347c42-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7190189400f91f80.webp",
+      "thumb": "https://media.aquatome.com/glaser/7190189400f91f80-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a589805eddfc85c7.webp",
+      "thumb": "https://media.aquatome.com/glaser/a589805eddfc85c7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-abei/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4dc57a33e26b4f5b.webp",
+      "thumb": "https://media.aquatome.com/glaser/4dc57a33e26b4f5b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-or-monotrete-abei/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8fedc24e8d065075.webp",
+      "thumb": "https://media.aquatome.com/glaser/8fedc24e8d065075-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao-abei-formerly-tetraodon-or-monotrete-abei/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "8tpnIFcoawE",
+      "title": "Abei Puffer called Pat having a 'breather' #aquarium #tropical #fishtank  #freshwatertank",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dmvPHVeX-K0",
+      "title": "pao abei puffer fish eats trumpet snails",
+      "durationSec": 63,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jFWLxwpVBHg",
+      "title": "pao abei puffer enjoying his dinner #pufferfish #fishroom #aquarium #freshwaterfish #aquariumfish",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OffhprtFrtc",
+      "title": "Fish Room Snippets: Abei Puffer Feeding",
+      "durationSec": 90,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá nóc nước ngọt"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22"
+}

@@ -19,15 +19,22 @@
         "Upper Amazon"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Endemic to the Upper Amazon in Peru.",
+          "quote": "The pretty tetra, Holopristis pulchra, is a small characin endemic to the Upper Amazon in Peru, found in slow-moving tributaries under forest cover.",
           "countries": [
             "PE"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Upper Amazon in Peru.",
+          "countries": [],
           "regions": [
             "Upper Amazon"
           ]
@@ -172,6 +179,10 @@
       {
         "source": "seriouslyfish",
         "value": 4.5
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -193,6 +204,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/holopristis-pulchra",
       "html": "<p>The pretty tetra, Holopristis pulchra, is a small characin endemic to the Upper Amazon in Peru, found in slow-moving tributaries under forest cover. Also known as the garnet or black wedge tetra, it is hardy, inexpensive and a good choice for the beginner. It does well in most general community tanks.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-pulcher-2/",
+      "html": "<p>The garnet tetra comes from the upper Amazon in Peru and grows 3-4 cm long. It is a very peaceful fish.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-pulcher-2/",
+      "html": "<p>Perhaps in the first moment one passes it by carelessly in the pet shop, because in the bright dealer tank it does not appear very colorful, but this changes when the carbuncle tetra comes into a well planted aquarium with subdued light!</p>"
     },
     {
       "key": "distribution",
@@ -235,6 +258,24 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/holopristis-pulchra",
       "html": "<p>Will do fine in most 'general' community tanks. It is lively, quite colourful and peaceful. It's a good tankmate for most livebearers, danios, rasboras, other tetras and peaceful bottom dwellers such as Corydoras or smaller Loricariids. It can also be kept with the majority of commonly available gouramis and dwarf cichlids. It is quite shy, so don't keep it with anything much larger or more boisterous. In a biotope tank as described above, it can be combined with other Hemigrammus or Hyphessobrycon species, pencil fish, Apistogramma dwarf cichlids and the aforementioned bottom dwellers.</p><p>Always buy a group of at least 6 of these, preferably 10 or more. It is a shoaling species by nature, and will fare much better when in the company of its own kind. It actually looks far more effective when maintained like this anyway.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-pulcher-2/",
+      "html": "<p>The very peaceful animal actually has characteristics like a carbuncle, a gemstone, which in fairy tales has the ability to make the owner invisible: because the eye and tail root of Hemigrammus pulcher shimmer like gemstones, the individual fish in the troop is difficult to spot for prey predators. Within the species the luminous markings serve for recognition of conspecifics in the dark home waters.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-pulcher-2/",
+      "html": "<p>As is common with tetras, the male is smaller and more delicate than the female.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-pulcher-2/",
+      "html": "<p>The garnet tetra is an ideal combination to the neon tetra, which comes from the same region.</p>"
     }
   ],
   "photos": [
@@ -247,6 +288,36 @@
       "author": "Jofre",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:H.pulcher_IMG_3191.jpg",
       "caption": "Đôi cá neon đuôi nêm đen trong bể trồng cây"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/76bf328f8dfbb320.webp",
+      "thumb": "https://media.aquatome.com/glaser/76bf328f8dfbb320-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-pulcher-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/76b9dab8a2ca5d3e.webp",
+      "thumb": "https://media.aquatome.com/glaser/76b9dab8a2ca5d3e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-pulcher-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d7af68007f44cb9c.webp",
+      "thumb": "https://media.aquatome.com/glaser/d7af68007f44cb9c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-pulcher-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -275,6 +346,31 @@
       "lang": "en"
     }
   ],
-  "productSlots": [],
-  "updatedAt": "2026-11-06"
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led thủy sinh ánh sáng dịu"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra nhỏ"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh bể cộng đồng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
 }

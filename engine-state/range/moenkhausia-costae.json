@@ -1,22 +1,14 @@
 {
   "id": "moenkhausia-costae",
   "native": {
-    "input": "ccbc67a384fd85d6",
-    "at": "2026-11-10T12:58:20.267Z",
+    "input": "3c07f116d74e0b09",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "glaser",
         "quote": "This tetra originates from Brazil (Rio Sao Francisco and Itapicuru).",
-        "words": "Brazil",
-        "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "glaser",
-        "quote": "Brazil: Rio Sao Francisco and Itapicuru.",
         "words": "Brazil",
         "ok": true
       }

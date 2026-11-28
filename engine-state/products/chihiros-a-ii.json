@@ -1,0 +1,511 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Input voltage",
+      "value": "AC 110–240 V, 50/60 Hz",
+      "source": 0
+    },
+    {
+      "key": "Fixture depth × height",
+      "value": "67 mm × 10 mm (all sizes)",
+      "source": 0
+    },
+    {
+      "key": "Power range",
+      "value": "15.1 W (A II 301) to 57.9 W (A II 1201)",
+      "source": 0
+    },
+    {
+      "key": "Color temperature",
+      "value": "Individual LEDs about 8,000 K, in 3 rows; per-model figures run from 7,000 K to 9,500 K",
+      "source": 0
+    },
+    {
+      "key": "Spectrum",
+      "value": "Full spectrum, about 400–700 nm, with extra red and blue",
+      "source": 0
+    },
+    {
+      "key": "Controller",
+      "value": "Bluetooth built in, controlled through the My Chihiros app (timer, brightness, sunrise/sunset)",
+      "source": 0
+    },
+    {
+      "key": "Mount",
+      "value": "Clear acrylic legs that let the lamp tilt; the legs also help shed heat",
+      "source": 0
+    },
+    {
+      "key": "Housing material",
+      "value": "Black anodized aluminium alloy",
+      "source": 2
+    },
+    {
+      "key": "Rated lifespan",
+      "value": "Over 50,000 hours",
+      "source": 2
+    },
+    {
+      "key": "Warranty (Thủy Sinh Bích Phương)",
+      "value": "6 months, manufacturer defects only",
+      "source": 2
+    },
+    {
+      "key": "Warranty (Quới Decor)",
+      "value": "1 month from delivery; drops and water damage are not covered",
+      "source": 3
+    }
+  ],
+  "variants": [
+    {
+      "name": "A II 301 (30 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "15.1 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "30",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1,628 lm",
+          "source": 0
+        },
+        {
+          "key": "Width",
+          "value": "286 mm (300 mm with legs)",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 351 / 361 (35/36 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "18 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "40",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1,699 lm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 401 (40 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "18 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "40",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1,699 lm",
+          "source": 0
+        },
+        {
+          "key": "Width",
+          "value": "385 mm (400 mm with legs)",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 451 (45 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "22 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "50",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1,957 lm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 501 (50 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "23.3 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "50",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2,063 lm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 601 (60 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "28 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "60",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2,450 lm",
+          "source": 0
+        },
+        {
+          "key": "Width",
+          "value": "585 mm (600 mm with legs)",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 801 (80 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "39.8 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "80",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "3,314 lm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 901 (90 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "40 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "90",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "about 3,579 lm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 1201 (120 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "57.9 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "120",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "5,000 lm",
+          "source": 0
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "variant": "30 cm",
+      "vnd": 750000,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "variant": "35 cm",
+      "vnd": 780000,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "variant": "40 cm",
+      "vnd": 800000,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "variant": "45 cm",
+      "vnd": 850000,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "variant": "60 cm",
+      "vnd": 1100000,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "variant": "80 cm",
+      "vnd": 1350000,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "variant": "90 cm",
+      "vnd": 1530000,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "variant": "120 cm",
+      "vnd": 1800000,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/chihiros-a2",
+      "variant": "30 cm (marked sold out)",
+      "vnd": 810000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/chihiros-a2",
+      "variant": "40 cm (marked sold out)",
+      "vnd": 890000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/chihiros-a2",
+      "variant": "60 cm (marked sold out)",
+      "vnd": 1050000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/chihiros-a2",
+      "variant": "80 cm (marked sold out)",
+      "vnd": 1300000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/chihiros-a2",
+      "variant": "90 cm (marked sold out)",
+      "vnd": 1750000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh Quới Decor",
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-a2-40cm/",
+      "variant": "45 cm (the page's spec table is for the 40 cm model)",
+      "vnd": 850000,
+      "source": 3
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Aquasabi says it is made for densely planted freshwater tanks that are left open on top.",
+      "source": 0
+    },
+    {
+      "fact": "Aquasabi says it should not run under an aquarium lid.",
+      "source": 0
+    },
+    {
+      "fact": "Per Aquasabi support, the stock mount does not fit tanks with 12 mm glass.",
+      "source": 0
+    },
+    {
+      "fact": "Aquasabi support says it can also light a paludarium.",
+      "source": 0
+    },
+    {
+      "fact": "Each model is sized to the tank length, from 30 cm to 120 cm.",
+      "source": 0
+    },
+    {
+      "fact": "A Vietnamese shop says full brightness can handle demanding plants such as Bucephalandra, Rotala and stem plants, and that you can dim it for moss and fern tanks.",
+      "source": 3
+    },
+    {
+      "fact": "Another shop says its high-Kelvin white light suits mosses, Anubias and ferns, and supports carpets and stem plants at moderate levels.",
+      "source": 1
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Fit the acrylic legs to both ends of the light, then set it on the tank rim.",
+      "source": 1
+    },
+    {
+      "fact": "Connect the power cable and legs fully before plugging the light in.",
+      "source": 2
+    },
+    {
+      "fact": "Install the My Chihiros app, turn on Bluetooth and location on the phone, sign in with an email, then pick the light and set the schedule and brightness.",
+      "source": 3
+    },
+    {
+      "fact": "The app can set several time slots, brightness levels and a sunrise/sunset ramp.",
+      "source": 0
+    },
+    {
+      "fact": "For ceiling or bracket mounting you need a separate hanging kit.",
+      "source": 0
+    },
+    {
+      "fact": "The legs tilt but don't extend or raise the light; shops sell riser legs separately.",
+      "source": 2
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Shops list different wattages for the same size (the 60 cm is listed at 22 W, 26 W and 28 W), so quoted specs vary.",
+      "source": 5
+    },
+    {
+      "fact": "Some Vietnamese listings give the code 'AII 401' to both the 40 cm and 45 cm models, so check the size before you buy.",
+      "source": 2
+    },
+    {
+      "fact": "On the Chihiros forum, a user reports the app sometimes fails to connect after a long idle period; restarting the app fixed it. Another user moved to Home Assistant control instead.",
+      "source": 6
+    },
+    {
+      "fact": "Local warranties are short (1 month at one shop, 6 months at another) and exclude drops and water damage.",
+      "source": 3
+    },
+    {
+      "fact": "Aquasabi says its lumen figures are lab values and real output may be lower.",
+      "source": 0
+    },
+    {
+      "fact": "Compared with the original Chihiros A series, the A II has a built-in Bluetooth controller, so you no longer need a separate controller.",
+      "source": 0
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Chihiros",
+      "model": "WRGB II",
+      "why": "An upgrade with RGB colour control and much higher output (about 67 W and 5,300 lm at 60 cm per Aquasabi), for high-tech tanks or better fish and plant colour. It costs far more. I didn't find a Vietnamese shop price.",
+      "source": 7
+    },
+    {
+      "brand": "Chihiros",
+      "model": "A II Max",
+      "why": "A related Chihiros line aimed at plants with low to moderate light needs, if you don't need the A II's output. I didn't find a Vietnamese shop price.",
+      "source": 8
+    },
+    {
+      "brand": "Week Aqua",
+      "model": "M Series Pro",
+      "why": "A similarly priced app-controlled planted-tank LED (about SGD 120 in Singapore, with a 1-year warranty). I couldn't confirm a Vietnamese shop selling it.",
+      "source": 9
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquasabi.de/Chihiros-LED-System-Series-A-II",
+      "title": "Aquasabi – Chihiros LED System Series A II",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhtim.vn/chihiros-a2",
+      "title": "Thủy Sinh Tím – Đèn Thủy Sinh Chihiros A2",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "title": "Thủy Sinh Bích Phương – Đèn LED Chihiros A2 Series",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-a2-40cm/",
+      "title": "Thủy Sinh Quới Decor – Đèn Chihiros A2 40cm",
+      "kind": "shop"
+    },
+    {
+      "url": "https://yeuthuysinh.vn/den-chihiros-a-ii-series",
+      "title": "Yêu Thủy Sinh – Đèn Chihiros A II Series",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhaqua.com/san-pham/led-chihiros-a2-601-60cm/",
+      "title": "Thủy Sinh Aqua – Led Chihiros A2 601 60cm",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bbs.chihirosaquaticstudio.com/threads/bluetooth-connectivity-issues-with-the-app.7841/",
+      "title": "Chihiros forum – Bluetooth connectivity issues with the app",
+      "kind": "forum"
+    },
+    {
+      "url": "https://aquasabi.com/Chihiros-LED-System-Series-WRGB-II-60",
+      "title": "Aquasabi – Chihiros LED System Series WRGB II",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shop.glassaqua.com/products/chihiros-led-light-aii-max-series",
+      "title": "Glass Aqua – Chihiros LED Light A II Max Series",
+      "kind": "shop"
+    },
+    {
+      "url": "https://fishyhub.com/product-detail/week-aqua-m-series-pro-led-30cm-120cm-17374",
+      "title": "FishyHub – Week Aqua M Series Pro LED",
+      "kind": "shop"
+    }
+  ]
+}

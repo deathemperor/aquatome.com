@@ -1,0 +1,348 @@
+{
+  "id": "chihiros-a-ii",
+  "brand": "Chihiros",
+  "model": "A II",
+  "category": "den",
+  "type": "thuy-sinh",
+  "specs": [
+    {
+      "key": "Input voltage",
+      "value": "AC 110–240 V, 50/60 Hz",
+      "source": 0
+    },
+    {
+      "key": "Fixture depth × height",
+      "value": "67 mm × 10 mm (all sizes)",
+      "source": 0
+    },
+    {
+      "key": "Power range",
+      "value": "15.1 W (A II 301) to 57.9 W (A II 1201)",
+      "source": 0
+    },
+    {
+      "key": "Color temperature",
+      "value": "Individual LEDs about 8,000 K, in 3 rows; per-model figures run from 7,000 K to 9,500 K",
+      "source": 0
+    },
+    {
+      "key": "Spectrum",
+      "value": "Full spectrum, about 400–700 nm, with extra red and blue",
+      "source": 0
+    },
+    {
+      "key": "Controller",
+      "value": "Bluetooth built in, controlled through the My Chihiros app (timer, brightness, sunrise/sunset)",
+      "source": 0
+    },
+    {
+      "key": "Mount",
+      "value": "Clear acrylic legs that let the lamp tilt; the legs also help shed heat",
+      "source": 0
+    },
+    {
+      "key": "Housing material",
+      "value": "Black anodized aluminium alloy",
+      "source": 2
+    },
+    {
+      "key": "Rated lifespan",
+      "value": "Over 50,000 hours",
+      "source": 2
+    },
+    {
+      "key": "Warranty (Thủy Sinh Bích Phương)",
+      "value": "6 months, manufacturer defects only",
+      "source": 2
+    },
+    {
+      "key": "Warranty (Quới Decor)",
+      "value": "1 month from delivery; drops and water damage are not covered",
+      "source": 3
+    }
+  ],
+  "variants": [
+    {
+      "name": "A II 301 (30 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "15.1 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "30",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1,628 lm",
+          "source": 0
+        },
+        {
+          "key": "Width",
+          "value": "286 mm (300 mm with legs)",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 351 / 361 (35/36 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "18 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "40",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1,699 lm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 401 (40 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "18 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "40",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1,699 lm",
+          "source": 0
+        },
+        {
+          "key": "Width",
+          "value": "385 mm (400 mm with legs)",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 451 (45 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "22 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "50",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1,957 lm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 501 (50 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "23.3 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "50",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2,063 lm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 601 (60 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "28 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "60",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2,450 lm",
+          "source": 0
+        },
+        {
+          "key": "Width",
+          "value": "585 mm (600 mm with legs)",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 801 (80 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "39.8 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "80",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "3,314 lm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 901 (90 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "40 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "90",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "about 3,579 lm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "A II 1201 (120 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "57.9 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "120",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "5,000 lm",
+          "source": 0
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquasabi.de/Chihiros-LED-System-Series-A-II",
+      "title": "Aquasabi – Chihiros LED System Series A II",
+      "kind": "shop",
+      "at": "2026-11-22"
+    },
+    {
+      "url": "https://thuysinhtim.vn/chihiros-a2",
+      "title": "Thủy Sinh Tím – Đèn Thủy Sinh Chihiros A2",
+      "kind": "shop",
+      "at": "2026-11-22"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "title": "Thủy Sinh Bích Phương – Đèn LED Chihiros A2 Series",
+      "kind": "shop",
+      "at": "2026-11-22"
+    },
+    {
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-a2-40cm/",
+      "title": "Thủy Sinh Quới Decor – Đèn Chihiros A2 40cm",
+      "kind": "shop",
+      "at": "2026-11-22"
+    },
+    {
+      "url": "https://yeuthuysinh.vn/den-chihiros-a-ii-series",
+      "title": "Yêu Thủy Sinh – Đèn Chihiros A II Series",
+      "kind": "shop",
+      "at": "2026-11-22"
+    },
+    {
+      "url": "https://thuysinhaqua.com/san-pham/led-chihiros-a2-601-60cm/",
+      "title": "Thủy Sinh Aqua – Led Chihiros A2 601 60cm",
+      "kind": "shop",
+      "at": "2026-11-22"
+    },
+    {
+      "url": "https://bbs.chihirosaquaticstudio.com/threads/bluetooth-connectivity-issues-with-the-app.7841/",
+      "title": "Chihiros forum – Bluetooth connectivity issues with the app",
+      "kind": "forum",
+      "at": "2026-11-22"
+    },
+    {
+      "url": "https://aquasabi.com/Chihiros-LED-System-Series-WRGB-II-60",
+      "title": "Aquasabi – Chihiros LED System Series WRGB II",
+      "kind": "shop",
+      "at": "2026-11-22"
+    },
+    {
+      "url": "https://shop.glassaqua.com/products/chihiros-led-light-aii-max-series",
+      "title": "Glass Aqua – Chihiros LED Light A II Max Series",
+      "kind": "shop",
+      "at": "2026-11-22"
+    },
+    {
+      "url": "https://fishyhub.com/product-detail/week-aqua-m-series-pro-led-30cm-120cm-17374",
+      "title": "FishyHub – Week Aqua M Series Pro LED",
+      "kind": "shop",
+      "at": "2026-11-22"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=PmSk_ZvXD1A",
+      "title": "Unsponsored Review of Chihiros A II Series Aquarium Light.",
+      "kind": "video",
+      "at": "2026-11-22"
+    },
+    {
+      "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31",
+      "title": "Ghi chép thử nghiệm của AquaTome: điều khiển đèn thủy sinh qua Bluetooth (31/10/2026)",
+      "kind": "test",
+      "at": "2026-11-22"
+    }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-22",
+    "videos": [
+      {
+        "youtubeId": "PmSk_ZvXD1A",
+        "title": "Unsponsored Review of Chihiros A II Series Aquarium Light.",
+        "durationSec": 574,
+        "lang": "en",
+        "channel": "Droeks on Fishkeeping"
+      }
+    ]
+  },
+  "updatedAt": "2026-11-22"
+}

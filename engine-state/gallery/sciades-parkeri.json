@@ -1,14 +1,15 @@
 {
  "queue": [],
  "judged": [
-  "File:Sciades parkeri.png"
+  "File:Sciades parkeri.png",
+  "inat:351949852",
+  "inat:457479015",
+  "inat:463089397",
+  "inat:510503141",
+  "inat:608497236",
+  "inat:652203831"
  ],
- "hashes": {
-  "https://media.aquatome.com/scotcat/c43a47567d075a60.webp": "c533b830dc07dfdb",
-  "https://media.aquatome.com/scotcat/1d2b18cfc5cbba0a.webp": "c38bcb99f8d6f4f4",
-  "https://media.aquatome.com/scotcat/56a8e9804f542ca8.webp": "e01aecf58db4a92c",
-  "https://media.aquatome.com/scotcat/a400d2b07f310618.webp": "64b98282932eb844"
- },
+ "hashes": {},
  "inat": {
   "taxon": 112303,
   "pass": "done",
@@ -17,5 +18,17 @@
    "agree": 0
   }
  },
- "commons": "2026-11-19"
+ "commons": "2026-11-19",
+ "gbif": {
+  "key": 5712378,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 357578212,
+  "done": true
+ },
+ "exhausted": "2026-11-21"
 }

@@ -12,7 +12,11 @@
   "File:Apistogramma agassizii (Manaos, Brazil, 17 November 1865).jpg",
   "File:Apistogramma agassizii (Lake January, Brazil, 22 November 1865).jpg",
   "File:Apistogramma agassizii (Lake January, Brazil, 17 November 1865; 2 fish, plus anatomical cross section).jpg",
-  "File:Apistogramma agassizii (Lake January, Brazil, 22 November 1865) MH-MCZArtwork ARC 209-335.jpg"
+  "File:Apistogramma agassizii (Lake January, Brazil, 22 November 1865) MH-MCZArtwork ARC 209-335.jpg",
+  "inat:31234191",
+  "inat:565266807",
+  "inat:626389665",
+  "inat:626389661"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/8f5b4ff488c76724.webp": "2869190d07870918",
@@ -22,7 +26,9 @@
   "https://media.aquatome.com/commons/674e44488ae84f21.webp": "663f29893389b9e0",
   "https://media.aquatome.com/commons/2dd201b73a0a094c.webp": "3d2fcb9c7189c0c7",
   "https://media.aquatome.com/commons/ecfec18674b2d021.webp": "13558d06c420cc6a",
-  "https://media.aquatome.com/commons/eb83d72469fa1516.webp": "001198890d0e4f4c"
+  "https://media.aquatome.com/commons/eb83d72469fa1516.webp": "001198890d0e4f4c",
+  "https://media.aquatome.com/aquariumbreeder/83a077cee2e9dffa.webp": "30b09483c7233951",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/31234191/large.jpeg": "8f9e74f0c3878f3e"
  },
  "commons": "2026-11-04",
  "inat": {
@@ -39,6 +45,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 343827044,
+  "done": true
  },
  "exhausted": "2026-11-13"
 }

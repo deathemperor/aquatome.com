@@ -1,0 +1,438 @@
+{
+  "id": "lysmata-wurdemanni",
+  "scientificName": "Lysmata wurdemanni",
+  "order": "Decapoda",
+  "family": "Lysmatidae",
+  "genus": "Lysmata",
+  "group": "shrimp",
+  "places": [
+    "north-america",
+    "gulf-of-mexico",
+    "united-states",
+    "florida"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2226419,
+      "total": 309,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "US",
+          278
+        ],
+        [
+          "MX",
+          15
+        ],
+        [
+          "PA",
+          6
+        ],
+        [
+          "BR",
+          4
+        ],
+        [
+          "GF",
+          3
+        ],
+        [
+          "VI",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -98.4375,
+          19.6875,
+          1
+        ],
+        [
+          -98.4375,
+          25.3125,
+          95
+        ],
+        [
+          -98.4375,
+          26.71875,
+          36
+        ],
+        [
+          -95.625,
+          28.125,
+          4
+        ],
+        [
+          -92.8125,
+          19.6875,
+          4
+        ],
+        [
+          -91.40625,
+          21.09375,
+          7
+        ],
+        [
+          -91.40625,
+          28.125,
+          1
+        ],
+        [
+          -90,
+          22.5,
+          1
+        ],
+        [
+          -90,
+          28.125,
+          1
+        ],
+        [
+          -90,
+          30.9375,
+          1
+        ],
+        [
+          -87.1875,
+          19.6875,
+          2
+        ],
+        [
+          -85.78125,
+          29.53125,
+          1
+        ],
+        [
+          -84.375,
+          23.90625,
+          1
+        ],
+        [
+          -84.375,
+          25.3125,
+          1
+        ],
+        [
+          -84.375,
+          26.71875,
+          1
+        ],
+        [
+          -84.375,
+          28.125,
+          2
+        ],
+        [
+          -82.96875,
+          8.4375,
+          6
+        ],
+        [
+          -82.96875,
+          23.90625,
+          9
+        ],
+        [
+          -82.96875,
+          25.3125,
+          6
+        ],
+        [
+          -82.96875,
+          26.71875,
+          10
+        ],
+        [
+          -82.96875,
+          28.125,
+          1
+        ],
+        [
+          -81.5625,
+          23.90625,
+          5
+        ],
+        [
+          -81.5625,
+          25.3125,
+          5
+        ],
+        [
+          -81.5625,
+          26.71875,
+          14
+        ],
+        [
+          -81.5625,
+          29.53125,
+          8
+        ],
+        [
+          -81.5625,
+          30.9375,
+          10
+        ],
+        [
+          -81.5625,
+          32.34375,
+          11
+        ],
+        [
+          -81.5625,
+          33.75,
+          1
+        ],
+        [
+          -80.15625,
+          26.71875,
+          3
+        ],
+        [
+          -80.15625,
+          32.34375,
+          11
+        ],
+        [
+          -78.75,
+          33.75,
+          4
+        ],
+        [
+          -77.34375,
+          33.75,
+          8
+        ],
+        [
+          -77.34375,
+          36.5625,
+          27
+        ],
+        [
+          -75.9375,
+          35.15625,
+          1
+        ],
+        [
+          -66.09375,
+          18.28125,
+          3
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3
+        ],
+        [
+          -46.40625,
+          -25.3125,
+          1
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          1
+        ],
+        [
+          -35.15625,
+          -8.4375,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "aquariumbreeder",
+    "quote": "Water type: SG 1.023–1.025"
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 8.1,
+          "max": 8.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 2,
+          "max": 2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/peppermint-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Peppermint shrimp</li><li>Other names: Candy cane shrimp, Caribbean cleaner shrimp, Veined shrimp, Cleaner shrimp</li><li>Minimum tank size: 40 litres</li><li>Breeding: Difficult</li><li>Water type: SG 1.023–1.025</li><li>KH: 8–12</li><li>Nitrate: less than 20 ppm</li><li>Diet: Omnivore</li><li>Temperament: Peaceful</li><li>Life span: up to 2 years</li><li>Colour: semitransparent with red longitudinal, transverse and oblique bands around the body</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/peppermint-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The peppermint shrimp is a nocturnal, omnivorous, saltwater invertebrate that lives in the shallow waters of the Caribbean Sea, the Gulf of Mexico, the East Atlantic Ocean and the coasts of Florida.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/peppermint-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>It is usually found near coral reefs and sometimes tube sponges, because that is where it finds all of its food, along with very good hiding places. The species was reported to occupy multiple habitat types, from rocky shorelines, hard-bottom reefs and tube sponges to shell bottoms within inlets.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/peppermint-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>You need a 40-litre aquarium for two of these shrimps and 20 litres more for every additional peppermint shrimp. Ideally they should be kept in a group, because alone they get stressed.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/peppermint-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Peppermint shrimp are very easy to take care of and undemanding, so they are widely recommended for beginners. They like aquariums with live rock, hiding places and open areas to search for food. Like all shrimp, they prefer stability and do not like changes.</p><p>They do not tolerate high ammonia and nitrate levels. Be very careful with copper. They have no special substrate preference. There should also be some plants, real or fake. The light should be on during the day and off at night.</p><p>Like all invertebrates, they molt to grow. The smaller they are, the more often they molt. They are very vulnerable during this process and stay hidden. Do not throw away the old shell, as they eat it later to restore calcium. They need adequate calcium and trace minerals during molting.</p><p>They usually live about 2 years, so it is better to buy young, small ones, because big ones may be close to the end of their life cycle and may live only a couple of months.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/peppermint-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Temperature 25–28°C; specific gravity 1.023–1.025; pH 8.1–8.4; carbonate hardness 8–12; nitrate below 20 ppm.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/peppermint-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>A water filter and a water pump are needed.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/peppermint-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The peppermint shrimp is omnivorous. It feeds on food debris, detritus, dead fish tissue and decomposing organic material. It usually finds food on its own and may not need much extra food; now and then you can add a piece of fresh fish or a sinking shrimp pellet. Depending on the tank size and the number of fish, you might not have to feed it at all.</p><p>They are good at eating Aiptasia (glass anemones), a pest in saltwater aquariums. Sometimes they eat only the smaller anemones and ignore the big ones; this means they are not hungry enough. If they are not doing the job, you can add more shrimp.</p><p>Commercial diets: Marine Cuisine, Artemia, brine shrimp eggs.</p><p>To improve and maintain body colour, include carotenoids (astaxanthin) in the diet. Astaxanthin also improves survival and reproduction and promotes rapid growth. Background colour and the intensity and type of lighting also play a role.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/peppermint-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The peppermint shrimp looks for food at the bottom of the tank by sifting the sand and walking on the rocks. It is known as a cleaner shrimp because it feeds on external parasites on fishes, but it is not as effective as, for example, Lysmata amboinensis.</p><p>It usually gets along well with other shrimp. Lysmata wurdemanni has no enlarged claws and aggressive interactions are rarely observed. It is a sociable, peaceful shrimp.</p><p>It is shy and nocturnal: it eats at night and hides from predators during the day in cracks and crevices. A flashlight with a red filter at night will probably let you see it.</p><p>Some aquarists say peppermint shrimp are not recommended for reef tanks because they eat small polyps and soft corals, while others have never had such problems. It depends on the species: Lysmata boggessi (Atlantic peppermint shrimp) and Lysmata wurdemanni (Gulf and Caribbean peppermint shrimp) are easily confused. L. boggessi has narrow pale red stripes and a distinctive inverted Y on the carapace, and is NOT reef safe. Lysmata wurdemanni is reef safe and will not attack corals.</p><p>Good tankmates: gobies, dragonets, tetras, grunts and filefish. Predators include coral banded shrimp, arrow crabs, wrasses and any fish bigger than 15 cm.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/peppermint-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Lysmata wurdemanni is a protandric simultaneous hermaphrodite: all individuals first mature as males and later change to females (female phase), which spawn and brood embryos but can also mate as males. They cannot self-fertilize. The change usually occurs at 2.4–2.6 cm, but sometimes as small as 1.5 cm.</p><p>Larval development with metamorphosis can last 38 to 67 days. Each female can carry up to 300 eggs and carries them about 10–12 days under the abdomen. Within 12 hours of hatching, the female molts, may mate and then spawns; this is the only window per molt cycle in which she can mate.</p><p>Rearing larvae is very difficult. Larvae fed only Chaetoceros or Isochrysis survived at most 17 days, while survival with Artemia nauplii or rotifers was almost 70%. With Artemia nauplii, larvae grew faster (postlarvae in 29–32 days) than with rotifers (32–36 days). Postlarvae and juveniles fed Artemia nauplii reached sexual maturity in 50 to 70 days.</p><p>Larvae can become food for corals and small fish, so rear them in a separate tank with an air pump and a small sponge filter. Light attracts the larvae: lure them to a corner with a flashlight and catch them with a 10 ml plastic syringe with about 13 cm of airline tubing. Do not use mesh, as even fine mesh can hurt them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/peppermint-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Colour: semitransparent, creamy-reddish exoskeleton with red longitudinal, transverse and oblique bands, and a carapace with broad transverse and oblique V-shaped bands. When stressed, they can lose colour and become almost completely transparent. Adults reach up to 5 cm.</p>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/peppermint-shrimp-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Growth, survivorship, life-span, and sex change in the hermaphroditic shrimp Lysmata wurdemanni (Decapoda: Caridea: Hippolytidae). Article in Marine Biology. July 2003</li><li>Protein and lipid requirement for the growth and reproduction of the peppermint shrimp Lysmata wurdemanni. Article in Aquaculture Research. May 2019</li><li>Simultaneous hermaphroditism in the marine shrimp Lysmata wurdemanni (Caridea: Hippolytidae): an undescribed sexual system in the decapod Crustacea. Marine Biology (2001) 139: 1155-1158 DOI 10.1007/s002270100679</li><li>Reproduction in a simultaneous hermaphroditic shrimp, Lysmata wurdemanni: any two will do? By Lin, D. Zhang</li><li>Effects of Food and Temperature on Survival and Development in the Peppermint Shrimp Lysmata wurdemanni. JOURNAL OF THE WORLD AQUACULTURE SOCIETY Vol. 29, No. 4 December, 1998</li><li>Not any two will do: DNA divergence and interpopulation reproductive compatibility in the simultaneous hermaphroditic shrimp Lysmata wurdemanni. Article in Marine Ecology Progress Series .August 2009</li><li>The effect of astaxanthin and β carotene inclusion in diets for growth, reproduction and pigmentation of the peppermint shrimp Lysmata wurdemanni Article in Latin American Journal of Aquatic Research · July 2019</li><li>Matin behabiour, epibiotic, growth, and the effect of salinity on grooming activity in the hermaphroditic shrimp Lysmata wurdemanni. Dissertation by Tuhin Giri. 2003</li><li>The effect of background colour and lighting of the aquarium on the body pigmentation of the peppered shrimp Lysmata wurdemanni. Article in Aquaculture Research. August 2018</li><li>Baeza et al. (2017), Integrative taxonomy of the ornamental `peppermint’ shrimp public market and population genetics of Lysmata boggessi, the most heavily traded species worldwide. PeerJ 5:e3786; DOI 10.7717/peerj.3786</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/75d177ee97c0204e.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/75d177ee97c0204e-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/peppermint-shrimp-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "NiC_LUGDGOU",
+      "title": "Adding a Lysmata wurdemanni to control aiptasia 🦐 | Reef tank",
+      "durationSec": 46,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2oWzcZMLqd4",
+      "title": "Peppermint Shrimp Info And Care | All About The Peppermint Shrimp!",
+      "durationSec": 245,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "0a9-2JPE020",
+      "title": "Peppermint Shrimp Breeding",
+      "durationSec": 204,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sfoA6Rzz7bc",
+      "title": "Peppermint Shrimp vs Aiptasia Anemone | Funny!",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nước mặn 40 lít",
+        "bể reef nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể nước mặn",
+        "máy bơm tạo sóng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tôm nước mặn",
+        "artemia"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước mặn",
+        "khúc xạ kế đo độ mặn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

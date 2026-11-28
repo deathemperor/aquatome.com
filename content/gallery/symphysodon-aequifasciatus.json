@@ -84,46 +84,6 @@
       "caption": "Cá đĩa nâu màu xanh lục, vây dưới sọc xanh, trong bể thủy sinh"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/30063471.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/30063471-480.webp",
-      "width": 1024,
-      "height": 695,
-      "licence": "CC BY-SA",
-      "author": "alessandradalia",
-      "sourceUrl": "https://www.inaturalist.org/photos/30063471",
-      "caption": "Cá đĩa vằn đỏ trắng nổi bật trong bể nuôi"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/471885729.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/471885729-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Kaden Slone",
-      "sourceUrl": "https://www.inaturalist.org/photos/471885729",
-      "caption": "Cá đĩa màu trắng xanh nhạt mắt cam trong bể"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/259368784.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/259368784-480.webp",
-      "width": 773,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Karim Haddad",
-      "sourceUrl": "https://www.inaturalist.org/photos/259368784",
-      "caption": "Cá đĩa vân cam trắng cận cảnh trong bể"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/30063744.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/30063744-480.webp",
-      "width": 1024,
-      "height": 691,
-      "licence": "CC BY-SA",
-      "author": "alessandradalia",
-      "sourceUrl": "https://www.inaturalist.org/photos/30063744",
-      "caption": "Cá đĩa màu cam đỏ rực trong bể thủy sinh"
-    },
-    {
       "url": "https://media.aquatome.com/commons/e6935fc1e0ed7998.webp",
       "thumb": "https://media.aquatome.com/commons/e6935fc1e0ed7998-480.webp",
       "width": 1200,
@@ -494,6 +454,46 @@
       "caption": "Cá đĩa vân xanh nâu đỏ trong bể cây xanh"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/30063471.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/30063471-480.webp",
+      "width": 1024,
+      "height": 695,
+      "licence": "CC BY-SA",
+      "author": "alessandradalia",
+      "sourceUrl": "https://www.inaturalist.org/photos/30063471",
+      "caption": "Cá đĩa vằn đỏ trắng nổi bật trong bể nuôi"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/471885729.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/471885729-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/471885729",
+      "caption": "Cá đĩa màu trắng xanh nhạt mắt cam trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/259368784.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/259368784-480.webp",
+      "width": 773,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Karim Haddad",
+      "sourceUrl": "https://www.inaturalist.org/photos/259368784",
+      "caption": "Cá đĩa vân cam trắng cận cảnh trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/30063744.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/30063744-480.webp",
+      "width": 1024,
+      "height": 691,
+      "licence": "CC BY-SA",
+      "author": "alessandradalia",
+      "sourceUrl": "https://www.inaturalist.org/photos/30063744",
+      "caption": "Cá đĩa màu cam đỏ rực trong bể thủy sinh"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/35598916.webp",
       "thumb": "https://media.aquatome.com/inaturalist/35598916-480.webp",
       "width": 1024,
@@ -636,8 +636,7 @@
       "caption": "Cá đĩa trưởng thành màu xám sọc đứng, chụp trong khay xanh",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     }
   ],
   "seen": 172,

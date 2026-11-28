@@ -7,16 +7,24 @@
   "group": "other",
   "places": [
     "asia",
-    "myanmar"
+    "myanmar",
+    "irrawaddy",
+    "nepal",
+    "indonesia"
   ],
   "range": {
     "native": {
       "countries": [
         "MM",
-        "ID"
+        "NP"
       ],
-      "regions": [],
+      "regions": [
+        "Irrawaddy",
+        "Sittang",
+        "Salween"
+      ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
@@ -24,17 +32,34 @@
           "source": "seriouslyfish",
           "quote": "Myanmar, Indonesia.",
           "countries": [
-            "MM",
-            "ID"
+            "MM"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "In addition, the species is also found in Nepal and allegedly also in Indonesia, but is imported from Burma or as bred ones.",
+          "countries": [
+            "NP"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It inhabits the basins of big rivers Irrawaddy, Sittang and Salween.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy",
+            "Sittang",
+            "Salween"
+          ]
         }
       ]
     },
     "records": {
       "taxonKey": 5204054,
       "total": 45,
-      "fetched": "2026-11-09",
+      "fetched": "2026-11-20",
       "countries": [
         [
           "MM",
@@ -149,6 +174,10 @@
       {
         "source": "seriouslyfish",
         "value": 46
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
@@ -166,6 +195,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/macrognathus-zebrinus-2/",
+      "html": "<p>All spiny eels of the currently 24 species of the genus Macrognathus are recommended aquarium fish. They remain relatively small (10-15 cm, only very rarely larger specimens are reported) by spiny eel standards and are peaceful to fish that are not suitable for food. In addition, most are still pretty colored.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macrognathus-zebrinus",
@@ -176,6 +211,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macrognathus-zebrinus",
       "html": "<p>Myanmar, Indonesia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/macrognathus-zebrinus-2/",
+      "html": "<p>Perhaps the prettiest is Macrognathus zebrinus from Burma. It inhabits the basins of big rivers Irrawaddy, Sittang and Salween. In addition, the species is also found in Nepal and allegedly also in Indonesia, but is imported from Burma or as bred ones.</p>"
     },
     {
       "key": "habitat",
@@ -196,6 +237,12 @@
       "html": "<p>Use piles of rocks and bogwood to form plenty of sheltered areas, but make sure these are secure and will not fall over if the eel burrows under them. It's best to place items of decor on the tank base before adding the substrate when keeping spiny eels. It's also essential that the tank bottom is covered in sand, as the fish spends much of its time burrowed into the substrate. Gravel is not recommended as its sharp edges can damage the eel's skin. Don't make the substrate too deep or the eel may disappear for long periods of time. 2.5 cm is an adequate depth. Lengths of plastic piping are also useful to provide the fish with shelter. Plant pots are unsuitable though, as the fish can get trapped in the small hole on the bottom of the pot. There should be no strong currents in the aquarium and dim lighting is also beneficial. Although live plants do mimic the natural biotope of this eel, in the aquarium they will most likely be uprooted by its digging activities. Floating plants and species that grow attached to decor, such as java fern or anubias, can be used of course. A tightly-fitting cover is absolutely essential as if these eels can escape, they invariably will.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/macrognathus-zebrinus-2/",
+      "html": "<p>For the care of spiny eels, a substrate consisting at least in part of sand is important, because the animals like to bury themselves in it. The aquarium for spiny eels must be covered absolutely escape-proof, and the openings of filters must also be secured against intrusion of the fish, otherwise fatal accidents can occur.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macrognathus-zebrinus",
@@ -208,6 +255,12 @@
       "html": "<p>In nature, it preys on small fish and aquatic invertebrates but aquarium specimens readily accept dead alternatives. Prawn, cockle, mussel, earthworms and bloodworm can all be offered. Dried foods are rarely accepted. Like others in the genus, it's quite a shy fish and you may have to add food after lights out for a while until it becomes accustomed to its surroundings.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/macrognathus-zebrinus-2/",
+      "html": "<p>Feeding can be done with all kinds of frozen and live food, as long as it is adapted to the body size of the fish. Acclimatized specimens also often accept granules.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macrognathus-zebrinus",
@@ -218,6 +271,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macrognathus-zebrinus",
       "html": "<p>No known external distinguishing characteristics, but mature females tend to be thicker-bodied than males.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/macrognathus-zebrinus-2/",
+      "html": "<p>The largest specimen documented so far measured about 17 cm, but this is the exception. Current imports with a length of 10-12 cm are already sexually differentiated, the females are clearly fuller and somewhat paler colored.</p>"
     },
     {
       "key": "reproduction",
@@ -233,7 +292,32 @@
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "cE9t7XL6T0o",
+      "title": "My friend´s Zebra spiny eel (Macrognathus zebrinus)",
+      "durationSec": 109,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NBXfBR7Lig8",
+      "title": "Macrognathus zebrinus",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4Md_Q6GXEBg",
+      "title": "Begging ribbons (Macrognathus zebrinus)",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-ySZpIJgn4M",
+      "title": "Zebra spiny eel",
+      "durationSec": 43,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -263,5 +347,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-20"
 }

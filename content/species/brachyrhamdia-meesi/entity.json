@@ -23,33 +23,28 @@
         "Río Madre de Dios"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Brachyrhamdia meesi is a small heptapterid catfish described from near Belém, at the mouth of the Amazon in Brazil.",
+          "quote": "Type locality is 'near Belem, Brazil', i.e., the city of Belém near the mouth of the Amazon River in Pará state.",
           "countries": [
             "BR"
           ],
-          "regions": []
+          "regions": [
+            "Amazon"
+          ]
         },
         {
           "source": "seriouslyfish",
-          "quote": "Its precise distribution is unclear, with one record from the Río Madre de Dios basin in Peru.",
+          "quote": "Its precise distribution is unclear, however, with one record pertaining to the Río Madre de Dios basin, several thousand kilometres from Belém in southeastern Perú.",
           "countries": [
             "PE"
           ],
           "regions": [
             "Río Madre de Dios"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'near Belem, Brazil', i.e., the city of Belém near the mouth of the Amazon River in Pará state.",
-          "countries": [],
-          "regions": [
-            "Amazon"
           ]
         }
       ]
@@ -120,6 +115,13 @@
           "min": 24,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -128,6 +130,13 @@
         "value": {
           "min": 6,
           "max": 7.5
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5.5,
+          "max": 8
         }
       }
     ],
@@ -138,12 +147,23 @@
           "min": 1,
           "max": 10
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "seriouslyfish",
         "value": 6.1
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -165,6 +185,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-meesi",
       "html": "<p>Brachyrhamdia meesi is a small heptapterid catfish described from near Belém, at the mouth of the Amazon in Brazil. Its precise distribution is unclear, with one record from the Río Madre de Dios basin in Peru. Rare in the hobby, it is normally imported as bycatch among other fishes, particularly Otocinclus, and juveniles may mimic Otocinclus or smaller Corydoras. A dark vertical bar through the eye separates it from the similar B. marthae.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyrhamdia-meesi-2/",
+      "html": "<p>The genus Brachyrhamdia includes only five described species; another, still scientifically undescribed, was imported over 10 years ago as an accidental catch and has not been heard of since. Brachyrhamdia are relatively small-growing catfish. Brachyrhamdia meesi comes from Brazil and grows to about 8 cm in length.</p>"
     },
     {
       "key": "distribution",
@@ -191,10 +217,28 @@
       "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyrhamdia-meesi-2/",
+      "html": "<p>The water values are of minor importance (pH between 5.5 and 8, 5 to 20 dGH); the water temperature should be between 22 and 28°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyrhamdia-meesi-2/",
+      "html": "<p>The aquarium for B. meesi should have a fine sandy bottom, be decorated with numerous roots and not be too brightly lit. It is best to cultivate a solitary plant, for example an Amazon sword plant (Echinodorus), in a pot and illuminate only this plant specifically, while a little diffuse light can be used in the rest of the aquarium.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-meesi",
       "html": "<p>Brachyrhamdia spp. feed mostly on benthic invertebrates in nature. In the aquarium live and frozen foods such as Artemia, Daphnia and chironomid larvae (bloodworm) should be offered regularly although sinking dried foods are also accepted.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyrhamdia-meesi-2/",
+      "html": "<p>In the aquarium, the catfish are omnivores that take any dry, frozen and live food. Plant food plays no role.</p>"
     },
     {
       "key": "behaviour",
@@ -203,16 +247,34 @@
       "html": "<p>Generally non-aggressive although very small fishes might be eaten. There's no need to keep this species alongside a group of Corydoras (see 'notes'). Brachyrhamdia spp. are not especially gregarious with conspecifics but more than one can usually be maintained provided the aquarium is not too small.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyrhamdia-meesi-2/",
+      "html": "<p>Like all species of the genus, it swims as a young fish with different species of Corydoras in the same swarm. Although the coloration of B. meesi is not particularly similar to that of, for example, Corydoras schwartzi, B. meesi hardly stands out at all in the Corydoras school. The purpose of this imitation is not yet explored. It could be protection (Brachyrhamdia have powerful spines in the pectoral and dorsal fins, with which they can give very painful stings), or the Corydoras could also serve as camouflage that allows the predatory Brachyrhamdia to come closer to small prey.</p><p>In the aquarium, B. meesi should be kept in a group of conspecifics, and a group of Corydoras should be added to observe and study how the two species live together. Choose Corydoras such as the already mentioned C. schwartzi or also C. leucomelas, C. agassizii and similar types. B. meesi are completely peaceful towards fish that are not suitable as food (i.e. all species that are about half the size of the Brachyrhamdia or larger). Plants are completely ignored by the fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-meesi",
       "html": "<p>Mature females should be noticeably fuller in the body than males.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyrhamdia-meesi-2/",
+      "html": "<p>Male Brachyrhamdia meesi develop enlarged dorsal and caudal fins with the onset of sexual maturity. In females, the size of the fins remains constant.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-meesi",
       "html": "<p>Unrecorded, but spawning of B. imitator has been observed and was apparently initiated by a group of cohabiting Hoplisoma melanistium which began to spawn just prior to the Brachyrhamdia.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyrhamdia-meesi-2/",
+      "html": "<p>Females develop eggs easily and then become very thick-bodied; however, no successful breeding has yet been reported in the aquarium literature. The reason is probably too little interest among aquarists in these beautiful catfish. It can be assumed that B. meesi does not care for the brood and can be stimulated to spawn similarly to the Corydoras species of the central Amazon basin. There are observations from the 1980s according to which B. imitator from Colombia, which is related to B. meesi, was also stimulated to spawn by the spawning of Corydoras brevirostris, with which it was kept.</p>"
     },
     {
       "key": "notes",
@@ -271,6 +333,36 @@
       "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_meesi.htm",
       "caption": "Brachyrhamdia meesi",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7bca9dd2d9c6ef3d.webp",
+      "thumb": "https://media.aquatome.com/glaser/7bca9dd2d9c6ef3d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyrhamdia-meesi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c5cbb6ab97a6098a.webp",
+      "thumb": "https://media.aquatome.com/glaser/c5cbb6ab97a6098a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyrhamdia-meesi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/cae17e023a02eca4.webp",
+      "thumb": "https://media.aquatome.com/glaser/cae17e023a02eca4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyrhamdia-meesi-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -329,5 +421,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-21"
 }

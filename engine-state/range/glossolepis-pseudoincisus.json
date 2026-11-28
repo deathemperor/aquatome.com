@@ -1,0 +1,98 @@
+{
+  "id": "glossolepis-pseudoincisus",
+  "native": {
+    "input": "d7f3f7fe95a39993",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Loài này là cá đặc hữu của tỉnh Papua thuộc Indonesia, trên đảo New Guinea.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "doubtful",
+        "source": "aquatome",
+        "quote": "Có chỗ ghi là Papua New Guinea, nhưng các nguồn khoa học đều xếp nó vào phần Papua của Indonesia.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "New Guinea",
+        "source": "aquatome",
+        "quote": "Loài này là cá đặc hữu của tỉnh Papua thuộc Indonesia, trên đảo New Guinea.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Tami",
+        "source": "aquatome",
+        "quote": "Boeseman thu những mẫu đầu tiên vào tháng 11 năm 1954, ở một hồ móng ngựa biệt lập cạnh sông Tami.",
+        "ok": true
+      },
+      {
+        "name": "Lake Ifaten",
+        "source": "aquatome",
+        "quote": "Tuy nhiên, các nguồn khác lại ghi nó có ở hồ Ifaten, hồ Iwom và hồ Yaniruk.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Lake Iwom",
+        "source": "aquatome",
+        "quote": "Tuy nhiên, các nguồn khác lại ghi nó có ở hồ Ifaten, hồ Iwom và hồ Yaniruk.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Lake Yaniruk",
+        "source": "aquatome",
+        "quote": "Tuy nhiên, các nguồn khác lại ghi nó có ở hồ Ifaten, hồ Iwom và hồ Yaniruk.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Lake Emfote",
+        "source": "aquatome",
+        "quote": "Một nguồn nữa kể tên hồ Emfote, hồ Iwom và hồ Yaniruk.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Glossolepis pseudoincisus",
+    "status": "ACCEPTED",
+    "taxonKey": 5214489,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T07:12:58.512Z"
+  }
+}

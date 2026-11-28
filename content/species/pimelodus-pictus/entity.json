@@ -12,7 +12,9 @@
     "venezuela",
     "peru",
     "amazon",
-    "brazil"
+    "brazil",
+    "bolivia",
+    "ecuador"
   ],
   "range": {
     "native": {
@@ -336,6 +338,10 @@
       {
         "source": "seriouslyfish",
         "value": 12
+      },
+      {
+        "source": "glaser",
+        "value": 12
       }
     ],
     "tankCm": [
@@ -349,6 +355,15 @@
         "source": "seriouslyfish",
         "value": 4
       }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 18
+        }
+      }
     ]
   },
   "sections": [
@@ -359,10 +374,22 @@
       "html": "<p>The pictus cat, Pimelodus pictus, is a small pimelodid catfish from the Rio Orinoco and Amazon basins in Colombia, Venezuela, Peru and Brazil. The most popular member of the genus in the hobby, it is often sold as a bottom dweller for communities of small fish, though it is a predator that will eat neons, guppies and similarly-sized species. Colombian fish are peppered with tiny dark spots, while the Peruvian form has much larger spots on the body.</p><ul><li>Max size: 120 mm SL (5 in SL)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 22–25°C (72–77°F)</li><li>pH: 5.8–6.8</li><li>Hardness: 1–15 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-pictus-2/",
+      "html": "<p>Among the large antenna catfishes (Pimelodidae) Pimelodus pictus belongs to the dwarfs. Scientifically proven are 11-12 cm length, but in the aquarium 25 cm are also said to have occurred. In nature these fish probably do not live longer than 2-3 years; the keeping record in the aquarium is 18 years.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pimelodus-pictus",
       "html": "<p>Native to the Rio Orinoco and Amazon basins in Colombia, Venezuela, Peru and Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-pictus-2/",
+      "html": "<p>The species was scientifically described as early as 1876 and is very widely distributed in Amazonia (Bolivia, Ecuador, Peru, Brazil, Colombia, Venezuela).</p>"
     },
     {
       "key": "habitat",
@@ -401,6 +428,12 @@
       "html": "<p>Peaceful enough but bear in mind this is a predatory species. Unfortunately it's often sold as a bottom dweller for the community of smaller fish, a situation which must have led to the deaths of countless neons, guppies and similarly-sized species. It's really only suitable for roomy tanks with occupants that can't be swallowed. It can also bother slower-moving tankmates (such as many cichlids) with its activity levels and long barbels, especially at night or when feeding.</p><p>Robust, active species therefore make the best tankmates. Rainbowfish, medium to large-sized characins, cyprinids and tough catfish such as Loricariids or Doradids are all suitable. Although a single specimen will survive by itself, it's a shoaling species by nature and will be much more outgoing and active when maintained in a group of six or more. If kept alone it tends to remain hidden during daylight hours, emerging only after lights out.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-pictus-2/",
+      "html": "<p>P. pictus is a very attractive fish if kept correctly. This includes a lot of swimming space, because the catfish is highly active, and company of at least 5, better 10 or more conspecifics. Individually kept specimens are shy. It is a diurnal catfish. Older specimens become calmer and appreciate retreats (roots and caves).</p><p>Pimelodus pictus leaves plants and even relatively small fish completely alone. However, to be on the safe side, tankmates should not be much smaller than about one third of the body length of the Pimelodus.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pimelodus-pictus",
@@ -413,60 +446,127 @@
       "html": "<p>Not thought to have been achieved in the hobby.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-pictus-2/",
+      "html": "<p>No one has tried to breed these fish so far, which are free spawners without brood care; at least no breeding reports have become known.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pimelodus-pictus",
       "html": "<p>There are currently 32 genera and over 80 species included in the family Pimelodidae (including Pimelodus), making it the second largest and one of the most diverse amongst catfish. However most experts agree that a full systematic revision of the family is needed, as little information about the phylogenetic (evolutionary relatedness) relationships between the various genera exists. Taxonomy information at the species level is also basic at best. It's therefore likely that at least some of the Pimelodids will be reclassified at some point in the future.</p><p>P. pictus is the most popular member of the genus in the hobby and with good reason, as it's one of the smaller, prettier species. There are a couple of geographical variants imported. Fish from Colombia have a peppering of tiny dark spots all over the body, whilst the Peruvian form has much larger spots on the body and small spots on the head.</p><p>You might also see it for sale as \"spotted pim\", \"pim pictus\" or \"angelicus catfish\". The latter name in particular can cause confusion with the popular African catfish Synodontis angelicus. When these two are viewed side-by-side there can be little question which is which though. The Synodontis is almost black in colour with yellow or white spotting, and is a totally different shape to P. pictus.</p><p>Take care when purchasing these. When first imported they can be in pretty bad shape, tending to suffer from a combination of malnutrition and oxygen deprivation. Like other pims, it's a scaleless fish and is therefore also very susceptible to certain diseases such as whitespot. Unfortunately its delicate skin means it's also sensitive to many of the common medications on the market. Be sure to read the instructions carefully before adding any medication to a tank containing these. If in doubt, halve the dose as a precautionary measure.</p><p>Caution must also be exercised when catching any Pimelodus. They have very rigid pectoral and dorsal spines, which can easily become tangled in the mesh of an aquarium net. These can also cause a painful wound if you happen to be impaled. The sensation is something akin to being stung by a bee or wasp, an initial sharp pain being followed by localised swelling and some fairly nasty throbbing sensations. The toxin responsible is not actually injected into the skin, but is contained in the mucus that coats the fin spines. While these \"stings\" are essentially harmless, they certainly cause a couple of hours of discomfort and you should avoid handling these cats wherever possible. Try using a pint glass or similar instead of a net if you need to move them for any reason.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-pictus-2/",
+      "html": "<p>Aquaristically, the species was not discovered until 1968. Aquaristic expeditions to Colombia led to the fish being initially imported into the United States. The fanciful name “Pimelodus angelicus” (i.e. “Angel-like Pimelodus”), which promoted sales, certainly contributed to its popularity, but also the fact that in the USA less importance was traditionally attached to planted aquariums. People preferred to keep relatively large, herbivorous, representative fish like the Silver Dollars (Metynnis and Myleus) and cichlids. There the Pimelodus pictus fitted well.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/cd94a7e56aaef88f.webp",
+      "thumb": "https://media.aquatome.com/commons/cd94a7e56aaef88f-480.webp",
       "width": 960,
       "height": 720,
-      "licence": "CC BY-SA 2.0",
-      "author": "Claire H.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pimelodus_pictus.jpg",
-      "caption": "Pimelodus pictus",
-      "thumb": "https://media.aquatome.com/commons/cd94a7e56aaef88f-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/cd94a7e56aaef88f-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 2.0",
+      "author": "Claire H.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pimelodus_pictus.jpg",
+      "caption": "Pimelodus pictus"
     },
     {
       "url": "https://media.aquatome.com/commons/77eb587aad883feb.webp",
+      "thumb": "https://media.aquatome.com/commons/77eb587aad883feb-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC BY-SA 4.0",
       "author": "Oeoi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pimelodus_pictus_25cm_2.jpg",
-      "caption": "A 25cm-long pictus catfish, facing away from the camera",
-      "thumb": "https://media.aquatome.com/commons/77eb587aad883feb-480.webp"
+      "caption": "A 25cm-long pictus catfish, facing away from the camera"
     },
     {
       "url": "https://media.aquatome.com/commons/2ab001e8a429b1da.webp",
+      "thumb": "https://media.aquatome.com/commons/2ab001e8a429b1da-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC BY-SA 4.0",
       "author": "Oeoi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pimelodus_pictus,_in_box.jpg",
-      "caption": "A 25-cm adult Pimelodus pictus catfish, in a box for scale.",
-      "thumb": "https://media.aquatome.com/commons/2ab001e8a429b1da-480.webp"
+      "caption": "A 25-cm adult Pimelodus pictus catfish, in a box for scale."
     },
     {
       "url": "https://media.aquatome.com/commons/bda16dcf96403210.webp",
+      "thumb": "https://media.aquatome.com/commons/bda16dcf96403210-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC BY-SA 4.0",
       "author": "Oeoi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pimelodus_pictus_25cm.jpg",
-      "caption": "A 25cm-long pictus catfish!",
-      "thumb": "https://media.aquatome.com/commons/bda16dcf96403210-480.webp"
+      "caption": "A 25cm-long pictus catfish!"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/20af0a7516539fa6.webp",
+      "thumb": "https://media.aquatome.com/glaser/20af0a7516539fa6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-pictus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fba8354c95ea1237.webp",
+      "thumb": "https://media.aquatome.com/glaser/fba8354c95ea1237-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-pictus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3cb8c40023c5092c.webp",
+      "thumb": "https://media.aquatome.com/glaser/3cb8c40023c5092c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodus-pictus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "WM8WYJbd2Ek",
+      "title": "Pictus Catfish: The Ultimate Care Guide",
+      "durationSec": 8,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "KSlWTxHZ_c4",
+      "title": "Pictus Catfish Species Profile",
+      "durationSec": 257,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SvyFXwzLyEU",
+      "title": "Pictus Catfish Care Guide",
+      "durationSec": 481,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pnnvtsivJtY",
+      "title": "Spotted Pictus Cat (Pimelodus pictus) feeding frenzy, Blue Fish Aquarium",
+      "durationSec": 31,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -496,5 +596,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-23"
 }

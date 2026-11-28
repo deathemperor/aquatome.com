@@ -9,7 +9,7 @@ const script = readFileSync(new URL('../../../scripts/engine-cycle.sh', import.m
 
 // The steps from the metric step to the gate, run in one part on one machine with pnpm stood in for: the engine steps
 // that ran, in order. GitHub runs the rewrite part alone (engine.yml); the Mac runs pages, sf and photos.
-function stepsRun(part: string, github: boolean) {
+function stepsRun(part: string, github: boolean, more: Record<string, string> = {}) {
   const from = script.indexOf('pnpm engine metric')
   const to = script.indexOf('gate_or_keep "content: engine $PART"')
   expect(from).toBeGreaterThan(-1)
@@ -17,7 +17,7 @@ function stepsRun(part: string, github: boolean) {
   const dir = mkdtempSync(join(tmpdir(), 'aq-menders-'))
   const r = spawnSync('bash', ['-c', `set -euo pipefail\nPART=${part}\npart() { [[ " $* " == *" $PART "* ]]; }\nlog() { :; }\npnpm() { echo "$2" >> "${dir}/ran"; }\n${script.slice(from, to)}`], {
     encoding: 'utf8',
-    env: { PATH: process.env.PATH, GITHUB_ACTIONS: github ? 'true' : '' },
+    env: { PATH: process.env.PATH, GITHUB_ACTIONS: github ? 'true' : '', ...more },
   })
   expect(r.status, r.stderr).toBe(0)
   return readFileSync(join(dir, 'ran'), 'utf8').trim().split('\n')
@@ -30,13 +30,24 @@ test('the units mender, the held video guides\' cut and the source figures run i
     expect(stepsRun(part, github), part).not.toContain('units-mend')
     expect(stepsRun(part, github), part).not.toContain('source-figures')
   }
-  // The held video guides' cut goes first, so the units mend takes a guide it left held for units alone (15 Nov 2026).
-  const photos = stepsRun('photos', false)
+  // The held video guides' cut is off until the chief of staff puts it back (20 Nov 2026). Put back (VIDEO_CUT=on), it goes
+  // first, so the units mend takes a guide it left held for units alone (15 Nov 2026), and in the photos part alone.
+  expect(stepsRun('photos', false)).not.toContain('video-cut')
+  const photos = stepsRun('photos', false, { VIDEO_CUT: 'on' })
   expect(photos.indexOf('video-cut')).toBeGreaterThan(-1)
   expect(photos.indexOf('video-cut')).toBeLessThan(photos.indexOf('units-mend'))
-  for (const [part, github] of [['pages', false], ['sf', false], ['rewrite', true]] as const) expect(stepsRun(part, github), part).not.toContain('video-cut')
+  for (const [part, github] of [['pages', false], ['sf', false], ['rewrite', true]] as const) expect(stepsRun(part, github, { VIDEO_CUT: 'on' }), part).not.toContain('video-cut')
   // The steps around it run in every part.
   for (const part of ['photos', 'pages', 'rewrite']) expect(stepsRun(part, part === 'rewrite')).toEqual(expect.arrayContaining(['metric', 'sweep']))
+})
+
+// The chief of staff, 21 Nov 2026: the pass over the open pages no read covers, on the Mac's second sign-in, which this
+// week's runs have left. One part of the Mac's, before the gate, which holds what its reads found harm on.
+test("the pass over the open pages runs in the Mac's photos part alone, on the second sign-in, before the gate", () => {
+  expect(stepsRun('photos', false)).toContain('fit-pass')
+  for (const [part, github] of [['pages', false], ['sf', false], ['rewrite', true]] as const) expect(stepsRun(part, github), part).not.toContain('fit-pass')
+  expect(script).toMatch(/^ {2}CLAUDE_FIRST_ACCOUNT=2 pnpm engine fit-pass --limit "\$\{FIT_PASS_LIMIT:-300\}"/m)
+  expect(script.indexOf('pnpm engine fit-pass')).toBeLessThan(script.indexOf('gate_or_keep "content: engine $PART"'))
 })
 
 test("the held video guides go to their editor in the Mac's videos part alone, at most 4 held and 2 new or live a run", () => {

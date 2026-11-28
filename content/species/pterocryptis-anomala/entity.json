@@ -1,0 +1,98 @@
+{
+  "id": "pterocryptis-anomala",
+  "scientificName": "Pterocryptis anomala",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Pterocryptis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "zhujiang"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 17.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1457",
+      "html": "<p>Pterocryptis anomala (Herre, 1933). Type locality: market in Hong Kong. Size: 171 mm (6.7 in) SL. Etymology: the generic name comes from the Greek pteron, meaning fin, and kryptos, meaning hidden, in reference to the small dorsal fin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1457",
+      "html": "<p>Asia: Minjiang and Zhujiang (Pearl River) drainages southwards to the streams draining the territory of Hong Kong Special Administrative Region, China. IUCN Red List category: Least Concern (last assessed 2011).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1457",
+      "html": "<p>Prefers boulder-strewn, fast-flowing streams. A nocturnal species which hides among rocks and submerged plant roots during the day.</p><p>Fish species typically found syntopically with P. anomala include Parazacco spilurus spilurus, Psuedograstromyzon myersi, Liniparhomaloptera disparis disparis, Schistura fasciolata, Oreonectes platycephalus and Rhinogobius duospilus.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1457",
+      "html": "<p>Spine in males broad and somewhat flattened dorsoventrally, with 5–9 serrations on posterior edge, increasing in size distally; proximal articulated segments with 0–6 serrations on posterior edge. Spine in females or juveniles slender, with 0–7 small serrations on posterior edge, and 0–3 serrations on posterior edges of proximal articulated segments.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1457",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1457",
+      "html": "<p>Catfishes of the genus Pterocryptis Peters, 1861, are medium-sized members of the Siluridae usually found in fast-flowing mountain streams throughout India, southern China and Southeast Asia. Pterocryptis had been considered a junior synonym of Silurus Linnaeus, 1758, until its rediagnosis by Bornbusch (1991). There are 16 nominal species of Pterocryptis (Ng &amp; Freyhof, 2001). They can be distinguished from other siluroids by having a small dorsal fin, upper jaw longer than the lower jaw and a confluent anal and caudal fin with a distinct notch between them.</p><p>Pterocryptis anomala can be distinguished from congeners by the unique combination of the following characters: length of dorsal fin 7.9–10.1% SL, depth of caudal peduncle 7.2–9.7% SL, head length 16.6–20.7% SL, eye diameter 9.2–13.7% SL, dorsal-fin rays 3–4, anal-fin rays 59–69, principal caudal rays 14–16, small conical genital papilla in both sexes, anal and caudal fins separated by a deep notch, narrow cheeks, circular eye and weakly contrasting mottled coloration.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a45e60c4ceac525f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a45e60c4ceac525f-480.webp",
+      "width": 500,
+      "height": 340,
+      "licence": "dùng với sự cho phép",
+      "author": "Freshwater Fishes of China in Coloured Illustrations / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/pterocryptis_anomala.htm",
+      "caption": "Pterocryptis anomala",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/986417ca6c7f1bc4.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Toby Y",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterocryptis_anomala.jpg",
+      "caption": "Pterocryptis anomala. Species of fish.",
+      "thumb": "https://media.aquatome.com/commons/986417ca6c7f1bc4-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "hBWnRe0KumQ",
+      "title": "Fish in HK freshwater",
+      "durationSec": 106,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HQ1ey7j-i88",
+      "title": "141 cut.mp4",
+      "durationSec": 35,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

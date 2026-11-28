@@ -1,12 +1,18 @@
 {
   "id": "dormitator-lebretonis",
-  "input": "500dcde571307059",
-  "at": "2026-11-08T03:28:58.046Z",
+  "input": "10868c9276e0ca7c",
+  "at": "2026-11-20T07:21:40.436Z",
   "claims": [
     {
       "kind": "brackish",
       "source": "seriouslyfish",
       "quote": "Although it's sometimes found in freshwater in nature, it will do better with the addition of salt to around 1/4 marine strength (1.005sg) in the aquarium, although it has also been kept successfully in hard, alkaline freshwater.",
+      "ok": true
+    },
+    {
+      "kind": "brackish",
+      "source": "glaser",
+      "quote": "As with most brackish water fish, it is not the salt but the pH value that is important: in principle, the pH value should not fall below 8 in such animals, even at pH 7 many specimens show discomfort already.",
       "ok": true
     }
   ]

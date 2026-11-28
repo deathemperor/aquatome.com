@@ -17,7 +17,8 @@
     "napo",
     "colombia",
     "putumayo",
-    "french-guiana"
+    "french-guiana",
+    "tapajos"
   ],
   "range": {
     "native": {
@@ -26,16 +27,12 @@
         "BO",
         "PE",
         "EC",
-        "CO",
-        "GF"
+        "CO"
       ],
       "regions": [
         "Amazon",
-        "Rio Tocantins",
         "Rio Negro",
-        "Purus",
-        "Ucayali",
-        "Rio Araguari"
+        "Araguari"
       ],
       "sources": [
         "glaser",
@@ -43,46 +40,33 @@
       ],
       "quotes": [
         {
-          "source": "glaser",
-          "quote": "Rio Tocantins, Brazil.",
-          "countries": [
-            "BR"
-          ],
-          "regions": [
-            "Rio Tocantins"
-          ]
-        },
-        {
           "source": "seriouslyfish",
           "quote": "Recorded throughout much of the Amazon river basin in Brazil, Bolivia, Peru, Ecuador, and Colombia (and possibly the Orinoco watershed in Colombia and Venezuela; see 'Notes'), but genetic research suggests that downstream of the rio Madeira it may be restricted to the Amazon main channel and lower reaches of affluents, while upstream it occurs in the Amazon/Solimões and throughout other tributary systems including the rios Negro, Purus, Japurá, Juruá, Putomayo, Javary, Napo, Marañón, Huallaga, and Ucayali.",
           "countries": [
+            "BR",
             "BO",
             "PE",
             "EC",
             "CO"
           ],
           "regions": [
-            "Amazon",
-            "Purus",
-            "Ucayali"
+            "Amazon"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The type locality of S. jurupari is the mouth of the Rio Negro into the Amazon (below Manaus).",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
           ]
         },
         {
           "source": "seriouslyfish",
           "quote": "It has also been recorded in smaller coastal river drainages north of the Amazon's mouth, such as the rio Araguari in Amapá state, northeastern Brazil, and several watersheds in French Guiana, but these populations display certain morphological differences when compared with Amazonian fish and are possibly distinct (see 'Notes').",
-          "countries": [
-            "GF"
-          ],
-          "regions": [
-            "Rio Araguari"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'Mouth of Rio Negro in Amazon River, Brazil'.",
           "countries": [],
           "regions": [
-            "Rio Negro"
+            "Araguari"
           ]
         }
       ]
@@ -90,7 +74,7 @@
     "records": {
       "taxonKey": 5208447,
       "total": 1397,
-      "fetched": "2026-11-14",
+      "fetched": "2026-11-21",
       "countries": [
         [
           "BR",
@@ -870,13 +854,13 @@
           -54.84375,
           2.8125,
           1,
-          1
+          0
         ],
         [
           -54.84375,
           5.625,
           1,
-          1
+          0
         ],
         [
           -53.4375,
@@ -918,19 +902,19 @@
           -53.4375,
           1.40625,
           3,
-          3
+          2
         ],
         [
           -53.4375,
           2.8125,
           29,
-          29
+          2
         ],
         [
           -53.4375,
           4.21875,
           34,
-          34
+          0
         ],
         [
           -52.03125,
@@ -978,7 +962,7 @@
           -52.03125,
           2.8125,
           5,
-          5
+          4
         ],
         [
           -50.625,
@@ -1166,12 +1150,12 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 15
-      },
-      {
         "source": "seriouslyfish",
         "value": 18.5
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tempC": [
@@ -1218,8 +1202,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/satanoperca_jurupari_tocantins_en/",
-      "html": "<p>Satanoperca jurupari from the Rio Tocantins in Brazil, approximately 15 cm long. This eartheater is only seldom available.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-sp-aff-jurupari-tapajos-2/",
+      "html": "<p>Some of the earth-eaters of the genus Satanoperca have frightening names (Satanoperca = devil-perch, Jurupari = devil, Daemon = demon, Lilith = the bride of the devil), but there are only few cichlids that are as peaceful and harmless as they are.</p><p>Satanoperca jurupari grows up to 20 cm long.</p>"
     },
     {
       "key": "quickFacts",
@@ -1236,8 +1220,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/satanoperca_jurupari_tocantins_en/",
-      "html": "<p>Rio Tocantins, Brazil.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-sp-aff-jurupari-tapajos-2/",
+      "html": "<p>The animals are widespread in South America. Because of the wide distribution and because the animals look a little different everywhere, they are best named in the hobby with place of origin. The type locality of S. jurupari is the mouth of the Rio Negro into the Amazon (below Manaus).</p>"
     },
     {
       "key": "distribution",
@@ -1270,6 +1254,12 @@
       "html": "<ul><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-sp-aff-jurupari-tapajos-2/",
+      "html": "<p>The most important thing they need in an aquarium is a part of the bottom with sand. Then they have fun and dig around in it all day long, like children in a sandbox, but enough with the humanization.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/satanoperca-jurupari",
@@ -1282,6 +1272,12 @@
       "html": "<p>Unless breeding this species is surprisingly peaceful and will not predate on fishes larger than a few millimetres in length. Suitable tankmates are numerous and include most peaceful species enjoying similar environmental conditions. Best avoided are aggressive or territorial substrate-dwelling species, or those requiring less acidic or mineral-rich water.</p><p>Some aquarists keep Satanoperca spp. alongside freshwater stingrays of the genus Potamotrygon which in many cases has proven successful but in some has resulted in the cichlids disappearing at night.</p><p>S. jurupari is gregarious and tends to exist in loose aggregations unless spawning, with juveniles in particular displaying strong grouping instincts. A group of 5-8 individuals should be the minimum purchase and these will form a noticeable dominance hierarchy. When maintained in smaller numbers weaker specimens can become the target of excessive antagonism by dominant individuals or the group may fail to settle and behave nervously.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-sp-aff-jurupari-tapajos-2/",
+      "html": "<p>They live in groups over sandy areas and are therefore territorial for a short time only during the breeding season.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/satanoperca-jurupari",
@@ -1292,6 +1288,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/satanoperca-jurupari",
       "html": "<p>This species is an ovophilous maternal mouthbrooder that has been bred in aquaria. There does not appear to be any particular trigger for the spawning process with the main requirements being good diet and stringent maintenance regime involving relatively large weekly water changes.</p><p>Since accurate sexing is very difficult it is perhaps best to begin with a group of young fish and allow pairs to form naturally, while a degree of patience is also required since it can be at least a year, often two or more, until they become sexually mature.</p><p>Courtship is initiated by the male, with nuptial individuals forming territories which are typically centred around a piece of driftwood or other solid object. Gravid females are courted and when a pair forms they may defend the territory together for a few days prior to spawning. Other fishes, especially conspecifics, are not tolerated in the vicinity and in smaller aquaria may need to be removed.</p><p>Eggs are deposited in small batches and once fertilised immediately collected by the female, the process normally being repeated until she is carrying several hundred. In some cases the male may also pick up some eggs but does not usually hold them for long, and the female is normally ejected from the territory soon after spawning is complete although apparently some males do display extended brood care behaviour.</p><p>Once the fry are free swimming they are easily-fed, accepting good quality powdered dry foods, Artemia nauplii, microworm, etc.</p><p>If maintaining the adults in a community situation it is recommended to remove brooding females since the fry become easy prey for other fishes, including conspecifics, once released.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-sp-aff-jurupari-tapajos-2/",
+      "html": "<p>As ovophile, biparental mouth-breeders (i.e. both parents take the eggs into the mouth immediately after spawning) they defend the spawning place only for a few hours.</p>"
     },
     {
       "key": "notes",
@@ -1317,6 +1319,36 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/satanoperca-jurupari",
       "caption": "Adult individual from the U.S. aquarium trade.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f384251256625993.webp",
+      "thumb": "https://media.aquatome.com/glaser/f384251256625993-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-sp-aff-jurupari-tapajos-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6cd74c0415a62388.webp",
+      "thumb": "https://media.aquatome.com/glaser/6cd74c0415a62388-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-sp-aff-jurupari-tapajos-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9d90df5fbf7a1bfe.webp",
+      "thumb": "https://media.aquatome.com/glaser/9d90df5fbf7a1bfe-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/satanoperca-sp-aff-jurupari-tapajos-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -1366,5 +1398,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-21"
 }

@@ -1,8 +1,13 @@
 {
   "slug": "san-juan-river",
-  "name": "ซานฮวน",
+  "name": "แม่น้ำซานฮวน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-21T19:04:46.629Z"
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

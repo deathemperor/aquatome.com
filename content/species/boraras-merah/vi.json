@@ -32,13 +32,14 @@
     "behaviour:bwaquatics": "<p>Cá hiền. Nên nuôi đàn ít nhất 8–10 con, còn đàn từ 15 con trở lên thì cá lên màu đẹp hơn và bơi đàn đẹp hơn. Hợp nhất là nuôi chung với các loài cá tí hon ưa nước mềm khác như Parosphromenus nhỏ, Sundadanio hoặc các loài Boraras khác. Không nên thả chung với cá lớn hay cá bơi nhộn nhịp.</p>",
     "dimorphism:bwaquatics": "<p>Con đực lên màu đỏ lửa đến cam đậm, thân có các vệt sẫm hơn, nhất là lúc vào mùa đẻ. Vây của chúng màu đỏ, cũng có vệt sẫm. Con cái hơi to và tròn mình hơn, màu nhạt hơn.</p>",
     "reproduction:bwaquatics": "<p>Loài này đẻ trứng rải và không chăm con. Trong bể đã chạy lâu, trồng dày cây hoặc rải nhiều lá khô, cá có thể tự đẻ. Trứng nở sau 24–36 giờ. Lúc đầu cho cá bột ăn infusoria hoặc thức ăn lỏng cho cá bột, sau đó chuyển sang artemia mới nở. Cây che phủ dày thì cá bột sống được nhiều hơn.</p>",
-    "notes:bwaquatics": "<p>Đặc điểm nhận dạng: rasbora tí hon, thân thon, màu đỏ đến cam. Hai bên thân có một đốm sẫm hình bầu dục (không phải sọc dài như ở B. brigittae), gốc đuôi có một chấm sẫm.</p>"
+    "notes:bwaquatics": "<p>Đặc điểm nhận dạng: rasbora tí hon, thân thon, màu đỏ đến cam. Hai bên thân có một đốm sẫm hình bầu dục (không phải sọc dài như ở B. brigittae), gốc đuôi có một chấm sẫm.</p>",
+    "notes:glaser": "<p>B. merah là họ hàng rất gần của Boraras brigittae. Ít nhất là ở một số quần thể, con cái B. merah trông y như B. brigittae, chỉ con đực mới mang hoa văn đặc trưng của B. merah. Thí nghiệm cho hai dạng lai với nhau cũng cho thấy chúng cực kỳ gần nhau về di truyền. Còn đợt cá nhập về lần này thì có vẻ có cả đực lẫn cái, và con nào trông cũng giống B. merah.</p>"
   },
   "quality": {
     "score": 0.72,
     "indexable": false,
     "bySource": {
-      "glaser": 0.8,
+      "glaser": 0.85,
       "bwaquatics": 0.9,
       "seriouslyfish": 0.72
     },

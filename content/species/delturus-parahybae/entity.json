@@ -1,0 +1,68 @@
+{
+  "id": "delturus-parahybae",
+  "scientificName": "Delturus parahybae",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Delturus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraiba-do-sul"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 21
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1497",
+      "html": "<p>Delturus parahybae Eigenmann &amp; Eigenmann, 1889. Family Loricariidae. Size: 210 mm (8.3 inches) SL. Etymology: Deltos = small board (Greek) + oura = tail (Greek). IUCN Red List: Critically Endangered (last assessed 2018).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1497",
+      "html": "<p>South America: Paraíba do Sul River basin, Rio de Janeiro State rivers, Brazil. Type locality: Rio Parahyba do Sul, between Barra do Piraí and Trés Rios, Rio de Janeiro state, Brazil.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1497",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1497",
+      "html": "<p>Note: Fishbase and CLOFFSCA disagree on length; Fishbase lists 210 mm SL.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1497",
+      "html": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 2, pp 45.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c4a8406000df29c7.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "Public domain",
+      "author": "Unknown authorUnknown author",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delturus_parahybae.jpg",
+      "caption": "Delturus parahybae (Parahiba, Brazil, 24 May 1865)",
+      "thumb": "https://media.aquatome.com/commons/c4a8406000df29c7-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

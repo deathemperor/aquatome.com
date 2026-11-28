@@ -1,7 +1,10 @@
 {
  "queue": [],
  "judged": [
-  "File:Syncrossus helodes.jpg"
+  "File:Syncrossus helodes.jpg",
+  "inat:1156233",
+  "inat:585885273",
+  "inat:759552814"
  ],
  "hashes": {},
  "commons": "2026-11-10",
@@ -12,5 +15,13 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2368166,
+  "next": null
+ },
+ "inatNc": {
+  "after": 412755094,
+  "done": true
  }
 }

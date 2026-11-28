@@ -179,6 +179,211 @@ function atOut2(c: ReturnType<typeof clone>, work = 'echo photos > content/b.jso
   return base
 }
 
+test.each([
+  ['kept', false],
+  ['held', false],
+  ['kept', true],
+  ['held', true],
+] as const)('a %s video recheck checks the rebased tree after losing a push (fetch first: %s)', (prefix, fetchFirst) => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const branch = `${prefix}/video-recheck/${when}`
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${branch} && git reset -q --hard origin/main`)
+  if (prefix === 'held') {
+    c.elsewhere('code.txt', 'new')
+    c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  }
+  c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    ${fetchFirst ? 'sleep() { git fetch -q origin; }' : ''}
+    ${racing('echo new > content/disjoint.json && git add .', "echo 'AssertionError: combined tree failed'; return 1")}
+    publish_kept video-recheck
+  `)
+  expect(c.onMain('content/disjoint.json')).toBe('new')
+  expect(c.onMain('content/video.json')).toBe('')
+}, slow(60_000))
+
+test.each(['failed sweep', 'failed sweep commit', 'tracked write during verification'])('a kept video recheck does not publish after a %s', reason => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${kept} && git reset -q --hard origin/main`)
+  if (reason === 'failed sweep commit') {
+    c.sh('printf "#!/bin/sh\\nexit 1\\n" > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit')
+  }
+  c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    ${reason === 'tracked write during verification'
+      ? 'checks() { echo changed > content/a.json; }'
+      : `pnpm() { if [ "$1 $2" = "engine sweep" ]; then echo fixed > content/a.json; return ${reason === 'failed sweep' ? 1 : 0}; fi; }; checks() { [ "$(cat content/a.json)" = fixed ]; }`}
+    publish_kept video-recheck
+  `)
+  expect(c.branches()).toEqual([kept])
+  expect(c.onMain('content/video.json')).toBe('')
+}, slow(60_000))
+
+test('a kept video recheck does not publish with an untracked verification input', () => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${kept} && git reset -q --hard origin/main`)
+  c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    checks() { echo local-only > content/material-parent.json; }
+    publish_kept video-recheck
+  `)
+  expect(c.branches()).toEqual([kept])
+  expect(c.onMain('content/video.json')).toBe('')
+  expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/content/material-parent.json')).toBe('local-only')
+  c.cycle('AQ_SCRIPT_HEAD=$(git rev-parse HEAD); publish_kept video-recheck')
+  expect(c.branches()).toEqual([])
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.onMain('content/material-parent.json')).toBe('')
+}, slow(60_000))
+
+test.each(['startup', 'after recovery'])('video recheck refuses leftover files at %s until it can archive them', where => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${kept} && git reset -q --hard origin/main`)
+  const helper = join(ROOT, 'scripts/video-recheck-publish.sh')
+  if (where === 'startup') c.sh('echo local-only > content/material-parent.json')
+  else c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    touch "$HOME/archive"
+    TEST_FAILURES_DIR="$HOME/archive"
+    checks() { echo local-only > content/material-parent.json; }
+    publish_kept video-recheck
+    source '${helper}'
+    prepare_video_recheck && exit 2
+    echo refused
+  `)
+  expect(c.branches()).toEqual([kept])
+  expect(c.onMain('content/video.json')).toBe('')
+  expect(c.cycle(`
+    source '${helper}'
+    prepare_video_recheck
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    publish_kept video-recheck
+    prepare_video_recheck
+  `)).toContain(`LOG published ${kept}`)
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.onMain('content/material-parent.json')).toBe('')
+  expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/content/material-parent.json')).toBe('local-only')
+}, slow(60_000))
+
+test('a fresh video recheck saves a failed sweep outside the automatic publish queue', () => {
+  const c = clone()
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    echo rechecked > content/video.json
+    pnpm() { echo partial > content/a.json; return 1; }
+    sweep_new_video_recheck && exit 2
+    echo refused
+  `)
+  expect(log).toContain('refused')
+  const [saved] = c.branches()
+  expect(saved).toMatch(/^sweep-failed\/video-recheck\//)
+  expect(c.sh(`git show ${saved}:content/video.json`)).toBe('rechecked')
+  expect(c.onMain('content/video.json')).toBe('')
+  c.sh('git checkout -q main')
+  expect(c.cycle('publish_kept video-recheck')).toBe('')
+  expect(c.onMain('content/a.json')).toBe('main')
+}, slow(60_000))
+
+test('a video recheck cannot pass on a retry using a file the first check created', () => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${kept} && git reset -q --hard origin/main`)
+  const log = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    checks() {
+      if [ ! -e "$HOME/first-try" ]; then
+        touch "$HOME/first-try"
+        echo generated > content/retry-input.json
+        return 1
+      fi
+      touch "$HOME/second-try"
+      test -f content/retry-input.json && rm content/retry-input.json
+    }
+    publish_kept video-recheck
+  `)
+  expect(log).toContain('the video recheck checkout changed during verification')
+  expect(c.sh('test ! -e "$HOME/second-try" && echo stopped')).toBe('stopped')
+  expect(c.branches()).toEqual([kept])
+  expect(c.onMain('content/video.json')).toBe('')
+  expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/content/retry-input.json')).toBe('generated')
+}, slow(60_000))
+
+test('a fresh video publish archives another checkout file before the merge sweep can stage it', () => {
+  const c = clone()
+  c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')
+  c.sh('echo stray > sources/local-only.txt')
+  c.elsewhere()
+  expect(c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
+    push_video_recheck
+  `)).toContain('pushed (GitHub deploys it)')
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.onMain('sources/local-only.txt')).toBe('')
+  expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/sources/local-only.txt')).toBe('stray')
+}, slow(60_000))
+
+test('video recovery archives a stray file before retrying a rejected push', () => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${kept} && git reset -q --hard origin/main`)
+  c.elsewhere()
+  expect(c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    net() {
+      if [ "$2" = push ] && [ ! -f "$HOME/rejected-first" ]; then
+        touch "$HOME/rejected-first"
+        echo stray > sources/local-only.txt
+        echo concurrent > "$HOME/other/content/disjoint.json"
+        git -C "$HOME/other" add content/disjoint.json
+        git -C "$HOME/other" commit -qm concurrent
+        git -C "$HOME/other" push -q
+        return 1
+      fi
+      "$@"
+    }
+    publish_kept video-recheck
+  `)).toContain(`LOG published ${kept}`)
+  expect(c.onMain('content/disjoint.json')).toBe('concurrent')
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.onMain('sources/local-only.txt')).toBe('')
+  expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/sources/local-only.txt')).toBe('stray')
+}, slow(60_000))
+
+test('a held video recheck stays eligible for retry if its failing verification changed tracked files', () => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const held = `held/video-recheck/${when}`
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${held} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new')
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    checks() { echo changed > content/a.json; echo 'AssertionError: failed on a changed tree'; return 1; }
+    publish_kept video-recheck
+  `)
+  expect(c.branches()).toEqual([held])
+  expect(c.onMain('content/video.json')).toBe('')
+}, slow(60_000))
+
+test('a kept video recheck waits for a fresh shell when main changes the verification scripts', () => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${kept} && git reset -q --hard origin/main`)
+  const log = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    ${racing('mkdir scripts && echo new > scripts/cycle-checks.sh && git add .', 'echo stale-checks; return 0')}
+    publish_kept video-recheck
+  `)
+  expect(log).toContain('video recheck rules changed during this run')
+  expect(c.branches()).toEqual([kept])
+  expect(c.onMain('content/video.json')).toBe('')
+}, slow(60_000))
+
 // The chief of staff, 14 Nov 2026: a check that passed ends the row at that moment, before any push is tried. A batch at
 // -out2 passed, lost the push to another job, and main's newer commit was checked and ran out of time: it was held as
 // out of time three cycles in a row, with a pass in between.
@@ -627,12 +832,25 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
     const s = script(name)
     // Each "not publishing" after the checks keeps the work first: after the run's commit, after a merge on push, and
     // after the sweep on a clean pull that brought main's commits in.
-    const gaveUp = s.split('\n').filter(l => /not publishing/.test(l) && !/gate:/.test(l))
-    expect(gaveUp.length, name).toBe(3)
-    expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(3)
+    if (name === 'video-recheck.sh') {
+      expect(s, name).toContain('\npush_video_recheck\n')
+      expect(script('video-recheck-publish.sh')).toMatch(/if \[ -n "\$verification_failed" \]; then\n\s*keep_unpublished video-recheck\n.*not publishing.*\n\s*return 1/)
+    } else {
+      const gaveUp = s.split('\n').filter(l => /not publishing/.test(l) && !/gate:/.test(l))
+      expect(gaveUp.length, name).toBe(3)
+      expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(3)
+    }
     // Kept work is published once a run has installed and set its merge drivers, before it does its own work.
-    expect(s, name).toMatch(new RegExp(`pnpm install --frozen-lockfile --silent\\npublish_kept ${job.replace(/[$"]/g, m => `\\${m}`)}\\n`))
-    expect(s.indexOf('\npublish_kept '), name).toBeGreaterThan(s.indexOf('merge.entity.driver'))
+    if (name === 'video-recheck.sh') {
+      const archive = s.indexOf('|| archive_video_recheck_inputs')
+      expect(archive).toBeGreaterThan(0)
+      expect(archive).toBeLessThan(s.indexOf('from_main "$@"'))
+    }
+    const install = s.indexOf('pnpm install --frozen-lockfile --silent')
+    const recovery = s.indexOf(`\npublish_kept ${job}\n`)
+    expect(install, name).toBeGreaterThanOrEqual(0)
+    expect(recovery, name).toBeGreaterThan(install)
+    expect(recovery, name).toBeGreaterThan(s.indexOf('merge.entity.driver'))
   }
 })
 
@@ -813,8 +1031,9 @@ test('work whose push lost to main three times is kept, never over a name alread
 })
 
 test("the pages, sf and photos cycles, the video job and the video recheck keep their work when their push loses three times", () => {
-  for (const [name, job] of [['engine-cycle.sh', '"$PART"'], ['video-cycle.sh', 'videos'], ['video-recheck.sh', 'video-recheck']] as const) {
+  for (const [name, job] of [['engine-cycle.sh', '"$PART"'], ['video-cycle.sh', 'videos']] as const) {
     expect(script(name), name).toContain(`log "push failed three times"; keep_lost_push ${job};`)
     expect(script(name).match(/push failed three times/g), name).toHaveLength(1)
   }
+  expect(script('video-recheck-publish.sh')).toMatch(/for try in 1 2 3; do[\s\S]+could not publish after three attempts"\n\s*keep_lost_push video-recheck/)
 })

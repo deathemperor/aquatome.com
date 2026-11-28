@@ -46,7 +46,10 @@ private struct ReadOn: View {
           }
           .accessibilityIdentifier("all-saved")
         }
+        ElsewhereNote()
       }
+    } else if handbook.keptElsewhere || handbook.savedElsewhere {
+      Section { ElsewhereNote() }
     }
   }
 }

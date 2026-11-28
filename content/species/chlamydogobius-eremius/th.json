@@ -21,10 +21,10 @@
     "references:seriouslyfish": "<ul><li>Allen, G. R., H. Midgley, and M. Allen (2002). Field guide to the freshwater fishes of Australia. Western Australian Museum, i-xiv + 1-394</li><li>Thompson, G. G., and P. C. Withers (2002). Aerial and aquatic respiration of the Australian desert goby, Chlamydogobius eremius. Comparative Biochemistry and Physiology Part A: Molecular &amp; Integrative Physiology 131(4), 8717-879</li><li>Symons, N., P. A. Svensson, and B. B. M. Wong (2011). Do Male Desert Gobies Compromise Offspring Care to Attract Additional Mating Opportunities? PLoS ONE 6(6), e20576</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.95,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.7
+      "seriouslyfish": 0.95
     }
   }
 }

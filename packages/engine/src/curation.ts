@@ -172,12 +172,15 @@ export const heldBy = (sl: SecondLooks): ((url: string) => boolean) => { const l
  * that passes, or that no check has judged yet (the site's faces don't fall back onto an unjudged photo either). `hand`:
  * the avoid list's entries a person wrote; a photo there that passes otherwise keeps the person's reason, not one of these.
  */
-export function refusedWhy(photo: Pick<Photo, 'url' | 'caption'>, page: string, v: Verdicts, hand: Record<string, string>, held: (url: string) => boolean): string | undefined {
+export function refusedWhy(photo: Pick<Photo, 'url' | 'caption'> & { licence?: string }, page: string, v: Verdicts, hand: Record<string, string>, held: (url: string) => boolean): string | undefined {
   const url = photo.url
   if (held(url)) return 'held for a second look'
   if (url in v.rejected) return 'on the never-again list'
   if (v.kept?.(url)) return "a shop's kept mark"
   if ((v.faces[url] ?? 0) > 0) return 'a face'
+  // A non-commercial head is its own page's and its own card's alone: never the day's card or any face for many fish
+  // (the chief of staff's rule, 17 Nov).
+  if (isNonCommercial(photo.licence ?? '')) return 'a non-commercial photo'
   if (cardWorthy(photo, page, v, hand)) return undefined
   const own = v.subjects[url]?.[page]
   const verdict = own && !own.guide ? own : v.legacy[url]?.ok !== 'unsure' ? v.legacy[url] : undefined
@@ -361,8 +364,8 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
   }
   const known = [...STAPLE_SPECIES, ...POPULAR.filter(id => !STAPLE_SPECIES.includes(id)), ...POPULAR_BREEDS]
   const out: Candidate[] = []
-  // A non-commercial album photo stays in its album: no card shows it (albums only: the rule this step was built with, 16 Nov).
-  const photosOf = (id: string, own: Photo[]) => [...own, ...(c.galleries[id] ?? []).filter(p => !isNonCommercial(p.licence))]
+  // A non-commercial photo is no card for many fish, a page's head or not (the chief of staff's rule, 17 Nov).
+  const photosOf = (id: string, own: Photo[]) => [...own, ...(c.galleries[id] ?? [])].filter(p => !isNonCommercial(p.licence))
   for (const s of c.species) {
     const ok = (p: Photo) => cardWorthy(p, s.id, v, avoid)
     const all = photosOf(s.id, s.photos)

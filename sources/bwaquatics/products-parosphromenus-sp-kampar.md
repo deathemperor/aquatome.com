@@ -1,0 +1,11 @@
+---
+url: https://bwaquatics.com/products/parosphromenus-sp-kampar
+title: Parosphromenus sp. Kampar – BWAquatics
+fetchedAt: 2026-11-19T23:20:28.527Z
+hash: 60fc789d70b4988cb7f9f7a4c645136f4a4aa5f2ea7d2992f54884c7c6940e28
+---
+
+Skip to product information 1 / of 3 BWAquatics Parosphromenus sp. Kampar Parosphromenus sp. Kampar Sale amount Groups of 5Variant or unavailable Groups of 10Variant or unavailable Quantity Quantity (0 in cart) From the Parosphromenus genus (licorice gouramis).IUCN Red List: Not evaluated (new, undescribed species)Origin: Wild caught (Kampar, Riau, Sumatra)Parosphromenus sp. cf. "Kampar"Parosphromenus sp. "Kampar" is a new, undescribed licorice gourami collected at Kampar in Riau, Sumatra, in spring 2025. Little is known about it yet. It looks similar to other bintan-type paros, but this group has very dark, almost black fins, and color varies a lot between individuals. We will add to this description as we learn more.Learn more about the genus from our friends at the Parosphromenus Project.Physical Characteristics Body Shape: Small and slender. Fins: Very dark, almost black unpaired fins. Males have longer, more colorful fins than females. Coloration: Dark brown body; color varies between individuals. Background: New species, not yet described, traded under its collection locality. Keep it separate from other Parosphromenus so the population stays pure. Care GuideTemperament: Peaceful and shy. Keep a pair in 5 gal, or a group of 3 to 6 in 10 gal with plenty of caves and leaf litter. Never mix different Parosphromenus species or forms.Max Size: About 1.4 inches (estimated from related bintan-type forms)TDS: 0 to 50pH: 4.0 to 6.0Temperature: 72 to 82°FDiet: Micropredator. They will ONLY eat live food. We currently feed live baby brine shrimp, daphnia and blackworms.Breeding: Not yet documented. Expected to be a cave spawner like other bintan-type paros, with the male guarding the eggs and larvae until the fry swim free. Share Link View full details
+## Collapsible content
+TIPS Be sure to have the habitat ready before purchase.
+SHIPPING Shipping Monday to Wednesday for next day air. All other items are shipped from Monday to Tuesday.For more information please visit our shipping policy.

@@ -1,0 +1,81 @@
+{
+  "id": "parauchenoglanis-buettikoferi",
+  "scientificName": "Parauchenoglanis buettikoferi",
+  "order": "Siluriformes",
+  "family": "Claroteidae",
+  "genus": "Parauchenoglanis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "nigeria",
+    "niger-delta"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.2,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_buettikoferi.htm",
+      "html": "<p>Family: Auchenoglanididae. Size: 9.0 cm (only specimen). Temperature: 22–26°C. pH: 6.2–7.5. Common name: none. Synonym: Auchenoglanis büttikoferi.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_buettikoferi.htm",
+      "html": "<p>At present (2022) there is no known record of any importations.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_buettikoferi.htm",
+      "html": "<p>Africa: Upper Nigeria; known only from the holotype. Type locality: Warri, in Upper Nigeria.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_buettikoferi.htm",
+      "html": "<p>The holotype of Parauchenoglanis buettikoferi was collected in the Warri River in the Western Niger Delta (Nigeria). No other specimens seem to have been subsequently collected.</p><p>IUCN Red List: This species is known only from the type locality, with an area of occupancy (AOO) of 4 km². It is threatened by oil exploration and urban and industrial development, which are causing declines in habitat area and quality. It is therefore assessed as Critically Endangered (IUCN 2020).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_buettikoferi.htm",
+      "html": "<p>This genus, which includes another 8 species, is quite difficult to identify, and juveniles can have different markings and colouration to the adults. The species was first transferred into Parauchenoglanis by Skelton in 1993.</p><p>Description: dorsal spines (total): 2; dorsal soft rays (total): 7; anal spines: 0.</p><p>Diagnosis: occipital process reaching to first nuchal plate; mouth equal to snout length; width of premaxillary tooth plate 15% of head length; eye large (14.2% of head length); pelvic fin short.</p><p>Colouration: the colouration of the holotype was described by Popta (1913) when it had already been preserved in alcohol for some time. She described the colour as violet brown. Afterwards the specimen was stained for bone, so it is now impossible to perceive many details of the colour pattern. An examination of the specimen reveals the apparent presence of about four large spots on the flank.</p><p>Etymology: the genus name Parauchenoglanis: para-, near, referring to similarity and/or close relationship with Auchenoglanis. The specific name buettikoferi: in honour of Swiss zoologist Johann Büttikofer (1850–1927), Director of the Zoological Garden in Rotterdam, who presented the type to the Rijksmuseum van Natuurlijke Historie (Leiden, Netherlands).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_buettikoferi.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2021. FishBase. www.fishbase.org (02/2021).</p><p>Geerinckx, T., D. Adriaens, G.G. Teugels and W. Verraes, 2004. A systematic revision of the African catfish genus Parauchenoglanis (Siluriformes: Claroteidae). J. Nat. Hist. 38:775-803.</p><p>Geerinckx, T., L. Risch, E.J. Vreven, D. Adriaens and G.G. Teugels, 2007. Claroteidae. p. 587-629. In M.L.J. Stiassny, G.G. Teugels and C.D. Hopkins (eds.) The fresh and brackish water fishes of Lower Guinea, West-Central Africa. Volume I. IRD, Paris; MNHN, Paris; MRAC, Tervuren. 800 pp.</p><p>Olaosebikan, B.D. 2020. Parauchenoglanis buettikoferi. The IUCN Red List of Threatened Species 2020.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-22"
+}

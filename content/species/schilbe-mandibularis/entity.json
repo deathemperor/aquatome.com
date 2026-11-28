@@ -1,0 +1,132 @@
+{
+  "id": "schilbe-mandibularis",
+  "scientificName": "Schilbe mandibularis",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Schilbe",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "liberia",
+    "ghana",
+    "prah",
+    "cote-d-ivoire",
+    "sassandra",
+    "west-africa",
+    "prah-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 45
+      },
+      {
+        "source": "scotcat",
+        "value": 45
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1433",
+      "html": "<p>Schilbe mandibularis (Günther, 1867). Family Schilbeidae. Type locality: Bossumprah River, Ghana. Maximum size 450 mm (17.7 inches) SL. IUCN Red List status: Least Concern.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/schilbe_mandibularis.htm",
+      "html": "<p>This species is similar to S. multitaeniatus, with only slight differences observed. An adipose fin is always present, whereas some members of this family may or may not have this appendage. Dorsal spines (total): 1. Large species, up to 300 mm SL or more. Anterior nostrils never closer to each other than the posterior ones; inner margin of pectoral-fin spine finely denticulate; 39-70 branched anal-fin rays; 8-15 gill rakers on lower limb of first gill arch. Lower jaw reaching as far as or a little shorter than upper jaw; brownish longitudinal stripes along sides and anal fin. Body shape: fusiform / normal; cross section: compressed.</p><p>Family: Schilbeidae. Size: 45 cm. Temperature: 23-26°C. pH: 6.5-7.2.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1433",
+      "html": "<p>Africa: from St. Paul in Liberia to the Prah River in Ghana, including the St. John, Farmington, Nipoué, Cavally, Néro, Sassandra, Boubo, Bandama, Agnébi, Comoé and Tano Rivers.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/schilbe_mandibularis.htm",
+      "html": "<p>Africa: West Africa, from the St. Paul to the Prah River. Type locality: Bossumprah River, Gold Coast.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/schilbe_mandibularis.htm",
+      "html": "<p>Found in riverine and lacustrine conditions; prefers freshwater but has also been recorded from brackish water lagoons in mixohaline water. Voracious and carnivorous.</p><p>IUCN Red List: widespread within the western Africa region with no major widespread threats known. It is therefore assessed as Least Concern (IUCN 2020).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1433",
+      "html": "<p>Feeds mainly on terrestrial insects (Hymenoptera, Hemiptera, Coleoptera) washed into the water and on mayfly larvae.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/schilbe_mandibularis.htm",
+      "html": "<p>When young they feed mainly on terrestrial insects (Hymenoptera, Hemiptera, Coleoptera) washed into the water and on mayfly larvae. Once they get larger they will also feed on fish.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1433",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/schilbe_mandibularis.htm",
+      "html": "<p>Oviparous, eggs are unguarded. They spawn once a year. A female weighing around 100 grams may average 17,600 eggs, although some individuals can produce as many as 217,000 eggs/kilo.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/schilbe_mandibularis.htm",
+      "html": "<p>Etymology: The specific name mandibularis comes from the Latin \"mandibula\" (lower jaw), probably referring to the rather well developed mandibular barbels.</p><p>Remarks: The thumbnail stamp image of this species seems to show this fish upside down.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/schilbe_mandibularis.htm",
+      "html": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Dankwa, H. &amp; Entsua-Mensah, M. 2020. Schilbe mandibularis. The IUCN Red List of Threatened Species 2020.</p><p>De Vos, L. 1995 A systematic revision of the African Schilbeidae (Teleostei, Siluriformes). With an annotated bibliography. Ann. Mus. R. Afr. Centr., Sci. Zool., 271:1-450.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/37645cf717d71438.webp",
+      "thumb": "https://media.aquatome.com/scotcat/37645cf717d71438-480.webp",
+      "width": 500,
+      "height": 326,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/schilbe_mandibularis.htm",
+      "caption": "Schilbe mandibularis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-23"
+}

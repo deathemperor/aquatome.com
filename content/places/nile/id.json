@@ -1,8 +1,13 @@
 {
   "slug": "nile",
-  "name": "Nil",
+  "name": "Sungai Nil",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-20T01:47:41.367Z"
+  },
   "quality": {
     "score": 0.86,
     "indexable": true

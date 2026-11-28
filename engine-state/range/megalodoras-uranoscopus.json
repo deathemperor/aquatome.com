@@ -1,8 +1,8 @@
 {
   "id": "megalodoras-uranoscopus",
   "native": {
-    "input": "68e642d9c2328642",
-    "at": "2026-11-10T07:58:31.896Z",
+    "input": "05e040fb7bd233ce",
+    "at": "2026-11-23T01:48:47.136Z",
     "claims": [
       {
         "code": "EC",
@@ -51,9 +51,23 @@
         "quote": "Recorded from the rios Essequibo, Tocantins and Amazon in the countries of Ecuador, Colombia, Peru, Brazil, Bolivia and Guyana.",
         "words": "Guyana",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Lake Hyanuary, Amazonas, Brazil.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
     "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the rios Essequibo, Tocantins and Amazon in the countries of Ecuador, Colombia, Peru, Brazil, Bolivia and Guyana.",
+        "ok": true
+      },
       {
         "name": "Essequibo",
         "source": "seriouslyfish",
@@ -68,8 +82,20 @@
       },
       {
         "name": "Amazon",
-        "source": "seriouslyfish",
-        "quote": "Recorded from the rios Essequibo, Tocantins and Amazon in the countries of Ecuador, Colombia, Peru, Brazil, Bolivia and Guyana.",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Tocantins and Essequibo River basins.",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Tocantins and Essequibo River basins.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Tocantins and Essequibo River basins.",
         "ok": true
       }
     ],

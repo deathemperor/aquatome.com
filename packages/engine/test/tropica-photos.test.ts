@@ -7,7 +7,7 @@ import { expect, test } from 'vitest'
 import { backfillPhotos } from '../src/photo-backfill'
 import { photosAfterRead } from '../src/run'
 import { SOURCE_PHOTO_LICENCE } from '../src/source-photos'
-import { asShown, tropicaImages, tropicaPhotos, tropicaSrc, type TropicaDeps } from '../src/tropica-photos'
+import { asShown, TROPICA_OFF, tropicaImages, tropicaPhotos, tropicaSrc, type TropicaDeps } from '../src/tropica-photos'
 
 const PAGE = 'https://tropica.com/en/plants/plantdetails/Bacopacaroliniana(043BDT)/4465'
 const gen = (q: string) => `https://tropica.com/imagegen.ashx?${q}&amp;crop=resize&amp;class=product`
@@ -65,6 +65,19 @@ async function repo(plants: Record<string, { photos?: object[]; tropica?: boolea
 const entity = async (root: string, id: string) => JSON.parse(await readFile(join(root, 'content/plants', id, 'entity.json'), 'utf8')) as { photos: Record<string, unknown>[] }
 const gallery = async (root: string, id: string) => JSON.parse(await readFile(join(root, 'content/gallery', `${id}.json`), 'utf8').catch(() => 'null')) as { photos: Record<string, unknown>[] } | null
 
+/** The step as it was before it went off (20 Nov), for the tests of what it does when on. */
+const run = (root: string, d: TropicaDeps, o: { limit?: number } = {}) => tropicaPhotos(root, d, { ...o, off: false })
+
+test('off until its fix: a cycle or a hand run asks Tropica for nothing and changes no file (the chief of staff, 20 Nov)', async () => {
+  const root = await repo({ 'bacopa-caroliniana': {} })
+  const { d, asked } = await deps()
+  expect(await tropicaPhotos(root, d)).toEqual({ added: [], skipped: [], failed: [], off: TROPICA_OFF })
+  expect(TROPICA_OFF).toBeTruthy()
+  expect(asked).toEqual([])
+  expect(await gallery(root, 'bacopa-caroliniana')).toBeNull()
+  await expect(readFile(join(root, 'engine-state/_photo-tropica.json'), 'utf8')).rejects.toThrow()
+})
+
 async function deps() {
   const asked: string[] = []
   const stored = new Map<string, Uint8Array>()
@@ -88,7 +101,7 @@ test("on a page with photos Tropica's go behind them, the scene first, and what 
   const lead = { url: 'https://media.aquatome.com/commons/lead.webp', width: 900, height: 600, licence: 'CC BY-SA 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Lead.jpg' }
   const root = await repo({ 'bacopa-caroliniana': { photos: [lead] }, 'anubias-nana': { tropica: false } })
   const { d, asked, stored, sleeps } = await deps()
-  expect(await tropicaPhotos(root, d)).toEqual({ added: ['bacopa-caroliniana: 3 behind its photos'], skipped: [], failed: [] })
+  expect(await run(root, d)).toEqual({ added: ['bacopa-caroliniana: 3 behind its photos'], skipped: [], failed: [] })
   // The page, then each photo at its own size with the page as referer, a pause before every request.
   const page = `${PAGE}?bacopa-caroliniana`
   expect(asked).toEqual([page, ...[2, 3, 5].map(n => `https://tropica.com/imagegen.ashx?image=/Plants/043%20BDT/${n}.png&class=product <- ${page}`)])
@@ -105,7 +118,7 @@ test("on a page with photos Tropica's go behind them, the scene first, and what 
   for (const p of photos.slice(2)) expect((await sharp(stored.get(`${p.url}`.replace('https://media.aquatome.com/', ''))!).metadata()).hasAlpha).toBe(false)
   expect(await gallery(root, 'bacopa-caroliniana')).toBeNull()
   // A second run asks for nothing.
-  expect(await tropicaPhotos(root, d)).toEqual({ added: [], skipped: [], failed: [] })
+  expect(await run(root, d)).toEqual({ added: [], skipped: [], failed: [] })
   expect(asked).toHaveLength(4)
 })
 
@@ -115,7 +128,7 @@ test("on a page with no photo they go to its gallery, the scene marked best, and
   await mkdir(join(root, 'content/gallery'), { recursive: true })
   await writeFile(join(root, 'content/gallery/bacopa-caroliniana.json'), JSON.stringify({ id: 'bacopa-caroliniana', photos: [kept], seen: 7, updatedAt: '2026-11-01', builtAt: '2026-11-01' }))
   const { d } = await deps()
-  expect(await tropicaPhotos(root, d)).toEqual({ added: ['bacopa-caroliniana: 3 in its gallery'], skipped: [], failed: [] })
+  expect(await run(root, d)).toEqual({ added: ['bacopa-caroliniana: 3 in its gallery'], skipped: [], failed: [] })
   expect((await entity(root, 'bacopa-caroliniana')).photos).toEqual([])
   const g = (await gallery(root, 'bacopa-caroliniana'))!
   expect(g).toMatchObject({ id: 'bacopa-caroliniana', seen: 7, updatedAt: '2026-11-10', builtAt: '2026-11-01' })
@@ -135,14 +148,14 @@ test('a photo taken off the site is not taken again, a page that gives none wait
   const { d, asked } = await deps()
   const key = (n: number) => `https://media.aquatome.com/tropica/${createHash('sha256').update(tropicaSrc(`/Plants/043 BDT/${n}.png`)).digest('hex').slice(0, 16)}.webp`
   await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify(Object.fromEntries([2, 3, 5].map(n => [key(n), 'watermark']))))
-  expect(await tropicaPhotos(root, d, { limit: 2 })).toEqual({ added: [], skipped: ['a-plant: no photo to take', 'b-plant: no photo to take'], failed: [] })
+  expect(await run(root, d, { limit: 2 })).toEqual({ added: [], skipped: ['a-plant: no photo to take', 'b-plant: no photo to take'], failed: [] })
   expect(asked).toEqual([`${PAGE}?a-plant`, `${PAGE}?b-plant`])
-  expect(await tropicaPhotos(root, d, { limit: 2 })).toEqual({ added: [], skipped: ['c-plant: no photo to take'], failed: [] })
+  expect(await run(root, d, { limit: 2 })).toEqual({ added: [], skipped: ['c-plant: no photo to take'], failed: [] })
   const tried = JSON.parse(await readFile(join(root, 'engine-state/_photo-tropica.json'), 'utf8'))
   expect(Object.keys(tried)).toEqual([`${PAGE}?a-plant`, `${PAGE}?b-plant`, `${PAGE}?c-plant`])
   // A month on, the pages are read again.
   const later = { ...d, now: () => new Date('2026-12-11T12:00:00Z') }
-  expect((await tropicaPhotos(root, later, { limit: 1 })).skipped).toEqual(['a-plant: no photo to take'])
+  expect((await run(root, later, { limit: 1 })).skipped).toEqual(['a-plant: no photo to take'])
 })
 
 test('a page that fails is read again next run, and the others still get theirs', async () => {
@@ -150,8 +163,8 @@ test('a page that fails is read again next run, and the others still get theirs'
   const { d } = await deps()
   let failed = false
   const flaky: TropicaDeps = { ...d, get: async u => { if (u.endsWith('a-plant') && !failed) { failed = true; throw new Error('HTTP 503') } return d.get(u) } }
-  expect(await tropicaPhotos(root, flaky)).toEqual({ added: ['b-plant: 3 in its gallery'], skipped: [], failed: ['a-plant: HTTP 503'] })
-  expect(await tropicaPhotos(root, flaky)).toEqual({ added: ['a-plant: 3 in its gallery'], skipped: [], failed: [] })
+  expect(await run(root, flaky)).toEqual({ added: ['b-plant: 3 in its gallery'], skipped: [], failed: ['a-plant: HTTP 503'] })
+  expect(await run(root, flaky)).toEqual({ added: ['a-plant: 3 in its gallery'], skipped: [], failed: [] })
 })
 
 test("reading a Tropica page again neither takes nor drops a photo: its photos are its step's", async () => {
@@ -181,7 +194,7 @@ test('a page keeps eight photos of its own: what is over goes to its gallery, un
   const had = [...Array(6)].map((_, i) => ({ url: `https://media.aquatome.com/commons/${i}.webp`, width: 900, height: 600, licence: 'CC BY-SA 4.0', author: 'A', sourceUrl: `https://commons.wikimedia.org/wiki/File:${i}.jpg` }))
   const root = await repo({ 'bacopa-caroliniana': { photos: had } })
   const { d } = await deps()
-  expect(await tropicaPhotos(root, d)).toEqual({ added: ['bacopa-caroliniana: 2 behind its photos, 1 in its gallery'], skipped: [], failed: [] })
+  expect(await run(root, d)).toEqual({ added: ['bacopa-caroliniana: 2 behind its photos, 1 in its gallery'], skipped: [], failed: [] })
   const { photos } = await entity(root, 'bacopa-caroliniana')
   expect(photos.slice(0, 6)).toEqual(had)
   expect(photos.slice(6).map(p => [p.source, p.width])).toEqual([['tropica', 1200], ['tropica', 1000]])
@@ -189,16 +202,16 @@ test('a page keeps eight photos of its own: what is over goes to its gallery, un
   expect(g.photos.map(p => [p.source, p.width, p.best, p.kind])).toEqual([['tropica', 1000, undefined, 'other']])
   // A full page takes none of its own, and a second run still asks for nothing.
   const full = await repo({ 'full-plant': { photos: [...had, ...had.map(p => ({ ...p, url: `${p.url}?b` }))].slice(0, 8) } })
-  expect(await tropicaPhotos(full, d)).toEqual({ added: ['full-plant: 3 in its gallery'], skipped: [], failed: [] })
+  expect(await run(full, d)).toEqual({ added: ['full-plant: 3 in its gallery'], skipped: [], failed: [] })
   expect((await entity(full, 'full-plant')).photos).toHaveLength(8)
-  expect(await tropicaPhotos(full, d)).toEqual({ added: [], skipped: [], failed: [] })
+  expect(await run(full, d)).toEqual({ added: [], skipped: [], failed: [] })
 })
 
 test('a page takes only as many as it shows, its lead and one between each pair of sections: the rest go to its gallery', async () => {
   const lead = { url: 'https://media.aquatome.com/commons/lead.webp', width: 900, height: 600, licence: 'CC BY-SA 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Lead.jpg' }
   const root = await repo({ 'one-section': { photos: [lead], sections: 1 }, 'two-sections': { photos: [lead], sections: 2 }, 'three-sections': { photos: [lead, { ...lead, url: `${lead.url}?2` }], sections: 3 } })
   const { d } = await deps()
-  expect((await tropicaPhotos(root, d)).added).toEqual(['one-section: 3 in its gallery', 'three-sections: 1 behind its photos, 2 in its gallery', 'two-sections: 1 behind its photos, 2 in its gallery'])
+  expect((await run(root, d)).added).toEqual(['one-section: 3 in its gallery', 'three-sections: 1 behind its photos, 2 in its gallery', 'two-sections: 1 behind its photos, 2 in its gallery'])
   // The one that shows is the scene, and what leads stays.
   const two = (await entity(root, 'two-sections')).photos
   expect(two[0]).toEqual(lead)
@@ -215,9 +228,9 @@ test('an address that answers with no picture is left out, and the page keeps th
   const root = await repo({ 'bacopa-caroliniana': { photos: [lead] } })
   const { d } = await deps()
   const broken: TropicaDeps = { ...d, bytes: async (u, referer) => (u.includes('/3.png') ? new TextEncoder().encode('<html>File not found</html>') : d.bytes(u, referer)) }
-  expect(await tropicaPhotos(root, broken)).toEqual({ added: ['bacopa-caroliniana: 2 behind its photos'], skipped: [], failed: ['bacopa-caroliniana: /Plants/043 BDT/3.png is no picture'] })
+  expect(await run(root, broken)).toEqual({ added: ['bacopa-caroliniana: 2 behind its photos'], skipped: [], failed: ['bacopa-caroliniana: /Plants/043 BDT/3.png is no picture'] })
   expect((await entity(root, 'bacopa-caroliniana')).photos.map(p => p.width)).toEqual([900, 1200, 1000])
-  expect(await tropicaPhotos(root, broken)).toEqual({ added: [], skipped: [], failed: [] })
+  expect(await run(root, broken)).toEqual({ added: [], skipped: [], failed: [] })
 })
 
 test("the photo backfill leaves Tropica's pages to their step", async () => {

@@ -21,22 +21,15 @@
         "Amazon"
       ],
       "sources": [
-        "seriouslyfish",
-        "glaser"
+        "seriouslyfish"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The spadetailed checkerboard cichlid, Dicrossus maculatus, is a cichlid from the Rio Tapajós, Rio Maués and nearby areas of the Brazilian Amazon.",
+          "quote": "Native to the Rio Tapajós, Rio Maués, and surrounding areas of the Brazilian Amazon basin.",
           "countries": [
             "BR"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Native to the Rio Tapajós, Rio Maués, and surrounding areas of the Brazilian Amazon basin.",
-          "countries": [],
           "regions": [
             "Rio Tapajós",
             "Rio Maués",
@@ -182,6 +175,13 @@
           "min": 3.4,
           "max": 5.4
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5,
+          "max": 5
+        }
       }
     ],
     "gh": [
@@ -197,10 +197,6 @@
       {
         "source": "seriouslyfish",
         "value": 5.3
-      },
-      {
-        "source": "glaser",
-        "value": 9
       }
     ],
     "tankCm": [
@@ -226,20 +222,14 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/dicrossus_maculatus_checkerboard_cichlids_part_3_en/",
-      "html": "<p>This splendid dwarf cichlid has been known to science since 1875, but is almost never found in home aquaria. This is a great pity, because there are hardly any species that are as beautiful and at the same time as peaceful. Males reach around 9 cm in length, females about 6 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-maculatus-xxl-german-bred/",
+      "html": "<p>The checkerboard dwarf cichlids (Dicrossus) belong to the most beautiful of all dwarf cichlids. The males are more than twice as big as the females.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-maculatus",
       "html": "<p>Native to the Rio Tapajós, Rio Maués, and surrounding areas of the Brazilian Amazon basin.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/dicrossus_maculatus_checkerboard_cichlids_part_3_en/",
-      "html": "<p>The animals currently available originate from the rio Tapajós basin in Brazil.</p>"
     },
     {
       "key": "aquariumSize",
@@ -262,8 +252,8 @@
     {
       "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/dicrossus_maculatus_checkerboard_cichlids_part_3_en/",
-      "html": "<p>In contrast to its close relative Dicrossus filamentosus (the only member of the genus that is almost permanently available in the trade), D. maculatus is said to prefer white water. However, this has no meaning for keeping D. maculatus in the aquarium. Of far more importance for successful keeping than hardness and pH are a low level of bacteria in the tank and a gravel composed of fine sand.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-maculatus-xxl-german-bred/",
+      "html": "<p>They are very demanding concerning the chemical water composition, at least when it comes to breeding. Then they need almost distilled water with a pH value around 5. Any bacterial load is only poorly tolerated.</p>"
     },
     {
       "key": "diet",
@@ -278,10 +268,22 @@
       "html": "<p>Very peaceful towards non conspecifics.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-maculatus-xxl-german-bred/",
+      "html": "<p>One should keep this species, as in nature, in a harem association, i.e. per male with 3-7 females.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-maculatus",
       "html": "<p>Females are of a similar size, if not larger than the males. This however, is not an accurate way of sexing Dicrossus maculatus. Females have less vivid colouration, males present some striking blue sheen on the side of their heads and gill plates.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-maculatus-xxl-german-bred/",
+      "html": "<p>The males are more than twice as big as the females.</p>"
     },
     {
       "key": "reproduction",
@@ -290,19 +292,44 @@
       "html": "<p>Dicrossus maculatus are a challenge to breed. They require extremely acidic water for the eggs to hatch. High quality water is also absolutely vital, especially at such low pH. It has been noted that adding a few small shoaling fish (tetras and the like) can vastly improve the paternal care that the mature Maculatus display.</p>"
     },
     {
-      "key": "reproduction",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/dicrossus_maculatus_checkerboard_cichlids_part_3_en/",
-      "html": "<p>To breed this species, almost distilled water (conductivity less than 50 µS/cm) and a pH below 5.5 are necessary, as otherwise the eggs cannot be fertilized and develop. Like all other checkerboard cichlids, D. maculatus is polygamous: one male mates with several females. The female alone takes care of the spawn and offspring.</p>"
-    },
-    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-maculatus",
       "html": "<p>Dicrossus maculatus are not commonly available in the trade. Sometimes they are mistaken for the more common and popular Dicrossus filamentosus. The Spadetailed Checkerboards are an absolutely fascinating species to keep. They are a challenge to breed, requiring such acidic and soft water, but when it does happen it is a very rewarding experience.</p><p>Reports maintain that the pH and temperature of the water when conceived, eggs laid, eggs hatched and in the first month of the fry's life can affect the gender ratio of a spawn of Dicrossus filamentosus. Raising pH towards 5.5 and lowering the temperature towards 24°C in the first month of the fry's lives will give a more balanced ratio of females to males (generally more males than lower pH/higher temp).</p><p>Unlike species of Apistogramma females, a brooding Maculatus female may not successfully spawn again until all of the fry are removed from the mature adults' tank. The mother of a brood will use her ventral fins (which will turn a vivid yellow around breeding time) to give commands to her brood. Basically, the extension of her ventral fins will indicate that the fry should come towards her, and the closure of her ventral fins indicate that the fry need to stop. It is not an uncommon sight to see a Maculatus female parent herding her fry around the tank - they will often be herded into a safe place just before they decide to rest for the night.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/a16c0f7727ae3f6e.webp",
+      "thumb": "https://media.aquatome.com/glaser/a16c0f7727ae3f6e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-maculatus-xxl-german-bred/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6dfba7e45b077f85.webp",
+      "thumb": "https://media.aquatome.com/glaser/6dfba7e45b077f85-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-maculatus-xxl-german-bred/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b5250d610eb28d9f.webp",
+      "thumb": "https://media.aquatome.com/glaser/b5250d610eb28d9f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-maculatus-xxl-german-bred/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "r7Y971_mczI",
@@ -357,5 +384,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-20"
 }

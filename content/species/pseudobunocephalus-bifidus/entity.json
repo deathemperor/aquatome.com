@@ -1,0 +1,267 @@
+{
+  "id": "pseudobunocephalus-bifidus",
+  "scientificName": "Pseudobunocephalus bifidus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Pseudobunocephalus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "bolivia",
+    "ecuador",
+    "peru",
+    "huallaga-river"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BO",
+        "BR",
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Huallaga River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon River basin of Bolivia, Brazil, Ecuador, and Peru.",
+          "countries": [
+            "BO",
+            "BR",
+            "EC",
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: creek, Yurimaguas [Huallaga River, Peru].",
+          "countries": [],
+          "regions": [
+            "Huallaga River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340576,
+      "total": 26,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "PE",
+          10
+        ],
+        [
+          "BR",
+          9
+        ],
+        [
+          "BO",
+          6
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_bifidus.htm",
+      "html": "<p>South America: Amazon River basin of Bolivia, Brazil, Ecuador, and Peru. Type locality: creek, Yurimaguas [Huallaga River, Peru].</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_bifidus.htm",
+      "html": "<p>Very small species that can probably be kept as per other members of this family, in a quiet tank with sand and plants.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_bifidus.htm",
+      "html": "<p>Tablet foods and small live foods.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_bifidus.htm",
+      "html": "<p>Pseudobunocephalus is distinguished from all other aspredinid genera by the following unique features: mandibular teeth restricted to a patch near symphysis of lower jaw; no contact between the metapterygoid and quadrate; autopalatine posteriorly forked with two separate cartilages; absence of the fourth pharyngobranchial; absence of gill rakers on all branchial arches; and lack of bifid hemal spines on vertebrae that articulate with anal-fin pterygiophores.</p><p>Etymology: The genus name is a combination of the Greek word pseudes, meaning false or deceptive, plus the aspredinid genus Bunocephalus. It alludes to the fact that members of this new genus have previously been mistaken for juveniles of various species of Bunocephalus. The specific name bifidus in Latin means forked, referring to the posterolateral mental barbels having two branches.</p><p>A species not seen very often in the hobby.</p><p>IUCN Red List: despite the limited information available on this species, it is assessed as Least Concern due to its wide range (IUCN 2021).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_bifidus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2021. Pseudobunocephalus bifidus. The IUCN Red List of Threatened Species 2021. Friel, J.P., 2003. Aspredinidae (Banjo catfishes). p. 261-267. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil. Froese, R. and D. Pauly. Editors. 2023. FishBase. www.fishbase.org (04/2023). Grant, S. (2021): Banjos, Dorads and Woodcats. Aspredinidae, Doradidae and Auchenipteridae Catfishes. ATS-Aquashop, Neustadt am Rübenberge: 1-300.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

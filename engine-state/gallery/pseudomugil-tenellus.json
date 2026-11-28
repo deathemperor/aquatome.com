@@ -7,7 +7,8 @@
   "inat:661007220"
  ],
  "hashes": {
-  "https://media.aquatome.com/inaturalist/658467467.webp": "4949228e1e71a663"
+  "https://media.aquatome.com/inaturalist/658467467.webp": "4949228e1e71a663",
+  "https://media.aquatome.com/bwaquatics/619ffde0fd6ab169.webp": "a6a66aaaa2eaeaea"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -17,5 +18,12 @@
    "research": 362172383,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2411748,
+  "next": null
+ },
+ "openverse": {
+  "next": null
  }
 }
