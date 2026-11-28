@@ -632,6 +632,49 @@ test.each([
   }
 }, slow(60_000))
 
+test('kept video recovery preserves the batch when main has its exact tip but reverts the guide', () => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const kept = `kept/video-recheck/${when}`
+  const guide = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm "content: video guides checked again 2026-11-28" && git rev-parse HEAD')
+  const candidate = c.sh(`echo swept > content/sweep.json && git add content/sweep.json && git commit -qm sweep && git branch ${kept} && git rev-parse HEAD`)
+  c.sh(`git push -q origin ${candidate}:refs/heads/main && git revert --no-edit ${guide} && git push -q`)
+  const remoteHead = () => c.sh('git ls-remote origin refs/heads/main | cut -f1')
+  const reverted = remoteHead()
+  const log = c.cycle('AQ_SCRIPT_HEAD=$(git rev-parse HEAD); publish_kept video-recheck')
+  expect(log).toContain("isn't published yet")
+  expect(remoteHead()).toBe(reverted)
+  expect(c.onMain('content/video.json')).toBe('')
+  expect(c.onMain('content/sweep.json')).toBe('swept')
+  expect(c.branches()).toEqual([kept])
+  expect(c.sh(`git rev-parse ${kept}`)).toBe(candidate)
+}, slow(60_000))
+
+test('a fresh video recheck keeps the original batch when main reverts its guide during verification', () => {
+  const c = clone()
+  const candidate = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm "content: video guides checked again 2026-11-28" && git rev-parse HEAD')
+  c.elsewhere('content/video.json', 'rechecked')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
+    checks() {
+      if [ ! -f "$HOME/reverted" ]; then
+        test -f content/video.json
+        git -C "$HOME/other" revert --no-edit HEAD >/dev/null
+        git -C "$HOME/other" push -q
+        touch "$HOME/reverted"
+      fi
+    }
+    push_video_recheck || echo refused
+  `)
+  expect(log).toContain('refused')
+  const branches = c.branches()
+  expect(branches).toEqual([expect.stringMatching(/^kept\/video-recheck\/\d{8}T\d{6}$/)])
+  expect(c.sh(`git rev-parse ${branches[0]}`)).toBe(candidate)
+  expect(c.onMain('content/video.json')).toBe('')
+  expect(c.sh('git ls-remote origin refs/heads/main | cut -f1')).toBe(c.sh('git -C "$HOME/other" rev-parse HEAD'))
+}, slow(60_000))
+
 test('video recheck preparation excludes an ignored fixture parent read by the material loader', async () => {
   const c = clone()
   const fixture = 'apps/site/test/fixture-content'

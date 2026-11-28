@@ -644,17 +644,20 @@ video_recheck_rules_current() {
       .nvmrc .npmrc pnpm-workspace.yaml pnpm-lock.yaml ':(glob)**/package.json'
 }
 # A rebase can skip a patch that main applied and later reverted, even while replaying other commits.
-# When the original commits were rewritten, verify that merging the whole batch would add nothing.
+# Main can also revert the exact batch after taking it. If the tip moved, check that it still includes the batch.
 video_recheck_pull_kept_batch() {
   local pulled upstream batch_base combined
   pulled=$(git rev-parse HEAD) && upstream=$(git rev-parse "$2") || return 1
   git merge-base --is-ancestor "$upstream" "$pulled" || return 1
-  if git merge-base --is-ancestor "$1" "$pulled"; then return 0; fi
+  if [ "$pulled" = "$1" ]; then return 0; fi
   # The job's guide commit starts the batch, before any sweep commits. Main may share that commit
   # (or a later sweep) and have reverted it, so the common ancestor can omit part of the batch.
   batch_base=$(git log -1 --first-parent --format=%P --grep='^content: video guides checked again ' "$1") || return 1
   if [ -z "$batch_base" ]; then
     batch_base=$(git merge-base "$pulled" "$1") || return 1
+    if [ "$batch_base" = "$1" ]; then
+      batch_base=$(git rev-parse "$1^") || return 1
+    fi
   fi
   combined=$(git merge-tree --write-tree --merge-base="$batch_base" "$pulled" "$1" 2>/dev/null) || return 1
   [ "$combined" = "$(git rev-parse "$pulled^{tree}")" ]
@@ -744,10 +747,13 @@ video_recheck_unchanged() {
 # passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
-  local check=1 clash main head swept run video_recheck= checked_tree= verification_failed commit publish rejected_commit=
+  local check=1 clash main head swept run video_recheck= batch checked_tree= verification_failed commit publish rejected_commit=
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
+  if [ -n "$video_recheck" ]; then
+    batch=$(git rev-parse "$BRANCH") || { KEPT_WHY="could not find the original video recheck batch"; return 1; }
+  fi
   for _ in 1 2 3; do
     if [ -n "$video_recheck" ] && ! prepare_video_recheck; then
       KEPT_WHY="the video recheck checkout had changes before recovery"
@@ -771,7 +777,7 @@ push_kept() {
       clash=
     fi
     if [ -n "$video_recheck" ]; then
-      if ! video_recheck_pull_kept_batch "$run" origin/main; then
+      if ! video_recheck_pull_kept_batch "$batch" origin/main; then
         KEPT_WHY="the first pull did not retain the video recheck batch"
         return 1
       fi
