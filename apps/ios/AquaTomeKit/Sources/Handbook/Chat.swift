@@ -261,6 +261,27 @@ public enum Chat {
                   maxChars: o["maxChars"] as? Int)
   }
 
+  /// Whether chat's ways in show: as the last GET /api/chat said, and only while the reader is the one it was asked as
+  /// (an account, or signed out), so they go the moment the reader signs out, online or not.
+  public struct Gate: Equatable, Sendable {
+    private var yes = false
+    /// The account the last reply taken was for (its id, nil signed out).
+    private var account: String?
+    public init() {}
+
+    /// Whether chat's ways in show for `reader` (an account's id, nil signed out).
+    public func on(for reader: String?) -> Bool { yes && account == reader }
+
+    /// GET's reply, asked as `asked`, once the reader is `now`. False, with nothing changed, if the reader signed in or
+    /// out while it came: the reader's own is on its way, and may have come first.
+    public mutating func take(_ reply: (Data, Int), asked: String?, now: String?) -> Bool {
+      guard asked == now else { return false }
+      yes = Chat.status(reply.0, status: reply.1)?.on ?? false
+      account = asked
+      return true
+    }
+  }
+
   /// A refused request's answer (any status but a stream's 200).
   public static func refusal(_ data: Data, status: Int) -> Refusal {
     let o = object(data)

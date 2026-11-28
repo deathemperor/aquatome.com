@@ -294,6 +294,29 @@ private func key(_ b: Chat.Block) -> String {
   #expect(props == ["on", "resting", "perAccount", "maxTurns", "maxChars"])
 }
 
+/// Chat's ways in show as the last reply says, only while the reader is the one it was asked as: they go the moment the
+/// reader signs out, before any reply and offline, and a reply that comes after the reader signed in or out is dropped.
+@Test func chatsWaysInShowOnlyForTheReaderTheLastReplyWasFor() {
+  let yes = (Data(#"{"on":true}"#.utf8), 200), no = (Data(#"{"on":false}"#.utf8), 200), down = (Data(#"{"on":true}"#.utf8), 503)
+  var gate = Chat.Gate()
+  func take(_ reply: (Data, Int), asked: String?, now: String?) -> Bool { gate.take(reply, asked: asked, now: now) }
+  #expect(!gate.on(for: nil) && !gate.on(for: "a1"), "no ways in before a reply")
+  #expect(take(yes, asked: "a1", now: "a1"))
+  #expect(gate.on(for: "a1"))
+  #expect(!gate.on(for: nil), "signed out: gone at once, before its own reply or with none")
+  #expect(!gate.on(for: "a2"), "another account")
+  #expect(!take(no, asked: "a1", now: nil), "the account's reply came after it signed out")
+  #expect(gate.on(for: "a1"), "a reply it dropped changes nothing")
+  #expect(take(yes, asked: nil, now: nil))
+  #expect(gate.on(for: nil) && !gate.on(for: "a1"), "on signed out, asked again for the account")
+  #expect(!take(no, asked: "a1", now: nil), "the account's reply after the signed-out one")
+  #expect(gate.on(for: nil), "doesn't take the signed-out reader's place")
+  #expect(take(down, asked: nil, now: nil))
+  #expect(!gate.on(for: nil), "a reply it can't read")
+  #expect(take(yes, asked: "a2", now: "a2") && gate.on(for: "a2"))
+  #expect(take(no, asked: "a2", now: "a2") && !gate.on(for: "a2"))
+}
+
 // MARK: Requests
 
 @Test func aQuestionIsAskedAsTheAccountForTheStreamWithItsKey() throws {
@@ -345,6 +368,11 @@ private func key(_ b: Chat.Block) -> String {
   let pageSent = try #require(page.httpBody)
   let p = try #require(JSONSerialization.jsonObject(with: pageSent) as? [String: Any])
   #expect(p["from"] as? String == "species" && p["about"] as? String == "betta-splendens" && p["identified"] == nil)
+  // From Tìm's "Hỏi AquaTome": where, and no page.
+  let search = Chat.ask("?", conversation: UUID(), lang: "vi", start: Chat.Start(from: .search), key: UUID(), site: site, token: "t", version: "1", ownCopy: nil)
+  let searchSent = try #require(search.httpBody)
+  let s = try #require(JSONSerialization.jsonObject(with: searchSent) as? [String: Any])
+  #expect(s["from"] as? String == "search" && s["about"] == nil && s["identified"] == nil)
 }
 
 // MARK: The conversation
