@@ -10,6 +10,7 @@ import { slow } from '@aq/schema/test-time'
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const CHECKS = join(ROOT, 'scripts/cycle-checks.sh')
 const script = (name: string) => readFileSync(join(ROOT, 'scripts', name), 'utf8')
+const namedPage = (name: string) => JSON.stringify({ name })
 
 // verify with `checks` and `calm` stood in for, as in cycle-timeouts.test.ts: each run prints the next of `runs` and
 // fails unless it prints "ok". Prints verify's exit code and TIMED_OUT.
@@ -483,14 +484,15 @@ test.each(['log --format=', 'diff --name-only'])('a kept video recheck stays que
   const c = clone()
   const branch = 'kept/video-recheck/20261128T120000'
   const page = 'content/guides/youtube-shared/vi.json'
+  const mainPage = namedPage('main-page')
   const batch = c.sh(`
     mkdir -p "$(dirname '${page}')"
-    echo batch-page > '${page}'
+    echo '${namedPage('batch-page')}' > '${page}'
     echo rechecked > content/video.json
     git add content && git commit -qm recheck
     git branch '${branch}' && git rev-parse HEAD && git reset -q --hard origin/main
   `)
-  c.elsewhere(page, 'main-page')
+  c.elsewhere(page, `'${mainPage}'`)
   const log = c.cycle(`
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
     git() {
@@ -506,11 +508,11 @@ test.each(['log --format=', 'diff --name-only'])('a kept video recheck stays que
   expect(log).not.toContain('VERIFIED')
   expect(c.branches()).toEqual([branch])
   expect(c.sh(`git rev-parse '${branch}'`)).toBe(batch)
-  expect(c.onMain(page)).toBe('main-page')
+  expect(c.onMain(page)).toBe(mainPage)
   expect(c.onMain('content/video.json')).toBe('')
 
   expect(c.cycle('AQ_SCRIPT_HEAD=$(git rev-parse origin/main); publish_kept video-recheck')).toContain(`LOG published ${branch}`)
-  expect(c.onMain(page)).toBe('main-page')
+  expect(c.onMain(page)).toBe(mainPage)
   expect(c.onMain('content/video.json')).toBe('rechecked')
 }, slow(60_000))
 
@@ -519,16 +521,18 @@ test.each(['kept', 'held'])('a %s video recheck replans with the final page phot
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
   const branch = `${kind}/video-recheck/${when}`
   const page = 'content/guides/youtube-shared/vi.json'
+  const mainPage = namedPage('main-photo')
+  const sweptPage = JSON.stringify({ name: 'main-photo', cover: 'swept-photo' })
   c.sh('echo before > content/curation.json && git add content/curation.json && git commit -qm calendar && git push -q')
   c.sh(`
     mkdir -p "$(dirname '${page}')"
-    echo batch-photo > '${page}'
+    echo '${namedPage('batch-photo')}' > '${page}'
     echo rechecked > content/video.json
     echo batch-calendar > content/curation.json
     git add content && git commit -qm 'content: video guides checked again (fixture)'
     git branch '${branch}' && git reset -q --hard origin/main
   `)
-  c.elsewhere(page, 'main-photo')
+  c.elsewhere(page, `'${mainPage}'`)
   c.sh(`
     echo editor > "$HOME/other/content/curation.json"
     echo new-code > "$HOME/other/code.txt"
@@ -542,8 +546,8 @@ test.each(['kept', 'held'])('a %s video recheck replans with the final page phot
     pnpm() {
       case "$2" in
         sweep)
-          test "$(cat '${page}')" = main-photo || return 1
-          echo swept-photo > '${page}'
+          test "$(cat '${page}')" = '${mainPage}' || return 1
+          echo '${sweptPage}' > '${page}'
           ;;
         curate)
           test "$(cat content/curation.json)" = editor || return 1
@@ -554,9 +558,9 @@ test.each(['kept', 'held'])('a %s video recheck replans with the final page phot
     verify_cycle() { printf 'VERIFIED %s %s\n' "$(cat '${page}')" "$(cat content/curation.json)"; }
     publish_kept video-recheck
   `)
-  expect(log).toContain('VERIFIED swept-photo swept-photo')
-  expect(c.onMain(page)).toBe('swept-photo')
-  expect(c.onMain('content/curation.json')).toBe('swept-photo')
+  expect(log).toContain(`VERIFIED ${sweptPage} ${sweptPage}`)
+  expect(c.onMain(page)).toBe(sweptPage)
+  expect(c.onMain('content/curation.json')).toBe(sweptPage)
   expect(c.onMain('content/video.json')).toBe('rechecked')
   expect(c.branches()).toEqual([])
 }, slow(60_000))
@@ -706,28 +710,28 @@ test('a fresh video recheck rejects a new parent after gating', () => {
 test.each(['unchanged', 'late edit', 'gate failure', 'an unrelated staged edit', 'a staged rubric edit'])('a fresh video recheck records its isolated gate output after %s', outcome => {
   const c = clone()
   const rubric = 'packages/engine/src/prompts/fit.md'
-  c.sh(`mkdir -p content/guides/example packages/engine/src/prompts && echo old > content/guides/example/vi.json && echo public > README.md && echo pinned > '${rubric}' && git add content README.md packages && git commit -qm guide && git push -q`)
+  c.sh(`mkdir -p content/guides/example packages/engine/src/prompts && echo '${namedPage('old')}' > content/guides/example/vi.json && echo public > README.md && echo pinned > '${rubric}' && git add content README.md packages && git commit -qm guide && git push -q`)
   const guide = 'content/guides/example/vi.json'
   const tail = script('video-recheck.sh').split('sweep_new_video_recheck || exit 1\n')[1]!
   const log = c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
     video_batch_parent=$(git rev-parse HEAD)
-    echo candidate > '${guide}'
+    echo '${namedPage('candidate')}' > '${guide}'
     ${outcome === 'an unrelated staged edit' ? 'echo local > README.md && git add README.md' : ':'}
     ${outcome === 'a staged rubric edit' ? `echo edited > '${rubric}' && git add '${rubric}'` : ':'}
     outer_checkout=$PWD
     pnpm() {
       if [ "$1 $2" = 'engine gate' ]; then
-        test "$(cat "${guide}")" = candidate || return 1
+        test "$(cat "${guide}")" = '${namedPage('candidate')}' || return 1
         test "$(cat "README.md")" = public || return 1
         mkdir -p "engine-state" "docs/review"
         if [ "$(cat '${rubric}')" = pinned ]; then
-          echo approved > "${guide}"
+          echo '${namedPage('approved')}' > "${guide}"
         else
-          echo ungated > "${guide}"
+          echo '${namedPage('ungated')}' > "${guide}"
         fi
-        ${outcome === 'late edit' ? `echo ungated > "$outer_checkout/${guide}"` : ':'}
+        ${outcome === 'late edit' ? `echo '${namedPage('ungated')}' > "$outer_checkout/${guide}"` : ':'}
         ${outcome === 'gate failure' ? 'return 1' : ':'}
       fi
     }
@@ -737,24 +741,24 @@ test.each(['unchanged', 'late edit', 'gate failure', 'an unrelated staged edit',
   `)
   expect(c.sh('git worktree list --porcelain | awk \'/^worktree / { count++ } END { print count }\'')).toBe('1')
   if (outcome === 'unchanged') {
-    expect(log).toContain('VERIFIED approved')
-    expect(c.onMain(guide)).toBe('approved')
+    expect(log).toContain(`VERIFIED ${namedPage('approved')}`)
+    expect(c.onMain(guide)).toBe(namedPage('approved'))
     expect(c.branches()).toEqual([])
   } else if (outcome === 'gate failure') {
     expect(log).toContain('refused')
     expect(log).not.toContain('VERIFIED')
-    expect(c.onMain(guide)).toBe('old')
+    expect(c.onMain(guide)).toBe(namedPage('old'))
     expect(c.branches()).toEqual([expect.stringMatching(/^gate-crashed\//)])
-    expect(c.sh(`git show '${c.branches()[0]}:${guide}'`)).toBe('approved')
+    expect(c.sh(`git show '${c.branches()[0]}:${guide}'`)).toBe(namedPage('approved'))
     expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
   } else {
     expect(log).toContain('refused')
     expect(log).not.toContain('VERIFIED')
-    expect(c.onMain(guide)).toBe('old')
-    if (outcome === 'late edit') expect(c.sh(`cat '${guide}'`)).toBe('ungated')
+    expect(c.onMain(guide)).toBe(namedPage('old'))
+    if (outcome === 'late edit') expect(c.sh(`cat '${guide}'`)).toBe(namedPage('ungated'))
     else if (outcome === 'a staged rubric edit') expect(c.sh(`git show ':${rubric}'`)).toBe('edited')
     else expect(c.sh('git show :README.md')).toBe('local')
-    expect(c.sh(`git show 'refs/aquatome/video-recheck/pending:${guide}'`)).toBe('approved')
+    expect(c.sh(`git show 'refs/aquatome/video-recheck/pending:${guide}'`)).toBe(namedPage('approved'))
     expect(c.sh("git show 'refs/aquatome/video-recheck/pending:README.md'")).toBe('public')
     c.cycle(`
       source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
@@ -763,7 +767,8 @@ test.each(['unchanged', 'late edit', 'gate failure', 'an unrelated staged edit',
       from_main
       publish_kept video-recheck
     `)
-    expect(c.onMain(guide)).toBe('approved')
+    // The fake gate changed the guide but supplied no saved review for recovery.
+    expect(JSON.parse(c.onMain(guide))).toMatchObject({ name: 'approved', held: { checks: [] } })
     expect(c.onMain('README.md')).toBe('public')
     expect(c.onMain(rubric)).toBe('pinned')
     expect(c.branches()).toEqual([])
@@ -1946,11 +1951,11 @@ test('a check that passed ends the row before any push: a clash after it leaves 
 // nothing and lets the kept work's page win.
 test('after a pass, a page another job published before the next try still goes out as main has it', () => {
   const c = clone()
-  const base = atOut2(c, 'mkdir -p content/species/x && echo kept-name > content/species/x/vi.json && echo kept-th > content/species/x/th.json && git add . && git commit -qm "content: engine photos"')
-  const log = c.cycle(`${racing('mkdir -p content/species/x && echo main-name > content/species/x/vi.json && git add .', 'return 0')}; publish_kept photos`)
+  const base = atOut2(c, `mkdir -p content/species/x && echo '${namedPage('kept-name')}' > content/species/x/vi.json && echo '${namedPage('kept-th')}' > content/species/x/th.json && git add . && git commit -qm "content: engine photos"`)
+  const log = c.cycle(`${racing(`mkdir -p content/species/x && echo '${namedPage('main-name')}' > content/species/x/vi.json && git add .`, 'return 0')}; publish_kept photos`)
   expect(log).toContain(`LOG ${base}: 1 pages and 0 other files a later run published first stay as main has them`)
   expect(log).toContain(`LOG published ${base}-out2`)
-  expect(c.onMain('content/species/x/vi.json')).toBe('main-name')
+  expect(c.onMain('content/species/x/vi.json')).toBe(namedPage('main-name'))
   expect(c.onMain('content/species/x/th.json')).toBe('')
   expect(c.branches()).toEqual([])
 }, slow(60_000))
@@ -2120,15 +2125,15 @@ test("kept work that clashes with main on a page main had gets its own lines, as
 // staff, 14 Nov). The rest of the kept work goes out.
 test('a page a later run published while the work was kept stays as main has it, whole; the rest of the kept work is published', () => {
   const c = clone()
-  c.sh('mkdir -p content/species/x && echo kept-name > content/species/x/vi.json && echo kept-entity > content/species/x/entity.json && echo kept-th > content/species/x/th.json && echo photos > content/b.json && git add . && git commit -qm "content: engine photos"')
+  c.sh('mkdir -p content/species/x && echo \'{"name":"kept-name"}\' > content/species/x/vi.json && echo \'{"name":"kept-entity"}\' > content/species/x/entity.json && echo \'{"name":"kept-th"}\' > content/species/x/th.json && echo photos > content/b.json && git add . && git commit -qm "content: engine photos"')
   c.cycle("verify 'pnpm test' || keep_unpublished photos", { CHECK: 'Error: Test timed out in 30000ms.' })
   c.sh('git fetch -q origin && git reset -q --hard origin/main')
   const [kept = ''] = c.branches()
-  c.elsewhere('content/species/x/vi.json', 'main-name')
+  c.elsewhere('content/species/x/vi.json', `'${namedPage('main-name')}'`)
   const log = c.cycle('publish_kept photos')
   expect(log).toContain(`LOG ${kept}: 1 pages and 0 other files a later run published first stay as main has them`)
   expect(log).toContain(`LOG published ${kept}`)
-  expect(c.onMain('content/species/x/vi.json')).toBe('main-name')
+  expect(c.onMain('content/species/x/vi.json')).toBe(namedPage('main-name'))
   // Main's folder whole: the kept work's other files there, written beside another draft, don't go out.
   expect(c.onMain('content/species/x/entity.json')).toBe('')
   expect(c.onMain('content/species/x/th.json')).toBe('')
@@ -2139,18 +2144,23 @@ test('a page a later run published while the work was kept stays as main has it,
 // so a push lost after the sweep had edited main's page went out next try with that page put back, unchecked.
 test("a push's next try never sends a tree its checks didn't see, though main's pages were put back over the sweep", () => {
   const c = clone()
-  c.sh('mkdir -p content/species/x && echo kept-name > content/species/x/vi.json && echo photos > content/b.json && git add . && git commit -qm "content: engine photos"')
+  c.sh('mkdir -p content/species/x && echo \'{"name":"kept-name"}\' > content/species/x/vi.json && echo photos > content/b.json && git add . && git commit -qm "content: engine photos"')
   c.cycle("verify 'pnpm test' || keep_unpublished photos", { CHECK: 'Error: Test timed out in 30000ms.' })
   c.sh('git fetch -q origin && git reset -q --hard origin/main')
   const [kept = ''] = c.branches()
-  c.elsewhere('content/species/x/vi.json', 'main-name')
+  c.elsewhere('content/species/x/vi.json', `'${namedPage('main-name')}'`)
   // The sweep edits main's page (a name cleaned up); GitHub refuses the first push only.
-  c.sh(`printf '#!/bin/sh\\n[ "$1 $2" = "engine sweep" ] && [ -f content/species/x/vi.json ] && echo swept-name > content/species/x/vi.json\\nexit 0\\n' > "$HOME/bin/pnpm"`)
+  c.sh(`cat > "$HOME/bin/pnpm" <<'PNPM'
+#!/bin/sh
+if [ "$1 $2" = 'engine sweep' ] && [ -f content/species/x/vi.json ]; then
+  echo '${namedPage('swept-name')}' > content/species/x/vi.json
+fi
+PNPM`)
   c.sh(`printf '#!/bin/sh\\n[ -f "$HOME/refused-once" ] && exit 0\\ntouch "$HOME/refused-once"\\nexit 1\\n' > "$HOME/origin.git/hooks/pre-receive" && chmod 755 "$HOME/origin.git/hooks/pre-receive"`)
-  const log = c.cycle('checks() { cat content/species/x/vi.json >> "$HOME/checked"; }; publish_kept photos')
+  const log = c.cycle('checks() { git rev-parse HEAD > "$HOME/checked"; }; publish_kept photos')
   expect(log).toContain(`LOG published ${kept}`)
-  const checked = c.sh('cat "$HOME/checked"').split('\n')
-  expect(c.onMain('content/species/x/vi.json')).toBe(checked.at(-1))
+  const checkedPage = c.sh('git show "$(cat "$HOME/checked"):content/species/x/vi.json"')
+  expect(c.onMain('content/species/x/vi.json')).toBe(checkedPage)
   expect(c.onMain('content/b.json')).toBe('photos')
 }, slow(60_000))
 
@@ -2249,16 +2259,16 @@ test('after a pass, a push lost to main that clashes with the work is checked ag
 // moved, not added, and the kept version won. Added means absent where the branch was cut.
 test('a page main moved to where the kept work wrote one stays as main has it', () => {
   const c = clone()
-  c.elsewhere('content/species/old/vi.json', 'main-name')
+  c.elsewhere('content/species/old/vi.json', `'${namedPage('main-name')}'`)
   c.sh('git pull -q --rebase')
-  c.sh('mkdir -p content/species/x && echo kept-name > content/species/x/vi.json && echo kept-th > content/species/x/th.json && git add . && git commit -qm "content: engine photos"')
+  c.sh('mkdir -p content/species/x && echo \'{"name":"kept-name"}\' > content/species/x/vi.json && echo \'{"name":"kept-th"}\' > content/species/x/th.json && git add . && git commit -qm "content: engine photos"')
   c.cycle("verify 'pnpm test' || keep_unpublished photos", { CHECK: 'Error: Test timed out in 30000ms.' })
   c.sh('git fetch -q origin && git reset -q --hard origin/main')
   const [kept = ''] = c.branches()
   c.sh('rm -rf other && git clone -q origin.git other 2>/dev/null && cd other && git config user.email a@example.com && git config user.name a && git mv content/species/old content/species/x && git commit -qm moved && git push -q 2>/dev/null', {}, c.sh('echo "$HOME"'))
   const log = c.cycle('publish_kept photos')
   expect(log).toContain(`LOG published ${kept}`)
-  expect(c.onMain('content/species/x/vi.json')).toBe('main-name')
+  expect(c.onMain('content/species/x/vi.json')).toBe(namedPage('main-name'))
   expect(c.onMain('content/species/x/th.json')).toBe('')
   expect(c.onMain('content/species/old/vi.json')).toBe('')
 }, slow(60_000))
@@ -2267,14 +2277,14 @@ test('a page main moved to where the kept work wrote one stays as main has it', 
 // was added on main's and then deleted, main's page with it, though the kept work's last commit has no such page.
 test('kept work that added a page and deleted it again leaves the page main published meanwhile as main has it', () => {
   const c = clone()
-  c.sh('mkdir -p content/species/x content/gallery && echo kept-name > content/species/x/vi.json && echo kept-gallery > content/gallery/g.json && git add . && git commit -qm "content: engine pages" && git rm -rq content/species/x content/gallery/g.json && echo photos > content/b.json && git add . && git commit -qm "content: engine photos"')
+  c.sh('mkdir -p content/species/x content/gallery && echo \'{"name":"kept-name"}\' > content/species/x/vi.json && echo kept-gallery > content/gallery/g.json && git add . && git commit -qm "content: engine pages" && git rm -rq content/species/x content/gallery/g.json && echo photos > content/b.json && git add . && git commit -qm "content: engine photos"')
   c.cycle("verify 'pnpm test' || keep_unpublished photos", { CHECK: 'Error: Test timed out in 30000ms.' })
   c.sh('git fetch -q origin && git reset -q --hard origin/main')
   const [kept = ''] = c.branches()
-  c.elsewhere('content/species/x/vi.json', 'main-name')
+  c.elsewhere('content/species/x/vi.json', `'${namedPage('main-name')}'`)
   c.elsewhere('content/gallery/g.json', 'main-gallery')
   const log = c.cycle('publish_kept photos')
-  expect(c.onMain('content/species/x/vi.json')).toBe('main-name')
+  expect(c.onMain('content/species/x/vi.json')).toBe(namedPage('main-name'))
   expect(c.onMain('content/gallery/g.json')).toBe('main-gallery')
   expect(c.onMain('content/b.json')).toBe('photos')
   expect(log).toContain(`LOG ${kept}: 1 pages and 1 other files a later run published first stay as main has them`)

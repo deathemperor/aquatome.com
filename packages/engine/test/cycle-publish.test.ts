@@ -12,13 +12,14 @@ const script = (name: string) => readFileSync(join(ROOT, 'scripts', name), 'utf8
 // The sf and pages runs of 2026-11-07: main's new card figures met their summaries at the merge, past the cycle's only sweep.
 test('a cycle sweeps again after each merge with main, before the tests', () => {
   const cycle = script('engine-cycle.sh')
-  expect(cycle).toMatch(/\ncatch_up\nsweep_merged\nif ! verify_cycle/)
+  expect(cycle).toMatch(/\ncatch_up \|\| \{ keep_lost_push [^\n]*; exit 1; \}\nsweep_merged\nif ! verify_cycle/)
   // catch_up's clean pull brings main's holds first (main_holds), as push() does, before that sweep and those checks.
-  expect(script('cycle-checks.sh')).toMatch(/if net git pull -q --rebase; then main_holds "\$run" \|\| true; return 0; fi/)
-  expect(cycle).toMatch(/rebase -X theirs; then\n\s*replan_merged "\$clash"\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
-  expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
+  // A comparison of holds that failed undoes that pull (main_holds), and the run keeps its commit and stops.
+  expect(script('cycle-checks.sh')).toMatch(/if net git pull -q --rebase; then main_holds "\$run" \|\| \[ \$\? = 1 \] \|\| return 1; return 0; fi/)
+  expect(cycle).toMatch(/rebase -X theirs; then\n\s*replan_merged "\$clash"\n\s*main_holds "\$run" \|\| \[ \$\? = 1 \] \|\| \{ keep_lost_push "\$PART" [^\n]*; return 1; \}\n\s*sweep_merged\n\s*verify_cycle/)
+  expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| \[ \$\? = 1 \] \|\| \{ keep_lost_push videos [^\n]*; exit 1; \}\n\s*sweep_merged\n\s*verify_cycle/)
   expect(script('video-recheck.sh')).toContain('source scripts/video-recheck-publish.sh')
-  expect(script('cycle-checks.sh')).toMatch(/reconcile_video_recheck\(\)[\s\S]*main_holds "\$batch" "\$upstream" strict[\s\S]*sweep_merged strict/)
+  expect(script('cycle-checks.sh')).toMatch(/reconcile_video_recheck\(\)[\s\S]*install_video_recheck_engine[\s\S]*main_holds "\$batch" "\$upstream"[\s\S]*sweep_merged strict/)
   expect(script('video-recheck-publish.sh')).toMatch(/reconcile_video_recheck fresh "\$batch" "\$refreshed" "\$pulled" "\$calendar" "\$batch_base"[\s\S]*verify_cycle "\$candidate" \|\| verification_failed=\$\?/)
 })
 
@@ -44,13 +45,18 @@ test('what the sweep changes after a merge is committed, and no change leaves no
 test("a clean pull that brings main's commits in is swept before the push, and the tests run again only when the sweep changed something", () => {
   // Main's holds put back on a page main read meanwhile (main_holds, push-clash-hold.test.ts) are checked again too.
   for (const f of ['engine-cycle.sh', 'video-cycle.sh']) {
-    expect(script(f)).toMatch(/main_holds "\$run" \|\| moved=1\n\s*if ! swept_pull "\$main" \|\| \[ -n "\$moved" \]; then\n\s*verify_cycle \|\|/)
+    expect(script(f)).toMatch(/main_holds "\$run" \|\| case \$\? in 1\) moved=1 ;; \*\) keep_lost_push [^\n]* ;; esac\n\s*if ! swept_pull "\$main" \|\| \[ -n "\$moved" \]; then\n\s*verify_cycle \|\|/)
   }
   // Kept work: after a pull that brought main's commits in, checked in full until it has passed; then swept, and checked
   // again only if the sweep changed more than the pages' dates or the migration failed, as a run's own push does, on that
   // one sweep.
-  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$refreshed" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged \|\| .*return 1; }\n\s*swept=1\n\s*if swept_clean "\$head" "\$main" "\$refreshed"; then/)
-  expect(script('cycle-checks.sh')).toMatch(/\n\s*if \[ -n "\$check" \]; then\n\s*\[ -n "\$swept" \] \|\| sweep_merged/)
+  const kept = script('cycle-checks.sh').match(/^push_kept\(\) \{\n[\s\S]*?^\}/m)?.[0] ?? ''
+  expect(kept).toMatch(/if \[ "\$refreshed" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged \|\| .*return 1; }\n\s*swept=1\n\s*swept_clean "\$head" "\$main" "\$refreshed" \|\| check=1/)
+  const sweep = kept.search(/if \[ -n "\$check" \] && \[ -z "\$swept" \]; then\n\s*sweep_merged/)
+  const review = kept.indexOf('main_holds "$run" "$refreshed" recovery')
+  expect(sweep).toBeGreaterThanOrEqual(0)
+  expect(review).toBeGreaterThan(sweep)
+  expect(kept.indexOf('verify_cycle "$video_publish_head"')).toBeGreaterThan(review)
 
   const dir = mkdtempSync(join(tmpdir(), 'aq-pulled-'))
   mkdirSync(join(dir, 'bin'))

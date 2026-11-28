@@ -308,7 +308,7 @@ archive_video_recheck_ref() {
     printf '%s\n' "$archive" > "$temp" && mv -f -- "$temp" "$link" || return 1
   fi
 }
-# HEAD on branch $1, and in the cloud on GitHub's branch of that name.
+# HEAD, or commit $2, on branch $1, and in the cloud on GitHub's branch of that name.
 keep_branch() {
   if [ "${3:-}" = new ]; then
     git branch -q "$1" "${2:-HEAD}"
@@ -708,34 +708,74 @@ added_page_dirs() (
 )
 # After a pull that brought main's commits in, clean or not: a page's hold follows the record that won, so a release on
 # main during a run stands, and so does a hold (main-holds.mjs says which pages and why; Page Recovery and the chief of
-# staff, 16 Nov 2026). Only the hold moves, and only on a page whose text is main's: one whose text isn't stays as merged,
-# and is counted in the log. In a commit of its own. `main_holds <batch> [<main>, @{u}] [strict]` returns
-# 1 when it restored holds and 2 when it could not write them or a strict comparison failed.
+# staff, 16 Nov 2026). Only the hold moves, and only on a page whose text is main's. One whose text isn't never goes out
+# open: it keeps the run's hold, or waits held for its next read, and one the merge holds already stays as merged and is
+# counted in the log (main-holds.mjs; the chief of staff, 20 Nov). Each in a commit of its own.
+# `main_holds <this run's HEAD before the pull> [<main>, @{u}] [recovery]` is 1 when it committed holds, so
+# the caller checks again, as a clash does. It's 2 when the holds couldn't be compared, or their commit failed: the pull is
+# undone in the ordinary publishing checkout, and the caller keeps the original commit for another try. A private
+# video reconciliation leaves the snapshot available to archive and keeps the separately recorded batch.
 CYCLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_holds() {
-  local up=${2:-} strict=${3:-} base out holds texts harms
+  local up=${2:-} base out holds texts harms keeps unreads owns besides manuals merge_holds written
   [ -n "$up" ] || up='@{u}'
   if ! up=$(git rev-parse "$up") || ! base=$(git merge-base "$1" "$up"); then
-    [ -z "$strict" ] || { log "main's holds: could not find the batch's base, leaving the video recheck queued"; return 2; }
-    return 0
+    uncompared "$1" "main, or where this run left it, couldn't be found"; return 2
   fi
-  [ "$base" != "$up" ] || return 0
-  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up" "${strict:+--strict}"); then
-    [ -z "$strict" ] || { log "main's holds: comparison failed, leaving the video recheck queued"; return 2; }
-    log "main's holds: the pages main read during this run couldn't be compared, so their holds stay as merged"
-    return 0
+  # Recovery can start with work the older publisher already rebased and a stale fit record.
+  if [ "$base" = "$up" ] && [ -z "${2:-}" ]; then return 0; fi
+  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up" "$1" "${3:-}"); then
+    uncompared "$1" "the pages main read during this run couldn't be compared"; return 2
   fi
-  holds=$(sed -n 's/^hold //p' <<<"$out") texts=$(sed -n 's/^text //p' <<<"$out") harms=$(sed -n 's/^harm //p' <<<"$out")
+  # What main-holds.mjs said, each kind of line apart; a list that can't be read publishes nothing.
+  holds=$(sed -n 's/^hold //p' <<<"$out") && texts=$(sed -n 's/^text //p' <<<"$out") &&
+    harms=$(sed -n 's/^harm //p' <<<"$out") && keeps=$(sed -n 's/^keep //p' <<<"$out") &&
+    unreads=$(sed -n 's/^unread //p' <<<"$out") && owns=$(sed -n 's/^own //p' <<<"$out") &&
+    besides=$(sed -n 's/^beside //p' <<<"$out") && manuals=$(sed -n 's/^manual //p' <<<"$out") &&
+    merge_holds=$(sed -n 's/^merge //p' <<<"$out") && written=$(sed -n -E 's/^(keep|unread|own|beside|manual|merge) //p' <<<"$out") ||
+    { uncompared "$1" "the pages main read during this run couldn't be listed"; return 2; }
   [ -z "$texts" ] || log "$(grep -c . <<<"$texts") pages main read during this run have main's record and this run's text, left as merged: $(head -5 <<<"$texts" | tr '\n' ' ')"
   [ -z "$harms" ] || log "$(grep -c . <<<"$harms") pages main read during this run stay held: another of their languages is held for harm: $(head -5 <<<"$harms" | tr '\n' ' ')"
-  [ -n "$holds" ] || return 0
-  # shellcheck disable=SC2086 # content paths have no spaces
-  git checkout "$up" -- $holds || return 2
-  git diff --cached --quiet && return 0
-  commit_reconciled_changes "content: main's holds on $(grep -c . <<<"$holds") pages main read during this run" || return 2
-  log "$(grep -c . <<<"$holds") pages main read during this run take main's hold, as its record has it: $(head -5 <<<"$holds" | tr '\n' ' ')"
+  if [ -n "$written" ]; then
+    # shellcheck disable=SC2086 # content paths have no spaces
+    { git add -- $written && commit_reconciled_changes "content: holds on $(grep -c . <<<"$written") pages as this run's push ends"; } || { uncompared "$1" "this run's holds couldn't be committed"; return 2; }
+    if [ -n "$keeps" ]; then
+      if [ "${3:-}" = recovery ]; then
+        log "$(grep -c . <<<"$keeps") recovered pages held on the final tree: $(head -5 <<<"$keeps" | tr '\n' ' ')"
+      else
+        log "$(grep -c . <<<"$keeps") pages main read during this run have main's record and this run's text: held until their next read: $(head -5 <<<"$keeps" | tr '\n' ' ')"
+      fi
+    fi
+    [ -z "$unreads" ] || log "$(grep -c . <<<"$unreads") pages both sides changed, whose text together no record read: held until their next read: $(head -5 <<<"$unreads" | tr '\n' ' ')"
+    [ -z "$owns" ] || log "$(grep -c . <<<"$owns") pages main read during this run take main's hold on this run's file, as its record read their text: $(head -5 <<<"$owns" | tr '\n' ' ')"
+    [ -z "$besides" ] || log "$(grep -c . <<<"$besides") pages held beside another of their languages held for harm: $(head -5 <<<"$besides" | tr '\n' ' ')"
+    [ -z "$manuals" ] || log "$(grep -c . <<<"$manuals") translations held by the manual registry: $(head -5 <<<"$manuals" | tr '\n' ' ')"
+    [ -z "$merge_holds" ] || log "$(grep -c . <<<"$merge_holds") translations held after checking the merged text: $(head -5 <<<"$merge_holds" | tr '\n' ' ')"
+  fi
+  if [ -n "$holds" ]; then
+    # shellcheck disable=SC2086
+    git checkout "$up" -- $holds || { uncompared "$1" "main's holds couldn't be restored"; return 2; }
+    if ! git diff --cached --quiet; then
+      commit_reconciled_changes "content: main's holds on $(grep -c . <<<"$holds") pages main read during this run" ||
+        { uncompared "$1" "main's holds couldn't be committed"; return 2; }
+    elif [ -z "$written" ]; then
+      return 0
+    fi
+    log "$(grep -c . <<<"$holds") pages main read during this run take main's hold, as its record has it: $(head -5 <<<"$holds" | tr '\n' ' ')"
+  fi
+  [ -n "$holds$written" ] || return 0
   return 1
 }
+# main_holds' failure: said, and the pull undone, back to the run's commit $1.
+uncompared() {
+  if [ -n "${video_publish_head:-}" ]; then
+    log "main's holds: $2, leaving the video recheck queued"
+    return 0
+  fi
+  log "main's holds: $2, so this run's work isn't published: the pull is undone"
+  git reset -q --hard "$1" 2>/dev/null || log "the pull couldn't be undone: this run's commit is $1"
+}
+
 # from_main loads these rules once. A video recheck that pulls new rules leaves its work for the next process.
 video_recheck_rules_current() {
   [ -n "${AQ_SCRIPT_HEAD:-}" ] &&
@@ -1050,8 +1090,9 @@ reconcile_video_recheck() {
     CYCLE_DIR="$snapshot/scripts"
     video_publish_head=$pulled
     if [ "$mode" = recovery ] && ! main_pages "$batch" "$upstream"; then exit 1; fi
+    install_video_recheck_engine || exit 1
     if [ "$mode" = recovery ] || [ "$upstream" != "$before" ]; then
-      main_holds "$batch" "$upstream" strict || { [ "$?" = 1 ] || exit 1; }
+      main_holds "$batch" "$upstream" || { [ "$?" = 1 ] || exit 1; }
     fi
     if [ -n "$calendar" ] && ! restore_video_recheck_calendar "$upstream"; then exit 1; fi
     if [ "$video_publish_head" != "$pulled" ]; then must_check=1; fi
@@ -1060,9 +1101,11 @@ reconcile_video_recheck() {
         [ "$(git rev-parse "$video_publish_head^{tree}")" != "$checked" ]; }; }; then
       sweep=1
     fi
-    if [ -n "$sweep$calendar" ]; then install_video_recheck_engine || exit 1; fi
     if [ -n "$sweep" ] && ! sweep_merged strict; then exit 1; fi
     if [ -n "$calendar" ] && ! curate_merged_calendar strict; then exit 1; fi
+    if [ "$mode" = recovery ]; then
+      main_holds "$batch" "$upstream" recovery || { [ "$?" = 1 ] || exit 1; }
+    fi
     video_recheck_tree >/dev/null || exit 1
     printf '%s %s %s\n' "$video_publish_head" "${MIGRATE_FAILED:-0}" "${must_check:-0}" > "$result"
   ); then
@@ -1161,7 +1204,7 @@ push_kept() {
         KEPT_WHY="could not restore main's pages"
         return 1
       fi
-      main_holds "$run" "$refreshed" || { [ "$?" = 1 ] || { KEPT_WHY="could not restore main's holds"; return 1; }; }
+      main_holds "$run" "$refreshed" || { [ "$?" = 1 ] || { KEPT_WHY="its holds couldn't be compared with main's"; return 1; }; }
       [ "$(git rev-parse HEAD)" = "$head" ] || check=1
       # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
       # main, it's checked in full; once it has, its lost push goes again as a run's own push does (push(), swept_pull):
@@ -1175,19 +1218,26 @@ push_kept() {
         head=$(git rev-parse HEAD)
         sweep_merged || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
         swept=1
-        if swept_clean "$head" "$main" "$refreshed"; then
-          log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
-        else
-          check=1
-        fi
+        swept_clean "$head" "$main" "$refreshed" || check=1
       fi
     fi
     # Recovered video work can reuse a pass only for the exact tree it checked.
     if [ -n "$video_recheck" ] && { [ "$(git rev-parse "$video_publish_head^{tree}")" != "$checked_tree" ] || [ -n "$MIGRATE_FAILED" ]; }; then
       check=1
     fi
+    if [ -n "$check" ] && [ -z "$swept" ]; then
+      sweep_merged || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
+    fi
+    if [ -z "$video_recheck" ]; then
+      main_holds "$run" "$refreshed" recovery || { [ "$?" = 1 ] || {
+        KEPT_WHY="its holds couldn't be compared with main's"
+        return 1
+      }; check=1; }
+      if [ -n "$swept" ] && [ -z "$check" ]; then
+        log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
+      fi
+    fi
     if [ -n "$check" ]; then
-      [ -n "$swept" ] || sweep_merged || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
       if [ -n "$video_recheck" ]; then
         checked_tree=$(video_recheck_tree) || { KEPT_WHY="the video recheck checkout differed from its commit before verification"; return 1; }
       fi
@@ -1450,7 +1500,9 @@ swept_clean() {
 # Work whose checks passed but whose push lost to main three times (each try pulled, swept and pushed while main moved
 # on: five merges in forty minutes on 14 Nov, when the sf run lost three) is kept as work out of time is, and the next run
 # publishes it first, after its own tests (publish_kept). Until then it stayed in the clone, whose next run starts from
-# main and drops it. A branch of that name already there is never written over. `keep_lost_push <job> [why] [commit]`.
+# main and drops it. A branch of that name already there is never written over. `keep_lost_push <job> [<why> [<commit>]]`:
+# why it wasn't pushed, by default the three lost tries; a comparison of main's holds that failed (main_holds) keeps the
+# run's own commit before its pull, named, whatever HEAD is then.
 keep_lost_push() {
   engine_clone || engine_cloud || return 0
   local branch saved why=${2:-push failed three times}; branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
@@ -1483,9 +1535,11 @@ curate_merged_calendar() {
 # A clean pull here brings main's holds as push() does (main_holds): a species or plant page merges by field and never
 # clashes, so a release on main before this pull would otherwise stay under the run's hold, and push(), whose base is then
 # this main, wouldn't see it (a reader of #1505, 16 Nov 2026). The sweep and the checks come after it (engine-cycle.sh).
+# False when main's holds couldn't be compared: the caller keeps the run's commit it started from and publishes nothing.
+# Going on, a pull it failed to undo would leave push() nothing to compare (a reader of #1703).
 catch_up() {
   local run; run=$(git rev-parse HEAD)
-  if net git pull -q --rebase; then main_holds "$run" || true; return 0; fi
+  if net git pull -q --rebase; then main_holds "$run" || [ $? = 1 ] || return 1; return 0; fi
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
 }

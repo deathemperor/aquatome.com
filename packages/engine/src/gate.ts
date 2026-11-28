@@ -129,7 +129,7 @@ const LEFT_OUT: readonly FitCheck[] = ['dose-caution', 'dose-purpose']
  * The checks whose every fault in the new text the old text has too, each quoted in a sentence the old text has word for
  * word: the change didn't bring them, whether a read of the old text found them or not.
  */
-const carried = (p: Page, e: FitEntry | undefined, old: Page) => {
+export const carriedChecks = (p: Page, e: FitEntry | undefined, old: Page) => {
   const was = new Set(sentences(fitText(old).text)), now = sentences(fitText(p).text)
   const all = new Map<FitCheck, boolean>()
   for (const f of gateFindings(p, e)) {
@@ -346,7 +346,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     const next = (p.kind === 'cards' ? await loadCards(join(root, 'content'), [p.lang]) : await loadPages(join(root, 'content'), [p.lang])).find(x => fileOf(x) === f)
     const read2 = next && await read(next)
     if (!next || !read2) return await undo()
-    const call = gateCall(checksFor(next, read2), { isNew: o.isNew, wasHeld: o.wasHeld, ...(old ? { before: new Set(unkit(p, [...o.oldChecks, ...carried(next, read2, old)])) } : {}) })
+    const call = gateCall(checksFor(next, read2), { isNew: o.isNew, wasHeld: o.wasHeld, ...(old ? { before: new Set(unkit(p, [...o.oldChecks, ...carriedChecks(next, read2, old)])) } : {}) })
     if (call.action === 'revert') return await tried()
     await d.mend.kept?.(p)
     // The mended text is the page's from here on: its read, and what the steps below and the report count.
@@ -395,7 +395,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
         }
         if (entry) state[fitKey(p)] = entry
         const nowChecks = checksFor(p, entry)
-        let call = gateCall(nowChecks, { isNew, wasHeld, ...(old ? { before: new Set(unkit(p, [...gateChecks(old, oldSaved), ...carried(p, entry, old)])) } : {}) })
+        let call = gateCall(nowChecks, { isNew, wasHeld, ...(old ? { before: new Set(unkit(p, [...gateChecks(old, oldSaved), ...carriedChecks(p, entry, old)])) } : {}) })
         if (call.action === 'revert' && old) {
           // Worse than its old text's saved read, or the old text was never read: read the old text now, and compare with both.
           const fresh = await read(old)
@@ -407,7 +407,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
             continue
           }
           const oldChecks = [...(oldSaved ? checksFor(old, oldSaved) : []), ...checksFor(old, fresh)]
-          const before = new Set(unkit(p, [...oldChecks, ...carried(p, entry, old)]))
+          const before = new Set(unkit(p, [...oldChecks, ...carriedChecks(p, entry, old)]))
           call = gateCall(nowChecks, { isNew, wasHeld, before })
           if (call.action === 'revert') {
             // What goes back if it does: the text as the cycle wrote it, before any mend.
