@@ -49,7 +49,7 @@ export async function readReviewedPhotoVersion(root: string): Promise<(url: stri
 export async function readPhotoWaits(
   root: string,
   overrides: { check?: Record<string, unknown>; subjects?: Record<string, unknown>; rejected?: Record<string, string>; watermarks?: Record<string, PhotoScreenEntry>; freshOwn?: boolean; requireDeadLook?: boolean } = {},
-): Promise<(url: string) => boolean> {
+): Promise<(url: string, freshOwn?: boolean) => boolean> {
   const [watermarks, owed, faces, deadScreen, secondLook, rejected, check, subjects, guideLooks, creditHeld] = await Promise.all([
     overrides.watermarks ?? read<PhotoScreenEntry>(root, PHOTO_SCREEN_FILE), read(root, DEAD_OWED_FILE), read(root, FACES_FILE),
     read(root, DEAD_SCREEN_FILE), read(root, SECOND_LOOK_RECORD), overrides.rejected ?? read<string>(root, PHOTO_REJECTED_FILE),
@@ -66,9 +66,9 @@ export async function readPhotoWaits(
   const effective = await expandWholePhotoRejections(content, rejected ?? {}, watermarks)
   const waits = photoWaitsFor({ watermarks, owed, unread, faces, unjudged, lookedForDead: looked, check, subjects, deadScreen, guideLooks, secondLook,
     rejected: photoRejections(effective, watermarks, reviewedPhotoVersion(secondLook, check, subjects)) })
-  return url => setsCookies(url) || creditHeld(url) || waits(url) ||
-    ((overrides.freshOwn || overrides.requireDeadLook) && !!looked && !looked(url)) ||
-    (overrides.freshOwn === true && !!faces && !Object.hasOwn(faces, url))
+  return (url, freshOwn = overrides.freshOwn === true) => setsCookies(url) || creditHeld(url) || waits(url) ||
+    ((freshOwn || overrides.requireDeadLook) && !!looked && !looked(url)) ||
+    (freshOwn && !!faces && !Object.hasOwn(faces, url))
 }
 
 /** Attribute a page's last visible photo to the pending guide or credit verdict. */
@@ -93,7 +93,7 @@ export async function holdablePhotoVerdicts(root: string, rejected: Record<strin
   const whole = pending.filter(removesWrapper)
   const byAddress = rejectedEntry(Object.fromEntries(whole.map(url => [url, 'whole'])))
   const originals = whole.length ? await originalPhotoRefusals(content, url => byAddress(url)?.[0]) : undefined
-  return lastPhotoVerdicts(pages, url => waits(url) || !!listed(url), pending, removesWrapper, originals)
+  return lastPhotoVerdicts(pages, url => waits(url) || !!listed(url), pending, removesWrapper, originals, true)
 }
 
 export { isVersionRejection as versionRejection }

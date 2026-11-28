@@ -469,6 +469,38 @@ test.each([false, true])('the guide’s refusal acts on a passed mirror independ
   expect(view.photoWaits!(square)).toBe(true)
 })
 
+test('one guide pass holds the last square and lists the independent mirror’s person refusal', async () => {
+  const square = { ...photo('square'), url: 'https://live.staticflickr.com/123/456_abc_q.jpg' }
+  const mirror = { ...photo('mirror'), url: `https://media.aquatome.com/${mirrorPlan(square.url)!.key}` }
+  const spare = photo('spare')
+  const { root, file, state, publicView } = await publicFixture([square], [mirror], [square.url, mirror.url, spare.url])
+  const entity = JSON.parse(await readFile(file, 'utf8'))
+  const language = await json(root, 'content/species/alpha/vi.json')
+  await writeFile(join(root, 'content/species/beta/entity.json'), JSON.stringify({ ...entity, id: 'beta', photos: [mirror, spare] }))
+  await writeFile(join(root, 'content/species/beta/vi.json'), JSON.stringify({ ...language, slug: 'spare-beta' }))
+  const guide = join(root, 'content/guides/both/entity.json')
+  await mkdir(join(guide, '..'), { recursive: true })
+  await writeFile(guide, JSON.stringify({ id: 'both', photos: [square, mirror] }))
+  await writeFile(join(state, '_photo-faces.json'), JSON.stringify({ [square.url]: 0, [mirror.url]: 0, [spare.url]: 0 }))
+  await writeFile(join(state, '_dead-screen.json'), JSON.stringify({ [spare.url]: { dead: false } }))
+  const photos = [square, mirror]
+  await writeFile(join(state, '_photo-check.json'), JSON.stringify(Object.fromEntries(photos.map(p => [p.url, { ok: 'yes', logo: false }]))))
+  await writeFile(join(state, '_photo-guides.json'), JSON.stringify(Object.fromEntries(photos.map(p => [p.url, { person: true, mark: false, brand: false, note: '' }]))))
+  const unused = async () => { throw new Error('Both guide verdicts are cached') }
+
+  await screenGuidePhotos(root, { get: unused, look: unused }, { limit: 0 })
+
+  expect(await json(root, 'engine-state/_photo-second-look.json')).toMatchObject({
+    [square.url]: { why: expect.stringMatching(/^people:/), pages: ['species/alpha'] },
+  })
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({ [mirror.url]: expect.stringMatching(/^people:/) })
+  const view = await publicView()
+  expect(view.species.find(s => s.id === 'alpha')?.photos.map(p => p.url)).toEqual([square.url])
+  expect(view.species.find(s => s.id === 'beta')?.photos.map(p => p.url)).toEqual([spare.url])
+  expect(view.galleries.alpha ?? []).toEqual([])
+  expect(view.photoWaits!(mirror.url)).toBe(true)
+})
+
 test('a later shop-mark approval preserves the guide’s person refusal', async () => {
   const sourceUrl = 'https://www.aquariumglaser.de/example/'
   const shop = { ...photo('shop'), url: 'https://media.aquatome.com/glaser/mixed.webp', sourceUrl }

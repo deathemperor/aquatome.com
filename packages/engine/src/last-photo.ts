@@ -156,7 +156,7 @@ export function lastPhotoVerdicts(
   }
   const byVerdict = (url: string) => {
     const key = photoKey(url)
-    if (separateVersions && exact.has(url) && !key?.startsWith('commons/')) return url
+    if (separateVersions && exact.has(url) && !removesWrapper?.(url) && !key?.startsWith('commons/')) return url
     return addresses.get(key ?? url)
   }
   const linked = new Map<string, Set<string>>()
