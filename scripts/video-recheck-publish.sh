@@ -1,6 +1,19 @@
 #!/usr/bin/env bash
 # Sourced by video-recheck.sh after the common cycle helpers are loaded.
 
+# From main will reset the checkout. Preserve staged and working edits even when a previous commit failed.
+archive_video_recheck_startup() {
+  archive_video_recheck_inputs || return 1
+  if git diff --quiet && git diff --cached --quiet; then return 0; fi
+  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive
+  mkdir -p "$parent" || return 1
+  archive=$(mktemp -d "$parent/video-recheck-checkout.XXXXXXXX") || return 1
+  git rev-parse HEAD > "$archive/head" &&
+    git diff --no-ext-diff --no-textconv --binary --cached > "$archive/staged.patch" &&
+    git diff --no-ext-diff --no-textconv --binary > "$archive/working.patch" || return 1
+  log "saved the video recheck checkout at $archive"
+}
+
 # Fresh work has yet to pass the gate. Save a failed sweep separately from batches recovery can publish.
 sweep_new_video_recheck() {
   pnpm engine sweep && return 0

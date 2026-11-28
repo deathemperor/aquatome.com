@@ -42,8 +42,8 @@ fi
 export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-video-recheck.jsonl}"
 
 # The reset can overwrite an untracked path that main has since committed.
-video_recheck_tree >/dev/null || archive_video_recheck_inputs || {
-  log "could not preserve untracked video recheck files before resetting"
+archive_video_recheck_startup || {
+  log "could not preserve the video recheck checkout before resetting"
   exit 1
 }
 from_main "$@"
