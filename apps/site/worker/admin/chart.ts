@@ -110,7 +110,7 @@ export function dayChart(c: DayChart): string {
   const laneMax = c.lanes ? series.map(s => Math.max(1, ...s.values.map(v => known(v) ? Math.abs(v) : 0))) : []
   const head = `<h3 id="${c.id}-t">${esc(c.title)}</h3>`
   const hasFigures = all.some(s => c.days.some((_, i) => c.lanes ? at(s, i) !== null : Boolean(at(s, i))))
-  if (!n || (!selectDay && !hasFigures)) return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}</figcaption><p class="empty">${esc(c.empty ?? 'No figures in this period yet.')}</p></figure>`
+  if (!n || (!hasFigures && (!selectDay || c.bare))) return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}</figcaption><p class="empty">${esc(c.empty ?? 'No figures in this period yet.')}</p></figure>`
 
   // The scale: zero, the round top above the tallest stack (or whole), and as far below as a negative day reaches.
   const sum = (i: number, sign: 1 | -1) => series.reduce((t, s) => t + Math.max(0, sign * (at(s, i) ?? 0)), 0)
