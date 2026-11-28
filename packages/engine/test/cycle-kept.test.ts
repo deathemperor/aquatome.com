@@ -632,6 +632,76 @@ test.each([
   }
 }, slow(60_000))
 
+test.each(['fresh', 'kept', 'held'])('a %s video recheck preserves its batch if the sweep resets the checkout', kind => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const branch = `${kind}/video-recheck/${when}`
+  const batch = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD')
+  if (kind !== 'fresh') c.sh(`git branch ${branch} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new')
+  c.sh('git fetch -q origin')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
+    pnpm() {
+      if [ "$2" = sweep ]; then git reset -q --hard origin/main; fi
+    }
+    ${kind === 'fresh' ? 'push_video_recheck || echo refused' : 'publish_kept video-recheck'}
+  `)
+  expect(log).toContain(kind === 'fresh' ? 'refused' : "isn't published yet")
+  expect(c.onMain('content/video.json')).toBe('')
+  const branches = c.branches()
+  if (kind === 'fresh') expect(branches).toEqual([expect.stringMatching(/^kept\/video-recheck\/\d{8}T\d{6}$/)])
+  else expect(branches).toEqual([branch])
+  expect(c.sh(`git rev-parse ${branches[0]}`)).toBe(batch)
+}, slow(60_000))
+
+test.each([
+  ['held', false],
+  ['kept', false],
+  ['held', true],
+] as const)('a fresh video recheck retains its %s status when recovery refs are locked (both: %s)', (queue, blockBoth) => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const suffix = queue === 'kept' ? '-out1' : ''
+  const locked = `${queue}/video-recheck/${when}${suffix}`
+  const backup = `${queue}/video-recheck/${when}-save${suffix}`
+  const batch = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD')
+  c.sh(`mkdir -p .git/refs/heads/${queue}/video-recheck && touch .git/refs/heads/${locked}.lock`)
+  if (blockBoth) c.sh(`touch .git/refs/heads/${backup}.lock`)
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
+    date() {
+      if [ "$*" = '-u +%Y%m%dT%H%M%S' ]; then echo '${when}'; else command date "$@"; fi
+    }
+    checks() { echo '${queue === 'kept' ? 'Error: Test timed out in 30000ms.' : 'real check failure'}'; return 1; }
+    push_video_recheck || echo refused
+  `)
+  expect(log).toContain('refused')
+  if (blockBoth) {
+    expect(log).toContain('could not queue the failed video recheck')
+    expect(c.branches()).toEqual([])
+    expect(c.sh(`git -C "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-ref.* rev-parse refs/heads/${backup}`)).toBe(batch)
+  } else {
+    expect(c.branches()).toEqual([backup])
+    expect(c.sh(`git rev-parse ${backup}`)).toBe(batch)
+  }
+  expect(c.onMain('content/video.json')).toBe('')
+}, slow(60_000))
+
+test('video recheck treats empty fixture review directories as verification inputs', () => {
+  const c = clone()
+  const path = 'apps/site/test/engine-state/reviews'
+  c.sh(`mkdir -p ${path}`)
+  const log = c.cycle(`
+    if video_recheck_tree >/dev/null; then echo clean; else echo dirty; fi
+    prepare_video_recheck
+  `)
+  expect(log).toContain('dirty')
+  expect(c.sh(`test ! -d ${path} && echo removed`)).toBe('removed')
+}, slow(60_000))
+
 test('kept video recovery preserves the batch when main has its exact tip but reverts the guide', () => {
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
@@ -1310,7 +1380,7 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
     // after the sweep on a clean pull that brought main's commits in.
     if (name === 'video-recheck.sh') {
       expect(s, name).toContain('\npush_video_recheck\n')
-      expect(script('video-recheck-publish.sh')).toMatch(/if \[ "\$verification_failed" != 0 \]; then\n\s*keep_unpublished video-recheck "\$batch" \|\|\n\s*keep_lost_push video-recheck .* "\$batch"\n.*not publishing.*\n\s*return 1/)
+      expect(script('video-recheck-publish.sh')).toMatch(/if \[ "\$verification_failed" != 0 \]; then\n\s*keep_unpublished video-recheck "\$batch" \|\| log .*\n.*not publishing.*\n\s*return 1/)
     } else {
       const gaveUp = s.split('\n').filter(l => /not publishing/.test(l) && !/gate:/.test(l))
       expect(gaveUp.length, name).toBe(3)

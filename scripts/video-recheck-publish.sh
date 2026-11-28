@@ -19,7 +19,7 @@ sweep_new_video_recheck() {
 }
 
 push_video_recheck() {
-  local try run swept_main tree checked_tree='' refreshed clash verification_failed commit candidate batch
+  local try run swept_main tree checked_tree='' refreshed pulled clash verification_failed commit candidate batch
   batch=$(git rev-parse HEAD) || return 1
   candidate=$batch
   swept_main=$(git merge-base "$batch" '@{u}') || return 1
@@ -47,7 +47,7 @@ push_video_recheck() {
       fi
     fi
     refreshed=$(git rev-parse '@{u}') || break
-    if ! video_recheck_pull_kept_batch "$batch" "$refreshed"; then
+    if ! pulled=$(git rev-parse HEAD) || ! video_recheck_pull_kept_batch "$batch" "$refreshed" "$pulled"; then
       keep_lost_push video-recheck "the first pull did not retain the video recheck batch" "$batch"
       return 1
     fi
@@ -66,7 +66,7 @@ push_video_recheck() {
 
     # Check the tree that includes the latest main. A disjoint content change can affect cross-page checks.
     candidate=$(git rev-parse HEAD) || break
-    if ! tree=$(video_recheck_tree "$candidate"); then
+    if ! tree=$(video_recheck_tree "$candidate" "$pulled"); then
       keep_lost_push video-recheck "the video recheck checkout differed from its commit before verification" "$batch"
       return 1
     fi
@@ -78,8 +78,7 @@ push_video_recheck() {
         return 1
       fi
       if [ "$verification_failed" != 0 ]; then
-        keep_unpublished video-recheck "$batch" ||
-          keep_lost_push video-recheck "could not save the tested video recheck checkout" "$batch"
+        keep_unpublished video-recheck "$batch" || log "could not queue the failed video recheck"
         log "tests failed, not publishing (see $TEST_LOG)"
         return 1
       fi
