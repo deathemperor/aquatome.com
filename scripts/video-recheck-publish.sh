@@ -83,12 +83,17 @@ recover_video_recheck_pending() {
   clear_video_recheck_pending "$batch" "$pending"
 }
 
-# Runs after the checkout archive and before from_main can reset it.
+# Save any edits and clear the checkout before from_main can switch back to main.
 recover_interrupted_video_recheck() {
   local rebase_merge rebase_apply pending link batch queued
+  if ! archive_video_recheck_checkout; then
+    log "could not preserve the video recheck checkout before resetting"
+    return 1
+  fi
   rebase_merge=$(git rev-parse --git-path rebase-merge) &&
     rebase_apply=$(git rev-parse --git-path rebase-apply) || return 1
   if [ -d "$rebase_merge" ] || [ -d "$rebase_apply" ]; then git rebase --abort || return 1; fi
+  git reset -q --hard HEAD || return 1
 
   pending=$(video_recheck_pending) || return 1
   if [ -n "$pending" ]; then recover_video_recheck_pending "$pending" || return 1; fi
@@ -172,10 +177,7 @@ publish_video_recheck_batch() {
       log "could not rebase the video recheck onto main"
       continue
     fi
-    if ! pulled=$(git rev-parse HEAD); then
-      keep_lost_push video-recheck "could not identify the rebased video recheck" "$batch"
-      return 1
-    fi
+    pulled=$VIDEO_RECHECK_REBASED
     if ! video_recheck_rules_current; then
       keep_lost_push video-recheck "video recheck rules changed during this run" "$batch"
       return 1

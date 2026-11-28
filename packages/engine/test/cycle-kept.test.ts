@@ -533,7 +533,6 @@ test.each([
   if (lane === 'fresh') expect(c.sh('git rev-parse refs/aquatome/video-recheck/pending')).toBe(batch)
   const log = c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
-    archive_video_recheck_checkout
     recover_interrupted_video_recheck
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
     from_main
@@ -565,7 +564,6 @@ test('video startup can recover an anchored commit before main advances', () => 
   expect(c.sh(`git show '${pending}:content/video.json'`)).toBe('rechecked')
   const log = c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
-    archive_video_recheck_checkout
     recover_interrupted_video_recheck
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
     from_main
@@ -597,7 +595,6 @@ test('video recovery publishes only the gated commit when HEAD moves before publ
 
   c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
-    archive_video_recheck_checkout
     recover_interrupted_video_recheck
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
     from_main
@@ -648,7 +645,6 @@ test.each([false, true])('video startup recovers a first pending-ref lock (queue
   c.sh('rm .git/refs/aquatome/video-recheck/pending.lock')
   const restart = c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
-    archive_video_recheck_checkout
     recover_interrupted_video_recheck
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
     from_main
@@ -658,6 +654,50 @@ test.each([false, true])('video startup recovers a first pending-ref lock (queue
   expect(c.onMain('content/video.json')).toBe('rechecked')
   expect(c.branches()).toEqual([])
   expect(c.sh('find "$HOME/.cache/aquatome/engine-check-failures" -maxdepth 1 -name "video-recheck-queue.*"')).toBe('')
+}, slow(60_000))
+
+test('video startup archives a failed detached sweep and publishes the queued batch', () => {
+  const c = clone()
+  c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')
+  c.elsewhere('content/a.json', 'on-main')
+  c.sh('git fetch -q origin')
+  const failed = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    pnpm() {
+      if [ "$1 $2" = 'engine sweep' ]; then echo partial > content/a.json; return 1; fi
+    }
+    publish_fixture_video_recheck || echo refused
+  `)
+  expect(failed).toContain('refused')
+  expect(c.sh('git branch --show-current')).toBe('')
+  expect(c.sh('cat content/a.json')).toBe('partial')
+  expect(c.onMain('content/video.json')).toBe('')
+  expect(c.branches()).toHaveLength(1)
+
+  const blocked = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    TEST_FAILURES_DIR="$HOME/blocked-archive"
+    touch "$TEST_FAILURES_DIR"
+    recover_interrupted_video_recheck || echo refused
+  `)
+  expect(blocked).toContain('refused')
+  expect(c.sh('cat content/a.json')).toBe('partial')
+
+  const restart = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    recover_interrupted_video_recheck
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    from_main
+    publish_kept video-recheck
+  `)
+  expect(restart).toContain('published kept/video-recheck/')
+  const patch = c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-checkout.*/working.patch')
+  expect(patch).toContain('-on-main')
+  expect(patch).toContain('+partial')
+  expect(c.onMain('content/a.json')).toBe('on-main')
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.branches()).toEqual([])
 }, slow(60_000))
 
 test.each([
@@ -696,7 +736,6 @@ test.each([
   c.sh('git fetch -q origin')
   const restart = c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
-    archive_video_recheck_checkout
     recover_interrupted_video_recheck
     ${outcome === 'lands during handoff' ? `
       git -C "$HOME/other" fetch -q "$PWD" '${outgoing}'
@@ -855,6 +894,49 @@ test.each([
   // Recovery keeps a page that main already published at the same path.
   expect(c.onMain('content/video.json')).toBe(kind !== 'fresh' && stage === 'clash retry' ? 'editor' : 'rechecked')
   expect(c.onMain('code.txt')).toBe('new-code')
+  expect(c.onMain('content/ungated.json')).toBe('')
+  expect(c.branches()).toEqual([])
+}, slow(60_000))
+
+test.each(['fresh', 'kept', 'held'])('a %s video recheck rejects a commit added after rebase completes', kind => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const branch = `${kind}/video-recheck/${when}`
+  const batch = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD')
+  if (kind !== 'fresh') c.sh(`git branch ${branch} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new-code')
+  c.sh('git fetch -q origin')
+  const interrupted = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    sleep() { :; }
+    net() {
+      "$@" || return "$?"
+      if [ "$2" = rebase ] && [ "$3" = -q ] && [ ! -f "$HOME/after-rebase" ]; then
+        echo ungated > content/ungated.json
+        git add content/ungated.json && git commit -qm ungated || return 1
+        touch "$HOME/after-rebase"
+      fi
+    }
+    verify_cycle() { echo VERIFIED; }
+    ${kind === 'fresh' ? 'publish_fixture_video_recheck || echo refused' : 'publish_kept video-recheck'}
+  `)
+  expect(c.sh('test -f "$HOME/after-rebase" && echo advanced')).toBe('advanced')
+  expect(interrupted).not.toContain('VERIFIED')
+  expect(c.onMain('content/video.json')).toBe('')
+  expect(c.onMain('content/ungated.json')).toBe('')
+  const queued = c.branches()
+  expect(queued).toHaveLength(1)
+  expect(c.sh(`git rev-parse ${queued[0]}`)).toBe(batch)
+
+  c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    recover_interrupted_video_recheck
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    from_main
+    publish_kept video-recheck
+  `)
+  expect(c.onMain('content/video.json')).toBe('rechecked')
   expect(c.onMain('content/ungated.json')).toBe('')
   expect(c.branches()).toEqual([])
 }, slow(60_000))
@@ -1037,7 +1119,6 @@ test.each([
     }
     const restart = c.cycle(`
       source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
-      archive_video_recheck_checkout
       recover_interrupted_video_recheck
       AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
       from_main
@@ -1967,11 +2048,8 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
     }
     // Kept work is published once a run has installed and set its merge drivers, before it does its own work.
     if (name === 'video-recheck.sh') {
-      const archive = s.indexOf('archive_video_recheck_checkout ||')
-      expect(archive).toBeGreaterThan(0)
-      expect(archive).toBeLessThan(s.indexOf('from_main "$@"'))
       const interrupted = s.indexOf('recover_interrupted_video_recheck ||')
-      expect(interrupted).toBeGreaterThan(archive)
+      expect(interrupted).toBeGreaterThan(0)
       expect(interrupted).toBeLessThan(s.indexOf('from_main "$@"'))
     }
     const install = s.indexOf('pnpm install --frozen-lockfile --silent')

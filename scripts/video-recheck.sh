@@ -41,11 +41,6 @@ fi
 # A line a model call: its cost, tokens and the account it went to (claude.ts), so a week's use can be split by job.
 export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-video-recheck.jsonl}"
 
-# The reset can overwrite an untracked path that main has since committed.
-archive_video_recheck_checkout || {
-  log "could not preserve the video recheck checkout before resetting"
-  exit 1
-}
 recover_interrupted_video_recheck || {
   log "could not queue the interrupted video recheck"
   exit 1
