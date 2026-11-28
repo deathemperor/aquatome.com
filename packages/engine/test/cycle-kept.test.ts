@@ -547,6 +547,51 @@ test.each([0, 1])('a fresh video recheck keeps its batch when checkout moves at 
   expect(c.sh(`git show ${branches[0]}:content/video.json`)).toBe('rechecked')
 }, slow(60_000))
 
+test.each(['fresh', 'kept', 'held'])('a %s video recheck keeps its batch when checkout resets at the first pull', kind => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const branch = `${kind}/video-recheck/${when}`
+  const candidate = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD')
+  if (kind !== 'fresh') c.sh(`git branch ${branch} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new')
+  c.sh('git fetch -q origin')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
+    net() {
+      if [ "$2" = pull ] && [ "$4" = --rebase ] && [ ! -f "$HOME/moved-checkout" ]; then
+        touch "$HOME/moved-checkout"
+        git reset -q --hard origin/main
+      fi
+      "$@"
+    }
+    ${kind === 'fresh' ? 'push_video_recheck || echo refused' : 'publish_kept video-recheck'}
+  `)
+  expect(log).toContain(kind === 'fresh' ? 'refused' : "isn't published yet")
+  expect(c.onMain('content/video.json')).toBe('')
+  const branches = c.branches()
+  if (kind === 'fresh') expect(branches).toEqual([expect.stringMatching(/^kept\/video-recheck\/\d{8}T\d{6}$/)])
+  else expect(branches).toEqual([branch])
+  expect(c.sh(`git rev-parse ${branches[0]}`)).toBe(candidate)
+}, slow(60_000))
+
+test.each([false, true])('a fresh video recheck handles a patch main already applied, then reverted: %s', reverted => {
+  const c = clone()
+  c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')
+  c.elsewhere('content/video.json', 'rechecked')
+  if (reverted) c.sh('git -C "$HOME/other" revert --no-edit HEAD && git -C "$HOME/other" push -q')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
+    push_video_recheck || echo refused
+  `)
+  expect(log).toContain(reverted ? 'refused' : 'pushed (GitHub deploys it)')
+  expect(c.onMain('content/video.json')).toBe(reverted ? '' : 'rechecked')
+  const branches = c.branches()
+  expect(branches).toHaveLength(reverted ? 1 : 0)
+  if (reverted) expect(c.sh(`git show ${branches[0]}:content/video.json`)).toBe('rechecked')
+}, slow(60_000))
+
 test('video recheck preparation excludes an ignored fixture parent read by the material loader', async () => {
   const c = clone()
   const fixture = 'apps/site/test/fixture-content'
@@ -563,6 +608,24 @@ test('video recheck preparation excludes an ignored fixture parent read by the m
   c.cycle('prepare_video_recheck')
   await expect(loadAll({ root, lang: 'vi', publicBuild: false })).rejects.toThrow('material wood: parent "dist" is not another material')
   expect(c.sh(`cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/${fixture}/materials/dist/entity.json`)).toBe(parent)
+}, slow(60_000))
+
+test('video recheck preparation excludes ignored screening records read by the public fixture loader', async () => {
+  const c = clone()
+  const fixture = 'apps/site/test/fixture-content'
+  const root = join(c.sh('pwd'), fixture)
+  mkdirSync(root, { recursive: true })
+  writeFileSync(join(root, 'sources.json'), '{}')
+  c.sh(`git add ${fixture} && git commit -qm fixture`)
+  const record = 'apps/site/test/engine-state/_photo-watermarks.json'
+  const malformed = '{local record'
+  c.sh(`mkdir -p apps/site/test/engine-state && echo '${record}' >> .git/info/exclude`)
+  writeFileSync(join(root, '..', 'engine-state', '_photo-watermarks.json'), malformed)
+  const loadFixture = () => loadAll({ root, lang: 'vi', publicBuild: true })
+  await expect(loadFixture()).rejects.toThrow(SyntaxError)
+  c.cycle('prepare_video_recheck')
+  await expect(loadFixture()).resolves.toMatchObject({ species: [] })
+  expect(c.sh(`cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/${record}`)).toBe(malformed)
 }, slow(60_000))
 
 test('held video recovery archives an ignored site input before running checks', () => {
