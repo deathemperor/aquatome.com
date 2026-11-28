@@ -18,7 +18,7 @@
 // (gate.ts): it stays as merged, and the next gate decides it ("harm <file>"). A language main lets out here too doesn't
 // stay held: when the run held every language for one's harm and main let them all out, they all go (a reader of #1505).
 //
-//   node scripts/main-holds.mjs <base> <main>
+//   node scripts/main-holds.mjs <base> <main> [--strict]
 // prints "hold <file>" for each file to take from <main>, "text <file>" for each whose record is main's and text isn't,
 // and "harm <file>" for each kept held for another language's harm. HEAD is the merge.
 import { execFileSync } from 'node:child_process'
@@ -28,13 +28,29 @@ const FIT = 'engine-state/_fit.json'
 const GATED_KINDS = ['guides', 'species', 'plants', 'breeds', 'cards']
 const FILE = new RegExp(`^content/(${GATED_KINDS.join('|')})/([^/]+)/([a-z]{2})\\.json$`)
 
-const git = (...args) => execFileSync('git', args, { encoding: 'utf8', maxBuffer: 1 << 30 })
+const [base, main, mode] = process.argv.slice(2)
+if (!base || !main) {
+  console.error('usage: node scripts/main-holds.mjs <base> <main> [--strict]')
+  process.exit(2)
+}
+const strict = mode === '--strict'
+const git = (...args) => {
+  try {
+    return execFileSync('git', args, { encoding: 'utf8', maxBuffer: 1 << 30, stdio: ['ignore', 'pipe', 'pipe'] })
+  } catch {
+    throw new Error(`git ${args[0]} failed during hold comparison`)
+  }
+}
 const at = (rev, file) => {
   try {
-    return JSON.parse(git('show', `${rev}:${file}`))
+    const value = JSON.parse(git('show', `${rev}:${file}`))
+    if (!strict || (value && typeof value === 'object' && !Array.isArray(value))) return value
   } catch {
-    return undefined
+    // The tree lookup below distinguishes an absent path from an unreadable blob.
   }
+  if (strict && git('ls-tree', '--full-tree', '-z', rev, '--', file))
+    throw new Error(`could not read ${file} at ${rev} during hold comparison`)
+  return undefined
 }
 // Key order aside: the entity driver can write a page's fields in another order than the side it took them from.
 const canon = v =>
@@ -45,11 +61,6 @@ const text = page => {
   return rest
 }
 
-const [base, main] = process.argv.slice(2)
-if (!base || !main) {
-  console.error('usage: node scripts/main-holds.mjs <base> <main>')
-  process.exit(2)
-}
 const changed = git('diff', '--name-only', '--no-renames', main, 'HEAD', '--', 'content').split('\n').filter(f => FILE.test(f))
 // The page's other language files held for harm, in the merge.
 const harmBeside = f => {

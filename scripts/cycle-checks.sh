@@ -663,11 +663,28 @@ retry_held() {
 # later commit deleted was added on main's and then deleted, main's page with it (Codex's read, 14 Nov). All in a commit
 # of its own. `main_pages <branch> [<main>]`, after the pull.
 main_pages() {
-  local base pages files upstream=${2:-origin/main}
-  base=$(git merge-base "$1" "$upstream") || return 0
-  pages=$(comm -12 <(ever_added "$base" "$1" | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) <(added "$base" "$upstream" | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) |
-    while read -r page; do git cat-file -e "$base:$page" 2>/dev/null || echo "$page"; done)
-  files=$(comm -12 <(ever_added "$base" "$1") <(added "$base" "$upstream") | while read -r file; do grep -qxF "${file%/*}" <<<"$pages" || echo "$file"; done)
+  local base ours theirs shared page_dirs pages files upstream=${2:-origin/main}
+  if ! base=$(git merge-base "$1" "$upstream") ||
+    ! ours=$(ever_added "$base" "$1") || ! theirs=$(added "$base" "$upstream"); then
+    log "main's pages: could not compare the added files"
+    return 1
+  fi
+  shared=$(comm -12 <(printf '%s\n' "$ours") <(printf '%s\n' "$theirs")) || return 1
+  ours=$(added_page_dirs <<<"$ours") && theirs=$(added_page_dirs <<<"$theirs") || return 1
+  page_dirs=$(comm -12 <(printf '%s\n' "$ours") <(printf '%s\n' "$theirs")) || return 1
+  pages=$(
+    while IFS= read -r page; do
+      [ -n "$page" ] || continue
+      entry=$(git ls-tree --full-tree "$base" -- "$page") || exit 1
+      [ -n "$entry" ] || printf '%s\n' "$page"
+    done <<<"$page_dirs"
+  ) || return 1
+  files=$(
+    while IFS= read -r file; do
+      [ -n "$file" ] || continue
+      grep -qxF "${file%/*}" <<<"$pages" || printf '%s\n' "$file"
+    done <<<"$shared"
+  ) || return 1
   [ -n "$pages$files" ] || return 0
   # shellcheck disable=SC2086 # content paths have no spaces
   git checkout --no-overlay "$upstream" -- $pages $files || return 1
@@ -676,9 +693,19 @@ main_pages() {
   log "$1: $(grep -c . <<<"$pages" || true) pages and $(grep -c . <<<"$files" || true) other files a later run published first stay as main has them"
 }
 # The content files added between commits $1 and $2, renames not followed, sorted.
-added() { git diff --name-only --no-renames --diff-filter=A "$1" "$2" -- content | sort; }
+added() (
+  set -o pipefail
+  git diff --name-only --no-renames --diff-filter=A "$1" "$2" -- content | sort
+)
 # The content files any commit after $1 up to $2 added, renames not followed, sorted: one a later commit deleted too.
-ever_added() { git log --format= --name-only --no-renames --diff-filter=A "$1..$2" -- content | sed '/^$/d' | sort -u; }
+ever_added() (
+  set -o pipefail
+  git log --format= --name-only --no-renames --diff-filter=A "$1..$2" -- content | sed '/^$/d' | sort -u
+)
+added_page_dirs() (
+  set -o pipefail
+  sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u
+)
 # After a pull that brought main's commits in, clean or not: a page's hold follows the record that won, so a release on
 # main during a run stands, and so does a hold (main-holds.mjs says which pages and why; Page Recovery and the chief of
 # staff, 16 Nov 2026). Only the hold moves, and only on a page whose text is main's: one whose text isn't stays as merged,
@@ -693,7 +720,7 @@ main_holds() {
     return 0
   fi
   [ "$base" != "$up" ] || return 0
-  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up"); then
+  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up" "${strict:+--strict}"); then
     [ -z "$strict" ] || { log "main's holds: comparison failed, leaving the video recheck queued"; return 2; }
     log "main's holds: the pages main read during this run couldn't be compared, so their holds stay as merged"
     return 0

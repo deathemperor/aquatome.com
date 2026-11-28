@@ -479,6 +479,41 @@ test('a fresh video publish archives another checkout file before the merge swee
   expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/sources/local-only.txt')).toBe('stray')
 }, slow(60_000))
 
+test.each(['log --format=', 'diff --name-only'])('a kept video recheck stays queued when the page comparison cannot list changes (%s)', args => {
+  const c = clone()
+  const branch = 'kept/video-recheck/20261128T120000'
+  const page = 'content/guides/youtube-shared/vi.json'
+  const batch = c.sh(`
+    mkdir -p "$(dirname '${page}')"
+    echo batch-page > '${page}'
+    echo rechecked > content/video.json
+    git add content && git commit -qm recheck
+    git branch '${branch}' && git rev-parse HEAD && git reset -q --hard origin/main
+  `)
+  c.elsewhere(page, 'main-page')
+  const log = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    git() {
+      if [ "$1 \${2:-}" = '${args}' ] && [[ "$*" = *'--diff-filter=A'* ]]; then
+        echo 'injected page comparison failure' >&2
+        return 42
+      fi
+      command git "$@"
+    }
+    verify_cycle() { echo VERIFIED; }
+    publish_kept video-recheck
+  `)
+  expect(log).not.toContain('VERIFIED')
+  expect(c.branches()).toEqual([branch])
+  expect(c.sh(`git rev-parse '${branch}'`)).toBe(batch)
+  expect(c.onMain(page)).toBe('main-page')
+  expect(c.onMain('content/video.json')).toBe('')
+
+  expect(c.cycle('AQ_SCRIPT_HEAD=$(git rev-parse origin/main); publish_kept video-recheck')).toContain(`LOG published ${branch}`)
+  expect(c.onMain(page)).toBe('main-page')
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+}, slow(60_000))
+
 test.each(['kept', 'held'])('a %s video recheck replans with the final page photo', kind => {
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')

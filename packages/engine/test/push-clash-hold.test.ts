@@ -21,7 +21,7 @@ type Side = { held?: Held; body?: string; fit?: { at: string; hash: string; chec
 const KINDS = { guides: { dir: 'content/guides/youtube-x', key: 'vi/guides/youtube-x' }, species: { dir: 'content/species/ca-x', key: 'vi/species/ca-x' } }
 
 // lostPush: the run's first push loses, as main gets this side meanwhile.
-function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: { mainOther?: boolean; kept?: boolean; catchUp?: boolean; lostPush?: Side; video?: 'fresh' | 'kept'; holdComparisonFails?: boolean } = {}) {
+function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: { mainOther?: boolean; kept?: boolean; catchUp?: boolean; lostPush?: Side; video?: 'fresh' | 'kept'; holdFault?: 'process' | 'unreadable' | 'malformed' } = {}) {
   const { dir: pageDir, key } = KINDS[kind]
   const file = `${pageDir}/vi.json`
   const secondGuide = 'content/guides/youtube-y/vi.json'
@@ -36,7 +36,11 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     `${JSON.stringify({ ...(s.fit ? { [key]: record(s.fit) } : {}), ...(s.th?.fit ? { [thKey]: record(s.th.fit) } : {}) }, null, 2)}\n`
   const write = (files: Record<string, string>) =>
     Object.entries(files).map(([f, t]) => `mkdir -p "$(dirname ${f})" && printf '%s' '${t.replace(/'/g, `'\\''`)}' > ${f} && git add ${f}`).join(' && ')
-  const both = (s: Side) => write({ [file]: page(s), ...(s.th ? { [thFile]: page(s.th) } : {}), 'engine-state/_fit.json': fit(s) })
+  const both = (s: Side) => write({
+    [file]: page(s),
+    ...(s.th ? { [thFile]: page(s.th) } : {}),
+    ...(s.fit || s.th?.fit ? { 'engine-state/_fit.json': fit(s) } : {}),
+  })
   const pushFn = readFileSync(join(ROOT, 'scripts/engine-cycle.sh'), 'utf8').match(/^push\(\) \{[\s\S]*?^\}$/m)![0]
   const script = `
     set -e
@@ -63,12 +67,23 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     log() { echo "LOG $*"; }
     source "${join(ROOT, 'scripts/cycle-checks.sh')}"
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
-    ${o.holdComparisonFails ? `
-      engine_clone() { return 0; }
+    ${o.holdFault ? 'engine_clone() { return 0; }' : ''}
+    ${o.holdFault === 'process' ? `
       node() {
         case "$1" in */main-holds.mjs) return 42 ;; esac
         command node "$@"
       }
+    ` : o.holdFault ? `
+      export FIXTURE_GIT=$(command -v git) FIXTURE_READ="$(git -C ../other rev-parse HEAD):${file}"
+      mkdir ../bin && cat > ../bin/git <<'GIT'
+#!/bin/sh
+if [ "$1" = show ] && [ "$2" = "$FIXTURE_READ" ]; then
+  ${o.holdFault === 'malformed' ? "printf '{broken json\\n'; exit 0" : 'exit 42'}
+fi
+exec "$FIXTURE_GIT" "$@"
+GIT
+      chmod +x ../bin/git
+      export PATH="${dir}/bin:$PATH"
     ` : ''}
     net() {
       ${o.lostPush ? `if [ "$1 $2" = "git push" ] && [ ! -e ../lost ]; then touch ../lost; (cd ../other && ${both(o.lostPush)} && ${o.video ? write({ 'content/concurrent.json': '{"main":true}\n' }) : ':'} && git commit -qm 'content: main again, meanwhile' && git push -q origin main); fi` : ':'}
@@ -284,18 +299,36 @@ test.each(['fresh', 'kept'] as const)('a %s video recheck restores main’s hold
   expect(r.pushedSecondGuide().body).toBe('<p>Đoạn mới.</p>')
 })
 
-test.each(['fresh', 'kept'] as const)('a %s video recheck stays queued when main’s holds cannot be compared', video => {
+test.each([
+  ['fresh', 'process'],
+  ['kept', 'process'],
+  ['fresh', 'unreadable'],
+  ['kept', 'malformed'],
+] as const)('a %s video recheck stays queued when main’s holds cannot be compared (%s)', (video, holdFault) => {
   const stillHeld = { held: hold('harm'), fit: heldFor('harm') }
   const r = push('guides', {
     base: { held: stillHeld.held, fit: { at: '2026-11-14', hash: 'e025', checks: ['harm'] } },
     main: stillHeld,
     run: { fit: clean },
-  }, { video, holdComparisonFails: true })
+  }, { video, holdFault })
   expect(r.out).toContain('CODE 1')
   expect(r.out).toMatch(/^QUEUED kept\/video-recheck\//m)
   expect(r.out).not.toContain('VERIFY')
   expect(r.pushed.held).toEqual(stillHeld.held)
   expect(r.pushedSecondGuide()).toBeUndefined()
+})
+
+test('a video recheck can restore a hold when the base predates its review file', () => {
+  const stillHeld = { held: hold('harm'), fit: heldFor('harm') }
+  const r = push('guides', {
+    base: { held: stillHeld.held },
+    main: stillHeld,
+    run: { fit: clean },
+  }, { video: 'fresh' })
+  expect(r.out).toContain('CODE 0')
+  expect(r.out).toContain('VERIFY harm')
+  expect(r.pushed.held).toEqual(stillHeld.held)
+  expect(r.pushedSecondGuide().body).toBe('<p>Đoạn mới.</p>')
 })
 
 test("main-holds.mjs reads the gate's kinds", () => {
