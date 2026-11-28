@@ -1,4 +1,3 @@
-import type { Content } from '@aq/schema'
 import { APP_PAGE, APP_STATE } from './app'
 import { getContent } from './content'
 import { categoriesIn } from './equipment'
@@ -6,6 +5,7 @@ import { categoryLabel, groupLabel, OFF_LIST_GROUPS } from './format'
 import { localizePath, OTHER_LANGS, PAGES, routeIn, served, toVi, translator } from './i18n'
 import { ORIGINS, RANKS } from './taxa-places'
 import { videoChannels } from './video'
+import { lastChanged, pageDateFiles } from './page-dates'
 
 /**
  * One sitemap per kind, so Search Console counts what's indexed for each. `/sitemap.xml` is their index. The photo pages'
@@ -42,9 +42,6 @@ const PAGE_HEADINGS: Record<string, string> = {
   '/vi/ung-dung/': 'Ứng dụng AquaTome',
 }
 
-/** The last day any of a page's own files changed (content/page-dates.json), or none: never the build's date. */
-const lastChanged = (dates: Content['pageDates'], files: string[]) => files.map(f => dates[f]?.slice(0, 10)).filter(Boolean).sort().at(-1)
-
 /** Every page offered to search engines, each with its kind and, for a page made from its own files, its date. */
 export async function sitemapEntries(): Promise<SitemapEntry[]> {
   const out: SitemapEntry[] = []
@@ -58,17 +55,16 @@ export async function sitemapEntries(): Promise<SitemapEntry[]> {
     }
     const add = (kind: SitemapKind, viPath: string, files: string[] = [], label = titleFor(viPath)) =>
       out.push({ kind, path: localizePath(lang, viPath), lastmod: lastChanged(c.pageDates, files), label })
-    const text = (folder: string, id: string) => [`${folder}/${id}/entity.json`, `${folder}/${id}/${lang}.json`]
 
     const fish = [...c.species.map(s => ({ s, folder: 'species' })), ...c.breeds.map(s => ({ s, folder: 'breeds' }))].filter(x => x.s.t.quality.indexable)
-    if (served(lang, '/vi/ca/x/')) for (const { s, folder } of fish) add('fish', `/vi/ca/${s.t.slug}/`, [...text(folder, s.id), ...(folder === 'species' && lang === 'vi' ? [`summaries/${s.id}.json`] : [])], s.t.name)
+    if (served(lang, '/vi/ca/x/')) for (const { s, folder } of fish) add('fish', `/vi/ca/${s.t.slug}/`, pageDateFiles(folder, s.id, lang), s.t.name)
     if (served(lang, '/vi/nhom/x/')) for (const group of new Set(c.species.map(s => s.group))) {
       if (!OFF_LIST_GROUPS.includes(group)) add('other', `/vi/nhom/${group}/`, [], t(groupLabel(group)))
     }
     const plants = c.plants.filter(p => p.t.quality.indexable)
-    if (served(lang, '/vi/cay/x/')) for (const p of plants) add('plants', `/vi/cay/${p.t.slug}/`, text('plants', p.id), p.t.name)
-    if (served(lang, '/vi/huong-dan/x/')) for (const g of c.guides) if (g.t.quality.indexable) add(g.video ? 'videos' : 'guides', `/vi/huong-dan/${g.t.slug}/`, text('guides', g.id), g.t.name)
-    if (served(lang, '/vi/thuat-ngu/x/')) for (const g of c.glossary) if (g.t.quality.indexable) add('glossary', `/vi/thuat-ngu/${g.t.slug}/`, text('glossary', g.id), g.t.name)
+    if (served(lang, '/vi/cay/x/')) for (const p of plants) add('plants', `/vi/cay/${p.t.slug}/`, pageDateFiles('plants', p.id, lang), p.t.name)
+    if (served(lang, '/vi/huong-dan/x/')) for (const g of c.guides) if (g.t.quality.indexable) add(g.video ? 'videos' : 'guides', `/vi/huong-dan/${g.t.slug}/`, pageDateFiles('guides', g.id, lang), g.t.name)
+    if (served(lang, '/vi/thuat-ngu/x/')) for (const g of c.glossary) if (g.t.quality.indexable) add('glossary', `/vi/thuat-ngu/${g.t.slug}/`, pageDateFiles('glossary', g.id, lang), g.t.name)
     if (served(lang, '/vi/thiet-bi/x/')) {
       for (const u of categoriesIn(lang, c)) {
         const guide = c.equipment.find(e => e.category === u.category)
@@ -82,7 +78,7 @@ export async function sitemapEntries(): Promise<SitemapEntry[]> {
     if (lang === 'vi') {
       for (const s of c.series) if (c.guides.some(g => g.video?.series?.id === s.id && g.t.quality.indexable)) add('videos', `/vi/video/${s.vi.slug}/`, [], s.vi.name)
       for (const ch of videoChannels(c)) if (ch.guides.some(g => g.t.quality.indexable)) add('videos', `/vi/video/kenh/${ch.slug}/`, [], ch.name)
-      for (const p of c.products) if (p.t.quality.indexable) add('products', `/vi/san-pham/${p.t.slug}/`, text('products', p.id), p.t.name)
+      for (const p of c.products) if (p.t.quality.indexable) add('products', `/vi/san-pham/${p.t.slug}/`, pageDateFiles('products', p.id, lang), p.t.name)
       for (const p of [
         '/vi/', '/vi/ca/', '/vi/cay/', '/vi/huong-dan/', ...(c.series.length ? ['/vi/video/'] : []), '/vi/thuat-ngu/', '/vi/thiet-bi/', '/vi/kham-pha/', '/vi/moi-cap-nhat/', '/vi/phan-loai/', '/vi/nguon-goc/',
         '/vi/cong-cu/', '/vi/cong-cu/nuoi-chung/', '/vi/cong-cu/the-tich-be/', '/vi/cong-cu/du-toan-be/', '/vi/cong-cu/den-chihiros/', '/vi/cong-cu/be-cua-toi/', '/vi/gioi-thieu/', '/vi/gioi-thieu/bang-du-lieu/', '/vi/lien-he/', '/vi/chinh-sach-bao-mat/',

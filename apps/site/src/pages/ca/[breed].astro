@@ -13,6 +13,7 @@ import RedirectNote from '../../components/RedirectNote.astro'
 import BreedList from '../../components/BreedList.astro'
 import GlossaryTip from '../../components/GlossaryTip.astro'
 import { getContent } from '../../lib/content'
+import { lastChanged, pageDateFiles } from '../../lib/page-dates'
 import { creditsFor, VIDEO_CARDS } from '../../lib/credits'
 import { shareImage } from '../../lib/gallery'
 import { breedIsFish, breedKind, type Breed } from '../../lib/breeds'
@@ -36,7 +37,7 @@ const list = t(fish ? 'Loài cá' : 'Loài')
 const jsonld = [
   articleLd(Astro.site!, lang, Astro.url.pathname, {
     headline: b.t.name, alternativeHeadline: b.t.altNames.slice(0, 3).join(', ') || undefined,
-    dateModified: b.updatedAt, image: shareImage(b.photos), description: b.t.summary?.join(' '),
+    dateModified: lastChanged(c.pageDates, pageDateFiles('breeds', b.id, lang)), image: shareImage(b.photos), description: b.t.summary?.join(' '),
   }),
   breadcrumbLd(Astro.site!, lang, [
     ['/vi/ca/', list], ...(parent ? [[parent.href, parent.name] as const] : []), [Astro.url.pathname, b.t.name],

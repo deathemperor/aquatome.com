@@ -9,6 +9,7 @@ import GlossaryTip from '../../components/GlossaryTip.astro'
 import GuideCard from '../../components/GuideCard.astro'
 import Comments from '../../components/Comments.astro'
 import { getContent } from '../../lib/content'
+import { lastChanged, pageDateFiles } from '../../lib/page-dates'
 import { GUIDE_KIND_LABELS } from '../../lib/format'
 import { creditsFor } from '../../lib/credits'
 import { descriptionForSearch, guideDescription } from '../../lib/meta'
@@ -47,7 +48,7 @@ if (v && series) crumbs.push([`/vi/video/${series.vi.slug}/`, series.vi.name])
 const cites = refs?.map(r => r.url)
 const jsonld: object[] = [
   articleLd(Astro.site!, lang, Astro.url.pathname, {
-    headline: g.t.name, datePublished: firstPublished(c.changelog, lang, 'guide', g.id), dateModified: g.updatedAt,
+    headline: g.t.name, datePublished: firstPublished(c.changelog, lang, 'guide', g.id), dateModified: lastChanged(c.pageDates, pageDateFiles('guides', g.id, lang)),
     image: ph?.url, description, citation: cites?.length ? cites : undefined,
   }),
   breadcrumbLd(Astro.site!, lang, [...crumbs, [Astro.url.pathname, g.t.name]]),

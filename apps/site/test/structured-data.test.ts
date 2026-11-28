@@ -5,8 +5,9 @@ import { expect, test } from 'vitest'
 import { getContent } from '../src/lib/content'
 import { langOf, localizePath } from '../src/lib/i18n'
 import { OFF_LIST_GROUPS } from '../src/lib/format'
+import { lastChanged, pageDateFiles } from '../src/lib/page-dates'
 import { articleLd, breadcrumbLd, firstPublished } from '../src/lib/structured-data'
-import { DIST, page } from './dist'
+import { DIST, page, sitemapText } from './dist'
 
 const SITE = new URL('https://aquatome.com/')
 const PUBLISHER = { '@type': 'Organization', name: 'AquaTome', url: SITE.href, logo: new URL('/favicon.png', SITE).href }
@@ -25,7 +26,22 @@ test('the Article names only AquaTome and uses a retained new date where known',
   const article = articleLd(SITE, 'vi', '/vi/huong-dan/g/', { headline: 'Guide', datePublished, dateModified: '2026-11-23' })
   expect(article).toMatchObject({ datePublished: '2026-11-20', dateModified: '2026-11-23', mainEntityOfPage: 'https://aquatome.com/huong-dan/g/', publisher: PUBLISHER })
   expect(article).not.toHaveProperty('author')
-  expect(articleLd(SITE, 'vi', '/', { headline: 'Guide', datePublished, dateModified: '2026-11-19' }).dateModified).toBeUndefined()
+  expect(articleLd(SITE, 'vi', '/', { headline: 'Guide', datePublished, dateModified: '2026-11-19' }))
+    .toMatchObject({ datePublished: undefined, dateModified: '2026-11-19' })
+})
+
+test('the Article uses the last change to its entity, its own translation or its Vietnamese summary', () => {
+  const dates = {
+    'species/x/entity.json': '2026-11-19 000000000001',
+    'species/x/th.json': '2026-11-20 000000000002',
+    'species/x/vi.json': '2026-11-21 000000000003',
+    'summaries/x.json': '2026-11-22 000000000004',
+  }
+  const date = (lang: 'vi' | 'th' | 'id') => lastChanged(dates, pageDateFiles('species', 'x', lang))
+  expect(date('vi')).toBe('2026-11-22')
+  expect(date('th')).toBe('2026-11-20')
+  expect(date('id')).toBe('2026-11-19')
+  expect(lastChanged(dates, pageDateFiles('guides', 'x', 'vi'))).toBeUndefined()
 })
 
 test('breadcrumbs keep their order, use local addresses and fall back to an existing hub', () => {
@@ -39,6 +55,9 @@ const ld = (html: string) => [...html.matchAll(/<script type="application\/ld\+j
 
 test('every supported built page has the expected structured data in its own language', async () => {
   const covered = new Set<string>()
+  const datedLocales = new Set<string>()
+  const lastmod = new Map([...sitemapText().matchAll(/<url><loc>([^<]+)<\/loc>(?:<lastmod>([^<]+)<\/lastmod>)?<\/url>/g)]
+    .map(([, url, date]) => [new URL(url!).pathname, date]))
   const articles = ['ca', 'cay', 'thuat-ngu', 'huong-dan', 'nhom']
   const hubs = ['ca', 'cay', 'thuat-ngu', 'huong-dan', 'kham-pha']
   for (const file of readdirSync(DIST, { recursive: true }) as string[]) {
@@ -66,6 +85,10 @@ test('every supported built page has the expected structured data in its own lan
     if (articleKind) {
       expect(article, path).toMatchObject({ inLanguage: lang, mainEntityOfPage: canonical, publisher })
       expect(article, path).not.toHaveProperty('author')
+      if (lastmod.has(path)) {
+        expect(article.dateModified, path).toBe(lastmod.get(path))
+        if (lastmod.get(path)) datedLocales.add(lang)
+      }
       covered.add(articleKind)
     }
     if (home) {
@@ -90,6 +113,7 @@ test('every supported built page has the expected structured data in its own lan
     }
     expect(JSON.stringify(data), path).not.toContain('"@type":"HowTo"')
   }
+  expect([...datedLocales]).toEqual(expect.arrayContaining(['vi', 'ms']))
   expect([...covered]).toEqual(expect.arrayContaining([...articles, 'home', 'video']))
   const guide = ld(page('/huong-dan/setup-be-thuy-sinh-dau-tien/').html).find(x => x['@type'] === 'Article')
   expect(guide.datePublished).toBe('2026-10-27')
