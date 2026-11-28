@@ -48,16 +48,16 @@ push_video_recheck() {
       log "could not rebase the video recheck onto main"
       continue
     fi
-    if ! pulled=$(git rev-parse HEAD) || ! video_recheck_pull_kept_batch "$batch" "$refreshed" "$pulled"; then
-      keep_lost_push video-recheck "the first pull did not retain the video recheck batch" "$batch"
+    if ! pulled=$(git rev-parse HEAD); then
+      keep_lost_push video-recheck "could not identify the rebased video recheck" "$batch"
       return 1
     fi
     if ! video_recheck_rules_current; then
       keep_lost_push video-recheck "video recheck rules changed during this run" "$batch"
       return 1
     fi
-    if ! replan_video_recheck_calendar "$batch" "$refreshed"; then
-      keep_lost_push video-recheck "could not replan main's calendar" "$batch"
+    if ! video_recheck_reconcile_batch "$batch" "$refreshed" "$pulled"; then
+      keep_lost_push video-recheck "could not reconcile the video recheck batch with main" "$batch"
       return 1
     fi
     if [ "$refreshed" != "$batch_base" ]; then

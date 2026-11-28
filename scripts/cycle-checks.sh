@@ -724,34 +724,40 @@ video_recheck_rebase() {
   git rebase --abort 2>/dev/null || true
   return 1
 }
-# The first conflicting commit may be earlier than the batch's calendar edit.
-replan_video_recheck_calendar() {
-  local base tip
-  base=$(git merge-base "$1" "$2") || return 1
-  for tip in "$1" "$2"; do
-    if git diff --quiet "$base" "$tip" -- content/curation.json; then return 0
-    elif [ "$?" != 1 ]; then return 1; fi
-  done
-  replan_merged content/curation.json "$2"
-}
-# A rebase can skip a patch that main applied and later reverted, even while replaying other commits.
-# Main can also revert the exact batch after taking it. If the tip moved, check that it still includes the batch.
-video_recheck_pull_kept_batch() {
-  local pulled=$3 upstream batch_base combined
-  upstream=$(git rev-parse "$2") || return 1
+# Keep the whole batch through the rebase, except a calendar that must be replanned on main.
+# Comparing against the original base catches patches Git skipped after main applied and then reverted them.
+video_recheck_reconcile_batch() {
+  local batch=$1 upstream=$2 pulled=$3 base edits calendar='' combined status=0
   git merge-base --is-ancestor "$upstream" "$pulled" || return 1
-  if [ "$pulled" = "$1" ]; then return 0; fi
-  # The job's guide commit starts the batch, before any sweep commits. Main may share that commit
-  # (or a later sweep) and have reverted it, so the common ancestor can omit part of the batch.
-  batch_base=$(git log -1 --first-parent --format=%P --grep='^content: video guides checked again ' "$1") || return 1
-  if [ -z "$batch_base" ]; then
-    batch_base=$(git merge-base "$pulled" "$1") || return 1
-    if [ "$batch_base" = "$1" ]; then
-      batch_base=$(git rev-parse "$1^") || return 1
+  # The guide commit starts the batch, before any sweep commits. Main can already share part of that history.
+  base=$(git log -1 --first-parent --format=%P --grep='^content: video guides checked again ' "$batch") || return 1
+  if [ -z "$base" ]; then
+    base=$(git merge-base "$pulled" "$batch") || return 1
+    if [ "$base" = "$batch" ]; then base=$(git rev-parse "$batch^") || return 1; fi
+  fi
+  if git diff --quiet "$base" "$upstream" -- content/curation.json; then
+    :
+  else
+    [ "$?" = 1 ] || return 1
+    # A calendar patch followed by its undo can still overwrite main as the commits replay.
+    edits=$(git rev-list -1 --full-history --first-parent "$base..$batch" -- content/curation.json) || return 1
+    if [ -n "$edits" ]; then calendar=content/curation.json; fi
+  fi
+  if [ "$pulled" != "$batch" ]; then
+    combined=$(git merge-tree --write-tree --name-only --no-messages --merge-base="$base" "$pulled" "$batch" 2>/dev/null) || status=$?
+    if [ -n "$calendar" ]; then
+      # merge-tree prints the tree first, then unresolved paths. Only the calendar is replaced below.
+      case "$status" in
+        0) ;;
+        1) [ "${combined#*$'\n'}" = "$calendar" ] || return 1 ;;
+        *) return 1 ;;
+      esac
+      git diff --quiet "${combined%%$'\n'*}" "$pulled" -- . ":(exclude)$calendar" || return 1
+    elif [ "$status" != 0 ] || [ "$combined" != "$(git rev-parse "$pulled^{tree}")" ]; then
+      return 1
     fi
   fi
-  combined=$(git merge-tree --write-tree --merge-base="$batch_base" "$pulled" "$1" 2>/dev/null) || return 1
-  [ "$combined" = "$(git rev-parse "$pulled^{tree}")" ]
+  if [ -n "$calendar" ]; then replan_merged "$calendar" "$upstream" || return 1; fi
 }
 # Content loaders can read ignored paths within their input directories. last-run.json is a local run report.
 video_recheck_local_files() {
@@ -881,16 +887,16 @@ push_kept() {
         return 1
       fi
       main=$(git merge-base "$run" "$refreshed") || { KEPT_WHY="could not find the video recheck's base"; return 1; }
-      if ! pulled=$(git rev-parse HEAD) || ! video_recheck_pull_kept_batch "$batch" "$refreshed" "$pulled"; then
-        KEPT_WHY="the first pull did not retain the video recheck batch"
+      if ! pulled=$(git rev-parse HEAD); then
+        KEPT_WHY="could not identify the rebased video recheck"
         return 1
       fi
       if ! video_recheck_rules_current; then
         KEPT_WHY="video recheck rules changed during this run"
         return 1
       fi
-      if ! replan_video_recheck_calendar "$batch" "$refreshed"; then
-        KEPT_WHY="could not replan main's calendar"
+      if ! video_recheck_reconcile_batch "$batch" "$refreshed" "$pulled"; then
+        KEPT_WHY="could not reconcile the video recheck batch with main"
         return 1
       fi
     else
