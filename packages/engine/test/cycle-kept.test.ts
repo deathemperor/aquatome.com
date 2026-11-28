@@ -215,13 +215,18 @@ test.each(['failed sweep', 'failed sweep commit', 'tracked write during verifica
     TEST_FAILURES_DIR="$HOME/check-logs"
     ${reason === 'tracked write during verification'
       ? 'checks() { echo changed > content/a.json; echo "check changed an input"; }'
-      : `pnpm() { if [ "$1 $2" = "engine sweep" ]; then echo fixed > content/a.json; return ${reason === 'failed sweep' ? 1 : 0}; fi; }; checks() { [ "$(cat content/a.json)" = fixed ]; }`}
+      : `pnpm() { if [ "$1 $2" = "engine sweep" ]; then echo fixed > content/a.json; echo partial > content/partial.json; return ${reason === 'failed sweep' ? 1 : 0}; fi; }; checks() { [ "$(cat content/a.json)" = fixed ]; }`}
     publish_kept video-recheck
   `)
   expect(c.branches()).toEqual([kept])
   expect(c.onMain('content/video.json')).toBe('')
   if (reason === 'tracked write during verification') {
     expect(c.sh('cat "$HOME"/check-logs/test.*.try-1.*')).toBe('check changed an input')
+  }
+  if (reason === 'failed sweep commit') {
+    const staged = c.sh('cat "$HOME"/check-logs/video-recheck-checkout.*/staged.patch')
+    expect(staged).toContain('+fixed')
+    expect(staged).toContain('+partial')
   }
 }, slow(60_000))
 
@@ -299,7 +304,7 @@ test('video recheck saves tracked and staged work before resetting after a sweep
     echo rechecked > content/video.json
     pnpm() { echo partial > content/a.json; return 1; }
     sweep_new_video_recheck && exit 2
-    archive_video_recheck_startup
+    archive_video_recheck_checkout
     git reset -q --hard origin/main
   `)
   const staged = c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-checkout.*/staged.patch')
@@ -368,7 +373,7 @@ test.each(['kept', 'held'])('video recheck preserves untracked files if a %s bat
     publish_kept video-recheck && exit 2
     echo refused
   `)
-  expect(log).toContain('could not preserve untracked video recheck files before resetting')
+  expect(log).toContain('could not preserve the video recheck checkout before resetting')
   expect(log).toContain('refused')
   expect(c.branches()).toEqual([branch])
   expect(c.onMain('content/video.json')).toBe('')
@@ -459,6 +464,28 @@ test('video recovery archives a stray file before retrying a rejected push', () 
   expect(c.onMain('content/video.json')).toBe('rechecked')
   expect(c.onMain('sources/local-only.txt')).toBe('')
   expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/sources/local-only.txt')).toBe('stray')
+}, slow(60_000))
+
+test.each(['fresh', 'kept'])('a %s video recheck pushes the commit whose tree passed', kind => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')
+  if (kind === 'kept') c.sh(`git branch ${kept} && git reset -q --hard origin/main`)
+  c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
+    net() {
+      if [ "$2" = push ]; then
+        echo unverified > content/newer.json
+        git add content/newer.json
+        git commit -qm "local HEAD moved"
+      fi
+      "$@"
+    }
+    ${kind === 'kept' ? 'publish_kept video-recheck' : 'push_video_recheck'}
+  `)
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.onMain('content/newer.json')).toBe('')
 }, slow(60_000))
 
 test('a held video recheck stays eligible for retry if its failing verification changed tracked files', () => {
@@ -949,7 +976,7 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
     }
     // Kept work is published once a run has installed and set its merge drivers, before it does its own work.
     if (name === 'video-recheck.sh') {
-      const archive = s.indexOf('archive_video_recheck_startup ||')
+      const archive = s.indexOf('archive_video_recheck_checkout ||')
       expect(archive).toBeGreaterThan(0)
       expect(archive).toBeLessThan(s.indexOf('from_main "$@"'))
     }

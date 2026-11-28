@@ -1,19 +1,6 @@
 #!/usr/bin/env bash
 # Sourced by video-recheck.sh after the common cycle helpers are loaded.
 
-# From main will reset the checkout. Preserve staged and working edits even when a previous commit failed.
-archive_video_recheck_startup() {
-  archive_video_recheck_inputs || return 1
-  if git diff --quiet && git diff --cached --quiet; then return 0; fi
-  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive
-  mkdir -p "$parent" || return 1
-  archive=$(mktemp -d "$parent/video-recheck-checkout.XXXXXXXX") || return 1
-  git rev-parse HEAD > "$archive/head" &&
-    git diff --no-ext-diff --no-textconv --binary --cached > "$archive/staged.patch" &&
-    git diff --no-ext-diff --no-textconv --binary > "$archive/working.patch" || return 1
-  log "saved the video recheck checkout at $archive"
-}
-
 # Fresh work has yet to pass the gate. Save a failed sweep separately from batches recovery can publish.
 sweep_new_video_recheck() {
   pnpm engine sweep && return 0
@@ -32,7 +19,7 @@ sweep_new_video_recheck() {
 }
 
 push_video_recheck() {
-  local try run base tree checked_tree='' refreshed clash verification_failed
+  local try run base tree checked_tree='' refreshed clash verification_failed commit
   for try in 1 2 3; do
     run=$(git rev-parse HEAD) || break
     if ! prepare_video_recheck; then
@@ -88,11 +75,12 @@ push_video_recheck() {
 
     # Main may have moved during the checks. A fast-forward-only pull means it cannot combine divergent trees here.
     # If anything came in, the next attempt integrates and checks it before a push can run.
-    if ! net git pull -q --no-rebase --ff-only || [ "$(video_recheck_tree)" != "$checked_tree" ]; then
+    if ! net git pull -q --no-rebase --ff-only ||
+      ! commit=$(git rev-parse HEAD) || [ "$(video_recheck_tree "$commit")" != "$checked_tree" ]; then
       log "main moved or could not be reached after the checks: trying a fresh pull before publishing"
       continue
     fi
-    if net git push -q; then
+    if net git push -q origin "$commit:refs/heads/main"; then
       log "pushed (GitHub deploys it)"
       return 0
     fi
