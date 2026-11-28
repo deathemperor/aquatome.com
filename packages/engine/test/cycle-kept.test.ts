@@ -353,6 +353,49 @@ test.each(['kept', 'held'])('video recheck preserves untracked files if a %s bat
   expect(c.sh('cat content/retry-input.json')).toBe('local-only')
 }, slow(60_000))
 
+test('video recheck cannot publish a material whose parent appears only in ignored content', () => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh('printf "dist\nengine-state/last-run.json\n" > .gitignore && git add .gitignore && git commit -qm ignores && git push -q')
+  c.sh(`mkdir -p content/materials/wood && echo '{"id":"wood","parent":"dist"}' > content/materials/wood/entity.json && git add content && git commit -qm material && git branch ${kept} && git reset -q --hard origin/main`)
+  const log = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    echo run-report > engine-state/last-run.json
+    checks() {
+      mkdir -p content/materials/dist
+      echo '{"id":"dist"}' > content/materials/dist/entity.json
+    }
+    publish_kept video-recheck
+  `)
+  expect(log).toContain('the video recheck checkout changed during verification')
+  expect(c.branches()).toEqual([kept])
+  expect(c.onMain('content/materials/wood/entity.json')).toBe('')
+  expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/content/materials/dist/entity.json')).toBe('{"id":"dist"}')
+  expect(c.sh('cat engine-state/last-run.json')).toBe('run-report')
+}, slow(60_000))
+
+test('held recovery reports a published branch that could not be removed', () => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const held = `held/video-recheck/${when}`
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${held} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new')
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  const log = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    git() {
+      [ "$1 \${2:-} \${3:-}" != 'branch -q -D' ] || return 1
+      command git "$@"
+    }
+    publish_kept video-recheck && exit 2
+    echo stopped
+  `)
+  expect(log).toContain(`published ${held} but its local branch could not be removed`)
+  expect(log).toContain('stopped')
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.branches()).toEqual([held])
+}, slow(60_000))
+
 test('a fresh video publish archives another checkout file before the merge sweep can stage it', () => {
   const c = clone()
   c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')

@@ -489,7 +489,7 @@ publish_kept() {
     log "publishing $branch, kept by an earlier run"
     reset_recovery_checkout "$1" "$branch" || return 1
     if push_kept "$branch"; then
-      git branch -q -D "$BRANCH"
+      drop_published_branch "$BRANCH" || return 1
       log "published $branch"
       net git fetch -q origin || true
       reset_recovery_checkout "$1" origin/main || return 1
@@ -536,6 +536,11 @@ fault_exit() {
   fi
   exit "$status"
 }
+drop_published_branch() {
+  git branch -q -D "$1" && return 0
+  log "published $1 but its local branch could not be removed"
+  return 1
+}
 # Each held branch of <job> not yet tried again, once main's code (anything but the engine's output and the docs) has
 # changed since the main it was checked on: published as kept work is, or, failing its tests for real again, or out of
 # time in OUT_CYCLES tries in a row (count_outs), moved to <branch>-tried, which nothing tries again. Out of time fewer
@@ -551,7 +556,7 @@ retry_held() {
     log "trying $branch once more: main's code has changed since it was held"
     reset_recovery_checkout "$1" "$branch" || return 1
     if push_kept "$branch"; then
-      git branch -q -D "$BRANCH"
+      drop_published_branch "$BRANCH" || return 1
       log "published $branch"
       net git fetch -q origin || true
       reset_recovery_checkout "$1" origin/main || return 1
@@ -637,11 +642,17 @@ video_recheck_rules_current() {
       scripts/cycle-checks.sh scripts/video-recheck.sh scripts/video-recheck-publish.sh \
       .nvmrc .npmrc pnpm-workspace.yaml pnpm-lock.yaml ':(glob)**/package.json'
 }
-# The verification commands read from the checkout. Expected build output is ignored by Git.
+# Content loaders can read ignored paths within their input directories. last-run.json is a local run report.
+video_recheck_local_files() {
+  git ls-files --others --exclude-standard "$@" &&
+    git ls-files --others --ignored --exclude-standard "$@" -- content sources engine-state docs/review \
+      ':(exclude)engine-state/last-run.json'
+}
 video_recheck_tree() {
-  local status
-  status=$(git status --porcelain=v1 --untracked-files=all) &&
-    [ -z "$status" ] && git rev-parse 'HEAD^{tree}'
+  local status files
+  status=$(git status --porcelain=v1 --untracked-files=no) &&
+    files=$(video_recheck_local_files) &&
+    [ -z "$status$files" ] && git rev-parse 'HEAD^{tree}'
 }
 
 # A hard reset can replace an untracked file when the destination commit tracks that path.
@@ -656,11 +667,11 @@ reset_recovery_checkout() {
 # Keep untracked inputs outside the dedicated video recheck checkout so its sweep cannot stage them.
 archive_video_recheck_inputs() {
   local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive file to files
-  files=$(git ls-files --others --exclude-standard) || return 1
+  files=$(video_recheck_local_files) || return 1
   [ -n "$files" ] || return 0
   mkdir -p "$parent" || return 1
   archive=$(mktemp -d "$parent/video-recheck-inputs.XXXXXXXX") || return 1
-  git ls-files --others --exclude-standard -z > "$archive/paths" || return 1
+  video_recheck_local_files -z > "$archive/paths" || return 1
   if [ ! -s "$archive/paths" ]; then
     rm "$archive/paths" && rmdir "$archive"
     return
