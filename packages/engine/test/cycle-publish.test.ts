@@ -161,7 +161,7 @@ test("a video run's work is committed before its tests, so a run that fails them
 test("a video re-check sweeps its work and commits it before its tests, as the video job does", () => {
   const s = script('video-recheck.sh')
   const sweep = s.indexOf('sweep_new_video_recheck || exit 1')
-  const commit = s.indexOf('git commit -q -m "content: video guides checked again')
+  const commit = s.indexOf('commit_video_recheck "content: video guides checked again')
   expect(sweep).toBeGreaterThan(s.indexOf('pnpm engine videos --redo'))
   expect(commit).toBeGreaterThan(sweep)
   expect(commit).toBeLessThan(s.indexOf('\npush_video_recheck'))

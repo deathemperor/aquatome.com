@@ -487,18 +487,24 @@ test.each(['kept', 'held'])('a %s video recheck replans with the final page phot
   expect(c.branches()).toEqual([])
 }, slow(60_000))
 
-test.each(['verification', 'rebase'])('a process exit during video %s leaves the original batch queued on restart', stage => {
+test.each([
+  ['fresh', 'verification'], ['fresh', 'rebase'], ['kept', 'rebase'], ['held', 'rebase'],
+] as const)('a %s video process exit during %s leaves the original batch queued on restart', (lane, stage) => {
   const c = clone()
   const batch = c.sh(`
     echo rechecked > content/video.json
     ${stage === 'rebase' ? 'echo ours > content/a.json' : ':'}
     git add content && git commit -qm recheck && git rev-parse HEAD
   `)
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const branch = `${lane}/video-recheck/${when}`
+  if (lane !== 'fresh') c.sh(`git branch '${branch}' && git reset -q --hard origin/main`)
   c.elsewhere('code.txt', 'new-code')
   if (stage === 'rebase') c.sh(`
     echo theirs > "$HOME/other/content/a.json"
     git -C "$HOME/other" commit -qam other && git -C "$HOME/other" push -q
   `)
+  c.sh('git fetch -q origin')
   expect(() => c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
@@ -514,25 +520,54 @@ test.each(['verification', 'rebase'])('a process exit during video %s leaves the
         "$@"
       }
     `}
-    push_video_recheck
+    ${lane === 'fresh' ? 'push_video_recheck' : 'publish_kept video-recheck'}
   `)).toThrow()
   expect(c.sh('cat "$HOME/interrupted-head"')).not.toBe(batch)
   expect(c.onMain('content/video.json')).toBe('')
-  expect(c.branches()).toEqual([])
-  expect(c.sh('git rev-parse refs/aquatome/video-recheck/pending')).toBe(batch)
+  expect(c.branches()).toEqual(lane === 'fresh' ? [] : [branch])
+  if (lane === 'fresh') expect(c.sh('git rev-parse refs/aquatome/video-recheck/pending')).toBe(batch)
   const log = c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     archive_video_recheck_checkout
     recover_interrupted_video_recheck
-    git reset -q --hard origin/main
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    from_main
     publish_kept video-recheck
   `)
-  expect(log).toContain('published kept/video-recheck/')
+  expect(log).toContain(`published ${lane === 'held' ? 'held' : 'kept'}/video-recheck/`)
   expect(c.onMain('content/video.json')).toBe('rechecked')
   expect(c.onMain('code.txt')).toBe('new-code')
   if (stage === 'rebase') expect(c.onMain('content/a.json')).toBe('ours')
   expect(c.branches()).toEqual([])
+  expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
+}, slow(60_000))
+
+test('video startup can recover an anchored commit before main advances', () => {
+  const c = clone()
+  const base = c.sh('git rev-parse HEAD')
+  expect(() => c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    echo rechecked > content/video.json
+    git add content/video.json
+    git() {
+      if [ "$1" = update-ref ] && [ "$#" -ge 4 ] && [ "$4" = HEAD ]; then exit 77; fi
+      command git "$@"
+    }
+    commit_video_recheck 'content: video guides checked again (fixture)'
+  `)).toThrow()
+  expect(c.sh('git rev-parse HEAD')).toBe(base)
+  const pending = 'refs/aquatome/video-recheck/pending'
+  expect(c.sh(`git show '${pending}:content/video.json'`)).toBe('rechecked')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    archive_video_recheck_checkout
+    recover_interrupted_video_recheck
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    from_main
+    publish_kept video-recheck
+  `)
+  expect(log).toContain('published kept/video-recheck/')
+  expect(c.onMain('content/video.json')).toBe('rechecked')
   expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
 }, slow(60_000))
 
@@ -797,6 +832,20 @@ test.each([
     expect(log).toContain('could not queue the failed video recheck')
     expect(c.branches()).toEqual([])
     expect(c.sh(`git -C "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-ref.* rev-parse refs/heads/${backup}`)).toBe(batch)
+    const restart = c.cycle(`
+      source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+      archive_video_recheck_checkout
+      recover_interrupted_video_recheck
+      AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+      from_main
+      verify_cycle() { echo UNEXPECTED-VERIFY; }
+      publish_kept video-recheck
+    `)
+    expect(restart).not.toContain('UNEXPECTED-VERIFY')
+    expect(c.branches()).toHaveLength(1)
+    expect(c.branches()[0]?.startsWith('held/video-recheck/')).toBe(true)
+    expect(c.sh(`git rev-parse ${c.branches()[0]}`)).toBe(batch)
+    expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
   } else {
     expect(c.branches()).toEqual([backup])
     expect(c.sh(`git rev-parse ${backup}`)).toBe(batch)

@@ -98,8 +98,7 @@ sweep_new_video_recheck || exit 1
 # and keeps its work on a branch (gate_or_keep).
 gate_or_keep "content: video guides checked again" content engine-state docs/review || exit 1
 if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
-# Committed before the tests, as video-cycle.sh does: the next run's reset drops uncommitted work for good, and a commit
-# stays in the reflog to publish by hand.
+# Save the gated work before verification and before moving main, so startup can recover the batch.
 git add content engine-state docs/review
-git commit -q -m "content: video guides checked again $(date -u +%F)"
+commit_video_recheck "content: video guides checked again $(date -u +%F)"
 push_video_recheck

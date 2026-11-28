@@ -263,6 +263,7 @@ keep_unpublished() {
   fi
   branch="$lane/$1/$when$suffix"
   if [ -n "${2:-}" ]; then
+    video_recheck_record_pending_queue "$2" "$branch" "$saved" || log "could not record the pending video recheck queue"
     branch=$(keep_video_recheck_ref "$branch" "$saved") || return 1
   else
     keep_branch "$branch" "$saved" || return 0
@@ -689,6 +690,20 @@ video_recheck_rules_current() {
     git diff --quiet "$AQ_SCRIPT_HEAD" HEAD -- \
       scripts/cycle-checks.sh scripts/video-recheck.sh scripts/video-recheck-publish.sh \
       .nvmrc .npmrc pnpm-workspace.yaml pnpm-lock.yaml ':(glob)**/package.json'
+}
+VIDEO_RECHECK_PENDING_REF=refs/aquatome/video-recheck/pending
+VIDEO_RECHECK_PENDING_QUEUE_PREFIX='content: queue video recheck on '
+video_recheck_pending() {
+  git for-each-ref --format='%(objectname)' "$VIDEO_RECHECK_PENDING_REF"
+}
+# Keep the queue name and both commit identities before attempting either queue ref write.
+video_recheck_record_pending_queue() {
+  local pending record
+  pending=$(video_recheck_pending) || return 1
+  [ -n "$pending" ] || return 0
+  [ "$pending" = "$1" ] || return 1
+  record=$(git commit-tree "$3^{tree}" -p "$3" -m "$VIDEO_RECHECK_PENDING_QUEUE_PREFIX$2") || return 1
+  git update-ref "$VIDEO_RECHECK_PENDING_REF" "$record" "$pending"
 }
 # Keep the original batch and the failing checkout reachable from one ref. The ref's tree
 # shows what failed. Recovery starts from its first parent and remembers the second for the retry gate.

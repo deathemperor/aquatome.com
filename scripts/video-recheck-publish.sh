@@ -18,8 +18,6 @@ sweep_new_video_recheck() {
   return 1
 }
 
-VIDEO_RECHECK_PENDING_REF=refs/aquatome/video-recheck/pending
-
 # A held ref can point to a record with the original batch as its first parent.
 video_recheck_batch_is_queued() {
   local branches branch original
@@ -33,31 +31,61 @@ video_recheck_batch_is_queued() {
 
 # Runs after the checkout archive and before from_main can reset it.
 recover_interrupted_video_recheck() {
-  local batch rebase_merge rebase_apply
-  batch=$(git for-each-ref --format='%(objectname)' "$VIDEO_RECHECK_PENDING_REF") || return 1
-  [ -n "$batch" ] || return 0
-  if video_recheck_batch_is_queued "$batch"; then
-    :
-  elif [ "$?" != 1 ] || ! keep_lost_push video-recheck "video recheck was interrupted" "$batch"; then
-    return 1
-  fi
+  local rebase_merge rebase_apply pending subject batch saved branch='' base
   rebase_merge=$(git rev-parse --git-path rebase-merge) &&
     rebase_apply=$(git rev-parse --git-path rebase-apply) || return 1
   if [ -d "$rebase_merge" ] || [ -d "$rebase_apply" ]; then git rebase --abort || return 1; fi
-  git update-ref -d "$VIDEO_RECHECK_PENDING_REF" "$batch"
+
+  pending=$(video_recheck_pending) || return 1
+  [ -n "$pending" ] || return 0
+  subject=$(git show -s --format=%s "$pending") || return 1
+  batch=$pending
+  case "$subject" in
+    "$VIDEO_RECHECK_PENDING_QUEUE_PREFIX"*)
+      branch=${subject#"$VIDEO_RECHECK_PENDING_QUEUE_PREFIX"}
+      case "$branch" in kept/video-recheck/*|held/video-recheck/*) ;; *) return 1 ;; esac
+      saved=$(git rev-parse "$pending^") &&
+        batch=$(video_recheck_recovery_parent "$saved" 1) || return 1
+      ;;
+  esac
+  if video_recheck_batch_is_queued "$batch"; then
+    :
+  else
+    [ "$?" = 1 ] || return 1
+    if [ -n "$branch" ]; then
+      # An earlier attempt may have left both queue ref locks in place.
+      base=$(uncounted "$branch")
+      branch=$(keep_video_recheck_ref "${base}_${saved}_resume${branch#"$base"}" "$saved") || return 1
+      log "restored interrupted video recheck on $branch"
+    else
+      keep_lost_push video-recheck "video recheck was interrupted" "$batch" || return 1
+    fi
+  fi
+  git update-ref -d "$VIDEO_RECHECK_PENDING_REF" "$pending"
+}
+
+# The batch becomes reachable before local main moves to it.
+commit_video_recheck() {
+  local parent tree batch
+  parent=$(git rev-parse HEAD) && tree=$(git write-tree) &&
+    batch=$(git commit-tree "$tree" -p "$parent" -m "$1") &&
+    git update-ref "$VIDEO_RECHECK_PENDING_REF" "$batch" '' &&
+    git update-ref -m "$1" HEAD "$batch" "$parent"
 }
 
 push_video_recheck() {
-  local batch status=0
-  batch=$(git rev-parse HEAD) || return 1
-  # Keep the original commit reachable even if the process stops without running cleanup.
-  if ! git update-ref "$VIDEO_RECHECK_PENDING_REF" "$batch" ''; then
-    keep_lost_push video-recheck "could not record the pending batch before verification" "$batch"
-    return 1
+  local batch pending status=0
+  batch=$(git rev-parse HEAD) && pending=$(video_recheck_pending) || return 1
+  if [ "$pending" != "$batch" ]; then
+    if [ -n "$pending" ] || ! git update-ref "$VIDEO_RECHECK_PENDING_REF" "$batch" ''; then
+      keep_lost_push video-recheck "could not record the pending batch before verification" "$batch"
+      return 1
+    fi
   fi
   publish_video_recheck_batch "$batch" || status=$?
   if [ "$status" = 0 ] || video_recheck_batch_is_queued "$batch"; then
-    git update-ref -d "$VIDEO_RECHECK_PENDING_REF" "$batch" || log "could not clear the pending video recheck ref"
+    pending=$(video_recheck_pending) || return 1
+    git update-ref -d "$VIDEO_RECHECK_PENDING_REF" "$pending" || log "could not clear the pending video recheck ref"
   fi
   return "$status"
 }
