@@ -79,8 +79,11 @@ test('unmatched guesses most first with their mean confidence; the last calls wi
   expect(html).toContain('<th class="l">Mon 2 Nov, 16:58</th>')
   expect(html).toContain('My tanks')
   expect(html).toContain('failed the spam check')
-  // The page's one script is its own clock; a name never becomes one.
-  expect(html.match(/<script>/g)).toHaveLength(1)
+  // The clock and the selectable chart are the page's two scripts. A name never becomes another.
+  const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1])
+  expect(scripts).toHaveLength(2)
+  expect(scripts[0]).toContain('aq_tz')
+  expect(scripts[1]).toContain('data-plot')
   expect(html).not.toContain('Betta <script>')
   expect(html).not.toContain('<img src=x>')
   expect(html).toContain('Betta &lt;script&gt;')
