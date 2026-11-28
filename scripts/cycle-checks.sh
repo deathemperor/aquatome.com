@@ -153,8 +153,33 @@ slow_mac() {
   [ -n "$cores" ] && [ "$load" -ge "$cores" ] && echo "a busy Mac, its 5-minute load $load on $cores cores"
   return 0
 }
+# Keep each failed try's own bytes before another check can truncate the working log.
+archive_failed_try() {
+  [ -n "${TEST_FAILURES_DIR:-}" ] || return 0
+  local stem path
+  stem=${TEST_LOG##*/}
+  if mkdir -p "$TEST_FAILURES_DIR" &&
+      path=$(mktemp "$TEST_FAILURES_DIR/${stem%.log}.$(date -u +%Y%m%dT%H%M%SZ).try-$2.XXXXXX") &&
+      tail -c "+$(($1 + 1))" "$TEST_LOG" >"$path"; then
+    log "check try $2 failed, output kept at $path"
+  else
+    log "check try $2 failed, could not copy its output from $TEST_LOG; its output follows"
+    tail -c "+$(($1 + 1))" "$TEST_LOG" || log "check try $2 output could not be read"
+  fi
+}
+# For video rechecks a check may only read the committed tree, including on its second try.
+# Return 2 for changed inputs so recovery keeps the batch eligible for another run.
+verify_try() {
+  local from=$1 attempt=$2 failed=0
+  shift 2
+  if [ -n "${video_verify_tree:-}" ] && ! video_recheck_unchanged "$video_verify_tree"; then return 2; fi
+  "$@" >>"$TEST_LOG" 2>&1 || failed=1
+  if [ -n "${video_verify_tree:-}" ] && ! video_recheck_unchanged "$video_verify_tree"; then failed=2; fi
+  [ "$failed" = 0 ] || archive_failed_try "$from" "$attempt"
+  return "$failed"
+}
 verify() {
-  local step from first name names workers why
+  local step from first name names workers why result
   : >"$TEST_LOG"
   TIMED_OUT=
   if [ -n "${MIGRATE_FAILED:-}" ]; then log "photo records not migrated: not tested, not published"; return 1; fi
@@ -165,11 +190,14 @@ verify() {
     why=$(slow_mac)
     AQ_TEST_TIME_SCALE=1
     [ -z "$why" ] || { AQ_TEST_TIME_SCALE=$HOT_TIME_SCALE; log "$why: tests get $AQ_TEST_TIME_SCALE times their time"; }
+    result=0
     if [ -n "${GITHUB_ACTIONS:-}" ]; then
-      checks "$step" >>"$TEST_LOG" 2>&1 && continue
+      verify_try "$from" 1 checks "$step" || result=$?
     else
-      VITEST_MAX_WORKERS=$FIRST_TRY_WORKERS checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1 && continue
+      VITEST_MAX_WORKERS=$FIRST_TRY_WORKERS verify_try "$from" 1 checks "export pnpm_config_workspace_concurrency=1; $step" || result=$?
     fi
+    [ "$result" != 0 ] || continue
+    [ "$result" != 2 ] || return 2
     first=$from
     if ran_out "$first"; then log "tests ran out of time on a busy Mac: checking again once it is calmer"; else log "a check failed: running it once more once the Mac is calmer"; fi
     settled
@@ -178,7 +206,10 @@ verify() {
     # On the Mac only: GitHub's runner is a machine of its own, with no heat, and its second try keeps the first's.
     workers=
     [ -n "${GITHUB_ACTIONS:-}" ] || { AQ_TEST_TIME_SCALE=$HOT_TIME_SCALE; workers=$SECOND_TRY_WORKERS; }
-    if VITEST_MAX_WORKERS=$workers checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1; then
+    result=0
+    VITEST_MAX_WORKERS=$workers verify_try "$from" 2 checks "export pnpm_config_workspace_concurrency=1; $step" || result=$?
+    [ "$result" != 2 ] || return 2
+    if [ "$result" = 0 ]; then
       names=$(failed_tests "$first")
       [ -n "$names" ] || log "flaky: $step failed once and passed the second time, no test named"
       while IFS= read -r name; do [ -z "$name" ] || log "flaky: $name"; done <<<"$names"
@@ -210,7 +241,7 @@ ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-
 # one more try once main's code has changed since it was held (retry_held), the Machine Load Lead looks at those, never
 # the owner, and a run drops its job's after 14 days (drop_old_held).
 # Work out of time OUT_CYCLES cycles in a row is no longer put down to a busy Mac: it fails as broken work does (count_outs).
-# `keep_unpublished <job>`, where a run gives up publishing.
+# `keep_unpublished <job> [original video recheck commit]`, where a run gives up publishing.
 engine_clone() { [ -z "${GITHUB_ACTIONS:-}" ] && case "$PWD/" in "$HOME/.local/share/aquatome/"*) true ;; *) false ;; esac; }
 # The cloud's cycle (engine.yml) keeps its work the same way, but a runner keeps nothing past its run, so each of those
 # branches is on GitHub too, pushed over the key the cycle pushes main with: on 2026-11-12 a cloud cycle lost 682 model
@@ -220,24 +251,70 @@ engine_clone() { [ -z "${GITHUB_ACTIONS:-}" ] && case "$PWD/" in "$HOME/.local/s
 engine_cloud() { [ -n "${GITHUB_ACTIONS:-}" ] && case "${GITHUB_WORKFLOW_REF:-}" in */.github/workflows/engine.yml@*) true ;; *) false ;; esac; }
 keep_unpublished() {
   engine_clone || engine_cloud || return 0
-  local when
+  local when saved=HEAD lane=held suffix= branch
   when=$(date -u +%Y%m%dT%H%M%S)
+  if [ -n "${2:-}" ]; then saved=$(video_recheck_recovery_commit "$2") || return 1; fi
   if [ -n "${TIMED_OUT:-}" ]; then
-    keep_branch "kept/$1/$when-out1" && log "tests ran out of time: this run's work is kept on kept/$1/$when-out1 for the next run"
+    lane=kept suffix=-out1
   elif [ -n "${MIGRATE_FAILED:-}" ]; then
+    lane=kept
     # The line the run's failure is reported with (engine-cycle.sh finish), as its callers then stop the run.
     FAILED="photo records not migrated: this run's work is kept on kept/$1/$when for the next run"
-    keep_branch "kept/$1/$when" && log "$FAILED"
-  else
-    # Off main at once: a next run that couldn't fetch would carry on from this commit, and could publish it.
-    keep_branch "held/$1/$when" && git reset -q --hard origin/main && log "checks failed twice: this run's work is on held/$1/$when, not published"
   fi
+  branch="$lane/$1/$when$suffix"
+  if [ -n "${2:-}" ]; then
+    video_recheck_record_pending_queue "$2" "$branch" "$saved" || log "could not record the pending video recheck queue"
+    branch=$(keep_video_recheck_ref "$branch" "$saved" "$2") || return 1
+  else
+    keep_branch "$branch" "$saved" || return 0
+  fi
+  case "$lane$suffix" in
+    kept-out1) log "tests ran out of time: this run's work is kept on $branch for the next run" ;;
+    kept)
+      FAILED="photo records not migrated: this run's work is kept on $branch for the next run"
+      log "$FAILED"
+      ;;
+    # Off main at once: a next run that couldn't fetch would carry on from this commit, and could publish it.
+    held) git reset -q --hard origin/main && log "checks failed twice: this run's work is on $branch, not published" ;;
+  esac
   # Its callers go on to say they aren't publishing, under set -e.
   return 0
 }
+# Give an occupied timestamp a separate batch identity while preserving the queue and timeout count.
+keep_video_recheck_ref() {
+  local branch=$1 saved base
+  saved=$(git rev-parse --verify "$2^{commit}") || return 1
+  base=$(uncounted "$branch")
+  if [ -n "$(batch_names "${base#*/}")" ] || ! keep_branch "$branch" "$saved" new >&2; then
+    branch="${base}_${saved}${branch#"$base"}"
+    if ! keep_branch "$branch" "$saved" new >&2; then
+      if [ -z "${3:-}" ] || [ ! -s "$(video_recheck_queue_archive "$3")" ]; then
+        archive_video_recheck_ref "$branch" "$saved" "${3:-}" >&2 || log "could not archive $branch at $saved" >&2
+      fi
+      return 1
+    fi
+  fi
+  printf '%s\n' "$branch"
+}
+# If neither recovery ref can be written, preserve the commit and its queue name outside the checkout.
+archive_video_recheck_ref() {
+  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive link temp
+  mkdir -p "$parent" && archive=$(mktemp -d "$parent/video-recheck-ref.XXXXXXXX") || return 1
+  git init -q --bare "$archive" && net git push -q "$archive" "$2:refs/heads/$1" || return 1
+  log "saved $1 in $archive"
+  if [ -n "${3:-}" ]; then
+    link=$(video_recheck_queue_archive "$3")
+    temp=$(mktemp "$link.XXXXXXXX") || return 1
+    printf '%s\n' "$archive" > "$temp" && mv -f -- "$temp" "$link" || return 1
+  fi
+}
 # HEAD on branch $1, and in the cloud on GitHub's branch of that name.
 keep_branch() {
-  git branch -q -f "$1" HEAD || return 1
+  if [ "${3:-}" = new ]; then
+    git branch -q "$1" "${2:-HEAD}"
+  else
+    git branch -q -f "$1" "${2:-HEAD}"
+  fi || return 1
   engine_cloud || return 0
   net git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
 }
@@ -259,8 +336,15 @@ drop_branch() {
 # and on GitHub a plain push moves a branch on when it's behind. A <to> already there fails it, here and on GitHub
 # (the lease that it isn't there); a delete here that fails takes back the branch just made.
 move_branch() {
-  if engine_cloud; then net git push -q --atomic --force-with-lease="refs/heads/$2:" origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1; fi
-  git branch -q "$2" HEAD || return 1
+  local saved=HEAD original
+  case "$1" in
+    kept/video-recheck/*|held/video-recheck/*)
+      original=$(video_recheck_recovery_parent "$1" 1) &&
+        saved=$(video_recheck_recovery_commit "$original") || return 1
+      ;;
+  esac
+  if engine_cloud; then net git push -q --atomic --force-with-lease="refs/heads/$2:" origin "$saved:refs/heads/$2" ":refs/heads/$1" || return 1; fi
+  git branch -q "$2" "$saved" || return 1
   git branch -q -D "$1" || { git branch -q -D "$2"; return 1; }
 }
 # `rename_branch <from> <to>`: the same work under another name (its count, count_outs), and in the cloud GitHub's in one
@@ -450,6 +534,7 @@ publish_kept() {
   if engine_cloud; then
     net git fetch -q origin "+refs/heads/kept/$1/*:refs/heads/kept/$1/*" "+refs/heads/held/$1/*:refs/heads/held/$1/*" || log "the kept work on GitHub couldn't be fetched: left for the next run"
   fi
+  [ "$1" != video-recheck ] || settle_video_recheck_outgoing || return 1
   drop_old_held "$1"
   forget_two_names "$1"
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
@@ -457,12 +542,12 @@ publish_kept() {
     git show-ref -q --verify "refs/heads/$branch" || continue
     one_name "$branch" || continue
     log "publishing $branch, kept by an earlier run"
-    git reset -q --hard "$branch"
+    reset_recovery_checkout "$1" "$branch" || return 1
     if push_kept "$branch"; then
-      git branch -q -D "$BRANCH"
+      finish_published_branch "$BRANCH" || return 1
       log "published $branch"
       net git fetch -q origin || true
-      git reset -q --hard origin/main
+      reset_recovery_checkout "$1" origin/main || return 1
       continue
     fi
     count_outs "$BRANCH"
@@ -486,10 +571,10 @@ publish_kept() {
       [ -z "${MIGRATE_FAILED:-}" ] || FAULT="${FAULT:+$FAULT; }$branch isn't published: its photo records couldn't be migrated, and it stays kept"
     fi
     net git fetch -q origin || true
-    git reset -q --hard origin/main
+    reset_recovery_checkout "$1" origin/main || return 1
   done
   # On the Mac too since 14 Nov: until then a held batch there sat until someone renamed it by hand (13 Nov, three).
-  retry_held "$1"
+  retry_held "$1" || return 1
   # Kept work's failed migration is that work's: the run's own goes on to its own (video-cycle.sh tests with no merge).
   MIGRATE_FAILED=
 }
@@ -506,25 +591,44 @@ fault_exit() {
   fi
   exit "$status"
 }
+drop_published_branch() {
+  git branch -q -D "$1" && return 0
+  log "published $1 but its local branch could not be removed"
+  return 1
+}
+finish_published_branch() {
+  local batch queued
+  case "$1" in
+    kept/video-recheck/*|held/video-recheck/*)
+      batch=$(video_recheck_recovery_parent "$1" 1) &&
+        queued=$(video_recheck_batch_refs "$batch") &&
+        drop_video_recheck_queue_refs "$queued" &&
+        clear_video_recheck_outgoing "$batch"
+      ;;
+    *) drop_published_branch "$1" ;;
+  esac
+}
 # Each held branch of <job> not yet tried again, once main's code (anything but the engine's output and the docs) has
 # changed since the main it was checked on: published as kept work is, or, failing its tests for real again, or out of
 # time in OUT_CYCLES tries in a row (count_outs), moved to <branch>-tried, which nothing tries again. Out of time fewer
 # times, or not pushed, it stays held for the next run's try.
 retry_held() {
-  local branch base tried why as
+  local branch base tested tried why as
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/held/$1/"); do
     case "$branch" in *-tried) continue ;; esac
     git show-ref -q --verify "refs/heads/$branch" || continue
     one_name "$branch" || continue
-    base=$(git merge-base "$branch" origin/main) || continue
+    tested=$branch
+    if [ "$1" = video-recheck ]; then tested=$(video_recheck_recovery_parent "$branch" 2) || return 1; fi
+    base=$(git merge-base "$tested" origin/main) || continue
     git diff --quiet "$base" origin/main -- . ':!content' ':!sources' ':!engine-state' ':!docs' ':!*.md' && continue
     log "trying $branch once more: main's code has changed since it was held"
-    git reset -q --hard "$branch"
+    reset_recovery_checkout "$1" "$branch" || return 1
     if push_kept "$branch"; then
-      git branch -q -D "$BRANCH"
+      finish_published_branch "$BRANCH" || return 1
       log "published $branch"
       net git fetch -q origin || true
-      git reset -q --hard origin/main
+      reset_recovery_checkout "$1" origin/main || return 1
       continue
     fi
     count_outs "$BRANCH"
@@ -543,7 +647,7 @@ retry_held() {
       log "$branch isn't published yet ($KEPT_WHY): it stays held for the next run's try$as"
     fi
     net git fetch -q origin || true
-    git reset -q --hard origin/main
+    reset_recovery_checkout "$1" origin/main || return 1
   done
 }
 # Pages a later run put on main while this work was kept, and that this work wrote too: main's stay as main has them. They
@@ -557,36 +661,67 @@ retry_held() {
 # a path the kept work also wrote as moved, not added, and the kept version won (that day too). The kept work's are what
 # any of its commits added, not only what its last one has: the rebase replays each commit, and a page it added and a
 # later commit deleted was added on main's and then deleted, main's page with it (Codex's read, 14 Nov). All in a commit
-# of its own. `main_pages <branch>`, after the pull.
+# of its own. `main_pages <branch> [<main>]`, after the pull.
 main_pages() {
-  local base pages files
-  base=$(git merge-base "$1" origin/main) || return 0
-  pages=$(comm -12 <(ever_added "$base" "$1" | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) <(added "$base" origin/main | sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u) |
-    while read -r page; do git cat-file -e "$base:$page" 2>/dev/null || echo "$page"; done)
-  files=$(comm -12 <(ever_added "$base" "$1") <(added "$base" origin/main) | while read -r file; do grep -qxF "${file%/*}" <<<"$pages" || echo "$file"; done)
+  local base ours theirs shared page_dirs pages files upstream=${2:-origin/main}
+  if ! base=$(git merge-base "$1" "$upstream") ||
+    ! ours=$(ever_added "$base" "$1") || ! theirs=$(added "$base" "$upstream"); then
+    log "main's pages: could not compare the added files"
+    return 1
+  fi
+  shared=$(comm -12 <(printf '%s\n' "$ours") <(printf '%s\n' "$theirs")) || return 1
+  ours=$(added_page_dirs <<<"$ours") && theirs=$(added_page_dirs <<<"$theirs") || return 1
+  page_dirs=$(comm -12 <(printf '%s\n' "$ours") <(printf '%s\n' "$theirs")) || return 1
+  pages=$(
+    while IFS= read -r page; do
+      [ -n "$page" ] || continue
+      entry=$(git ls-tree --full-tree "$base" -- "$page") || exit 1
+      [ -n "$entry" ] || printf '%s\n' "$page"
+    done <<<"$page_dirs"
+  ) || return 1
+  files=$(
+    while IFS= read -r file; do
+      [ -n "$file" ] || continue
+      grep -qxF "${file%/*}" <<<"$pages" || printf '%s\n' "$file"
+    done <<<"$shared"
+  ) || return 1
   [ -n "$pages$files" ] || return 0
   # shellcheck disable=SC2086 # content paths have no spaces
-  git checkout --no-overlay origin/main -- $pages $files
+  git checkout --no-overlay "$upstream" -- $pages $files || return 1
   git diff --cached --quiet && return 0
-  git commit -q -m "content: main's pages as main has them ($(grep -c . <<<"$pages" || true) pages and $(grep -c . <<<"$files" || true) other files a later run published first)"
+  commit_reconciled_changes "content: main's pages as main has them ($(grep -c . <<<"$pages" || true) pages and $(grep -c . <<<"$files" || true) other files a later run published first)" || return 1
   log "$1: $(grep -c . <<<"$pages" || true) pages and $(grep -c . <<<"$files" || true) other files a later run published first stay as main has them"
 }
 # The content files added between commits $1 and $2, renames not followed, sorted.
-added() { git diff --name-only --no-renames --diff-filter=A "$1" "$2" -- content | sort; }
+added() (
+  set -o pipefail
+  git diff --name-only --no-renames --diff-filter=A "$1" "$2" -- content | sort
+)
 # The content files any commit after $1 up to $2 added, renames not followed, sorted: one a later commit deleted too.
-ever_added() { git log --format= --name-only --no-renames --diff-filter=A "$1..$2" -- content | sed '/^$/d' | sort -u; }
+ever_added() (
+  set -o pipefail
+  git log --format= --name-only --no-renames --diff-filter=A "$1..$2" -- content | sed '/^$/d' | sort -u
+)
+added_page_dirs() (
+  set -o pipefail
+  sed -nE 's#^(content/[^/]+/[^/]+)/[^/]+$#\1#p' | sort -u
+)
 # After a pull that brought main's commits in, clean or not: a page's hold follows the record that won, so a release on
 # main during a run stands, and so does a hold (main-holds.mjs says which pages and why; Page Recovery and the chief of
 # staff, 16 Nov 2026). Only the hold moves, and only on a page whose text is main's: one whose text isn't stays as merged,
-# and is counted in the log. In a commit of its own. `main_holds <this run's HEAD before the pull> [<main>, @{u}]` is false
-# when it put main's holds back, a tree no check has seen, so the caller checks again, as a clash does.
+# and is counted in the log. In a commit of its own. `main_holds <batch> [<main>, @{u}] [strict]` returns
+# 1 when it restored holds and 2 when it could not write them or a strict comparison failed.
 CYCLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_holds() {
-  local up=${2:-} base out holds texts harms
+  local up=${2:-} strict=${3:-} base out holds texts harms
   [ -n "$up" ] || up='@{u}'
-  up=$(git rev-parse "$up") && base=$(git merge-base "$1" "$up") || return 0
+  if ! up=$(git rev-parse "$up") || ! base=$(git merge-base "$1" "$up"); then
+    [ -z "$strict" ] || { log "main's holds: could not find the batch's base, leaving the video recheck queued"; return 2; }
+    return 0
+  fi
   [ "$base" != "$up" ] || return 0
-  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up"); then
+  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up" "${strict:+--strict}"); then
+    [ -z "$strict" ] || { log "main's holds: comparison failed, leaving the video recheck queued"; return 2; }
     log "main's holds: the pages main read during this run couldn't be compared, so their holds stay as merged"
     return 0
   fi
@@ -595,57 +730,474 @@ main_holds() {
   [ -z "$harms" ] || log "$(grep -c . <<<"$harms") pages main read during this run stay held: another of their languages is held for harm: $(head -5 <<<"$harms" | tr '\n' ' ')"
   [ -n "$holds" ] || return 0
   # shellcheck disable=SC2086 # content paths have no spaces
-  git checkout "$up" -- $holds
-  git commit -q -m "content: main's holds on $(grep -c . <<<"$holds") pages main read during this run"
+  git checkout "$up" -- $holds || return 2
+  git diff --cached --quiet && return 0
+  commit_reconciled_changes "content: main's holds on $(grep -c . <<<"$holds") pages main read during this run" || return 2
   log "$(grep -c . <<<"$holds") pages main read during this run take main's hold, as its record has it: $(head -5 <<<"$holds" | tr '\n' ' ')"
   return 1
 }
+# from_main loads these rules once. A video recheck that pulls new rules leaves its work for the next process.
+video_recheck_rules_current() {
+  [ -n "${AQ_SCRIPT_HEAD:-}" ] &&
+    git diff --quiet "$AQ_SCRIPT_HEAD" HEAD -- \
+      scripts/cycle-checks.sh scripts/video-recheck.sh scripts/video-recheck-publish.sh \
+      .nvmrc .npmrc pnpm-workspace.yaml pnpm-lock.yaml ':(glob)**/package.json'
+}
+VIDEO_RECHECK_PENDING_REF=refs/aquatome/video-recheck/pending
+VIDEO_RECHECK_PENDING_QUEUE_PREFIX='content: queue video recheck on '
+video_recheck_pending() {
+  git for-each-ref --format='%(objectname)' "$VIDEO_RECHECK_PENDING_REF"
+}
+video_recheck_queue_archive() {
+  printf '%s/video-recheck-queue.%s' "${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"}" "$1"
+}
+# Keep the queue name and both commit identities before attempting either queue ref write.
+video_recheck_record_pending_queue() {
+  local pending record
+  pending=$(video_recheck_pending) || return 1
+  [ -n "$pending" ] || return 0
+  [ "$pending" = "$1" ] || return 1
+  if record=$(git commit-tree "$3^{tree}" -p "$3" -m "$VIDEO_RECHECK_PENDING_QUEUE_PREFIX$2") &&
+    git update-ref "$VIDEO_RECHECK_PENDING_REF" "$record" "$pending"; then return 0; fi
+  # A cache archive records the disposition even when this clone's refs are unwritable.
+  archive_video_recheck_ref "$2" "$3" "$1"
+}
+# Keep the original batch and the failing checkout reachable from one ref. The ref's tree
+# shows what failed. Recovery starts from its first parent and remembers the second for the retry gate.
+VIDEO_RECHECK_RECOVERY_SUBJECT='content: record video recheck recovery'
+video_recheck_recovery_commit() {
+  local tested
+  tested=$(git rev-parse HEAD) || return 1
+  if [ "$tested" = "$1" ]; then printf '%s\n' "$tested"; return; fi
+  git commit-tree "$tested^{tree}" -p "$1" -p "$tested" -m "$VIDEO_RECHECK_RECOVERY_SUBJECT"
+}
+video_recheck_recovery_parent() {
+  local subject
+  subject=$(git show -s --format=%s "$1") || return 1
+  if [ "$subject" = "$VIDEO_RECHECK_RECOVERY_SUBJECT" ]; then
+    git rev-parse "$1^$2"
+  else
+    git rev-parse "$1"
+  fi
+}
+# A held ref can point to a record with the original batch as its first parent.
+video_recheck_batch_refs() {
+  local branches branch original
+  branches=$(git for-each-ref --format='%(refname)' refs/heads/kept/video-recheck/ refs/heads/held/video-recheck/) || return 1
+  for branch in $branches; do
+    original=$(video_recheck_recovery_parent "$branch" 1) || return 1
+    if [ "$original" = "$1" ]; then printf '%s\n' "${branch#refs/heads/}"; fi
+  done
+}
+
+VIDEO_RECHECK_OUTGOING=refs/aquatome/video-recheck/outgoing
+record_video_recheck_outgoing() {
+  git update-ref "$VIDEO_RECHECK_OUTGOING/$1/$2" "$2"
+}
+video_recheck_outgoing_commits() {
+  git for-each-ref --format='%(objectname)' "$VIDEO_RECHECK_OUTGOING/$1/"
+}
+video_recheck_push_reached_main() {
+  local commit
+  for commit in $1; do
+    if git merge-base --is-ancestor "$commit" "$2"; then return 0
+    elif [ "$?" != 1 ]; then return 2; fi
+  done
+  return 1
+}
+clear_video_recheck_outgoing() {
+  local refs ref commit
+  refs=$(git for-each-ref --format='%(refname) %(objectname)' "$VIDEO_RECHECK_OUTGOING/$1/") || return 1
+  while read -r ref commit; do
+    [ -n "$ref" ] || continue
+    git update-ref -d "$ref" "$commit" || return 1
+  done <<<"$refs"
+}
+drop_video_recheck_queue_refs() {
+  local branch
+  for branch in $1; do drop_published_branch "$branch" || return 1; done
+}
+# Check recorded pushes before deciding whether to retry the queue.
+settle_video_recheck_outgoing() {
+  local refs batch queued outgoing main=''
+  refs=$(git for-each-ref --format='%(refname:lstrip=4)' "$VIDEO_RECHECK_OUTGOING/") || return 1
+  for batch in $(cut -d/ -f1 <<<"$refs" | sort -u); do
+    queued=$(video_recheck_batch_refs "$batch") || return 1
+    if [ -z "$queued" ]; then
+      clear_video_recheck_outgoing "$batch" || return 1
+      continue
+    fi
+    if [ -z "$main" ]; then main=$(video_recheck_fetch_main) || return 1; fi
+    outgoing=$(video_recheck_outgoing_commits "$batch") || return 1
+    if video_recheck_push_reached_main "$outgoing" "$main"; then
+      log "main already contains the verified video recheck commit for $batch"
+      drop_video_recheck_queue_refs "$queued" && clear_video_recheck_outgoing "$batch" || return 1
+    elif [ "$?" != 1 ]; then return 1; fi
+  done
+}
+# Read the commit fetched for this attempt, then use it even if main advances during a rebase.
+video_recheck_fetch_main() {
+  net git fetch -q origin main >&2 || return 1
+  git rev-parse --verify 'FETCH_HEAD^{commit}'
+}
+video_recheck_rebase_attempt() {
+  local upstream=$1 batch=$2 action="aquatome-video-recheck-$$-$RANDOM-$RANDOM" replayed history
+  shift 2
+  GIT_REFLOG_ACTION=$action net git rebase -q "$@" --no-update-refs --no-autosquash --no-rebase-merges "$upstream" "$batch" || return 1
+  # Read the commits Git recorded when it updated HEAD for each pick.
+  replayed=$(git reflog show --format=%H --basic-regexp --grep-reflog="^$action (pick):" HEAD) || return 1
+  if [ -n "$replayed" ]; then
+    VIDEO_RECHECK_REBASED=${replayed%%$'\n'*}
+    history=$(git rev-list --first-parent "$upstream..$VIDEO_RECHECK_REBASED") || return 1
+    if [ "$history" != "$replayed" ]; then
+      log "the video recheck rebase includes commits outside its replay"
+      return 1
+    fi
+  elif git merge-base --is-ancestor "$upstream" "$batch"; then
+    VIDEO_RECHECK_REBASED=$batch
+  else
+    VIDEO_RECHECK_REBASED=$upstream
+  fi
+}
+video_recheck_rebase() {
+  local upstream=$1 batch=$2 clash
+  if ! video_recheck_rebase_attempt "$upstream" "$batch"; then
+    clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
+    git rebase --abort 2>/dev/null || return 1
+    [ -n "$clash" ] || return 1
+    log "another job changed the same files: $clash"
+    if ! video_recheck_rebase_attempt "$upstream" "$batch" -X theirs; then
+      git rebase --abort 2>/dev/null || true
+      return 1
+    fi
+  fi
+  if [ "$(git rev-parse HEAD)" != "$VIDEO_RECHECK_REBASED" ]; then
+    log "the checkout moved after the video recheck rebase"
+    return 1
+  fi
+}
+# Keep the whole batch through the rebase, except a calendar that must be replanned on main.
+# Comparing against the original base catches patches Git skipped after main applied and then reverted them.
+video_recheck_batch_calendar() {
+  local batch=$1 upstream=$2 pulled=$3 base tip edits calendar=content/curation.json combined status=0
+  git merge-base --is-ancestor "$upstream" "$pulled" || return 1
+  # The guide commit starts the batch, before any sweep commits. Main can already share part of that history.
+  base=$(git log -1 --first-parent --format=%P --grep='^content: video guides checked again ' "$batch") || return 1
+  if [ -z "$base" ]; then
+    base=$(git merge-base "$pulled" "$batch") || return 1
+    if [ "$base" = "$batch" ]; then base=$(git rev-parse "$batch^") || return 1; fi
+  fi
+  # Rebase considers patches in both histories, even when either side later undid its calendar edit.
+  for tip in "$batch" "$upstream"; do
+    edits=$(git rev-list -1 --full-history "$base..$tip" -- "$calendar") || return 1
+    if [ -z "$edits" ]; then calendar=; break; fi
+  done
+  if [ "$pulled" != "$batch" ]; then
+    combined=$(git merge-tree --write-tree --name-only --no-messages --merge-base="$base" "$pulled" "$batch" 2>/dev/null) || status=$?
+    if [ -n "$calendar" ]; then
+      # merge-tree prints the tree first, then unresolved paths. Only the calendar is replaced below.
+      case "$status" in
+        0) ;;
+        1) [ "${combined#*$'\n'}" = "$calendar" ] || return 1 ;;
+        *) return 1 ;;
+      esac
+      git diff --quiet "${combined%%$'\n'*}" "$pulled" -- . ":(exclude)$calendar" || return 1
+    elif [ "$status" != 0 ] || [ "$combined" != "$(git rev-parse "$pulled^{tree}")" ]; then
+      return 1
+    fi
+  fi
+  printf '%s' "$calendar"
+}
+# Start the sweep from main's calendar, then plan with the pages and photos the sweep leaves.
+restore_video_recheck_calendar() {
+  git checkout "$1" -- content/curation.json || return 1
+  git diff --cached --quiet || commit_reconciled_changes "content: restore main's calendar"
+}
+
+commit_reconciled_changes() {
+  if [ -z "${video_publish_head:-}" ]; then
+    git commit -q -m "$1"
+    return
+  fi
+  # The video publishers carry an expected commit through reconciliation and verification.
+  # A commit advances it only when the update succeeds against the old value.
+  local tree commit
+  tree=$(git write-tree) &&
+    commit=$(git commit-tree "$tree" -p "$video_publish_head" -m "$1") &&
+    git update-ref -m "$1" HEAD "$commit" "$video_publish_head" || return 1
+  video_publish_head=$commit
+}
+# Content loaders can read ignored paths within their input directories. last-run.json is a local run report.
+video_recheck_local_files() {
+  git ls-files --others --exclude-standard "$@" &&
+    git ls-files --others --ignored --exclude-standard "$@" -- \
+      content sources engine-state docs/review apps/site/.hidden.json apps/site/test/fixture-content apps/site/test/engine-state \
+      ':(exclude)engine-state/last-run.json'
+}
+# Content checks enumerate entity directories, even though Git cannot track a directory with no files.
+video_recheck_empty_dirs() {
+  local root fixture_state=apps/site/test/engine-state
+  for root in content apps/site/test/fixture-content; do
+    [ ! -d "$root" ] || find "$root" -depth -mindepth 2 -type d -empty "$@" || return 1
+  done
+  if [ -d "$fixture_state" ]; then find "$fixture_state" -depth -mindepth 1 -type d -empty "$@"; fi
+}
+video_recheck_tree() {
+  local status files empty commit
+  status=$(git status --porcelain=v1 --untracked-files=no) &&
+    files=$(video_recheck_local_files) &&
+    empty=$(video_recheck_empty_dirs -print) &&
+    [ -z "$status$files$empty" ] && commit=$(git rev-parse "${1:-${video_publish_head:-HEAD}}^{commit}") || return 1
+  [ "$(git rev-parse HEAD)" = "$commit" ] || return 1
+  git rev-parse "$commit^{tree}"
+}
+
+video_recheck_open_worktree() {
+  local phase=$1 base=$2 git_dir snapshot worktrees
+  git_dir=$(git rev-parse --absolute-git-dir) || return 1
+  snapshot="$git_dir/aquatome-video-$phase"
+  worktrees=$(git worktree list --porcelain) || return 1
+  if grep -Fx "worktree $snapshot" <<<"$worktrees" >/dev/null; then
+    if [ -d "$snapshot" ]; then
+      (cd "$snapshot" && archive_video_recheck_checkout) >&2 || return 1
+    fi
+    git worktree remove --force "$snapshot" >&2 || return 1
+  fi
+  git worktree add -q --detach --no-checkout "$snapshot" "$base" || return 1
+  printf '%s\n' "$snapshot"
+}
+
+# A hard reset can replace an untracked file when the destination commit tracks that path.
+reset_recovery_checkout() {
+  local target=$2
+  if [ "$1" = video-recheck ]; then
+    if ! archive_video_recheck_checkout; then
+      log "could not preserve the video recheck checkout before resetting"
+      return 1
+    fi
+    case "$target" in
+      kept/video-recheck/*|held/video-recheck/*)
+        target=$(video_recheck_recovery_parent "$target" 1) || return 1
+        ;;
+    esac
+  fi
+  git reset -q --hard "$target"
+}
+
+# Keep untracked inputs outside the dedicated video recheck checkout so its sweep cannot stage them.
+archive_video_recheck_inputs() {
+  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive file to files
+  files=$(video_recheck_local_files) || return 1
+  if [ -z "$files" ]; then
+    video_recheck_empty_dirs -delete
+    return
+  fi
+  mkdir -p "$parent" || return 1
+  archive=$(mktemp -d "$parent/video-recheck-inputs.XXXXXXXX") || return 1
+  video_recheck_local_files -z > "$archive/paths" || return 1
+  if [ ! -s "$archive/paths" ]; then
+    rm "$archive/paths" && rmdir "$archive"
+    return
+  fi
+  log "saving untracked video recheck files in $archive"
+  while IFS= read -r -d '' file; do
+    to="$archive/files/$file"
+    mkdir -p "$(dirname "$to")" && mv -- "$file" "$to" || return 1
+  done < "$archive/paths"
+  video_recheck_empty_dirs -delete
+}
+
+# Preserve staged and working edits before a reset, even when an attempt could not commit a sweep.
+archive_video_recheck_checkout() {
+  archive_video_recheck_inputs || return 1
+  if git diff --quiet && git diff --cached --quiet; then return 0; fi
+  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive
+  mkdir -p "$parent" || return 1
+  archive=$(mktemp -d "$parent/video-recheck-checkout.XXXXXXXX") || return 1
+  git rev-parse HEAD > "$archive/head" &&
+    git diff --no-ext-diff --no-textconv --binary --cached > "$archive/staged.patch" &&
+    git diff --no-ext-diff --no-textconv --binary > "$archive/working.patch" || return 1
+  log "saved the video recheck checkout at $archive"
+}
+
+# Use only in the dedicated video recheck checkout.
+prepare_video_recheck() {
+  video_recheck_tree >/dev/null && return 0
+  archive_video_recheck_inputs && video_recheck_tree >/dev/null
+}
+
+video_recheck_unchanged() {
+  [ "$(video_recheck_tree)" = "$1" ] && return 0
+  archive_video_recheck_inputs || log "could not save all files verification created"
+  return 1
+}
+
+# Use the pinned checkout's engine, prompts and workspace packages. The publishing checkout already populated the store.
+install_video_recheck_engine() {
+  pnpm --filter @aq/engine... install --offline --frozen-lockfile --silent
+}
+
+reconcile_video_recheck() {
+  local mode=$1 batch=$2 upstream=$3 pulled=$4 calendar=$5 before=$6
+  local checked=${7:-} must_check=${8:-}
+  local snapshot result reconciled migration recheck sweep=''
+  snapshot=$(video_recheck_open_worktree reconcile "$pulled") || return 1
+  result=$(git -C "$snapshot" rev-parse --absolute-git-dir) || return 1
+  result="$result/aquatome-reconcile-result"
+  git -C "$snapshot" read-tree --reset -u "$pulled" || return 1
+  if ! (
+    cd "$snapshot" || exit 1
+    CYCLE_DIR="$snapshot/scripts"
+    video_publish_head=$pulled
+    if [ "$mode" = recovery ] && ! main_pages "$batch" "$upstream"; then exit 1; fi
+    if [ "$mode" = recovery ] || [ "$upstream" != "$before" ]; then
+      main_holds "$batch" "$upstream" strict || { [ "$?" = 1 ] || exit 1; }
+    fi
+    if [ -n "$calendar" ] && ! restore_video_recheck_calendar "$upstream"; then exit 1; fi
+    if [ "$video_publish_head" != "$pulled" ]; then must_check=1; fi
+    if [ "$upstream" != "$before" ] ||
+      { [ "$mode" = recovery ] && { [ -n "$calendar$must_check${MIGRATE_FAILED:-}" ] ||
+        [ "$(git rev-parse "$video_publish_head^{tree}")" != "$checked" ]; }; }; then
+      sweep=1
+    fi
+    if [ -n "$sweep$calendar" ]; then install_video_recheck_engine || exit 1; fi
+    if [ -n "$sweep" ] && ! sweep_merged strict; then exit 1; fi
+    if [ -n "$calendar" ] && ! curate_merged_calendar strict; then exit 1; fi
+    video_recheck_tree >/dev/null || exit 1
+    printf '%s %s %s\n' "$video_publish_head" "${MIGRATE_FAILED:-0}" "${must_check:-0}" > "$result"
+  ); then
+    if (cd "$snapshot" && archive_video_recheck_checkout); then
+      git worktree remove --force "$snapshot" || log "could not remove the video reconciliation checkout"
+    fi
+    return 1
+  fi
+  read -r reconciled migration recheck < "$result" || return 1
+  git worktree remove --force "$snapshot" || return 1
+  # Import only the reconciled commit. A change in the publishing checkout stays available for recovery to archive.
+  video_recheck_tree "$pulled" >/dev/null &&
+    git read-tree -m -u "$pulled" "$reconciled" &&
+    git update-ref -m "video recheck: use the reconciled tree" HEAD "$reconciled" "$pulled" || return 1
+  video_publish_head=$reconciled
+  MIGRATE_FAILED=
+  if [ "$migration" != 0 ]; then MIGRATE_FAILED=$migration; fi
+  if [ "$mode" = recovery ] && [ "$recheck" != 0 ]; then check=1; fi
+}
+
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
 # when its tests failed for real; KEPT_WHY says why it isn't published; BRANCH, the branch's name now (a check that
 # passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
-  local check=1 clash main head swept run
+  local check=1 clash main head swept run video_recheck= batch pulled refreshed calendar='' outgoing checked_tree= verification_failed commit publish rejected_commit=
+  local video_publish_head=''
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
+  case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
+  if [ -n "$video_recheck" ]; then
+    batch=$(video_recheck_recovery_parent "$BRANCH" 1) || { KEPT_WHY="could not find the original video recheck batch"; return 1; }
+  fi
   for _ in 1 2 3; do
-    main=$(git rev-parse origin/main 2>/dev/null || true) run=$(git rev-parse HEAD) swept=
-    if ! net git pull -q --rebase origin main; then
-      clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
-      git rebase --abort 2>/dev/null || true
-      net git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; KEPT_WHY="a clash with main"; return 1; }
-      replan_merged "$clash"
-      check=1
+    video_publish_head=
+    if [ -n "$video_recheck" ] && ! prepare_video_recheck; then
+      KEPT_WHY="the video recheck checkout had changes before recovery"
+      return 1
     fi
-    # Main's pages put back is a tree the checks haven't seen: on a try after a lost push, back over what the sweep made of
-    # them (Grok's read of 19652e876, 14 Nov). main_pages commits only when it changed something, and so do main's holds
-    # (main_holds), after it: a page it put back whole is main's already.
-    head=$(git rev-parse HEAD)
-    [ -z "$BRANCH" ] || main_pages "$BRANCH"
-    main_holds "$run" origin/main || true
-    [ "$(git rev-parse HEAD)" = "$head" ] || check=1
-    # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
-    # main, it's checked in full; once it has, its lost push goes again as a run's own push does (push(), swept_pull):
-    # checked again only if the sweep changed more than the pages' dates or its reports, the calendar changed on both
-    # sides, or the migration failed (swept_clean), whatever main's commits changed, code too. On 15 Nov the held photos run of the night before passed its checks and lost its
-    # push three times, a full re-test of 30 to 50 minutes each on a hot Mac, while main took leads' merges, most with
-    # code (the Site lead and the chief of staff, 15 Nov).
-    # That sweep is the one the check sees, if it runs: a second would clear a failed migration's flag, and the tests
-    # would pass a tree whose photo records weren't migrated, which push() never publishes (Grok's read).
-    if [ "$(git rev-parse origin/main 2>/dev/null)" != "$main" ] && [ -z "$check" ]; then
-      head=$(git rev-parse HEAD)
-      sweep_merged
-      swept=1
-      if swept_clean "$head" "$main" "$(git rev-parse origin/main)"; then
-        log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
-      else
-        check=1
+    main=$(git rev-parse origin/main 2>/dev/null || true) run=$(git rev-parse HEAD) swept=
+    if [ -n "$rejected_commit" ]; then
+      if [ "$run" != "$rejected_commit" ]; then
+        KEPT_WHY="the checkout moved after a rejected video recheck push"
+        return 1
+      fi
+      # Reapply main's holds and the sweep to the original batch on each attempt.
+      if ! git reset -q --hard "$batch"; then
+        KEPT_WHY="could not return to the original video recheck batch"
+        return 1
       fi
     fi
+    if [ -n "$video_recheck" ]; then
+      run=$batch
+      if ! refreshed=$(video_recheck_fetch_main) || ! outgoing=$(video_recheck_outgoing_commits "$batch"); then
+        KEPT_WHY="could not check whether the video recheck reached main"
+        return 1
+      fi
+      if video_recheck_push_reached_main "$outgoing" "$refreshed"; then return 0
+      elif [ "$?" != 1 ]; then KEPT_WHY="could not check whether the video recheck reached main"; return 1; fi
+      if ! video_recheck_rebase "$refreshed" "$batch"; then
+        KEPT_WHY="could not rebase the video recheck onto main"
+        return 1
+      fi
+      main=$(git merge-base "$run" "$refreshed") || { KEPT_WHY="could not find the video recheck's base"; return 1; }
+      pulled=$VIDEO_RECHECK_REBASED
+      video_publish_head=$pulled
+      if ! video_recheck_rules_current; then
+        KEPT_WHY="video recheck rules changed during this run"
+        return 1
+      fi
+      if ! calendar=$(video_recheck_batch_calendar "$batch" "$refreshed" "$pulled"); then
+        KEPT_WHY="could not reconcile the video recheck batch with main"
+        return 1
+      fi
+      if ! reconcile_video_recheck recovery "$batch" "$refreshed" "$pulled" "$calendar" "$main" "$checked_tree" "$check"; then
+        KEPT_WHY="could not reconcile the video recheck in its private checkout"
+        return 1
+      fi
+      swept=1
+    else
+      clash=
+      if ! net git pull -q --rebase origin main; then
+        clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
+        git rebase --abort 2>/dev/null || true
+        net git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; KEPT_WHY="a clash with main"; return 1; }
+        check=1
+      fi
+      refreshed=$(git rev-parse origin/main 2>/dev/null || true)
+      replan_merged "$clash"
+      # Main's pages put back is a tree the checks haven't seen: on a try after a lost push, back over what the sweep made of
+      # them (Grok's read of 19652e876, 14 Nov). main_pages commits only when it changed something, and so do main's holds
+      # (main_holds), after it: a page it put back whole is main's already.
+      head=$(git rev-parse HEAD)
+      if [ -n "$BRANCH" ] && ! main_pages "$BRANCH" "$refreshed"; then
+        KEPT_WHY="could not restore main's pages"
+        return 1
+      fi
+      main_holds "$run" "$refreshed" || { [ "$?" = 1 ] || { KEPT_WHY="could not restore main's holds"; return 1; }; }
+      [ "$(git rev-parse HEAD)" = "$head" ] || check=1
+      # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
+      # main, it's checked in full; once it has, its lost push goes again as a run's own push does (push(), swept_pull):
+      # checked again only if the sweep changed more than the pages' dates or its reports, the calendar changed on both
+      # sides, or the migration failed (swept_clean), whatever main's commits changed, code too. On 15 Nov the held photos run of the night before passed its checks and lost its
+      # push three times, a full re-test of 30 to 50 minutes each on a hot Mac, while main took leads' merges, most with
+      # code (the Site lead and the chief of staff, 15 Nov).
+      # That sweep is the one the check sees, if it runs: a second would clear a failed migration's flag, and the tests
+      # would pass a tree whose photo records weren't migrated, which push() never publishes (Grok's read).
+      if [ "$refreshed" != "$main" ] && [ -z "$check" ]; then
+        head=$(git rev-parse HEAD)
+        sweep_merged || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
+        swept=1
+        if swept_clean "$head" "$main" "$refreshed"; then
+          log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
+        else
+          check=1
+        fi
+      fi
+    fi
+    # Recovered video work can reuse a pass only for the exact tree it checked.
+    if [ -n "$video_recheck" ] && { [ "$(git rev-parse "$video_publish_head^{tree}")" != "$checked_tree" ] || [ -n "$MIGRATE_FAILED" ]; }; then
+      check=1
+    fi
     if [ -n "$check" ]; then
-      [ -n "$swept" ] || sweep_merged
-      if ! verify_cycle; then
+      [ -n "$swept" ] || sweep_merged || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
+      if [ -n "$video_recheck" ]; then
+        checked_tree=$(video_recheck_tree) || { KEPT_WHY="the video recheck checkout differed from its commit before verification"; return 1; }
+      fi
+      verification_failed=0
+      verify_cycle "$video_publish_head" || verification_failed=$?
+      if [ -n "$video_recheck" ] && { ! video_recheck_unchanged "$checked_tree" || [ "$verification_failed" = 2 ]; }; then
+        KEPT_WHY="the video recheck checkout changed during verification"
+        return 1
+      fi
+      if [ "$verification_failed" != 0 ]; then
         if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
         elif [ -n "${MIGRATE_FAILED:-}" ]; then KEPT_WHY="its photo records couldn't be migrated"
         else KEPT_FAILED=1; fi
@@ -654,11 +1206,25 @@ push_kept() {
       check=
       [ -z "$BRANCH" ] || [ -n "$PASS_UNRECORDED" ] || ended_row
     fi
-    if engine_cloud && [ -n "$BRANCH" ]; then
-      net git push -q --atomic origin HEAD:main ":refs/heads/$BRANCH" && return 0
-    else
-      net git push -q origin HEAD:main && return 0
+    publish=HEAD:main
+    if [ -n "$video_recheck" ]; then
+      commit=$video_publish_head
+      if [ "$(video_recheck_tree)" != "$checked_tree" ]; then
+        KEPT_WHY="the video recheck checkout differed from the verified tree before publishing"
+        return 1
+      fi
+      if ! record_video_recheck_outgoing "$batch" "$commit"; then
+        KEPT_WHY="could not record the outgoing video recheck commit"
+        return 1
+      fi
+      publish="$commit:refs/heads/main"
     fi
+    if engine_cloud && [ -n "$BRANCH" ]; then
+      net git push -q --atomic origin "$publish" ":refs/heads/$BRANCH" && return 0
+    else
+      net git push -q origin "$publish" && return 0
+    fi
+    if [ -n "$video_recheck" ]; then rejected_commit=$commit; fi
     sleep "${PUSH_PAUSE:-30}"
   done
   KEPT_WHY="the push didn't land"
@@ -757,13 +1323,46 @@ checks_for() {
 # and in the history read on 2026-11-07 it never failed where the tests passed. deploy.yml builds the real site before
 # anything goes live and fails before the upload, so readers keep the live site and a "Deploy failed" issue opens.
 verify_cycle() {
-  local daily=
+  local commit=${1:-} checkout=$PWD snapshot result=0 video_verify_tree=
+  local CHECKS_SH=$CHECKS_SH
+  TIMED_OUT=
+  if [ -z "$commit" ] || [ -n "${MIGRATE_FAILED:-}" ]; then
+    verify_cycle_checks
+    return
+  fi
+
+  # The queue can wait after the outer checkout was checked. Read only the candidate's files and check scripts.
+  if ! snapshot=$(video_recheck_open_worktree verify "$commit") ||
+    ! git -C "$snapshot" read-tree --reset -u "$commit" || ! cd "$snapshot"; then
+    log "could not prepare a private checkout for video verification"
+    return 2
+  fi
+  local video_publish_head=$commit
+  CHECKS_SH="$snapshot/scripts/checks.sh"
+  if pnpm install --offline --frozen-lockfile --silent && video_verify_tree=$(video_recheck_tree "$commit"); then
+    verify_cycle_checks || result=$?
+  else
+    log "could not install dependencies or confirm the inputs for video verification"
+    result=2
+  fi
+  if [ "$result" = 2 ] && ! archive_video_recheck_checkout; then
+    log "could not archive the video verification checkout at $snapshot"
+    cd "$checkout" || return 2
+    return 2
+  fi
+  cd "$checkout" && git worktree remove --force "$snapshot" || return 2
+  return "$result"
+}
+
+verify_cycle_checks() {
+  local daily= result=0
   checks_for
   log "tests: $CHECKS_WHY"
   [ "$CHECKS_WHY" != "$DAILY_WHY" ] || daily=1
-  if ! verify "$CHECKS_STEP"; then
+  verify "$CHECKS_STEP" || result=$?
+  if [ "$result" != 0 ]; then
     [ -z "$daily" ] || rm -f "$FULL_STAMP.taken"
-    return 1
+    return "$result"
   fi
   [ -z "$daily" ] || touch "$FULL_STAMP"
   return 0
@@ -782,11 +1381,18 @@ verify_cycle() {
 # the tests see them. A migration that fails publishes nothing, and the work is kept for the next run, which migrates and
 # tests it again, never held for it (MIGRATE_FAILED; the Image Lead and the chief of staff, 13 Nov).
 sweep_merged() {
+  if [ -n "${1:-}" ] && ! prepare_video_recheck; then return 1; fi
   MIGRATE_FAILED=
   pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
-  pnpm engine sweep || log "sweep: failed"
-  git add content sources engine-state docs/review
-  git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
+  if ! pnpm engine sweep; then
+    log "sweep: failed"
+    if [ -n "${1:-}" ]; then
+      archive_video_recheck_inputs || log "could not save all files the sweep created"
+      return 1
+    fi
+  fi
+  git add content sources engine-state docs/review || return 1
+  git diff --cached --quiet || commit_reconciled_changes "content: sweep on main as it is now"
 }
 # A clean pull at a push brings main's changes in as well: a photo put on the never-again list, a head picked. A page file
 # merges item by item (merge-entity.mjs keeps an item one side changed), so a photo removed on main could come back on a
@@ -844,12 +1450,18 @@ swept_clean() {
 # Work whose checks passed but whose push lost to main three times (each try pulled, swept and pushed while main moved
 # on: five merges in forty minutes on 14 Nov, when the sf run lost three) is kept as work out of time is, and the next run
 # publishes it first, after its own tests (publish_kept). Until then it stayed in the clone, whose next run starts from
-# main and drops it. A branch of that name already there is never written over. `keep_lost_push <job>`.
+# main and drops it. A branch of that name already there is never written over. `keep_lost_push <job> [why] [commit]`.
 keep_lost_push() {
   engine_clone || engine_cloud || return 0
-  local branch; branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
-  if git show-ref -q --verify "refs/heads/$branch"; then log "push failed three times, and $branch is already there: this run's work isn't kept"; return 1; fi
-  keep_branch "$branch" && log "push failed three times: this run's work is kept on $branch for the next run"
+  local branch saved why=${2:-push failed three times}; branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
+  if [ "$1" = video-recheck ]; then
+    saved=$(git rev-parse --verify "${3:-HEAD}^{commit}") || return 1
+    branch=$(keep_video_recheck_ref "$branch" "$saved" "$saved") || return 1
+    log "$why: this run's work is kept on $branch for the next run"
+    return
+  fi
+  if git show-ref -q --verify "refs/heads/$branch"; then log "$why, and $branch is already there: this run's work isn't kept"; return 1; fi
+  keep_branch "$branch" "${3:-HEAD}" && log "$why: this run's work is kept on $branch for the next run"
 }
 # The calendar (content/curation.json) is one plan, not lines to blend. After a clash with a change on main, push()'s
 # line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of
@@ -857,10 +1469,16 @@ keep_lost_push() {
 # is among the clashing files ($1), it is main's, planned again on this cycle's photos, as the curate step plans.
 replan_merged() {
   [[ " $1 " == *" content/curation.json "* ]] || return 0
-  git show '@{u}:content/curation.json' > content/curation.json
-  pnpm engine curate || log "curate: failed"
-  git add content/curation.json
-  git diff --cached --quiet || git commit -q -m "content: the calendar planned again on main's"
+  git checkout '@{u}' -- content/curation.json || return 1
+  curate_merged_calendar
+}
+curate_merged_calendar() {
+  if ! pnpm engine curate; then
+    log "curate: failed"
+    [ -z "${1:-}" ] || return 1
+  fi
+  git add content/curation.json || return 1
+  git diff --cached --quiet || commit_reconciled_changes "content: the calendar planned again on main's"
 }
 # A clean pull here brings main's holds as push() does (main_holds): a species or plant page merges by field and never
 # clashes, so a release on main before this pull would otherwise stay under the run's hold, and push(), whose base is then

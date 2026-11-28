@@ -13,8 +13,11 @@ case "$PWD/" in "$HOME/.local/share/aquatome/"*) ;; *) log "not an engine clone 
 # The checks as the video job runs them (cycle-checks.sh): in turn with the other jobs' builds and tests, once the Mac's
 # load has fallen, and once more when tests ran out of time.
 TEST_LOG=/tmp/aquatome-video-recheck-test.log
+TEST_FAILURES_DIR="$HOME/.cache/aquatome/engine-check-failures"
 # shellcheck disable=SC1091
 source scripts/cycle-checks.sh
+# shellcheck source=scripts/video-recheck-publish.sh
+source scripts/video-recheck-publish.sh
 # A run that outlasts the hour is left to finish: the next start finds it and goes.
 PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
 # Not this run's own number: from_main starts it again as the same process.
@@ -38,6 +41,10 @@ fi
 # A line a model call: its cost, tokens and the account it went to (claude.ts), so a week's use can be split by job.
 export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-video-recheck.jsonl}"
 
+recover_interrupted_video_recheck || {
+  log "could not queue the interrupted video recheck"
+  exit 1
+}
 from_main "$@"
 cool
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
@@ -49,7 +56,14 @@ git config merge.regenerated.driver true
 if engine_clone || engine_cloud; then git config merge.main-whole.driver 'node scripts/merge-main-whole.mjs %O %A %B %P'; fi
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
+prepare_video_recheck || { log "could not clean the video recheck checkout before recovery"; exit 1; }
 publish_kept video-recheck
+prepare_video_recheck || { log "could not clean the video recheck checkout after recovery"; exit 1; }
+if ! video_recheck_rules_current; then
+  log "video recheck rules changed during this run: leaving new work for the next run"
+  exit 0
+fi
+video_batch_parent=$(git rev-parse HEAD)
 log "video recheck start"
 # Records left saying pages were done on 11 Nov 2026, when the usage limit stopped the gate, put back before a writer runs.
 pnpm engine redo-unread || log "redo-unread: failed"
@@ -73,41 +87,19 @@ pnpm engine review-backfill --kind video-guide --reviewed-before "$VIDEO_RECHECK
 # in ten came out under the bar again, and a guide gets one go, so the rest wait for the writer's fix, measured on 30.
 pnpm engine videos --redo --rechecked-since "$VIDEO_RECHECK_SINCE" --limit "${VIDEO_REDO_LIMIT:-0}" --parallel "${VIDEO_PARALLEL:-4}" || log "videos redo: failed"
 # The content rules' safe fixes, as in the video job: on 2026-11-08 a run's tests failed on a defect the sweep fixes.
-pnpm engine sweep || log "sweep: failed"
+sweep_new_video_recheck || exit 1
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
 # and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
 # and keeps its work on a branch (gate_or_keep).
-gate_or_keep "content: video guides checked again" content engine-state docs/review || exit 1
-if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
-# Committed before the tests, as video-cycle.sh does: the next run's reset drops uncommitted work for good, and a commit
-# stays in the reflog to publish by hand.
-git add content engine-state docs/review
-git commit -q -m "content: video guides checked again $(date -u +%F)"
-if ! verify_cycle; then keep_unpublished video-recheck; log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
-# The video job and the GitHub engine push too; the files merge through their drivers. Lines both changed give way to
-# this run's, as video-cycle.sh does; then the tests run again on the merge.
-for _ in 1 2 3; do
-  # main: the commit this work sits on, not the last main fetched, which a fetch before this pull (catch_up's, stopped
-  # after its fetch) may have moved: swept_pull then sees main's commits come in (a reader's catch, 16 Nov).
-  main=$(git merge-base HEAD '@{u}' 2>/dev/null || true) run=$(git rev-parse HEAD) moved=
-  if ! git pull -q --rebase; then
-    log "another job changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
-    git rebase --abort 2>/dev/null || true
-    if git pull -q --rebase -X theirs; then
-      main_holds "$run" || true
-      sweep_merged
-      verify_cycle || { keep_unpublished video-recheck; log "tests failed after that merge, not publishing"; exit 1; }
-    else
-      git rebase --abort 2>/dev/null || true
-    fi
-  else
-    main_holds "$run" || moved=1
-    if ! swept_pull "$main" || [ -n "$moved" ]; then
-      verify_cycle || { keep_unpublished video-recheck; log "tests failed after the sweep on main's changes, not publishing"; exit 1; }
-    fi
-  fi
-  if git push -q; then log "pushed (GitHub deploys it)"; exit 0; fi
-  sleep 30
-done
-log "push failed three times"; keep_lost_push video-recheck; exit 1
+if [ "$(git rev-parse HEAD)" != "$video_batch_parent" ]; then
+  log "the video recheck checkout moved before the gate"
+  exit 1
+fi
+git add -- content engine-state docs/review
+gate_input=$(video_recheck_gate_input "$video_batch_parent")
+gate_tree=$(gate_video_recheck_tree "$video_batch_parent" "$gate_input") || exit 1
+if [ "$gate_tree" = "$(git rev-parse "$video_batch_parent^{tree}")" ]; then log "no changes"; exit 0; fi
+# Commit only the tree returned by the gate, so startup can recover it if the publishing checkout moved.
+commit_video_recheck "content: video guides checked again $(date -u +%F)" "$video_batch_parent" "$gate_input" "$gate_tree" || exit 1
+push_video_recheck

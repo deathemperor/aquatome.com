@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process'
-import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
+import { mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -68,6 +68,60 @@ test('a hook out of time, or a worker that did not start in time, counts as out 
     expect(scales(0, [out, out]).timedOut, out).toBe(true)
   }
   expect(scales(0, ['AssertionError: expected 1 to be 2', 'AssertionError: expected 1 to be 2']).timedOut).toBe(false)
+})
+
+test('the two failed tries keep separate output after a later check reuses the working log', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-check-failures-'))
+  const r = spawnSync('bash', ['-c', `
+    set -euo pipefail
+    TEST_LOG="$1/engine-test.log"; TEST_FAILURES_DIR="$1/failed"
+    source "$2"
+    log() { echo "$*"; }; calm() { :; }; settled() { :; }; slow_mac() { :; }
+    calls=0
+    checks() {
+      calls=$((calls + 1))
+      case "$calls" in
+        1) echo "passed setup" ;;
+        2) echo "FAIL test/first.test.ts > first"; return 1 ;;
+        3) echo "FAIL test/retry.test.ts > retry"; return 1 ;;
+        *) echo "passed later" ;;
+      esac
+    }
+    if verify setup check; then exit 3; fi
+    verify next`, 'test', dir, CHECKS], { encoding: 'utf8', env: { ...process.env, GITHUB_ACTIONS: '' } })
+  expect(r.status, r.stderr).toBe(0)
+  expect(readFileSync(join(dir, 'engine-test.log'), 'utf8')).toBe('passed later\n')
+  const files = readdirSync(join(dir, 'failed')).sort()
+  expect(files).toHaveLength(2)
+  expect(files[0]).toContain('.try-1.')
+  expect(files[1]).toContain('.try-2.')
+  expect(files.map(file => readFileSync(join(dir, 'failed', file), 'utf8'))).toEqual([
+    'FAIL test/first.test.ts > first\n',
+    'FAIL test/retry.test.ts > retry\n',
+  ])
+  for (const file of files) expect(r.stdout).toContain(join(dir, 'failed', file))
+})
+
+test('a failed archive prints the failed attempt before retry replaces the working log', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-check-fallback-'))
+  const r = spawnSync('bash', ['-c', `
+    set -euo pipefail
+    TEST_LOG="$1/engine-test.log"; TEST_FAILURES_DIR="$1/failed"
+    touch "$TEST_FAILURES_DIR"
+    source "$2"
+    log() { echo "$*"; }; calm() { :; }; settled() { :; }; slow_mac() { :; }
+    calls=0
+    checks() {
+      calls=$((calls + 1))
+      if [ "$calls" = 1 ]; then echo "failed check output"; return 1; fi
+      echo "passed check output"
+    }
+    verify check
+    verify next`, 'test', dir, CHECKS], { encoding: 'utf8', env: { ...process.env, GITHUB_ACTIONS: '' } })
+  expect(r.status, r.stderr).toBe(0)
+  expect(r.stdout).toContain('failed check output')
+  expect(r.stdout).not.toContain('passed check output')
+  expect(readFileSync(join(dir, 'engine-test.log'), 'utf8')).toBe('passed check output\n')
 })
 
 // ran_out over a check's output: whether verify reads it as tests out of time.
