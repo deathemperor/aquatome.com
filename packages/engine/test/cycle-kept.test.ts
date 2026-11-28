@@ -522,6 +522,7 @@ test.each(['kept', 'held'])('a %s video recheck replans with the final page phot
   const branch = `${kind}/video-recheck/${when}`
   const page = 'content/guides/youtube-shared/vi.json'
   const mainPage = namedPage('main-photo')
+  const sweptPage = JSON.stringify({ name: 'main-photo', cover: 'swept-photo' })
   c.sh('echo before > content/curation.json && git add content/curation.json && git commit -qm calendar && git push -q')
   c.sh(`
     mkdir -p "$(dirname '${page}')"
@@ -546,7 +547,7 @@ test.each(['kept', 'held'])('a %s video recheck replans with the final page phot
       case "$2" in
         sweep)
           test "$(cat '${page}')" = '${mainPage}' || return 1
-          echo swept-photo > '${page}'
+          echo '${sweptPage}' > '${page}'
           ;;
         curate)
           test "$(cat content/curation.json)" = editor || return 1
@@ -557,9 +558,9 @@ test.each(['kept', 'held'])('a %s video recheck replans with the final page phot
     verify_cycle() { printf 'VERIFIED %s %s\n' "$(cat '${page}')" "$(cat content/curation.json)"; }
     publish_kept video-recheck
   `)
-  expect(log).toContain('VERIFIED swept-photo swept-photo')
-  expect(c.onMain(page)).toBe('swept-photo')
-  expect(c.onMain('content/curation.json')).toBe('swept-photo')
+  expect(log).toContain(`VERIFIED ${sweptPage} ${sweptPage}`)
+  expect(c.onMain(page)).toBe(sweptPage)
+  expect(c.onMain('content/curation.json')).toBe(sweptPage)
   expect(c.onMain('content/video.json')).toBe('rechecked')
   expect(c.branches()).toEqual([])
 }, slow(60_000))
@@ -2156,10 +2157,10 @@ if [ "$1 $2" = 'engine sweep' ] && [ -f content/species/x/vi.json ]; then
 fi
 PNPM`)
   c.sh(`printf '#!/bin/sh\\n[ -f "$HOME/refused-once" ] && exit 0\\ntouch "$HOME/refused-once"\\nexit 1\\n' > "$HOME/origin.git/hooks/pre-receive" && chmod 755 "$HOME/origin.git/hooks/pre-receive"`)
-  const log = c.cycle('checks() { cat content/species/x/vi.json >> "$HOME/checked"; }; publish_kept photos')
+  const log = c.cycle('checks() { git rev-parse HEAD > "$HOME/checked"; }; publish_kept photos')
   expect(log).toContain(`LOG published ${kept}`)
-  const checked = c.sh('cat "$HOME/checked"').split('\n')
-  expect(c.onMain('content/species/x/vi.json')).toBe(checked.at(-1))
+  const checkedPage = c.sh('git show "$(cat "$HOME/checked"):content/species/x/vi.json"')
+  expect(c.onMain('content/species/x/vi.json')).toBe(checkedPage)
   expect(c.onMain('content/b.json')).toBe('photos')
 }, slow(60_000))
 

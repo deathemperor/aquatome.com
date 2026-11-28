@@ -35,7 +35,11 @@ const KINDS = { guides: { dir: 'content/guides/youtube-x', key: 'vi/guides/youtu
 // lostPush: the run's first push loses, as main gets this side meanwhile. uncompared: the comparison of holds fails, as a
 // git read or a file it can't parse would make it; 'locked', and it leaves a lock in the index, so the pull can't be
 // undone. oldCaller: a cycle that started on the older script calls main-holds.mjs as that script did, with two arguments.
-function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: { mainOther?: boolean; mainDidNotMove?: boolean; kept?: boolean; catchUp?: boolean; lostPush?: Side; uncompared?: boolean | 'locked'; oldCaller?: boolean; video?: 'fresh' | 'kept'; holdFault?: 'process' | 'unreadable' | 'malformed'; baseWithoutFit?: boolean } = {}) {
+function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: {
+  mainOther?: boolean; mainDidNotMove?: boolean; kept?: boolean; catchUp?: boolean; lostPush?: Side;
+  uncompared?: boolean | 'locked'; oldCaller?: boolean; video?: 'fresh' | 'kept';
+  holdFault?: 'process' | 'unreadable' | 'malformed'; baseWithoutFit?: boolean; baseWithoutEntity?: boolean; sweepBody?: string;
+} = {}) {
   const { dir: pageDir, key } = KINDS[kind]
   const file = `${pageDir}/vi.json`
   const secondGuide = 'content/guides/youtube-y/vi.json'
@@ -58,7 +62,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
   })
   const entity = { ...JSON.parse(fixtureJson(kind === 'guides' ? 'guides/youtube-r53ZQW0m8VM/entity.json' : 'species/paracheirodon-innesi/entity.json')), id: pageDir.split('/').at(-1) }
   if (kind === 'species') entity.sections = [{ ...entity.sections[0], source: 'youtube' }]
-  const baseline = write({ [`${pageDir}/entity.json`]: JSON.stringify(entity), 'content/sources.json': fixtureJson('sources.json') })
+  const seedEntity = write({ [`${pageDir}/entity.json`]: JSON.stringify(entity) })
   const pushFn = readFileSync(join(ROOT, 'scripts/engine-cycle.sh'), 'utf8').match(/^push\(\) \{[\s\S]*?^\}$/m)![0]
   const script = `
     set -e
@@ -68,7 +72,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     git clone -q origin.git other 2>/dev/null && cd other && git checkout -q -b main
     mkdir scripts && cp '${join(ROOT, 'scripts/main-holds.mjs')}' scripts/main-holds.mjs && git add scripts
     printf 'engine-state/_fit.json merge=jsonmap\\ncontent/species/*/*.json merge=entity\\n' > .gitattributes && git add .gitattributes
-    ${baseline} && ${both(sides.base, !o.baseWithoutFit)}
+    ${write({ 'content/sources.json': fixtureJson('sources.json') })} && ${o.baseWithoutEntity ? ':' : seedEntity} && ${both(sides.base, !o.baseWithoutFit)}
     git commit -qm 'main as the run started' && git push -q origin main && cd ..
     git clone -q -b main origin.git cycle
     for c in other cycle; do
@@ -80,6 +84,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     ${o.mainOther ? `${write({ 'content/guides/other/vi.json': '{"slug":"khac"}\n' })} &&` : ''} git commit -qm 'content: another part, meanwhile' && git push -q origin main && cd ..
     `}
     cd cycle && ${both(sides.run)}
+    ${o.baseWithoutEntity ? seedEntity : ':'}
     ${o.video ? write({ [secondGuide]: '{"slug":"huong-dan","body":"<p>Đoạn mới.</p>"}\n' }) : ':'}
     git commit -qm '${o.video ? 'content: video guides checked again (fixture)' : 'content: this run'}'
     set +e
@@ -119,7 +124,9 @@ GIT
     }
     replan_merged() { :; }
     pnpm() { [ "$1 $2 $3 $4" = '--filter @aq/engine... install --offline' ]; }
-    sweep_merged() { :; }
+    sweep_merged() {
+      ${o.sweepBody ? `${write({ [file]: page({ ...sides.run, body: o.sweepBody }) })} && commit_reconciled_changes "content: fixture sweep"` : ':'}
+    }
     verify_cycle() {
       git show HEAD:${file} | node -e '
         const page = JSON.parse(require("node:fs").readFileSync(0, "utf8"))
@@ -731,6 +738,43 @@ test('recovery can update a cover without a review when the same text is already
   expect(r.out).toContain('CODE 0')
   expect(r.pushed.cover).toBe('Ảnh mới')
   expect(r.pushed.held).toBeUndefined()
+})
+
+test.each(['harm', 'source'])('recovery preserves a hold when the matching review still finds %s', check => {
+  const main = { held: hold(check), fit: heldFor(check) }
+  const r = push('guides', {
+    base: main,
+    main,
+    run: { fit: main.fit },
+  }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held?.checks).toEqual([check])
+})
+
+test.each(['photos', 'video'])('a recovered %s batch verifies the hold after the sweep rewrites reviewed text', kind => {
+  const main = { body: '<p>Bài cũ.</p>', fit: { ...clean, hash: 'old' } }
+  const sweepBody = '<p>Đoạn sau khi dọn.</p>'
+  const r = push('guides', {
+    base: main,
+    main,
+    run: { fit: clean },
+  }, { kept: true, video: kind === 'video' ? 'kept' : undefined, mainDidNotMove: true, sweepBody })
+  expect(r.out).toContain('CODE 0')
+  expect(r.out).toMatch(/^VERIFY $/m)
+  expect(r.pushed.body).toBe(sweepBody)
+  expect(r.pushed.held?.checks).toEqual([])
+})
+
+test.each(['unread', 'reviewed'] as const)('recovery checks an %s translation made visible by a restored entity', review => {
+  const fit = review === 'reviewed' ? clean : undefined
+  const r = push('guides', {
+    base: { fit },
+    main: { fit },
+    run: { fit },
+  }, { kept: true, mainDidNotMove: true, baseWithoutEntity: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.body).toBe(DEFAULT_BODY)
+  expect(r.pushed.held?.checks).toEqual(review === 'unread' ? [] : undefined)
 })
 
 test('the older caller restores a hold when the only other change is a part selection', () => {

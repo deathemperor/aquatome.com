@@ -738,7 +738,13 @@ main_holds() {
   if [ -n "$written" ]; then
     # shellcheck disable=SC2086 # content paths have no spaces
     { git add -- $written && commit_reconciled_changes "content: holds on $(grep -c . <<<"$written") pages as this run's push ends"; } || { uncompared "$1" "this run's holds couldn't be committed"; return 2; }
-    [ -z "$keeps" ] || log "$(grep -c . <<<"$keeps") pages main read during this run have main's record and this run's text: held until their next read: $(head -5 <<<"$keeps" | tr '\n' ' ')"
+    if [ -n "$keeps" ]; then
+      if [ "${3:-}" = recovery ]; then
+        log "$(grep -c . <<<"$keeps") recovered pages held on the final tree: $(head -5 <<<"$keeps" | tr '\n' ' ')"
+      else
+        log "$(grep -c . <<<"$keeps") pages main read during this run have main's record and this run's text: held until their next read: $(head -5 <<<"$keeps" | tr '\n' ' ')"
+      fi
+    fi
     [ -z "$unreads" ] || log "$(grep -c . <<<"$unreads") pages both sides changed, whose text together no record read: held until their next read: $(head -5 <<<"$unreads" | tr '\n' ' ')"
     [ -z "$owns" ] || log "$(grep -c . <<<"$owns") pages main read during this run take main's hold on this run's file, as its record read their text: $(head -5 <<<"$owns" | tr '\n' ' ')"
     [ -z "$besides" ] || log "$(grep -c . <<<"$besides") pages held beside another of their languages held for harm: $(head -5 <<<"$besides" | tr '\n' ' ')"
@@ -1083,7 +1089,7 @@ reconcile_video_recheck() {
     if [ "$mode" = recovery ] && ! main_pages "$batch" "$upstream"; then exit 1; fi
     install_video_recheck_engine || exit 1
     if [ "$mode" = recovery ] || [ "$upstream" != "$before" ]; then
-      main_holds "$batch" "$upstream" "$mode" || { [ "$?" = 1 ] || exit 1; }
+      main_holds "$batch" "$upstream" || { [ "$?" = 1 ] || exit 1; }
     fi
     if [ -n "$calendar" ] && ! restore_video_recheck_calendar "$upstream"; then exit 1; fi
     if [ "$video_publish_head" != "$pulled" ]; then must_check=1; fi
@@ -1094,6 +1100,9 @@ reconcile_video_recheck() {
     fi
     if [ -n "$sweep" ] && ! sweep_merged strict; then exit 1; fi
     if [ -n "$calendar" ] && ! curate_merged_calendar strict; then exit 1; fi
+    if [ "$mode" = recovery ]; then
+      main_holds "$batch" "$upstream" recovery || { [ "$?" = 1 ] || exit 1; }
+    fi
     video_recheck_tree >/dev/null || exit 1
     printf '%s %s %s\n' "$video_publish_head" "${MIGRATE_FAILED:-0}" "${must_check:-0}" > "$result"
   ); then
@@ -1192,7 +1201,7 @@ push_kept() {
         KEPT_WHY="could not restore main's pages"
         return 1
       fi
-      main_holds "$run" "$refreshed" recovery || { [ "$?" = 1 ] || { KEPT_WHY="its holds couldn't be compared with main's"; return 1; }; }
+      main_holds "$run" "$refreshed" || { [ "$?" = 1 ] || { KEPT_WHY="its holds couldn't be compared with main's"; return 1; }; }
       [ "$(git rev-parse HEAD)" = "$head" ] || check=1
       # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
       # main, it's checked in full; once it has, its lost push goes again as a run's own push does (push(), swept_pull):
@@ -1206,19 +1215,26 @@ push_kept() {
         head=$(git rev-parse HEAD)
         sweep_merged || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
         swept=1
-        if swept_clean "$head" "$main" "$refreshed"; then
-          log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
-        else
-          check=1
-        fi
+        swept_clean "$head" "$main" "$refreshed" || check=1
       fi
     fi
     # Recovered video work can reuse a pass only for the exact tree it checked.
     if [ -n "$video_recheck" ] && { [ "$(git rev-parse "$video_publish_head^{tree}")" != "$checked_tree" ] || [ -n "$MIGRATE_FAILED" ]; }; then
       check=1
     fi
+    if [ -n "$check" ] && [ -z "$swept" ]; then
+      sweep_merged || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
+    fi
+    if [ -z "$video_recheck" ]; then
+      main_holds "$run" "$refreshed" recovery || { [ "$?" = 1 ] || {
+        KEPT_WHY="its holds couldn't be compared with main's"
+        return 1
+      }; check=1; }
+      if [ -n "$swept" ] && [ -z "$check" ]; then
+        log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
+      fi
+    fi
     if [ -n "$check" ]; then
-      [ -n "$swept" ] || sweep_merged || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
       if [ -n "$video_recheck" ]; then
         checked_tree=$(video_recheck_tree) || { KEPT_WHY="the video recheck checkout differed from its commit before verification"; return 1; }
       fi

@@ -32,12 +32,13 @@
 // A page held for harm in one language as the push ends is held in every language, as gate.ts does ("beside <file>": the
 // run's hold with harm, or harm), whichever language main held, let out or this run added (a reader of #1703).
 //
-//   node scripts/main-holds.mjs <base> <main> <run>
+//   node scripts/main-holds.mjs <base> <main> <run> [recovery]
 // prints "hold <file>" for each file to take from <main> whole, "text <file>" for each the merge holds already on a text
 // main's record didn't read, "harm <file>" for each release that waits on another language's harm, and, each written here,
 // "keep", "unread", "own" and "beside". HEAD is the merge, and <run> the run's commit before the pull. Any git read or file
 // it can't parse fails it, with nothing written: its caller then publishes nothing (cycle-checks.sh main_holds). Without
 // <run>, as a cycle that started on the older script calls it, it writes nothing and answers as that script did.
+// The recovery pass checks the final swept tree for reviews before it goes out.
 import { execFileSync } from 'node:child_process'
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
@@ -129,9 +130,10 @@ const withHeld = (page, held) => {
 // A hold with harm among its checks, as gate.ts writes one for another language's harm.
 const withHarm = held => (held ? { ...held, checks: [...new Set([...held.checks, 'harm'])].sort() } : undefined)
 
-// Check the hashes with the gate’s loader. The small content tree contains only the candidate pages, their entities,
+// Check review coverage with the gate’s loader. The small content tree contains only the candidate pages, their entities,
 // and the inputs that select their text. Read it from HEAD before any holds are written to the worktree.
-function publishedHashes(files) {
+function publishedReviews(candidates, fit) {
+  const files = candidates.map(c => c.f)
   if (!files.length) return {}
   const root = mkdtempSync(join(tmpdir(), 'aq-publish-fit-'))
   const engine = fileURLToPath(new URL('../packages/engine/', import.meta.url))
@@ -144,7 +146,9 @@ function publishedHashes(files) {
       writeFileSync(join(root, file), JSON.stringify(value))
     }
     const langs = [...new Set(files.map(f => FILE.exec(f)[3]))]
-    const stdout = execFileSync(process.execPath, ['--import', 'tsx', 'scripts/publish-fit-hashes.ts', join(root, 'content'), ...langs], { cwd: engine, encoding: 'utf8' })
+    const reviews = join(root, 'fit.json')
+    writeFileSync(reviews, JSON.stringify(Object.fromEntries(candidates.map(({ key }) => [key, fit[key]]))))
+    const stdout = execFileSync(process.execPath, ['--import', 'tsx', 'scripts/publish-fit-hashes.ts', join(root, 'content'), reviews, ...langs], { cwd: engine, encoding: 'utf8' })
     return JSON.parse(stdout)
   } finally {
     rmSync(root, { recursive: true, force: true })
@@ -182,11 +186,23 @@ function main() {
   const different = (a, b) => git('diff', '--name-only', '--no-renames', a, b, '--', 'content').split('\n').filter(f => FILE.test(f))
   const withSelection = (list, a, b) => [...new Set([...list, ...[...selectionChanged(a, b)].flatMap(d => files(d))])]
   const changed = new Set(different(main, 'HEAD'))
+  const finalRecovery = run && mode === 'recovery'
+  const restoredEntities = new Set()
+  if (finalRecovery) {
+    const entity = new RegExp(`^content/(?:${GATED_KINDS.join('|')})/[^/]+/entity\\.json$`)
+    for (const f of git('diff', '--name-only', '--no-renames', '--diff-filter=A', main, 'HEAD', '--', 'content').split('\n')) {
+      if (!entity.test(f)) continue
+      restoredEntities.add(dirname(f))
+      for (const langFile of files(dirname(f))) changed.add(langFile)
+    }
+  }
   if (run) {
     for (const f of withSelection([...changed], main, 'HEAD')) changed.add(f)
     // A merge can take all of main’s page, losing a hold from the run with no diff against main.
-    for (const f of different(run, 'HEAD')) {
-      if (at(run, f)?.held && !at('HEAD', f)?.held) changed.add(f)
+    if (!finalRecovery) {
+      for (const f of different(run, 'HEAD')) {
+        if (at(run, f)?.held && !at('HEAD', f)?.held) changed.add(f)
+      }
     }
   }
   if (!changed.size) return
@@ -200,37 +216,46 @@ function main() {
   const fit = { base: lookup(base, FIT) ?? {}, main: lookup(main, FIT) ?? {}, head: lookup('HEAD', FIT) ?? {} }
   // Include languages added by the run when main changed which text their page shows.
   const since = rev => withSelection(different(base, rev), base, rev)
-  const mainChanged = new Set(run ? since(main) : [])
-  const both = new Set(run ? since(run).filter(f => mainChanged.has(f)) : [])
+  const compareMerge = run && !finalRecovery
+  const mainChanged = new Set(compareMerge ? since(main) : [])
+  const both = new Set(compareMerge ? since(run).filter(f => mainChanged.has(f)) : [])
   const comparisons = []
   for (const f of changed) {
     const [, kind, id, lang] = FILE.exec(f)
     const key = `${lang}/${kind}/${id}`
     const mainRecord = fit.main[key]
     const recordWon = same(fit.head[key], mainRecord)
-    const mainRead = (!run || mainRecord !== undefined) && !same(fit.base[key], mainRecord) && recordWon
+    const mainRead = !finalRecovery && (!run || mainRecord !== undefined) && !same(fit.base[key], mainRecord) && recordWon
     if (!run && !mainRead) continue
     const ours = lookup('HEAD', f)
     if (!ours) continue
     const theirs = lookup(main, f)
     const mine = run ? at(run, f) : undefined
     const mainText = run && theirs && same(readAt('HEAD', f, ours), readAt(main, f, theirs))
-    const runText = run && mine && same(readAt('HEAD', f, ours), readAt(run, f, mine))
+    const runText = compareMerge && mine && same(readAt('HEAD', f, ours), readAt(run, f, mine))
     const release = mainRead && mainText && !theirs.held && (ours.held || mine?.held)
     // Older queued work can carry a stale or absent review after its original merge base is no longer visible.
     // Require a review whenever recovery would put text live that main does not already have open.
-    const alreadyOpen = mainText && !theirs.held
-    const savedReview = !ours.held && (mode === 'recovery'
+    const opening = !theirs || !!theirs.held || restoredEntities.has(dirOf(f)) || release
+    const alreadyOpen = mainText && !opening
+    const savedReview = !ours.held && (finalRecovery
       ? !alreadyOpen
       : theirs && !mainText && mainRecord && recordWon)
-    comparisons.push({ f, key, ours, theirs, mine, mainRead, mainText, runText, proof: run && (release || savedReview) })
+    comparisons.push({ f, key, ours, theirs, mine, mainRead, mainText, runText, opening, proof: run && (release || savedReview) })
   }
-  const hashes = publishedHashes(comparisons.filter(c => c.proof && typeof fit.head[c.key]?.hash === 'string').map(c => c.f))
-  for (const { f, key, ours, theirs, mine, mainRead, mainText, runText, proof } of comparisons) {
-    if (proof && (typeof hashes[key] !== 'string' || hashes[key] !== fit.head[key]?.hash)) {
-      if (!ours.held) written.set(f, ['keep', withHeld(ours, mine?.held ?? (mainText ? theirs.held : undefined) ?? unread)])
+  const reviews = publishedReviews(comparisons.filter(c => c.proof && typeof fit.head[c.key]?.hash === 'string'), fit.head)
+  for (const { f, key, ours, theirs, mine, mainRead, mainText, runText, opening, proof } of comparisons) {
+    const review = reviews[key]
+    const blocking = opening ? review?.checks : review?.always
+    if (proof && (!review || blocking?.length)) {
+      const held = ours.held ?? mine?.held ?? (mainText ? theirs.held : undefined) ?? unread
+      const checks = blocking?.length ? [...new Set([...held.checks, ...blocking])].sort() : held.checks
+      const next = { ...held, checks }
+      if (!same(ours.held, next)) written.set(f, ['keep', withHeld(ours, next)])
       continue
     }
+    // Reconciliation took main’s holds before the sweep. At publication, check coverage on the resulting text.
+    if (finalRecovery) continue
     if (runText && mine.held && !ours.held && (!mainText || !mainRead)) {
       written.set(f, ['keep', withHeld(ours, mine.held)])
       continue
