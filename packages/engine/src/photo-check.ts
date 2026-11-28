@@ -1,4 +1,4 @@
-import { recordAlbumTakeOffs, recordListedAlbumTakeOffs } from './album-takeoffs'
+import { noteAlbumTakeOffs, recordAlbumTakeOffs, recordListedAlbumTakeOffs, type AlbumTakeOffEvidence } from './album-takeoffs'
 import { piece, PieceAdmissionError } from './pieces'
 import { errorKind } from './state'
 import { compactRejection, compactVerdict, modelFailureKind, photoHints, photoReason, deadNote, peopleNote, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
@@ -7,7 +7,7 @@ import { replacePhotoDocument, writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { deadScreenPhotoUrls, heldPhotoVersion, isVersionRejection, originalPhotoRefusals, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoVersionAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, type Photo as ContentPhoto } from '@aq/schema'
+import { completedDeadVerdict, DEAD_SCREEN_FILE, deadScreenPhotoUrls, heldPhotoVersion, isVersionRejection, originalPhotoRefusals, IMAGE_SWITCHES, isNonCommercial, ncAlone, photoAddressSet, photoVersionAddressSet, photoFitsHead, photoKey, photoRejections, publicPhotoVersion, realPhotosFirst, type Photo as ContentPhoto } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -478,7 +478,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const passedPhoto = photoVersionAddressSet(passed)
   const sl = looks(secondLook, passedPhoto)
   const versionHeld = heldPhotoVersion(secondLook)
-  const separateHold = (url: string) => versionHeld(url) || passedPhoto(url)
+  const screened = await readJson<Record<string, unknown>>(join(root, 'engine-state', DEAD_SCREEN_FILE))
+  const separateHold = (url: string) => versionHeld(url) || passedPhoto(url) || completedDeadVerdict(screened?.[url])
   const rejectedAt = photoRejections(rejected, {}, separateHold)
   const markedAt = photoRejections(Object.fromEntries(Object.entries(secondLook)
     .filter(([url]) => sl.off(url))
@@ -1025,7 +1026,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // Where each one marked off stood, for its record: the put-back's only trace of one this run brought (last-photo.ts).
   const stood = new Map<string, Stood[]>()
   const edits = new Map<string, string>()
-  const albumRemoved = new Set<string>()
+  const albumRemoved: AlbumTakeOffEvidence = new Map()
   const canCapture = !!entriesDir()
   const recoverableEdit = (url: string) => {
     const at = waitingAt(url)
@@ -1059,9 +1060,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       stripPhotos(data, url => canCapture && canRemove(url) && !!capture(url), removed, [], preservesOriginal)
       placesIn(root, file, before, (url, slot) => !data.photos?.includes(slot.photo as Photo) ? capture(url) : undefined, stood)
       if (!removed.length) continue
-      if (galleryId(file)) for (const p of before.photos ?? []) if (!data.photos?.includes(p)) {
-        for (const url of deadScreenPhotoUrls(p as ContentPhoto)) albumRemoved.add(url)
-      }
+      if (galleryId(file)) noteAlbumTakeOffs(albumRemoved, file, (before.photos ?? []) as ContentPhoto[], (data.photos ?? []) as ContentPhoto[])
       report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
       edits.set(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       continue
@@ -1138,9 +1137,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     }
     const out = `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`
     if (out === raw) continue
-    if (galleryId(file)) for (const p of beforeEdit.photos ?? []) if (!data.photos?.includes(p)) {
-      for (const url of deadScreenPhotoUrls(p as ContentPhoto)) albumRemoved.add(url)
-    }
+    if (galleryId(file)) noteAlbumTakeOffs(albumRemoved, file, (beforeEdit.photos ?? []) as ContentPhoto[], (data.photos ?? []) as ContentPhoto[])
     report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
     edits.set(file, out)
   }

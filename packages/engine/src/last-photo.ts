@@ -1,4 +1,4 @@
-import { CREDIT_HOLD_REJECTION, heldPhotoVersion, maySupersedePhotoRefusal, isNonCommercial, isVersionRejection, originalPhotoRefusals, passedBefore, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoVersionAddressSet, photoLookAnswer as lookOf, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, setsCookies, settledWaiting, type Photo } from '@aq/schema'
+import { CREDIT_HOLD_REJECTION, heldPhotoVersion, maySupersedePhotoRefusal, isNonCommercial, isVersionRejection, originalPhotoRefusals, passedBefore, mirrorSearchTerms, photoAddressSet, photoClears, photoHolds, photoKey, photoVersionAddressSet, photoLookAnswer as lookOf, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, rejectedEntry, setsCookies, settledWaiting, type Photo } from '@aq/schema'
 import { spawnSync } from 'node:child_process'
 import { createHash, randomUUID } from 'node:crypto'
 import { link, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
@@ -156,7 +156,7 @@ export function lastPhotoVerdicts(
   }
   const byVerdict = (url: string) => {
     const key = photoKey(url)
-    if (separateVersions && exact.has(url) && !key?.startsWith('commons/')) return url
+    if (separateVersions && exact.has(url) && !removesWrapper?.(url) && !key?.startsWith('commons/')) return url
     return addresses.get(key ?? url)
   }
   const linked = new Map<string, Set<string>>()
@@ -197,8 +197,8 @@ const today = () => new Date().toISOString().slice(0, 10)
 export { passedBefore } from '@aq/schema'
 /** The same, from the check's verdict files as they are now: a step's start. */
 export async function readPassedBefore(root: string): Promise<Set<string>> {
-  const read = async (f: string) => JSON.parse(await readFile(join(root, 'engine-state', f), 'utf8').catch(() => '{}')) as Record<string, unknown>
-  return passedBefore(await read('_photo-subjects.json'), await read('_photo-check.json'))
+  const folder = join(root, 'engine-state')
+  return passedBefore(await readPhotoMap(join(folder, PHOTO_SUBJECTS_FILE)), await readPhotoMap(join(folder, PHOTO_CHECK_FILE)))
 }
 /** The never-again entry of a photo off at its first verdict: `waiting:` and its record's hash (above). */
 export const waitingEntry = (why: string) => compactRejection(why).replace(/^[^:]+:/, 'waiting:')
@@ -672,7 +672,9 @@ async function pruneKept(root: string, dir: string, local: SecondLooks) {
           (place.capturedOccurrence ?? place.occurrence ?? 0) === (k.occurrence ?? 0)) === true
       })
     }
-    if (agreed) {
+    const restoredCapture = restored && k.capture && mark?.settled?.some(p =>
+      p.capture === k.capture && p.file === k.file && (p.captureWhy ?? mark.why) === k.why)
+    if (agreed || restoredCapture) {
       // Remove earlier snapshots first so the published descendant still proves their outcome if pruning stops.
       const ancestors = k.ancestors ?? (k.replaces ? [k.replaces] : [])
       for (const id of ancestors) {
@@ -698,12 +700,14 @@ export type History = (url: string, since: string, captured?: readonly HistoryPl
 const PLACE = /^content\/(?:(?:species|plants|breeds|guides)\/[^/]+\/entity\.json|gallery\/[^/]+\.json)$/
 
 /** A rendition with its own review or permanent refusal has its own recovery history. */
-function reviewedPhotoAddressSet(url: string, reviews: SecondLooks, rejected: Record<string, string>): (address: string) => boolean {
+function reviewedPhotoAddressSet(
+  url: string, reviews: SecondLooks, rejected: Record<string, string>, passed: (url: string) => boolean,
+): (address: string) => boolean {
   const aliases = photoAddressSet([url])
   const version = photoVersionAddressSet([url])
   return address => {
     const reason = rejected[address]
-    const separatelyReviewed = Object.hasOwn(reviews, address) || (reason && !reason.startsWith('waiting:'))
+    const separatelyReviewed = passed(address) || Object.hasOwn(reviews, address) || (reason && !reason.startsWith('waiting:'))
     return aliases(address) && (version(address) || !separatelyReviewed)
   }
 }
@@ -754,7 +758,10 @@ export function gitHistory(root: string, tip = 'HEAD'): History {
     const rejected = tip === 'HEAD' ? await readPhotoMap<string>(join(root, rejectedFile))
       : (historicalRejections ?? {}) as Record<string, string>
     const reviews = tip === 'HEAD' ? await readSecondLook(root) : recordAt(tip) ?? {}
-    const samePhoto = reviewedPhotoAddressSet(url, reviews, rejected)
+    const passed = tip === 'HEAD' ? await readPassedBefore(root) : passedBefore(
+      publishedJson(root, `engine-state/${PHOTO_SUBJECTS_FILE}`, tip), publishedJson(root, `engine-state/${PHOTO_CHECK_FILE}`, tip),
+    )
+    const samePhoto = reviewedPhotoAddressSet(url, reviews, rejected, photoVersionAddressSet(passed))
     const spots = (rev: string, file: string) => photoSlots(at(rev, file), file.startsWith('content/guides/'))
       .filter(p => typeof p.photo.url === 'string' && samePhoto(p.photo.url))
     const capturedKeys = new Set(captured.map(placeKey))
@@ -911,6 +918,12 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks, dir?: st
   if (diff.status !== 0) throw new Error('Could not compare restored photos with main')
   const changed = new Set(diff.stdout.split('\0'))
   const history = gitHistory(root, main)
+  const decisions = { ...published, ...local }
+  const publishedRejected = publishedJson(root, `engine-state/${PHOTO_REJECTED_FILE}`, main) as Record<string, string> | undefined
+  const rejections = { ...publishedRejected, ...await readPhotoMap<string>(join(root, 'engine-state', PHOTO_REJECTED_FILE)) }
+  const publishedPasses = passedBefore(publishedJson(root, `engine-state/${PHOTO_SUBJECTS_FILE}`, main),
+    publishedJson(root, `engine-state/${PHOTO_CHECK_FILE}`, main))
+  const passed = photoVersionAddressSet([...publishedPasses, ...await readPassedBefore(root)])
   const commits = git('log', '--first-parent', '--reverse', '--format=%H', `${base}..${before}`, '--', records)
   if (commits.status !== 0) throw new Error('Could not read the pre-rebase photo recovery history')
   const localStates = commits.stdout.split('\n').filter(Boolean).map(sha => ({
@@ -935,8 +948,7 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks, dir?: st
       const guide = place.file.startsWith('content/guides/')
       const saved = [...(pending.settled ?? []), ...(pending.left ?? [])].find(p => placeKey(p) === placeKey(place))
       const capture = dir && saved?.capture ? await readKept(dir, url, pending, saved) : undefined
-      const address = typeof capture?.photo.url === 'string' ? capture.photo.url : url
-      const matches = photoAddressSet([url, address])
+      const matches = reviewedPhotoAddressSet(url, decisions, rejections, passed)
       const slots = (data: unknown) => photoSlots(data, guide).filter(slot =>
         sameGuideSlot(capture ?? place, slot) && matches(String(slot.photo.url)) && !setsCookies(String(slot.photo.url)))
       const restored = restoredHere.includes(place)
@@ -1091,6 +1103,7 @@ export async function putBackCleared(root: string, history: History, at = today(
   out.back.push(...rebased.back)
   if (dir) await pruneKept(root, dir, sl)
   if (!due.length) return out
+  const passed = photoVersionAddressSet(await readPassedBefore(root))
   let unlisted = false
   // The part-photo list (video-images.ts): a stock photo by its Commons page, as written or hashed, a frame by its
   // address. A photo back on a guide's part leaves it for that guide; an entry for every guide is a person's, and stays.
@@ -1185,7 +1198,7 @@ export async function putBackCleared(root: string, history: History, at = today(
     const places = [...mine, ...read.filter(p => !settled.has(placeKey(p)) && !mine.some(o => placeKey(o) === placeKey(p)))]
     if (!places.length && !own.length) out.off.push(`${u}: it left no page or album that showed it when it was marked off`)
     const named = new Set(sl[u]!.pages.map(x => x.split('/')[1]))
-    const samePhoto = reviewedPhotoAddressSet(u, sl, rejected)
+    const samePhoto = reviewedPhotoAddressSet(u, sl, rejected, passed)
     for (const p of places) {
       if (p.times > 1) { out.off.push(`${u}: it left ${p.file} again after it came back, and that removal stands`); continue }
       const id = p.file.match(/^content\/(?:species|plants|breeds)\/([^/]+)\/entity\.json$|^content\/gallery\/([^/]+)\.json$/)

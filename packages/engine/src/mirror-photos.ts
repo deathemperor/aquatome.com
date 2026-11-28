@@ -1,5 +1,6 @@
 import sharp from 'sharp'
 import { writePhotoState } from './photo-state'
+import { readPhotoWaits } from './photo-visibility'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { basename, join } from 'node:path'
 import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, isVersionRejection, mirrorPlan, photoLookAnswer, photoVersionAddressSet, THUMB_WIDTH, type ImageSwitches } from '@aq/schema'
@@ -83,7 +84,9 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     }
   }
   const rejected = caches.get(join(root, 'engine-state', '_photo-rejected.json'))
+  let photoWaits: ReturnType<typeof readPhotoWaits> | undefined
   for (const [file, { raw, data }] of docs) {
+    const own = ['species', 'plants'].some(kind => file.startsWith(join(root, 'content', kind) + '/'))
     let changed = false
     for (const p of photosIn(data)) {
       const plan = mirrorPlan(p.url)
@@ -91,7 +94,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
       if (isNonCommercial(p.licence) && !(nc && shows(file) && isInatNonCommercial(p))) continue
       let stored = done.get(plan.key)
       if (!stored) {
-        if (o.dryRun || (o.limit !== undefined && done.size >= o.limit)) { report.pending++; continue }
+        if (o.dryRun) { report.pending++; continue }
         try {
           const url = d.media.urlFor(plan.key)
           stored = placed.get(url)
@@ -101,6 +104,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
             stored = { url, thumb: d.media.urlFor(plan.key.replace(/\.webp$/, `-${THUMB_WIDTH}.webp`)), width, height }
           }
           if (!stored) {
+            if (o.limit !== undefined && uploaded.size >= o.limit) { report.pending++; continue }
             let image: { url: string; bytes: Uint8Array } | undefined
             for (const url of plan.fetch) {
               const bytes = await d.bytes(url).catch(() => undefined)
@@ -117,10 +121,13 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
           continue
         }
       }
-      const refusal = rejected?.[p.url]
-      // A version-specific refusal cannot move onto bytes supplied by a different crop.
-      if (typeof refusal === 'string' && isVersionRejection(refusal) &&
-          uploaded.get(stored.url) !== p.url && !photoVersionAddressSet([p.url])(stored.url)) continue
+      if (uploaded.get(stored.url) !== p.url && !photoVersionAddressSet([p.url])(stored.url)) {
+        // Leave two separately judged renditions independent. Keep a served source until its replacement qualifies.
+        const refusals = [rejected?.[p.url], rejected?.[stored.url]]
+        if (refusals.some(reason => typeof reason === 'string' && isVersionRejection(reason))) continue
+        const waits = await (photoWaits ??= readPhotoWaits(root))
+        if (!waits(p.url) && waits(stored.url, own)) continue
+      }
       moved.push([p.url, stored.url])
       Object.assign(p, { url: stored.url, thumb: stored.thumb, width: stored.width, height: stored.height })
       changed = true
@@ -163,6 +170,6 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
   // Keep a source reference available for retry until its transferred records are durable.
   for (const [file, raw] of edits) await writeFile(file, raw)
   report.files = edits.size
-  report.mirrored = done.size
+  report.mirrored = new Set(moved.map(([, destination]) => destination)).size
   return report
 }
