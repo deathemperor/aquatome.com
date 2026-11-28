@@ -675,6 +675,79 @@ test('a fresh video recheck keeps the original batch when main reverts its guide
   expect(c.sh('git ls-remote origin refs/heads/main | cut -f1')).toBe(c.sh('git -C "$HOME/other" rev-parse HEAD'))
 }, slow(60_000))
 
+test.each(['fresh', 'kept'])('a %s video recheck retains its original batch when tests fail on newer main', kind => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const candidate = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm "content: video guides checked again 2026-11-28" && git rev-parse HEAD && git push -q')
+  if (kind === 'kept') c.sh(`git branch kept/video-recheck/${when} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'broken')
+  const sweep = `
+    pnpm() {
+      if [ "$2" = sweep ]; then echo swept > content/sweep.json; fi
+    }
+  `
+  const failed = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
+    ${sweep}
+    checks() { test ! -f code.txt; }
+    ${kind === 'fresh' ? 'push_video_recheck || echo refused' : 'publish_kept video-recheck'}
+  `)
+  expect(failed).toContain('failed')
+  const branches = c.branches()
+  expect(branches).toEqual([expect.stringMatching(/^held\/video-recheck\/\d{8}T\d{6}$/)])
+  const [held] = branches
+  expect(c.sh(`git rev-parse ${held}^1`)).toBe(candidate)
+  expect(c.sh(`git show ${held}^2:code.txt`)).toBe('broken')
+  expect(c.sh(`git show ${held}^2:content/sweep.json`)).toBe('swept')
+  expect(c.cycle('publish_kept video-recheck')).toBe('')
+  c.sh('git -C "$HOME/other" revert --no-edit HEAD && git -C "$HOME/other" push -q && git fetch -q origin')
+  const recovered = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    ${sweep}
+    checks() { test ! -f code.txt; }
+    publish_kept video-recheck
+  `)
+  expect(recovered).toContain(`LOG published ${held}`)
+  expect(c.branches()).toEqual([])
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.onMain('content/sweep.json')).toBe('swept')
+  expect(c.onMain('code.txt')).toBe('')
+  expect(c.sh(`git merge-base --is-ancestor ${candidate} origin/main && echo retained`)).toBe('retained')
+}, slow(60_000))
+
+test('a fresh video recheck sweeps new main after the final pull advances the tree', () => {
+  const c = clone()
+  c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm "content: video guides checked again 2026-11-28"')
+  c.elsewhere('content/video.json', 'rechecked')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
+    pnpm() {
+      if [ "$2" = photo-privacy ] && [ -f engine-state/old-record.json ]; then
+        git mv engine-state/old-record.json engine-state/new-record.json
+      fi
+    }
+    checks() {
+      if [ ! -f "$HOME/advanced" ]; then
+        mkdir -p "$HOME/other/engine-state"
+        echo migrated > "$HOME/other/engine-state/old-record.json"
+        git -C "$HOME/other" add engine-state/old-record.json
+        git -C "$HOME/other" commit -qm incoming
+        git -C "$HOME/other" push -q
+        touch "$HOME/advanced"
+      fi
+      test ! -f engine-state/old-record.json
+    }
+    push_video_recheck || echo refused
+  `)
+  expect(log).toContain('pushed (GitHub deploys it)')
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.onMain('engine-state/new-record.json')).toBe('migrated')
+  expect(c.onMain('engine-state/old-record.json')).toBe('')
+  expect(c.branches()).toEqual([])
+}, slow(60_000))
+
 test('video recheck preparation excludes an ignored fixture parent read by the material loader', async () => {
   const c = clone()
   const fixture = 'apps/site/test/fixture-content'
@@ -1237,7 +1310,7 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
     // after the sweep on a clean pull that brought main's commits in.
     if (name === 'video-recheck.sh') {
       expect(s, name).toContain('\npush_video_recheck\n')
-      expect(script('video-recheck-publish.sh')).toMatch(/if \[ "\$verification_failed" != 0 \]; then\n\s*keep_unpublished video-recheck\n.*not publishing.*\n\s*return 1/)
+      expect(script('video-recheck-publish.sh')).toMatch(/if \[ "\$verification_failed" != 0 \]; then\n\s*keep_unpublished video-recheck "\$batch" \|\|\n\s*keep_lost_push video-recheck .* "\$batch"\n.*not publishing.*\n\s*return 1/)
     } else {
       const gaveUp = s.split('\n').filter(l => /not publishing/.test(l) && !/gate:/.test(l))
       expect(gaveUp.length, name).toBe(3)

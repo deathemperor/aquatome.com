@@ -241,7 +241,7 @@ ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-
 # one more try once main's code has changed since it was held (retry_held), the Machine Load Lead looks at those, never
 # the owner, and a run drops its job's after 14 days (drop_old_held).
 # Work out of time OUT_CYCLES cycles in a row is no longer put down to a busy Mac: it fails as broken work does (count_outs).
-# `keep_unpublished <job>`, where a run gives up publishing.
+# `keep_unpublished <job> [original video recheck commit]`, where a run gives up publishing.
 engine_clone() { [ -z "${GITHUB_ACTIONS:-}" ] && case "$PWD/" in "$HOME/.local/share/aquatome/"*) true ;; *) false ;; esac; }
 # The cloud's cycle (engine.yml) keeps its work the same way, but a runner keeps nothing past its run, so each of those
 # branches is on GitHub too, pushed over the key the cycle pushes main with: on 2026-11-12 a cloud cycle lost 682 model
@@ -251,17 +251,18 @@ engine_clone() { [ -z "${GITHUB_ACTIONS:-}" ] && case "$PWD/" in "$HOME/.local/s
 engine_cloud() { [ -n "${GITHUB_ACTIONS:-}" ] && case "${GITHUB_WORKFLOW_REF:-}" in */.github/workflows/engine.yml@*) true ;; *) false ;; esac; }
 keep_unpublished() {
   engine_clone || engine_cloud || return 0
-  local when
+  local when saved=HEAD
   when=$(date -u +%Y%m%dT%H%M%S)
+  if [ -n "${2:-}" ]; then saved=$(video_recheck_recovery_commit "$2") || return 1; fi
   if [ -n "${TIMED_OUT:-}" ]; then
-    keep_branch "kept/$1/$when-out1" && log "tests ran out of time: this run's work is kept on kept/$1/$when-out1 for the next run"
+    keep_branch "kept/$1/$when-out1" "$saved" && log "tests ran out of time: this run's work is kept on kept/$1/$when-out1 for the next run"
   elif [ -n "${MIGRATE_FAILED:-}" ]; then
     # The line the run's failure is reported with (engine-cycle.sh finish), as its callers then stop the run.
     FAILED="photo records not migrated: this run's work is kept on kept/$1/$when for the next run"
-    keep_branch "kept/$1/$when" && log "$FAILED"
+    keep_branch "kept/$1/$when" "$saved" && log "$FAILED"
   else
     # Off main at once: a next run that couldn't fetch would carry on from this commit, and could publish it.
-    keep_branch "held/$1/$when" && git reset -q --hard origin/main && log "checks failed twice: this run's work is on held/$1/$when, not published"
+    keep_branch "held/$1/$when" "$saved" && git reset -q --hard origin/main && log "checks failed twice: this run's work is on held/$1/$when, not published"
   fi
   # Its callers go on to say they aren't publishing, under set -e.
   return 0
@@ -290,8 +291,15 @@ drop_branch() {
 # and on GitHub a plain push moves a branch on when it's behind. A <to> already there fails it, here and on GitHub
 # (the lease that it isn't there); a delete here that fails takes back the branch just made.
 move_branch() {
-  if engine_cloud; then net git push -q --atomic --force-with-lease="refs/heads/$2:" origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1; fi
-  git branch -q "$2" HEAD || return 1
+  local saved=HEAD original
+  case "$1" in
+    kept/video-recheck/*|held/video-recheck/*)
+      original=$(video_recheck_recovery_parent "$1" 1) &&
+        saved=$(video_recheck_recovery_commit "$original") || return 1
+      ;;
+  esac
+  if engine_cloud; then net git push -q --atomic --force-with-lease="refs/heads/$2:" origin "$saved:refs/heads/$2" ":refs/heads/$1" || return 1; fi
+  git branch -q "$2" "$saved" || return 1
   git branch -q -D "$1" || { git branch -q -D "$2"; return 1; }
 }
 # `rename_branch <from> <to>`: the same work under another name (its count, count_outs), and in the cloud GitHub's in one
@@ -547,12 +555,14 @@ drop_published_branch() {
 # time in OUT_CYCLES tries in a row (count_outs), moved to <branch>-tried, which nothing tries again. Out of time fewer
 # times, or not pushed, it stays held for the next run's try.
 retry_held() {
-  local branch base tried why as
+  local branch base tested tried why as
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/held/$1/"); do
     case "$branch" in *-tried) continue ;; esac
     git show-ref -q --verify "refs/heads/$branch" || continue
     one_name "$branch" || continue
-    base=$(git merge-base "$branch" origin/main) || continue
+    tested=$branch
+    if [ "$1" = video-recheck ]; then tested=$(video_recheck_recovery_parent "$branch" 2) || return 1; fi
+    base=$(git merge-base "$tested" origin/main) || continue
     git diff --quiet "$base" origin/main -- . ':!content' ':!sources' ':!engine-state' ':!docs' ':!*.md' && continue
     log "trying $branch once more: main's code has changed since it was held"
     reset_recovery_checkout "$1" "$branch" || return 1
@@ -643,6 +653,24 @@ video_recheck_rules_current() {
       scripts/cycle-checks.sh scripts/video-recheck.sh scripts/video-recheck-publish.sh \
       .nvmrc .npmrc pnpm-workspace.yaml pnpm-lock.yaml ':(glob)**/package.json'
 }
+# Keep the original batch and the failing checkout reachable from one ref. The ref's tree
+# shows what failed. Recovery starts from its first parent and remembers the second for the retry gate.
+VIDEO_RECHECK_RECOVERY_SUBJECT='content: record video recheck recovery'
+video_recheck_recovery_commit() {
+  local tested
+  tested=$(git rev-parse HEAD) || return 1
+  if [ "$tested" = "$1" ]; then printf '%s\n' "$tested"; return; fi
+  git commit-tree "$tested^{tree}" -p "$1" -p "$tested" -m "$VIDEO_RECHECK_RECOVERY_SUBJECT"
+}
+video_recheck_recovery_parent() {
+  local subject
+  subject=$(git show -s --format=%s "$1") || return 1
+  if [ "$subject" = "$VIDEO_RECHECK_RECOVERY_SUBJECT" ]; then
+    git rev-parse "$1^$2"
+  else
+    git rev-parse "$1"
+  fi
+}
 # A rebase can skip a patch that main applied and later reverted, even while replaying other commits.
 # Main can also revert the exact batch after taking it. If the tip moved, check that it still includes the batch.
 video_recheck_pull_kept_batch() {
@@ -686,11 +714,19 @@ video_recheck_tree() {
 
 # A hard reset can replace an untracked file when the destination commit tracks that path.
 reset_recovery_checkout() {
-  if [ "$1" = video-recheck ] && ! archive_video_recheck_checkout; then
-    log "could not preserve the video recheck checkout before resetting"
-    return 1
+  local target=$2
+  if [ "$1" = video-recheck ]; then
+    if ! archive_video_recheck_checkout; then
+      log "could not preserve the video recheck checkout before resetting"
+      return 1
+    fi
+    case "$target" in
+      kept/video-recheck/*|held/video-recheck/*)
+        target=$(video_recheck_recovery_parent "$target" 1) || return 1
+        ;;
+    esac
   fi
-  git reset -q --hard "$2"
+  git reset -q --hard "$target"
 }
 
 # Keep untracked inputs outside the dedicated video recheck checkout so its sweep cannot stage them.
@@ -752,7 +788,7 @@ push_kept() {
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
   if [ -n "$video_recheck" ]; then
-    batch=$(git rev-parse "$BRANCH") || { KEPT_WHY="could not find the original video recheck batch"; return 1; }
+    batch=$(video_recheck_recovery_parent "$BRANCH" 1) || { KEPT_WHY="could not find the original video recheck batch"; return 1; }
   fi
   for _ in 1 2 3; do
     if [ -n "$video_recheck" ] && ! prepare_video_recheck; then
@@ -791,7 +827,7 @@ push_kept() {
     # them (Grok's read of 19652e876, 14 Nov). main_pages commits only when it changed something, and so do main's holds
     # (main_holds), after it: a page it put back whole is main's already.
     head=$(git rev-parse HEAD)
-    [ -z "$BRANCH" ] || main_pages "$BRANCH"
+    [ -z "$BRANCH" ] || main_pages "${batch:-$BRANCH}"
     main_holds "$run" origin/main || true
     [ "$(git rev-parse HEAD)" = "$head" ] || check=1
     # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
