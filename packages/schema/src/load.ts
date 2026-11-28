@@ -254,7 +254,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const subjects = deadScreen ? await stateRecord<Record<string, unknown>>(root, PHOTO_SUBJECTS_FILE) : undefined
   const guideLooks = screen ? await stateRecord<Record<string, unknown>>(root, GUIDE_LOOKS_FILE) : undefined
   const rejectedForDead = screen ? photoRejections(
-    await expandWholePhotoRejections(root, await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}, screen), screen, reviewedPhotoVersion(secondLook, check, subjects),
+    await expandWholePhotoRejections(root, await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}, screen), screen, reviewedPhotoVersion(secondLook, check, subjects, deadScreen),
   ) : undefined
   const { unread } = await facePhotoStatus(root, faces)
   if (faces && opts.photoScreen === 'required') {

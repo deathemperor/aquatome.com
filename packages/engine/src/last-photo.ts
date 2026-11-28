@@ -204,7 +204,7 @@ export async function readPassedBefore(root: string): Promise<Set<string>> {
 export const waitingEntry = (why: string) => compactRejection(why).replace(/^[^:]+:/, 'waiting:')
 
 /** A merged first refusal may hold captures written for another verdict on the same photo. */
-function ownsWaiting(mark: SecondLook | undefined, entry: string | undefined): boolean {
+export function ownsWaiting(mark: SecondLook | undefined, entry: string | undefined): boolean {
   return !!mark && !!entry?.startsWith('waiting:') && (entry === waitingEntry(mark.why) ||
     mark.waitingReasons?.some(why => entry === waitingEntry(why)) ||
     [...(mark.left ?? []), ...(mark.settled ?? [])].some(p => p.captureWhy && entry === waitingEntry(p.captureWhy)))
@@ -281,14 +281,18 @@ export async function listAgreed(root: string, includes: (url: string) => boolea
  * carry its waiting entry back into the merge, so apply the clear before any step uses the rejection list.
  */
 export function withoutSettledWaits(rejected: Record<string, string>, marks: SecondLooks): Record<string, string> {
-  for (const [url, mark] of Object.entries(marks)) if (settledWaiting(rejected[url], mark)) delete rejected[url]
+  for (const [url, reason] of Object.entries(rejected)) {
+    const review = waitingReview(marks, url, reason)
+    if (review && settledWaiting(reason, review[1])) delete rejected[url]
+  }
   return rejected
 }
 
 /** Leave a waiting copy in place once a valid clear has arrived, even before recovery completes. */
 export function withoutClearedWaits(rejected: Record<string, string>, marks: SecondLooks): Record<string, string> {
-  for (const [url, mark] of Object.entries(marks)) {
-    if (mark.off === true && lookOf(mark)?.said === 'clear' && ownsWaiting(mark, rejected[url])) delete rejected[url]
+  for (const [url, reason] of Object.entries(rejected)) {
+    const review = waitingReview(marks, url, reason)
+    if (review?.[1].off === true && lookOf(review[1])?.said === 'clear') delete rejected[url]
   }
   return rejected
 }
@@ -307,11 +311,15 @@ export async function unlistCleared(root: string, deferred: ReadonlySet<string> 
   // A later checkout can add a pending place after an earlier place has published. A URL-wide waiting entry
   // would take that earlier copy off again even though the clear still applies to it.
   const waits = (u: string) => !sl[u]!.settled?.length && (deferred.has(u) || (!!sl[u]!.left?.length && !sl[u]!.back))
-  const out = Object.keys(sl).filter(u => sl[u]!.off === true && l.cleared(u) && ownsWaiting(sl[u], rejected[u]) && !waits(u))
-  if (!out.length) return []
-  for (const u of out) delete rejected[u]
-  await writePhotoState(rejectedFile, rejected)
-  return out
+  const out = new Set<string>()
+  for (const [url, reason] of Object.entries(rejected)) {
+    const review = waitingReview(sl, url, reason)
+    if (!review || review[1].off !== true || !l.cleared(review[0]) || waits(review[0])) continue
+    delete rejected[url]
+    out.add(review[0])
+  }
+  if (out.size) await writePhotoState(rejectedFile, rejected)
+  return [...out]
 }
 
 /** A place a photo stood: its page's, album's or guide's file (from the repository's root) and its place in `photos`. */
@@ -350,12 +358,21 @@ export function placesIn(root: string, file: string, data: { photos?: unknown },
   })
 }
 
+export function waitingReview(marks: SecondLooks, url: string, entry: string | undefined): [string, SecondLook] | undefined {
+  if (!entry?.startsWith('waiting:')) return undefined
+  if (ownsWaiting(marks[url], entry)) return [url, marks[url]!]
+  const same = photoAddressSet([url])
+  const address = Object.keys(marks).find(key => same(key) && ownsWaiting(marks[key], entry))
+  return address === undefined ? undefined : [address, marks[address]!]
+}
+
 /** Find the unanswered mark for a removal, including a source URL's mirrored copy. */
 export function captureWaiting(marks: SecondLooks, entry: (url: string) => [string, string] | undefined): (url: string) => string | undefined {
   const off = looks(marks).off
   return url => {
     const rejection = entry(url)
-    return rejection && off(rejection[0]) && ownsWaiting(marks[rejection[0]], rejection[1]) ? rejection[0] : undefined
+    const review = rejection && waitingReview(marks, rejection[0], rejection[1])
+    return review && off(review[0]) ? review[0] : undefined
   }
 }
 
@@ -962,7 +979,7 @@ async function reconcileRebasedPlaces(root: string, local: SecondLooks, dir?: st
  * waits, unmarked (`unread`).
  * Returns `file: url` for each place it went back to, `url: why` for each place or photo kept off, and `unread`.
  */
-export async function putBackCleared(root: string, history: History, at = today(), refused: (id: string, url: string, aside?: typeof CLEARED_VERDICT) => boolean = () => false, dir = entriesDir()): Promise<{ back: string[]; off: string[]; unread: string[] }> {
+export async function putBackCleared(root: string, history: History, at = today(), refused: (id: string, url: string, aside?: typeof CLEARED_VERDICT) => boolean = () => false, dir = entriesDir(), onRestore?: (place: Stood) => Promise<void>): Promise<{ back: string[]; off: string[]; unread: string[] }> {
   const out = { back: [] as string[], off: [] as string[], unread: [] as string[] }
   const sl = await readSecondLook(root)
   const l = looks(sl)
@@ -1116,10 +1133,15 @@ export async function putBackCleared(root: string, history: History, at = today(
       // Two captures can both have stood at this ordinal on divergent branches. Keep an already restored neighbor's lead.
       const afterSettled = p.capturedOccurrence !== undefined && !hasSavedNeighbor ? currentUrls.findLastIndex(samePhoto) + 1 : 0
       photos.splice(Math.max(index, afterSettled), 0, p.photo)
+      await onRestore?.(p)
       await replacePhotoDocument(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
       out.back.push(`${p.file}: ${address}`)
     }
-    if (entry !== undefined) { delete rejected[u]; unlisted = true }
+    for (const [address, reason] of Object.entries(rejected)) {
+      if (waitingReview(sl, address, reason)?.[0] !== u) continue
+      delete rejected[address]
+      unlisted = true
+    }
     complete(sl[u]!, places)
   }
   if (unlisted) await writePhotoState(rejectedFile, rejected)

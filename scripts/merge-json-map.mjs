@@ -113,12 +113,33 @@ const waitingAndFinal = (o, t) => typeof o === 'string' && typeof t === 'string'
 const LISTED = /^(species|breeds)\/[a-z0-9-]+$/, DAY = /^\d{4}-\d{2}-\d{2}$/
 const listedDays = (k, o, t) => LISTED.test(k) && typeof o === 'string' && typeof t === 'string' && DAY.test(o) && DAY.test(t)
 
+const stagedAlbums = value => value?.albums && !Array.isArray(value.albums) && typeof value.albums === 'object' &&
+  Object.values(value.albums).every(count => Number.isSafeInteger(count) && count > 0) ? value.albums : undefined
+const receiptRank = value => value === true || stagedAlbums(value) ? 1
+  : value?.applied === true ? 2
+    : typeof value?.batch === 'string' && /^[a-f0-9]{64}$/.test(value.batch) ? 3 : 0
+const albumReceipt = (key, ours, theirs) => /^https?:\/\//.test(key) && receiptRank(ours) && receiptRank(theirs)
+function mergeAlbumReceipt(ours, theirs) {
+  const first = stagedAlbums(ours), second = stagedAlbums(theirs)
+  if (first && second) {
+    const albums = { ...first }
+    for (const [file, count] of Object.entries(second)) albums[file] = Math.max(albums[file] ?? 0, count)
+    return { albums }
+  }
+  const rank = receiptRank(ours) - receiptRank(theirs)
+  return rank < 0 || (rank === 0 && second) ? theirs : ours
+}
+
 export function mergeMaps(base, ours, theirs) {
   const same = (side, k) => (k in side) === (k in base) && JSON.stringify(side[k]) === JSON.stringify(base[k])
   const out = {}
   for (const k of new Set([...Object.keys(ours), ...Object.keys(theirs), ...Object.keys(base)])) {
     const changed = !same(ours, k) && !same(theirs, k)
     const both = changed && [base[k], ours[k], theirs[k]].some(record) && [base[k], ours[k], theirs[k]].every(v => v === undefined || record(v))
+    if (changed && albumReceipt(k, ours[k], theirs[k])) {
+      out[k] = mergeAlbumReceipt(ours[k], theirs[k])
+      continue
+    }
     const side = both ? bothChanged(base, ours, theirs, k)
       : changed && k in ours && k in theirs && waitingAndFinal(ours[k], theirs[k]) ? (WAITING.test(ours[k]) ? theirs : ours)
       : changed && k in ours && k in theirs && listedDays(k, ours[k], theirs[k]) ? (theirs[k] < ours[k] ? theirs : ours)

@@ -25,7 +25,7 @@ export { retainedOwnMark }
  * A photo the never-again list (engine-state/_photo-rejected.json) holds that stays all the same: a cleared shop's photo
  * with the shop's own mark, kept (own-mark.ts retainedOwnMark), where the list holds it for that mark alone.
  */
-export const keptOwnMark = (rejected: Record<string, string>, marks: Record<string, WatermarkEntry>) => (url: string) =>
+export const keptOwnMark = (rejected: Record<string, string>, marks: Record<string, Pick<WatermarkEntry, 'retainedOwnMark'>>) => (url: string) =>
   retainedOwnMark(url, marks[url]) && (!rejected[url] || rejected[url]!.startsWith('watermark:'))
 export type WatermarkDeps = {
   get: (url: string) => Promise<Uint8Array>

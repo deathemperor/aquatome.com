@@ -23,6 +23,17 @@ test('moving an incoming capture around a settled edition preserves later incomi
   expect(merged.u.back).toBeUndefined()
 })
 
+test('staged album receipts preserve both album inventories when merged', () => {
+  const url = 'https://media.example/sample.webp'
+  const first = { albums: { 'alpha.json': 1 } }
+  const second = { albums: { 'alpha.json': 2, 'beta.json': 1 } }
+  const expected = { [url]: second }
+  expect(mergeMaps({}, { [url]: first }, { [url]: second })).toEqual(expected)
+  expect(mergeMaps({}, { [url]: second }, { [url]: first })).toEqual(expected)
+  expect(mergeMaps({}, { [url]: true }, { [url]: second })).toEqual(expected)
+  expect(mergeMaps({}, { [url]: { applied: true } }, { [url]: second })).toEqual({ [url]: { applied: true } })
+})
+
 test('keys added, changed or removed on either side all land; untouched keys stay', () => {
   const base = { a: 0, b: 0, c: 0 }
   const ours = { a: 1, b: 0, c: 0, x: 0 }
@@ -278,4 +289,15 @@ test("an agree's sweep meets a run that marked the photo off before the agree: t
   expect(await r.read('_photo-rejected.json')).toEqual({ [raceUrl]: heldRec.why })
   expect(await listAgreed(r.dir)).toEqual([])
   expect(await mendWaiting(r.dir)).toEqual({ back: [], other: [], alone: [] })
+})
+
+test('an album take-off receipt keeps its applied or batched status in either merge orientation', () => {
+  const url = 'https://media.example/dead.webp'
+  const planned = { [url]: true }
+  const applied = { [url]: { applied: true } }
+  const batched = { [url]: { batch: '1'.repeat(64) } }
+  expect(mergeMaps({}, planned, applied)).toEqual(applied)
+  expect(mergeMaps({}, applied, planned)).toEqual(applied)
+  expect(mergeMaps(planned, applied, batched)).toEqual(batched)
+  expect(mergeMaps(planned, batched, applied)).toEqual(batched)
 })

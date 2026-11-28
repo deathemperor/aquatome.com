@@ -1,10 +1,11 @@
+import { noteAlbumTakeOffs, recordAlbumTakeOffs, recordListedAlbumTakeOffs, recordRestoredAlbumTakeOff, type AlbumTakeOffEvidence } from './album-takeoffs'
 import { compactRejection } from './photo-observations'
 import { replacePhotoDocument } from './image-cache-write'
 import { readPhotoMap, writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections, heldPhotoVersion, photoVersionAddressSet, photoRejections } from '@aq/schema'
+import { deadScreenPhotoUrls, IMAGE_SWITCHES, isNonCommercial, ncAlone, publicPhotoVersion, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type SourceInfo, type Summary, type WrittenLang, type ImageSwitches, expandWholePhotoRejections, photoRejections } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -14,7 +15,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, validSubjectVerdict, type PhotoVerdict } from './photo-check'
-import { permittedPhotoSource, readPhotoSources, readPhotoWaits } from './photo-visibility'
+import { permittedPhotoSource, readPhotoSources, readPhotoWaits, readReviewedPhotoVersion } from './photo-visibility'
 import { CAPTIONED } from './captions'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, mayHoldEmail, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
@@ -41,7 +42,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { rejectedEntry } from './photos'
-import { captureWaiting, entriesDir, gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readPassedBefore, readSecondLook, unlistCleared, withoutClearedWaits, type History, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, notePlaces, placesIn, putBackCleared, readSecondLook, unlistCleared, withoutClearedWaits, type History, type Stood } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
@@ -502,9 +503,7 @@ async function neverAgain(root: string) {
   if (rejected !== saved) await writePhotoState(file, rejected)
   const kept = keptOwnMark(rejected, marks)
   const secondLook = await readSecondLook(root)
-  const passed = photoVersionAddressSet(await readPassedBefore(root))
-  const reviewed = heldPhotoVersion(secondLook)
-  const entry = photoRejections(rejected, marks, url => reviewed(url) || passed(url))
+  const entry = photoRejections(rejected, marks, await readReviewedPhotoVersion(root))
   // One marked off at its first verdict is off whatever its entry says: a mark the shop's own kept doesn't keep a dead
   // fish on the page (last-photo.ts; the independent reader, 20 Nov).
   const marked = looks(secondLook).off
@@ -603,7 +602,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       return why({ [url]: { ...subjects[url], [id]: { ...v, ok: 'yes' as const } } })(id, url) !== undefined
     }
   })()
-  const put = await putBackCleared(root, o.history ?? gitHistory(root), o.today, putRefused)
+  const put = await putBackCleared(root, o.history ?? gitHistory(root), o.today, putRefused, undefined, async place => {
+    if (place.file.startsWith('content/gallery/')) await recordRestoredAlbumTakeOff(root, deadScreenPhotoUrls(place.photo as Photo))
+  })
   for (const x of put.back) changed(x.slice(0, x.indexOf(': ')).replace(/^content\//, ''))
   report.putBack = put.back
   report.putBackOff = put.off
@@ -1163,15 +1164,26 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const remember = captureWaiting(marks, rejectedAt)
   const keepsVersion = (url: string, original: string, blockedOriginal: boolean) =>
     /^(?:dead|people|waiting): /.test(listedWhy(url)) && (!blockedOriginal || listedWhy(original).startsWith('waiting:'))
-  for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment')), ...glossaryFiles]) {
+  const equipmentFiles = new Set(await everyJson('equipment'))
+  for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...equipmentFiles, ...glossaryFiles]) {
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
-    const data = JSON.parse(raw) as { photos?: unknown }
+    type Ref = { url?: string }
+    const data = JSON.parse(raw) as {
+      photos?: Photo[]; video?: { figures?: { photo?: Ref; moments?: Ref[] }[] }; kinds?: { photo?: Ref }[];
+      hero?: Ref; types?: { photo?: Ref }[]
+    }
+    const protectedPhotos = file.includes('/guides/')
+      ? (data.video?.figures ?? []).flatMap(part => [part.photo, ...(part.moments ?? [])])
+      : glossaryFiles.includes(file) ? [...(data.photos ?? []), ...(data.kinds ?? []).map(kind => kind.photo)]
+        : equipmentFiles.has(file) ? [data.hero, ...(data.types ?? []).map(type => type.photo)] : []
+    const protectedParts = new Set(protectedPhotos.flatMap(photo => photo?.url && rejectedAt(photo.url)?.[1].startsWith('waiting:') ? [photo.url] : []))
     const places = new Map<string, Stood[]>()
     const canCapture = !!entriesDir()
     const remove = (url: string) => {
       const entry = rejectedAt(url)
-      return listed(url) && (!entry || entry[0] in active) && (!entry?.[1].startsWith('waiting:') || (canCapture && !!remember(url)))
+      return listed(url) && !protectedParts.has(url) && (!entry || entry[0] in active) &&
+        (!entry?.[1].startsWith('waiting:') || (canCapture && !!remember(url)))
     }
     const before = { ...data }
     const removed: string[] = []
@@ -1181,8 +1193,12 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const g = data as { kinds?: { photo?: unknown }[] }
     if (glossaryFiles.includes(file) && Array.isArray(g.kinds)) { g.kinds = g.kinds.filter(k => k.photo); if (!g.kinds.length) delete g.kinds }
     await notePlaces(root, places)
+    const evidence: AlbumTakeOffEvidence = new Map()
+    if (galleryFiles.includes(file)) noteAlbumTakeOffs(evidence, file, before.photos ?? [], data.photos ?? [])
+    const receipts = evidence.size ? await recordListedAlbumTakeOffs(root, evidence, rejectedAt) : []
     for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(listedWhy(url))})`)
     await replacePhotoDocument(file, `${JSON.stringify(data, null, indentOf(raw))}\n`)
+    if (receipts.length) await recordAlbumTakeOffs(root, receipts, true)
     changed(file.slice(content.length + 1))
   }
   // A photo the check refused stays off: a Seriously Fish read or the monthly backfill puts back what its source still

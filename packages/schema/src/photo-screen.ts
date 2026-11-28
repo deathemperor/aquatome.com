@@ -262,6 +262,12 @@ export function deadLooked(r: DeadLookRecords): (url: string) => boolean {
   return url => completedDeadVerdict(r.screen[url]) || asked.has(url) ||
     (!!r.secondLook && Object.hasOwn(r.secondLook, url) && !!photoLookAnswer(r.secondLook[url]))
 }
+/** Album vetting counts only a verdict from the dead-fish screen or a person's second look. */
+export function albumLooked(r: Pick<DeadLookRecords, 'screen' | 'secondLook'>): (url: string) => boolean {
+  const cleared = photoClears(r.secondLook)
+  return url => completedDeadVerdict(r.screen[url]) || cleared(url) || !!photoLookAnswer(r.secondLook?.[url])
+}
+
 /** A second look is answered only with a decision, a reviewer and a dated record. */
 export function photoLookAnswer(record: unknown): { said: 'agree' | 'clear'; by: string; on: string } | undefined {
   const look = (record as { look?: { said?: unknown; by?: unknown; on?: unknown } } | undefined)?.look
@@ -308,13 +314,20 @@ export function heldPhotoVersion(records: Record<string, unknown> = {}): (url: s
   }
 }
 
-/** A separately passed or reviewed rendition does not borrow a first refusal from a different crop. */
+/** Keep a rendition’s own review. A live verdict addresses a different crop’s dead-fish refusal only. */
 export function reviewedPhotoVersion(
-  reviews?: Record<string, unknown>, check?: Record<string, unknown>, subjects?: Record<string, unknown>,
-): (url: string) => boolean {
+  reviews?: Record<string, unknown>, check?: Record<string, unknown>, subjects?: Record<string, unknown>, screen?: Record<string, unknown>,
+): (url: string, refusal?: [string, string]) => boolean {
   const held = heldPhotoVersion(reviews)
   const passed = photoVersionAddressSet(passedBefore(subjects, check))
-  return url => held(url) || passed(url)
+  return (url: string, refusal?: [string, string]) => {
+    if (held(url) || passed(url)) return true
+    if (!refusal || (screen?.[url] as { dead?: unknown } | undefined)?.dead !== false) return false
+    const [address, reason] = refusal
+    const waiting = reason.startsWith('waiting:') ? (reviews?.[address] as LookMark | undefined)?.why : undefined
+    const why = typeof waiting === 'string' ? waiting : reason
+    return why.startsWith('dead:')
+  }
 }
 
 /** An unanswered hold stays with the photo when its source is mirrored. */
@@ -396,7 +409,7 @@ export function photoWaitsFor(r: PhotoWaitRecords): (url: string) => boolean {
     completedDeadVerdict(r.deadScreen?.[url]) || !!photoLookAnswer(r.secondLook?.[url]))
   const cleared = photoClears(r.secondLook)
   const held = photoHolds(r.secondLook)
-  const firstOff = photoFirstOff(r.secondLook, reviewedPhotoVersion(r.secondLook, r.check, r.subjects))
+  const firstOff = photoFirstOff(r.secondLook, reviewedPhotoVersion(r.secondLook, r.check, r.subjects, r.deadScreen))
   const directFaces = new Set(Object.keys(r.faces ?? {}).filter(url => facePhotoOff(url, r.faces, r.secondLook, cleared, held)))
   const faceWaits = photoAddressSet([...(r.unread ?? []), ...directFaces])
   const refusedByCheck = new Set(Object.entries(r.guideLooks ?? {}).flatMap(([url, raw]) => {

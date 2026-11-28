@@ -1,9 +1,11 @@
+import { readReviewedPhotoVersion } from './photo-visibility'
+import { noteAlbumTakeOffs, recordAlbumTakeOffs, recordListedAlbumTakeOffs, type AlbumTakeOffEvidence } from './album-takeoffs'
 import { piece } from './pieces'
 import { replacePhotoDocument } from './image-cache-write'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, heldPhotoVersion, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, photoVersionAddressSet, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
+import { GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, photoAddressSet, photoKey, photoRejections, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo, type PhotoRejection } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -14,7 +16,7 @@ import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, unfitCommons } from './photos'
-import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readPassedBefore, readSecondLook, withoutClearedWaits, type Stood } from './last-photo'
+import { captureWaiting, entriesDir, CLEARED_VERDICT, looks, notePlaces, placesIn, readSecondLook, withoutClearedWaits, type Stood } from './last-photo'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -552,14 +554,12 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   let openverseFailures = 0
   const today = d.now().toISOString().slice(0, 10)
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
-  const reviewed = heldPhotoVersion(sl)
-  const passed = photoVersionAddressSet(await readPassedBefore(root))
-  const rejection = photoRejections(cleanupRejected, {}, url => reviewed(url) || passed(url))
-  const why = (url: string) => {
-    const entry = rejection(url)
-    return entry?.[1].startsWith('watermark:') && (markKept(url) || markKept(entry[0])) ? undefined : entry?.[1]
+  const listed = photoRejections(cleanupRejected, {}, await readReviewedPhotoVersion(root))
+  const effectiveRejection: typeof listed = url => {
+    const entry = listed(url)
+    return entry?.[1].startsWith('watermark:') && (markKept(url) || markKept(entry[0])) ? undefined : entry
   }
-  await dropRejected(root, content, why, captureWaiting(sl, rejection))
+  await dropRejected(root, content, effectiveRejection, captureWaiting(sl, effectiveRejection))
   // `shard` [i, n]: every n-th page from the i-th, so n runs can share the work (each still most popular first).
   const plan = (await galleryPlan(root)).filter((t, i) => (!o.only || t.id === o.only) && (!o.shard || i % o.shard[1] === o.shard[0]))
   // Each source's requests: counted against the run's budget, at the pace the source asks for (shared by n shards).
@@ -834,24 +834,28 @@ async function pageOf(root: string, id: string): Promise<Photo[]> {
 }
 
 /** Photos the owner rejected (engine-state/_photo-rejected.json) leave every gallery, the next run after they are listed. */
-async function dropRejected(root: string, content: string, why: (url: string) => string | undefined, waiting: (url: string) => string | undefined) {
-  const canCapture = !!entriesDir()
-  const listed = (url: string) => {
-    const reason = why(url)
-    return !!reason && (!reason.startsWith('waiting:') || (canCapture && !!waiting(url)))
-  }
+async function dropRejected(root: string, content: string, rejected: PhotoRejection, waiting: (url: string) => string | undefined) {
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const file = join(content, 'gallery', f)
     const g = JSON.parse(await readFile(file, 'utf8')) as { photos: Photo[] }
-    const remove = (p: Photo) => shouldStripPhoto(p, listed, (url, original, blocked) =>
-      /^(?:dead|people|waiting): /.test(why(url) ?? '') && (!blocked || why(original)?.startsWith('waiting:') === true),
-    )
-    const removing = g.photos.filter(remove)
-    if (!removing.length) continue
+    const canCapture = !!entriesDir()
+    const blocked = (url: string) => {
+      const reason = rejected(url)?.[1]
+      return !!reason && (!reason.startsWith('waiting:') || (canCapture && !!waiting(url)))
+    }
+    const keep = g.photos.filter(p => !shouldStripPhoto(p, blocked, (url, original, blockedOriginal) =>
+      /^(?:dead|people|waiting): /.test(rejected(url)?.[1] ?? '') &&
+      (!blockedOriginal || rejected(original)?.[1].startsWith('waiting:') === true),
+    ))
+    if (keep.length === g.photos.length) continue
     const stood = new Map<string, Stood[]>()
-    placesIn(root, file, g, (url, slot) => removing.includes(slot.photo as Photo) ? waiting(url) : undefined, stood)
+    const evidence: AlbumTakeOffEvidence = new Map()
+    noteAlbumTakeOffs(evidence, file, g.photos, keep)
+    placesIn(root, file, g, (url, slot) => !keep.includes(slot.photo as Photo) ? waiting(url) : undefined, stood)
     await notePlaces(root, stood)
-    await replacePhotoDocument(file, `${JSON.stringify({ ...g, photos: g.photos.filter(p => !removing.includes(p)) }, null, 2)}\n`)
+    const receipts = await recordListedAlbumTakeOffs(root, evidence, rejected)
+    await replacePhotoDocument(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
+    if (receipts.length) await recordAlbumTakeOffs(root, receipts, true)
   }
 }
 
