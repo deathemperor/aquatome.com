@@ -65,8 +65,15 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     }
     replan_merged() { :; }
     sweep_merged() { :; }
-    verify_cycle() { echo VERIFY; }
+    verify_cycle() {
+      git show HEAD:${file} | node -e '
+        const page = JSON.parse(require("node:fs").readFileSync(0, "utf8"))
+        console.log("VERIFY " + (page.held?.checks.join(",") ?? "clear"))
+      '
+    }
     swept_pull() { :; }
+    # On the kept retry, no sweep change can independently trigger verification.
+    ${o.kept && o.lostPush ? 'swept_clean() { return 0; }' : ''}
     keep_unpublished() { echo "KEPT"; }
     sleep() { :; }
     ended_row() { :; }
@@ -227,9 +234,18 @@ test("kept work published later takes main's holds the same way, and they're in 
   }, { kept: true })
   expect(r.out).toContain('CODE 0')
   expect(r.pushed.held).toBeUndefined()
-  // A kept branch is checked on its first try anyway (check=1). What holds a later try's check (check= once it has passed)
-  // is the order: main_holds commits before HEAD is compared.
-  expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toMatch(/head=\$\(git rev-parse HEAD\)\n\s*\[ -z "\$BRANCH" \] \|\| main_pages "\$BRANCH"\n\s*main_holds "\$run" origin\/main \|\| true\n\s*\[ "\$\(git rev-parse HEAD\)" = "\$head" \] \|\| check=1/)
+  expect(r.out.match(/^VERIFY .*$/gm)).toEqual(['VERIFY clear'])
+})
+
+test("a kept push retries its checks when main puts a hold back after the first check", () => {
+  const r = push('guides', {
+    base: { held: hold('elsewhere'), fit: { at: '2026-11-14', hash: 'old', checks: ['elsewhere', 'source'] } },
+    main: { fit: clean },
+    run: { held: hold('source'), fit: heldFor('source') },
+  }, { kept: true, lostPush: { held: hold('harm'), fit: heldFor('harm') } })
+  expect(r.out).toContain('CODE 0')
+  expect(r.out.match(/^VERIFY .*$/gm)).toEqual(['VERIFY clear', 'VERIFY harm'])
+  expect(r.pushed.held).toEqual(hold('harm'))
 })
 
 test("main-holds.mjs reads the gate's kinds", () => {

@@ -296,7 +296,7 @@ keep_video_recheck_ref() {
 archive_video_recheck_ref() {
   local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive
   mkdir -p "$parent" && archive=$(mktemp -d "$parent/video-recheck-ref.XXXXXXXX") || return 1
-  git init -q --bare "$archive" && git push -q "$archive" "$2:refs/heads/$1" || return 1
+  git init -q --bare "$archive" && net git push -q "$archive" "$2:refs/heads/$1" || return 1
   log "saved $1 in $archive"
 }
 # HEAD on branch $1, and in the cloud on GitHub's branch of that name.

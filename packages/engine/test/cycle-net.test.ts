@@ -118,7 +118,7 @@ test('a call that exits 124 itself, inside its limit, keeps its status and isn\'
 })
 
 test('every call the cycle makes to GitHub has the limit', () => {
-  for (const file of ['engine-cycle.sh', 'cycle-checks.sh']) {
+  for (const file of ['engine-cycle.sh', 'cycle-checks.sh', 'video-recheck.sh', 'video-recheck-publish.sh']) {
     const bare = readFileSync(join(SCRIPTS, file), 'utf8').split('\n').filter(l => !/^\s*#/.test(l) && /(^|[^\w/-])git (fetch|pull|push|ls-remote|clone) /.test(l.replace(/net git /g, '')))
     expect(bare, file).toEqual([])
   }
