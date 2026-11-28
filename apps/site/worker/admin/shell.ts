@@ -280,17 +280,26 @@ summary:hover{color:var(--ink)}
 .cols i.neg.cap{border-radius:0 0 4px 4px}
 .cols .today i{opacity:.45}
 .cols .today.on i{opacity:.7}
-/* A section's main chart (chart.ts bare): no axis, each day named under its bar, a tap or the pointer shows the day over
-   the bars; the tip moves with its bar and stays inside the chart (it shifts by as much of its width as the bar is across) */
-.bare .plot{grid-template-columns:0 minmax(0,1fr);grid-template-rows:140px 26px;position:relative;margin-top:8px}
+.plot.lanes{grid-template-columns:minmax(4rem,.4fr) minmax(0,1fr) max-content;grid-template-rows:calc(var(--lanes) * 28px) 24px;column-gap:8px}
+.lane-labels,.lane-totals,.lanes .cols li{display:grid;grid-template-rows:repeat(var(--lanes),minmax(0,1fr));align-items:stretch}
+.lane-labels,.lane-totals{line-height:1.15}
+.lane-labels span,.lane-totals b{align-content:center}
+.lane-labels{grid-area:1/1}
+.lane-totals{grid-area:1/3;text-align:right;color:var(--ink)}
+.lanes .lane{position:relative;border-bottom:1px solid var(--grid)}
+.lanes .lane i{bottom:5px;width:min(14px,calc(100% - 2px));height:max(2px,calc(var(--size) * .75));border-radius:2px;background:var(--mute);opacity:1}
+.lanes .lane i.negative{bottom:auto;top:calc(100% - 5px);height:max(2px,calc(var(--size) * .18))}
+.lanes .on i,.lanes .cols:not(:has(li.on)) .today i{background:var(--s1);opacity:1}
+/* A section's chart shows the active day's figures above the plot. */
+.bare .plot{grid-template-columns:0 minmax(0,1fr);grid-template-rows:100px 26px;margin-top:8px}
 .bare .cols i{width:min(56px,calc(100% - 8px))}
-.bare .cols li.on{background:none}
-.bare .plot:has(li.on) .cols li:not(.on) i{opacity:.35}
+.day-pick .readout{align-content:start;min-height:3rem;gap:0 8px}
+.day-pick .readout .when{order:1;flex:0 0 auto;margin-inline-start:auto}
+.day-pick .readout b{font:600 .93rem/1.5 var(--sans);font-variant-numeric:tabular-nums}
+.day-pick .plot .cols li:not(.on) > i{opacity:.55}
+.day-pick .plot .cols li.on > i{opacity:1}
+.day-pick .cols .zero-mark{height:2px;background:var(--mute);border-radius:2px}
 .bare .xax span{top:9px;font-size:12.5px;color:var(--ink-2)}
-.bare .xax span.now{color:var(--muted)}
-.bare .tip{position:absolute;z-index:2;top:0;left:calc((var(--i,0) + .5) / var(--n) * 100%);transform:translateX(calc((var(--i,0) + .5) / var(--n) * -100%));margin:0;padding:6px 10px;border-radius:8px;background:var(--ink);color:var(--plate);font:12px/1.35 var(--sans);white-space:nowrap;pointer-events:none;visibility:hidden}
-.bare .tip.sel{visibility:visible}
-.bare .tip b{display:block;font-size:13px;font-weight:600}
 .legend{display:flex;flex-wrap:wrap;gap:4px 14px;margin:6px 0 0;max-width:none;font-size:.85rem;color:var(--ink-2)}
 /* Ranked bars: each label over its bar, the numbers in their own column */
 .rank th{min-width:9rem;max-width:28rem;overflow-wrap:anywhere}
@@ -391,6 +400,34 @@ i.sci{font-style:italic}
 .first-screen{display:grid;gap:10px;margin-top:14px}
 .first-screen>div{display:grid;gap:10px;align-content:start}
 .card{position:relative;background:var(--plate);border:1px solid var(--rule);border-radius:14px;padding:12px 14px}
+.detail-card>.kpis,.detail-card>.chart{background:none;border:0;border-radius:0;margin:0;padding:0}
+.detail-card>.chart{margin-top:10px}
+.detail-card .kpi{padding:4px 14px 8px 0;box-shadow:none}
+.detail-card>.fig small,.detail-card .kpi .v small{font:500 .85rem/1.5 var(--sans);color:var(--muted)}
+.quality-table td:last-child{white-space:normal;max-width:42ch;overflow-wrap:anywhere}
+.key-status .bad{color:var(--red)}
+.fish-lead>.note,.fish-lead>.call-label{margin:4px 0}
+.fish-lead>.call-label{font-weight:600;color:var(--ink)}
+.fish-lead .chart h3{font-size:.86rem}
+.chart figcaption>.fig{font:600 1.6rem/1.2 var(--serif);margin:4px 0}
+.chart figcaption>.fig small{font:500 .85rem var(--sans);color:var(--muted)}
+@media (max-width:599px){
+  .rank.stack-narrow thead,.quality-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .rank.stack-narrow tbody tr,.quality-table tbody tr{display:grid;grid-template-columns:minmax(0,1fr) auto;border-bottom:1px solid var(--rule);padding:8px 10px}
+  .rank.stack-narrow tbody tr:last-child,.quality-table tbody tr:last-child{border-bottom:0}
+  .rank.stack-narrow tbody th,.rank.stack-narrow td,.quality-table td{padding:0;border:0}
+  .rank.stack-narrow tbody th{grid-column:1/-1;margin-bottom:4px;white-space:normal}
+  .rank.stack-narrow td[data-label]{text-align:start;color:var(--ink-2);padding-inline-end:12px}
+  .rank.stack-narrow td[data-label]:before{content:attr(data-label) ' ';color:var(--muted)}
+  .quality-table td:first-child{white-space:normal;overflow-wrap:anywhere}
+  .quality-table td:nth-child(2){grid-column:2;grid-row:1;justify-self:end;margin-inline-start:10px}
+  .quality-table td:last-child{grid-column:1/-1;max-width:none;color:var(--muted);font-size:.85rem}
+}
+
+.rank .share{background:linear-gradient(to right,color-mix(in srgb,var(--s1) 14%,transparent) var(--share),transparent var(--share))}
+.counting-notes{margin-top:24px}
+.counting-notes h2{margin-top:0}
+.counting-notes p:last-child{margin-bottom:0}
 .first-screen .card>h2{font:600 14.5px/1.35 var(--sans);margin:0 0 4px;display:flex;align-items:center;gap:6px}
 .card>h2>a{color:inherit;text-decoration:none;flex:1;min-width:0}
 .card>h2>a:after{content:'';position:absolute;inset:0;border-radius:inherit}
@@ -427,7 +464,7 @@ i.sci{font-style:italic}
 /* New pages: the kinds' total and today's, then a line a kind: its name, its seven days, its total and today's */
 .card .top{display:flex;align-items:baseline;gap:6px;margin:0;color:var(--muted);font-weight:600;font-size:14px;max-width:none}
 .card .top .fig{color:var(--ink)}
-.card .today{margin-left:auto;font-weight:400;font-size:13px}
+.card .top .today{margin-left:auto;font-weight:400;font-size:13px}
 .t{font-size:13px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums;min-width:28px}
 .t.good{color:var(--moss)}
 .kinds{display:grid;grid-template-columns:max-content minmax(0,1fr) max-content max-content;gap:6px 8px;align-items:end;margin-top:6px}
@@ -525,20 +562,27 @@ try{if(document.cookie.includes(c)&&sessionStorage.getItem('aq_tz')!==z){session
  * time on the page; a tap on them stays on the page instead of following the row's link.
  */
 const CHART_JS = `(()=>{document.documentElement.classList.add('js');let first=true
-for(const p of document.querySelectorAll('[data-plot]')){const tip=p.querySelector('.tip'),out=tip||p.closest('figure').querySelector('.readout'),area=p.querySelector('.area'),when=out.querySelector('.when'),bs=[...out.querySelectorAll('b')],cols=[...p.querySelectorAll('.cols li')],init=tip?[]:[when.textContent,...bs.map(b=>b.textContent)]
-if(first&&!tip){out.classList.add('first');first=false}
-let on=-1,down=-1,was=-1
+for(const p of document.querySelectorAll('[data-plot]')){
+const out=p.closest('figure').querySelector('.readout'),area=p.querySelector('.area'),when=out.querySelector('.when')
+const bs=[...out.querySelectorAll('b')],cols=[...p.querySelectorAll('.cols li')],init=[when.textContent,...bs.map(b=>b.textContent)]
+const start=Number(p.dataset.start??-1);let on=-1,down=-1,was=-1,pinned=start
+if(first&&start<0){out.classList.add('first');first=false}
 const pick=i=>{cols[on]?.classList.remove('on');on=i;const li=cols[i];out.classList.toggle('sel',!!li)
-if(tip){if(li){li.classList.add('on');bs[0].textContent=li.dataset.t;tip.lastChild.textContent=li.dataset.x;tip.style.setProperty('--i',i)}return}
 if(!li){when.textContent=init[0];bs.forEach((b,k)=>{b.textContent=init[k+1]});return}
 li.classList.add('on');when.textContent=li.dataset.d;const v=li.dataset.v.split('|');bs.forEach((b,k)=>{b.textContent=v[k]??'—'})}
+if(start>=0)pick(start)
 const at=e=>{const r=area.getBoundingClientRect();return Math.max(0,Math.min(cols.length-1,Math.floor((e.clientX-r.left)/r.width*cols.length)))}
+if(start>=0){
+area.addEventListener('click',e=>{pinned=at(e);pick(pinned);p.focus({preventScroll:true})})
+area.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')pick(at(e))})
+}else{
 area.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse')return;const i=at(e);was=on;down=i;pick(i===on?-1:i)})
 area.addEventListener('pointercancel',()=>pick(was))
-area.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')return pick(at(e));if(e.buttons&&at(e)!==down){down=-2;pick(at(e))}})
-area.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')pick(-1)})
-p.addEventListener('keydown',e=>{const l=cols.length-1,k=e.key,i=k==='ArrowRight'?(on<0?0:Math.min(l,on+1)):k==='ArrowLeft'?(on<0?l:Math.max(0,on-1)):k==='Home'?0:k==='End'?l:k==='Escape'?-1:null
-if(i===null)return;e.preventDefault();pick(i)})}
+area.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')return pick(at(e));const i=at(e);if(e.buttons&&i!==down){down=-2;pick(i)}})
+}
+area.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')pick(pinned)})
+p.addEventListener('keydown',e=>{const l=cols.length-1,k=e.key,i=k==='ArrowRight'?(on<0?0:Math.min(l,on+1)):k==='ArrowLeft'?(on<0?l:Math.max(0,on-1)):k==='Home'?0:k==='End'?l:k==='Escape'?start:null
+if(i===null)return;e.preventDefault();if(start>=0)pinned=i;pick(i)})}
 let cur=null
 for(const s of document.querySelectorAll('[data-spark]')){const svg=s.querySelector('svg'),out=s.querySelector('.so'),d=s.dataset.d.split('|'),v=s.dataset.v.split('|')
 let on=-1,down=-1,touch=false
@@ -550,6 +594,11 @@ s.addEventListener('pointerdown',e=>{touch=e.pointerType!=='mouse';if(!touch)ret
 s.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')return pick(at(e));if(e.buttons&&at(e)!==down){down=-2;pick(at(e))}})
 s.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')pick(-1)})
 s.addEventListener('click',e=>{if(touch)e.preventDefault()})}})()`
+
+/** Explanations at the bottom of a dashboard screen. Entries are rendered dashboard HTML. */
+export function countingNotes(...entries: string[]): string {
+  return `<section class="card counting-notes" aria-labelledby="how-counted"><h2 id="how-counted">How it’s counted</h2>${entries.filter(Boolean).join('')}</section>`
+}
 
 /** An admin page: the bar, the areas (a rail on a computer, chips on a phone), then the page's own content. */
 export function page(current: WebPath, title: string, body: string, now = new Date(), tz = HOME_TZ): string {

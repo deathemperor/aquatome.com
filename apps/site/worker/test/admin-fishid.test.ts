@@ -79,7 +79,7 @@ test('unmatched guesses most first with their mean confidence; the last calls wi
   expect(html).toContain('<th class="l">Mon 2 Nov, 16:58</th>')
   expect(html).toContain('My tanks')
   expect(html).toContain('failed the spam check')
-  // The page's one script is its own clock; a name never becomes one.
+  // This fixture has no day counts, so the empty chart needs only the page clock.
   expect(html.match(/<script>/g)).toHaveLength(1)
   expect(html).not.toContain('Betta <script>')
   expect(html).not.toContain('<img src=x>')

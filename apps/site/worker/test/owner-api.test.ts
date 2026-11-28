@@ -266,6 +266,22 @@ function fromHtml(html: string) {
     for (const n of el.childNodes as HTMLElement[]) {
       if (n.nodeType !== 1) continue
       const tag = n.tagName
+      // Explanatory text is still checked below. The web groups it under its own closing heading.
+      if (tag === 'SECTION' && (n.classList.contains('counting-notes') || n.getAttribute('aria-labelledby') === 'product-links')) continue
+      if (tag === 'DIV' && n.classList.contains('quality-lead')) {
+        const window = txt(n.querySelector('.search-window'))
+        out.figures.push({ label: 'Pages with data', value: txt(n.querySelector('.scored')) },
+          { label: 'Ranked', value: txt(n.querySelector('.ranked')) },
+          window === 'the daily job hasn’t run'
+            ? { label: 'Search Console', value: 'not yet', sub: window }
+            : { label: 'Search Console', value: window })
+      }
+      if (tag === 'DIV' && n.classList.contains('fish-lead')) {
+        const linked = txt(n.querySelector('.linked-share .delta'))
+        out.figures.push({ label: 'Claude calls', value: txt(n.querySelector('.call-count')), delta: txt(n.querySelector('.calls-change .delta')) },
+          { label: 'Claude cost', value: txt(n.querySelector('.call-cost')), delta: txt(n.querySelector('.cost-change .delta')) },
+          { label: 'Led to a page', value: txt(n.querySelector('.linked-share b')), ...(linked ? { delta: linked } : {}) })
+      }
       if ((tag === 'H2' || tag === 'H3') && !n.id.endsWith('-t')) out.headings.push(`${tag[1]} ${txt(n)}${tag === 'H2' && n.id ? ` #${n.id}` : ''}`)
       else if (tag === 'SECTION' && n.classList.contains('comments')) {
         out.comments = commentsOf(n)
@@ -283,7 +299,11 @@ function fromHtml(html: string) {
         out.charts.push(`${n.getAttribute('aria-labelledby')!.slice(0, -2)} ${txt(n.querySelector('h3'))}`)
         continue // its readout, plot and numbers are the chart's own
       } else if (tag === 'DIV' && n.classList.contains('kpi')) {
-        out.figures.push({ label: txt(n.querySelector('dt')), value: txt(n.querySelector('dd.v')), ...(n.querySelector('dd.sub') ? { sub: txt(n.querySelector('dd.sub')) } : {}), ...(n.querySelector('.delta') ? { delta: txt(n.querySelector('.delta')) } : {}) })
+        const label = txt(n.querySelector('dt'))
+        const value = txt(n.querySelector('dd.v .number') ?? n.querySelector('dd.v'))
+        const tabs = out.title === 'Readers' && label === 'Readers' && /^of ([\d,]+) tabs$/.exec(txt(n.querySelector('dd.v small')))
+        if (tabs) out.figures.push({ label: 'Tabs', value: tabs[1]! })
+        out.figures.push({ label, value, ...(n.querySelector('dd.sub') ? { sub: txt(n.querySelector('dd.sub')) } : {}), ...(n.querySelector('.delta') ? { delta: txt(n.querySelector('.delta')) } : {}) })
         continue
       } else if (tag === 'LI' && (n.parentNode as HTMLElement).classList.contains('gaps') && n.querySelector('p span.muted')) {
         const p = n.querySelector('p')!
@@ -362,7 +382,25 @@ for (const [key, variants] of Object.entries(VARIANTS)) {
       const h = fromHtml(html())
       // A page's list of pages, the report log's list of reports and the change log's days have no column heads; their tables do.
       const j = fromJson(json(), t => (t.folded ? t.columns?.[0] !== 'Page' : !['Report', CHANGE_COLUMN].includes(t.columns?.[0] ?? '')))
+      // The web spells out region names in these tables. The app gets the same rows with their country codes.
+      if (key === 'doc-gia' || key === 'thanh-cong') {
+        const regions = new Intl.DisplayNames('en', { type: 'region', fallback: 'none' })
+        for (const t of j.tables.filter(t => t.columns?.join(',') === 'Country,Readers')) {
+          for (const [region] of t.rows) {
+            if (region?.text === '??') region.text = 'Unknown'
+            else if (region && /^[A-Z]{2}$/.test(region.text)) region.text = regions.of(region.text) ?? region.text
+          }
+        }
+      }
       const at = `${key}, ${name}`
+      if (key === 'noi-dung') {
+        // The ranking threshold is in the shared explanation below the web lists.
+        const ranked = j.figures.find(f => f.label === 'Ranked')
+        if (ranked) {
+          expect(h.text, at).toContain('A page is ranked once it has')
+          delete ranked.sub
+        }
+      }
       expect(j.title, at).toBe(h.title)
       expect(j.headings, at).toEqual(h.headings)
       expect(j.figures, at).toEqual(h.figures)
@@ -384,10 +422,45 @@ for (const [key, variants] of Object.entries(VARIANTS)) {
       expect((s.periods ?? []).map(p => ({ ...p, on: p.key === s.period })), at).toEqual(h.periods)
       if (s.periods) expect(h.periodMenu, at).toEqual({ shown: s.periods.find(p => p.key === s.period)!.label, links: h.periodLinks })
       // Every note is on the page, word for word.
-      for (const n of j.notes) expect(h.text.replace(/\s/g, ''), `${at}: ${n}`).toContain(norm(n).replace(/\s/g, '').replace(/·/g, ''))
+      for (const n of j.notes) {
+        if (key === 'affiliate' && n.startsWith('Products:')) {
+          // The app's catalog note is a small labeled table on the web.
+          const status = dom(html()).querySelector('section[aria-labelledby="product-links"]')
+          expect(txt(status?.querySelector('h2')), at).toBe('Product links')
+          for (const [code, label] of [['ok', 'Working'], ['gone', 'Gone']]) {
+            const count = new RegExp(`\\b${code} ([\\d,]+)`).exec(n)?.[1] ?? '0'
+            const row = status?.querySelectorAll('tbody tr').find(r => txt(r.querySelector('th, td')) === label)
+            expect(txt(row?.querySelectorAll('th, td')[1]), at).toBe(count)
+          }
+          const checked = n.match(/last checked:\s*(.+)$/i)?.[1] ?? ''
+          expect(txt(status?.querySelector('.note')), at).toBe(`Last checked: ${norm(checked)}`)
+        } else expect(h.text.replace(/\s/g, ''), `${at}: ${n}`).toContain(norm(n).replace(/\s/g, '').replace(/·/g, ''))
+      }
     }
   })
 }
+
+test('dashboard detail pages put their reference notes after the figures and lists', () => {
+  for (const key of ['doc-gia', 'thanh-cong', 'noi-dung', 'nhan-dien-ca', 'affiliate', 'tai-khoan', 'binh-luan', 'anh-ban-doc', 'an-trang', 'anh-nhan-dien', 'bao-sai', 'bao-cao', 'thay-doi']) {
+    const html = VARIANTS[key]![0]![1]()
+    const main = dom(html)
+    expect(main.lastElementChild?.getAttribute('aria-labelledby'), key).toBe('how-counted')
+    expect(txt(main.querySelector('#how-counted')), key).toBe('How it’s counted')
+  }
+  const scoreboard = dom(scoreboardPage(S.SCOREBOARD, S.TZ))
+  expect(scoreboard.querySelectorAll('.detail-card').map(card => card.querySelectorAll('figure.chart').length)).toEqual([1, 1])
+  expect(scoreboard.querySelectorAll('.detail-card').map(card => card.querySelectorAll('.kpi').length)).toEqual([1, 1])
+  const readerCard = dom(readersPage(S.NOW, S.READERS, S.TZ)).querySelector('.detail-card')!
+  expect(txt(readerCard.querySelector('dt'))).toBe('Readers')
+  expect(txt(readerCard.querySelector('dd.v'))).toBe('610 of 1,240 tabs')
+  const content = parse(contentPage(S.CONTENT))
+  for (const id of ['n-added', 'n-langs']) {
+    const chart = content.querySelector(`figure[aria-labelledby="${id}-t"]`)!
+    expect(chart.querySelectorAll('.lane-labels span')).toHaveLength(3)
+    expect(chart.querySelectorAll('.lane-totals b')).toHaveLength(3)
+    expect(chart.querySelectorAll('.cols li').every(day => day.querySelectorAll('.lane').length === 3)).toBe(true)
+  }
+})
 
 test('the overview before version 2: its to-dos, areas and last days each open a section (at one of its headings) or an address', () => {
   const anchors = (key: string) => VARIANTS[key]![0]![2]().blocks.flatMap(b => (b.kind === 'heading' && b.anchor ? [b.anchor] : []))
@@ -419,8 +492,9 @@ test("in dark, the first screen's red reads apart from rust, and as text on the 
   const ratio = (a: string, b: string) => { const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m); return (x! + 0.05) / (y! + 0.05) }
   expect(ratio(tok('red'), tok('rust'))).toBeGreaterThanOrEqual(1.4)
   expect(ratio(tok('red'), tok('plate'))).toBeGreaterThanOrEqual(4.5)
-  // The red is the first screen's alone: a fault's dot, a fall's figure, a zero day's tick.
-  expect(css.match(/var\(--red\)/g)).toHaveLength(3)
+  // Red marks the first screen's faults and the Fish ID page's unusable keys.
+  expect(css).toContain('.key-status .bad{color:var(--red)}')
+  expect(css.match(/var\(--red\)/g)).toHaveLength(4)
 })
 
 /** Where a need, a line or a tile leads on the web: its section's page (at its anchor), or its address. */

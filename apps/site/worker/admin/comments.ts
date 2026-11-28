@@ -4,7 +4,7 @@ import { figures, heading, note, table, type Action, type Block, type Cell, type
 import { esc, tiles, type Tile } from './chart'
 import type { PageInfo, Talk } from './content'
 import { weeksTo } from './scoreboard'
-import { isFailed, page, type Failed, type Soft } from './shell'
+import { countingNotes, isFailed, page, type Failed, type Soft } from './shell'
 import { dayStart, HOME_TZ, msOf, timeTag, zoneName } from './time'
 
 /**
@@ -224,15 +224,16 @@ export function commentsPage(d: CommentsData): string {
       + `${items ? `<ol class="cm">${items}</ol>` : `<p class="cm none">${esc(emptyOf(d.state))}</p>`}`
       + `${l.next ? `<p class="more"><a href="${esc(`${webHref(d.state)}&cursor=${l.next}`)}">Older comments</a></p>` : ''}</section>`
   }
-  body += `<p class="note">${esc(AFTER(d.tz, d.now))}</p><div class="split"><section><h2>This week</h2>`
-  body += isFailed(d.week) ? failedHtml('this week\'s counts', d.week) : `${tiles(weekTiles(d.week))}<p class="note">${esc(WEEK_NOTE)}</p>`
+  body += '<div class="split"><section><h2>This week</h2>'
+  body += isFailed(d.week) ? failedHtml('this week\'s counts', d.week) : tiles(weekTiles(d.week))
   body += '</section><section><h2>Most discussed</h2>'
   if (isFailed(d.talk)) body += failedHtml('the most discussed pages', d.talk)
   else {
     const rows = talkRows(d.talk).map(r => `<tr><th><a href="${esc(r[0]!.href!)}">${esc(r[0]!.text)}</a></th><td>${r[1]!.text}</td><td>${r[2]!.text}</td></tr>`).join('')
     body += `<div class="scroll"><table><thead><tr>${TALK_HEAD.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${rows || `<tr><td colspan="3" class="none">${NO_TALK}</td></tr>`}</tbody></table></div>`
   }
-  return page(COMMENTS_PATH, 'Comments', `${body}</section></div>`, d.now, d.tz)
+  const notes = countingNotes(`<p class="note">${esc(AFTER(d.tz, d.now))}</p>`, isFailed(d.week) ? '' : `<p class="note">${esc(WEEK_NOTE)}</p>`)
+  return page(COMMENTS_PATH, 'Comments', `${body}</section></div>${notes}`, d.now, d.tz)
 }
 
 export function commentsSection(d: CommentsData): Section {

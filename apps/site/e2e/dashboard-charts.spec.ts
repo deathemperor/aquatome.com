@@ -1,11 +1,13 @@
+import { mkdir } from 'node:fs/promises'
+import { join } from 'node:path'
 import type { Page } from '@playwright/test'
 import { lastDays } from '../worker/admin/chart'
 import { contentPage } from '../worker/admin/content-page'
-import { accountsPage, fishIdPage, NEED_TITLE_MAX, photosPage } from '../worker/admin/pages'
+import { accountsPage, affiliatePage, fishIdPage, NEED_TITLE_MAX, photosPage, readersPage } from '../worker/admin/pages'
 import { scoreboardPage, summariseScoreboard, weeksTo } from '../worker/admin/scoreboard'
 import { viewerZone } from '../worker/admin/time'
 import { todayJson, todayPage } from '../worker/admin/today'
-import { FISH, LOW_CONTENT, SPENDING, STATS, TODAY } from '../worker/test/owner-sample'
+import { AFF, CLICKS, CONTENT, FISH, LOW_CONTENT, READERS, SCOREBOARD, SPENDING, STATS, TODAY } from '../worker/test/owner-sample'
 import { expect, test } from './fixtures'
 import { LIVE } from './pages'
 
@@ -40,13 +42,13 @@ test('the scoreboard reads a week off its chart, and fits a 320 px screen', asyn
   await serve(page, '/_ab/thanh-cong/', tz => scoreboardPage(scoreboard(), tz))
   await page.goto('/_ab/thanh-cong/')
   await expect(page.getByRole('heading', { level: 1, name: 'Scoreboard' })).toBeVisible()
-  // The page's first readout keeps its own row: the first screen's grid is Today's alone (#1689's reader, 21 Nov).
-  await expect(page.locator('.readout.first')).toHaveCount(1)
-  await expect(page.locator('.readout.first')).toHaveCSS('display', 'flex')
-  await expect(page.locator('.readout.first')).toHaveCSS('margin-top', '4px')
+  await expect(page.locator('.day-pick .readout')).toHaveCount(2)
   const chart = page.locator('figure[aria-labelledby="w-star-t"]')
-  await expect(chart.locator('.readout .when')).toHaveText('12 weeks')
-  await expect(chart.locator('.readout b')).toHaveText('18')
+  await expect(chart.locator('.readout')).toHaveCSS('display', 'flex')
+  await expect(chart.locator('.readout')).toHaveCSS('margin-top', '4px')
+  await expect(chart.locator('.readout .when')).toHaveText('Week of 16 Nov · so far')
+  await expect(chart.locator('.readout b')).toHaveText('9')
+  await expect(chart.locator('.cols .on > i').first()).toBeVisible()
   const column = chart.locator('.cols li').nth(10)
   if (isMobile) await column.tap()
   else await column.hover()
@@ -195,42 +197,34 @@ test('the first screen: the app\'s five cards, two columns on a desktop and one 
   expect(errors).toEqual([])
 })
 
-test('the day charts: a hover or a tap shows the day beside its bar, inside the card, and nothing else is drawn', async ({ page, errors, isMobile }) => {
+test('the Fish ID chart shows the current day and reads every column at phone and desktop widths', async ({ page, errors, isMobile }) => {
   test.skip(LIVE, 'the live dashboard opens only to the owner')
-  // The Design Lead (2026-11-09): a day's name under each bar, no axis, no readout line over it; the overview's draws
-  // found an answer only, so it has no legend (Fish ID's three kinds of call keep theirs).
   await serve(page, '/_ab/nhan-dien-ca/', tz => fishIdPage({ ...FISH, tz }))
-  for (const [path, at] of [['/_ab/nhan-dien-ca/', '.charts']] as const) {
-    for (const width of [390, 1280]) {
-      await page.setViewportSize({ width, height: 900 })
-      await page.goto(path)
-      const card = page.locator(at).first()
-      const chart = card.locator('figure.bare')
-      await expect(chart).toHaveCount(1)
-      await expect(chart.locator('.yax span, .readout')).toHaveCount(0)
-      await expect(chart.locator('.legend span')).toHaveCount(3)
-      const tip = chart.locator('.tip')
-      await expect(tip).toBeHidden()
-      const bars = chart.locator('.cols li')
-      const n = await bars.count()
-      const labels = await chart.locator('.xax span').allInnerTexts()
-      expect(labels.length, `${path} ${width} px`).toBe(n)
-      await chart.scrollIntoViewIfNeeded()
-      const area = (await chart.locator('.area').boundingBox())!
+  for (const width of [390, 1280]) {
+    await page.setViewportSize({ width, height: 900 })
+    await page.goto('/_ab/nhan-dien-ca/')
+    const card = page.locator('.fish-lead')
+    const chart = card.locator('figure.bare')
+    await expect(chart).toHaveCount(1)
+    await expect(chart.locator('.yax span')).toHaveCount(0)
+    await expect(chart.locator('.legend span')).toHaveCount(3)
+    await expect(chart.locator('.readout b')).toHaveText(['17', '0', '0'])
+    await expect(chart.locator('.cols li.today.on i.cap')).toBeVisible()
+    const bars = chart.locator('.cols li')
+    const n = await bars.count()
+    await expect(chart.locator('.xax span')).toHaveCount(n)
+    await chart.scrollIntoViewIfNeeded()
+    for (const i of [0, Math.floor(n / 2), n - 1]) {
+      const bar = bars.nth(i)
+      if (isMobile) await bar.tap()
+      else await bar.hover()
+      await expect(bar).toHaveClass(/\bon\b/)
+      await expect(chart.locator('.readout .when')).toHaveText((await bar.getAttribute('data-d'))!)
+      await expect(chart.locator('.readout b')).toHaveText((await bar.getAttribute('data-v'))!.split('|'))
+      const readout = (await chart.locator('.readout').boundingBox())!
       const cardBox = (await card.boundingBox())!
-      for (const i of [0, Math.floor(n / 2), n - 1]) {
-        const [x, y] = [area.x + (area.width * (i + 0.5)) / n, area.y + area.height / 2]
-        if (isMobile) await page.touchscreen.tap(x, y)
-        else await page.mouse.move(x, y)
-        const bar = bars.nth(i)
-        await expect(tip).toBeVisible()
-        await expect(tip.locator('b')).toHaveText((await bar.getAttribute('data-t'))!)
-        await expect(tip.locator('span')).toHaveText((await bar.getAttribute('data-x'))!)
-        const box = (await tip.boundingBox())!
-        expect(box.x, `${path} ${width} px, bar ${i}`).toBeGreaterThanOrEqual(cardBox.x - 0.5)
-        expect(box.x + box.width, `${path} ${width} px, bar ${i}`).toBeLessThanOrEqual(cardBox.x + cardBox.width + 0.5)
-        if (isMobile) await page.touchscreen.tap(x, y)
-      }
+      expect(readout.x, `${width} px, bar ${i}`).toBeGreaterThanOrEqual(cardBox.x - 0.5)
+      expect(readout.x + readout.width, `${width} px, bar ${i}`).toBeLessThanOrEqual(cardBox.x + cardBox.width + 0.5)
     }
   }
   expect(errors).toEqual([])
@@ -292,49 +286,69 @@ test('the content page\'s pages out of search: a page\'s notes open on a tap or 
 test.describe('in Vietnam', () => {
   test.use({ timezoneId: 'Asia/Ho_Chi_Minh' })
 
-  test('a chart\'s columns read out their day on a tap, a hover or the arrow keys; the totals come back after', async ({ page, errors, isMobile }) => {
+  test('growth and translation rows share one selected day and retain their totals', async ({ page, errors }) => {
+    test.skip(LIVE, 'the live dashboard opens only to the owner')
+    await serve(page, '/_ab/noi-dung/', tz => contentPage({ ...CONTENT, tz }))
+    await page.goto('/_ab/noi-dung/')
+    for (const id of ['n-added', 'n-langs']) {
+      const plot = page.locator(`figure[aria-labelledby="${id}-t"] .lanes`)
+      const totals = await plot.locator('.lane-totals b').allTextContents()
+      expect(totals).toHaveLength(3)
+      await expect(plot.locator('li.on')).toHaveClass(/\btoday\b/)
+      await plot.focus()
+      await page.keyboard.press('ArrowLeft')
+      await expect(plot.locator('li.on')).not.toHaveClass(/\btoday\b/)
+      await expect(plot.locator('li.on .lane')).toHaveCount(3)
+      expect(await plot.locator('.lane-totals b').allTextContents()).toEqual(totals)
+      await page.keyboard.press('Escape')
+      await expect(plot.locator('li.on')).toHaveClass(/\btoday\b/)
+    }
+    expect(errors).toEqual([])
+  })
+
+  test('a chart previews on hover, keeps the day picked by tap, click or arrow key, and resets on Escape', async ({ page, errors, isMobile }) => {
     test.skip(LIVE, 'the live dashboard opens only to the owner')
     await serve(page, '/_ab/tai-khoan/', tz => accountsPage(ACCOUNTS, NOW, tz))
     await page.goto('/_ab/tai-khoan/')
     const chart = page.locator('figure[aria-labelledby="u-daily-t"]')
     const when = chart.locator('.readout .when')
-    const value = chart.locator('.readout b')
-    await expect(when).toHaveText('30 days')
-    await expect(value).toHaveText('10')
-    // The page's first chart says how to read a day; picking one hides that line but keeps its room, so nothing under
-    // it moves and the column stays under the pointer.
-    const hint = chart.locator('.readout .hint')
-    await expect(hint).toBeVisible()
+    const values = chart.locator('.readout b')
+    const today = 'Today 4 Nov · so far'
+    await expect(when).toHaveText(today)
+    await expect(values).toHaveText(['0', '3'])
+    await expect(chart.locator('.cols li.today.on .zero-mark')).toBeVisible()
     const top = () => chart.locator('[data-plot]').evaluate(p => p.getBoundingClientRect().top + scrollY)
+    await page.evaluate(() => document.fonts.ready)
     const before = await top()
     const yesterday = chart.locator('.cols li').nth(28)
     if (isMobile) await yesterday.tap()
     else await yesterday.hover()
     await expect(when).toHaveText('Yesterday 3 Nov')
-    await expect(value).toHaveText('3')
+    await expect(values).toHaveText(['3', '0'])
     await expect(yesterday).toHaveClass(/\bon\b/)
-    await expect(hint).toBeHidden()
     expect(await top()).toBe(before)
-    // Tapped again (or the pointer gone): the period's totals.
-    if (isMobile) await yesterday.tap()
-    else await page.mouse.move(0, 0)
-    await expect(when).toHaveText('30 days')
-    // The keys, from the latest day back.
+    if (!isMobile) {
+      await page.mouse.move(0, 0)
+      await expect(when).toHaveText(today)
+      await yesterday.click()
+      await chart.locator('.cols li').nth(27).hover()
+      await expect(when).toHaveText('Mon 2 Nov')
+      await page.mouse.move(0, 0)
+    }
+    await expect(when).toHaveText('Yesterday 3 Nov')
     await chart.locator('[data-plot]').focus()
     await page.keyboard.press('ArrowLeft')
-    await expect(when).toHaveText('Today 4 Nov · so far')
-    await page.keyboard.press('ArrowLeft')
-    await expect(when).toHaveText('Yesterday 3 Nov')
+    await expect(when).toHaveText('Mon 2 Nov')
     await page.keyboard.press('Escape')
-    await expect(when).toHaveText('30 days')
-    // A finger that lands on the chart to scroll the page: the browser cancels it, and the readout stays as it was.
+    await expect(when).toHaveText(today)
+    // Touching to scroll dispatches a cancel without a click and must not pin a different day.
     await chart.locator('.area').evaluate(a => {
       const r = a.getBoundingClientRect()
       const at = { pointerType: 'touch', clientX: r.left + r.width / 2, clientY: r.top + 10, bubbles: true }
       a.dispatchEvent(new PointerEvent('pointerdown', at))
       a.dispatchEvent(new PointerEvent('pointercancel', at))
     })
-    await expect(when).toHaveText('30 days')
+    await expect(when).toHaveText(today)
     expect(errors).toEqual([])
   })
 })
@@ -352,4 +366,52 @@ test.describe('on a phone set to Berlin', () => {
     expect((await context.cookies()).find(c => c.name === 'aq_tz')?.value).toBe('Europe%2FBerlin')
     expect(errors).toEqual([])
   })
+})
+
+test('the six dashboard screens supply parity captures from the checked fixture', async ({ page, isMobile }) => {
+  const directory = process.env.DASHBOARD_SHOTS
+  test.skip(LIVE || !directory, 'captures run only when the dashboard changes in CI')
+  test.setTimeout(90_000)
+  await mkdir(directory!, { recursive: true })
+  const width = isMobile ? 390 : 1280
+  await page.setViewportSize({ width, height: isMobile ? 844 : 900 })
+  const screens = [
+    ['readers', '/_ab/doc-gia/', (tz: string) => readersPage(NOW, READERS, tz)],
+    ['scoreboard', '/_ab/thanh-cong/', (tz: string) => scoreboardPage(SCOREBOARD, tz)],
+    ['content', '/_ab/noi-dung/', (tz: string) => contentPage({ ...CONTENT, tz })],
+    ['fish-id', '/_ab/nhan-dien-ca/', (tz: string) => fishIdPage({ ...FISH, tz })],
+    ['affiliate', '/_ab/affiliate/', (tz: string) => affiliatePage(CLICKS, AFF, NOW, tz)],
+    ['accounts', '/_ab/tai-khoan/', (tz: string) => accountsPage(ACCOUNTS, NOW, tz)],
+  ] as const
+  for (const [name, path, html] of screens) await serve(page, path, html)
+  for (const look of ['light', 'dark'] as const) {
+    await page.emulateMedia({ colorScheme: look })
+    for (const [name, path] of screens) {
+      await page.goto(path)
+      await page.evaluate(() => document.fonts.ready)
+      if (name === 'scoreboard') {
+        await expect(page.locator('#w-star-t + .readout b')).toHaveText('12')
+        await expect(page.locator('#w-readers-t + .readout b')).toHaveText(['21', '33'])
+        await expect(page.locator('figure.day-pick .today.on i.cap').filter({ visible: true })).toHaveCount(2)
+      }
+      await page.screenshot({ path: join(directory!, `${name}-${width}-${look}.png`), fullPage: true, scale: 'css' })
+      if (look === 'light' && (name === 'fish-id' || name === 'content')) {
+        const id = name === 'fish-id' ? 'f-calls' : 'n-added'
+        const chart = page.locator(`figure[aria-labelledby="${id}-t"]`)
+        const columns = chart.locator('.cols li')
+        const day = columns.nth(name === 'fish-id' ? 0 : (await columns.count()) - 2)
+        if (isMobile) await day.tap()
+        else {
+          await day.hover()
+          await page.screenshot({ path: join(directory!, `${name}-hover.png`), fullPage: true, scale: 'css' })
+          await day.click()
+          await page.mouse.move(0, 0)
+        }
+        await expect(day).toHaveClass(/\bon\b/)
+        await expect(chart.locator('.readout .when')).toHaveText((await day.getAttribute('data-d'))!)
+        await expect(chart.locator('.readout b')).toHaveText((await day.getAttribute('data-v'))!.split('|'))
+        await page.screenshot({ path: join(directory!, `${name}-selected-${width}.png`), fullPage: true, scale: 'css' })
+      }
+    }
+  }
 })

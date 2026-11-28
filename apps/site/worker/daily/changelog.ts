@@ -1,6 +1,6 @@
 import { failedNote, heading, note, table, type Block, type Section } from '../admin/blocks'
 import { dayName, esc } from '../admin/chart'
-import { CHANGELOG_NAME, CHANGELOG_PATH, failedBox, isFailed, page, soft, type Soft } from '../admin/shell'
+import { CHANGELOG_NAME, CHANGELOG_PATH, countingNotes, failedBox, isFailed, page, soft, type Soft } from '../admin/shell'
 import { localDay } from '../admin/time'
 import { cleaned } from './compose'
 import { AREAS, type Area, type Change } from './github'
@@ -71,7 +71,7 @@ export function changelogPage({ now, tz, xs }: ChangelogData): string {
   if (isFailed(xs)) body = failedBox('the changelog', xs)
   else if (!xs.length) body = `<p class="muted">${EMPTY}</p>`
   else body = `<div class="log">${byDay(xs, tz).map(([day, cs]) => `<section><h3>${dayHeading(day)}</h3><ol>${cs.map(c => `<li><p>${esc(c.text)}</p><small>${AREA_NAME[c.area]}</small></li>`).join('')}</ol></section>`).join('')}</div>`
-  return page(CHANGELOG_PATH, CHANGELOG_NAME, `<h1>${CHANGELOG_NAME}</h1><p class="lede">${LEDE}</p>${body}`, now, tz)
+  return page(CHANGELOG_PATH, CHANGELOG_NAME, `<h1>${CHANGELOG_NAME}</h1>${body}${countingNotes(`<p class="note">${LEDE}</p>`)}`, now, tz)
 }
 
 /** The same as blocks: each day a heading and its lines, each with its area under it. */

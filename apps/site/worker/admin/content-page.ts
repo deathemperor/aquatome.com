@@ -1,10 +1,10 @@
 import { LANGS, OTHER_LANGS, prefixedLang, type Lang } from '@aq/schema/langs'
 import type { ContentReads, ContentStats, EntityKind, GapKey, KindClicks, LastReview, LowPage, LowScores, PageKind, Snapshot, Talk, Totals } from './content'
-import { dayChart, dayLabel, esc, fmt, lastDays, meter, rankTable, tiles, type DayChart, type Ranked, type Tile } from './chart'
+import { dayChart, dayLabel, detailCard, esc, fmt, lastDays, meter, rankTable, tiles, type DayChart, type Ranked, type Tile } from './chart'
 import { cellOf, chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Block, type Cell, type Section } from './blocks'
-import { failedBox, isFailed, page, type Soft } from './shell'
+import { countingNotes, failedBox, isFailed, page, type Soft } from './shell'
 import { HOME_TZ, hourMinute, localDay, sameClock, timeTag } from './time'
-import { qualityBlocks, qualityHtml, type Quality } from './quality'
+import { HELP as QUALITY_HELP, qualityBlocks, qualityHtml, type Quality } from './quality'
 
 /** The dashboard's content page: what the site holds (the build's content.json), how it grows, what the engine is doing, what's missing, and how readers use it. */
 
@@ -80,7 +80,9 @@ export function contentPage(c: ContentPage): string {
   body += `<p class="lede">${contentLede(s, c.now, tz)}</p>
 <nav class="jump" aria-label="On this page"><ul>${JUMP.map(([id, label]) => `<li><a href="#${id}">${label}</a></li>`).join('')}</ul></nav>`
   body += qualityHtml(c.quality) + totalsHtml(s) + growthHtml(c.now, s, c.snapshots, tz) + engineHtml(c.now, s, tz) + gapsHtml(s, c.low, c.reads, tz) + photosHtml(s) + readsHtml(c.reads) + talkHtml(c.talk) + clicksHtml(c.clicks, c.now, tz) + sourcesHtml(s)
-  return page('/_ab/noi-dung/', 'Content and engine', body, c.now, tz)
+  const history = !isFailed(c.snapshots) && c.snapshots.length >= 2 ? `<p class="note">${esc(growthNote(c.now, tz))}</p>` : ''
+  const notes = countingNotes(`<h3>The score</h3><p class="note">${esc(QUALITY_HELP)}</p>`, history)
+  return page('/_ab/noi-dung/', 'Content and engine', body + notes, c.now, tz)
 }
 
 /** The page as blocks, part by part in the page's order (its jump links aside). */
@@ -118,7 +120,7 @@ const cells = (rows: string[][]): Cell[][] => rows.map(r => r.map(c => cellOf(c)
 
 function totalsHtml(s: ContentStats): string {
   const p = totalsParts(s)
-  return `<section aria-labelledby="tong"><h2 id="tong">Totals</h2>${tiles(p.tiles)}
+  return `<section aria-labelledby="tong"><h2 id="tong">Totals</h2>${detailCard(p.tiles)}
 <div class="scroll"><table>${headHtml(TOTALS_HEAD)}<tbody>${p.rows.map(rowHtml).join('')}</tbody></table></div></section>`
 }
 function totalsBlocks(s: ContentStats): Block[] {
@@ -130,6 +132,8 @@ const GROWTH_NONE = 'The totals are saved once a night; growth shows after two n
 const signed = (n: number) => `${n > 0 ? '+' : n < 0 ? '−' : ''}${fmt(Math.abs(n))}`
 const BY_SOURCE_HEAD = ['Source', 'Items added']
 /** What "Growth" draws once two nights are kept: two charts, what each source added, and the note on how it's kept. */
+const growthNote = (now: Date, tz: string) => `The totals are saved once a night, ${savedNote(now, tz)} (your time): a day’s column is what the 24 hours to that save added. The last column is what was added since the last save, from the build on the site. A night that didn’t save is carried by the next save; a day with no figures is hatched.`
+
 function growthParts(now: Date, s: ContentStats, snaps: Snapshot[], tz: string) {
   const open = openDay(now)
   // From the first day with a save before it (earlier ones aren't days of this count) to the day the next save closes.
@@ -158,7 +162,7 @@ function growthParts(now: Date, s: ContentStats, snaps: Snapshot[], tz: string) 
     charts,
     sourceTitle: `By source, since ${esc(dayLabel(from.day))}`,
     sources: bySource.map(x => ({ label: esc(s.sources[x.id]?.name ?? x.id), value: x.n })) as Ranked[],
-    note: `The totals are saved once a night, ${savedNote(now, tz)} (your time): a day’s column is what the 24 hours to that save added. The last column is what was added since the last save, from the build on the site. A night that didn’t save is carried by the next save; a day with no figures is hatched.`,
+    note: growthNote(now, tz),
   }
 }
 
@@ -167,9 +171,9 @@ function growthHtml(now: Date, s: ContentStats, snaps: Soft<Snapshot[]>, tz: str
   if (isFailed(snaps)) return `${out}${failedBox('the daily totals', snaps)}</section>`
   if (snaps.length < 2) return `${out}<p class="muted">${GROWTH_NONE}</p></section>`
   const p = growthParts(now, s, snaps, tz)
-  out += `<div class="charts">${p.charts.map(dayChart).join('')}`
-  out += `<figure class="chart" aria-labelledby="n-src"><figcaption><h3 id="n-src">${p.sourceTitle}</h3></figcaption>${rankTable(p.sources, BY_SOURCE_HEAD, signed)}</figure></div>
-<p class="note">${p.note}</p></section>`
+  const [growth, translations] = p.charts
+  out += `<div class="charts">${dayChart({ ...growth!, lanes: 'growth' })}${dayChart({ ...translations!, lanes: 'translations' })}`
+  out += `<figure class="chart" aria-labelledby="n-src"><figcaption><h3 id="n-src">${p.sourceTitle}</h3></figcaption>${rankTable(p.sources, BY_SOURCE_HEAD, signed)}</figure></div></section>`
   return out
 }
 function growthBlocks(now: Date, s: ContentStats, snaps: Soft<Snapshot[]>, tz: string): Block[] {

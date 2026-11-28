@@ -3,8 +3,10 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { handle, type Env } from '../index'
 import type { ContentStats } from '../admin/content'
+import { contentPage } from '../admin/content-page'
 import { expectedCtr, GSC_KEY, HELP, qualityBlocks, qualityHtml, qualityJson, SCORE, summariseQuality, type Gsc, type PageSignals, type TabPage } from '../admin/quality'
 import type { Session } from '../readers'
+import { CONTENT } from './owner-sample'
 
 // The fixture build's content.json (pnpm test builds the site first).
 const STATS = JSON.parse(readFileSync(fileURLToPath(new URL('../../dist/_ab/content.json', import.meta.url).href), 'utf8')) as ContentStats
@@ -100,7 +102,10 @@ test('on the content page and for the writers: the formula, the lists, Google\'s
   const q = summariseQuality(STATS, tabs, sessions, gsc, signals, wanted)
   const html = qualityHtml(q)
   expect(html).toContain('id="chat-luong"')
-  expect(html).toContain('Score = 100 × (2 × reading + search) ÷ 3')
+  const page = contentPage({ ...CONTENT, stats: STATS, quality: q })
+  const notes = page.indexOf('id="how-counted"')
+  expect(notes).toBeGreaterThan(page.indexOf('id="chat-luong"'))
+  expect(page.slice(notes)).toContain('Score = 100 × (2 × reading + search) ÷ 3')
   for (const t of ['Rewrite first', 'Decaying', 'Gaps: asked for, not written', 'Best pages', 'Worst pages']) expect(html).toContain(t)
   expect(html).toContain(`<a href="${GUIDE}">`)
   expect(html).toContain('monte carlo trải nền &lt;b&gt;')

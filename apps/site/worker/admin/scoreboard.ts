@@ -4,11 +4,11 @@ import { aeSql, EVENTS, num, READERS_FROM, SINCE_RESET, WHO_RANK } from './ae'
 import { VISITOR_STATS } from '../stats-switch'
 import { orNoTable } from './app'
 import { chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Block, type Cell, type Section } from './blocks'
-import { chipHtml, chipOf, dayChart, dayLabel, esc, fmt, rankTable, spark, tiles, type DayChart, type Tile } from './chart'
+import { chipHtml, chipOf, countryLabel, dayChart, dayLabel, detailCard, esc, fmt, rankTable, spark, tiles, type DayChart, type Tile } from './chart'
 import { langOfPath, pagePathOf, type ContentStats, type Snapshot } from './content'
 import { LANG_NAME } from './content-page'
 import { dashboardUrl } from '../paths'
-import { failedBox, isFailed, page, SCOREBOARD_PATH, type Failed, type Soft } from './shell'
+import { countingNotes, failedBox, isFailed, page, SCOREBOARD_PATH, type Failed, type Soft } from './shell'
 import { dayStart, HOME_TZ, localDay, mondayOf, msOf } from './time'
 
 export { mondayOf } from './time'
@@ -398,7 +398,7 @@ const row = (mondays: string[]) => (m: Metric) => {
 const COLUMNS = ['This week', 'Same point last week', 'All of last week', '12 weeks'] as const
 // The 12 weeks are drawn only (the spark is for the eye; the charts and the JSON's own weeks carry the numbers).
 const HEAD = `<thead><tr><th>Measure</th>${COLUMNS.map((c, i) => `<th${i === 3 ? ' aria-hidden="true"' : ''}>${c}</th>`).join('')}</tr></thead>`
-const countryRows = (xs: { cc: string; readers: number }[]) => xs.map(x => ({ label: esc(x.cc), value: x.readers }))
+const countryRows = (xs: { cc: string; readers: number }[], label = (cc: string) => cc) => xs.map(x => ({ label: esc(label(x.cc)), value: x.readers }))
 
 const keyTile = (s: Scoreboard, m: Metric): Tile => {
   const was = before(m)
@@ -425,12 +425,16 @@ export function scoreboardPage(s: Scoreboard, tz = HOME_TZ): string {
     return `<section aria-labelledby="g-${g}"><h2 id="g-${g}">${GROUPS[g]}</h2>${failedParts(s, g).map(([what, f]) => failedBox(what, f)).join('')}<div class="scroll"><table class="score">${HEAD}<tbody>${rows}</tbody></table></div>${g === 'reach' ? countriesBlock(s) : ''}</section>`
   }).join('')
   const later = `<section aria-labelledby="g-later"><h2 id="g-later">Not measured yet</h2><ul class="gaps">${s.notYet.map(x => `<li><p><b>${esc(x.name)}.</b> ${esc(x.needs)}</p></li>`).join('')}</ul></section>`
-  const [star, readers] = weekCharts(s).map(dayChart)
-  const body = `<h1>Scoreboard</h1><p class="lede">${lede(s)}</p>
+  const figures = KEY_METRICS.map(k => keyTile(s, metric(s, k)))
+  const charts = weekCharts(s).map(c => ({ ...c, selectDay: true }))
+  const tabs = metric(s, 'sessions').now
+  if (tabs !== null) figures[1] = { ...figures[1]!, unit: `of ${fmt(tabs)} tabs` }
+  const monday = s.weeks.at(-1)!
+  const body = `<h1>Scoreboard</h1><p class="lede">This week, ${dayLabel(monday)} to ${dayLabel(plusDays(monday, 6))}, so far</p>
 ${s.failed.beacon ? failedBox(PARTS.beacon, { failed: s.failed.beacon }) : ''}
-${tiles(KEY_METRICS.map(k => keyTile(s, metric(s, k))))}
-<div class="charts">${star}${readers}</div>
-${groups}${later}`
+<div class="charts">${charts.map((c, i) => detailCard([figures[i]!], dayChart(c))).join('')}</div>
+${tiles(figures.slice(charts.length))}
+${groups}${later}${countingNotes(`<p class="note">${lede(s)}</p>`)}`
   return page(SCOREBOARD_PATH, 'Scoreboard', body, new Date(s.at), tz)
 }
 
@@ -461,5 +465,8 @@ export function scoreboardSection(s: Scoreboard): Section {
 
 function countriesBlock(s: Scoreboard): string {
   const head = ['Country', 'Readers']
-  return `<div class="split"><section><h3 class="sub-h">Countries, this week</h3>${rankTable(countryRows(s.countries.now), head)}</section><section><h3 class="sub-h">Countries, last week</h3>${rankTable(countryRows(s.countries.last), head)}</section></div>`
+  const readers = metric(s, 'readers')
+  const now = countryRows(s.countries.now, countryLabel)
+  const last = countryRows(s.countries.last, countryLabel)
+  return `<div class="split"><section><h3 class="sub-h">Countries, this week</h3>${rankTable(now, head, undefined, { shareOf: readers.now ?? undefined })}</section><section><h3 class="sub-h">Countries, last week</h3>${rankTable(last, head, undefined, { shareOf: readers.last ?? undefined })}</section></div>`
 }
