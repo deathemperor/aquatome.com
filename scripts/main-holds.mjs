@@ -148,9 +148,9 @@ function publishedHashes(files) {
 }
 
 function main() {
-  const [base, main, run] = process.argv.slice(2)
+  const [base, main, run, mode] = process.argv.slice(2)
   if (!base || !main) {
-    console.error('usage: node scripts/main-holds.mjs <base> <main> [<run>]')
+    console.error('usage: node scripts/main-holds.mjs <base> <main> [<run> [recovery]]')
     process.exit(2)
   }
   const dirOf = f => f.replace(/\/[a-z]{2}\.json$/, '')
@@ -211,8 +211,9 @@ function main() {
     const mainText = run && theirs && same(readAt('HEAD', f, ours), readAt(main, f, theirs))
     const runText = run && mine && same(readAt('HEAD', f, ours), readAt(run, f, mine))
     const release = mainRead && mainText && !theirs.held && (ours.held || mine?.held)
-    // Work saved by an older publisher can carry main’s old review after the old merge base has advanced.
-    const savedReview = !ours.held && mainRecord && recordWon && theirs && !mainText
+    // Older queued work can carry either side's review after its original merge base is no longer visible.
+    const savedReview = !ours.held && theirs && !mainText &&
+      (mode === 'recovery' ? fit.head[key] : mainRecord && recordWon)
     comparisons.push({ f, key, ours, theirs, mine, mainRead, mainText, runText, proof: run && (release || savedReview) })
   }
   const hashes = publishedHashes(comparisons.filter(c => c.proof).map(c => c.f))
@@ -221,7 +222,7 @@ function main() {
       if (!ours.held) written.set(f, ['keep', withHeld(ours, mine?.held ?? unread)])
       continue
     }
-    if (runText && mine.held && !ours.held && !mainText) {
+    if (runText && mine.held && !ours.held && (!mainText || !mainRead)) {
       written.set(f, ['keep', withHeld(ours, mine.held)])
       continue
     }

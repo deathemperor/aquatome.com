@@ -711,7 +711,7 @@ added_page_dirs() (
 # staff, 16 Nov 2026). Only the hold moves, and only on a page whose text is main's. One whose text isn't never goes out
 # open: it keeps the run's hold, or waits held for its next read, and one the merge holds already stays as merged and is
 # counted in the log (main-holds.mjs; the chief of staff, 20 Nov). Each in a commit of its own.
-# `main_holds <this run's HEAD before the pull> [<main>, @{u}]` is 1 when it committed holds, a tree no check has seen, so
+# `main_holds <this run's HEAD before the pull> [<main>, @{u}] [recovery]` is 1 when it committed holds, so
 # the caller checks again, as a clash does. It's 2 when the holds couldn't be compared, or their commit failed: the pull is
 # undone in the ordinary publishing checkout, and the caller keeps the original commit for another try. A private
 # video reconciliation leaves the snapshot available to archive and keeps the separately recorded batch.
@@ -724,7 +724,7 @@ main_holds() {
   fi
   # Recovery can start with work the older publisher already rebased and a stale fit record.
   if [ "$base" = "$up" ] && [ -z "${2:-}" ]; then return 0; fi
-  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up" "$1"); then
+  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up" "$1" "${3:-}"); then
     uncompared "$1" "the pages main read during this run couldn't be compared"; return 2
   fi
   # What main-holds.mjs said, each kind of line apart; a list that can't be read publishes nothing.
@@ -1083,7 +1083,7 @@ reconcile_video_recheck() {
     if [ "$mode" = recovery ] && ! main_pages "$batch" "$upstream"; then exit 1; fi
     install_video_recheck_engine || exit 1
     if [ "$mode" = recovery ] || [ "$upstream" != "$before" ]; then
-      main_holds "$batch" "$upstream" || { [ "$?" = 1 ] || exit 1; }
+      main_holds "$batch" "$upstream" "$mode" || { [ "$?" = 1 ] || exit 1; }
     fi
     if [ -n "$calendar" ] && ! restore_video_recheck_calendar "$upstream"; then exit 1; fi
     if [ "$video_publish_head" != "$pulled" ]; then must_check=1; fi
@@ -1192,7 +1192,7 @@ push_kept() {
         KEPT_WHY="could not restore main's pages"
         return 1
       fi
-      main_holds "$run" "$refreshed" || { [ "$?" = 1 ] || { KEPT_WHY="its holds couldn't be compared with main's"; return 1; }; }
+      main_holds "$run" "$refreshed" recovery || { [ "$?" = 1 ] || { KEPT_WHY="its holds couldn't be compared with main's"; return 1; }; }
       [ "$(git rev-parse HEAD)" = "$head" ] || check=1
       # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
       # main, it's checked in full; once it has, its lost push goes again as a run's own push does (push(), swept_pull):

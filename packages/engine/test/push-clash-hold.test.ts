@@ -622,6 +622,20 @@ test('a review of the old text does not release a rewritten fish page on the sam
   expect(r.pushed.held).toEqual(hold('source'))
 })
 
+test('main’s release without a new review leaves the run’s hold on the same rewritten text', () => {
+  const body = '<p>Một văn bản mới.</p>'
+  const originalRead = { ...heldFor('source'), at: '2026-11-14' }
+  const r = push('species', {
+    base: { held: hold('source'), fit: originalRead },
+    main: { body, fit: originalRead },
+    run: { body, held: hold('source'), fit: { ...heldFor('source'), hash: 'rewritten' } },
+  })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.body).toBe(body)
+  expect(r.pushedRecord.hash).toBe('rewritten')
+  expect(r.pushed.held).toEqual(hold('source'))
+})
+
 test('a newly added translation waits if main enabled one of its parts after it was read', () => {
   const off = { 'content/one-voice.json': '{"ca-x":{"diet":false}}\n' }
   const r = push('species', {
@@ -641,6 +655,33 @@ test.each([false, true])('recovery holds a page the older publisher kept open wi
   }, { kept: true, mainOther: mainAdvanced, mainDidNotMove: !mainAdvanced })
   expect(r.pushed.body).toBe(body)
   expect(r.pushed.held?.checks).toEqual([])
+})
+
+test.each([false, true])('recovery holds combined text when its saved review covered only the run’s edit (main advanced: %s)', mainAdvanced => {
+  const diet = { ...SECTIONS, 'diet:sf': '<p>Ăn tạp, thích trùn chỉ.</p>' }
+  const combined = { ...diet, 'care:sf': '<p>Nuôi rất dễ.</p>' }
+  const r = push('species', {
+    base: { sections: diet, fit: clean },
+    main: { sections: diet, fit: clean },
+    run: { sections: combined, fit: { ...clean, hash: 'care-only' } },
+  }, { kept: true, mainOther: mainAdvanced, mainDidNotMove: !mainAdvanced })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.sections).toEqual(combined)
+  expect(r.pushedRecord.hash).toBe('care-only')
+  expect(r.pushed.held?.checks).toEqual([])
+})
+
+test('recovery leaves a guide open when the saved review matches the outgoing text', () => {
+  const main = { body: '<p>Bài cũ.</p>', fit: { ...clean, hash: 'old' } }
+  const r = push('guides', {
+    base: main,
+    main,
+    run: { fit: clean },
+  }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.body).toBe(DEFAULT_BODY)
+  expect(r.pushedRecord.hash).toBe(defaultHash)
+  expect(r.pushed.held).toBeUndefined()
 })
 
 test('the older caller restores a hold when the only other change is a part selection', () => {
