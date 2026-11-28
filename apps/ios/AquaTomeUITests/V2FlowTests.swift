@@ -987,14 +987,14 @@ final class V2FlowTests: XCTestCase {
     XCTAssertEqual(XCTWaiter.wait(for: [sent], timeout: 10), .completed, "not sent: \(received.label)")
   }
 
-  /// With only its photo and name there (its text hasn't come), a page fits the screen: that isn't read to the end.
+  /// A fish's page whose text hasn't come (the site's page in its place) and is left unread isn't read to the end.
   func testAFishsPageOpenedAndLeftUnreadReportsNoDepthPastTheScreen() {
     let app = launch("-site-telemetry", "-pages-later", "-v2", "YES")
     app.launchForFlow()
     let card = app.buttons["v2-fish-of-the-day"]
     XCTAssertTrue(card.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     card.tap()
-    XCTAssertTrue(app.buttons["v2-retry"].waitForExistence(timeout: 5), "its text came")
+    XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 8), "its text came")
     XCUIDevice.shared.press(.home)
     let states = [XCUIApplication.State.runningBackground, .runningBackgroundSuspended].map { NSNumber(value: $0.rawValue) }
     let gone = expectation(for: NSPredicate(format: "state IN %@", states), evaluatedWith: app)
@@ -1007,22 +1007,75 @@ final class V2FlowTests: XCTestCase {
     }
   }
 
-  /// A fish's page that didn't come says so, with the handbook online too, and "Thử lại" reads it. Opened from Hôm nay: a
-  /// link brings Khám phá in front, which reads the whole index first, so its page would come.
-  func testAFishsPageThatDidntComeSaysSoAndTriesAgain() {
-    let app = launch("-pages-later", "-v2", "YES")
+  /// A fish's page the app can't draw (the index doesn't say it draws fish): the site's page, as v1 showed it, under v1's
+  /// bar, not a line saying it didn't come (the v2 Lab, 15 Nov: the old look's switch goes on Thu 19, and this was only
+  /// v1's). Before: "Không tải được trang. Kiểm tra kết nối mạng." and "Thử lại". Opened from Hôm nay: a link brings Khám
+  /// phá in front, which reads the whole index first.
+  func testAFishsPageTheAppCantDrawShowsTheSitesPage() {
+    let app = launch("-pages-count", "1", "-v2", "YES")
     app.launchForFlow()
     let card = app.buttons["v2-fish-of-the-day"]
     XCTAssertTrue(card.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     card.tap()
-    let again = app.buttons["v2-retry"]
-    XCTAssertTrue(again.waitForExistence(timeout: 5), "nothing says the page didn't come")
-    // Trying again reads the index, which says the pages (`-pages-later`).
-    again.tap()
-    XCTAssertTrue(again.waitForNonExistence(timeout: 5), "trying again didn't read it")
-    // Not only the spinner in its place.
-    Thread.sleep(forTimeInterval: 1)
-    XCTAssertFalse(again.exists, "trying again didn't read it")
+    XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 8), "not the site's page")
+    // A web view's first start can take a while on a slow runner.
+    let standIn = app.webViews.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "/vi/ca/")).firstMatch
+    XCTAssertTrue(standIn.waitForExistence(timeout: 15), "not the stand-in page")
+    XCTAssertFalse(app.buttons["Thử lại"].exists, "“Thử lại” over the site's page")
+    XCTAssertFalse(app.descendants(matching: .any)["v2-species"].exists, "v2's fish page behind it")
+  }
+
+  func testAFishWhoseWebFallbackFailsIsNotInRecentReads() {
+    let app = launch("-pages-count", "1", "-unavailable-web-page", "-v2", "YES")
+    app.launchForFlow()
+    let card = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(card.waitForExistence(timeout: 10))
+    card.tap()
+    XCTAssertTrue(app.staticTexts["page-status"].waitForExistence(timeout: 10), "no failed web page")
+    app.leavePage()
+    app.openTab("Tìm kiếm")
+    XCTAssertTrue(app.buttons["tool-fish-id"].waitForExistence(timeout: 8), "not on Tìm")
+    XCTAssertFalse(app.descendants(matching: .any)["recent"].exists, "the failed page was counted as read")
+  }
+
+  /// What only v1's fish page had, on v2's (the v2 Lab, 15 Nov, before the old look's switch goes): whose text the page
+  /// is under its figures, and "Mở trong trình duyệt" in the ⋯ after "Chia sẻ".
+  func testAFishsPageHasWhatOnlyV1sHad() {
+    let app = openNeon()
+    let card = app.descendants(matching: .any)["facts-card"].firstMatch
+    XCTAssertTrue(card.waitForExistence(timeout: 5), "no figures")
+    let credit = app.descendants(matching: .any)["v2-page-credit"].firstMatch
+    reveal(app, credit)
+    XCTAssertTrue(credit.label.hasPrefix("Dịch và tổng hợp từ Seriously Fish"), "not the page's credit: \(credit.label)")
+    XCTAssertGreaterThan(credit.frame.minY, card.frame.maxY, "the credit isn't under the figures")
+    // The trust card exposes one accessibility label for the figures’ sources. The lifespan belongs there.
+    let trust = app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@ AND label CONTAINS %@",
+                                                     "Các nguồn ghi khác nhau", "Tuổi thọ")).firstMatch
+    XCTAssertTrue(trust.waitForExistence(timeout: 5), "the lifespan is missing from the sources")
+    let onCard = card.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS %@", "Tuổi thọ")).firstMatch
+    XCTAssertFalse(onCard.exists, "the lifespan is on the figures card")
+    let creditShot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    creditShot.name = "shot-v2-fish-credit"
+    creditShot.lifetime = .keepAlways
+    add(creditShot)
+    credit.tap()
+    let sources = app.staticTexts["Nguồn"].firstMatch
+    let visible = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isHittable == true"), object: sources)
+    XCTAssertEqual(XCTWaiter().wait(for: [visible], timeout: 5), .completed, "the credit jumps to the sources")
+
+    let more = app.navigationBars.buttons["page-more"]
+    XCTAssertTrue(more.waitForExistence(timeout: 5), "no ⋯")
+    more.tap()
+    let share = app.buttons["Chia sẻ"], web = app.buttons["Mở trong trình duyệt"]
+    XCTAssertTrue(web.waitForExistence(timeout: 3), "no “Mở trong trình duyệt” in the ⋯")
+    XCTAssertTrue(share.exists, "no “Chia sẻ” in the ⋯")
+    XCTAssertLessThan(share.frame.minY, web.frame.minY, "the browser before share")
+    let menuShot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    menuShot.name = "shot-v2-fish-browser-menu"
+    menuShot.lifetime = .keepAlways
+    add(menuShot)
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.9)).tap()
+    XCTAssertTrue(web.waitForNonExistence(timeout: 3), "the ⋯ didn't close")
   }
 
   /// The search tab shows its screen, not the tab that was in front.

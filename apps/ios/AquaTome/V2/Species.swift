@@ -59,10 +59,8 @@ struct SpeciesPage: View {
   @State private var opened: Set<Int> = []
   /// The part it was opened at (a chat section's "Đọc tiếp"), until it's there.
   @State private var openAt: String?
-  /// The page has been asked for: nil after this, it didn't come (offline, and not kept).
+  /// The page has been asked for. A missing document opens the web page.
   @State private var asked = false
-  /// "Thử lại" pressed, so many times.
-  @State private var retries = 0
   @Environment(\.dynamicTypeSize) private var size
   @State private var colour: Color
   @State private var putting = false
@@ -142,6 +140,16 @@ struct SpeciesPage: View {
   private var facts: HandbookIndex.Facts { item.facts.any ? item.facts : item.card ?? item.facts }
 
   var body: some View {
+    // A page the app can't draw (its kind not drawn here, or it didn't come): the site's page, or its kept copy offline, as
+    // v1 showed it, under v1's bar (the v2 Lab, 15 Nov: the old look's switch goes on Thu 19, and this was only v1's).
+    if asked && doc == nil {
+      PageView(item: item, url: handbook.url(item), at: openAt, webOnly: true).v2ClearOfTheFade()
+    } else {
+      drawn
+    }
+  }
+
+  private var drawn: some View {
     framed
     // A Hôm nay post's ✕, at the bar's end after the bookmark and share: a toolbar of its own, inside theirs. iOS put the
     // items of a toolbar applied after theirs first, and one among them first too (27.2, 12 Nov).
@@ -171,7 +179,7 @@ struct SpeciesPage: View {
         }
         .v2Glass(false)
       }
-      // Save and share in one ⋯, from the first screen, so the bar's items never change as the page scrolls (the owner,
+      // Save, share and browser in one ⋯, from the first screen, so the bar's items never change as the page scrolls (the owner,
       // 11 Nov: "2B", and "Save and share: go with your recommendation").
       ToolbarItem(placement: .topBarTrailing) {
         let saved = handbook.isSaved(item)
@@ -182,6 +190,7 @@ struct SpeciesPage: View {
           }
           .accessibilityIdentifier("save-for-later")
           ShareLink(item: handbook.url(item)) { Label("Chia sẻ", systemImage: "square.and.arrow.up") }
+          Link(destination: handbook.url(item)) { Label("Mở trong trình duyệt", systemImage: "safari") }
         } label: {
           round("ellipsis")
             // Where the bar's middle is, and where its buttons on the right begin, for the name in it.
@@ -201,25 +210,23 @@ struct SpeciesPage: View {
       GalleryViewer(note: galleryNote, photos: viewerPhotos, readers: nil, index: viewing ?? 0)
     }
     // Runs on each appearing too: nothing to do with the page here. A page that didn't come isn't one read.
-    // "Thử lại" asks its photos again too.
-    .environment(\.v2PhotoTries, retries)
-    .task(id: "\(item.path) \(retries)") { await come() }
-    .task(id: item.path) {
-      guard let at = handbook.openingAt, handbook.item(at: at.path)?.path == item.path else { return }
-      handbook.openingAt = nil
-      openAt = at.heading
-    }
+    .task(id: item.path) { await come() }
   }
 
   /// The page asked for, and worked out into its parts once.
   private func come() async {
     guard doc == nil else { return }
-    // The whole index first only when it hasn't said this page's kind is drawn here: on a weak signal it holds up the page.
-    if retries > 0, !handbook.drawsItself(item) { await handbook.load() }
-    doc = await handbook.doc(item)
-    whole = doc.map(WholeParts.init)
+    // This visit owns the heading even if its load is interrupted.
+    if let at = handbook.openingAt, handbook.item(at: at.path)?.path == item.path {
+      openAt = at.heading
+      handbook.openingAt = nil
+    }
+    let loaded = await handbook.doc(item)
+    guard !Task.isCancelled else { return }
+    doc = loaded
+    whole = loaded.map(WholeParts.init)
     asked = true
-    if doc != nil { handbook.read(item) }
+    if loaded != nil { handbook.read(item) }
   }
 
   /// The page under its bar: the shade behind the status bar, the edge swipe back, the band, the bar's title and the
@@ -278,7 +285,7 @@ struct SpeciesPage: View {
       ScrollView {
         // One stack, the page's content: a part's place in it (PageNavigator.space) doesn't change as the page scrolls.
         VStack {
-          top
+          top(proxy)
           rest(proxy)
         }
         .coordinateSpace(.named(PageNavigator.space))
@@ -387,8 +394,34 @@ struct SpeciesPage: View {
     .accessibilityIdentifier("chat-entry")
   }
 
+  /// The text credit under the figures. A credit with no links of its own opens the sources when the page has them.
+  private func pageCredit(_ credit: [PageDoc.Run], _ proxy: ScrollViewProxy) -> some View {
+    let text = Text(styled(credit, font: .footnote))
+    let sources = whole?.parts.firstIndex {
+      if case .refs = $0 { return true }
+      return false
+    }
+    return Group {
+      if credit.allSatisfy({ $0.href == nil && $0.tip == nil }), let whole, let sources {
+        Button { jump(to: whole.ids[sources], proxy) } label: {
+          text.underline()
+            .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+            .contentShape(.rect)
+        }
+        .buttonStyle(.plain)
+      } else {
+        text.frame(maxWidth: .infinity, alignment: .leading)
+      }
+    }
+    .foregroundStyle(.white.opacity(0.75))
+    .tint(.white)
+    .padding(.horizontal, 20)
+    .padding(.bottom, 14)
+    .accessibilityIdentifier("v2-page-credit")
+  }
+
   /// The photo, the name, "Thêm vào bể", the figures and the rest of its photos, on the photo's colour.
-  private var top: some View {
+  private func top(_ proxy: ScrollViewProxy) -> some View {
     VStack(spacing: 0) {
       if let hero {
         let whole = wholeHead
@@ -426,6 +459,7 @@ struct SpeciesPage: View {
         .environment(\.colorScheme, .dark)
         .padding(.horizontal, 20)
         .padding(.vertical, 14)
+      if let credit = doc?.credit, !credit.isEmpty { pageCredit(credit, proxy) }
       if !photos.isEmpty { gallery.padding(.bottom, 24) }
       // Until it's asked for, the colour runs on past the screen's foot, the spinner on it: no white strip, no tab bar
       // changing, when the page comes. Not a fish with no photo: it'll have no gallery to fill the place.
@@ -852,19 +886,6 @@ struct SpeciesPage: View {
     // All at once, as v1's page: in a lazy stack the page's layout could spin for seconds on end as parts came and went,
     // and a chip's jump landed past its part. What a part folds away isn't drawn (V2Section).
     VStack(alignment: .leading, spacing: 28) {
-      if asked && doc == nil {
-        VStack(alignment: .leading, spacing: 4) {
-          // The handbook's status says nothing here: it stays online from launch, whatever the signal is now.
-          Text("Không tải được trang. Kiểm tra kết nối mạng.").font(.footnote).foregroundStyle(.v2Faint)
-          Button("Thử lại") {
-            asked = false
-            retries += 1
-          }
-          .frame(minHeight: 44)
-          .accessibilityIdentifier("v2-retry")
-        }
-        .padding(.horizontal, 20)
-      }
       if let doc, let whole {
         // For whoever hasn't the navigator: it does their job.
         if !whole.jumps.isEmpty, trying == nil { jumps(whole, proxy) }

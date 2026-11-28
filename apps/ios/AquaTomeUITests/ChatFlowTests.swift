@@ -844,6 +844,20 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertGreaterThan(heading.frame.minY, app.pageBack.frame.maxY, "the part's heading behind the bar")
   }
 
+  func testASectionOfAFishsPageKeepsItsHeadingInTheWebFallback() {
+    let app = launch("-chat-blocks", "-pages-count", "1", "-picked-photo")
+    // Start from the fish identifier so chat opens while fish pages use their web fallback.
+    openFishIdChat(app)
+    ask(app, "Neon và cá đĩa khác nhau thế nào?")
+    XCTAssertTrue(element(app, "chat-answer").waitForExistence(timeout: 30), "no whole answer")
+    let link = app.buttons.matching(identifier: "chat-section-open").element(boundBy: 2)
+    XCTAssertTrue(link.waitForExistence(timeout: 5), "no section")
+    reveal(app, link, times: 40)
+    link.tap()
+    let destination = app.webViews.staticTexts.matching(NSPredicate(format: "label ENDSWITH %@", "#muc-reproduction")).firstMatch
+    XCTAssertTrue(destination.waitForExistence(timeout: 15), "the web fallback lost the heading")
+  }
+
   /// A short section has nothing to open; it draws a summary, its links work, and what it can't draw is counted. A tool whose
   /// tank the reader no longer has, and no link, opens their tanks.
   func testAShortSectionHasNothingToOpenAndAToolsTankCanBeGone() {

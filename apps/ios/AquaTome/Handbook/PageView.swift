@@ -13,6 +13,8 @@ struct PageView: View {
   let url: URL
   /// A part to open the page at (NativePage.at).
   var at: String?
+  /// The caller already tried the native document for this visit.
+  var webOnly = false
   @Environment(TanksModel.self) private var tanks
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
@@ -36,6 +38,7 @@ struct PageView: View {
   @State private var width: CGFloat = 0
   @State private var offline = false
   @State private var failed = false
+  @State private var readFallback = false
   @State private var putting = false
   /// The tank to open once the put sheet has closed.
   @State private var openAfter: String?
@@ -62,15 +65,20 @@ struct PageView: View {
     }
   }
 
-  /// The web page's address, at the heading it was opened at.
+  private var pendingHeading: String? {
+    guard let at = handbook.openingAt, handbook.item(at: at.path)?.path == item.path else { return nil }
+    return at.heading
+  }
+
+  /// The web view uses its initial URL. Read a waiting heading before the task consumes it.
   private var atHeading: URL {
-    guard let heading, var c = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return url }
+    guard let heading = heading ?? pendingHeading ?? (webOnly ? at : nil), var c = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return url }
     c.fragment = heading
     return c.url ?? url
   }
 
   @ViewBuilder private var page: some View {
-    let native = handbook.drawsItself(item) && !onWeb
+    let native = !webOnly && !onWeb && handbook.drawsItself(item)
     Group {
       if native, let pieces {
         NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, ask: chat.on ? ChatRoute(about: item) : nil,
@@ -84,21 +92,17 @@ struct PageView: View {
           // Not the page's own id, which says the page has come: an outer id wins.
           .accessibilityIdentifier("page-head")
       } else {
-        // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
-        WebPage(url: atHeading, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
-          // On the page alone: on the whole screen, it would take the place of the facts' own (an outer id wins).
-          .accessibilityIdentifier("page")
-          .ignoresSafeArea(edges: .bottom)
+        website
       }
     }
       .task(id: item.path) {
         // Taken at once, whether the app draws the page or the web does: it's for this visit alone.
-        if let at = handbook.openingAt, handbook.item(at: at.path)?.path == item.path {
+        if let pendingHeading {
+          heading = pendingHeading
           handbook.openingAt = nil
-          heading = at.heading
         }
         // Opened before the index said the app draws this kind: the web page, for this visit (not a spinner later).
-        guard handbook.drawsItself(item), !tried else { tried = true; return }
+        guard !webOnly, handbook.drawsItself(item), !tried else { tried = true; return }
         let traits = item.kind == .fish ? FactsCard.traits(item.facts) : nil
         let doc = await handbook.doc(item)
         pieces = doc.map { NativePage.pieces($0, traits: traits) }
@@ -176,7 +180,7 @@ struct PageView: View {
           .background(.bar)
         }
       }
-      .onAppear { handbook.read(item) }
+      .onAppear { if !webOnly { handbook.read(item) } }
       .ownerShows(item.path, as: "\(item.kind.rawValue) page")
       .sheet(isPresented: $putting, onDismiss: {
         if let id = openAfter { openAfter = nil; openScreen(.tanks(id)) }
@@ -185,11 +189,25 @@ struct PageView: View {
       }
   }
 
+  private var website: some View {
+    // The site's tools can save to the app's tanks through PageBridge.
+    WebPage(url: atHeading, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(),
+            saved: { tanks.mergeFromPage($0) }, open: openScreen, loaded: { readWhenLoaded($0) })
+      .accessibilityIdentifier("page")
+      .ignoresSafeArea(edges: .bottom)
+  }
+
+  private func readWhenLoaded(_ loadedURL: URL) {
+    guard webOnly, !readFallback, PageStore.address(loadedURL, site: url) == PageStore.address(url, site: url) else { return }
+    readFallback = true
+    handbook.read(item)
+  }
+
   /// A guide's or a kind of kit's page the app draws in v2, with a photo at its head: a fish page's lighter top (the photo
   /// under the bar and the status bar, iOS's back, one ⋯), and the owner's navigator on a long one. Every other page, and
   /// the old look, keeps its top.
   private var lighter: Bool {
-    guard #available(iOS 18, *), v2 else { return false }
+    guard #available(iOS 18, *), v2, !webOnly else { return false }
     guard item.kind == .guide || item.kind == .equipment, handbook.drawsItself(item), !onWeb else { return false }
     guard let first = pieces?.first else { return !tried && item.img != nil }
     if case .photo(_, _, _, _, _, _, _, true) = first { return true }
@@ -353,6 +371,7 @@ private struct WebPage: UIViewRepresentable {
   let saved: (Data) -> Void
   /// A link to a page the app has as its own screen.
   let open: (AppScreen) -> Void
+  var loaded: ((URL) -> Void)? = nil
 
   func makeCoordinator() -> Coordinator { Coordinator(self) }
 
@@ -376,19 +395,23 @@ private struct WebPage: UIViewRepresentable {
       #if DEBUG
       // UI tests (`-fixed-handbook`) read no network: a stand-in, at the page's own address.
       if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") {
+        if ProcessInfo.processInfo.arguments.contains("-unavailable-web-page") {
+          context.coordinator.page.failed = true
+          return
+        }
         web.loadHTMLString(Self.standIn(url), baseURL: url)
         return
       }
       #endif
-      web.load(URLRequest(url: url))
+      context.coordinator.load(web, url: url)
     }
     return web
   }
 
   #if DEBUG
-  /// The site's page in UI tests: its path and query, for a test to tell which page opened.
+  /// The site's page in UI tests: its path, query and heading.
   static func standIn(_ url: URL) -> String {
-    #"<!doctype html><meta name="viewport" content="width=device-width"><p>\#(url.path(percentEncoded: false))\#(url.query(percentEncoded: false).map { "?" + $0 } ?? "")</p>"#
+    #"<!doctype html><meta name="viewport" content="width=device-width"><p>\#(url.path(percentEncoded: false))\#(url.query(percentEncoded: false).map { "?" + $0 } ?? "")\#(url.fragment(percentEncoded: false).map { "#" + $0 } ?? "")</p>"#
   }
   #endif
 
@@ -415,10 +438,17 @@ private struct WebPage: UIViewRepresentable {
     var page: WebPage
     /// The load of the kept copy, shown offline: not kept again, and it doesn't clear the offline note.
     private var archive: WKNavigation?
+    private var archivedURL: URL?
+    /// The request made when this view opened, identified by its WebKit navigation.
+    private var firstRequest: (navigation: WKNavigation, url: URL)?
     /// Whether the site answered the page now loading with a page (2xx), not an error page to keep over a good copy.
     private var answered = true
 
     init(_ page: WebPage) { self.page = page }
+
+    func load(_ web: WKWebView, url: URL) {
+      if let navigation = web.load(URLRequest(url: url)) { firstRequest = (navigation, url) }
+    }
 
     /// The tanks script for the pages to come, with the app's store as it is now.
     func bridge(_ content: WKUserContentController) {
@@ -458,11 +488,24 @@ private struct WebPage: UIViewRepresentable {
     }
 
     func webView(_ web: WKWebView, didFinish navigation: WKNavigation!) {
-      if navigation === archive { return archive = nil }
+      if navigation === archive {
+        archive = nil
+        if let archivedURL {
+          if let heading = archivedURL.fragment(percentEncoded: false) {
+            web.callAsyncJavaScript("document.getElementById(heading)?.scrollIntoView()",
+                                    arguments: ["heading": heading], in: nil, in: .page, completionHandler: nil)
+          }
+          page.loaded?(archivedURL)
+        }
+        archivedURL = nil
+        return
+      }
+      if navigation === firstRequest?.navigation { firstRequest = nil }
       // Online again: the notes go, and the page is kept for next time.
       page.offline = false
       page.failed = false
-      guard let u = web.url, PageRoute.of(u, site: page.url, mainFrame: true, newWindow: false) == .app, answered else { return }
+      guard answered, let u = web.url, PageRoute.of(u, site: page.url, mainFrame: true, newWindow: false) == .app else { return }
+      page.loaded?(u)
       #if DEBUG
       // The stand-in isn't the page: not kept as its offline copy, which would outlast the test run.
       if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") { return }
@@ -474,11 +517,24 @@ private struct WebPage: UIViewRepresentable {
     }
 
     func webView(_ web: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-      // Another load took its place (the reader tapped on, or went back): nothing failed.
+      let requested = navigation === firstRequest?.navigation ? firstRequest?.url : nil
+      if requested != nil { firstRequest = nil }
+      // Another load took its place (the reader tapped on, or went back).
       if isInterruption(error) { return }
-      let u = (error as NSError).userInfo[NSURLErrorFailingURLErrorKey] as? URL ?? page.url
-      if let data = try? Data(contentsOf: PageStore.file(for: u, site: page.url)) {
+      guard let u = (error as NSError).userInfo[NSURLErrorFailingURLErrorKey] as? URL ?? requested else {
+        page.failed = true
+        return
+      }
+      // A redirect can drop the fragment from the error URL for this same navigation.
+      let address: URL
+      if u.fragment == nil, let requested, PageStore.address(u, site: page.url) == PageStore.address(requested, site: page.url) {
+        address = requested
+      } else {
+        address = u
+      }
+      if let data = PageStore.archive(for: address, site: page.url) {
         page.offline = true
+        archivedURL = address
         archive = web.load(data, mimeType: "application/x-webarchive", characterEncodingName: "utf-8", baseURL: u)
       } else {
         page.failed = true
@@ -492,11 +548,27 @@ enum PageStore {
   /// A Vietnamese page's archive is named by its address under "/vi/" whichever form it's opened in (PathForm), as the
   /// archives kept before the site moved those pages are: a page opened at one, or sent from one to the other, finds
   /// its archive at the other.
-  static func file(for url: URL, site: URL) -> URL {
+  static func file(for url: URL, site: URL, includeFragment: Bool = false) -> URL {
     let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("pages", isDirectory: true)
     try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
-    let key = SHA256.hash(data: Data(PathForm.underVi.url(url, site: site).absoluteString.utf8)).map { String(format: "%02x", $0) }.joined()
+    let key = SHA256.hash(data: Data(address(url, site: site, includeFragment: includeFragment).utf8))
+      .map { String(format: "%02x", $0) }.joined()
     return dir.appendingPathComponent("\(key).webarchive")
+  }
+
+  static func address(_ url: URL, site: URL, includeFragment: Bool = false) -> String {
+    let canonical = PathForm.underVi.url(url, site: site)
+    guard !includeFragment, canonical.fragment != nil, var parts = URLComponents(url: canonical, resolvingAgainstBaseURL: true)
+    else { return canonical.absoluteString }
+    parts.fragment = nil
+    return parts.url?.absoluteString ?? canonical.absoluteString
+  }
+
+  static func archive(for url: URL, site: URL) -> Data? {
+    if let data = try? Data(contentsOf: file(for: url, site: site)) { return data }
+    // Older builds could save an archive under the full address, including its fragment.
+    guard url.fragment != nil else { return nil }
+    return try? Data(contentsOf: file(for: url, site: site, includeFragment: true))
   }
 }
 
