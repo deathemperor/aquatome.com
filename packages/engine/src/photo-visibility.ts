@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { writeImageCache } from './image-cache-write'
+import { readPhotoMap } from './photo-state'
 import { lastPhotoVerdicts, looks, pagesShowing, readSecondLook } from './last-photo'
 import { CREDIT_HOLD_FILE, CREDIT_HOLD_REJECTION, creditHoldPhotoUrls, type CreditHoldPhotos } from '@aq/schema'
 import { DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, expandWholePhotoRejections, reviewedPhotoVersion, facePhotoStatus, FACES_FILE, guideLooked, guidePhotoUrlsIn, guidePhotoWaits, GUIDE_LEGACY_USES_FILE, GUIDE_LOOKS_FILE, keepGuideLegacyUses, readGuideLegacyUses, IMAGE_SWITCHES, isOwnerCrop, isVersionRejection, mayPublish, mayPublishLicence, ownDeadPhotoUrls, originalPhotoRefusals, ownerCropFitsPage, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoAddressSet, photoRejections, rejectedEntry, photoWaitsFor, publicPhotoVersion, SECOND_LOOK_RECORD, setsCookies, type Photo, type PhotoScreenEntry, type SourceInfo } from '@aq/schema'
@@ -51,10 +52,11 @@ export async function pruneGuideLegacyUses(root: string, looks?: Record<string, 
   }
 }
 
-export async function readReviewedPhotoVersion(root: string): Promise<(url: string) => boolean> {
-  const [reviews, check, subjects, screen] = await Promise.all([
-    read(root, SECOND_LOOK_RECORD), read(root, PHOTO_CHECK_FILE), read(root, PHOTO_SUBJECTS_FILE), read(root, DEAD_SCREEN_FILE),
-  ])
+export async function readReviewedPhotoVersion(root: string): Promise<ReturnType<typeof reviewedPhotoVersion>> {
+  const state = join(root, 'engine-state')
+  const [reviews, check, subjects, screen] = await Promise.all(
+    [SECOND_LOOK_RECORD, PHOTO_CHECK_FILE, PHOTO_SUBJECTS_FILE, DEAD_SCREEN_FILE].map(file => readPhotoMap(join(state, file))),
+  )
   return reviewedPhotoVersion(reviews, check, subjects, screen)
 }
 
