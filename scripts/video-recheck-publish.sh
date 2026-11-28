@@ -19,14 +19,14 @@ sweep_new_video_recheck() {
 }
 
 push_video_recheck() {
-  local try run base tree checked_tree='' refreshed clash verification_failed commit rejected_commit=''
+  local try run base tree checked_tree='' refreshed clash verification_failed commit candidate
+  candidate=$(git rev-parse HEAD) || return 1
   for try in 1 2 3; do
     run=$(git rev-parse HEAD) || break
-    if [ -n "$rejected_commit" ] && [ "$run" != "$rejected_commit" ]; then
-      keep_lost_push video-recheck "the checkout moved after a rejected video recheck push" "$rejected_commit"
+    if [ "$run" != "$candidate" ]; then
+      keep_lost_push video-recheck "the video recheck checkout moved between publish attempts" "$candidate"
       return 1
     fi
-    rejected_commit=
     if ! prepare_video_recheck; then
       keep_lost_push video-recheck "the checkout had changes before publishing" "$run"
       return 1
@@ -59,7 +59,8 @@ push_video_recheck() {
     fi
 
     # Check the tree that includes the latest main. A disjoint content change can affect cross-page checks.
-    if ! tree=$(video_recheck_tree); then
+    candidate=$(git rev-parse HEAD) || break
+    if ! tree=$(video_recheck_tree "$candidate"); then
       keep_lost_push video-recheck "the video recheck checkout differed from its commit before verification" "$run"
       return 1
     fi
@@ -80,19 +81,27 @@ push_video_recheck() {
 
     # Main may have moved during the checks. A fast-forward-only pull means it cannot combine divergent trees here.
     # If anything came in, the next attempt integrates and checks it before a push can run.
-    if ! net git pull -q --no-rebase --ff-only ||
-      ! commit=$(git rev-parse HEAD) || [ "$(video_recheck_tree "$commit")" != "$checked_tree" ]; then
+    if ! net git pull -q --no-rebase --ff-only; then
       log "main moved or could not be reached after the checks: trying a fresh pull before publishing"
+      continue
+    fi
+    commit=$(git rev-parse HEAD) || break
+    if ! git merge-base --is-ancestor "$candidate" "$commit"; then
+      keep_lost_push video-recheck "the checkout moved outside the verified video recheck history" "$candidate"
+      return 1
+    fi
+    candidate=$commit
+    if [ "$(video_recheck_tree "$candidate")" != "$checked_tree" ]; then
+      log "main moved after the checks: trying a fresh pull before publishing"
       continue
     fi
     if net git push -q origin "$commit:refs/heads/main"; then
       log "pushed (GitHub deploys it)"
       return 0
     fi
-    rejected_commit=$commit
     if [ "$try" -lt 3 ]; then sleep 30; fi
   done
   log "could not publish after three attempts"
-  keep_lost_push video-recheck "push failed three times" "${rejected_commit:-HEAD}"
+  keep_lost_push video-recheck "push failed three times" "$candidate"
   return 1
 }
