@@ -264,7 +264,7 @@ keep_unpublished() {
   branch="$lane/$1/$when$suffix"
   if [ -n "${2:-}" ]; then
     video_recheck_record_pending_queue "$2" "$branch" "$saved" || log "could not record the pending video recheck queue"
-    branch=$(keep_video_recheck_ref "$branch" "$saved") || return 1
+    branch=$(keep_video_recheck_ref "$branch" "$saved" "$2") || return 1
   else
     keep_branch "$branch" "$saved" || return 0
   fi
@@ -288,7 +288,9 @@ keep_video_recheck_ref() {
   if [ -n "$(batch_names "${base#*/}")" ] || ! keep_branch "$branch" "$saved" new >&2; then
     branch="${base}_${saved}${branch#"$base"}"
     if ! keep_branch "$branch" "$saved" new >&2; then
-      archive_video_recheck_ref "$branch" "$saved" >&2 || log "could not archive $branch at $saved" >&2
+      if [ -z "${3:-}" ] || [ ! -s "$(video_recheck_queue_archive "$3")" ]; then
+        archive_video_recheck_ref "$branch" "$saved" "${3:-}" >&2 || log "could not archive $branch at $saved" >&2
+      fi
       return 1
     fi
   fi
@@ -296,10 +298,15 @@ keep_video_recheck_ref() {
 }
 # If neither recovery ref can be written, preserve the commit and its queue name outside the checkout.
 archive_video_recheck_ref() {
-  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive
+  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive link temp
   mkdir -p "$parent" && archive=$(mktemp -d "$parent/video-recheck-ref.XXXXXXXX") || return 1
   git init -q --bare "$archive" && net git push -q "$archive" "$2:refs/heads/$1" || return 1
   log "saved $1 in $archive"
+  if [ -n "${3:-}" ]; then
+    link=$(video_recheck_queue_archive "$3")
+    temp=$(mktemp "$link.XXXXXXXX") || return 1
+    printf '%s\n' "$archive" > "$temp" && mv -f -- "$temp" "$link" || return 1
+  fi
 }
 # HEAD on branch $1, and in the cloud on GitHub's branch of that name.
 keep_branch() {
@@ -696,14 +703,19 @@ VIDEO_RECHECK_PENDING_QUEUE_PREFIX='content: queue video recheck on '
 video_recheck_pending() {
   git for-each-ref --format='%(objectname)' "$VIDEO_RECHECK_PENDING_REF"
 }
+video_recheck_queue_archive() {
+  printf '%s/video-recheck-queue.%s' "${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"}" "$1"
+}
 # Keep the queue name and both commit identities before attempting either queue ref write.
 video_recheck_record_pending_queue() {
   local pending record
   pending=$(video_recheck_pending) || return 1
   [ -n "$pending" ] || return 0
   [ "$pending" = "$1" ] || return 1
-  record=$(git commit-tree "$3^{tree}" -p "$3" -m "$VIDEO_RECHECK_PENDING_QUEUE_PREFIX$2") || return 1
-  git update-ref "$VIDEO_RECHECK_PENDING_REF" "$record" "$pending"
+  if record=$(git commit-tree "$3^{tree}" -p "$3" -m "$VIDEO_RECHECK_PENDING_QUEUE_PREFIX$2") &&
+    git update-ref "$VIDEO_RECHECK_PENDING_REF" "$record" "$pending"; then return 0; fi
+  # A cache archive records the disposition even when this clone's refs are unwritable.
+  archive_video_recheck_ref "$2" "$3" "$1"
 }
 # Keep the original batch and the failing checkout reachable from one ref. The ref's tree
 # shows what failed. Recovery starts from its first parent and remembers the second for the retry gate.

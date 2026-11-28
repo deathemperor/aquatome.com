@@ -571,6 +571,49 @@ test('video startup can recover an anchored commit before main advances', () => 
   expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
 }, slow(60_000))
 
+test.each(['not sent', 'sent', 'sent then reverted', 'sent but unconfirmed'])('video startup recovers an interrupted push that was %s', outcome => {
+  const c = clone()
+  const batch = c.sh("echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD")
+  c.elsewhere('code.txt', 'new-code')
+  expect(() => c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    sleep() { :; }
+    net() {
+      ${outcome === 'sent but unconfirmed' ? 'if [ "$2" = fetch ] && [ -f "$HOME/outgoing" ]; then return 1; fi' : ':'}
+      if [ "$2" = push ]; then
+        printf '%s\n' "${'${5%:refs/heads/main}'}" > "$HOME/outgoing"
+        ${outcome === 'not sent' ? ':' : '"$@" || return 1'}
+        ${outcome === 'sent but unconfirmed' ? 'return 1' : 'exit 77'}
+      fi
+      "$@"
+    }
+    push_video_recheck
+  `)).toThrow()
+  if (outcome === 'sent but unconfirmed') expect(c.branches()).toHaveLength(1)
+  const outgoing = c.sh('cat "$HOME/outgoing"')
+  expect(outgoing).not.toBe(batch)
+  if (outcome === 'sent then reverted') c.sh(`
+    git -C "$HOME/other" pull -q --ff-only
+    git -C "$HOME/other" revert --no-edit '${outgoing}'
+    git -C "$HOME/other" push -q
+  `)
+  c.sh('git fetch -q origin')
+  const restart = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    archive_video_recheck_checkout
+    recover_interrupted_video_recheck
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    from_main
+    verify_cycle() { echo VERIFIED; }
+    publish_kept video-recheck
+  `)
+  expect(restart.includes('VERIFIED')).toBe(outcome === 'not sent')
+  expect(c.onMain('content/video.json')).toBe(outcome === 'sent then reverted' ? '' : 'rechecked')
+  expect(c.branches()).toEqual([])
+  expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
+}, slow(60_000))
+
 test('an interrupted queue handoff keeps the existing held video recheck', () => {
   const c = clone()
   const held = 'held/video-recheck/20261128T030000'
@@ -806,10 +849,11 @@ test.each(['fresh', 'kept', 'held'])('a %s video recheck preserves its batch if 
 }, slow(60_000))
 
 test.each([
-  ['held', false],
-  ['kept', false],
-  ['held', true],
-] as const)('a fresh video recheck retains its %s status when recovery refs are locked (both: %s)', (queue, blockBoth) => {
+  ['held', false, false],
+  ['kept', false, false],
+  ['held', true, false],
+  ['held', true, true],
+] as const)('a fresh video recheck retains its %s status when recovery refs are locked (both: %s, pending: %s)', (queue, blockBoth, pendingLocked) => {
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
   const suffix = queue === 'kept' ? '-out1' : ''
@@ -824,14 +868,20 @@ test.each([
     date() {
       if [ "$*" = '-u +%Y%m%dT%H%M%S' ]; then echo '${when}'; else command date "$@"; fi
     }
-    checks() { echo '${queue === 'kept' ? 'Error: Test timed out in 30000ms.' : 'real check failure'}'; return 1; }
+    checks() {
+      ${pendingLocked ? 'touch .git/refs/aquatome/video-recheck/pending.lock' : ':'}
+      echo '${queue === 'kept' ? 'Error: Test timed out in 30000ms.' : 'real check failure'}'
+      return 1
+    }
     push_video_recheck || echo refused
   `)
   expect(log).toContain('refused')
   if (blockBoth) {
     expect(log).toContain('could not queue the failed video recheck')
     expect(c.branches()).toEqual([])
-    expect(c.sh(`git -C "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-ref.* rev-parse refs/heads/${backup}`)).toBe(batch)
+    const archived = pendingLocked ? locked : backup
+    expect(c.sh(`git -C "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-ref.* rev-parse refs/heads/${archived}`)).toBe(batch)
+    if (pendingLocked) c.sh('rm .git/refs/aquatome/video-recheck/pending.lock')
     const restart = c.cycle(`
       source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
       archive_video_recheck_checkout

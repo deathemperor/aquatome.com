@@ -19,25 +19,51 @@ sweep_new_video_recheck() {
 }
 
 # A held ref can point to a record with the original batch as its first parent.
-video_recheck_batch_is_queued() {
+video_recheck_batch_refs() {
   local branches branch original
-  branches=$(git for-each-ref --format='%(refname)' refs/heads/kept/video-recheck/ refs/heads/held/video-recheck/) || return 2
+  branches=$(git for-each-ref --format='%(refname)' refs/heads/kept/video-recheck/ refs/heads/held/video-recheck/) || return 1
   for branch in $branches; do
-    original=$(video_recheck_recovery_parent "$branch" 1) || return 2
-    if [ "$original" = "$1" ]; then return 0; fi
+    original=$(video_recheck_recovery_parent "$branch" 1) || return 1
+    if [ "$original" = "$1" ]; then printf '%s\n' "${branch#refs/heads/}"; fi
+  done
+}
+
+VIDEO_RECHECK_OUTGOING=refs/aquatome/video-recheck/outgoing
+video_recheck_outgoing_commits() {
+  git for-each-ref --format='%(objectname)' "$VIDEO_RECHECK_OUTGOING/$1/"
+}
+video_recheck_push_reached_main() {
+  local commit
+  for commit in $1; do
+    if git merge-base --is-ancestor "$commit" "$2"; then return 0
+    elif [ "$?" != 1 ]; then return 2; fi
   done
   return 1
+}
+clear_video_recheck_outgoing() {
+  local refs ref commit
+  refs=$(git for-each-ref --format='%(refname) %(objectname)' "$VIDEO_RECHECK_OUTGOING${1:+/$1}/") || return 1
+  while read -r ref commit; do
+    [ -n "$ref" ] || continue
+    git update-ref -d "$ref" "$commit" || return 1
+  done <<<"$refs"
+}
+clear_video_recheck_recovery() {
+  # Keep the push evidence until the pending ref has been removed.
+  git update-ref -d "$VIDEO_RECHECK_PENDING_REF" "$2" || return 1
+  clear_video_recheck_outgoing "$1" &&
+    rm -f -- "$(video_recheck_queue_archive "$1")"
 }
 
 # Runs after the checkout archive and before from_main can reset it.
 recover_interrupted_video_recheck() {
-  local rebase_merge rebase_apply pending subject batch saved branch='' base
+  local rebase_merge rebase_apply pending subject batch saved branch='' base outgoing main archive_link archive queued ref
   rebase_merge=$(git rev-parse --git-path rebase-merge) &&
     rebase_apply=$(git rev-parse --git-path rebase-apply) || return 1
   if [ -d "$rebase_merge" ] || [ -d "$rebase_apply" ]; then git rebase --abort || return 1; fi
 
   pending=$(video_recheck_pending) || return 1
-  [ -n "$pending" ] || return 0
+  if [ -z "$pending" ]; then clear_video_recheck_outgoing; return; fi
   subject=$(git show -s --format=%s "$pending") || return 1
   batch=$pending
   case "$subject" in
@@ -48,10 +74,27 @@ recover_interrupted_video_recheck() {
         batch=$(video_recheck_recovery_parent "$saved" 1) || return 1
       ;;
   esac
-  if video_recheck_batch_is_queued "$batch"; then
-    :
-  else
-    [ "$?" = 1 ] || return 1
+  outgoing=$(video_recheck_outgoing_commits "$batch") &&
+    queued=$(video_recheck_batch_refs "$batch") || return 1
+  if [ -n "$outgoing" ]; then
+    main=$(video_recheck_fetch_main) || return 1
+    if video_recheck_push_reached_main "$outgoing" "$main"; then
+      log "main already contains the verified video recheck commit"
+      for ref in $queued; do drop_published_branch "$ref" || return 1; done
+      clear_video_recheck_recovery "$batch" "$pending"
+      return
+    elif [ "$?" != 1 ]; then return 1; fi
+  fi
+  if [ -z "$queued" ]; then
+    archive_link=$(video_recheck_queue_archive "$batch")
+    if [ -z "$branch" ] && [ -e "$archive_link" ]; then
+      IFS= read -r archive < "$archive_link" || return 1
+      branch=$(git -C "$archive" for-each-ref --format='%(refname:short)' refs/heads/) || return 1
+      case "$branch" in kept/video-recheck/*|held/video-recheck/*) ;; *) return 1 ;; esac
+      net git fetch -q "$archive" "refs/heads/$branch" || return 1
+      saved=$(git rev-parse --verify 'FETCH_HEAD^{commit}') &&
+        [ "$(video_recheck_recovery_parent "$saved" 1)" = "$batch" ] || return 1
+    fi
     if [ -n "$branch" ]; then
       # An earlier attempt may have left both queue ref locks in place.
       base=$(uncounted "$branch")
@@ -61,7 +104,7 @@ recover_interrupted_video_recheck() {
       keep_lost_push video-recheck "video recheck was interrupted" "$batch" || return 1
     fi
   fi
-  git update-ref -d "$VIDEO_RECHECK_PENDING_REF" "$pending"
+  clear_video_recheck_recovery "$batch" "$pending"
 }
 
 # The batch becomes reachable before local main moves to it.
@@ -74,7 +117,7 @@ commit_video_recheck() {
 }
 
 push_video_recheck() {
-  local batch pending status=0
+  local batch pending queued outgoing status=0
   batch=$(git rev-parse HEAD) && pending=$(video_recheck_pending) || return 1
   if [ "$pending" != "$batch" ]; then
     if [ -n "$pending" ] || ! git update-ref "$VIDEO_RECHECK_PENDING_REF" "$batch" ''; then
@@ -83,15 +126,19 @@ push_video_recheck() {
     fi
   fi
   publish_video_recheck_batch "$batch" || status=$?
-  if [ "$status" = 0 ] || video_recheck_batch_is_queued "$batch"; then
-    pending=$(video_recheck_pending) || return 1
-    git update-ref -d "$VIDEO_RECHECK_PENDING_REF" "$pending" || log "could not clear the pending video recheck ref"
+  if [ "$status" != 0 ]; then
+    queued=$(video_recheck_batch_refs "$batch") &&
+      outgoing=$(video_recheck_outgoing_commits "$batch") || return "$status"
+    # An unconfirmed push may have landed. Keep its evidence through the next startup.
+    if [ -z "$queued" ] || [ -n "$outgoing" ]; then return "$status"; fi
   fi
+  pending=$(video_recheck_pending) || return 1
+  clear_video_recheck_recovery "$batch" "$pending" || log "could not clear the video recheck recovery state"
   return "$status"
 }
 
 publish_video_recheck_batch() {
-  local try run batch_base tree checked_tree='' refreshed pulled calendar verification_failed commit candidate batch=$1
+  local try run batch_base tree checked_tree='' refreshed pulled calendar outgoing verification_failed commit candidate batch=$1
   candidate=$batch
   if ! batch_base=$(git merge-base "$batch" origin/main); then
     keep_lost_push video-recheck "could not find the batch's base on origin/main" "$batch"
@@ -115,7 +162,16 @@ publish_video_recheck_batch() {
       fi
       candidate=$batch
     fi
-    if ! refreshed=$(video_recheck_fetch_main) || ! video_recheck_rebase "$refreshed"; then
+    if ! refreshed=$(video_recheck_fetch_main); then
+      log "could not fetch main before publishing the video recheck"
+      continue
+    fi
+    outgoing=$(video_recheck_outgoing_commits "$batch") || break
+    if video_recheck_push_reached_main "$outgoing" "$refreshed"; then
+      log "main already contains the verified video recheck commit"
+      return 0
+    elif [ "$?" != 1 ]; then break; fi
+    if ! video_recheck_rebase "$refreshed"; then
       log "could not rebase the video recheck onto main"
       continue
     fi
@@ -184,6 +240,10 @@ publish_video_recheck_batch() {
     if [ "$(video_recheck_tree "$candidate")" != "$checked_tree" ]; then
       log "main moved after the checks: trying a fresh pull before publishing"
       continue
+    fi
+    if ! git update-ref "$VIDEO_RECHECK_OUTGOING/$batch/$commit" "$commit"; then
+      keep_lost_push video-recheck "could not record the outgoing video recheck commit" "$batch"
+      return 1
     fi
     if net git push -q origin "$commit:refs/heads/main"; then
       log "pushed (GitHub deploys it)"
