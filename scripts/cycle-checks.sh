@@ -171,10 +171,10 @@ archive_failed_try() {
 verify_try() {
   local from=$1 attempt=$2 failed=0
   shift 2
-  if [ -n "${VERIFY_TREE:-}" ] && ! video_recheck_unchanged "$VERIFY_TREE"; then return 2; fi
+  if [ -n "${video_verify_tree:-}" ] && ! video_recheck_unchanged "$video_verify_tree"; then return 2; fi
   "$@" >>"$TEST_LOG" 2>&1 || failed=1
   [ "$failed" = 0 ] || archive_failed_try "$from" "$attempt"
-  if [ -n "${VERIFY_TREE:-}" ] && ! video_recheck_unchanged "$VERIFY_TREE"; then return 2; fi
+  if [ -n "${video_verify_tree:-}" ] && ! video_recheck_unchanged "$video_verify_tree"; then return 2; fi
   return "$failed"
 }
 verify() {
@@ -487,12 +487,12 @@ publish_kept() {
     git show-ref -q --verify "refs/heads/$branch" || continue
     one_name "$branch" || continue
     log "publishing $branch, kept by an earlier run"
-    git reset -q --hard "$branch"
+    reset_recovery_checkout "$1" "$branch" || return 1
     if push_kept "$branch"; then
       git branch -q -D "$BRANCH"
       log "published $branch"
       net git fetch -q origin || true
-      git reset -q --hard origin/main
+      reset_recovery_checkout "$1" origin/main || return 1
       continue
     fi
     count_outs "$BRANCH"
@@ -516,10 +516,10 @@ publish_kept() {
       [ -z "${MIGRATE_FAILED:-}" ] || FAULT="${FAULT:+$FAULT; }$branch isn't published: its photo records couldn't be migrated, and it stays kept"
     fi
     net git fetch -q origin || true
-    git reset -q --hard origin/main
+    reset_recovery_checkout "$1" origin/main || return 1
   done
   # On the Mac too since 14 Nov: until then a held batch there sat until someone renamed it by hand (13 Nov, three).
-  retry_held "$1"
+  retry_held "$1" || return 1
   # Kept work's failed migration is that work's: the run's own goes on to its own (video-cycle.sh tests with no merge).
   MIGRATE_FAILED=
 }
@@ -549,12 +549,12 @@ retry_held() {
     base=$(git merge-base "$branch" origin/main) || continue
     git diff --quiet "$base" origin/main -- . ':!content' ':!sources' ':!engine-state' ':!docs' ':!*.md' && continue
     log "trying $branch once more: main's code has changed since it was held"
-    git reset -q --hard "$branch"
+    reset_recovery_checkout "$1" "$branch" || return 1
     if push_kept "$branch"; then
       git branch -q -D "$BRANCH"
       log "published $branch"
       net git fetch -q origin || true
-      git reset -q --hard origin/main
+      reset_recovery_checkout "$1" origin/main || return 1
       continue
     fi
     count_outs "$BRANCH"
@@ -573,7 +573,7 @@ retry_held() {
       log "$branch isn't published yet ($KEPT_WHY): it stays held for the next run's try$as"
     fi
     net git fetch -q origin || true
-    git reset -q --hard origin/main
+    reset_recovery_checkout "$1" origin/main || return 1
   done
 }
 # Pages a later run put on main while this work was kept, and that this work wrote too: main's stay as main has them. They
@@ -673,9 +673,20 @@ video_recheck_tree() {
     [ -z "$status" ] && git rev-parse 'HEAD^{tree}'
 }
 
+# A hard reset can replace an untracked file when the destination commit tracks that path.
+reset_recovery_checkout() {
+  if [ "$1" = video-recheck ] && ! archive_video_recheck_inputs; then
+    log "could not preserve untracked video recheck files before resetting"
+    return 1
+  fi
+  git reset -q --hard "$2"
+}
+
 # Keep untracked inputs outside the dedicated video recheck checkout so its sweep cannot stage them.
 archive_video_recheck_inputs() {
-  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive file to
+  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive file to files
+  files=$(git ls-files --others --exclude-standard) || return 1
+  [ -n "$files" ] || return 0
   mkdir -p "$parent" || return 1
   archive=$(mktemp -d "$parent/video-recheck-inputs.XXXXXXXX") || return 1
   git ls-files --others --exclude-standard -z > "$archive/paths" || return 1
@@ -893,11 +904,11 @@ checks_for() {
 # and in the history read on 2026-11-07 it never failed where the tests passed. deploy.yml builds the real site before
 # anything goes live and fails before the upload, so readers keep the live site and a "Deploy failed" issue opens.
 verify_cycle() {
-  local daily= result=0
+  local daily= result=0 video_verify_tree=${1:-}
   checks_for
   log "tests: $CHECKS_WHY"
   [ "$CHECKS_WHY" != "$DAILY_WHY" ] || daily=1
-  VERIFY_TREE=${1:-} verify "$CHECKS_STEP" || result=$?
+  verify "$CHECKS_STEP" || result=$?
   if [ "$result" != 0 ]; then
     [ -z "$daily" ] || rm -f "$FULL_STAMP.taken"
     return "$result"
