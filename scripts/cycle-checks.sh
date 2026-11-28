@@ -1379,14 +1379,15 @@ catch_up() {
 # committed and never pushed, to gate and publish by hand: the next run's reset (from_main) would drop it uncommitted,
 # and a commit left on main would go out ungated with a later push. `gate_or_keep "<commit message>" <paths it commits>`.
 gate_or_keep() {
-  local msg=$1 start=$SECONDS rc=0 branch
+  local msg=$1 start=$SECONDS rc=0 branch worktree=${AQ_VIDEO_GATE_WORKTREE:-.}
   shift
   pnpm engine gate || rc=$?
   log "gate: took $((SECONDS - start)) s"
   [ "$rc" -eq 0 ] && return 0
-  if [ -n "$(git status --porcelain -- "$@")" ]; then
+  if [ -n "$(git -C "$worktree" status --porcelain -- "$@")" ]; then
     branch="gate-crashed/$(date -u +%Y%m%dT%H%M%S)"
-    if git checkout -q -b "$branch" && git add -- "$@" && git commit -q -m "$msg, gate crashed, not published $(date -u +%F)"; then
+    if git -C "$worktree" checkout -q -b "$branch" && git -C "$worktree" add -- "$@" &&
+      git -C "$worktree" commit -q -m "$msg, gate crashed, not published $(date -u +%F)"; then
       log "gate: crashed, not publishing: this run's work is committed on $branch, not pushed"
     else
       log "gate: crashed, not publishing, and keeping this run's work on $branch failed"

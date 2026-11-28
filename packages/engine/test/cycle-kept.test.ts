@@ -556,11 +556,12 @@ test('video startup can recover an anchored commit before main advances', () => 
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     echo rechecked > content/video.json
     git add content/video.json
+    tree=$(git write-tree)
     git() {
       if [ "$1" = update-ref ] && [ "$#" -ge 4 ] && [ "$4" = HEAD ]; then exit 77; fi
       command git "$@"
     }
-    commit_video_recheck 'content: video guides checked again (fixture)' '${base}'
+    commit_video_recheck 'content: video guides checked again (fixture)' '${base}' "$tree" "$tree"
   `)).toThrow()
   expect(c.sh('git rev-parse HEAD')).toBe(base)
   const pending = 'refs/aquatome/video-recheck/pending'
@@ -584,7 +585,8 @@ test('video recovery publishes only the gated commit when HEAD moves before publ
     parent=$(git rev-parse HEAD)
     echo rechecked > content/video.json
     git add content/video.json
-    commit_video_recheck 'content: video guides checked again (fixture)' "$parent"
+    tree=$(git write-tree)
+    commit_video_recheck 'content: video guides checked again (fixture)' "$parent" "$tree" "$tree"
     git rev-parse HEAD
   `)
   c.sh('echo ungated > content/ungated.json && git add content/ungated.json && git commit -qm ungated')
@@ -619,11 +621,13 @@ test('a fresh video recheck rejects a new parent after gating', () => {
     parent=$(git rev-parse HEAD)
     echo rechecked > content/video.json
     gate_or_keep 'content: video guides checked again' content engine-state docs/review
+    git add content/video.json
+    tree=$(git write-tree)
     echo ungated > content/ungated.json
     git add content/ungated.json && git commit -qm ungated
     git add content/video.json
     verify_cycle() { echo VERIFIED; }
-    (commit_video_recheck 'content: video guides checked again (fixture)' "$parent" && push_video_recheck) || echo refused
+    (commit_video_recheck 'content: video guides checked again (fixture)' "$parent" "$tree" "$tree" && push_video_recheck) || echo refused
   `)
   expect(log).toContain('refused')
   expect(log).not.toContain('VERIFIED')
@@ -631,6 +635,60 @@ test('a fresh video recheck rejects a new parent after gating', () => {
   expect(c.branches()).toEqual([])
   expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
   expect(c.sh('git show :content/video.json')).toBe('rechecked')
+}, slow(60_000))
+
+test.each(['unchanged', 'late edit', 'gate failure'])('a fresh video recheck records its isolated gate output after %s', outcome => {
+  const c = clone()
+  c.sh('mkdir -p content/guides/example && echo old > content/guides/example/vi.json && git add content && git commit -qm guide && git push -q')
+  const guide = 'content/guides/example/vi.json'
+  const tail = script('video-recheck.sh').split('sweep_new_video_recheck || exit 1\n')[1]!
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    video_batch_parent=$(git rev-parse HEAD)
+    echo candidate > '${guide}'
+    pnpm() {
+      if [ "$1 $2" = 'engine gate' ]; then
+        local gate_root="\${AQ_VIDEO_GATE_WORKTREE:-$PWD}"
+        test "$(cat "$gate_root/${guide}")" = candidate || return 1
+        mkdir -p "$gate_root/engine-state" "$gate_root/docs/review"
+        echo approved > "$gate_root/${guide}"
+        ${outcome === 'late edit' ? `echo ungated > '${guide}'` : ':'}
+        ${outcome === 'gate failure' ? 'return 1' : ':'}
+      fi
+    }
+    verify_cycle() { echo "VERIFIED $(cat '${guide}')"; }
+    ( ${tail}
+    ) || echo refused
+  `)
+  expect(c.sh('git worktree list --porcelain | awk \'/^worktree / { count++ } END { print count }\'')).toBe('1')
+  if (outcome === 'unchanged') {
+    expect(log).toContain('VERIFIED approved')
+    expect(c.onMain(guide)).toBe('approved')
+    expect(c.branches()).toEqual([])
+  } else if (outcome === 'gate failure') {
+    expect(log).toContain('refused')
+    expect(log).not.toContain('VERIFIED')
+    expect(c.onMain(guide)).toBe('old')
+    expect(c.branches()).toEqual([expect.stringMatching(/^gate-crashed\//)])
+    expect(c.sh(`git show '${c.branches()[0]}:${guide}'`)).toBe('approved')
+    expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
+  } else {
+    expect(log).toContain('refused')
+    expect(log).not.toContain('VERIFIED')
+    expect(c.onMain(guide)).toBe('old')
+    expect(c.sh(`cat '${guide}'`)).toBe('ungated')
+    expect(c.sh(`git show 'refs/aquatome/video-recheck/pending:${guide}'`)).toBe('approved')
+    c.cycle(`
+      source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+      recover_interrupted_video_recheck
+      AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+      from_main
+      publish_kept video-recheck
+    `)
+    expect(c.onMain(guide)).toBe('approved')
+    expect(c.branches()).toEqual([])
+  }
 }, slow(60_000))
 
 test('video publishing requires a recorded gated commit', () => {
@@ -656,6 +714,7 @@ test.each([false, true])('video startup recovers a first pending-ref lock (queue
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     echo rechecked > content/video.json
     git add content/video.json
+    tree=$(git write-tree)
     mkdir -p .git/refs/aquatome/video-recheck
     touch .git/refs/aquatome/video-recheck/pending.lock
     ${queueLocked ? `
@@ -664,7 +723,7 @@ test.each([false, true])('video startup recovers a first pending-ref lock (queue
         command git "$@"
       }
     ` : ''}
-    commit_video_recheck 'content: video guides checked again (fixture)' '${base}'
+    commit_video_recheck 'content: video guides checked again (fixture)' '${base}' "$tree" "$tree"
   `)).toThrow()
   expect(c.sh('git rev-parse HEAD')).toBe(base)
   expect(c.onMain('content/video.json')).toBe('')

@@ -108,21 +108,42 @@ recover_interrupted_video_recheck() {
   done
 }
 
+# Run the gate on the staged input in its own checkout. Only that checkout can supply the approved tree.
+gate_video_recheck_tree() (
+  local parent=$1 input=$2 git_dir snapshot worktrees
+  git_dir=$(git rev-parse --absolute-git-dir) || return 1
+  snapshot="$git_dir/aquatome-video-gate"
+  worktrees=$(git worktree list --porcelain) || return 1
+  if grep -Fx "worktree $snapshot" <<<"$worktrees" >/dev/null; then
+    git worktree remove --force "$snapshot" >&2 || return 1
+  fi
+  git worktree add -q --detach --no-checkout "$snapshot" "$parent" || return 1
+  trap 'git worktree remove --force "$snapshot" >&2 || log "could not remove the video gate checkout" >&2' EXIT
+  git -C "$snapshot" read-tree --reset -u "$input" || return 1
+  AQ_VIDEO_GATE_WORKTREE=$snapshot gate_or_keep "content: video guides checked again" content engine-state docs/review >&2 || return 1
+  [ "$(git -C "$snapshot" rev-parse HEAD)" = "$parent" ] || return 1
+  git -C "$snapshot" add -- content engine-state docs/review && git -C "$snapshot" write-tree
+)
+
 # The batch becomes reachable before local main moves to it. Its parent was pinned before gating.
 commit_video_recheck() {
-  local parent=$2 tree batch
+  local parent=$2 input=$3 tree=$4 batch
   if [ "$(git rev-parse HEAD)" != "$parent" ]; then
     log "the video recheck checkout moved before recording the gated batch"
     return 1
   fi
-  tree=$(git write-tree) &&
-    batch=$(git commit-tree "$tree" -p "$parent" -m "$1") || return 1
+  batch=$(git commit-tree "$tree" -p "$parent" -m "$1") || return 1
   if ! printf 'verify HEAD %s\ncreate %s %s\n' "$parent" "$VIDEO_RECHECK_PENDING_REF" "$batch" | git update-ref --stdin; then
     if [ "$(git rev-parse HEAD)" != "$parent" ]; then
       log "the video recheck checkout moved before recording the gated batch"
       return 1
     fi
     keep_lost_push video-recheck "could not record the gated video recheck" "$batch"
+    return 1
+  fi
+  if [ "$(git rev-parse HEAD)" != "$parent" ] || ! git diff --cached --quiet "$input" ||
+    ! git diff --quiet || ! git read-tree -m -u "$input" "$tree"; then
+    log "the publishing checkout changed after staging the gate input; the approved batch stays pending"
     return 1
   fi
   git update-ref -m "$1" HEAD "$batch" "$parent"

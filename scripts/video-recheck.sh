@@ -96,9 +96,10 @@ if [ "$(git rev-parse HEAD)" != "$video_batch_parent" ]; then
   log "the video recheck checkout moved before the gate"
   exit 1
 fi
-gate_or_keep "content: video guides checked again" content engine-state docs/review || exit 1
-if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
-# Save the gated work before verification and before moving main, so startup can recover the batch.
-git add content engine-state docs/review
-commit_video_recheck "content: video guides checked again $(date -u +%F)" "$video_batch_parent"
+git add -- content engine-state docs/review
+gate_input=$(git write-tree)
+gate_tree=$(gate_video_recheck_tree "$video_batch_parent" "$gate_input") || exit 1
+if [ "$gate_tree" = "$(git rev-parse "$video_batch_parent^{tree}")" ]; then log "no changes"; exit 0; fi
+# Commit only the tree returned by the gate, so startup can recover it if the publishing checkout moved.
+commit_video_recheck "content: video guides checked again $(date -u +%F)" "$video_batch_parent" "$gate_input" "$gate_tree" || exit 1
 push_video_recheck
