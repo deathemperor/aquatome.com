@@ -194,6 +194,7 @@ test.each([
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
     net() { if [ "$2" = push ]; then echo push; fi; "$@" 2>/dev/null; }
+    pnpm() { [ "$1 $2 $3 $4" = '--filter @aq/engine... install --offline' ]; }
     main_holds() { :; }; sweep_merged() { :; }; sleep() { :; }
     keep_unpublished() { echo "kept unpublished"; }; keep_lost_push() { echo "kept lost push"; }
     advance() {

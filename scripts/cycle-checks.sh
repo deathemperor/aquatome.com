@@ -1001,25 +1001,22 @@ video_recheck_unchanged() {
   return 1
 }
 
-# Run the installed engine against the private data checkout without sharing or installing its dependencies there.
-cycle_reconcile_engine() {
-  if [ -z "${video_reconcile_install:-}" ]; then
-    pnpm engine "$@"
-    return
-  fi
-  (export AQ_VIDEO_RECONCILE_WORKTREE="$PWD"; cd "$video_reconcile_install" && pnpm engine "$@")
+# Use the pinned checkout's engine, prompts and workspace packages. The publishing checkout already populated the store.
+install_video_recheck_engine() {
+  pnpm --filter @aq/engine... install --offline --frozen-lockfile --silent
 }
 
 reconcile_video_recheck() {
   local mode=$1 batch=$2 upstream=$3 pulled=$4 calendar=$5 before=$6
-  local checked=${7:-} must_check=${8:-} video_reconcile_install=$PWD
-  local snapshot result reconciled migration recheck
+  local checked=${7:-} must_check=${8:-}
+  local snapshot result reconciled migration recheck sweep=''
   snapshot=$(video_recheck_open_worktree reconcile "$pulled") || return 1
   result=$(git -C "$snapshot" rev-parse --absolute-git-dir) || return 1
   result="$result/aquatome-reconcile-result"
   git -C "$snapshot" read-tree --reset -u "$pulled" || return 1
   if ! (
     cd "$snapshot" || exit 1
+    CYCLE_DIR="$snapshot/scripts"
     video_publish_head=$pulled
     if [ "$mode" = recovery ] && ! main_pages "$batch" "$upstream"; then exit 1; fi
     if [ "$mode" = recovery ] || [ "$upstream" != "$before" ]; then
@@ -1030,8 +1027,10 @@ reconcile_video_recheck() {
     if [ "$upstream" != "$before" ] ||
       { [ "$mode" = recovery ] && { [ -n "$calendar$must_check${MIGRATE_FAILED:-}" ] ||
         [ "$(git rev-parse "$video_publish_head^{tree}")" != "$checked" ]; }; }; then
-      sweep_merged strict || exit 1
+      sweep=1
     fi
+    if [ -n "$sweep$calendar" ]; then install_video_recheck_engine || exit 1; fi
+    if [ -n "$sweep" ] && ! sweep_merged strict; then exit 1; fi
     if [ -n "$calendar" ] && ! curate_merged_calendar strict; then exit 1; fi
     video_recheck_tree >/dev/null || exit 1
     printf '%s %s %s\n' "$video_publish_head" "${MIGRATE_FAILED:-0}" "${must_check:-0}" > "$result"
@@ -1321,8 +1320,8 @@ verify_cycle() {
 sweep_merged() {
   if [ -n "${1:-}" ] && ! prepare_video_recheck; then return 1; fi
   MIGRATE_FAILED=
-  cycle_reconcile_engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
-  if ! cycle_reconcile_engine sweep; then
+  pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
+  if ! pnpm engine sweep; then
     log "sweep: failed"
     if [ -n "${1:-}" ]; then
       archive_video_recheck_inputs || log "could not save all files the sweep created"
@@ -1411,7 +1410,7 @@ replan_merged() {
   curate_merged_calendar
 }
 curate_merged_calendar() {
-  if ! cycle_reconcile_engine curate; then
+  if ! pnpm engine curate; then
     log "curate: failed"
     [ -z "${1:-}" ] || return 1
   fi
@@ -1436,15 +1435,14 @@ catch_up() {
 # committed and never pushed, to gate and publish by hand: the next run's reset (from_main) would drop it uncommitted,
 # and a commit left on main would go out ungated with a later push. `gate_or_keep "<commit message>" <paths it commits>`.
 gate_or_keep() {
-  local msg=$1 start=$SECONDS rc=0 branch worktree=${AQ_VIDEO_GATE_WORKTREE:-.}
+  local msg=$1 start=$SECONDS rc=0 branch
   shift
   pnpm engine gate || rc=$?
   log "gate: took $((SECONDS - start)) s"
   [ "$rc" -eq 0 ] && return 0
-  if [ -n "$(git -C "$worktree" status --porcelain -- "$@")" ]; then
+  if [ -n "$(git status --porcelain -- "$@")" ]; then
     branch="gate-crashed/$(date -u +%Y%m%dT%H%M%S)"
-    if git -C "$worktree" checkout -q -b "$branch" && git -C "$worktree" add -- "$@" &&
-      git -C "$worktree" commit -q -m "$msg, gate crashed, not published $(date -u +%F)"; then
+    if git checkout -q -b "$branch" && git add -- "$@" && git commit -q -m "$msg, gate crashed, not published $(date -u +%F)"; then
       log "gate: crashed, not publishing: this run's work is committed on $branch, not pushed"
     else
       log "gate: crashed, not publishing, and keeping this run's work on $branch failed"

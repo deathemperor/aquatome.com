@@ -122,13 +122,21 @@ video_recheck_gate_input() (
 
 # Run the gate on the staged input in its own checkout. Only that checkout can supply the approved tree.
 gate_video_recheck_tree() (
-  local parent=$1 input=$2 snapshot
+  local parent=$1 input=$2 publishing_checkout=$PWD snapshot approved
   snapshot=$(video_recheck_open_worktree gate "$parent") || return 1
-  trap 'git worktree remove --force "$snapshot" >&2 || log "could not remove the video gate checkout" >&2' EXIT
-  git -C "$snapshot" read-tree --reset -u "$input" || return 1
-  AQ_VIDEO_GATE_WORKTREE=$snapshot gate_or_keep "content: video guides checked again" content engine-state docs/review >&2 || return 1
-  [ "$(git -C "$snapshot" rev-parse HEAD)" = "$parent" ] || return 1
-  git -C "$snapshot" add -- content engine-state docs/review && git -C "$snapshot" write-tree
+  cd "$snapshot" && git read-tree --reset -u "$input" && install_video_recheck_engine >&2 || return 1
+  if ! gate_or_keep "content: video guides checked again" content engine-state docs/review >&2; then
+    if archive_video_recheck_checkout >&2; then
+      git -C "$publishing_checkout" worktree remove --force "$snapshot" >&2
+    else
+      log "could not archive the gate's edits; kept the video gate checkout at $snapshot" >&2
+    fi
+    return 1
+  fi
+  [ "$(git rev-parse HEAD)" = "$parent" ] || return 1
+  git add -- content engine-state docs/review && approved=$(git write-tree) || return 1
+  git -C "$publishing_checkout" worktree remove --force "$snapshot" >&2 || return 1
+  printf '%s\n' "$approved"
 )
 
 # The batch becomes reachable before local main moves to it. Its parent was pinned before gating.

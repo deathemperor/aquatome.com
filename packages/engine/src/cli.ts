@@ -142,7 +142,6 @@ import { addShopNames, makeShopList, popularFirst, type ShopLang } from './shops
 import { abNamespace, listReaderWants } from './readers-wanted'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
-const reconcileRoot = process.env.AQ_VIDEO_RECONCILE_WORKTREE ?? ROOT
 const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
 /**
  * The one way the engine reads the Internet Archive, for every step that does (the sources read through it, the magazine's
@@ -256,7 +255,7 @@ async function covers(o: { redo?: boolean; limit?: number }) {
 }
 
 if (cmd === 'photo-privacy') {
-  process.exitCode = await runPhotoPrivacyCommand(reconcileRoot, values.write === true)
+  process.exitCode = await runPhotoPrivacyCommand(ROOT, values.write === true)
 } else if (cmd === 'run' || cmd === 'card-fill') {
   const list = (v?: string) => v?.split(',').map(s => s.trim()) as SourceId[] | undefined
   const except = list(values.except)
@@ -675,7 +674,7 @@ if (cmd === 'photo-privacy') {
   // --photo-cap N: photos a run may take off every page for good by the caption rule (default 10, sweep.ts PHOTO_CAP):
   // past it none leave, each is listed, and a person looks before running it again with the cap raised.
   const photoCap = values['photo-cap'] ? { photoCap: Number(values['photo-cap']) } : {}
-  const r = await sweep(reconcileRoot, { ...(titles > 0 ? { llm: claudeCli, titles, model: process.env.READER_MODEL ?? 'opus' } : {}), ...photoCap })
+  const r = await sweep(ROOT, { ...(titles > 0 ? { llm: claudeCli, titles, model: process.env.READER_MODEL ?? 'opus' } : {}), ...photoCap })
   console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.again.length} never-again photos off; ${r.heads.length} heads picked; ${r.named.length} heads behind one named to the species; ${r.videos.length} videos off; ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.tanks.length} tank searches; ${r.shop.length} shop texts; ${r.dealer.length} dealer notices off; ${r.varieties.length} variety pages; ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.refusedSources) console.log(`refused source: ${x}`)
   for (const x of r.emptiedListed ?? []) console.log(`left with no photo, first for new photos: ${x}`)
@@ -695,10 +694,10 @@ if (cmd === 'photo-privacy') {
   if (r.held.length) console.log(`sweep: ${r.held.length} photos would leave every page for good, more than a run may with nobody looking: none taken off. Look at them, then run: pnpm engine sweep --titles 0 --photo-cap ${r.held.length}`)
   for (const x of [...r.held.map(x => `photo held: ${x}`), ...r.unwell.map(x => `photo of an unwell fish kept: ${x}`), ...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.again.map(x => `never-again off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.schools.map(x => `school size: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`), ...r.unplaced.map(x => `photo under no heading: ${x}`), ...r.folds.map(x => `page folded: ${x}`), ...r.albums.map(x => `album lead: ${x}`), ...r.albumKeptOut.map(x => `album kept-mark photo past its cap, left out: ${x}`), ...r.ownKeptOut.map(x => `page's own kept-mark photo past its cap, left out: ${x}`)]) console.log(x)
   // A publisher's photos credited to it alone get the photographer its page prints under them (publisher-credits.ts).
-  const named = await namePublisherCredits(reconcileRoot)
+  const named = await namePublisherCredits(ROOT)
   console.log(`publisher credits: ${Object.entries(named.named).map(([s, n]) => `${s} ${n}`).join(', ') || 'none'} named in ${named.files} files; ${named.untied.length} keep the publisher alone`)
   // After the sweep's own fixes, so a fix a reader sees dates its page (page-dates.ts).
-  const dated = await updatePageDates(join(reconcileRoot, 'content'))
+  const dated = await updatePageDates(join(ROOT, 'content'))
   console.log(`page dates: ${dated.files} files, ${dated.changed} changed`)
 } else if (cmd === 'check-content') {
   // The content loads in every language, its pages' dates in their format, or a failure: a push takes a sweep that
@@ -931,13 +930,12 @@ if (cmd === 'photo-privacy') {
   // ones a run, in the Mac's videos part alone (the chief of staff, 14 and 15 Nov 2026; heldMendsOf). On the Mac only: the
   // cloud has no yt-dlp for the transcript (gateMend).
   // pnpm engine gate [--limit N: model reads at most] [--jobs N] [--mends N: new and live pages sent to the mender's editor at most, 20; 0: none]
-  const gateRoot = process.env.AQ_VIDEO_GATE_WORKTREE ?? ROOT
-  const { report: r, state, pages, held } = await gate(gateRoot, {
+  const { report: r, state, pages, held } = await gate(ROOT, {
     llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 3), limit: Number(values.limit ?? 150),
-    mend: gateMend(gateRoot, { llm: claudeCli, yt: youtube(), write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' } }), mends: Number(values.mends ?? process.env.GATE_MENDS ?? 20), heldMends: heldMendsOf(),
+    mend: gateMend(ROOT, { llm: claudeCli, yt: youtube(), write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' } }), mends: Number(values.mends ?? process.env.GATE_MENDS ?? 20), heldMends: heldMendsOf(),
   })
-  await writeFile(join(gateRoot, 'docs/review/fit.md'), await gateFitReport(gateRoot, state, held))
-  await writeFitSummary(gateRoot, pages, state, { held })
+  await writeFile(join(ROOT, 'docs/review/fit.md'), await gateFitReport(ROOT, state, held))
+  await writeFitSummary(ROOT, pages, state, { held })
   for (const a of ['hold', 'release', 'revert', 'mended', 'refused', 'unread'] as const) for (const x of r[a]) console.log(`  ${a}: ${x}`)
   for (const x of r.failed) console.log(`  failed: ${x}`)
   console.log(`gate: ${r.pass.length} passed, ${r.hold.length} held, ${r.release.length} let out, ${r.revert.length} put back, ${r.mended.length} mended, ${r.refused.length} mends refused, ${r.unread.length} not read; ${r.reads} reads${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
@@ -947,12 +945,12 @@ if (cmd === 'photo-privacy') {
   // pnpm engine curate [--days 21] [--from YYYY-MM-DD] [--check] [--gsc <Search Console pages export>]
   const days = Number(values.days ?? 21)
   const today = values.from ?? vnDate(new Date())
-  const cur = await readCalendar(reconcileRoot)
+  const cur = await readCalendar(ROOT)
   const demand = values.gsc ? demandByPath(JSON.parse(await readFile(values.gsc, 'utf8')).rows ?? []) : undefined
   // The engine's own avoid entries are rebuilt below; the picks read a person's alone, as each page's own verdicts do the rest.
   const hand = handAvoid(cur.avoid)
-  const cands = await candidates(reconcileRoot, { demand, avoid: hand })
-  const cards = await cardsOf(reconcileRoot)
+  const cands = await candidates(ROOT, { demand, avoid: hand })
+  const cards = await cardsOf(ROOT)
   if (values.check) {
     const wrong = checkCalendar(cur, cands, today, days, cards)
     for (const x of wrong) console.log(`  ${x}`)
@@ -961,15 +959,15 @@ if (cmd === 'photo-privacy') {
   } else {
     // Every page's held or refused photos, up to its first that passes, into the avoid list the site's faces for more than
     // one fish skip (curation.ts headAvoid); last run's engine entries go, a person's stay.
-    const secondLook = await readSecondLook(reconcileRoot)
-    const pages = await pagePhotos(reconcileRoot), verdicts = await readVerdicts(reconcileRoot)
+    const secondLook = await readSecondLook(ROOT)
+    const pages = await pagePhotos(ROOT), verdicts = await readVerdicts(ROOT)
     const engine = headAvoid(pages, verdicts, hand, heldBy(secondLook))
     // And for each page whose head is on it, its first photo that passes and isn't on it, which those faces take instead.
     const avoid = withEngineAvoid(cur.avoid, engine)
     const cardPhoto = cardPhotos(pages, verdicts, hand, heldBy(secondLook), avoid)
     const was = Object.keys(cur.avoid).filter(u => !(u in hand))
     const { calendar, report: r } = plan({ ...cur, avoid, cardPhoto }, cands, today, days)
-    await writeCalendar(reconcileRoot, calendar)
+    await writeCalendar(ROOT, calendar)
     console.log(`  avoid: ${Object.keys(engine).length} held or refused photos (${Object.keys(engine).filter(u => !was.includes(u)).length} new, ${was.filter(u => !(u in engine)).length} gone), ${Object.keys(hand).length} a person's`)
     console.log(`  card photos: ${Object.keys(cardPhoto).length} pages whose head is on avoid, each with its first photo that passes`)
     for (const x of r.replaced) console.log(`  replaced ${x.date} ${x.slot} ${x.was}: ${x.why}`)
@@ -979,7 +977,7 @@ if (cmd === 'photo-privacy') {
     const left = checkCalendar(calendar, cands, today, days, cards)
     for (const x of left) console.log(`  still wrong: ${x}`)
     // Every card from today that rests on a person's yes (curation.ts PersonYes), each run, for the daily report.
-    const yes = (await readVerdicts(reconcileRoot)).personYes ?? {}
+    const yes = (await readVerdicts(ROOT)).personYes ?? {}
     for (const d of calendar.days.filter(d => d.date >= today && d.fish)) {
       const c = cands.find(x => x.ref === d.fish)
       const y = c?.head && yes[c.head.url]?.[c.id]

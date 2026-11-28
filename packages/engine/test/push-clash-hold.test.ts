@@ -44,6 +44,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     cd "${dir}"
     git init -q -b main --bare origin.git
     git clone -q origin.git other 2>/dev/null && cd other && git checkout -q -b main
+    mkdir scripts && cp '${join(ROOT, 'scripts/main-holds.mjs')}' scripts/main-holds.mjs && git add scripts
     printf 'engine-state/_fit.json merge=jsonmap\\ncontent/species/*/*.json merge=entity\\n' > .gitattributes && git add .gitattributes
     ${both(sides.base)}
     git commit -qm 'main as the run started' && git push -q origin main && cd ..
@@ -67,6 +68,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
       "$@"
     }
     replan_merged() { :; }
+    pnpm() { [ "$1 $2 $3 $4" = '--filter @aq/engine... install --offline' ]; }
     sweep_merged() { :; }
     verify_cycle() {
       git show HEAD:${file} | node -e '
