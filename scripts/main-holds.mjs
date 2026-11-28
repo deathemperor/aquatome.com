@@ -46,9 +46,14 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const FIT = 'engine-state/_fit.json'
+const HAND_HOLDS = 'engine-state/held-by-hand.json' // gate.ts HELD_BY_HAND
 // The gate's kinds (packages/engine/src/gate.ts GATED_KINDS; a test holds them to it) and its language files.
 const GATED_KINDS = ['guides', 'species', 'plants', 'breeds', 'cards']
 const FILE = new RegExp(`^content/(${GATED_KINDS.join('|')})/([^/]+)/([a-z]{2})\\.json$`)
+const ENTITY = new RegExp(`^content/(${GATED_KINDS.join('|')})/[^/]+/entity\\.json$`)
+const dirOf = f => dirname(f)
+const files = (dir, rev = 'HEAD') => git('ls-tree', '--name-only', rev, `${dir}/`).split('\n').filter(s => FILE.test(s))
+const changedContent = (a, b) => git('diff', '--name-only', '--no-renames', a, b, '--', 'content').split('\n')
 
 const git = (...args) => {
   try {
@@ -132,26 +137,107 @@ const withHarm = held => (held ? { ...held, checks: [...new Set([...held.checks,
 
 // Check review coverage with the gate’s loader. The small content tree contains only the candidate pages, their entities,
 // and the inputs that select their text. Read it from HEAD before any holds are written to the worktree.
-function publishedReviews(candidates, fit) {
-  const files = candidates.map(c => c.f)
-  if (!files.length) return {}
+function publishedReviews(candidates, fit, previous) {
+  if (!candidates.length) return { reviews: {}, newlyVisible: [] }
   const root = mkdtempSync(join(tmpdir(), 'aq-publish-fit-'))
   const engine = fileURLToPath(new URL('../packages/engine/', import.meta.url))
-  try {
-    const dirs = files.map(f => dirname(f))
-    for (const file of new Set(['content/sources.json', 'content/one-voice.json', ...dirs.map(d => `${d}/entity.json`), ...files])) {
-      const value = at('HEAD', file)
+  const paths = candidates.map(c => c.f)
+  const copy = (rev, folder) => {
+    const dirs = new Set(paths.map(dirOf))
+    for (const file of ['content/sources.json', 'content/one-voice.json', ...[...dirs].map(d => `${d}/entity.json`), ...paths]) {
+      const value = at(rev, file)
       if (value === undefined) continue
-      mkdirSync(join(root, dirname(file)), { recursive: true })
-      writeFileSync(join(root, file), JSON.stringify(value))
+      mkdirSync(join(folder, dirname(file)), { recursive: true })
+      writeFileSync(join(folder, file), JSON.stringify(value))
     }
-    const langs = [...new Set(files.map(f => FILE.exec(f)[3]))]
-    const reviews = join(root, 'fit.json')
-    writeFileSync(reviews, JSON.stringify(Object.fromEntries(candidates.map(({ key }) => [key, fit[key]]))))
-    const stdout = execFileSync(process.execPath, ['--import', 'tsx', 'scripts/publish-fit-hashes.ts', join(root, 'content'), reviews, ...langs], { cwd: engine, encoding: 'utf8' })
+    return join(folder, 'content')
+  }
+  const select = state => Object.fromEntries(candidates.map(({ key }) => [key, state[key]]))
+  try {
+    const current = copy('HEAD', root)
+    const before = previous && { root: copy(previous.rev, join(root, 'before')), fit: select(previous.fit) }
+    const langs = [...new Set(paths.map(f => FILE.exec(f)[3]))]
+    const request = join(root, 'reviews.json')
+    writeFileSync(request, JSON.stringify({ current: select(fit), before, visibility: candidates.filter(c => c.checkVisibility).map(c => c.key) }))
+    const stdout = execFileSync(process.execPath, ['--import', 'tsx', 'scripts/publish-fit-hashes.ts', current, request, ...langs], { cwd: engine, encoding: 'utf8' })
     return JSON.parse(stdout)
   } finally {
     rmSync(root, { recursive: true, force: true })
+  }
+}
+
+// Decide holds on the final swept tree. A regression on live text leaves the batch queued and main's text in place.
+function recoveryHolds(main, run, changed, readAt, unread) {
+  const restored = new Set(), visibility = new Set()
+  const prior = at(main, FIT) ?? {}, fit = at('HEAD', FIT) ?? {}
+  const manual = at('HEAD', HAND_HOLDS) ?? {}, oldManual = at(main, HAND_HOLDS) ?? {}
+  for (const f of changedContent(main, 'HEAD')) {
+    const match = ENTITY.exec(f)
+    if (!match) continue
+    const entity = at('HEAD', f), before = at(main, f)
+    if (!entity) continue
+    if (!before) restored.add(dirOf(f))
+    else if ((match[1] === 'cards' && entity.event?.country !== before.event?.country) ||
+      (match[1] === 'guides' && entity.source !== before.source)) visibility.add(dirOf(f))
+  }
+  for (const dir of [...restored, ...visibility]) for (const f of files(dir)) changed.add(f)
+  for (const [key, hold] of Object.entries(manual)) {
+    if (/^(guides|species|plants|breeds|cards)\/[\w-]+$/.test(key) && !same(hold, oldManual[key])) {
+      for (const f of files(`content/${key}`)) changed.add(f)
+    }
+  }
+  for (const [key, entry] of Object.entries(fit)) {
+    const [lang, kind, id, extra] = key.split('/')
+    const f = `content/${kind}/${id}/${lang}.json`
+    if (!extra && FILE.test(f) && entry?.findings?.some(x => x.check === 'harm') && !same(entry, prior[key])) changed.add(f)
+  }
+  const dirs = [...new Set([...changed].map(dirOf))]
+  const paths = dirs.flatMap(d => files(d))
+  atAll('HEAD', paths)
+  const candidates = paths.map(f => {
+    const [, kind, id, lang] = FILE.exec(f)
+    const page = `${kind}/${id}`, key = `${lang}/${page}`
+    return { f, key, checkVisibility: visibility.has(dirOf(f)), hand: manual[page], ours: at('HEAD', f) }
+  })
+  const { reviews, newlyVisible } = publishedReviews(candidates.filter(c =>
+    !c.hand && (c.checkVisibility || typeof fit[c.key]?.hash === 'string' && (changed.has(c.f) || fit[c.key].findings?.some(x => x.check === 'harm')))
+  ), fit, { rev: main, fit: prior })
+  const opened = new Set(newlyVisible)
+  const written = new Map(), harmed = new Set()
+  for (const { f, key, hand, ours } of candidates) {
+    const review = reviews[key]
+    let hold = ours.held
+    if (hand) {
+      hold = { checks: hand.checks, at: hand.at }
+      if (!Array.isArray(hold.checks) || hold.checks.some(check => typeof check !== 'string') || !/^\d{4}-\d{2}-\d{2}$/.test(hold.at)) {
+        throw new Error(`main-holds: invalid manual hold for ${f}`)
+      }
+    } else if (hold) {
+      if (review?.checks.includes('harm')) hold = withHarm(hold)
+    } else if (changed.has(f)) {
+      const theirs = at(main, f)
+      const mainText = theirs && same(readAt('HEAD', f, ours), readAt(main, f, theirs))
+      const opening = !theirs || !!theirs.held || restored.has(dirOf(f)) || opened.has(key)
+      if (opening || !mainText) {
+        const call = opening ? undefined : review?.liveEdit
+        if (call?.action === 'revert') throw new Error(`main-holds: recovered edit adds ${call.checks.join(', ')} on ${f}, keeping main's text live`)
+        if (!review || (opening && review.checks.length) || call?.action === 'hold') {
+          const saved = at(run, f)?.held ?? (mainText ? theirs.held : undefined) ?? unread
+          hold = { ...saved, checks: [...new Set([...saved.checks, ...(call?.checks ?? review?.checks ?? [])])].sort() }
+        }
+      } else if (review?.always.length) hold = { ...unread, checks: review.checks }
+    } else if (review?.checks.includes('harm')) hold = { ...unread, checks: ['harm'] }
+    if (hold?.checks.includes('harm')) harmed.add(dirOf(f))
+    if (!same(hold, ours.held)) written.set(f, ['keep', withHeld(ours, hold)])
+  }
+  for (const { f, ours } of candidates) {
+    if (harmed.has(dirOf(f)) && !(written.get(f)?.[1] ?? ours).held) {
+      written.set(f, ['beside', withHeld(ours, withHarm(at(run, f)?.held) ?? { ...unread, checks: ['harm'] })])
+    }
+  }
+  for (const [f, [what, page]] of written) {
+    writeFileSync(f, `${JSON.stringify(page, null, 2)}\n`)
+    console.log(`${what} ${f}`)
   }
 }
 
@@ -161,8 +247,6 @@ function main() {
     console.error('usage: node scripts/main-holds.mjs <base> <main> [<run> [recovery]]')
     process.exit(2)
   }
-  const dirOf = f => f.replace(/\/[a-z]{2}\.json$/, '')
-  const files = (dir, rev = 'HEAD') => git('ls-tree', '--name-only', rev, `${dir}/`).split('\n').filter(s => FILE.test(s))
   // Which parts of a species or a plant show at <rev> (read's `selection`): its record's sources and its line in
   // one-voice.json. The pages whose selection differs between two revisions: their language files count as changed.
   const ONE_VOICE = 'content/one-voice.json'
@@ -177,32 +261,22 @@ function main() {
     const dirs = new Set()
     const [va, vb] = [at(a, ONE_VOICE) ?? {}, at(b, ONE_VOICE) ?? {}]
     for (const id of new Set([...Object.keys(va), ...Object.keys(vb)])) if (!same(va[id], vb[id])) dirs.add(`content/species/${id}`)
-    for (const e of git('diff', '--name-only', '--no-renames', a, b, '--', 'content').split('\n')) {
+    for (const e of changedContent(a, b)) {
       const m = /^(content\/(?:species|plants)\/[^/]+)\/entity\.json$/.exec(e)
       if (m && !same(selection(a, `${m[1]}/vi.json`), selection(b, `${m[1]}/vi.json`))) dirs.add(m[1])
     }
     return dirs
   }
-  const different = (a, b) => git('diff', '--name-only', '--no-renames', a, b, '--', 'content').split('\n').filter(f => FILE.test(f))
+  const different = (a, b) => changedContent(a, b).filter(f => FILE.test(f))
   const withSelection = (list, a, b) => [...new Set([...list, ...[...selectionChanged(a, b)].flatMap(d => files(d))])]
   const changed = new Set(different(main, 'HEAD'))
-  const finalRecovery = run && mode === 'recovery'
-  const restoredEntities = new Set()
-  if (finalRecovery) {
-    const entity = new RegExp(`^content/(?:${GATED_KINDS.join('|')})/[^/]+/entity\\.json$`)
-    for (const f of git('diff', '--name-only', '--no-renames', '--diff-filter=A', main, 'HEAD', '--', 'content').split('\n')) {
-      if (!entity.test(f)) continue
-      restoredEntities.add(dirname(f))
-      for (const langFile of files(dirname(f))) changed.add(langFile)
-    }
-  }
+  const unread = { checks: [], at: new Date(Date.now() + 7 * 3600_000).toISOString().slice(0, 10) }
   if (run) {
     for (const f of withSelection([...changed], main, 'HEAD')) changed.add(f)
+    if (mode === 'recovery') return recoveryHolds(main, run, changed, readAt, unread)
     // A merge can take all of main’s page, losing a hold from the run with no diff against main.
-    if (!finalRecovery) {
-      for (const f of different(run, 'HEAD')) {
-        if (at(run, f)?.held && !at('HEAD', f)?.held) changed.add(f)
-      }
+    for (const f of different(run, 'HEAD')) {
+      if (at(run, f)?.held && !at('HEAD', f)?.held) changed.add(f)
     }
   }
   if (!changed.size) return
@@ -211,39 +285,32 @@ function main() {
   const written = new Map()
   // Releases still to decide on another language's harm: file → the page to write, or undefined to take main's whole.
   const releases = new Map()
-  const unread = { checks: [], at: new Date(Date.now() + 7 * 3600_000).toISOString().slice(0, 10) }
   const lookup = run ? at : legacyAt
   const fit = { base: lookup(base, FIT) ?? {}, main: lookup(main, FIT) ?? {}, head: lookup('HEAD', FIT) ?? {} }
   // Include languages added by the run when main changed which text their page shows.
   const since = rev => withSelection(different(base, rev), base, rev)
-  const compareMerge = run && !finalRecovery
-  const mainChanged = new Set(compareMerge ? since(main) : [])
-  const both = new Set(compareMerge ? since(run).filter(f => mainChanged.has(f)) : [])
+  const mainChanged = new Set(run ? since(main) : [])
+  const both = new Set(run ? since(run).filter(f => mainChanged.has(f)) : [])
   const comparisons = []
   for (const f of changed) {
     const [, kind, id, lang] = FILE.exec(f)
     const key = `${lang}/${kind}/${id}`
     const mainRecord = fit.main[key]
     const recordWon = same(fit.head[key], mainRecord)
-    const mainRead = !finalRecovery && (!run || mainRecord !== undefined) && !same(fit.base[key], mainRecord) && recordWon
+    const mainRead = (!run || mainRecord !== undefined) && !same(fit.base[key], mainRecord) && recordWon
     if (!run && !mainRead) continue
     const ours = lookup('HEAD', f)
     if (!ours) continue
     const theirs = lookup(main, f)
     const mine = run ? at(run, f) : undefined
     const mainText = run && theirs && same(readAt('HEAD', f, ours), readAt(main, f, theirs))
-    const runText = compareMerge && mine && same(readAt('HEAD', f, ours), readAt(run, f, mine))
+    const runText = run && mine && same(readAt('HEAD', f, ours), readAt(run, f, mine))
     const release = mainRead && mainText && !theirs.held && (ours.held || mine?.held)
-    // Older queued work can carry a stale or absent review after its original merge base is no longer visible.
-    // Require a review whenever recovery would put text live that main does not already have open.
-    const opening = !theirs || !!theirs.held || restoredEntities.has(dirOf(f)) || release
-    const alreadyOpen = mainText && !opening
-    const savedReview = !ours.held && (finalRecovery
-      ? !alreadyOpen
-      : theirs && !mainText && mainRecord && recordWon)
+    const opening = !theirs || !!theirs.held || release
+    const savedReview = !ours.held && theirs && !mainText && mainRecord && recordWon
     comparisons.push({ f, key, ours, theirs, mine, mainRead, mainText, runText, opening, proof: run && (release || savedReview) })
   }
-  const reviews = publishedReviews(comparisons.filter(c => c.proof && typeof fit.head[c.key]?.hash === 'string'), fit.head)
+  const { reviews } = publishedReviews(comparisons.filter(c => c.proof && typeof fit.head[c.key]?.hash === 'string'), fit.head)
   for (const { f, key, ours, theirs, mine, mainRead, mainText, runText, opening, proof } of comparisons) {
     const review = reviews[key]
     const blocking = opening ? review?.checks : review?.always
@@ -254,8 +321,6 @@ function main() {
       if (!same(ours.held, next)) written.set(f, ['keep', withHeld(ours, next)])
       continue
     }
-    // Reconciliation took main’s holds before the sweep. At publication, check coverage on the resulting text.
-    if (finalRecovery) continue
     if (runText && mine.held && !ours.held && (!mainText || !mainRead)) {
       written.set(f, ['keep', withHeld(ours, mine.held)])
       continue

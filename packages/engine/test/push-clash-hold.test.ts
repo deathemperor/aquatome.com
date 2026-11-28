@@ -6,7 +6,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { fitKey, fitText } from '../src/fit'
-import { GATED_KINDS } from '../src/gate'
+import { GATED_KINDS, HELD_BY_HAND } from '../src/gate'
 import { loadCards, loadPages } from '../src/pages'
 // @ts-expect-error a plain script
 import { read, same } from '../../../scripts/main-holds.mjs'
@@ -15,10 +15,15 @@ const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const FIXTURE = join(ROOT, 'apps/site/test/fixture-content')
 const fixtureJson = (f: string) => readFileSync(join(FIXTURE, f), 'utf8')
 const DEFAULT_BODY = '<p>Cá con quen người.</p>'
-const defaultHash = fitText({
+const guideHash = (body: string) => fitText({
   lang: 'vi', kind: 'guides', id: 'youtube-x', path: '/vi/huong-dan/ho-ca/', title: 'Hồ cá',
-  fields: [{ field: 'body', html: DEFAULT_BODY }], lines: [], captions: [], latinNames: [], card: [],
+  fields: [{ field: 'body', html: body }], lines: [], captions: [], latinNames: [], card: [],
 }).hash
+const defaultHash = guideHash(DEFAULT_BODY)
+const eventCard = (country: string) => JSON.stringify({
+  id: 'the-x', type: 'event', sources: [{ url: 'https://example.org/e', title: 'Hội chợ', publisher: 'Báo', date: '2026', accessed: '2026-11-15' }],
+  show: { from: '2026-12-02', until: '2026-12-20' }, event: { start: '2026-12-18', end: '2026-12-20', place: 'Hội chợ', country, organiser: 'Hội' }, updatedAt: '2026-11-15',
+})
 
 // The case of 15 Nov 2026 (the outdoor pond guide, youtube-gJuWCudImSc): the photos part started from a main where the
 // guide was held; meanwhile the video recheck read the same text clean and let it out on main; the photos part's own
@@ -30,7 +35,11 @@ const defaultHash = fitText({
 type Held = { checks: string[]; at: string }
 type Side = { held?: Held; body?: string; sections?: Record<string, string>; extra?: Record<string, unknown>; fit?: { at: string; hash: string; checks: string[] }; th?: Side; /** Other files as written, after the page's. */ files?: Record<string, string> }
 
-const KINDS = { guides: { dir: 'content/guides/youtube-x', key: 'vi/guides/youtube-x' }, species: { dir: 'content/species/ca-x', key: 'vi/species/ca-x' } }
+const KINDS = {
+  guides: { dir: 'content/guides/youtube-x', key: 'vi/guides/youtube-x' },
+  species: { dir: 'content/species/ca-x', key: 'vi/species/ca-x' },
+  cards: { dir: 'content/cards/the-x', key: 'vi/cards/the-x' },
+}
 
 // lostPush: the run's first push loses, as main gets this side meanwhile. uncompared: the comparison of holds fails, as a
 // git read or a file it can't parse would make it; 'locked', and it leaves a lock in the index, so the pull can't be
@@ -45,7 +54,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
   const secondGuide = 'content/guides/youtube-y/vi.json'
   const dir = mkdtempSync(join(tmpdir(), 'aq-push-hold-'))
   const page = (s: Side) =>
-    `${JSON.stringify({ slug: 'ho-ca', name: 'Hồ cá', altNames: [], body: s.body ?? DEFAULT_BODY, sections: s.sections ?? {}, quality: { score: 0.9, indexable: true }, ...s.extra, ...(s.held ? { held: s.held } : {}) }, null, 2)}\n`
+    `${JSON.stringify({ ...(kind === 'cards' ? { title: 'Hội chợ', eyebrow: 'Sự kiện' } : { slug: 'ho-ca', name: 'Hồ cá', altNames: [], sections: s.sections ?? {}, quality: { score: 0.9, indexable: true } }), body: s.body ?? DEFAULT_BODY, ...s.extra, ...(s.held ? { held: s.held } : {}) }, null, 2)}\n`
   const record = (f: NonNullable<Side['fit']>) =>
     ({ at: f.at, hash: f.hash, model: 'opus', checklist: 3, findings: f.checks.map(check => ({ check, part: 'P2', quote: 'Cá con quen người.', why: 'w', by: 'model' })), products: [] })
   // The page's Thai file and record, where a side has them.
@@ -60,7 +69,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     ...(includeFit ? { 'engine-state/_fit.json': fit(s) } : {}),
     ...s.files,
   })
-  const entity = { ...JSON.parse(fixtureJson(kind === 'guides' ? 'guides/youtube-r53ZQW0m8VM/entity.json' : 'species/paracheirodon-innesi/entity.json')), id: pageDir.split('/').at(-1) }
+  const entity = kind === 'cards' ? JSON.parse(eventCard('TH')) : { ...JSON.parse(fixtureJson(kind === 'guides' ? 'guides/youtube-r53ZQW0m8VM/entity.json' : 'species/paracheirodon-innesi/entity.json')), id: pageDir.split('/').at(-1) }
   if (kind === 'species') entity.sections = [{ ...entity.sections[0], source: 'youtube' }]
   const seedEntity = write({ [`${pageDir}/entity.json`]: JSON.stringify(entity) })
   const pushFn = readFileSync(join(ROOT, 'scripts/engine-cycle.sh'), 'utf8').match(/^push\(\) \{[\s\S]*?^\}$/m)![0]
@@ -702,6 +711,60 @@ test('recovery leaves a guide open when the saved review matches the outgoing te
   expect(r.pushed.body).toBe(DEFAULT_BODY)
   expect(r.pushedRecord.hash).toBe(defaultHash)
   expect(r.pushed.held).toBeUndefined()
+})
+
+test('recovery leaves the live text in place when the edit introduces a blocking finding', () => {
+  const body = '<p>Bài cũ.</p>'
+  const main = { body, fit: { ...clean, hash: guideHash(body) } }
+  const r = push('guides', { base: main, main, run: { fit: heldFor('source') } }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 1')
+  expect(r.out).not.toContain('VERIFY')
+  expect(r.out).toContain('QUEUED kept/photos/')
+  expect(r.pushed.body).toBe(body)
+  expect(r.pushed.held).toBeUndefined()
+})
+
+test('recovery can publish an edit carrying only a finding from an unchanged sentence', () => {
+  const body = `${DEFAULT_BODY}<p>Bài cũ.</p>`
+  const main = { body, fit: { ...clean, hash: guideHash(body) } }
+  const r = push('guides', { base: main, main, run: { fit: heldFor('source') } }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.body).toBe(DEFAULT_BODY)
+  expect(r.pushed.held).toBeUndefined()
+})
+
+test.each(['matching', 'stale'] as const)('recovery considers a %s harm review even when its translation was already held', review => {
+  const main = { held: hold('source'), fit: heldFor('source'), th: {} }
+  const fit = { ...heldFor('harm'), hash: review === 'matching' ? defaultHash : 'stale' }
+  const r = push('guides', { base: main, main, run: { ...main, fit } }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held?.checks).toEqual(review === 'matching' ? ['harm', 'source'] : ['source'])
+  expect(r.pushedTh().held?.checks).toEqual(review === 'matching' ? ['harm'] : undefined)
+})
+
+test.each(['TH', 'US'])('recovery checks whether changing a card country from %s makes its translation public', country => {
+  const file = 'content/cards/the-x/entity.json'
+  const main = { files: { [file]: eventCard(country) } }
+  const r = push('cards', { base: main, main, run: { files: { [file]: eventCard('VN') } } }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held?.checks).toEqual(country === 'TH' ? [] : undefined)
+})
+
+test('recovery checks an unread guide made visible by changing to a public source', () => {
+  const file = 'content/guides/youtube-x/entity.json'
+  const entity = { ...JSON.parse(fixtureJson('guides/youtube-r53ZQW0m8VM/entity.json')), id: 'youtube-x' }
+  const main = { files: { [file]: JSON.stringify({ ...entity, source: 'aquatome' }) } }
+  const r = push('guides', { base: main, main, run: { files: { [file]: JSON.stringify(entity) } } }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held?.checks).toEqual([])
+})
+
+test('recovery applies a manual hold to a translation whose saved review passes', () => {
+  const manual = hold('source')
+  const main = { held: manual, files: { [HELD_BY_HAND]: JSON.stringify({ 'guides/youtube-x': { ...manual, why: 'fixture' } }) } }
+  const r = push('guides', { base: main, main, run: { ...main, th: { fit: clean } } }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushedTh().held).toEqual(manual)
 })
 
 test.each(['stale', 'missing'] as const)('recovery holds a queued translation without a review of a now-visible part (%s)', review => {
