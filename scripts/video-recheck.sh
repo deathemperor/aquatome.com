@@ -63,6 +63,7 @@ if ! video_recheck_rules_current; then
   log "video recheck rules changed during this run: leaving new work for the next run"
   exit 0
 fi
+video_batch_parent=$(git rev-parse HEAD)
 log "video recheck start"
 # Records left saying pages were done on 11 Nov 2026, when the usage limit stopped the gate, put back before a writer runs.
 pnpm engine redo-unread || log "redo-unread: failed"
@@ -91,9 +92,13 @@ sweep_new_video_recheck || exit 1
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
 # and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
 # and keeps its work on a branch (gate_or_keep).
+if [ "$(git rev-parse HEAD)" != "$video_batch_parent" ]; then
+  log "the video recheck checkout moved before the gate"
+  exit 1
+fi
 gate_or_keep "content: video guides checked again" content engine-state docs/review || exit 1
 if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
 # Save the gated work before verification and before moving main, so startup can recover the batch.
 git add content engine-state docs/review
-commit_video_recheck "content: video guides checked again $(date -u +%F)"
+commit_video_recheck "content: video guides checked again $(date -u +%F)" "$video_batch_parent"
 push_video_recheck

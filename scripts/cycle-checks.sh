@@ -810,27 +810,36 @@ video_recheck_fetch_main() {
   git rev-parse --verify 'FETCH_HEAD^{commit}'
 }
 video_recheck_rebase_attempt() {
-  local upstream=$1 batch=$2 result=$3
-  shift 3
-  # If there is nothing to replay, the result is upstream. Otherwise the sequencer records its last commit.
-  printf '%s\n' "$upstream" > "$result" || return 1
-  AQ_VIDEO_RECHECK_REBASE_RESULT=$result net git rebase -q "$@" --no-update-refs \
-    --exec 'git rev-parse HEAD > "$AQ_VIDEO_RECHECK_REBASE_RESULT"' "$upstream" "$batch"
+  local upstream=$1 batch=$2 action="aquatome-video-recheck-$$-$RANDOM-$RANDOM" replayed history
+  shift 2
+  GIT_REFLOG_ACTION=$action net git rebase -q "$@" --no-update-refs --no-autosquash --no-rebase-merges "$upstream" "$batch" || return 1
+  # Read the commits Git recorded when it updated HEAD for each pick.
+  replayed=$(git reflog show --format=%H --basic-regexp --grep-reflog="^$action (pick):" HEAD) || return 1
+  if [ -n "$replayed" ]; then
+    VIDEO_RECHECK_REBASED=${replayed%%$'\n'*}
+    history=$(git rev-list --first-parent "$upstream..$VIDEO_RECHECK_REBASED") || return 1
+    if [ "$history" != "$replayed" ]; then
+      log "the video recheck rebase includes commits outside its replay"
+      return 1
+    fi
+  elif git merge-base --is-ancestor "$upstream" "$batch"; then
+    VIDEO_RECHECK_REBASED=$batch
+  else
+    VIDEO_RECHECK_REBASED=$upstream
+  fi
 }
 video_recheck_rebase() {
-  local upstream=$1 batch=$2 clash result
-  result=$(git rev-parse --path-format=absolute --git-path aquatome-video-recheck-rebased) || return 1
-  if ! video_recheck_rebase_attempt "$upstream" "$batch" "$result"; then
+  local upstream=$1 batch=$2 clash
+  if ! video_recheck_rebase_attempt "$upstream" "$batch"; then
     clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
     git rebase --abort 2>/dev/null || return 1
     [ -n "$clash" ] || return 1
     log "another job changed the same files: $clash"
-    if ! video_recheck_rebase_attempt "$upstream" "$batch" "$result" -X theirs; then
+    if ! video_recheck_rebase_attempt "$upstream" "$batch" -X theirs; then
       git rebase --abort 2>/dev/null || true
       return 1
     fi
   fi
-  IFS= read -r VIDEO_RECHECK_REBASED < "$result" || return 1
   if [ "$(git rev-parse HEAD)" != "$VIDEO_RECHECK_REBASED" ]; then
     log "the checkout moved after the video recheck rebase"
     return 1

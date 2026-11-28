@@ -25,6 +25,12 @@ test('each run that writes pages gates them last, before it commits, and only a 
     expect(gate, name).toBeLessThan(s.indexOf('if [ -z "$(git status --porcelain'))
     expect(gate, name).toBeLessThan(s.indexOf(`git add ${paths}`))
     expect(gate, name).toBeLessThan(s.indexOf(`${commitCommand} "${message}`))
+    if (name === 'video-recheck.sh') {
+      const parent = s.indexOf('video_batch_parent=$(git rev-parse HEAD)')
+      expect(parent).toBeGreaterThan(0)
+      expect(parent).toBeLessThan(sweep)
+      expect(s).toMatch(/\ncommit_video_recheck .* "\$video_batch_parent"\n/)
+    }
   }
 })
 

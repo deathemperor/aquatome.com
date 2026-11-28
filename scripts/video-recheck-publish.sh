@@ -108,12 +108,20 @@ recover_interrupted_video_recheck() {
   done
 }
 
-# The batch becomes reachable before local main moves to it.
+# The batch becomes reachable before local main moves to it. Its parent was pinned before gating.
 commit_video_recheck() {
-  local parent tree batch
-  parent=$(git rev-parse HEAD) && tree=$(git write-tree) &&
+  local parent=$2 tree batch
+  if [ "$(git rev-parse HEAD)" != "$parent" ]; then
+    log "the video recheck checkout moved before recording the gated batch"
+    return 1
+  fi
+  tree=$(git write-tree) &&
     batch=$(git commit-tree "$tree" -p "$parent" -m "$1") || return 1
-  if ! git update-ref "$VIDEO_RECHECK_PENDING_REF" "$batch" ''; then
+  if ! printf 'verify HEAD %s\ncreate %s %s\n' "$parent" "$VIDEO_RECHECK_PENDING_REF" "$batch" | git update-ref --stdin; then
+    if [ "$(git rev-parse HEAD)" != "$parent" ]; then
+      log "the video recheck checkout moved before recording the gated batch"
+      return 1
+    fi
     keep_lost_push video-recheck "could not record the gated video recheck" "$batch"
     return 1
   fi
