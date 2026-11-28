@@ -58,7 +58,7 @@ function clone() {
   const sh = (command: string, extra: Record<string, string> = {}, cwd = repo) =>
     execSync(command, { cwd, shell: '/bin/bash', encoding: 'utf8', env: { ...env, ...extra } }).trim()
   sh(`git init -q --bare -b main origin.git && git clone -q origin.git ${repo} 2>/dev/null`, {}, home)
-  sh('git config user.email a@example.com && git config user.name a && git checkout -q -b main && mkdir -p content sources engine-state docs/review && echo main > content/a.json && git add . && git commit -qm main && git push -q -u origin main 2>/dev/null')
+  sh('git config user.email a@example.com && git config user.name a && git checkout -q -b main && mkdir -p content sources engine-state docs/review && touch sources/.gitkeep engine-state/.gitkeep docs/review/.gitkeep && echo main > content/a.json && git add . && git commit -qm main && git push -q -u origin main 2>/dev/null')
   const cycle = (body: string, extra: Record<string, string> = {}) => sh(`
     set -euo pipefail; PUSH_PAUSE=0
     log() { echo "LOG $*"; }; TEST_LOG="${home}/test.log"; source "${CHECKS}"; calm() { :; }; settled() { :; }
@@ -224,7 +224,7 @@ test.each(['failed sweep', 'failed sweep commit', 'tracked write during verifica
     ` : ''}
     ${reason === 'tracked write during verification'
       ? 'checks() { echo changed > content/a.json; echo "check changed an input"; }'
-      : `pnpm() { if [ "$1 $2" = "engine sweep" ]; then echo fixed > content/a.json; echo partial > content/partial.json; return ${reason === 'failed sweep' ? 1 : 0}; fi; }; checks() { [ "$(cat content/a.json)" = fixed ]; }`}
+      : `pnpm() { if [ "$1 $2" = "engine sweep" ]; then cd "$AQ_VIDEO_RECONCILE_WORKTREE" || return 1; echo fixed > content/a.json; echo partial > content/partial.json; return ${reason === 'failed sweep' ? 1 : 0}; fi; }; checks() { [ "$(cat content/a.json)" = fixed ]; }`}
     publish_kept video-recheck
   `)
   expect(c.branches()).toEqual([kept])
@@ -474,6 +474,7 @@ test.each(['kept', 'held'])('a %s video recheck replans with the final page phot
   const log = c.cycle(`
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
     pnpm() {
+      cd "$AQ_VIDEO_RECONCILE_WORKTREE" || return 1
       case "$2" in
         sweep)
           test "$(cat '${page}')" = main-photo || return 1
@@ -637,9 +638,9 @@ test('a fresh video recheck rejects a new parent after gating', () => {
   expect(c.sh('git show :content/video.json')).toBe('rechecked')
 }, slow(60_000))
 
-test.each(['unchanged', 'late edit', 'gate failure'])('a fresh video recheck records its isolated gate output after %s', outcome => {
+test.each(['unchanged', 'late edit', 'gate failure', 'an unrelated staged edit'])('a fresh video recheck records its isolated gate output after %s', outcome => {
   const c = clone()
-  c.sh('mkdir -p content/guides/example && echo old > content/guides/example/vi.json && git add content && git commit -qm guide && git push -q')
+  c.sh('mkdir -p content/guides/example && echo old > content/guides/example/vi.json && echo public > README.md && git add content README.md && git commit -qm guide && git push -q')
   const guide = 'content/guides/example/vi.json'
   const tail = script('video-recheck.sh').split('sweep_new_video_recheck || exit 1\n')[1]!
   const log = c.cycle(`
@@ -647,10 +648,12 @@ test.each(['unchanged', 'late edit', 'gate failure'])('a fresh video recheck rec
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
     video_batch_parent=$(git rev-parse HEAD)
     echo candidate > '${guide}'
+    ${outcome === 'an unrelated staged edit' ? 'echo local > README.md && git add README.md' : ':'}
     pnpm() {
       if [ "$1 $2" = 'engine gate' ]; then
         local gate_root="\${AQ_VIDEO_GATE_WORKTREE:-$PWD}"
         test "$(cat "$gate_root/${guide}")" = candidate || return 1
+        test "$(cat "$gate_root/README.md")" = public || return 1
         mkdir -p "$gate_root/engine-state" "$gate_root/docs/review"
         echo approved > "$gate_root/${guide}"
         ${outcome === 'late edit' ? `echo ungated > '${guide}'` : ':'}
@@ -677,8 +680,10 @@ test.each(['unchanged', 'late edit', 'gate failure'])('a fresh video recheck rec
     expect(log).toContain('refused')
     expect(log).not.toContain('VERIFIED')
     expect(c.onMain(guide)).toBe('old')
-    expect(c.sh(`cat '${guide}'`)).toBe('ungated')
+    if (outcome === 'late edit') expect(c.sh(`cat '${guide}'`)).toBe('ungated')
+    else expect(c.sh('git show :README.md')).toBe('local')
     expect(c.sh(`git show 'refs/aquatome/video-recheck/pending:${guide}'`)).toBe('approved')
+    expect(c.sh("git show 'refs/aquatome/video-recheck/pending:README.md'")).toBe('public')
     c.cycle(`
       source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
       recover_interrupted_video_recheck
@@ -687,8 +692,38 @@ test.each(['unchanged', 'late edit', 'gate failure'])('a fresh video recheck rec
       publish_kept video-recheck
     `)
     expect(c.onMain(guide)).toBe('approved')
+    expect(c.onMain('README.md')).toBe('public')
     expect(c.branches()).toEqual([])
   }
+}, slow(60_000))
+
+test.each(['fresh', 'kept', 'held'])('a %s video recheck rejects an unstaged publishing edit during reconciliation', kind => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const branch = `${kind}/video-recheck/${when}`
+  const batch = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD')
+  if (kind !== 'fresh') c.sh(`git branch ${branch} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new')
+  c.sh('git fetch -q origin')
+  const remote = c.sh('git rev-parse origin/main')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    pnpm() {
+      if [ "$1 $2" = 'engine sweep' ]; then
+        echo ungated > content/video.json
+        echo SWEEP-EDITED-OUTER
+      fi
+    }
+    verify_cycle() { echo "VERIFIED $(cat content/video.json)"; }
+    ${kind === 'fresh' ? 'publish_fixture_video_recheck || echo refused' : 'publish_kept video-recheck'}
+  `)
+  expect(log).toContain('SWEEP-EDITED-OUTER')
+  expect(log).not.toContain('VERIFIED')
+  expect(c.sh('git ls-remote origin refs/heads/main | cut -f1')).toBe(remote)
+  const queued = c.branches()
+  expect(queued).toHaveLength(1)
+  expect(c.sh(`git rev-parse ${queued[0]}`)).toBe(batch)
 }, slow(60_000))
 
 test('video publishing requires a recorded gated commit', () => {
@@ -1419,6 +1454,7 @@ test.each([
     ` : ''}
     pnpm() {
       [ "$1 $2" = "engine curate" ] || return 0
+      cd "$AQ_VIDEO_RECONCILE_WORKTREE" || return 1
       printf 'CURATE %s\n' "$(cat content/curation.json)"
       ${fails ? 'echo incomplete > content/curation.json; return 1' : 'printf "%s, replanned\n" "$(cat content/curation.json)" > content/planned && mv content/planned content/curation.json'}
     }
@@ -1478,6 +1514,7 @@ test.each([
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
     pnpm() {
       [ "$1 $2" = "engine curate" ] || return 0
+      cd "$AQ_VIDEO_RECONCILE_WORKTREE" || return 1
       printf 'CURATE %s\n' "$(cat content/curation.json)"
       ${history === 'replan failed' ? 'echo incomplete > content/curation.json; return 1' : `echo ${mainCalendar}-replanned > content/curation.json`}
     }
@@ -1593,7 +1630,7 @@ test.each(['fresh', 'kept'])('a %s video recheck retains its original batch when
   c.elsewhere('code.txt', 'broken')
   const sweep = `
     pnpm() {
-      if [ "$2" = sweep ]; then echo swept > content/sweep.json; fi
+      if [ "$2" = sweep ]; then echo swept > "$AQ_VIDEO_RECONCILE_WORKTREE/content/sweep.json"; fi
     }
   `
   const failed = c.cycle(`
@@ -1634,6 +1671,7 @@ test('a fresh video recheck sweeps new main after the final pull advances the tr
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
     pnpm() {
+      cd "$AQ_VIDEO_RECONCILE_WORKTREE" || return 1
       if [ "$2" = photo-privacy ] && [ -f engine-state/old-record.json ]; then
         git mv engine-state/old-record.json engine-state/new-record.json
       fi
@@ -2256,7 +2294,7 @@ EOF`)
   return { order: () => c.sh('cat "$HOME/order" 2>/dev/null || true').split('\n').filter(Boolean).join(' ') }
 }
 test('the migration the cycle calls is a command of the engine', () => {
-  expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toContain('pnpm engine photo-privacy --write ||')
+  expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toContain('cycle_reconcile_engine photo-privacy --write ||')
   // Missing, every run would keep its work and publish nothing.
   expect(readFileSync(join(ROOT, 'packages/engine/src/cli.ts'), 'utf8')).toContain("cmd === 'photo-privacy'")
   // So is the content's load: missing, every sweep that changed only the dates would be checked in full, as before.

@@ -97,7 +97,7 @@ if [ "$(git rev-parse HEAD)" != "$video_batch_parent" ]; then
   exit 1
 fi
 git add -- content engine-state docs/review
-gate_input=$(git write-tree)
+gate_input=$(video_recheck_gate_input "$video_batch_parent")
 gate_tree=$(gate_video_recheck_tree "$video_batch_parent" "$gate_input") || exit 1
 if [ "$gate_tree" = "$(git rev-parse "$video_batch_parent^{tree}")" ]; then log "no changes"; exit 0; fi
 # Commit only the tree returned by the gate, so startup can recover it if the publishing checkout moved.

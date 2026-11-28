@@ -31,7 +31,7 @@ test('video rechecks pin their parent, stage the gate input after sweeping and c
   const s = script('video-recheck.sh')
   const parent = s.indexOf('video_batch_parent=$(git rev-parse HEAD)')
   const sweep = s.indexOf('sweep_new_video_recheck || exit 1')
-  const input = s.indexOf('gate_input=$(git write-tree)')
+  const input = s.indexOf('gate_input=$(video_recheck_gate_input "$video_batch_parent")')
   const gate = s.indexOf('gate_tree=$(gate_video_recheck_tree "$video_batch_parent" "$gate_input") || exit 1')
   const commit = s.indexOf('commit_video_recheck "content: video guides checked again')
   expect(parent).toBeGreaterThanOrEqual(0)

@@ -921,6 +921,21 @@ video_recheck_tree() {
   git rev-parse "$commit^{tree}"
 }
 
+video_recheck_open_worktree() {
+  local phase=$1 base=$2 git_dir snapshot worktrees
+  git_dir=$(git rev-parse --absolute-git-dir) || return 1
+  snapshot="$git_dir/aquatome-video-$phase"
+  worktrees=$(git worktree list --porcelain) || return 1
+  if grep -Fx "worktree $snapshot" <<<"$worktrees" >/dev/null; then
+    if [ -d "$snapshot" ]; then
+      (cd "$snapshot" && archive_video_recheck_checkout) >&2 || return 1
+    fi
+    git worktree remove --force "$snapshot" >&2 || return 1
+  fi
+  git worktree add -q --detach --no-checkout "$snapshot" "$base" || return 1
+  printf '%s\n' "$snapshot"
+}
+
 # A hard reset can replace an untracked file when the destination commit tracks that path.
 reset_recovery_checkout() {
   local target=$2
@@ -986,6 +1001,58 @@ video_recheck_unchanged() {
   return 1
 }
 
+# Run the installed engine against the private data checkout without sharing or installing its dependencies there.
+cycle_reconcile_engine() {
+  if [ -z "${video_reconcile_install:-}" ]; then
+    pnpm engine "$@"
+    return
+  fi
+  (export AQ_VIDEO_RECONCILE_WORKTREE="$PWD"; cd "$video_reconcile_install" && pnpm engine "$@")
+}
+
+reconcile_video_recheck() {
+  local mode=$1 batch=$2 upstream=$3 pulled=$4 calendar=$5 before=$6
+  local checked=${7:-} must_check=${8:-} video_reconcile_install=$PWD
+  local snapshot result reconciled migration recheck
+  snapshot=$(video_recheck_open_worktree reconcile "$pulled") || return 1
+  result=$(git -C "$snapshot" rev-parse --absolute-git-dir) || return 1
+  result="$result/aquatome-reconcile-result"
+  git -C "$snapshot" read-tree --reset -u "$pulled" || return 1
+  if ! (
+    cd "$snapshot" || exit 1
+    video_publish_head=$pulled
+    if [ "$mode" = recovery ] && ! main_pages "$batch" "$upstream"; then exit 1; fi
+    if [ "$mode" = recovery ] || [ "$upstream" != "$before" ]; then
+      main_holds "$batch" "$upstream" || { [ "$?" = 1 ] || exit 1; }
+    fi
+    if [ -n "$calendar" ] && ! restore_video_recheck_calendar "$upstream"; then exit 1; fi
+    if [ "$video_publish_head" != "$pulled" ]; then must_check=1; fi
+    if [ "$upstream" != "$before" ] ||
+      { [ "$mode" = recovery ] && { [ -n "$calendar$must_check${MIGRATE_FAILED:-}" ] ||
+        [ "$(git rev-parse "$video_publish_head^{tree}")" != "$checked" ]; }; }; then
+      sweep_merged strict || exit 1
+    fi
+    if [ -n "$calendar" ] && ! curate_merged_calendar strict; then exit 1; fi
+    video_recheck_tree >/dev/null || exit 1
+    printf '%s %s %s\n' "$video_publish_head" "${MIGRATE_FAILED:-0}" "${must_check:-0}" > "$result"
+  ); then
+    if (cd "$snapshot" && archive_video_recheck_checkout); then
+      git worktree remove --force "$snapshot" || log "could not remove the video reconciliation checkout"
+    fi
+    return 1
+  fi
+  read -r reconciled migration recheck < "$result" || return 1
+  git worktree remove --force "$snapshot" || return 1
+  # Import only the reconciled commit. A change in the publishing checkout stays available for recovery to archive.
+  video_recheck_tree "$pulled" >/dev/null &&
+    git read-tree -m -u "$pulled" "$reconciled" &&
+    git update-ref -m "video recheck: use the reconciled tree" HEAD "$reconciled" "$pulled" || return 1
+  video_publish_head=$reconciled
+  MIGRATE_FAILED=
+  if [ "$migration" != 0 ]; then MIGRATE_FAILED=$migration; fi
+  if [ "$mode" = recovery ] && [ "$recheck" != 0 ]; then check=1; fi
+}
+
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
 # when its tests failed for real; KEPT_WHY says why it isn't published; BRANCH, the branch's name now (a check that
@@ -993,7 +1060,7 @@ video_recheck_unchanged() {
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
   local check=1 clash main head swept run video_recheck= batch pulled refreshed calendar='' outgoing checked_tree= verification_failed commit publish rejected_commit=
-  local video_publish_head='' holds_status
+  local video_publish_head=''
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
@@ -1041,6 +1108,11 @@ push_kept() {
         KEPT_WHY="could not reconcile the video recheck batch with main"
         return 1
       fi
+      if ! reconcile_video_recheck recovery "$batch" "$refreshed" "$pulled" "$calendar" "$main" "$checked_tree" "$check"; then
+        KEPT_WHY="could not reconcile the video recheck in its private checkout"
+        return 1
+      fi
+      swept=1
     else
       clash=
       if ! net git pull -q --rebase origin main; then
@@ -1051,39 +1123,28 @@ push_kept() {
       fi
       refreshed=$(git rev-parse origin/main 2>/dev/null || true)
       replan_merged "$clash"
-    fi
-    # Main's pages put back is a tree the checks haven't seen: on a try after a lost push, back over what the sweep made of
-    # them (Grok's read of 19652e876, 14 Nov). main_pages commits only when it changed something, and so do main's holds
-    # (main_holds), after it: a page it put back whole is main's already.
-    head=$(git rev-parse HEAD)
-    if [ -n "$BRANCH" ] && ! main_pages "${batch:-$BRANCH}" "$refreshed"; then
-      KEPT_WHY="could not restore main's pages"
-      return 1
-    fi
-    holds_status=0
-    main_holds "$run" "$refreshed" || holds_status=$?
-    if [ "$holds_status" = 2 ]; then
-      KEPT_WHY="could not restore main's holds"
-      return 1
-    fi
-    if [ -n "${calendar:-}" ] && ! restore_video_recheck_calendar "$refreshed"; then
-      KEPT_WHY="could not restore main's calendar"
-      return 1
-    fi
-    [ "$(git rev-parse HEAD)" = "$head" ] || check=1
-    # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
-    # main, it's checked in full; once it has, its lost push goes again as a run's own push does (push(), swept_pull):
-    # checked again only if the sweep changed more than the pages' dates or its reports, the calendar changed on both
-    # sides, or the migration failed (swept_clean), whatever main's commits changed, code too. On 15 Nov the held photos run of the night before passed its checks and lost its
-    # push three times, a full re-test of 30 to 50 minutes each on a hot Mac, while main took leads' merges, most with
-    # code (the Site lead and the chief of staff, 15 Nov).
-    # That sweep is the one the check sees, if it runs: a second would clear a failed migration's flag, and the tests
-    # would pass a tree whose photo records weren't migrated, which push() never publishes (Grok's read).
-    if [ -n "${calendar:-}" ] || { [ "$refreshed" != "$main" ] && [ -z "$check" ]; }; then
+      # Main's pages put back is a tree the checks haven't seen: on a try after a lost push, back over what the sweep made of
+      # them (Grok's read of 19652e876, 14 Nov). main_pages commits only when it changed something, and so do main's holds
+      # (main_holds), after it: a page it put back whole is main's already.
       head=$(git rev-parse HEAD)
-      sweep_merged "$video_recheck" || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
-      swept=1
-      if [ -z "$video_recheck" ]; then
+      if [ -n "$BRANCH" ] && ! main_pages "$BRANCH" "$refreshed"; then
+        KEPT_WHY="could not restore main's pages"
+        return 1
+      fi
+      main_holds "$run" "$refreshed" || { [ "$?" = 1 ] || { KEPT_WHY="could not restore main's holds"; return 1; }; }
+      [ "$(git rev-parse HEAD)" = "$head" ] || check=1
+      # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
+      # main, it's checked in full; once it has, its lost push goes again as a run's own push does (push(), swept_pull):
+      # checked again only if the sweep changed more than the pages' dates or its reports, the calendar changed on both
+      # sides, or the migration failed (swept_clean), whatever main's commits changed, code too. On 15 Nov the held photos run of the night before passed its checks and lost its
+      # push three times, a full re-test of 30 to 50 minutes each on a hot Mac, while main took leads' merges, most with
+      # code (the Site lead and the chief of staff, 15 Nov).
+      # That sweep is the one the check sees, if it runs: a second would clear a failed migration's flag, and the tests
+      # would pass a tree whose photo records weren't migrated, which push() never publishes (Grok's read).
+      if [ "$refreshed" != "$main" ] && [ -z "$check" ]; then
+        head=$(git rev-parse HEAD)
+        sweep_merged || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
+        swept=1
         if swept_clean "$head" "$main" "$refreshed"; then
           log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
         else
@@ -1091,16 +1152,12 @@ push_kept() {
         fi
       fi
     fi
-    if [ -n "${calendar:-}" ] && ! curate_merged_calendar strict; then
-      KEPT_WHY="could not replan main's calendar"
-      return 1
-    fi
     # Recovered video work can reuse a pass only for the exact tree it checked.
     if [ -n "$video_recheck" ] && { [ "$(git rev-parse "$video_publish_head^{tree}")" != "$checked_tree" ] || [ -n "$MIGRATE_FAILED" ]; }; then
       check=1
     fi
     if [ -n "$check" ]; then
-      [ -n "$swept" ] || sweep_merged "$video_recheck" || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
+      [ -n "$swept" ] || sweep_merged || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
       if [ -n "$video_recheck" ]; then
         checked_tree=$(video_recheck_tree) || { KEPT_WHY="the video recheck checkout differed from its commit before verification"; return 1; }
       fi
@@ -1264,8 +1321,8 @@ verify_cycle() {
 sweep_merged() {
   if [ -n "${1:-}" ] && ! prepare_video_recheck; then return 1; fi
   MIGRATE_FAILED=
-  pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
-  if ! pnpm engine sweep; then
+  cycle_reconcile_engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
+  if ! cycle_reconcile_engine sweep; then
     log "sweep: failed"
     if [ -n "${1:-}" ]; then
       archive_video_recheck_inputs || log "could not save all files the sweep created"
@@ -1354,7 +1411,7 @@ replan_merged() {
   curate_merged_calendar
 }
 curate_merged_calendar() {
-  if ! pnpm engine curate; then
+  if ! cycle_reconcile_engine curate; then
     log "curate: failed"
     [ -z "${1:-}" ] || return 1
   fi

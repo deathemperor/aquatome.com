@@ -108,16 +108,22 @@ recover_interrupted_video_recheck() {
   done
 }
 
+# Construct the gate input from the pinned parent and the three paths this job staged.
+video_recheck_gate_input() (
+  local parent=$1 staged git_dir index_dir
+  staged=$(git write-tree) && git_dir=$(git rev-parse --absolute-git-dir) || return 1
+  index_dir=$(mktemp -d "$git_dir/aquatome-video-gate-index.XXXXXXXX") || return 1
+  export GIT_INDEX_FILE="$index_dir/index"
+  trap 'rm -f -- "$GIT_INDEX_FILE"; rmdir "$index_dir"' EXIT
+  git read-tree "$parent" &&
+    git restore --staged --source="$staged" -- content engine-state docs/review &&
+    git write-tree
+)
+
 # Run the gate on the staged input in its own checkout. Only that checkout can supply the approved tree.
 gate_video_recheck_tree() (
-  local parent=$1 input=$2 git_dir snapshot worktrees
-  git_dir=$(git rev-parse --absolute-git-dir) || return 1
-  snapshot="$git_dir/aquatome-video-gate"
-  worktrees=$(git worktree list --porcelain) || return 1
-  if grep -Fx "worktree $snapshot" <<<"$worktrees" >/dev/null; then
-    git worktree remove --force "$snapshot" >&2 || return 1
-  fi
-  git worktree add -q --detach --no-checkout "$snapshot" "$parent" || return 1
+  local parent=$1 input=$2 snapshot
+  snapshot=$(video_recheck_open_worktree gate "$parent") || return 1
   trap 'git worktree remove --force "$snapshot" >&2 || log "could not remove the video gate checkout" >&2' EXIT
   git -C "$snapshot" read-tree --reset -u "$input" || return 1
   AQ_VIDEO_GATE_WORKTREE=$snapshot gate_or_keep "content: video guides checked again" content engine-state docs/review >&2 || return 1
@@ -170,7 +176,7 @@ push_video_recheck() {
 
 publish_video_recheck_batch() {
   local try run batch_base tree checked_tree='' refreshed pulled calendar outgoing verification_failed commit candidate batch=$1
-  local video_publish_head='' holds_status
+  local video_publish_head=''
   candidate=$batch
   if ! batch_base=$(git merge-base "$batch" origin/main); then
     keep_lost_push video-recheck "could not find the batch's base on origin/main" "$batch"
@@ -218,26 +224,11 @@ publish_video_recheck_batch() {
       keep_lost_push video-recheck "could not reconcile the video recheck batch with main" "$batch"
       return 1
     fi
-    if [ -n "$calendar" ] && ! restore_video_recheck_calendar "$refreshed"; then
-      keep_lost_push video-recheck "could not restore main's calendar" "$batch"
-      return 1
-    fi
-    if [ "$refreshed" != "$batch_base" ]; then
-      holds_status=0
-      main_holds "$batch" "$refreshed" || holds_status=$?
-      if [ "$holds_status" = 2 ]; then
-        keep_lost_push video-recheck "could not restore main's holds" "$batch"
+    if [ "$refreshed" != "$batch_base" ] || [ -n "$calendar" ]; then
+      if ! reconcile_video_recheck fresh "$batch" "$refreshed" "$pulled" "$calendar" "$batch_base"; then
+        keep_lost_push video-recheck "could not reconcile the video recheck in its private checkout" "$batch"
         return 1
       fi
-      if ! sweep_merged strict; then
-        keep_lost_push video-recheck "the sweep did not finish and commit" "$batch"
-        return 1
-      fi
-    fi
-
-    if [ -n "$calendar" ] && ! curate_merged_calendar strict; then
-      keep_lost_push video-recheck "could not replan main's calendar" "$batch"
-      return 1
     fi
 
     # Check the tree that includes the latest main. A disjoint content change can affect cross-page checks.
