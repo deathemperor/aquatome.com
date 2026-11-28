@@ -534,6 +534,7 @@ publish_kept() {
   if engine_cloud; then
     net git fetch -q origin "+refs/heads/kept/$1/*:refs/heads/kept/$1/*" "+refs/heads/held/$1/*:refs/heads/held/$1/*" || log "the kept work on GitHub couldn't be fetched: left for the next run"
   fi
+  [ "$1" != video-recheck ] || settle_video_recheck_outgoing || return 1
   drop_old_held "$1"
   forget_two_names "$1"
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
@@ -543,7 +544,7 @@ publish_kept() {
     log "publishing $branch, kept by an earlier run"
     reset_recovery_checkout "$1" "$branch" || return 1
     if push_kept "$branch"; then
-      drop_published_branch "$BRANCH" || return 1
+      finish_published_branch "$BRANCH" || return 1
       log "published $branch"
       net git fetch -q origin || true
       reset_recovery_checkout "$1" origin/main || return 1
@@ -595,6 +596,18 @@ drop_published_branch() {
   log "published $1 but its local branch could not be removed"
   return 1
 }
+finish_published_branch() {
+  local batch queued
+  case "$1" in
+    kept/video-recheck/*|held/video-recheck/*)
+      batch=$(video_recheck_recovery_parent "$1" 1) &&
+        queued=$(video_recheck_batch_refs "$batch") &&
+        drop_video_recheck_queue_refs "$queued" &&
+        clear_video_recheck_outgoing "$batch"
+      ;;
+    *) drop_published_branch "$1" ;;
+  esac
+}
 # Each held branch of <job> not yet tried again, once main's code (anything but the engine's output and the docs) has
 # changed since the main it was checked on: published as kept work is, or, failing its tests for real again, or out of
 # time in OUT_CYCLES tries in a row (count_outs), moved to <branch>-tried, which nothing tries again. Out of time fewer
@@ -612,7 +625,7 @@ retry_held() {
     log "trying $branch once more: main's code has changed since it was held"
     reset_recovery_checkout "$1" "$branch" || return 1
     if push_kept "$branch"; then
-      drop_published_branch "$BRANCH" || return 1
+      finish_published_branch "$BRANCH" || return 1
       log "published $branch"
       net git fetch -q origin || true
       reset_recovery_checkout "$1" origin/main || return 1
@@ -734,6 +747,61 @@ video_recheck_recovery_parent() {
   else
     git rev-parse "$1"
   fi
+}
+# A held ref can point to a record with the original batch as its first parent.
+video_recheck_batch_refs() {
+  local branches branch original
+  branches=$(git for-each-ref --format='%(refname)' refs/heads/kept/video-recheck/ refs/heads/held/video-recheck/) || return 1
+  for branch in $branches; do
+    original=$(video_recheck_recovery_parent "$branch" 1) || return 1
+    if [ "$original" = "$1" ]; then printf '%s\n' "${branch#refs/heads/}"; fi
+  done
+}
+
+VIDEO_RECHECK_OUTGOING=refs/aquatome/video-recheck/outgoing
+record_video_recheck_outgoing() {
+  git update-ref "$VIDEO_RECHECK_OUTGOING/$1/$2" "$2"
+}
+video_recheck_outgoing_commits() {
+  git for-each-ref --format='%(objectname)' "$VIDEO_RECHECK_OUTGOING/$1/"
+}
+video_recheck_push_reached_main() {
+  local commit
+  for commit in $1; do
+    if git merge-base --is-ancestor "$commit" "$2"; then return 0
+    elif [ "$?" != 1 ]; then return 2; fi
+  done
+  return 1
+}
+clear_video_recheck_outgoing() {
+  local refs ref commit
+  refs=$(git for-each-ref --format='%(refname) %(objectname)' "$VIDEO_RECHECK_OUTGOING/$1/") || return 1
+  while read -r ref commit; do
+    [ -n "$ref" ] || continue
+    git update-ref -d "$ref" "$commit" || return 1
+  done <<<"$refs"
+}
+drop_video_recheck_queue_refs() {
+  local branch
+  for branch in $1; do drop_published_branch "$branch" || return 1; done
+}
+# Check recorded pushes before deciding whether to retry the queue.
+settle_video_recheck_outgoing() {
+  local refs batch queued outgoing main=''
+  refs=$(git for-each-ref --format='%(refname:lstrip=4)' "$VIDEO_RECHECK_OUTGOING/") || return 1
+  for batch in $(cut -d/ -f1 <<<"$refs" | sort -u); do
+    queued=$(video_recheck_batch_refs "$batch") || return 1
+    if [ -z "$queued" ]; then
+      clear_video_recheck_outgoing "$batch" || return 1
+      continue
+    fi
+    if [ -z "$main" ]; then main=$(video_recheck_fetch_main) || return 1; fi
+    outgoing=$(video_recheck_outgoing_commits "$batch") || return 1
+    if video_recheck_push_reached_main "$outgoing" "$main"; then
+      log "main already contains the verified video recheck commit for $batch"
+      drop_video_recheck_queue_refs "$queued" && clear_video_recheck_outgoing "$batch" || return 1
+    elif [ "$?" != 1 ]; then return 1; fi
+  done
 }
 # Read the commit fetched for this attempt, then use it even if main advances during a rebase.
 video_recheck_fetch_main() {
@@ -885,7 +953,7 @@ video_recheck_unchanged() {
 # passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
-  local check=1 clash main head swept run video_recheck= batch pulled refreshed calendar='' checked_tree= verification_failed commit publish rejected_commit=
+  local check=1 clash main head swept run video_recheck= batch pulled refreshed calendar='' outgoing checked_tree= verification_failed commit publish rejected_commit=
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
@@ -911,7 +979,13 @@ push_kept() {
       run=$batch
     fi
     if [ -n "$video_recheck" ]; then
-      if ! refreshed=$(video_recheck_fetch_main) || ! video_recheck_rebase "$refreshed"; then
+      if ! refreshed=$(video_recheck_fetch_main) || ! outgoing=$(video_recheck_outgoing_commits "$batch"); then
+        KEPT_WHY="could not check whether the video recheck reached main"
+        return 1
+      fi
+      if video_recheck_push_reached_main "$outgoing" "$refreshed"; then return 0
+      elif [ "$?" != 1 ]; then KEPT_WHY="could not check whether the video recheck reached main"; return 1; fi
+      if ! video_recheck_rebase "$refreshed"; then
         KEPT_WHY="could not rebase the video recheck onto main"
         return 1
       fi
@@ -1002,6 +1076,10 @@ push_kept() {
     if [ -n "$video_recheck" ]; then
       if ! commit=$(git rev-parse HEAD) || [ "$(video_recheck_tree "$commit" "$pulled")" != "$checked_tree" ]; then
         KEPT_WHY="the video recheck checkout differed from the verified tree before publishing"
+        return 1
+      fi
+      if ! record_video_recheck_outgoing "$batch" "$commit"; then
+        KEPT_WHY="could not record the outgoing video recheck commit"
         return 1
       fi
       publish="$commit:refs/heads/main"
@@ -1208,9 +1286,10 @@ swept_clean() {
 # main and drops it. A branch of that name already there is never written over. `keep_lost_push <job> [why] [commit]`.
 keep_lost_push() {
   engine_clone || engine_cloud || return 0
-  local branch why=${2:-push failed three times}; branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
+  local branch saved why=${2:-push failed three times}; branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
   if [ "$1" = video-recheck ]; then
-    branch=$(keep_video_recheck_ref "$branch" "${3:-HEAD}") || return 1
+    saved=$(git rev-parse --verify "${3:-HEAD}^{commit}") || return 1
+    branch=$(keep_video_recheck_ref "$branch" "$saved" "$saved") || return 1
     log "$why: this run's work is kept on $branch for the next run"
     return
   fi

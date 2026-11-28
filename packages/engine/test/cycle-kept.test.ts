@@ -571,10 +571,16 @@ test('video startup can recover an anchored commit before main advances', () => 
   expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
 }, slow(60_000))
 
-test.each(['not sent', 'sent', 'sent then reverted', 'sent but unconfirmed'])('video startup recovers an interrupted push that was %s', outcome => {
+test.each([
+  ['fresh', 'not sent'], ['fresh', 'sent'], ['fresh', 'sent then reverted'], ['fresh', 'sent but unconfirmed'],
+  ['kept', 'not sent'], ['kept', 'sent then reverted'], ['held', 'sent then reverted'],
+] as const)('%s video startup recovers an interrupted push that was %s', (lane, outcome) => {
   const c = clone()
   const batch = c.sh("echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD")
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  if (lane !== 'fresh') c.sh(`git branch '${lane}/video-recheck/${when}' && git reset -q --hard origin/main`)
   c.elsewhere('code.txt', 'new-code')
+  c.sh('git fetch -q origin')
   expect(() => c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
@@ -588,7 +594,7 @@ test.each(['not sent', 'sent', 'sent then reverted', 'sent but unconfirmed'])('v
       fi
       "$@"
     }
-    push_video_recheck
+    ${lane === 'fresh' ? 'push_video_recheck' : 'publish_kept video-recheck'}
   `)).toThrow()
   if (outcome === 'sent but unconfirmed') expect(c.branches()).toHaveLength(1)
   const outgoing = c.sh('cat "$HOME/outgoing"')
@@ -882,6 +888,17 @@ test.each([
     const archived = pendingLocked ? locked : backup
     expect(c.sh(`git -C "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-ref.* rev-parse refs/heads/${archived}`)).toBe(batch)
     if (pendingLocked) c.sh('rm .git/refs/aquatome/video-recheck/pending.lock')
+    for (const attempt of [1, 2]) {
+      expect(c.cycle(`
+        source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+        git() {
+          if [ "$1" = branch ] && [ "$#" -ge 3 ] && [[ "$3" = held/video-recheck/* ]]; then return 1; fi
+          command git "$@"
+        }
+        recover_interrupted_video_recheck || echo 'queued status retained'
+      `)).toContain('queued status retained')
+      expect(c.sh('find "$HOME/.cache/aquatome/engine-check-failures" -maxdepth 1 -type d -name "video-recheck-ref.*" | wc -l'), `restart ${attempt}`).toBe('1')
+    }
     const restart = c.cycle(`
       source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
       archive_video_recheck_checkout
