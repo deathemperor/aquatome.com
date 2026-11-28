@@ -726,7 +726,7 @@ video_recheck_rebase() {
 }
 # Keep the whole batch through the rebase, except a calendar that must be replanned on main.
 # Comparing against the original base catches patches Git skipped after main applied and then reverted them.
-video_recheck_reconcile_batch() {
+video_recheck_batch_calendar() {
   local batch=$1 upstream=$2 pulled=$3 base tip edits calendar=content/curation.json combined status=0
   git merge-base --is-ancestor "$upstream" "$pulled" || return 1
   # The guide commit starts the batch, before any sweep commits. Main can already share part of that history.
@@ -754,7 +754,12 @@ video_recheck_reconcile_batch() {
       return 1
     fi
   fi
-  if [ -n "$calendar" ]; then replan_merged "$calendar" "$upstream" || return 1; fi
+  printf '%s' "$calendar"
+}
+# Start the sweep from main's calendar, then plan with the pages and photos the sweep leaves.
+restore_video_recheck_calendar() {
+  git checkout "$1" -- content/curation.json || return 1
+  git diff --cached --quiet || git commit -q -m "content: restore main's calendar"
 }
 # Content loaders can read ignored paths within their input directories. last-run.json is a local run report.
 video_recheck_local_files() {
@@ -853,7 +858,7 @@ video_recheck_unchanged() {
 # passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
-  local check=1 clash main head swept run video_recheck= batch pulled refreshed checked_tree= verification_failed commit publish rejected_commit=
+  local check=1 clash main head swept run video_recheck= batch pulled refreshed calendar='' checked_tree= verification_failed commit publish rejected_commit=
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
@@ -892,7 +897,7 @@ push_kept() {
         KEPT_WHY="video recheck rules changed during this run"
         return 1
       fi
-      if ! video_recheck_reconcile_batch "$batch" "$refreshed" "$pulled"; then
+      if ! calendar=$(video_recheck_batch_calendar "$batch" "$refreshed" "$pulled"); then
         KEPT_WHY="could not reconcile the video recheck batch with main"
         return 1
       fi
@@ -913,6 +918,10 @@ push_kept() {
     head=$(git rev-parse HEAD)
     [ -z "$BRANCH" ] || main_pages "${batch:-$BRANCH}" "$refreshed"
     main_holds "$run" "$refreshed" || true
+    if [ -n "${calendar:-}" ] && ! restore_video_recheck_calendar "$refreshed"; then
+      KEPT_WHY="could not restore main's calendar"
+      return 1
+    fi
     [ "$(git rev-parse HEAD)" = "$head" ] || check=1
     # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
     # main, it's checked in full; once it has, its lost push goes again as a run's own push does (push(), swept_pull):
@@ -922,7 +931,7 @@ push_kept() {
     # code (the Site lead and the chief of staff, 15 Nov).
     # That sweep is the one the check sees, if it runs: a second would clear a failed migration's flag, and the tests
     # would pass a tree whose photo records weren't migrated, which push() never publishes (Grok's read).
-    if [ "$refreshed" != "$main" ] && [ -z "$check" ]; then
+    if [ -n "${calendar:-}" ] || { [ "$refreshed" != "$main" ] && [ -z "$check" ]; }; then
       head=$(git rev-parse HEAD)
       sweep_merged "$video_recheck" || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
       swept=1
@@ -933,6 +942,10 @@ push_kept() {
           check=1
         fi
       fi
+    fi
+    if [ -n "${calendar:-}" ] && ! curate_merged_calendar strict; then
+      KEPT_WHY="could not replan main's calendar"
+      return 1
     fi
     # Recovered video work can reuse a pass only for the exact tree it checked.
     if [ -n "$video_recheck" ] && { [ "$(git rev-parse 'HEAD^{tree}')" != "$checked_tree" ] || [ -n "$MIGRATE_FAILED" ]; }; then
@@ -1181,14 +1194,15 @@ keep_lost_push() {
 # line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of
 # 2026-11-08, against an editor's re-plan): its tests failed and the part's photos waited a cycle. So when the calendar
 # is among the clashing files ($1), it is main's, planned again on this cycle's photos, as the curate step plans.
-# Video rechecks pass the fetched main commit ($2) and defer publishing if the replan fails.
 replan_merged() {
   [[ " $1 " == *" content/curation.json "* ]] || return 0
-  local main=${2:-'@{u}'}
-  git checkout "$main" -- content/curation.json || return 1
+  git checkout '@{u}' -- content/curation.json || return 1
+  curate_merged_calendar
+}
+curate_merged_calendar() {
   if ! pnpm engine curate; then
     log "curate: failed"
-    [ -z "${2:-}" ] || return 1
+    [ -z "${1:-}" ] || return 1
   fi
   git add content/curation.json || return 1
   git diff --cached --quiet || git commit -q -m "content: the calendar planned again on main's"

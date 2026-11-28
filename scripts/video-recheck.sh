@@ -46,6 +46,10 @@ archive_video_recheck_checkout || {
   log "could not preserve the video recheck checkout before resetting"
   exit 1
 }
+recover_interrupted_video_recheck || {
+  log "could not queue the interrupted video recheck"
+  exit 1
+}
 from_main "$@"
 cool
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
