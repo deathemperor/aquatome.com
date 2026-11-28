@@ -690,6 +690,65 @@ test.each([
   expect(c.onMain('content/video.json')).toBe('')
 }, slow(60_000))
 
+test.each([false, true])('a fresh video recheck saves interrupted work when its kept refs are locked (both: %s)', blockBoth => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  const kept = `kept/video-recheck/${when}`
+  const backup = `${kept}-save`
+  const batch = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD')
+  c.sh(`mkdir -p .git/refs/heads/kept/video-recheck && touch .git/refs/heads/${kept}.lock`)
+  if (blockBoth) c.sh(`touch .git/refs/heads/${backup}.lock`)
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    date() {
+      if [ "$*" = '-u +%Y%m%dT%H%M%S' ]; then echo '${when}'; else command date "$@"; fi
+    }
+    checks() { echo changed > content/a.json; }
+    push_video_recheck || echo refused
+  `)
+  expect(log).toContain('refused')
+  expect(c.onMain('content/video.json')).toBe('')
+  if (blockBoth) {
+    expect(c.branches()).toEqual([])
+    expect(c.sh(`git -C "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-ref.* rev-parse refs/heads/${backup}`)).toBe(batch)
+  } else {
+    expect(c.branches()).toEqual([backup])
+    expect(c.sh(`git rev-parse ${backup}`)).toBe(batch)
+  }
+}, slow(60_000))
+
+test('a fresh video recheck publishes to origin/main without a configured upstream', () => {
+  const c = clone()
+  c.sh('git branch --unset-upstream && echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')
+  c.elsewhere('code.txt', 'from-main')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    push_video_recheck || echo refused
+  `)
+  expect(log).toContain('pushed (GitHub deploys it)')
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.onMain('code.txt')).toBe('from-main')
+  expect(c.branches()).toEqual([])
+}, slow(60_000))
+
+test('a fresh video recheck keeps the batch when origin/main cannot be resolved', () => {
+  const c = clone()
+  const batch = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD')
+  c.sh('git update-ref -d refs/remotes/origin/main')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD^)
+    push_video_recheck || echo refused
+  `)
+  expect(log).toContain("could not find the batch's base on origin/main")
+  const branches = c.branches()
+  expect(branches).toEqual([expect.stringMatching(/^kept\/video-recheck\/\d{8}T\d{6}$/)])
+  expect(c.sh(`git rev-parse ${branches[0]}`)).toBe(batch)
+  expect(c.onMain('content/video.json')).toBe('')
+}, slow(60_000))
+
 test('video recheck treats empty fixture review directories as verification inputs', () => {
   const c = clone()
   const path = 'apps/site/test/engine-state/reviews'

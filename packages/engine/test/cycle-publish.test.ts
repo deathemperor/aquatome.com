@@ -18,7 +18,7 @@ test('a cycle sweeps again after each merge with main, before the tests', () => 
   expect(cycle).toMatch(/rebase -X theirs; then\n\s*replan_merged "\$clash"\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
   expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
   expect(script('video-recheck.sh')).toContain('source scripts/video-recheck-publish.sh')
-  expect(script('video-recheck-publish.sh')).toMatch(/main_holds "\$run" \|\| true\n\s*if ! sweep_merged strict; then[\s\S]*\n\s*verify_cycle "\$tree" \|\| verification_failed=\$\?/)
+  expect(script('video-recheck-publish.sh')).toMatch(/main_holds "\$run" "\$refreshed" \|\| true\n\s*if ! sweep_merged strict; then[\s\S]*\n\s*verify_cycle "\$tree" \|\| verification_failed=\$\?/)
 })
 
 test('what the sweep changes after a merge is committed, and no change leaves no commit', () => {
