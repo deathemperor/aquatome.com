@@ -50,8 +50,13 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   // Kept work: after a pull that brought main's commits in, checked in full until it has passed; then swept, and checked
   // again only if the sweep changed more than the pages' dates or the migration failed, as a run's own push does, on that
   // one sweep.
-  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$refreshed" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged \|\| .*return 1; }\n\s*swept=1\n\s*if swept_clean "\$head" "\$main" "\$refreshed"; then/)
-  expect(script('cycle-checks.sh')).toMatch(/\n\s*if \[ -n "\$check" \]; then\n\s*\[ -n "\$swept" \] \|\| sweep_merged/)
+  const kept = script('cycle-checks.sh').match(/^push_kept\(\) \{\n[\s\S]*?^\}/m)?.[0] ?? ''
+  expect(kept).toMatch(/if \[ "\$refreshed" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged \|\| .*return 1; }\n\s*swept=1\n\s*swept_clean "\$head" "\$main" "\$refreshed" \|\| check=1/)
+  const sweep = kept.search(/if \[ -n "\$check" \] && \[ -z "\$swept" \]; then\n\s*sweep_merged/)
+  const review = kept.indexOf('main_holds "$run" "$refreshed" recovery')
+  expect(sweep).toBeGreaterThanOrEqual(0)
+  expect(review).toBeGreaterThan(sweep)
+  expect(kept.indexOf('verify_cycle "$video_publish_head"')).toBeGreaterThan(review)
 
   const dir = mkdtempSync(join(tmpdir(), 'aq-pulled-'))
   mkdirSync(join(dir, 'bin'))
