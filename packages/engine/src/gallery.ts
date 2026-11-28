@@ -2,7 +2,7 @@ import { piece } from './pieces'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
+import { photoRejections, heldPhotoVersion, photoVersionAddressSet, GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -13,10 +13,11 @@ import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, unfitCommons } from './photos'
-import { CLEARED_VERDICT, looks, readSecondLook } from './last-photo'
+import { CLEARED_VERDICT, looks, readPassedBefore, readSecondLook } from './last-photo'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 import { WikimediaRefused } from './wikimedia-rest'
+import { shouldStripPhoto } from './watermarks'
 
 /** A photo found for a species or plant, before screening: `key` identifies it across runs (Commons title, iNaturalist photo id…). */
 export type Candidate = Photo & { key: string }
@@ -519,7 +520,14 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   let openverseFailures = 0
   const today = d.now().toISOString().slice(0, 10)
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
-  await dropRejected(content, rejectedPhoto)
+  const reviewed = heldPhotoVersion(sl)
+  const passed = photoVersionAddressSet(await readPassedBefore(root))
+  const rejection = photoRejections(rejected, {}, url => reviewed(url) || passed(url))
+  const why = (url: string) => {
+    const entry = rejection(url)
+    return entry?.[1].startsWith('watermark:') && (markKept(url) || markKept(entry[0])) ? undefined : entry?.[1]
+  }
+  await dropRejected(content, why)
   // `shard` [i, n]: every n-th page from the i-th, so n runs can share the work (each still most popular first).
   const plan = (await galleryPlan(root)).filter((t, i) => (!o.only || t.id === o.only) && (!o.shard || i % o.shard[1] === o.shard[0]))
   // Each source's requests: counted against the run's budget, at the pace the source asks for (shared by n shards).
@@ -792,11 +800,13 @@ async function pageOf(root: string, id: string): Promise<Photo[]> {
 }
 
 /** Photos the owner rejected (engine-state/_photo-rejected.json) leave every gallery, the next run after they are listed. */
-async function dropRejected(content: string, isRejected: (url: string) => boolean) {
+async function dropRejected(content: string, why: (url: string) => string | undefined) {
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const file = join(content, 'gallery', f)
     const g = JSON.parse(await readFile(file, 'utf8')) as { photos: Photo[] }
-    const keep = g.photos.filter(p => !isRejected(p.url))
+    const keep = g.photos.filter(p => !shouldStripPhoto(p, url => !!why(url), (url, original, blocked) =>
+      /^(?:dead|people|waiting): /.test(why(url) ?? '') && (!blocked || why(original)?.startsWith('waiting:') === true),
+    ))
     if (keep.length < g.photos.length) await writeFile(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
   }
 }
@@ -807,7 +817,7 @@ async function dropRejected(content: string, isRejected: (url: string) => boolea
  * stay (isInatNonCommercial); off, none does. A source's photo shows by its permission and is left alone. The files
  * changed, and `file: url` for each photo taken off.
  */
-export async function dropNonCommercial(content: string, switches: Readonly<ImageSwitches> = IMAGE_SWITCHES): Promise<{ files: string[]; photos: string[] }> {
+export async function dropNonCommercial(content: string, switches: Readonly<ImageSwitches> = IMAGE_SWITCHES, withheld: (photo: Photo, ref: string, scientificName: string) => boolean = () => false): Promise<{ files: string[]; photos: string[] }> {
   const out = { files: [] as string[], photos: [] as string[] }
   const files: string[] = []
   for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) files.push(`gallery/${f}`)
@@ -815,12 +825,13 @@ export async function dropNonCommercial(content: string, switches: Readonly<Imag
   for (const f of files.sort()) {
     const raw = await readFile(join(content, f), 'utf8').catch(() => null)
     if (!raw) continue
-    const data = JSON.parse(raw) as { photos?: Photo[] }
+    const data = JSON.parse(raw) as { photos?: Photo[]; scientificName?: string }
     if (!Array.isArray(data.photos)) continue
     const album = f.startsWith('gallery/')
+    const ref = f.replace(/\/entity\.json$/, '')
     // A fish's page keeps one only as its head with no other real photo, where it's the one way to show that fish (the
     // chief of staff's rule, 17 Nov; lead-photo.ts puts it there); a guide never. With the switch off, heads go too.
-    const head = (i: number) => i === 0 && !f.startsWith('guides/') && data.photos!.every((x, j) => j === 0 || x.generated)
+    const head = (i: number) => !f.startsWith('guides/') && data.photos!.every((photo, j) => i === j || photo.generated || withheld(photo, ref, data.scientificName ?? ''))
     const off = data.photos.filter((p, i) => !p.source && isNonCommercial(p.licence) && !((album || head(i)) && switches.inatNonCommercial && isInatNonCommercial(p)))
     if (!off.length) continue
     await writeFile(join(content, f), `${JSON.stringify({ ...data, photos: data.photos.filter(p => !off.includes(p)) }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)

@@ -1,7 +1,9 @@
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import sharp from 'sharp'
+import { mkdir, mkdtemp, readFile, rmdir, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import { deadLooked, photoWaitsFor } from '@aq/schema'
 import { mirrorPhotos, mirrorPlan, type MirrorDeps } from '../src/mirror-photos'
 
 const C1280 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Oscar_%281%29.jpg/1280px-Oscar_%281%29.jpg?utm_source=commons.wikimedia.org'
@@ -21,6 +23,7 @@ async function root() {
   await writeFile(join(r, 'content/gallery/astronotus-ocellatus.json'), JSON.stringify({ id: 'astronotus-ocellatus', photos: [photo(C500), photo(INAT)] }, null, 2) + '\n')
   await writeFile(join(r, 'content/equipment/co2.json'), JSON.stringify({ category: 'co2', types: [{ id: 'mini', photo: photo(CO2) }] }, null, 1) + '\n')
   await writeFile(join(r, 'engine-state/_photo-faces.json'), JSON.stringify({ [C1280]: 0 }))
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify({ [C1280]: { dead: false } }))
   await writeFile(join(r, 'engine-state/_photo-dead-owed.json'), JSON.stringify({ [C1280]: '2026-11-21' }))
   return r
 }
@@ -75,6 +78,9 @@ test('hot-linked photos move to our bucket once each; credit, licence, source li
   const faces = JSON.parse(await readFile(join(r, 'engine-state/_photo-faces.json'), 'utf8'))
   expect(faces[sp.photos[0].url]).toBe(0)
   expect(faces[C1280]).toBe(0)
+  const dead = JSON.parse(await readFile(join(r, 'engine-state/_dead-screen.json'), 'utf8'))
+  expect(dead[sp.photos[0].url]).toEqual(dead[C1280])
+  expect(dead[C1280]).toMatchObject({ dead: false })
   // A photo the dead-fish screen still owes a look keeps waiting at its new address (faces.ts screenNewPhotos).
   expect(JSON.parse(await readFile(join(r, 'engine-state/_photo-dead-owed.json'), 'utf8'))).toEqual({ [C1280]: '2026-11-21', [sp.photos[0].url]: '2026-11-21' })
 
@@ -82,6 +88,115 @@ test('hot-linked photos move to our bucket once each; credit, licence, source li
   const again = deps()
   expect(await mirrorPhotos(r, again.d)).toMatchObject({ mirrored: 0, files: 0, pending: 0 })
   expect(again.put).toEqual([])
+})
+
+test.each(['flickr square placement', 'iNaturalist larger download'])('the mirror receives no verdict from a different rendition (%s)', async kind => {
+  const r = await root()
+  const flickr = kind.startsWith('flickr')
+  const source = flickr ? 'https://live.staticflickr.com/8518/8600709463_7a79b898cf_b.jpg' : INAT
+  const other = flickr ? source.replace('_b.jpg', '_q.jpg') : undefined
+  const judged = other ?? source
+  await writeFile(join(r, 'content/species/astronotus-ocellatus/entity.json'), JSON.stringify({ id: 'astronotus-ocellatus', photos: [photo(source)] }))
+  await writeFile(join(r, 'content/gallery/astronotus-ocellatus.json'), JSON.stringify({ id: 'astronotus-ocellatus', photos: other ? [photo(other)] : [] }))
+  const file = join(r, 'engine-state/_dead-screen.json')
+  await writeFile(file, JSON.stringify({ [judged]: { dead: false } }))
+  const secondLookFile = join(r, 'engine-state/_photo-second-look.json')
+  const clear = { why: 'dead: withheld', pages: ['species/alpha'], at: '2026-11-26', step: 'the dead-fish screen',
+    look: { said: 'clear', on: '2026-11-26', by: 'reviewer' } }
+  await writeFile(secondLookFile, JSON.stringify({ [judged]: clear }))
+  const owedFile = join(r, 'engine-state/_photo-dead-owed.json')
+  await writeFile(owedFile, JSON.stringify({ [judged]: '2026-11-26' }))
+  const { d, fetched } = deps()
+  d.bytes = async url => { fetched.push(url); return Uint8Array.of(1) }
+
+  await mirrorPhotos(r, d)
+
+  expect(fetched).toContain(mirrorPlan(source)!.fetch[0])
+  expect(fetched).not.toContain(judged)
+  const screen = JSON.parse(await readFile(file, 'utf8'))
+  const secondLook = JSON.parse(await readFile(secondLookFile, 'utf8'))
+  const destination = d.media.urlFor(mirrorPlan(source)!.key)
+  expect(screen).toEqual({ [judged]: { dead: false } })
+  expect(secondLook).toEqual({ [judged]: clear })
+  expect(JSON.parse(await readFile(owedFile, 'utf8'))).toEqual({ [judged]: '2026-11-26' })
+  expect(deadLooked({ screen, secondLook })(destination)).toBe(false)
+  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(destination)
+})
+
+test('a refused crop leaves an independently passed mirror and its verdict intact', async () => {
+  const r = await root()
+  const square = 'https://live.staticflickr.com/8518/8600709463_7a79b898cf_q.jpg'
+  const { d } = deps()
+  const mirror = d.media.urlFor(mirrorPlan(square)!.key)
+  const page = 'species/astronotus-ocellatus/entity.json'
+  const album = 'gallery/astronotus-ocellatus.json'
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  await writeFile(join(r, 'content', page), JSON.stringify({ photos: [photo(mirror)] }))
+  await writeFile(join(r, 'content', album), JSON.stringify({ photos: [photo(square), photo(mirror)] }))
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify({ [mirror]: { dead: false } }))
+  await writeFile(rejected, JSON.stringify({ [square]: 'dead: withheld' }))
+
+  await mirrorPhotos(r, d)
+
+  expect(JSON.parse(await readFile(rejected, 'utf8'))).toEqual({ [square]: 'dead: withheld' })
+  expect(JSON.parse(await read(r, page)).photos).toEqual([photo(mirror)])
+  expect(JSON.parse(await read(r, album)).photos).toEqual([photo(square), photo(mirror)])
+})
+
+test.each(['refused', 'missing dead look', 'missing face count'])('a passed source is kept when its stored mirror cannot serve (%s)', async blocked => {
+  const r = await root()
+  const source = 'https://live.staticflickr.com/8518/8600709463_7a79b898cf_b.jpg'
+  const { d } = deps()
+  const mirror = d.media.urlFor(mirrorPlan(source)!.key)
+  const page = 'species/astronotus-ocellatus/entity.json'
+  await writeFile(join(r, 'content', page), JSON.stringify({ photos: [photo(source)] }))
+  await writeFile(join(r, 'content/gallery/astronotus-ocellatus.json'), JSON.stringify({ photos: [photo(mirror)] }))
+  const faces = blocked === 'missing face count' ? { [source]: 0 } : { [source]: 0, [mirror]: 0 }
+  await writeFile(join(r, 'engine-state/_photo-faces.json'), JSON.stringify(faces))
+  await writeFile(join(r, 'engine-state/_photo-dead-owed.json'), '{}')
+  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({ [source]: { ok: 'yes', logo: false } }))
+  if (blocked === 'missing face count') await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify({ [mirror]: { dead: false } }))
+  if (blocked === 'refused') await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [mirror]: 'dead: withheld' }))
+
+  await mirrorPhotos(r, d)
+
+  expect(JSON.parse(await read(r, page)).photos).toEqual([photo(source)])
+})
+
+test('a visible album source keeps its place while reuse waits and the upload budget goes to fresh work', async () => {
+  const r = await root()
+  const source = 'https://live.staticflickr.com/8518/8600709463_7a79b898cf_b.jpg'
+  const { d, put } = deps()
+  const mirror = d.media.urlFor(mirrorPlan(source)!.key)
+  const album = 'gallery/astronotus-ocellatus.json'
+  await writeFile(join(r, 'content/species/astronotus-ocellatus/entity.json'), JSON.stringify({ photos: [] }))
+  await writeFile(join(r, 'content/gallery/other.json'), JSON.stringify({ photos: [photo(mirror)] }))
+  await writeFile(join(r, 'content', album), JSON.stringify({ photos: [photo(source)] }))
+  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify({ [source]: { ocr: [] } }))
+  await writeFile(join(r, 'engine-state/_photo-dead-owed.json'), '{}')
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), '{}')
+
+  const report = await mirrorPhotos(r, d, { limit: 1 })
+
+  expect(JSON.parse(await read(r, album)).photos).toEqual([photo(source)])
+  expect(put).toEqual([mirrorPlan(CO2)!.key])
+  expect(report.mirrored).toBe(1)
+})
+
+test('a mirror used only as a fallback original keeps the stored bytes and dimensions', async () => {
+  const r = await root()
+  const { d, fetched, put } = deps()
+  const key = mirrorPlan(C1280)!.key
+  const original = { url: d.media.urlFor(key), width: 1000, height: 720 }
+  await writeFile(join(r, 'content/equipment/co2.json'), JSON.stringify({ hero: photo(OURS, {
+    altered: [{ method: 'lanczos3-upscale' }], original,
+  }) }))
+
+  await mirrorPhotos(r, d)
+
+  expect(put).not.toContain(key)
+  expect(fetched).not.toContain(C1280)
+  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0]).toMatchObject(original)
 })
 
 test('dry run counts what would move; limit caps the uploads in one run', async () => {
@@ -92,6 +207,44 @@ test('dry run counts what would move; limit caps the uploads in one run', async 
   const one = deps()
   expect(await mirrorPhotos(r, one.d, { limit: 1 })).toMatchObject({ mirrored: 1 })
   expect(one.put).toHaveLength(1)
+})
+
+test('an unanswered source hold still applies to the copied mirror verdict', async () => {
+  const r = await root()
+  const path = (name: string) => join(r, 'engine-state', name)
+  const hold = { why: 'dead: withheld', step: 'the dead-fish screen', at: '2026-11-26', pages: ['species/astronotus-ocellatus'] }
+  await writeFile(path('_dead-screen.json'), JSON.stringify({ [C1280]: { dead: true } }))
+  await writeFile(path('_photo-second-look.json'), JSON.stringify({ [C1280]: hold }))
+  await mirrorPhotos(r, deps().d)
+  const mirrored = `https://media.aquatome.com/${mirrorPlan(C1280)!.key}`
+  const deadScreen = JSON.parse(await readFile(path('_dead-screen.json'), 'utf8'))
+  const secondLook = JSON.parse(await readFile(path('_photo-second-look.json'), 'utf8'))
+  expect(deadScreen[mirrored]).toMatchObject({ dead: true })
+  expect(photoWaitsFor({ deadScreen, secondLook })(mirrored)).toBe(false)
+  expect(Object.keys(secondLook)).toEqual([C1280])
+})
+
+test('an interrupted mirror transfer reuses bytes already attached to the destination verdict', async () => {
+  const r = await root()
+  const file = join(r, 'engine-state/_dead-screen.json')
+  const staged = await readFile(file, 'utf8')
+  const { unlink } = await import('node:fs/promises')
+  await unlink(file)
+  await mkdir(file)
+  await expect(mirrorPhotos(r, deps().d)).rejects.toThrow()
+  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(C1280)
+  await rmdir(file)
+  const mirrored = `https://media.aquatome.com/${mirrorPlan(C1280)!.key}`
+  await writeFile(file, JSON.stringify({ ...JSON.parse(staged), [mirrored]: { dead: false } }))
+  const replay = deps()
+  const fetch = replay.d.bytes
+  replay.d.bytes = async url => url === mirrored
+    ? sharp({ create: { width: 1200, height: 900, channels: 3, background: '#468' } }).webp().toBuffer()
+    : fetch(url)
+  await mirrorPhotos(r, replay.d)
+  expect(replay.put).not.toContain(mirrorPlan(C1280)!.key)
+  expect(JSON.parse(await readFile(file, 'utf8'))[mirrored]).toMatchObject({ dead: false })
+  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(mirrored)
 })
 
 test("a guide's Commons photo moves too, keeping the section it illustrates", async () => {
@@ -127,4 +280,17 @@ test("a second look's clear follows its photo to our bucket, so the verdict copi
   expect(put).toContain('inaturalist/617421644.webp')
   const sl = JSON.parse(await readFile(join(r, 'engine-state/_photo-second-look.json'), 'utf8'))
   expect(sl['https://media.aquatome.com/inaturalist/617421644.webp']).toEqual(rec)
+})
+
+test('a previously stored mirror never borrows a missing judgment from the current hotlink', async () => {
+  const r = await root()
+  const mirror = `https://media.aquatome.com/${mirrorPlan(C1280)!.key}`
+  const gallery = join(r, 'content/gallery/astronotus-ocellatus.json')
+  await writeFile(gallery, JSON.stringify({ id: 'astronotus-ocellatus', photos: [photo(mirror)] }))
+  const replay = deps()
+  await mirrorPhotos(r, replay.d)
+  expect(replay.put).not.toContain(mirrorPlan(C1280)!.key)
+  const state = JSON.parse(await readFile(join(r, 'engine-state/_dead-screen.json'), 'utf8'))
+  expect(state[mirror]).toBeUndefined()
+  expect(JSON.parse(await read(r, 'species/astronotus-ocellatus/entity.json')).photos[0].url).toBe(mirror)
 })

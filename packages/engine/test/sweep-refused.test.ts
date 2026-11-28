@@ -195,9 +195,9 @@ async function elevenHeld() {
 }
 const noModel = { get: async () => { throw new Error('no photo is fetched') }, look: async () => { throw new Error('no photo is judged') } }
 
-test('a check cut short after it saved its verdicts leaves its pages held: the hold is written before anything else', async () => {
+test('a failed rejection write leaves the photo check’s holds in force', async () => {
   const root = await elevenHeld()
-  // The never-again list is written after the verdicts: a write that fails there stops the run at that point.
+  // The hold is written before the rejection list. A failed rejection write stops the run before the page writes.
   await mkdir(join(root, 'engine-state/_photo-rejected.json'))
   await expect(checkPagePhotos(root, noModel, { limit: 10 })).rejects.toThrow()
   expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/_photo-held.json'), 'utf8')))).toHaveLength(11)

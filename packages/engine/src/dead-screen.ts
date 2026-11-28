@@ -1,3 +1,4 @@
+import { askedByCheckOf, completedDeadVerdict, DEAD_OWED_FILE, deadLooked, deadScreenPhotoUrls, expandWholePhotoRejections, reviewedPhotoVersion, FACES_FILE, GUIDE_LOOKS_FILE, IMAGE_SWITCHES, ownDeadPhotoUrls, PHOTO_CHECK_FILE, PHOTO_SCREEN_FILE, PHOTO_SUBJECTS_FILE, photoRejections, photoVersionAddressSet, photoWaitsFor, publicPhotoVersion, facePhotoStatus, setsCookies, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -6,7 +7,8 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { holdForSecondLook, lastPhotos, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
+import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readPassedBefore, readSecondLook, verdictAddressSet, waitingEntry } from './last-photo'
+import { permittedPhotoSource, readCreditHoldWait, readPhotoSources } from './photo-visibility'
 
 /**
  * No dead fish on a page, for what the photo check hasn't asked about (photo-check.ts asks since 2026-11-05): each species
@@ -67,33 +69,39 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
 /** Photos a photo-check verdict judged for dead fish (it has `logo`): the check asked, so the screen doesn't. */
 export async function askedByCheck(root: string): Promise<Set<string>> {
   const state = (f: string) => join(root, 'engine-state', f)
-  const asked = new Set<string>()
-  const legacy = (await readJson<Record<string, { logo?: boolean }>>(state('_photo-check.json'))) ?? {}
-  for (const [u, v] of Object.entries(legacy)) if ('logo' in v) asked.add(u)
-  const subjects = (await readJson<Record<string, Record<string, { logo?: boolean }>>>(state('_photo-subjects.json'))) ?? {}
-  for (const [u, by] of Object.entries(subjects)) if (Object.values(by).some(v => 'logo' in v)) asked.add(u)
-  return asked
+  return askedByCheckOf(await readJson<Record<string, unknown>>(state('_photo-check.json')), await readJson<Record<string, unknown>>(state('_photo-subjects.json')))
 }
 
 /** `backCheck`: also the videos judged from their thumbnail alone (the screen's verdicts from before it saw frames). */
 export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: number; parallel?: number; backCheck?: boolean; photos?: ReadonlySet<string> }) {
   const content = join(root, 'content')
   const state = (f: string) => join(root, 'engine-state', f)
-  const oldCache = (await readJson<Record<string, DeadVerdict>>(state('_dead-screen.json'))) ?? {}
+  const records = (await readJson<Record<string, DeadVerdict>>(state('_dead-screen.json'))) ?? {}
+  const oldCache = Object.fromEntries(Object.entries(records).filter(([, verdict]) => completedDeadVerdict(verdict)))
   const cache=Object.fromEntries(Object.entries(oldCache).map(([u,v])=>[u,compactVerdict(v)]))
   const videoRejected = (await readJson<Record<string, string>>(state('_video-rejected.json'))) ?? {}
   const photoRejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
-  const asked = await askedByCheck(root)
+  const [check, subjects, guideLooks] = await Promise.all([
+    readJson<Record<string, unknown>>(state(PHOTO_CHECK_FILE)),
+    readJson<Record<string, unknown>>(state(PHOTO_SUBJECTS_FILE)),
+    readJson<Record<string, unknown>>(state(GUIDE_LOOKS_FILE)),
+  ])
+  const watermarkCache = await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))
+  const secondLook = await readSecondLook(root)
+  const isListed = photoRejections(await expandWholePhotoRejections(content, photoRejected, watermarkCache), watermarkCache, reviewedPhotoVersion(secondLook, check, subjects))
+  const lookedBefore = deadLooked({ screen: cache, check, subjects, secondLook })
   // `firstOff`: a page's last photo the hold doesn't keep, its first verdict on a photo that never passed the check (last-photo.ts).
   const report = { sheets: 0, judged: 0, dead: [] as string[], held: [] as string[], firstOff: [] as string[], failed: [] as string[], left: 0, stopped: '' }
 
   // Videos first (the owner's find), then main photos; each picture once, with every page that shows it.
+  const sources = await readPhotoSources(content)
+  const version = (p: Photo) => publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
   const videos = new Map<string, Item>()
   const photos = new Map<string, Item>()
   for (const kind of ['species', 'plants']) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const file = join(content, kind, id, 'entity.json')
-      const e = await readJson<{ photos?: { url: string }[]; videos?: { youtubeId: string }[] }>(file)
+      const e = await readJson<{ photos?: Photo[]; videos?: { youtubeId: string }[] }>(file)
       for (const v of o.photos ? [] : e?.videos ?? []) {
         const key = `youtube:${v.youtubeId}`
         if (v.youtubeId in videoRejected || (key in cache && !(o.backCheck && !cache[key]!.frames))) continue
@@ -101,9 +109,11 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         it.files.push(file)
         videos.set(key, it)
       }
-      const urls = o.photos ? (e?.photos ?? []).map(p => p.url).filter(u => o.photos!.has(u)) : [e?.photos?.[0]?.url]
+      const head = e?.photos?.[0]
+      const urls = o.photos ? [...new Set((e?.photos ?? []).flatMap(deadScreenPhotoUrls))].filter(u => o.photos!.has(u))
+        : [head && version(head)?.url]
       for (const url of urls) {
-        if (!url || url in cache || url in photoRejected || asked.has(url)) continue
+        if (!url || isListed(url) || lookedBefore(url)) continue
         const it = photos.get(url) ?? { key: url, url, files: [] }
         it.files.push(file)
         photos.set(url, it)
@@ -156,42 +166,88 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
 
   // Off the lists and off the pages that show them. A photo whose going would leave a page with nothing stays, held for
   // a second look (last-photo.ts); one the second look cleared stays too.
-  const sl = looks(await readSecondLook(root))
   // A hold on another reason doesn't keep a photo that never passed from this, its first verdict (photo-check.ts spared).
-  const passed = off.some(x => !x.video) ? await readPassedBefore(root) : new Set<string>()
-  const going = new Set(off.filter(x => !x.video && (sl.open(x.url) || (sl.waiting(x.url) && !passed.has(x.url)))).map(x => x.url))
+  const passed = photoVersionAddressSet(off.some(x => !x.video) ? await readPassedBefore(root) : [])
+  const sl = looks(secondLook, passed)
+  const going = new Set(off.filter(x => !x.video && !sl.clearedPhoto(x.url) && !sl.pendingOff(x.url) && (sl.open(x.url) || ((sl.waiting(x.url) || sl.held(x.url)) && !passed(x.url)))).map(x => x.url))
   // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
-  const last = going.size ? new Map([...lastPhotos(await pagesShowing(content), u => going.has(u) || u in photoRejected)].filter(([u]) => going.has(u))) : new Map<string, string[]>()
+  const last = new Map<string, string[]>()
+  if (going.size) {
+    const [pages, owned, listed, faces] = await Promise.all([
+      pagesShowing(content, (p, ref, scientificName) => {
+        if (!permittedPhotoSource(p, sources, ref, scientificName)) return undefined
+        const reason = isListed(p.url)?.[1]
+        // The sweep removes the whole wrapper for a rejection that applies to the photo as a whole.
+        if (reason && !/^(?:dead|people|waiting): /.test(reason)) return p.url
+        const shown = version(p)?.url
+        return shown && !setsCookies(shown) ? shown : undefined
+      }),
+      ownDeadPhotoUrls(content),
+      o.photos ? undefined : readJson<Record<string, string>>(state(DEAD_OWED_FILE)),
+      readJson<Record<string, number>>(state(FACES_FILE)),
+    ])
+    const looked = deadLooked({ screen: cache, check, subjects, secondLook })
+    const { unread } = await facePhotoStatus(content, faces)
+    const unjudged = new Set([...owned].filter(url => !looked(url)))
+    const waits = photoWaitsFor({ watermarks: watermarkCache, owed: listed, unread, faces, unjudged, lookedForDead: looked, check, subjects, deadScreen: oldCache, guideLooks, secondLook })
+    const heldForCredit = await readCreditHoldWait(root)
+    const unavailable = (u: string) => !!isListed(u) || heldForCredit(u) || waits(u)
+    for (const [url, refs] of lastPhotoVerdicts(pages, unavailable, going, undefined, undefined, true)) last.set(url, refs)
+  }
   // Only one that passed the check before is held; this verdict, on one that never did, takes it off, marked (last-photo.ts).
-  const held = new Map([...last].filter(([u]) => passed.has(u)))
-  const firstOff = new Map([...last].filter(([u]) => !passed.has(u)))
+  const held = new Map([...last].filter(([u]) => passed(u)))
+  const firstOff = new Map([...last].filter(([u]) => !passed(u)))
+  const heldByAddress = verdictAddressSet(held.keys(), going)
+  const markedByAddress = verdictAddressSet(firstOff.keys(), going)
   const holding = new Map<string, { why: string; pages: string[]; off?: true }>()
+  type Page = { photos?: Photo[]; videos?: { youtubeId: string }[] }
+  const edits = new Map<string, { raw: string; page: Page }>()
+  const readPage = async (file: string) => {
+    const had = edits.get(file)
+    if (had) return had
+    const raw = await readFile(file, 'utf8')
+    const edit = { raw, page: JSON.parse(raw) as Page }
+    edits.set(file, edit)
+    return edit
+  }
+  const retainFallback = (p: Photo) => {
+    const original = version(p)
+    if (!original || original.url === p.url) return false
+    // The wrapper holds the original's credit and other metadata until the person's decision or next look.
+    const prior = isListed(original.url)?.[1]
+    return markedByAddress(original.url) || heldByAddress(original.url) || sl.off(original.url) || prior?.startsWith('waiting:') ||
+      (!prior && !going.has(original.url))
+  }
   for (const it of off) {
     const why = `dead: ${cache[it.key]!.note} (the dead-fish screen)`
-    if (!it.video && (!going.has(it.url) || held.has(it.url))) {
+    if (!it.video && (!going.has(it.url) || heldByAddress(it.url))) {
       if (held.has(it.url)) { holding.set(it.url, { why, pages: held.get(it.url)! }); report.held.push(`${it.key}: ${held.get(it.url)!.join(', ')}`) }
       continue
+    }
+    for (const file of it.files) {
+      const { page } = await readPage(file)
+      if (it.video) page.videos = (page.videos ?? []).filter(v => v.youtubeId !== it.video)
+      else page.photos = (page.photos ?? []).filter(p => p.url !== it.url || retainFallback(p))
     }
     if (!it.video && firstOff.has(it.url)) {
       holding.set(it.url, { why, pages: firstOff.get(it.url)!, off: true })
       report.firstOff.push(`${it.key}: ${firstOff.get(it.url)!.join(', ')}`)
-      photoRejected[it.url] ??= waitingEntry(why)
-    } else {
+      photoRejected[it.url] = waitingEntry(why)
+    } else if (it.video || !markedByAddress(it.url)) {
       report.dead.push(`${it.key}: ${cache[it.key]!.note}`)
       if (it.video) videoRejected[it.video] ??= why
-      else photoRejected[it.url] ??= why
-    }
-    for (const file of it.files) {
-      const raw = await readFile(file, 'utf8')
-      const e = JSON.parse(raw) as { photos?: { url: string }[]; videos?: { youtubeId: string }[] }
-      const next = it.video ? { ...e, videos: (e.videos ?? []).filter(v => v.youtubeId !== it.video) } : { ...e, photos: (e.photos ?? []).filter(p => p.url !== it.url) }
-      await writeFile(file, `${JSON.stringify(next, null, indentOf(raw))}\n`)
+      else photoRejected[it.url] = why
     }
   }
+  // A retry can always find the owning photo until its removal or hold is durable.
   await holdForSecondLook(root, holding, 'the dead-fish screen')
   const save = (f: string, data: object) => writePhotoState(state(f), data)
-  if (report.judged) await save('_dead-screen.json', cache)
   if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)
-  if (off.some(x => !x.video && going.has(x.url) && !held.has(x.url))) await save('_photo-rejected.json', photoRejected)
+  if (off.some(x => !x.video && going.has(x.url) && !heldByAddress(x.url))) await save('_photo-rejected.json', photoRejected)
+  if (report.judged) await save('_dead-screen.json', cache)
+  for (const [file, { raw, page }] of edits) {
+    const next = `${JSON.stringify(page, null, indentOf(raw))}\n`
+    if (next !== raw) await writeFile(file, next)
+  }
   return report
 }

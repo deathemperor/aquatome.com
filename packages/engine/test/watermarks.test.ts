@@ -4,9 +4,15 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
+import { writePhotoState } from '../src/photo-state'
 import { ocrHit, screenWatermarks, type TextLine, type WatermarkDeps } from '../src/watermarks'
+
+vi.mock('../src/photo-state', async importOriginal => {
+  const native = await importOriginal<typeof import('../src/photo-state')>()
+  return { ...native, writePhotoState: vi.fn(native.writePhotoState) }
+})
 
 const line = (t: string, c = 1): TextLine => ({ t, c, x: 0.1, y: 0.9, w: 0.3, h: 0.03 })
 
@@ -24,7 +30,7 @@ test('text worth a look: a credit, a web address or a clear word; not the stray 
 const NAMES = ['fish', 'glaser', 'box', 'fish2', 'still-credit', 'still-ok', 'hero-credit', 'type-ok', 'logo-only']
 const TEXT: Record<string, string[]> = { glaser: ['AQUARIUM GLASER'], box: ['SERA flore'], 'still-credit': ['© Tank Channel'], 'hero-credit': ['www.shop.example'] }
 const url = (n: string) => `https://media.example/${n}.webp`
-const photo = (n: string) => ({ url: url(n), width: 960, height: 720, licence: 'x', author: 'x', sourceUrl: 'x' })
+const photo = (n: string) => ({ url: url(n), width: 960, height: 720, licence: 'CC BY 4.0', author: 'x', sourceUrl: 'x' })
 
 async function site() {
   const r = await mkdtemp(join(tmpdir(), 'aq-wm-'))
@@ -114,6 +120,102 @@ test('a model failure (usage limit) stops the run; photos not judged stay on the
   expect((await read(r, 'content/species/a/entity.json')).photos).toHaveLength(2)
 })
 
+test('the watermark pass holds a last photo while its sibling still owes the dead-fish screen', async () => {
+  const r = await site()
+  const file = 'content/species/a/entity.json'
+  await writeFile(join(r, file), JSON.stringify({ id: 'a', photos: ['glaser', 'fish'].map(photo) }))
+  await writeFile(join(r, 'engine-state/_photo-faces.json'), JSON.stringify({ [url('glaser')]: 0, [url('fish')]: 0 }))
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify({ [url('glaser')]: { dead: false } }))
+  const { d } = deps()
+  const result = await screenWatermarks(r, join(r, 'engine-state/_photo-watermarks.json'), join(r, 'engine-state/_photo-rejected.json'), d, { limit: 10 })
+  expect(result.held).toContain(`${url('glaser')}: species/a`)
+  expect((await read(r, file)).photos.map((p: { url: string }) => p.url)).toEqual([url('glaser'), url('fish')])
+})
+
+test.each([false, true])('watermark holds use the album and this pass’s decisions (own photo waiting: %s)', async ownWaiting => {
+  const r = await site()
+  const ownFile = 'content/species/a/entity.json'
+  const albumFile = 'content/gallery/a.json'
+  await writeFile(join(r, ownFile), JSON.stringify({ id: 'a', photos: (ownWaiting ? ['fish'] : ['glaser', 'box']).map(photo) }))
+  await writeFile(join(r, albumFile), JSON.stringify({ id: 'a', photos: ownWaiting ? [photo('glaser')] : [] }))
+  await writeFile(join(r, 'engine-state/_photo-faces.json'), JSON.stringify({ [url('glaser')]: 0, [url('fish')]: 0, [url('box')]: 0 }))
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify({ [url('glaser')]: { dead: false }, [url('box')]: { dead: false } }))
+  const cache = join(r, 'engine-state/_photo-watermarks.json')
+  await writeFile(cache, '{}')
+
+  const result = await screenWatermarks(r, cache, join(r, 'engine-state/_photo-rejected.json'), deps().d, { limit: 10 })
+
+  if (ownWaiting) {
+    expect(result.held).toContain(`${url('glaser')}: species/a`)
+    expect((await read(r, albumFile)).photos).toEqual([photo('glaser')])
+  } else {
+    expect(result.held).toEqual([])
+    expect((await read(r, ownFile)).photos).toEqual([photo('box')])
+  }
+})
+
+test('a mirror already listed for a source watermark cannot replace the last photo', async () => {
+  const r = await site()
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = 'https://media.aquatome.com/flickr/456.webp'
+  await writeFile(join(r, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: [photo('glaser'), { ...photo('fish'), url: mirror }] }))
+  await writeFile(join(r, 'content/gallery/a.json'), JSON.stringify({ id: 'a', photos: [] }))
+  const cache = join(r, 'engine-state/_photo-watermarks.json')
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  await writeFile(cache, JSON.stringify({ [mirror]: { ocr: [], watermark: false } }))
+  await writeFile(rejected, JSON.stringify({ [source]: 'watermark: withheld' }))
+
+  const result = await screenWatermarks(r, cache, rejected, deps().d, { limit: 10 })
+
+  expect(result.held).toContain(`${url('glaser')}: species/a`)
+})
+
+test('the watermark pass holds the last served original of an already rejected alteration', async () => {
+  const r = await site()
+  const original = photo('glaser')
+  const stored = { ...photo('stored'), altered: [{ method: 'lanczos3-upscale' }],
+    original: { url: original.url, width: original.width, height: original.height } }
+  const file = 'content/species/a/entity.json'
+  await writeFile(join(r, file), JSON.stringify({ id: 'a', photos: [stored] }))
+  await writeFile(join(r, 'content/gallery/a.json'), JSON.stringify({ id: 'a', photos: [] }))
+  const other = join(r, 'content/species/b/entity.json')
+  await mkdir(join(other, '..'), { recursive: true })
+  await writeFile(other, JSON.stringify({ id: 'b', photos: [original, photo('box')] }))
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  await writeFile(rejected, JSON.stringify({ [stored.url]: 'dead: withheld' }))
+
+  const result = await screenWatermarks(r, join(r, 'engine-state/_photo-watermarks.json'), rejected, deps().d, { limit: 10 })
+
+  expect(result.held).toContain(`${original.url}: species/a`)
+  expect((await read(r, file)).photos).toEqual([stored])
+  expect((await read(r, 'engine-state/_photo-rejected.json'))[original.url]).toBeUndefined()
+})
+
+test.each([false, true])('a watermark on a dead-screened alteration considers its credited original (spare photo: %s)', async spare => {
+  const r = await site()
+  const original = photo('fish2')
+  const stored = { ...photo('glaser'), altered: [{ method: 'lanczos3-upscale' }],
+    original: { url: original.url, width: original.width, height: original.height } }
+  const file = 'content/species/a/entity.json'
+  await writeFile(join(r, file), JSON.stringify({ id: 'a', photos: [stored, ...(spare ? [photo('box')] : [])] }))
+  await writeFile(join(r, 'content/gallery/a.json'), JSON.stringify({ id: 'a', photos: [] }))
+  const cache = join(r, 'engine-state/_photo-watermarks.json')
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  await writeFile(rejected, JSON.stringify({ [stored.url]: 'dead: withheld' }))
+
+  const { d, calls } = deps()
+  const result = await screenWatermarks(r, cache, rejected, d, { limit: 10 })
+  const refusals = await read(r, 'engine-state/_photo-rejected.json')
+
+  expect(calls.get).toContain(original.url)
+  expect((await read(r, 'engine-state/_photo-watermarks.json'))[original.url]).toEqual({ ocr: [] })
+  expect(result.held.includes(`${stored.url}: species/a`)).toBe(!spare)
+  expect((await read(r, file)).photos).toEqual(spare ? [photo('box')] : [stored])
+  expect(refusals[stored.url]).toMatch(/^dead:/)
+  if (spare) expect(refusals[original.url]).toMatch(/^watermark:/)
+  else expect(refusals[original.url]).toBeUndefined()
+})
+
 test('item admission stops without model calls or content changes', async () => {
   const root = await site()
   const { d, calls } = deps()
@@ -140,4 +242,34 @@ test("a watermarked photo that is a page's last stays everywhere it shows, off t
   const look = await read(r, 'engine-state/_photo-second-look.json')
   expect(look[url('glaser')]).toMatchObject({ step: 'the watermark screen', pages: ['species/z'] })
   expect(look[url('glaser')].why).toMatch(/^watermark: /)
+})
+
+test('a newly refused alteration records the bare original before its wrapper leaves', async () => {
+  const r = await site()
+  const cache = join(r, 'engine-state/_photo-watermarks.json')
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  const original = photo('original'), stored = photo('stored'), live = photo('live')
+  const wrapper = { ...stored, altered: [{ method: 'lanczos3-upscale' }], original }
+  await writeFile(join(r, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: [wrapper, live] }))
+  await writeFile(join(r, 'content/gallery/a.json'), JSON.stringify({ id: 'a', photos: [original] }))
+  await writeFile(join(r, 'content/guides/g/entity.json'), JSON.stringify({ id: 'g', photos: [] }))
+  const clear = { ocr: [], watermark: false }
+  await writeFile(cache, JSON.stringify({ [stored.url]: { ocr: [], watermark: true, kind: 'logo' }, [original.url]: clear, [live.url]: clear,
+    [url('hero-credit')]: clear, [url('type-ok')]: clear }))
+  const { d } = deps()
+  await screenWatermarks(r, cache, rejected, d, { limit: 0 })
+  expect((await read(r, 'content/species/a/entity.json')).photos).toEqual([live])
+  expect((await read(r, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^watermark:/)
+})
+
+test('a failed rejection save leaves a newly refused watermark waiting', async () => {
+  const r = await site()
+  const { d } = deps()
+  const cache = join(r, 'engine-state/_photo-watermarks.json')
+  const rejected = join(r, 'engine-state/_photo-rejected.json')
+  await writeFile(cache, '{}')
+  vi.mocked(writePhotoState).mockRejectedValueOnce(new Error('fixture state write failure'))
+  await expect(screenWatermarks(r, cache, rejected, d, { limit: 10 })).rejects.toThrow('fixture state write failure')
+  expect(await read(r, 'engine-state/_photo-watermarks.json')).toEqual({})
+  expect((await read(r, 'content/species/a/entity.json')).photos.map((p: { url: string }) => p.url)).toContain(url('glaser'))
 })

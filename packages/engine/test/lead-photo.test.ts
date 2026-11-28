@@ -4,9 +4,11 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { createHash } from 'node:crypto'
-import { ownerCropCanonical, type OwnerCropApproval, type Photo } from '@aq/schema'
+import { mirrorPlan, ownerCropCanonical, type OwnerCropApproval, type Photo } from '@aq/schema'
 import { cardCrop, HEAD_IN_CROP, leadChoice, screenLeads, TRIES, type LeadDeps } from '../src/lead-photo'
-import { approvedCrop, hiddenFromReaders, mergePhotos, mergeRead, waitsForScreen } from '../src/run'
+import { approvedCrop, hiddenFromReaders, mergePhotos, mergeRead, readKeeps, waitsForScreen } from '../src/run'
+import { readPhotoWaits, readRecoveryRetention, readReviewedPhotoVersion } from '../src/photo-visibility'
+import { dropNonCommercial } from '../src/gallery'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -288,6 +290,71 @@ test("a page led by a non-commercial photo is reached by --calendar like a page 
   expect(r.gained).toEqual([`species/none: none -> ${url('n-nc')}`])
 })
 
+test.each([false, true])('an open album photo must qualify at the address that would lead (fallback: %s)', async fallback => {
+  const nc = { ...photo('nc'), url: 'https://media.aquatome.com/inaturalist/42.webp', sourceUrl: 'https://www.inaturalist.org/photos/42', licence: 'CC BY-NC 4.0' }
+  const original = photo('original')
+  const open: Photo = { ...photo('open'), licence: 'CC BY 4.0' }
+  if (fallback) {
+    open.altered = [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }]
+    open.original = { url: original.url, width: original.width, height: original.height }
+  }
+  const root = await store({ aaa: { photos: [nc], gallery: [nc, open] } })
+  const served = fallback ? original.url : open.url
+  const state = (name: string, value: unknown) => writeFile(join(root, 'engine-state', name), JSON.stringify(value))
+  await state('_photo-subjects.json', { [open.url]: { aaa: { ok: 'yes', typical: true, ...(fallback ? { logo: false } : {}) } } })
+  await state('_photo-faces.json', { [nc.url]: 0, [open.url]: 0, [served]: 0 })
+  await state('_dead-screen.json', { [nc.url]: { dead: false } })
+  const { d, seen } = model(yes)
+
+  expect((await screenLeads(root, d, { limit: 1 })).changed).toEqual([])
+  expect((await entity(root, 'aaa')).photos).toEqual([nc])
+  await state('_dead-screen.json', { [nc.url]: { dead: false }, [served]: { dead: false } })
+  expect((await screenLeads(root, d, { limit: 1 })).changed).toHaveLength(1)
+  expect((await entity(root, 'aaa')).photos.map(p => p.url)).toEqual([open.url])
+  expect(seen).toEqual([])
+})
+
+test('promotion checks the fallback of the existing entry that will actually lead', async () => {
+  const nc = { ...photo('nc'), url: 'https://media.aquatome.com/inaturalist/42.webp', sourceUrl: 'https://www.inaturalist.org/photos/42', licence: 'CC BY-NC 4.0' }
+  const album = { ...photo('open'), licence: 'CC BY 4.0' }
+  const fallback = photo('fallback')
+  const existing = { ...album, altered: [{ method: 'lanczos3-upscale' as const, date: '2026-11-26', originalHash: 'a'.repeat(64) }],
+    original: { url: fallback.url, width: fallback.width, height: fallback.height } }
+  const root = await store({ aaa: { photos: [nc, existing], gallery: [album] } })
+  const state = (name: string, value: unknown) => writeFile(join(root, 'engine-state', name), JSON.stringify(value))
+  await state('_photo-faces.json', { [nc.url]: 0, [album.url]: 0, [fallback.url]: 0 })
+  const read = { [nc.url]: { dead: false }, [album.url]: { dead: false } }
+  await state('_dead-screen.json', read)
+  const { d } = model(yes)
+
+  expect((await screenLeads(root, d, { limit: 1 })).changed).toEqual([])
+  expect((await entity(root, 'aaa')).photos).toEqual([nc, existing])
+  await state('_dead-screen.json', { ...read, [fallback.url]: { dead: false } })
+  expect((await screenLeads(root, d, { limit: 1 })).changed).toHaveLength(1)
+  expect((await entity(root, 'aaa')).photos).toEqual([existing])
+})
+
+test('a qualified album photo with no face cache can join a page while its non-commercial head stays', async () => {
+  const nc = { ...photo('nc'), url: 'https://media.aquatome.com/inaturalist/42.webp', sourceUrl: 'https://www.inaturalist.org/photos/42', licence: 'CC BY-NC 4.0' }
+  const open = { ...photo('open'), licence: 'CC BY 4.0' }
+  const root = await store({ aaa: { photos: [nc], gallery: [nc, open] } })
+  const facesFile = join(root, 'engine-state/_photo-faces.json')
+  await writeFile(facesFile, JSON.stringify({ [nc.url]: 0 }))
+  await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify({ [nc.url]: { dead: false }, [open.url]: { dead: false } }))
+  const { d, seen } = model(yes)
+  const sweepLicence = async () => {
+    const waits = await readPhotoWaits(root)
+    await dropNonCommercial(join(root, 'content'), undefined, p => waits(p.url))
+    return (await entity(root, 'aaa')).photos.map(p => p.url)
+  }
+
+  expect((await screenLeads(root, d, { limit: 1 })).changed).toHaveLength(1)
+  expect(await sweepLicence()).toEqual([open.url, nc.url])
+  await writeFile(facesFile, JSON.stringify({ [nc.url]: 0, [open.url]: 0 }))
+  expect(await sweepLicence()).toEqual([open.url])
+  expect(seen).toEqual([])
+})
+
 test("the step reads the calendar's hold for the head: a held head that fills the card gives way to a smaller photo that passes, with no model call (Rineloricaria castroi, 16 Nov)", async () => {
   const root = await store({ r: { photos: [big('r-held'), photo('r-other', 500, 375)] } })
   const cal = JSON.parse(await readFile(join(root, 'content/curation.json'), 'utf8'))
@@ -426,4 +493,75 @@ test("a photo its source names only to its genus or as another fish doesn't lead
   // It never replaces a head named to the species, small as that is, and a page with none takes one named to the species first.
   expect(leadChoice([photo('head', 500, 400)], [big('genus-1')], yes, {}, undefined, named)).toBeUndefined()
   expect(leadChoice([], [{ ...big('genus-1'), best: true }, photo('plain', 500, 400)], yes, {}, undefined, named)).toEqual({ lead: photo('plain', 500, 400) })
+})
+
+test('a reread keeps a waiting original and does not count a rejected wrapper as a replacement', () => {
+  const ref = 'species/example'
+  const source = 'bwaquatics'
+  const page = 'https://x/fish'
+  const names = { [source]: { publish: true as const } }
+  const original = { ...photo('original'), licence: 'CC BY 4.0' }
+  const stored: Photo = { ...photo('stored'), licence: 'CC BY 4.0', source, sourceUrl: page,
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
+  const passed: Photo = { ...photo('head'), source, sourceUrl: page }
+  const keeps = readKeeps(ref, 'Sample fish', { [original.url]: 'waiting: withheld' }, names)
+  expect(mergeRead([stored], source, page, [], keeps)).toEqual({ photos: [stored], held: [] })
+  const blocked = readKeeps(ref, 'Sample fish', { [stored.url]: 'watermark: withheld' }, names)
+  expect(mergeRead([passed], source, page, [stored], blocked)).toEqual({ photos: [passed], held: [passed] })
+})
+
+test('a source reread keeps the last passed mirror after another crop is finally refused', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'reread-independent-mirror-'))
+  await mkdir(join(root, 'engine-state'))
+  const square = 'https://live.staticflickr.com/123/456_abc_q.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(square)!.key}`
+  const source = 'bwaquatics', page = 'https://example.org/fish'
+  const prior = { ...photo('passed'), url: mirror, source, sourceUrl: page } as const
+  const blocked = { [square]: 'dead: confirmed first refusal' }
+  const state = (name: string, value: unknown) => writeFile(join(root, 'engine-state', name), JSON.stringify(value))
+  await state('_photo-check.json', { [mirror]: { ok: 'yes', logo: false, person: false } })
+  await state('_photo-rejected.json', blocked)
+  const reviewed = await readReviewedPhotoVersion(root)
+  const waits = await readPhotoWaits(root, { rejected: blocked })
+  const keep = readKeeps('species/aaa', 'Example fish', blocked, { [source]: { publish: true } }, undefined, waits, undefined, reviewed)
+
+  expect(mergeRead([prior], source, page, [], keep)).toEqual({ photos: [prior], held: [prior] })
+  expect(keep.gone?.({ ...prior, url: square })).toBe(true)
+})
+
+test('a reread keeps the credited original of a durable first refusal before its rejection write', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'reread-held-original-'))
+  await mkdir(join(root, 'engine-state'))
+  const original = { ...photo('newly-held'), licence: 'CC BY 4.0' }
+  const source = 'bwaquatics'
+  const page = 'https://x/source'
+  const stored: Photo = { ...photo('stored-version'), source, sourceUrl: page,
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
+  const fresh: Photo = { ...photo('new-photo'), source, sourceUrl: page }
+  await writeFile(join(root, 'engine-state/_photo-second-look.json'), JSON.stringify({
+    [original.url]: { why: 'dead: withheld', step: 'the dead-fish screen', pages: ['species/a'], at: '2026-11-26', off: true },
+  }))
+  const keeps = readKeeps('species/a', 'Example fish', {}, { [source]: { publish: true } }, undefined,
+    url => url === original.url, await readRecoveryRetention(root))
+  expect(mergeRead([stored], source, page, [fresh, { ...fresh, url: original.url }], keeps).photos).toEqual([fresh, stored])
+})
+
+test('a reread keeps the eligible iNaturalist head while its replacement awaits a look', () => {
+  const old: Photo = { ...photo('sole-inat'), licence: 'CC BY-NC 4.0', sourceUrl: 'https://www.inaturalist.org/photos/1' }
+  const source = 'bwaquatics'
+  const page = 'https://x/source'
+  const fresh: Photo = { ...photo('new-photo'), source, sourceUrl: page }
+  const options = readKeeps('species/a', 'Example fish', {}, { [source]: { publish: true } }, undefined, url => url === fresh.url)
+  expect(new Set(mergeRead([old], source, page, [fresh], options).photos)).toEqual(new Set([old, fresh]))
+})
+
+test('a reread keeps one credited wrapper when it brings in its original before screening', () => {
+  const source = 'bwaquatics'
+  const page = 'https://x/source'
+  const original = { ...photo('waiting'), licence: 'CC BY 4.0' }
+  const stored: Photo = { ...photo('stored'), source, sourceUrl: page,
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
+  const fresh: Photo = { ...original, source, sourceUrl: page }
+  const options = readKeeps('species/a', 'Example fish', {}, { [source]: { publish: true } }, undefined, url => url === original.url)
+  expect(mergeRead([stored], source, page, [fresh], options).photos).toEqual([stored])
 })

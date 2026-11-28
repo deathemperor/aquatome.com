@@ -3,7 +3,8 @@ import { readFileSync } from 'node:fs'
 import { copyFile, mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
+import * as creditReads from '../src/credit-reads'
 import sharp from 'sharp'
 import { ArchiveRefused } from '../src/archive'
 import { LockBusy } from '../src/mac-lock'
@@ -128,20 +129,31 @@ test('second identical run makes no llm calls and changes no file', async () => 
   expect(await tree(root)).toEqual(before)
 })
 
-test("a re-read whose page no longer shows our photos never leaves the page with none: the old ones stay, held for a person's second look", async () => {
+test.each([false, true])("a re-read keeps the old visible photos for review when its source drops them (waiting sibling: %s)", async waiting => {
   // 14 Nov 2026: a pages rewrite took Betta rutilans' only photo when the shop's page no longer gave it, and Commons had none.
   const root = await fresh()
   await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
   const file = join(root, 'content/species/paracheirodon-axelrodi/entity.json')
-  const before = JSON.parse(await readFile(file, 'utf8')).photos as { url: string }[]
+  const page = JSON.parse(await readFile(file, 'utf8'))
+  const before = page.photos as { url: string }[]
   expect(before.length).toBeGreaterThan(0)
+  const sibling = { url: 'https://media.test/awaiting-judgment.webp', width: 800, height: 600, licence: 'CC BY 4.0' }
+  if (waiting) {
+    page.photos.push(sibling)
+    await writeFile(file, JSON.stringify(page))
+    const all = page.photos as { url: string }[]
+    await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify(Object.fromEntries(before.filter(p => p !== sibling).map(p => [p.url, { dead: false }]))))
+    await writeFile(join(root, 'engine-state/_photo-faces.json'), JSON.stringify(Object.fromEntries(all.map(p => [p.url, 0]))))
+    await writeFile(join(root, 'engine-state/_photo-watermarks.json'), JSON.stringify(Object.fromEntries(all.map(p => [p.url, { watermark: false, ocr: [] }]))))
+    before.pop()
+  }
   const { d } = deps(root, { urls: ['paracheirodon-axelrodi'] })
   const html = fx('pages/seriouslyfish-cardinal.html').replace(/<img\b[^>]*>/gi, '')
   d.fetcher.get = async (u: string) => ({ status: 200, html, finalUrl: u })
   const http = d.http
   d.http = async (u: string) => { if (u.includes('gbif')) return http(u); throw new Error('HTTP 500') }
   await runEngine(d, { sources: ['seriouslyfish'], only: /axelrodi/, force: true })
-  expect((JSON.parse(await readFile(file, 'utf8')).photos as { url: string }[]).map(p => p.url)).toEqual(before.map(p => p.url))
+  expect((JSON.parse(await readFile(file, 'utf8')).photos as { url: string }[]).map(p => p.url)).toEqual([...before.map(p => p.url), ...(waiting ? [sibling.url] : [])])
   const held = JSON.parse(await readFile(join(root, 'engine-state/_photo-second-look.json'), 'utf8'))
   expect(Object.keys(held).sort()).toEqual(before.map(p => p.url).sort())
   for (const u of before.map(p => p.url)) expect(held[u]).toMatchObject({ step: 'the pages rewrite', pages: ['species/paracheirodon-axelrodi'] })
@@ -390,6 +402,25 @@ test("a page on the line-read list is read once though it isn't due: our photos 
   expect(JSON.parse(await readFile(join(root, 'engine-state/_credit-lines.json'), 'utf8'))).toEqual({})
   // Off the list, the page waits for its own turn again.
   expect((await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(0)
+})
+
+test('a page rewritten in the same run keeps the photo just released by its credit read', async () => {
+  const root = await fresh()
+  const slug = 'paracheirodon-axelrodi'
+  const url = `${SF}${slug}`
+  const file = join(root, 'content/species', slug, 'entity.json')
+  await runEngine(deps(root, { urls: [slug] }).d, { sources: ['seriouslyfish'] })
+  const page = JSON.parse(await readFile(file, 'utf8'))
+  const photo = page.photos[0]
+  await writeFile(file, JSON.stringify({ ...page, photos: [photo] }))
+  await creditReads.holdForCreditRead(root, [photo.url], 'reviewer', '2026-10-25', 'credit not yet read')
+  const credits = vi.spyOn(creditReads, 'pageCredits').mockReturnValue({ [photo.url]: { page: url, kind: 'own', at: '2026-10-28' } })
+  try {
+    const result = await runEngine(deps(root, { urls: [slug] }).d, { sources: ['seriouslyfish'], force: true, only: /paracheirodon-axelrodi/ })
+    expect(result.perSource.seriouslyfish?.processed).toBe(1)
+  } finally { credits.mockRestore() }
+  expect(JSON.parse(await readFile(file, 'utf8')).photos).toContainEqual(photo)
+  expect(JSON.parse(await readFile(join(root, creditReads.CREDIT_HOLDS), 'utf8'))).toEqual({})
 })
 
 test('a page the list leaves to its own turn is not read early', async () => {

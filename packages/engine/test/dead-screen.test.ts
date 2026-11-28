@@ -12,7 +12,7 @@ const photo = (url: string) => ({ url, width: 960, height: 640, licence: 'CC BY 
 const DEAD = new Set([thumbnail('deadthumb01'), videoFrames('deadframe01')[3]!, 'https://m/a-dead.webp'])
 
 // Species a: a video whose thumbnail shows a dead fish (on b's page too), a live one, and a main photo of a dead fish.
-// Species b: its main photo already judged by the photo check since it asked about dead fish. Plant c: a live main photo.
+// A's second photo was already judged by the screen; b's head by the photo check. Plant c has a live main photo.
 async function store() {
   const root = await mkdtemp(join(tmpdir(), 'dead-screen-'))
   const put = async (path: string, data: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), `${JSON.stringify(data, null, 2)}\n`) }
@@ -20,6 +20,7 @@ async function store() {
   await put('content/species/b/entity.json', { id: 'b', photos: [photo('https://m/b-asked.webp')], videos: [video('deadthumb01')] })
   await put('content/plants/c/entity.json', { id: 'c', photos: [photo('https://m/c-alive.webp')], videos: [] })
   await put('engine-state/_photo-subjects.json', { 'https://m/b-asked.webp': { b: { ok: 'yes', typical: true, note: 'a live fish', logo: false } } })
+  await put('engine-state/_dead-screen.json', { 'https://m/a-2.webp': { dead: false, note: 'live fish in a tank' } })
   return root
 }
 const json = async (root: string, path: string) => JSON.parse(await readFile(join(root, path), 'utf8'))
@@ -62,13 +63,10 @@ test('dead-screen: video thumbnails, then main photos the photo check never aske
   expect((await json(root, 'content/species/b/entity.json')).videos).toEqual([])
   expectControlledRejections(await json(root, 'engine-state/_video-rejected.json'), { deadthumb01: 'dead' })
   expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), { 'https://m/a-dead.webp': "dead" })
-  // A second run finds nothing to judge: a-2 is a's main photo now, and is judged once.
+  // A's second photo becomes its head and keeps its verdict. Nothing from the first pass is sent twice.
   const again = deps()
-  expect(await screenDead(root, again.d, { limit: 48 })).toMatchObject({ judged: 1, dead: [] })
-  expect(again.asked).toEqual(['https://m/a-2.webp'])
-  const third = deps()
-  expect(await screenDead(root, third.d, { limit: 48 })).toMatchObject({ sheets: 0, judged: 0 })
-  expect(third.asked).toEqual([])
+  expect(await screenDead(root, again.d, { limit: 48 })).toMatchObject({ sheets: 0, judged: 0, dead: [] })
+  expect(again.asked).toEqual([])
 })
 
 test('dead-screen: --limit pictures a run, the rest left for later; a picture not fetched is tried again; a model failure stops with nothing marked', async () => {

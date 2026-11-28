@@ -7,11 +7,12 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit } from '@aq/schema'
+import { deadScreenPhotoUrls, expandWholePhotoRejections, IMAGE_SWITCHES, isVersionRejection, LOGO_FOLDERS, logoFolder, ocrHit, originalPhotoRefusals, photoAddressSet, photoRejections, publicPhotoVersion, rejectedEntry, type Photo } from '@aq/schema'
 import { rememberMarkedPhotos } from './marked-photos'
 import { compactScreen, summarizeOcr, PHOTO_MARK_KINDS, PHOTO_POSITIONS, photoFailure, photoModelStop, type CompactScreen } from './photo-observations'
-import { writePhotoState } from './photo-state'
-import { holdForSecondLook, lastPhotos, looks, pagesShowing, readSecondLook } from './last-photo'
+import { recordPhotoRefusals, writePhotoState } from './photo-state'
+import { permittedPhotoSource, readPhotoSources, readPhotoWaits } from './photo-visibility'
+import { holdForSecondLook, lastPhotoVerdicts, looks, pagesShowing, readSecondLook } from './last-photo'
 
 /** A line of text macOS Vision read on a photo: confidence 0–1, box 0–1 from the top left. */
 export type TextLine = { t: string; c: number; x: number; y: number; w: number; h: number }
@@ -115,8 +116,10 @@ const isRef = (x: unknown): x is { url: string } => !!x && typeof x === 'object'
  */
 function urlsIn(x: unknown, out: Set<string>, from: Map<string, Set<string>>) {
   const add = (p: { url: string; sourceUrl?: unknown }) => {
-    out.add(p.url)
-    if (typeof p.sourceUrl === 'string') (from.get(p.url) ?? from.set(p.url, new Set()).get(p.url)!).add(p.sourceUrl)
+    for (const url of deadScreenPhotoUrls(p as Photo)) {
+      out.add(url)
+      if (typeof p.sourceUrl === 'string') (from.get(url) ?? from.set(url, new Set()).get(url)!).add(p.sourceUrl)
+    }
   }
   if (Array.isArray(x)) for (const v of x) urlsIn(v, out, from)
   else if (x && typeof x === 'object') {
@@ -127,17 +130,26 @@ function urlsIn(x: unknown, out: Set<string>, from: Map<string, Set<string>>) {
   }
 }
 
+type PreserveOriginal = (url: string, original: string, blockedOriginal: boolean) => boolean
+
+/** Shared by the last-photo calculation and the actual edit. */
+export function shouldStripPhoto(p: Photo, blocked: (url: string) => boolean, preserveOriginal?: PreserveOriginal): boolean {
+  if (!blocked(p.url)) return false
+  const original = preserveOriginal && deadScreenPhotoUrls(p)[1]
+  return !original || !preserveOriginal?.(p.url, original, blocked(original))
+}
+
 /**
  * Takes blocked photos off a content file, in place: from `photos` lists, video stills and figure photos (a figure left
  * with neither goes too), equipment type photos. An equipment hero is required: it becomes the first type photo left,
  * and stays (`kept`) when there is none.
  */
-export function stripPhotos(x: unknown, blocked: (url: string) => boolean, removed: string[], kept: string[]) {
-  if (Array.isArray(x)) { for (const v of x) stripPhotos(v, blocked, removed, kept); return }
+export function stripPhotos(x: unknown, blocked: (url: string) => boolean, removed: string[], kept: string[], preserveOriginal?: PreserveOriginal) {
+  if (Array.isArray(x)) { for (const v of x) stripPhotos(v, blocked, removed, kept, preserveOriginal); return }
   if (!x || typeof x !== 'object') return
   const o = x as Record<string, unknown>
-  for (const v of Object.values(o)) stripPhotos(v, blocked, removed, kept)
-  const drop = (p: unknown) => isRef(p) && blocked(p.url) && removed.push(p.url) > 0
+  for (const v of Object.values(o)) stripPhotos(v, blocked, removed, kept, preserveOriginal)
+  const drop = (p: unknown) => isRef(p) && shouldStripPhoto(p as Photo, blocked, preserveOriginal) && removed.push(p.url) > 0
   for (const k of ['photos', 'moments']) if (Array.isArray(o[k])) o[k] = (o[k] as unknown[]).filter(p => !drop(p))
   if (drop(o.photo)) delete o.photo
   if (Array.isArray(o.figures)) o.figures = (o.figures as { moments?: unknown[]; photo?: unknown }[]).filter(f => f.moments?.length || f.photo)
@@ -172,7 +184,7 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   // A screened shop's photo from its own pages is asked whose its marks are (own-mark.ts SCREENED_OWN_MARK), with the
   // shop's name and home page as we hold them. Not one already on the never-again list: a kept record would bring it back
   // (keptOwnMark), and photos listed before this rule return only by their own step, on the chief of staff's word.
-  const sources = JSON.parse(await readFile(join(root, 'content', 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, { name?: string; homepage?: string }>
+  const sources = await readPhotoSources(join(root, 'content'))
   const shopOf = (u: string): ShopPhoto | undefined => {
     // Nor one with a kept record already (a person's, on the chief of staff's word, or the image step's): the record
     // stands, and the screen's answer can't take it off or keep it a second way.
@@ -227,14 +239,33 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   // page with nothing stays where it is, held for a second look (last-photo.ts), and one the second look cleared stays.
   const sl = looks(await readSecondLook(root))
   const markedNow = (u: string) => cache[u]?.watermark === true && !retainedOwnMark(u, cache[u]) && sl.open(u)
-  const held = new Map([...lastPhotos(await pagesShowing(join(root, 'content')), u => markedNow(u) || u in rejected)].filter(([u]) => markedNow(u) && !(u in rejected)))
-  const marked = (u: string) => markedNow(u) && !held.has(u)
+  const content = join(root, 'content')
+  const effective = await expandWholePhotoRejections(content, rejected, cache)
+  const waits = await readPhotoWaits(root, { rejected: effective, watermarks: cache })
+  const listed = photoRejections(effective, cache)
+  const pages = await pagesShowing(content, (p, ref, scientificName) => {
+    if (!permittedPhotoSource(p, sources, ref, scientificName)) return undefined
+    const rejection = listed(p.url)?.[1]
+    if (rejection && !isVersionRejection(rejection)) return undefined
+    return publicPhotoVersion(p, IMAGE_SWITCHES, p.source ? sources[p.source]?.permission?.markRemoval : undefined)?.url
+  })
+  const newMarks = [...urls].filter(u => {
+    const rejection = listed(u)?.[1]
+    return markedNow(u) && (!rejection || isVersionRejection(rejection))
+  })
+  const newByAddress = rejectedEntry(Object.fromEntries(newMarks.map(url => [url, 'watermark'])))
+  const originals = newMarks.length ? await originalPhotoRefusals(content, url => newByAddress(url)?.[0]) : undefined
+  const held = lastPhotoVerdicts(pages, u => !!listed(u) || waits(u), newMarks, () => true, originals)
+  const heldByAddress = photoAddressSet(held.keys())
+  const refused = new Map(newMarks.filter(url => !heldByAddress(url)).map(url => [url, `watermark: ${cache[url]!.kind ?? 'unknown'}`]))
+  const refusedByAddress = photoAddressSet(refused.keys())
+  const marked = (u: string) => !heldByAddress(u) && (markedNow(u) || !!refusedByAddress(u))
   for (const [u, pages] of held) report.held.push(`${u}: ${pages.join(', ')}`)
   await holdForSecondLook(root, new Map([...held].map(([u, pages]) => [u, { why: `watermark: ${cache[u]!.kind ?? 'unknown'}`, pages }])), 'the watermark screen')
-  for (const u of urls) if (marked(u)) {
-    report.confirmed.push(u)
-    if (!(u in rejected)) rejected[u] = `watermark: ${cache[u]!.kind ?? 'unknown'}`
-  }
+  await recordPhotoRefusals(rejectedFile, rejected, refused, cache)
+  report.confirmed.push(...[...urls].filter(marked))
+  await writePhotoState(rejectedFile, rejected)
+  await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   for (const f of files) {
     const raw = await readFile(f, 'utf8')
     const data = JSON.parse(raw) as unknown
@@ -245,7 +276,5 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
     report.removed.push(...removed.map(u => `${relative(root, f)}: ${u}`))
     await writeFile(f, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
-  await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
-  await writePhotoState(rejectedFile, rejected)
   return report
 }

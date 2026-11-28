@@ -5,13 +5,15 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { awaitsScreen, DEAD_OWED_FILE, FACES_FILE, UNREAD_FACES_LIMIT, type PhotoScreenEntry } from './photo-screen'
-import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
+import { CREDIT_HOLD_FILE, creditHoldPhotoUrls, DEAD_OWED_FILE, DEAD_SCREEN_FILE, deadLooked, reviewedPhotoVersion, expandWholePhotoRejections, isVersionRejection, photoWaitsFor, ownDeadPhotoUrls, publicPhotoVersion, FACES_FILE, GUIDE_LOOKS_FILE, PHOTO_CHECK_FILE, PHOTO_REJECTED_FILE, PHOTO_SUBJECTS_FILE, SECOND_LOOK_RECORD, UNJUDGED_DEAD_LIMIT, UNREAD_FACES_LIMIT, facePhotoStatus, type CreditHoldPhotos, type PhotoScreenEntry } from './photo-screen'
+import { photoAddressSet } from './photo-address'
+import { photoRejections } from './own-mark'
+import { ownerCropFitsPage } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
 import { HAND_BOXES } from './hand-boxes'
 import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJECT_FRAMES, subjectPixels, validCropGeometry, type SubjectFractions } from './image-geometry'
 import { judgeQuality, speciesDepth } from './depth'
-import { isAllowedLicence, isInatNonCommercial, isNonCommercial, ncAlone } from './licence'
+import { isNonCommercial, mayPublishLicence, ncAlone } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
 import { pageFish, videosForPage, videosOnTwoFish } from './videos'
 import { BreedSchema, CaptionsSchema, VideoGeneratedSchema, VideoTitlesSchema, VideoTitlesOnSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MATERIAL_SECTION_ORDER, MaterialSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
@@ -191,7 +193,10 @@ const records = new Map<string, { at: string; record: Promise<unknown> }>()
  */
 async function stateRecord<T>(root: string, name: string): Promise<T | undefined> {
   const file = join(dirname(root), 'engine-state', name)
-  const at = await stat(file).then(s => `${s.ino} ${s.ctimeMs} ${s.mtimeMs} ${s.size}`, () => undefined)
+  const at = await stat(file).then(s => `${s.ino} ${s.ctimeMs} ${s.mtimeMs} ${s.size}`, (error: NodeJS.ErrnoException) => {
+    if (error.code === 'ENOENT') return undefined
+    throw error
+  })
   if (at === undefined) return undefined
   const had = records.get(file)
   if (had?.at === at) return had.record as Promise<T>
@@ -235,28 +240,46 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // in this language or held back still owns its photos, which another page's album can show. The site's build of the
   // real content needs the record.
   const faces = screen ? await stateRecord<Record<string, number>>(root, FACES_FILE) : undefined
+  const heldForCredit = photoAddressSet(creditHoldPhotoUrls(publicBuild
+    ? await stateRecord<Record<string, CreditHoldPhotos>>(root, CREDIT_HOLD_FILE) : undefined))
   if (screen && !faces && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', FACES_FILE)}: the face finder's record is missing, so no page's own photo can be shown as read`)
-  const unread = new Set<string>()
-  if (faces) {
-    for (const kind of ['species', 'plants', 'guides']) {
-      for (const id of await readdir(join(root, kind)).catch(() => [] as string[])) {
-        const file = join(root, kind, id, 'entity.json')
-        if (!(await exists(file))) continue
-        for (const p of (JSON.parse(await readFile(file, 'utf8')) as { photos?: { url: string }[] }).photos ?? []) if (!Object.hasOwn(faces, p.url)) unread.add(p.url)
-      }
-    }
+  // And an own photo of a species or plant page that no look has judged for a dead fish (photo-screen.ts deadLooked),
+  // owed or not: the list is the engine's queue, and one that is behind can't let a photo through (the chief of staff,
+  // 22 Nov 2026). With no screen record beside the root (the fixture build, a test's store) none waits for it; the site's
+  // build of the real content needs the record.
+  const deadScreen = screen ? await stateRecord<Record<string, unknown>>(root, DEAD_SCREEN_FILE) : undefined
+  if (screen && !deadScreen && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)}: the dead-fish screen's record is missing, so no photo can be shown as judged for a dead fish`)
+  const secondLook = deadScreen || faces ? await stateRecord<Record<string, { why?: string; off?: boolean; look?: { said?: string } }>>(root, SECOND_LOOK_RECORD) : undefined
+  const check = deadScreen ? await stateRecord<Record<string, unknown>>(root, PHOTO_CHECK_FILE) : undefined
+  const subjects = deadScreen ? await stateRecord<Record<string, unknown>>(root, PHOTO_SUBJECTS_FILE) : undefined
+  const guideLooks = screen ? await stateRecord<Record<string, unknown>>(root, GUIDE_LOOKS_FILE) : undefined
+  const rejectedForDead = screen ? photoRejections(
+    await expandWholePhotoRejections(root, await stateRecord<Record<string, string>>(root, PHOTO_REJECTED_FILE) ?? {}, screen), screen, reviewedPhotoVersion(secondLook, check, subjects),
+  ) : undefined
+  const { unread } = await facePhotoStatus(root, faces)
+  if (faces && opts.photoScreen === 'required') {
+    const retryable = [...unread].filter(url => !rejectedForDead?.(url) && !heldForCredit(url)).length
+    console.log(`${lang}: ${retryable} own photos of species, plant and guide pages wait, the face finder has never read them`)
+    if (retryable > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species, plant and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
+  }
+  const lookedForDead = deadScreen ? deadLooked({ screen: deadScreen, check, subjects, secondLook }) : undefined
+  const unjudged = new Set<string>()
+  if (lookedForDead) {
+    for (const url of await ownDeadPhotoUrls(root)) if (!lookedForDead(url)) unjudged.add(url)
     if (opts.photoScreen === 'required') {
-      console.log(`${lang}: ${unread.size} own photos of species, plant and guide pages wait, the face finder has never read them`)
-      if (unread.size > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${unread.size} own photos of species, plant and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
+      const retryable = [...unjudged].filter(url => !rejectedForDead?.(url) && !heldForCredit(url)).length
+      console.log(`${lang}: ${retryable} own photos of species and plant pages wait, no look has judged them for a dead fish`)
+      if (retryable > UNJUDGED_DEAD_LIMIT) throw new Error(`${lang}: ${retryable} own photos of species and plant pages that no look has judged for a dead fish (${join(dirname(root), 'engine-state', DEAD_SCREEN_FILE)} and the photo check's records). More than ${UNJUDGED_DEAD_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) screens them.`)
     }
   }
-  const waitsFor = (url: string) => awaitsScreen(url, screen![url]) || (!!owed && Object.hasOwn(owed, url)) || unread.has(url)
+  const waitsForScreen = photoWaitsFor({ watermarks: screen, owed, unread, faces, unjudged, lookedForDead, check, subjects, deadScreen, guideLooks, secondLook, rejected: rejectedForDead })
+  const waitsFor = (url: string) => heldForCredit(url) || waitsForScreen(url)
   // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
   // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,
   // for what names a picture by address alone (the calendar: `photoWaits`).
   const shown = new Set<string>(), waiting = new Set<string>()
   const screened = (p: { url: string; thumb?: string; large?: { url: string } }): boolean => {
-    if (!screen) return true
+    if (!screen && !heldForCredit(p.url)) return true
     const waits = waitsFor(p.url)
     for (const u of [p.url, p.thumb, p.large?.url]) if (u) (waits ? waiting : shown).add(u)
     return !waits
@@ -298,22 +321,17 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // (2026-10-31: 487 Commons photos put on pages straight from Wikimedia failed best practices on every live page).
   const cleanPhotos = <P extends Photo>(xs: P[], page = '', scientificName = '', album = false, head = false): P[] => realPhotosFirst(xs.flatMap(p => {
     if (isOwnerCrop(p)) {
-      const valid=ownerCropApproved(p,page,scientificName,createHash('sha256').update(ownerCropCanonical(p,page,scientificName)).digest('hex'))
+      const valid=ownerCropFitsPage(p, page, scientificName)
       const veto=p.source && sources[p.source]?.permission?.markRemoval?.allowed===false
       return valid && !veto ? [p] : []
     }
-    const removedMark = p.altered?.find(a => a.method === 'mark-removal' || a.method === 'mark-crop')
-    const permission = p.source && sources[p.source]?.permission?.markRemoval
-    const markOn = images.removeMarks && !!permission && permission.allowed && permission.date === removedMark?.permissionDate
-    const revoked = p.altered?.length && (!images.publishAltered || (removedMark ? !markOn : !images.upscaleReal))
-    if (revoked && !p.generated) {
-      // One source's objection takes effect in the very next build. Its marked original stays hidden, except Glaser's
-      // own logo, whose original was permitted; an ordinary upscale always falls back to its unchanged original.
-      if (!p.original || (removedMark && p.source !== 'glaser')) return []
-      const { altered: _altered, original, large: _large, thumb: _thumb, ...rest } = p
-      return [{ ...rest, ...original } as P]
+    const shown = publicPhotoVersion(p, images, p.source ? sources[p.source]?.permission?.markRemoval : undefined)
+    const storedReason = shown && shown.url !== p.url ? rejectedForDead?.(p.url)?.[1] : undefined
+    if (shown && storedReason && !isVersionRejection(storedReason)) {
+      for (const url of [shown.url, shown.thumb, shown.large?.url]) if (url) waiting.add(url)
+      return []
     }
-    return [p]
+    return shown ? [shown] : []
   }).filter(p => {
     if (publicBuild && setsCookies(p.url)) return false
     if (!screened(p)) return false
@@ -330,7 +348,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
         }
       }
     }
-    return p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence) || ((album || head) && images.inatNonCommercial && isInatNonCommercial(p))
+    return p.source ? photoAllowed(p.source) : mayPublishLicence(p, (album || head) && images.inatNonCommercial)
   }).map(p => caption(boxed(p))))
   // A fish's page shows a non-commercial photo (iNaturalist's, the switch on) only as its head with no other real photo,
   // where it's the one way to show that fish (the chief of staff's rule, 17 Nov; the engine's lead-photo.ts puts it there).
@@ -405,8 +423,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     const file = lang === 'vi' ? join(equipDir, f) : join(equipDir, lang, f)
     if (lang !== 'vi' && !(await exists(file))) continue
     const e = await readJson(file, EquipmentSchema)
-    const ok = (p: Photo) => cleanPhotos([p]).length > 0
-    const types = e.types.map(t => (!t.photo ? t : { ...t, photo: ok(t.photo) ? boxed(t.photo) : undefined }))
+    const types = e.types.map(t => (!t.photo ? t : { ...t, photo: cleanPhotos([t.photo])[0] }))
     // Its head picture waits like any other: a type's photo stands in, and with none to stand in the guide waits too.
     const hero = screened(e.hero) ? boxed(e.hero) : types.find(t => t.photo)?.photo
     if (hero) equipment.push({ ...e, hero, types })
@@ -434,10 +451,14 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // A newly passed real album photo immediately leads a formerly generated-only page, even before lead-photos runs.
   // Preserve explicitly fitted heads; add a fitted fallback only after ordinary publication admission.
   const fitsHead = (p: Photo) => p.headFit === 'contain' || photoFitsHead(p)
+  const fishAndPlants = new Set<SpeciesEntity | PlantEntity | BreedEntity>([...species, ...plants])
   for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>p.headFit==='contain'||!photoFitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && (generatedPages.has(page.id) || (galleries[page.id]??[]).some(p=>!p.generated&&photoFitsWholeHead(p))))) {
     // A non-commercial album photo isn't put first here: the engine's lead step does that, only where it's the one way to
     // show that fish (lead-photo.ts), and one that leads gives way to any open photo here (ncAlone).
-    const all=realPhotosFirst([...new Map([...page.photos,...(galleries[page.id]??[]).filter(p=>!isNonCommercial(p.licence))].map(p=>[p.url,p])).values()])
+    // Promotion turns an album photo into the page's own photo. Keep the ordinary album under its own rule.
+    const albumHeads = (galleries[page.id] ?? []).filter(p => !isNonCommercial(p.licence) &&
+      (!lookedForDead || !fishAndPlants.has(page) || lookedForDead(p.url)))
+    const all=realPhotosFirst([...new Map([...page.photos,...albumHeads].map(p=>[p.url,p])).values()])
     const albumOnly=page.photos.filter(p=>!fitsHead(p))
     if(albumOnly.length)galleries[page.id]=realPhotosFirst([...new Map([...(galleries[page.id]??[]),...albumOnly].map(p=>[p.url,p])).values()])
     page.photos=page.photos.filter(fitsHead)

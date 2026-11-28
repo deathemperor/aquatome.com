@@ -75,6 +75,26 @@ test('the count is under the album row\'s or equal: a picture with a copy doesn\
   expect(await priorityFish(b)).toEqual([])
 })
 
+test('an unjudged own photo on another page does not fill the sixth album slot', async () => {
+  const r = await root(checked(PRIORITY_UNTIL))
+  const file = join(r, 'content/species/danio-rerio/entity.json')
+  const other = JSON.parse(await readFile(file, 'utf8'))
+  other.photos = [photo('a0')]
+  await writeFile(file, JSON.stringify(other))
+  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify(Object.fromEntries(checked(PRIORITY_UNTIL).map(p => [p.url, { ocr: [] }]))))
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), '{}')
+  expect(await count(r)).toBe(5)
+  expect(await priorityFish(r)).toEqual(['species/zzz-liked'])
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify({ [url('a0')]: { dead: false } }))
+  const owed = join(r, 'engine-state/_photo-dead-owed.json')
+  await writeFile(owed, JSON.stringify({ [url('a0')]: '2026-11-26' }))
+  expect(await count(r)).toBe(5)
+  expect(await priorityFish(r)).toEqual(['species/zzz-liked'])
+  await writeFile(owed, '{}')
+  expect(await count(r)).toBe(6)
+  expect(await priorityFish(r)).toEqual([])
+})
+
 test('a photo kept with a shop\'s mark doesn\'t count: the fish stays first until six photos with no mark', async () => {
   // Betta mahachai's album once BW's five land: Glaser's photo and BW's five, kept with the shops' own marks, and one with
   // no mark. Seven on the row, one that counts.
@@ -117,6 +137,23 @@ test('a picture with a copy anywhere on the page or in the album doesn\'t count:
   await writeFile(join(g, 'content/picture-hashes.json'), JSON.stringify({ [url('orig')]: '00000000000000ff', [url('copy')]: '00000000000000fe' }))
   expect(await count(g)).toBe(5)
   expect(await priorityFish(g)).toEqual(['species/zzz-liked'])
+})
+
+test('an album stays in priority when its sixth photo is another page’s fallback still awaiting faces', async () => {
+  const r = await root(checked(PRIORITY_UNTIL))
+  const file = join(r, 'content/species/betta-splendens/entity.json')
+  const owner = JSON.parse(await readFile(file, 'utf8'))
+  const urlOfFallback = url('a0')
+  await writeFile(file, JSON.stringify({ ...owner, photos: [{
+    ...photo('alt'), altered: [{ method: 'lanczos3-upscale' }], original: { url: urlOfFallback },
+  }] }))
+  await writeFile(join(r, 'engine-state/_dead-screen.json'), JSON.stringify({ [urlOfFallback]: { dead: false } }))
+  const faces = join(r, 'engine-state/_photo-faces.json')
+  await writeFile(faces, JSON.stringify({ [url('alt')]: 0 }))
+  expect(await count(r)).toBe(5)
+  expect(await priorityFish(r)).toEqual(['species/zzz-liked'])
+  await writeFile(faces, JSON.stringify({ [url('alt')]: 0, [urlOfFallback]: 0 }))
+  expect(await count(r)).toBe(6)
 })
 
 test('a list that isn\'t JSON reads as no list: the album step and the photo check go on as before', async () => {

@@ -2,7 +2,7 @@ import { piece, PieceAdmissionError } from './pieces'
 import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { awaitsScreen, GuideSchema, isAllowedLicence, PHOTO_SCREEN_FILE, type PhotoScreenEntry, isOwnerCrop, mayPublish, setsCookies, ownerCropApproved, ownerCropCanonical, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, retiredTo, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
+import { awaitsScreen, deadScreenPhotoUrls, GuideSchema, IMAGE_SWITCHES, isNonCommercial, mayPublishLicence, PHOTO_SCREEN_FILE, photoRejections, publicPhotoVersion, type PhotoScreenEntry, isOwnerCrop, mayPublish, photoAddressSet, setsCookies, ownerCropApproved, ownerCropCanonical, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, retiredTo, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
 import { across, LARGE_PX } from './curation'
 import { cardGaps } from './card-fill'
@@ -27,7 +27,8 @@ import { rewriteVi, VI_WRITE } from './vi-rewrite'
 import { QUALITY_THRESHOLD, gate, reviewTranslation, steadyRead, WRITER_BAND } from './quality'
 import { logReviews, type Review } from './review-log'
 import { holdForSecondLook } from './last-photo'
-import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
+import { readPhotoIntakeBlocks, readPhotoWaits, readRecoveryRetention, readReviewedPhotoVersion, versionRejection } from './photo-visibility'
+import { linkedPhotos, mayTake, pickSourcePhotos, sourcePhotoInventory, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
 import { ARCHIVE_POLITE, archiveStops } from './archive'
 import { SOURCES, sourceById, type SourceConfig } from './sources'
@@ -108,18 +109,36 @@ export const approvedCrop = (page: string, scientificName: string, approvals?: P
  * since they turn on its switches and stored checks: an altered photo with no original while those switches are off, and
  * an approved crop whose stored checks fail. No page held either on 14 Nov 2026.
  */
-export const hiddenFromReaders = (blocked: Record<string, unknown>, sources: Partial<Record<SourceId, { publish?: boolean | 'photos'; permission?: { markRemoval?: { allowed?: boolean } } }>>) => (p: Photo) =>
-  p.url in blocked || setsCookies(p.url) || (!p.source && !isAllowedLicence(p.licence)) ||
+export const hiddenFromReaders = (blocked: Record<string, unknown>, sources: Partial<Record<SourceId, { publish?: boolean | 'photos'; permission?: { markRemoval?: { allowed?: boolean; date?: string } } }>>, allowInat = false) => (p: Photo) =>
+  p.url in blocked || setsCookies(p.url) || (!p.source && !mayPublishLicence(p, allowInat)) ||
   (!!p.source && (!mayPublish(sources[p.source], 'photos') || (isOwnerCrop(p) && sources[p.source]?.permission?.markRemoval?.allowed === false)))
-export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => boolean; waits?: (p: Photo) => boolean }
+export type ReadKeeps = { owned?: (p: Photo) => boolean; gone?: (p: Photo) => boolean; waits?: (p: Photo) => boolean; recovery?: (p: Photo) => boolean; nonCommercial?: (p: Photo) => boolean; servedAddress?: (p: Photo) => string | undefined }
 /**
  * A photo the watermark screen still owes a look (schema's awaitsScreen): the build shows it only once the screen has
  * judged it clean, and then by itself. With no screen record, nothing waits, as in a build that has none.
  */
 export const waitsForScreen = (screen: Record<string, PhotoScreenEntry> | undefined) => (p: Photo) => !!screen && awaitsScreen(p.url, screen[p.url])
 /** What a re-read of a page keeps, the same on every path that merges one (the run and the content backfill). */
-export const readKeeps = (page: string, scientificName: string, blocked: Record<string, unknown>, sources: Parameters<typeof hiddenFromReaders>[1], screen?: Record<string, PhotoScreenEntry>): ReadKeeps =>
-  ({ owned: approvedCrop(page, scientificName), gone: hiddenFromReaders(blocked, sources), waits: waitsForScreen(screen) })
+export const readKeeps = (page: string, scientificName: string, blocked: Record<string, string>, sources: Parameters<typeof hiddenFromReaders>[1], screen?: Record<string, PhotoScreenEntry>, photoWaits?: (url: string) => boolean, pendingRefusal?: (url: string) => boolean, reviewed?: (url: string) => boolean): ReadKeeps => {
+  const gone = hiddenFromReaders({}, sources, IMAGE_SWITCHES.inatNonCommercial)
+  const listed = photoRejections(blocked, screen, reviewed)
+  const selected = (p: Photo) => {
+    const permission = p.source ? sources[p.source]?.permission?.markRemoval : undefined
+    return publicPhotoVersion(p, IMAGE_SWITCHES, permission && { allowed: permission.allowed === true, date: permission.date })
+  }
+  return {
+    owned: approvedCrop(page, scientificName),
+    gone: p => {
+      const shown = selected(p)
+      const storedReason = listed(p.url)?.[1]
+      return !shown || gone(shown) || !!listed(shown.url) || !!(storedReason && !versionRejection(storedReason))
+    },
+    waits: p => { const shown = selected(p); return !!shown && (photoWaits?.(shown.url) ?? waitsForScreen(screen)(shown)) },
+    nonCommercial: p => isNonCommercial(selected(p)?.licence ?? ''),
+    servedAddress: p => selected(p)?.url,
+    recovery: p => deadScreenPhotoUrls(p).some(url => pendingRefusal?.(url) || listed(url)?.[1].startsWith('waiting:') === true),
+  }
+}
 
 /**
  * This page's fresh photos replace its old ones; source photos first (registry order), open-licence photos after. A head
@@ -143,23 +162,35 @@ export const mergeRead = (prev: Photo[], source: SourceId, url: string, fresh: P
   // A photo the build shows, or will by itself once the watermark screen has judged it clean; and one it shows now.
   const shows = (p: Photo) => !p.generated && !o.gone?.(p) && (!isOwnerCrop(p) || owned(p))
   const seen = (p: Photo) => shows(p) && !waits(p)
-  const replaced = (p: Photo) => p.source === source && p.sourceUrl === url && !owned(p)
-  const merged = [...fresh, ...prev.filter(p => !replaced(p))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p)
+  const visible = (ps: Photo[]) => {
+    const ready = ps.filter(seen)
+    return ready.length > 1 && o.nonCommercial ? ready.filter(p => !o.nonCommercial?.(p)) : ready
+  }
+  const freshAddress = photoAddressSet(fresh.map(p => o.servedAddress?.(p) ?? p.url))
+  const keptBefore = new Set(prev.filter(p => {
+    if (o.recovery?.(p)) return true
+    const served = o.servedAddress?.(p)
+    return !!served && served !== p.url && freshAddress(served) && shows(p) && waits(p)
+  }))
+  const recovery = (p: Photo) => keptBefore.has(p)
+  const replaced = (p: Photo) => p.source === source && p.sourceUrl === url && !owned(p) && !recovery(p)
+  const recoverable = photoAddressSet(prev.filter(recovery).flatMap(deadScreenPhotoUrls))
+  const merged = [...fresh.filter(p => !deadScreenPhotoUrls(p).some(recoverable)), ...prev.filter(p => !replaced(p))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p)
   const head = prev[0] && !replaced(prev[0]) && across(prev[0].large ?? prev[0], 'square') >= LARGE_PX ? prev[0] : undefined
   const all = head ? [head, ...merged.filter(p => p.url !== head.url)] : merged
   // The owner's crops first inside the cap, every other photo in its order after them.
   const crops = all.filter(owned).slice(0, MAX_PHOTOS), room = MAX_PHOTOS - crops.length
-  const rest = all.filter(p => !owned(p))
-  const others = new Set([...rest.filter(seen), ...rest.filter(p => shows(p) && !seen(p)), ...rest.filter(p => !shows(p))].slice(0, room))
+  const rest = all.filter(p => !owned(p) && !recovery(p))
+  const others = new Set([...all.filter(p => !owned(p) && recovery(p)), ...rest.filter(seen), ...rest.filter(p => shows(p) && !seen(p)), ...rest.filter(p => !shows(p))].slice(0, room))
   const photos = all.filter(p => crops.includes(p) || others.has(p))
-  const left = prev.filter(seen)
+  const left = visible(prev)
   // Nothing a reader could see left: the seen ones from before stay, held, behind the owner's crops (kept even when the
   // build hides them); photos waiting for the watermark screen stay behind those, the read's own and the page's old ones
   // (an old one the read replaced is held too); and a generated photo the read kept stays behind them, as it would
   // without this rule. With none of these, none at all, and the caller looks to Commons.
-  if (photos.some(seen)) return { photos, held: [] }
+  if (visible(photos).length) return { photos, held: [] }
   const waiting = [...photos, ...prev].filter(p => shows(p) && waits(p) && !owned(p))
-  const both = [...photos.filter(owned), ...left.filter(p => !owned(p)), ...waiting, ...photos.filter(p => p.generated)]
+  const both = [...photos.filter(owned), ...left.filter(p => !owned(p)), ...photos.filter(recovery), ...waiting, ...photos.filter(p => p.generated)]
   const kept = both.filter((p, i) => both.findIndex(q => q.url === p.url) === i).slice(0, MAX_PHOTOS)
   return { photos: kept, held: kept.filter(p => prev.includes(p) && replaced(p)) }
 }
@@ -262,15 +293,24 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const contentRoot = join(root, 'content')
   const s = store(contentRoot)
   const glossary = await glossaryTerms(s)
-  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos'; permission?: CreditTerms & { markRemoval?: { allowed?: boolean } } }>>>(join(contentRoot, 'sources.json'))) ?? {}
+  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos'; permission?: CreditTerms & { markRemoval?: { allowed?: boolean; date?: string } } }>>>(join(contentRoot, 'sources.json'))) ?? {}
   const gbifCache: Record<string, Taxon | null> = {}
-  const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
-  const screen = await readJson<Record<string, PhotoScreenEntry>>(join(root, 'engine-state', PHOTO_SCREEN_FILE))
+  const readPhotoState = async () => {
+    const blocked = await readPhotoIntakeBlocks(root)
+    const screen = await readJson<Record<string, PhotoScreenEntry>>(join(root, 'engine-state', PHOTO_SCREEN_FILE))
+    const [photoWaits, pendingRefusal, reviewed] = await Promise.all([
+      readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root), readReviewedPhotoVersion(root),
+    ])
+    return { blocked, screen, photoWaits, pendingRefusal, reviewed }
+  }
+  let photoState = await readPhotoState()
+  let stored: ReturnType<typeof sourcePhotoInventory> | undefined
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
   const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [], shopText: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
   // What a re-read keeps of a page's photos (mergeRead): the owner's approved crops; never a never-again photo, or one whose source no longer lets us show photos.
-  const keeps = (page: string, scientificName: string): ReadKeeps => readKeeps(page, scientificName, blocked, sourceNames, screen)
+  const keeps = (page: string, scientificName: string): ReadKeeps =>
+    readKeeps(page, scientificName, photoState.blocked, sourceNames, photoState.screen, photoState.photoWaits, photoState.pendingRefusal, photoState.reviewed)
   // A re-read that would leave a page with no photo keeps the old ones, each held for a person's second look (mergeRead).
   const holdLast = (held: Photo[], page: string) => holdForSecondLook(root, new Map(held.map(p => [p.url, { why: "rejected: the source's page no longer shows it", pages: [page] }])), 'the pages rewrite', today())
   // Source pages whose credits a read still has to learn (credit-reads.ts): read only on their own turn, like any page.
@@ -289,7 +329,13 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   // `missed`: the picture pages (ScotCat's) whose request failed. The page then stays on the list for its own turn, so
   // those pictures' lines are read then; what this read named stays named.
   const lineRead = async (source: SourceId, url: string, images: PageImage[], missed: readonly string[]) => {
-    const n = await namePictureLines(root, source, sourceNames[source]?.name ?? source, images, url, k => deps.media.urlFor(k), sourceNames[source]?.permission ?? {})
+    let n: number
+    try {
+      n = await namePictureLines(root, source, sourceNames[source]?.name ?? source, images, url, k => deps.media.urlFor(k), sourceNames[source]?.permission ?? {})
+    } finally {
+      // A line read can update several files, including copies of photos already in the inventory.
+      stored = undefined
+    }
     if (n) console.log(`line read: ${url}: ${n} photo places named from its pictures' lines`)
     if (missed.length) {
       await lineTurn(url)
@@ -378,9 +424,14 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const minWidth = sourceById(source).minPhotoWidth
     const sourceName = sourceNames[source]?.name ?? source
     const terms = sourceNames[source]?.permission
+    const blocked = photoState.blocked
     const photoDeps = { bytes, media: deps.media, blocked, refusedCredits: terms?.refusedCredits, coveredCredits: terms?.coveredCredits }
-    const sourcePhotos = (names: string[], existing: Photo[], max?: number) =>
-      storeSourcePhotos(source, sourceName, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth, mayTake(source, sourceName, photoDeps, existing)), photoDeps, existing, max ?? 4)
+    const sourcePhotos = async (names: string[], existing: Photo[], max?: number) => {
+      const picked = pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth, mayTake(source, sourceName, photoDeps, existing))
+      if (!picked.length) return []
+      const inventory = await (stored ??= sourcePhotoInventory(root))
+      return storeSourcePhotos(source, sourceName, url, picked, { ...photoDeps, ...inventory }, existing, max ?? 4)
+    }
     const log = (kind: ChangelogEntry['kind'], id: string, existed: boolean) => {
       const e: ChangelogEntry = { date: now, kind, id, source, action: existed ? 'updated' : 'new' }
       report.changed.push(e)
@@ -574,7 +625,11 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         if (hash !== prev?.hash || r.capturedAt) await writeSnapshot(root, id, url, o, deps.now(), r.capturedAt)
         // A page whose credits are still to learn, read now on its own turn: what this read shows decides (credit-reads.ts).
         // Its own try: a failure here is ours, not the page's, so the page keeps its read and its turn, and its credits wait for the next one.
-        if (creditWaiting.has(url)) await creditRead(id, url, o.images).catch((e: unknown) => { report.errors.push(`${url}: credits not read, the page waits for its next turn: ${(e as Error).message.slice(0, 200)}`) })
+        if (creditWaiting.has(url)) {
+          await creditRead(id, url, o.images).catch((e: unknown) => { report.errors.push(`${url}: credits not read, the page waits for its next turn: ${(e as Error).message.slice(0, 200)}`) })
+          photoState = await readPhotoState()
+          stored = undefined
+        }
         // The page's pictures, read once for both the line read and the page's photos: ScotCat's from each picture's own page.
         let linked: Promise<{ images: PageImage[]; missed: string[] }> | undefined
         const pictures = () => (linked ??= (async () => {

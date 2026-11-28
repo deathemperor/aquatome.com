@@ -9,7 +9,7 @@ import { checkPagePhotos, EMPTY_CAP, type PhotoCheckDeps, type PhotoVerdict } fr
 // than EMPTY_CAP pages with no photo of their own takes none off (the chief of staff, 2026-11-12).
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#e83' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
-const photo = (n: string) => ({ url: url(n), thumb: url(`${n}-480`), width: 960, height: 720, licence: 'x', author: 'x', sourceUrl: 'x' })
+const photo = (n: string) => ({ url: url(n), thumb: url(`${n}-480`), width: 960, height: 720, licence: 'CC BY 4.0', author: 'Sample Tester', sourceUrl: 'https://example.org/photo' })
 const name = (u: string) => u.split('/').pop()!.replace('.webp', '')
 
 type Page = { kind?: 'species' | 'plants' | 'breeds'; id: string; photos?: string[]; gallery?: { n: string; source?: string }[] }

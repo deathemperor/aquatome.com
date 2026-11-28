@@ -1,10 +1,14 @@
+import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
+import { mkdir, mkdtemp, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { ArchiveRefused } from '../src/archive'
 import { LockBusy } from '../src/mac-lock'
 import { htmlToOutline } from '../src/outline'
-import { linkedPhotos, mayTake, photoKey, pickSourcePhotos, storeSourcePhotos } from '../src/source-photos'
+import { linkedPhotos, mayTake, photoKey, pickSourcePhotos, sourcePhotoInventory, storedSourcePhotos, storeSourcePhotos } from '../src/source-photos'
 
 const jpeg = (width = 800, height = 600) => sharp({ create: { width, height, channels: 3, background: 'gray' } }).jpeg().toBuffer()
 
@@ -564,4 +568,83 @@ test('a shown photo the page lays out small keeps its place too, and its rank am
   const out = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', picked, deps, [shown], 4)
   expect(out.map(p => p.url)).toEqual([shown.url, ...[1, 2, 3].map(n => `https://media.test/${photoKey('glaser', `https://x.test/f${n}.jpg`)}`)])
   expect(fetched).toEqual([1, 2, 3].map(n => `https://x.test/f${n}.jpg`))
+})
+
+test('a source reread reuses an original already stored in a credited wrapper', async () => {
+  const source = 'glaser'
+  const page = 'https://x.test/fish'
+  const src = 'https://x.test/known.jpg'
+  const original = { url: `https://media.test/${photoKey(source, src)}`, width: 1000, height: 700 }
+  const stored = { ...original, source: source as 'glaser', url: 'https://media.test/upscaled.webp', licence: 'CC BY 4.0',
+    author: 'Sample credited owner', sourceUrl: page, altered: [{ method: 'lanczos3-upscale' as const, date: '2026-11-26', originalHash: 'a'.repeat(64) }], original }
+  const unused = async () => { throw new Error('the stored original must not be fetched or overwritten') }
+  const deps = { stored: new Map(), bytes: unused, media: { urlFor: (key: string) => `https://media.test/${key}`, put: unused } }
+  const picked = [{ src, alt: '', width: 1000, height: 700 }]
+  expect(await storeSourcePhotos(source, 'Source', page, picked, deps, [stored])).toEqual([stored])
+  const nextPage = 'https://x.test/another'
+  expect(await storeSourcePhotos(source, 'Source', nextPage, picked, deps, [])).toEqual([
+    { ...original, source, author: stored.author, licence: stored.licence, sourceUrl: nextPage },
+  ])
+  const corrected = { ...stored, author: 'Corrected photographer' }
+  await storeSourcePhotos(source, 'Source', page, picked, deps, [corrected])
+  expect(await storeSourcePhotos(source, 'Source', nextPage, picked, deps, [])).toMatchObject([
+    { url: original.url, author: corrected.author, sourceUrl: nextPage },
+  ])
+})
+
+test.each([false, true])('a different page reuses the credited original without reusing the crop (owner crop: %s)', async crop => {
+  const root = await mkdtemp(join(tmpdir(), 'source-original-'))
+  const earlier = join(root, 'species/earlier')
+  await mkdir(earlier, { recursive: true })
+  const source = 'glaser'
+  const src = 'https://source.example/shared.jpg'
+  const mediaUrl = (key: string) => `https://media.test/${key}`
+  const original = { url: mediaUrl(photoKey(source, src)), width: 1000, height: 700 }
+  const credit = { licence: 'CC BY 4.0', author: 'Sample credited owner', sourceUrl: 'https://source.example/earlier', source }
+  await writeFile(join(earlier, 'entity.json'), JSON.stringify({ photos: [{
+      ...credit, url: 'https://media.test/upscaled.webp', width: 2000, height: 1400,
+      altered: [{ method: 'lanczos3-upscale' }], original, ...(crop ? { ownerCrop: { id: 'reviewed-crop' } } : {}),
+    }] }))
+  const stored = await storedSourcePhotos(root)
+  const unused = async () => { throw new Error('an address shared by another page must keep its bytes') }
+  const fresh = await storeSourcePhotos(source, 'Source', 'https://source.example/new', [{ src, alt: '', width: 1000, height: 700 }],
+    { bytes: unused, media: { urlFor: mediaUrl, put: unused }, stored }, [])
+  expect(fresh).toEqual([{ ...original, ...credit, sourceUrl: 'https://source.example/new' }])
+})
+
+test.each([
+  ['species/sample/entity.json', (p?: object) => ({ photos: p ? [p] : [] })],
+  ['species/crop/entity.json', (p?: object) => ({ photos: p ? [{ ...p, url: 'https://media.test/crop.webp', ownerCrop: { id: 'reviewed-crop' }, original: p }] : [] })],
+  ['equipment/id/example.json', (p?: object) => ({ types: p ? [{ photo: p }] : [] })],
+  ['glossary/sample/entity.json', (p?: object) => ({ kinds: p ? [{ photo: p }] : [] })],
+] as const)('an unplaced publisher image recovers its credit from %s', async (path, doc) => {
+  const root = await mkdtemp(join(tmpdir(), 'source-verdict-'))
+  const git = (...args: string[]) => execFileSync('git', args, { cwd: root, encoding: 'utf8' })
+  git('init', '-q')
+  git('config', 'user.email', 'fixture@example.org')
+  git('config', 'user.name', 'Fixture')
+  await mkdir(join(root, 'engine-state'))
+  const src = 'https://source.example/screened.jpg'
+  const source = 'seriouslyfish'
+  const mediaUrl = (key: string) => `https://media.test/${key}`
+  const url = mediaUrl(photoKey(source, src))
+  const old = { url, source, sourceUrl: 'https://source.example/earlier', width: 1000, height: 700, licence: 'CC BY 4.0', author: 'Sample Original Credit' }
+  const file = join(root, 'content', path)
+  await mkdir(join(file, '..'), { recursive: true })
+  await writeFile(file, JSON.stringify(doc(old)))
+  expect((await sourcePhotoInventory(root)).stored.get(url)).toEqual(old)
+  git('add', '-A'); git('commit', '-qm', 'credited image')
+  const corrected = { ...old, author: 'Corrected photographer' }
+  await writeFile(file, JSON.stringify(doc(corrected)))
+  git('add', '-A'); git('commit', '-qm', 'credited photographer')
+  await writeFile(file, JSON.stringify(doc()))
+  await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify({ [url]: { dead: false } }))
+  const inventory = await sourcePhotoInventory(root)
+  expect(inventory.recover(url)).toEqual(corrected)
+  git('add', file); git('commit', '-qm', 'placement removed')
+  const unused = async () => { throw new Error('a screened image must not be fetched through the publisher or overwritten') }
+  const page = 'https://source.example/new'
+  const photos = await storeSourcePhotos(source, 'Site', page, [{ src, alt: '', width: 1000, height: 700 }],
+    { ...inventory, bytes: unused, media: { urlFor: mediaUrl, put: unused } }, [])
+  expect(photos).toMatchObject([{ ...corrected, sourceUrl: page }])
 })

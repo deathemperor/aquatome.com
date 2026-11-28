@@ -1,4 +1,6 @@
-import { basename } from 'node:path'
+import { readFile } from 'node:fs/promises'
+import { basename, dirname, join } from 'node:path'
+import { expandWholePhotoRejections, isVersionRejection, maySupersedePhotoRefusal, PHOTO_SCREEN_FILE, photoRejections, rejectedEntry, type PhotoScreenEntry } from '@aq/schema'
 import { compactScreen, compactVerdict, compactRejections, compactRejection, photoFailure } from './photo-observations'
 import { writeImageCache } from './image-cache-write'
 
@@ -27,6 +29,37 @@ export function compactPhotoState(file:string,value:unknown):unknown {
     return {...(v.at!==undefined?{at:v.at}:{}),...(v.timed!==undefined?{timed:v.timed}:{}),...(v.failed!==undefined?{failed:v.failed?photoFailure(v.failed):''}:{}),...(kept?{kept}:{})}
   })
 }
+async function storedWatermarks(file: string): Promise<Record<string, PhotoScreenEntry> | undefined> {
+  return readFile(join(dirname(file), PHOTO_SCREEN_FILE), 'utf8').then(
+    raw => JSON.parse(raw) as Record<string, PhotoScreenEntry>,
+    (error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return undefined },
+  )
+}
+
+/** Keep an existing effective refusal unless the new one applies to the entire photo. */
+export async function recordPhotoRefusals(
+  file: string, rejected: Record<string, string>, refusals: ReadonlyMap<string, string>, marks?: Record<string, PhotoScreenEntry>,
+  reviewed?: (url: string) => boolean,
+): Promise<void> {
+  if (!refusals.size) return
+  const screen = marks ?? await storedWatermarks(file)
+  const active = photoRejections(rejected, screen, reviewed)
+  const expanded = await expandWholePhotoRejections(join(dirname(dirname(file)), 'content'), Object.fromEntries(refusals), screen)
+  const pending = rejectedEntry(expanded)
+  for (const url of new Set([...Object.keys(expanded), ...Object.keys(rejected)])) {
+    const decision = pending(url)?.[1]
+    if (decision && maySupersedePhotoRefusal(active(url)?.[1], decision)) rejected[url] = decision
+  }
+}
+
 export async function writePhotoState(file:string,value:unknown,indent:number|string=2):Promise<void> {
-  await writeImageCache(file,JSON.stringify(compactPhotoState(file,value),null,indent)+'\n')
+  let data = compactPhotoState(file, value)
+  if (basename(file) === '_photo-rejected.json') {
+    const rejected = data as Record<string, string>
+    if (Object.values(rejected).some(why => why && !isVersionRejection(why))) {
+      const state = dirname(file)
+      data = await expandWholePhotoRejections(join(dirname(state), 'content'), rejected, await storedWatermarks(file))
+    }
+  }
+  await writeImageCache(file, JSON.stringify(data, null, indent) + '\n')
 }

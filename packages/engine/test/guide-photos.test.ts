@@ -1,3 +1,5 @@
+import { listAgreed } from '../src/last-photo'
+import { mirrorPlan } from '@aq/schema'
 import { denied } from './piece-admission'
 import { expectControlledRejections } from './photo-privacy-assertions'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
@@ -12,7 +14,7 @@ import { videoStills, type StillDeps } from '../src/video-stills'
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
 const name = (u: string) => u.split('/').pop()!.replace('.webp', '')
-const photo = (n: string) => ({ url: url(n), width: 1000, height: 667, licence: 'x', author: 'Aquarium Co-op', sourceUrl: 'x' })
+const photo = (n: string) => ({ url: url(n), width: 1000, height: 667, licence: 'CC BY 4.0', author: 'Aquarium Co-op', sourceUrl: 'x' })
 
 async function store(guides: Record<string, object>, equipment: Record<string, object> = {}) {
   const root = await mkdtemp(join(tmpdir(), 'guide-photos-'))
@@ -325,10 +327,132 @@ test("a guide's photo with a person in it that is also a fish page's last photo 
   // The chief of staff, 2026-11-14: a page's last photo doesn't come off on an automatic check's word alone (last-photo.ts).
   const root = await store({ 'how-to-net': { photos: [photo('netted'), photo('tank')] } })
   await mkdir(join(root, 'content/species/a'), { recursive: true })
-  await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: [photo('netted')] }))
+  await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: [photo('netted'), photo('waiting')] }))
+  await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify({ [url('netted')]: { dead: false } }))
+  await writeFile(join(root, 'engine-state/_photo-faces.json'), JSON.stringify({ [url('netted')]: 0, [url('waiting')]: 0 }))
   const out = await screenGuidePhotos(root, model({ netted: { person: true, note: 'a hand holds the net' } }).d, { limit: 10 })
   expect(out.held).toEqual([`${url('netted')}: species/a`])
   expect(urls((await json(root, 'content/guides/how-to-net/entity.json')).photos)).toEqual(['tank'])
   expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json').catch(() => ({})))).not.toContain(url('netted'))
   expect((await json(root, 'engine-state/_photo-second-look.json'))[url('netted')]).toMatchObject({ step: 'the guide photo check', pages: ['species/a'] })
+})
+
+test('the guide check holds all addresses when a marked upscale carries a fish page’s last original', async () => {
+  const source = 'https://live.staticflickr.com/123/456_abc.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(source)!.key}`
+  const original = photo('credited-original')
+  const stored = { ...photo('alteration'), url: mirror, altered: [{ method: 'lanczos3-upscale' }], original }
+  const root = await store({ guide: { photos: [{ ...photo('source'), url: source }, { ...photo('mirror'), url: mirror }] } })
+  const file = join(root, 'content/species/a/entity.json')
+  await mkdir(join(file, '..'), { recursive: true })
+  await writeFile(file, JSON.stringify({ id: 'a', photos: [stored] }))
+  const out = await screenGuidePhotos(root, model({ [name(source)]: { mark: true }, [name(mirror)]: { mark: true } }).d, { limit: 2 })
+  expect(out.held).toEqual([`${source}: species/a`])
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
+  expect((await json(root, 'content/species/a/entity.json')).photos).toEqual([stored])
+})
+
+test('a stored watermark refusal cannot make the guide check count its fallback as a surviving replacement', async () => {
+  const prior = photo('passed')
+  const wrapper = { ...photo('already-listed'), altered: [{ method: 'lanczos3-upscale' }], original: photo('fallback') }
+  const root = await store({ guide: { photos: [prior] } })
+  const file = join(root, 'content/species/a/entity.json')
+  await mkdir(join(file, '..'), { recursive: true })
+  await writeFile(file, JSON.stringify({ id: 'a', photos: [prior, wrapper] }))
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [wrapper.url]: 'watermark: withheld' }))
+  const result = await screenGuidePhotos(root, model({ passed: { mark: true } }).d, { limit: 2 })
+  expect(result.held).toEqual([`${prior.url}: species/a`])
+  expect(await json(root, 'engine-state/_photo-rejected.json')).not.toHaveProperty(prior.url)
+})
+
+test('a guide refusing an alteration holds the bare original on a fish page until agreement', async () => {
+  const original = photo('only-original')
+  const wrapper = { ...photo('alteration'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const root = await store({ guide: { photos: [wrapper] } })
+  const fish = join(root, 'content/species/only')
+  await mkdir(fish, { recursive: true })
+  await writeFile(join(fish, 'entity.json'), JSON.stringify({ id: 'only', photos: [original] }))
+  await writeFile(join(root, 'engine-state/_dead-screen.json'), JSON.stringify({ [original.url]: { dead: false } }))
+  await writeFile(join(root, 'engine-state/_photo-faces.json'), JSON.stringify({ [original.url]: 0 }))
+  const { d } = model({ alteration: { mark: true } })
+  const report = await screenGuidePhotos(root, d, { limit: 1 })
+  expect(report.held).toEqual([`${wrapper.url}: species/only`])
+  expect((await json(root, 'content/guides/guide/entity.json')).photos).toEqual([])
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
+  const marks = await json(root, 'engine-state/_photo-second-look.json')
+  expect(marks[wrapper.url].originals).toEqual([original.url])
+  marks[wrapper.url].look = { said: 'agree', by: 'the chief of staff', on: '2099-11-27' }
+  await writeFile(join(root, 'engine-state/_photo-second-look.json'), JSON.stringify(marks))
+  expect(await listAgreed(root)).toEqual([wrapper.url])
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[original.url]).toMatch(/^watermark:/)
+})
+
+test('a guide logo refusal follows the bare original even when the same verdict finds a person', async () => {
+  const original = photo('original')
+  const wrapper = { ...photo('alteration'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const root = await store({ guide: { photos: [wrapper] } })
+  const fish = join(root, 'content/species/sample')
+  await mkdir(fish, { recursive: true })
+  await writeFile(join(fish, 'entity.json'), JSON.stringify({ id: 'sample', photos: [original, photo('spare')] }))
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [wrapper.url]: 'dead: withheld' }))
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({
+    [wrapper.url]: { person: true, mark: false, brand: true, note: '' },
+  }))
+  const { d } = model({})
+
+  const report = await screenGuidePhotos(root, d, { limit: 1 })
+
+  expect(report.held).toEqual([])
+  const rejected = await json(root, 'engine-state/_photo-rejected.json')
+  expect(rejected[wrapper.url]).toMatch(/^logo:/)
+  expect(rejected[original.url]).toBe(rejected[wrapper.url])
+  expect((await json(root, 'content/guides/guide/entity.json')).photos).toEqual([])
+})
+
+test('a retained shop mark does not waive the guide’s independent person verdict', async () => {
+  const marked = { ...photo('shop'), url: 'https://media.aquatome.com/glaser/p.webp', source: 'glaser',
+    sourceUrl: 'https://www.aquariumglaser.de/example/' }
+  const root = await store({ guide: { photos: [marked] } })
+  await mkdir(join(root, 'content/species/sample'), { recursive: true })
+  await writeFile(join(root, 'content/species/sample/entity.json'), JSON.stringify({ photos: [marked, photo('spare')] }))
+  await writeFile(join(root, 'content/sources.json'), JSON.stringify({ glaser: { publish: true } }))
+  await writeFile(join(root, 'engine-state/_photo-watermarks.json'), JSON.stringify({
+    [marked.url]: { ocr: [], watermark: true, retainedOwnMark: { source: 'glaser', sourceUrl: marked.sourceUrl, owner: 'source' } },
+    [url('spare')]: { ocr: [] },
+  }))
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({
+    [marked.url]: { person: true, mark: true, brand: false, note: '' },
+  }))
+
+  await screenGuidePhotos(root, model({}).d, { limit: 0 })
+
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[marked.url]).toMatch(/^people:/)
+  expect((await json(root, 'content/guides/guide/entity.json')).photos).toEqual([])
+})
+
+test('all whole-photo refusals on alterations sharing a sole bare original wait for a second look', async () => {
+  const original = photo('shared-bare')
+  const wrappers = ['alteration-one', 'alteration-two'].map(id => ({ ...photo(id), altered: [{ method: 'lanczos3-upscale' }], original }))
+  const root = await store({ guide: { photos: wrappers } })
+  const fish = join(root, 'content/species/only')
+  await mkdir(fish, { recursive: true })
+  await writeFile(join(fish, 'entity.json'), JSON.stringify({ id: 'only', photos: [original] }))
+  const { d } = model({ 'alteration-one': { mark: true }, 'alteration-two': { mark: true } })
+  const report = await screenGuidePhotos(root, d, { limit: 1 })
+  expect(report.held).toEqual(wrappers.map(p => `${p.url}: species/only`))
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
+})
+
+test("a refusal on a localized equipment photo holds the fish page's original", async () => {
+  const original = photo('equipment-bare')
+  const wrapper = { ...photo('equipment-alteration'), altered: [{ method: 'lanczos3-upscale' }], original }
+  const root = await store({}, { 'id/sample': { types: [{ photo: wrapper }] } })
+  const fish = join(root, 'content/species/only')
+  await mkdir(fish, { recursive: true })
+  await writeFile(join(fish, 'entity.json'), JSON.stringify({ id: 'only', photos: [original] }))
+  const { d } = model({ 'equipment-alteration': { mark: true } })
+  const report = await screenGuidePhotos(root, d, { limit: 1 })
+  expect(report.held).toContain(`${wrapper.url}: species/only`)
+  expect((await json(root, 'engine-state/_photo-second-look.json'))[wrapper.url].originals).toEqual([original.url])
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
 })

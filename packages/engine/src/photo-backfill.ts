@@ -3,9 +3,10 @@ import { join } from 'node:path'
 import { PHOTO_SCREEN_FILE, type Photo, type PhotoScreenEntry, type SourceId } from '@aq/schema'
 import { htmlToOutline, isChallenge } from './outline'
 import { mergePhotos, readKeeps } from './run'
+import { readPhotoIntakeBlocks, readPhotoWaits, readRecoveryRetention, readReviewedPhotoVersion } from './photo-visibility'
 import { SOURCES, sourceById } from './sources'
 import { sourcesOnArchive } from './state'
-import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
+import { linkedPhotos, mayTake, pickSourcePhotos, sourcePhotoInventory, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { withSections } from './guide-sections'
 import { WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 
@@ -52,8 +53,12 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
   const intakeFile = join(root, 'engine-state/_photo-intake-retry.json')
   const intake: Record<string, string> = JSON.parse(await readFile(intakeFile, 'utf8').catch(() => '{}'))
   const names: Record<string, { name?: string; publish?: boolean | 'photos'; permission?: CreditTerms & { markRemoval?: { allowed?: boolean } } }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
-  const blocked: Record<string, string> = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}'))
+  const blocked = await readPhotoIntakeBlocks(root)
   const screen: Record<string, PhotoScreenEntry> | undefined = JSON.parse(await readFile(join(root, 'engine-state', PHOTO_SCREEN_FILE), 'utf8').catch(() => 'null')) ?? undefined
+  const [photoWaits, pendingRefusal, reviewed] = await Promise.all([
+    readPhotoWaits(root, { rejected: blocked, watermarks: screen, freshOwn: true }), readRecoveryRetention(root), readReviewedPhotoVersion(root),
+  ])
+  let inventory: ReturnType<typeof sourcePhotoInventory> | undefined
   const last = new Map<SourceId, number>()
   // Every request to a source (its page, photo pages, images) at the engine's pace for it.
   const polite = <A extends unknown[], R>(source: SourceId, f: (...a: A) => Promise<R>) => async (...a: A) => {
@@ -100,11 +105,13 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           const terms = names[source]?.permission
           const photoDeps = { bytes: polite(source, d.bytes), media: d.media, blocked, refusedCredits: terms?.refusedCredits, coveredCredits: terms?.coveredCredits }
           const picked = pickSourcePhotos(images, url, e.scientificName ? [e.scientificName] : [], max, kind === 'guides' ? 'guide' : 'subject', src.minPhotoWidth, mayTake(source, name, photoDeps, e.photos))
-          const stored = await storeSourcePhotos(source, name, url, picked, photoDeps, e.photos, max)
+          const stored = picked.length ? await storeSourcePhotos(source, name, url, picked, {
+            ...photoDeps, ...await (inventory ??= sourcePhotoInventory(root)),
+          }, e.photos, max) : []
           if (stored.length && kind === 'guides') {
             const body = async (l: string) => (JSON.parse(await readFile(join(root, 'content', kind, id, `${l}.json`), 'utf8').catch(() => '{}')) as { body?: string }).body
             e.photos = [...withSections(stored, { vi: (await body('vi')) ?? '', ...Object.fromEntries(await Promise.all(WRITTEN_OTHER_LANGS.map(async l => [l, await body(l)]))) }), ...e.photos.filter(p => p.sourceUrl !== url)]
-          } else if (stored.length) e.photos = mergePhotos(e.photos, source, url, stored.map(({ heading: _, ...p }) => p), readKeeps(`${kind}/${id}`, e.scientificName ?? '', blocked, names, screen))
+          } else if (stored.length) e.photos = mergePhotos(e.photos, source, url, stored.map(({ heading: _, ...p }) => p), readKeeps(`${kind}/${id}`, e.scientificName ?? '', blocked, names, screen, photoWaits, pendingRefusal, reviewed))
           tried[url] = d.now().toISOString()
         } catch (err) {
           errors.push(`${kind}/${id} ${url}: ${(err as Error).message.slice(0, 120)}`)

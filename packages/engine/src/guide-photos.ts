@@ -1,16 +1,17 @@
 import { piece } from './pieces'
 import { compactVerdict, photoReason, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
-import { writePhotoState } from './photo-state'
+import { recordPhotoRefusals, writePhotoState } from './photo-state'
+import { holdablePhotoVerdicts, readReviewedPhotoVersion, versionRejection } from './photo-visibility'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
 import sharp from 'sharp'
-import { stillShown } from '@aq/schema'
+import { PHOTO_SCREEN_FILE, photoAddressSet, retainedOwnMark, stillShown, type PhotoScreenEntry } from '@aq/schema'
 import { LlmError } from './claude'
 import { contactSheet, stillDone } from './video-images'
 import type { StillsState } from './video-stills'
 import { stripPhotos } from './watermarks'
-import { holdForSecondLook, lastPhotos, looks, pagesShowing, readSecondLook } from './last-photo'
+import { holdForSecondLook, looks, readSecondLook, verdictAddressSet } from './last-photo'
 
 /**
  * No people and no logos in the pictures the subject check (photo-check.ts) doesn't look at: every guide's photos (the
@@ -99,9 +100,9 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
 }
 
 /** Why a photo leaves a guide, or undefined; `brandKept`: an equipment guide's (the brand is the product's) or a video still. */
-export function guidePhotoOff(v: GuidePhotoVerdict | undefined, brandKept: boolean): string | undefined {
+export function guidePhotoOff(v: GuidePhotoVerdict | undefined, brandKept: boolean, ownMarkKept = false): string | undefined {
   if (!v) return undefined
-  return v.person ? `people: ${photoReason(v)}` : v.mark ? `watermark: ${photoReason(v)}` : v.brand && !brandKept ? `logo: ${photoReason(v)}` : undefined
+  return v.mark && !ownMarkKept ? `watermark: ${photoReason(v)}` : v.brand && !brandKept ? `logo: ${photoReason(v)}` : v.person ? `people: ${photoReason(v)}` : undefined
 }
 
 /** The model's verdict on each image (at most PER_SHEET), in order; one it didn't answer is undefined. `subjects`: each image's guide's subject, if it's to be asked about. */
@@ -209,21 +210,35 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
 
   // 2. Off the guides and equipment guides; a person, a mark, or a brand on a photo no equipment guide shows and that
   // isn't a still, onto the blocklist.
-  const now = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {} // re-read: entries another step added meanwhile stay
+  const rejectedFile = state('_photo-rejected.json')
+  const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {} // re-read: entries another step added meanwhile stay
   // A guide's photo that is also the last photo of a species, plant or breed page doesn't go on the list, which would
   // take it off that page too: it waits for a second look (last-photo.ts). It still leaves the guides.
-  const sl = looks(await readSecondLook(root))
-  const listing = new Set([...items.values()].filter(x => !!guidePhotoOff(cache[x.url], x.equipment || x.still) && sl.open(x.url)).map(x => x.url))
-  const last = new Map([...lastPhotos(await pagesShowing(content), u => listing.has(u) || u in now)].filter(([u]) => listing.has(u) && !(u in now)))
+  const reviewed = await readReviewedPhotoVersion(root)
+  const sl = looks(await readSecondLook(root), reviewed)
+  const marks = (await readJson<Record<string, PhotoScreenEntry>>(state(PHOTO_SCREEN_FILE))) ?? {}
+  const ownMark = photoAddressSet(Object.keys(marks).filter(url => retainedOwnMark(url, marks[url])))
+  const verdictOff = (url: string, brandKept: boolean) => guidePhotoOff(cache[url], brandKept, ownMark(url))
+  const listing = new Map([...items.values()].flatMap(x => {
+    const why = verdictOff(x.url, x.equipment || x.still)
+    return why && sl.open(x.url) ? [[x.url, why] as const] : []
+  }))
+  const removesWrapper = photoAddressSet([...listing].flatMap(([url, reason]) => versionRejection(reason) ? [] : [url]))
+  const last = await holdablePhotoVerdicts(root, now, new Set(listing.keys()), removesWrapper)
+  const heldWhole = photoAddressSet([...last.keys()].filter(removesWrapper))
+  const heldVersions = verdictAddressSet([...last.keys()].filter(url => !removesWrapper(url)), new Set(listing.keys()))
+  const heldAddress = (url: string) => heldWhole(url) || heldVersions(url)
   const holding = new Map<string, { why: string; pages: string[] }>()
   for (const x of items.values()) {
-    const why = guidePhotoOff(cache[x.url], x.equipment || x.still)
+    const why = verdictOff(x.url, x.equipment || x.still)
     if (!why) continue
     report.off.push(`${x.url}: ${why}`)
     if (last.has(x.url)) { holding.set(x.url, { why, pages: last.get(x.url)! }); report.held.push(`${x.url}: ${last.get(x.url)!.join(', ')}`); continue }
-    if (sl.open(x.url)) now[x.url] ??= why
   }
   await holdForSecondLook(root, holding, 'the guide photo check')
+  await writePhotoState(state('_photo-guides.json'), Object.fromEntries(Object.entries(cache).sort()))
+  await recordPhotoRefusals(rejectedFile, now, new Map([...listing].filter(([url]) => !heldAddress(url))), marks, reviewed)
+  await writePhotoState(rejectedFile, now)
   for (const file of files) {
     const raw = await readFile(file, 'utf8')
     const data = JSON.parse(raw) as Guide
@@ -231,7 +246,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     const equipment = file.startsWith(join(content, 'equipment'))
     const subject = subjectOf.get(file)
     const another = (url: string) => !!subject && cache[url]?.other?.[subject] === true
-    stripPhotos(data, url => sl.open(url) && (!!guidePhotoOff(cache[url], equipment || !!items.get(url)?.still) || another(url)), removed, report.kept)
+    stripPhotos(data, url => sl.open(url) && (!!verdictOff(url, equipment || !!items.get(url)?.still) || another(url)), removed, report.kept)
     report.subject.push(...removed.filter(another).map(u => `${relative(root, file)}: ${u}: ${cache[u]!.note}`))
     // What's left of a guide's stills carries its verdict, which they need to show.
     let cleared = 0
@@ -246,7 +261,5 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     report.removed.push(...removed.map(u => `${relative(root, file)}: ${u}`))
     await writeFile(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
-  await writePhotoState(state('_photo-guides.json'), Object.fromEntries(Object.entries(cache).sort()))
-  await writePhotoState(state('_photo-rejected.json'), now)
   return report
 }

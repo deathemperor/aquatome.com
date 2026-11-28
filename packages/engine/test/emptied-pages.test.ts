@@ -139,6 +139,104 @@ test("an album photo that another page owns and the face finder hasn't read show
   expect(await showingPhotos(['species/x1'], disk(r), diskOwners(r))).toEqual(new Map([['species/x1', true]]))
 })
 
+test("an album photo that another page owns and no look has judged for a dead fish shows on neither: the page that owns it is read too", async () => {
+  // y owns u, which the face finder has read and no look has judged for a dead fish; x's album shows u and p.
+  const { r, put } = await store({ species: { x: [], y: ['u'] }, albums: { x: ['p', 'u'] } })
+  await put(`engine-state/${schema.FACES_FILE}`, { [url('u')]: 0, [url('p')]: 0 })
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [url('p')]: { dead: false } })
+  // x's album loses p, the photo that showed: u waits, so x shows nothing, as the site would.
+  await put('content/gallery/x.json', { id: 'x', photos: [photo('u')], seen: 1, updatedAt: '2026-11-01' })
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', false]]))
+  // Judged by the screen: x shows it.
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [url('p')]: { dead: false }, [url('u')]: { dead: false } })
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
+})
+
+test('the working tree and Git replay keep a separately judged mirror visible', async () => {
+  const { r, put } = await store({ species: { x: [], y: [] }, albums: { x: [] } })
+  const source = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Replay.jpg/1280px-Replay.jpg'
+  const mirrored = `https://media.aquatome.com/${schema.mirrorPlan(source)!.key}`
+  const file = 'content/species/y/entity.json'
+  const entity = JSON.parse(await readFile(join(r, file), 'utf8'))
+  await put(file, { ...entity, photos: [{ ...photo('sample'), url: source }] })
+  await put('content/gallery/x.json', { id: 'x', photos: [{ ...photo('sample'), url: mirrored }], seen: 1, updatedAt: '2026-11-01' })
+  await put(`engine-state/${schema.PHOTO_SCREEN_FILE}`, { [source]: { ocr: [] }, [mirrored]: { ocr: [] } })
+  await put(`engine-state/${schema.FACES_FILE}`, { [source]: 0, [mirrored]: 0 })
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [mirrored]: { dead: false } })
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
+  const git = (...args: string[]) => execFileSync('git', args, { cwd: r, encoding: 'utf8' })
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
+  git('add', '.'); git('commit', '-qm', 'the mirror has its own judgment')
+  await put('content/gallery/x.json', { id: 'x', photos: [], seen: 0, updatedAt: '2026-11-01' })
+  expect(await listEmptied(r, '2026-11-26')).toEqual(['species/x'])
+})
+
+test.each(['own photo', 'album'])('a rejection alone queues a page that loses the original from its %s', async place => {
+  const { r, put } = await store({ species: { x: [] }, albums: { x: [] } })
+  const original = photo('original')
+  const wrapper = {
+    ...photo('wrapper'),
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-26', originalHash: 'a'.repeat(64) }],
+    original: { url: original.url, width: original.width, height: original.height },
+  }
+  const file = place === 'album' ? 'content/gallery/x.json' : 'content/species/x/entity.json'
+  const record = JSON.parse(await readFile(join(r, file), 'utf8'))
+  await put(file, { ...record, photos: [wrapper] })
+  await put(`engine-state/${schema.PHOTO_SCREEN_FILE}`, { [original.url]: { ocr: [] }, [wrapper.url]: { ocr: [] } })
+  await put(`engine-state/${schema.FACES_FILE}`, { [original.url]: 0, [wrapper.url]: 0 })
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [original.url]: { dead: false }, [wrapper.url]: { dead: false } })
+  const git = (...args: string[]) => execFileSync('git', args, { cwd: r, encoding: 'utf8' })
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
+  git('add', '.'); git('commit', '-qm', 'visible original')
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
+
+  await put(`engine-state/${schema.PHOTO_REJECTED_FILE}`, { [original.url]: 'dead: withheld' })
+  expect(git('diff', '--name-only', '--', 'content')).toBe('')
+  expect(await listEmptied(r, '2026-11-26')).toEqual(['species/x'])
+})
+
+test('the sweep notices a fish page whose bare original is hidden by a credit hold elsewhere', async () => {
+  const { r, put } = await store({ species: { x: ['original'] } })
+  const original = photo('original')
+  const wrapper = { ...photo('wrapper'), original }
+  await put(`engine-state/${schema.PHOTO_SCREEN_FILE}`, { [original.url]: { ocr: [] } })
+  const git = (...args: string[]) => execFileSync('git', args, { cwd: r, encoding: 'utf8' })
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
+  git('add', '.'); git('commit', '-qm', 'visible original')
+
+  await put(`engine-state/${schema.CREDIT_HOLD_FILE}`, { [wrapper.url]: { places: [{ photo: wrapper }] } })
+  expect(git('diff', '--name-only', '--', 'content')).toBe('')
+  expect(await listEmptied(r, '2026-11-26')).toEqual(['species/x'])
+})
+
+test('the replay locates a different page whose fallback original has a face verdict', async () => {
+  const { r, put } = await store({ species: { x: [], y: [] }, albums: { x: ['u'] } })
+  const file = 'content/species/y/entity.json'
+  const entity = JSON.parse(await readFile(join(r, file), 'utf8'))
+  await put(file, { ...entity, photos: [{
+    ...photo('alt'), altered: [{ method: 'lanczos3-upscale', date: '2026-11-10', originalHash: 'a'.repeat(64) }],
+    original: { url: url('u'), width: 1200, height: 800 },
+  }] })
+  await put(`engine-state/${schema.FACES_FILE}`, { [url('u')]: 1, [url('alt')]: 0 })
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [url('alt')]: { dead: false }, [url('u')]: { dead: false } })
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', false]]))
+})
+
+test('the replay finds the owner of the original an album alteration would show', async () => {
+  const { r, put } = await store({ species: { x: [], y: ['u'] }, albums: { x: ['alt'] } })
+  const altered = {
+    ...photo('alt'),
+    altered: [{ method: 'lanczos3-upscale', date: '2026-11-10', originalHash: 'a'.repeat(64) }],
+    original: { url: url('u'), width: 1200, height: 800 },
+  }
+  await put('content/gallery/x.json', { id: 'x', photos: [altered], seen: 1, updatedAt: '2026-11-01' })
+  await put(`engine-state/${schema.FACES_FILE}`, { [url('u')]: 0, [url('alt')]: 0 })
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [url('alt')]: { dead: false } })
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', false]]))
+  await put(`engine-state/${schema.DEAD_SCREEN_FILE}`, { [url('alt')]: { dead: false }, [url('u')]: { dead: false } })
+  expect(await showingPhotos(['species/x'], disk(r), diskOwners(r))).toEqual(new Map([['species/x', true]]))
+})
+
 test("a page emptied by this run's removal and main's together is listed on main as it is now, after the run caught up", async () => {
   const { r, put } = await store({ species: { pair: ['p1'] }, albums: { pair: ['a1'] } })
   const git = (...a: string[]) => execFileSync('git', a, { cwd: r, encoding: 'utf8' })

@@ -428,6 +428,7 @@
     "packages/engine/test/ready-push.test.ts": "the hook on repositories in the temp folder",
     "packages/engine/test/recheck-accounts.test.ts": "a shell snippet in a temp home",
     "packages/engine/test/sim-run.test.ts": "sim-run.py and its hook on a temp home's queues (on a Mac)",
+    "packages/engine/test/source-photos.test.ts": "git on a repository it makes in the system temp folder",
     "packages/engine/test/start-clean.test.ts": "vitest on two cycle test files",
     "packages/engine/test/test-scratch.test.ts": "printf of the temp folder's name",
     "packages/engine/test/test-time-scale.test.ts": "the cycle's checks on stand-in steps in the temp folder",

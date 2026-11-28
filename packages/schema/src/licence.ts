@@ -32,3 +32,8 @@ export const ncAlone = <P extends { licence?: string; generated?: unknown }>(xs:
  */
 export const isInatNonCommercial = (p: Pick<Photo, 'licence' | 'sourceUrl' | 'source'>): boolean =>
   !p.source && /^cc by nc( sa)?( \d+( \d+)?)?$/.test(words(p.licence)) && /^https:\/\/www\.inaturalist\.org\/photos\/\d+$/.test(p.sourceUrl)
+
+/** The licence rule for a photo without a source permission. */
+export function mayPublishLicence(p: Pick<Photo, 'licence' | 'sourceUrl' | 'source'>, allowInat: boolean): boolean {
+  return typeof p.licence === 'string' && (isAllowedLicence(p.licence) || (allowInat && isInatNonCommercial(p)))
+}
