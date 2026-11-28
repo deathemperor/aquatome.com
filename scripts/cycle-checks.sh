@@ -629,7 +629,7 @@ video_recheck_tree() {
     [ -z "$status" ] && git rev-parse 'HEAD^{tree}'
 }
 
-# The checkout was clean on entry to verification. Save newly created files outside it so a later sweep cannot stage them.
+# Keep untracked inputs outside the dedicated video recheck checkout so its sweep cannot stage them.
 archive_video_recheck_inputs() {
   local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive file to
   mkdir -p "$parent" || return 1
@@ -639,7 +639,7 @@ archive_video_recheck_inputs() {
     rm "$archive/paths" && rmdir "$archive"
     return
   fi
-  log "saving files verification created in $archive"
+  log "saving untracked video recheck files in $archive"
   while IFS= read -r -d '' file; do
     to="$archive/files/$file"
     mkdir -p "$(dirname "$to")" && mv -- "$file" "$to" || return 1
@@ -702,7 +702,7 @@ push_kept() {
     # would pass a tree whose photo records weren't migrated, which push() never publishes (Grok's read).
     if [ "$(git rev-parse origin/main 2>/dev/null)" != "$main" ] && [ -z "$check" ]; then
       head=$(git rev-parse HEAD)
-      sweep_merged || { KEPT_WHY="the sweep couldn't be committed"; return 1; }
+      sweep_merged "$video_recheck" || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
       swept=1
       if [ -z "$video_recheck" ]; then
         if swept_clean "$head" "$main" "$(git rev-parse origin/main)"; then
@@ -717,7 +717,7 @@ push_kept() {
       check=1
     fi
     if [ -n "$check" ]; then
-      [ -n "$swept" ] || sweep_merged || { KEPT_WHY="the sweep couldn't be committed"; return 1; }
+      [ -n "$swept" ] || sweep_merged "$video_recheck" || { KEPT_WHY="the sweep did not finish and commit"; return 1; }
       if [ -n "$video_recheck" ]; then
         checked_tree=$(video_recheck_tree) || { KEPT_WHY="the video recheck checkout differed from its commit before verification"; return 1; }
       fi
@@ -870,7 +870,13 @@ verify_cycle() {
 sweep_merged() {
   MIGRATE_FAILED=
   pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
-  pnpm engine sweep || log "sweep: failed"
+  if ! pnpm engine sweep; then
+    log "sweep: failed"
+    if [ -n "${1:-}" ]; then
+      archive_video_recheck_inputs || log "could not save all files the sweep created"
+      return 1
+    fi
+  fi
   git add content sources engine-state docs/review || return 1
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
 }

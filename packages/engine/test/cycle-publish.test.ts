@@ -18,7 +18,7 @@ test('a cycle sweeps again after each merge with main, before the tests', () => 
   expect(cycle).toMatch(/rebase -X theirs; then\n\s*replan_merged "\$clash"\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
   expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
   expect(script('video-recheck.sh')).toContain('source scripts/video-recheck-publish.sh')
-  expect(script('video-recheck-publish.sh')).toMatch(/main_holds "\$run" \|\| true\n\s*if ! sweep_merged; then[\s\S]*\n\s*verify_cycle \|\| verification_failed=1/)
+  expect(script('video-recheck-publish.sh')).toMatch(/main_holds "\$run" \|\| true\n\s*if ! sweep_merged strict; then[\s\S]*\n\s*verify_cycle \|\| verification_failed=1/)
 })
 
 test('what the sweep changes after a merge is committed, and no change leaves no commit', () => {
@@ -48,7 +48,7 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   // Kept work: after a pull that brought main's commits in, checked in full until it has passed; then swept, and checked
   // again only if the sweep changed more than the pages' dates or the migration failed, as a run's own push does, on that
   // one sweep.
-  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$\(git rev-parse origin\/main 2>\/dev\/null\)" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged \|\| .*return 1; }\n\s*swept=1\n\s*if \[ -z "\$video_recheck" \]; then\n\s*if swept_clean "\$head" "\$main" "\$\(git rev-parse origin\/main\)"; then/)
+  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$\(git rev-parse origin\/main 2>\/dev\/null\)" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged "\$video_recheck" \|\| .*return 1; }\n\s*swept=1\n\s*if \[ -z "\$video_recheck" \]; then\n\s*if swept_clean "\$head" "\$main" "\$\(git rev-parse origin\/main\)"; then/)
   expect(script('cycle-checks.sh')).toMatch(/\n\s*fi\n\s*if \[ -n "\$check" \]; then\n\s*\[ -n "\$swept" \] \|\| sweep_merged/)
 
   const dir = mkdtempSync(join(tmpdir(), 'aq-pulled-'))
@@ -160,7 +160,7 @@ test("a video run's work is committed before its tests, so a run that fails them
 // was left for the next run's reset to drop.
 test("a video re-check sweeps its work and commits it before its tests, as the video job does", () => {
   const s = script('video-recheck.sh')
-  const sweep = s.indexOf('pnpm engine sweep')
+  const sweep = s.indexOf('sweep_new_video_recheck || exit 1')
   const commit = s.indexOf('git commit -q -m "content: video guides checked again')
   expect(sweep).toBeGreaterThan(s.indexOf('pnpm engine videos --redo'))
   expect(commit).toBeGreaterThan(sweep)

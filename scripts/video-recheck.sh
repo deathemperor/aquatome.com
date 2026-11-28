@@ -52,11 +52,9 @@ git config merge.regenerated.driver true
 if engine_clone || engine_cloud; then git config merge.main-whole.driver 'node scripts/merge-main-whole.mjs %O %A %B %P'; fi
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
-if ! video_recheck_tree >/dev/null; then
-  log "video recheck checkout had changes before recovery: leaving the work for the next run"
-  exit 1
-fi
+prepare_video_recheck || { log "could not clean the video recheck checkout before recovery"; exit 1; }
 publish_kept video-recheck
+prepare_video_recheck || { log "could not clean the video recheck checkout after recovery"; exit 1; }
 if ! video_recheck_rules_current; then
   log "video recheck rules changed during this run: leaving new work for the next run"
   exit 0
@@ -84,7 +82,7 @@ pnpm engine review-backfill --kind video-guide --reviewed-before "$VIDEO_RECHECK
 # in ten came out under the bar again, and a guide gets one go, so the rest wait for the writer's fix, measured on 30.
 pnpm engine videos --redo --rechecked-since "$VIDEO_RECHECK_SINCE" --limit "${VIDEO_REDO_LIMIT:-0}" --parallel "${VIDEO_PARALLEL:-4}" || log "videos redo: failed"
 # The content rules' safe fixes, as in the video job: on 2026-11-08 a run's tests failed on a defect the sweep fixes.
-pnpm engine sweep || log "sweep: failed"
+sweep_new_video_recheck || exit 1
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
 # and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,

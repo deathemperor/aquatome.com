@@ -1,6 +1,29 @@
 #!/usr/bin/env bash
 # Sourced by video-recheck.sh after the common cycle helpers are loaded.
 
+# Startup and recovery both reset tracked files. Preserve anything untracked before the next sweep can see it.
+prepare_video_recheck() {
+  video_recheck_tree >/dev/null && return 0
+  archive_video_recheck_inputs && video_recheck_tree >/dev/null
+}
+
+# Fresh work has yet to pass the gate. Save a failed sweep separately from batches recovery can publish.
+sweep_new_video_recheck() {
+  pnpm engine sweep && return 0
+  local branch
+  branch="sweep-failed/video-recheck/$(date -u +%Y%m%dT%H%M%S)"
+  log "video recheck sweep failed before the gate: nothing published"
+  if [ -n "$(git status --porcelain -- content engine-state docs/review)" ]; then
+    if git checkout -q -b "$branch" && git add content engine-state docs/review &&
+      git commit -q -m "content: video recheck sweep failed before the gate"; then
+      log "video recheck work is on $branch for a fresh sweep and gate"
+    else
+      log "could not save video recheck work on $branch"
+    fi
+  fi
+  return 1
+}
+
 push_video_recheck() {
   local try run base tree checked_tree='' refreshed clash verification_failed
   for try in 1 2 3; do
@@ -26,8 +49,8 @@ push_video_recheck() {
     refreshed=$(git rev-parse '@{u}') || break
     if [ "$refreshed" != "$base" ]; then
       main_holds "$run" || true
-      if ! sweep_merged; then
-        keep_lost_push video-recheck "the sweep couldn't be committed" "$run"
+      if ! sweep_merged strict; then
+        keep_lost_push video-recheck "the sweep did not finish and commit" "$run"
         return 1
       fi
     fi
