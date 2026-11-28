@@ -649,11 +649,16 @@ video_recheck_local_files() {
     git ls-files --others --ignored --exclude-standard "$@" -- content sources engine-state docs/review \
       ':(exclude)engine-state/last-run.json'
 }
+# Content checks enumerate entity directories, even though Git cannot track a directory with no files.
+video_recheck_empty_dirs() {
+  [ ! -d content ] || find content -depth -mindepth 2 -type d -empty "$@"
+}
 video_recheck_tree() {
-  local status files
+  local status files empty
   status=$(git status --porcelain=v1 --untracked-files=no) &&
     files=$(video_recheck_local_files) &&
-    [ -z "$status$files" ] && git rev-parse "${1:-HEAD}^{tree}"
+    empty=$(video_recheck_empty_dirs -print) &&
+    [ -z "$status$files$empty" ] && git rev-parse "${1:-HEAD}^{tree}"
 }
 
 # A hard reset can replace an untracked file when the destination commit tracks that path.
@@ -667,9 +672,12 @@ reset_recovery_checkout() {
 
 # Keep untracked inputs outside the dedicated video recheck checkout so its sweep cannot stage them.
 archive_video_recheck_inputs() {
-  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive file to files dir
+  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive file to files
   files=$(video_recheck_local_files) || return 1
-  [ -n "$files" ] || return 0
+  if [ -z "$files" ]; then
+    video_recheck_empty_dirs -delete
+    return
+  fi
   mkdir -p "$parent" || return 1
   archive=$(mktemp -d "$parent/video-recheck-inputs.XXXXXXXX") || return 1
   video_recheck_local_files -z > "$archive/paths" || return 1
@@ -681,16 +689,8 @@ archive_video_recheck_inputs() {
   while IFS= read -r -d '' file; do
     to="$archive/files/$file"
     mkdir -p "$(dirname "$to")" && mv -- "$file" "$to" || return 1
-    # Empty entity directories are visible to the loader and invisible to Git.
-    dir=${file%/*}
-    while :; do
-      case "$dir" in
-        content/*|sources/*|engine-state/*|docs/review/*) rmdir "$dir" 2>/dev/null || break ;;
-        *) break ;;
-      esac
-      dir=${dir%/*}
-    done
   done < "$archive/paths"
+  video_recheck_empty_dirs -delete
 }
 
 # Preserve staged and working edits before a reset, even when an attempt could not commit a sweep.
