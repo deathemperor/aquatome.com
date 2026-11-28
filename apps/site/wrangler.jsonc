@@ -79,7 +79,7 @@
     // (scripts/chat-tester.mjs); anything else, or removed, it can't sign in and its sessions find chat off.
     "CHAT_TESTER": "on",
     // The chat's model (the owner's choice, from docs/review/chat-eval.md); removed, the Worker's default, Opus 5.5.
-    "CHAT_MODEL": "claude-haiku-5-5",
+    "CHAT_MODEL": "claude-opus-5-5",
     // Cloudflare Access on dashboard.aquatome.com (worker/access.ts): the team domain (<team>.cloudflareaccess.com) and the
     // Access app's audience tag. While either is empty, that host refuses everything and /_ab/ here is still the dashboard.
     // Set them here, not on Cloudflare's dashboard: each deploy writes this file's vars over what's there.

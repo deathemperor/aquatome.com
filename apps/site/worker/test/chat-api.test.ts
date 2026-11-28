@@ -382,12 +382,12 @@ test('the next question reads the turns before it, the start only once; an id an
   expect(store.m.size).toBeGreaterThan(0)
 })
 
-test('the chat\'s model in wrangler.jsonc is Haiku 5.5, with its own price; unset, the default is Opus (the first question\'s model above)', () => {
+test('the chat\'s model in wrangler.jsonc is Opus 5.5 (the owner\'s choice), with its own price, as unset (the first question\'s model above)', () => {
   const wrangler = readFileSync(new URL('../../wrangler.jsonc', import.meta.url).pathname, 'utf8')
   const model = /"CHAT_MODEL": "([^"]+)"/.exec(wrangler)?.[1]
-  expect(model).toBe('claude-haiku-5-5')
+  expect(model).toBe('claude-opus-5-5')
+  expect(model).toBe(DEFAULT_MODEL)
   expect(priceOf(model!)).not.toBe(priceOf('claude-unknown'))
-  expect(chatWorstCost(model!)).toBeLessThan(chatWorstCost('claude-opus-5-5'))
 })
 
 test('the chat\'s models each have a row naming the switch that turns their thinking off, or this fails: a switch a model refuses fails its first line unseen', () => {
@@ -396,7 +396,7 @@ test('the chat\'s models each have a row naming the switch that turns their thin
   const wrangler = readFileSync(new URL('../../wrangler.jsonc', import.meta.url).pathname, 'utf8')
   const model = /"CHAT_MODEL": "([^"]+)"/.exec(wrangler)![1]!
   for (const m of [model, DEFAULT_MODEL]) expect(NO_THINKING[m], `${m}: which thinking switch does the API take from it?`).toBeDefined()
-  expect(NO_THINKING[model]!.thinking).toEqual({ type: 'disabled' })
+  expect(NO_THINKING['claude-haiku-5-5']!.thinking).toEqual({ type: 'disabled' })
   expect(NO_THINKING[DEFAULT_MODEL]).toEqual({ effort: 'low', room: 1_024 })
 })
 
