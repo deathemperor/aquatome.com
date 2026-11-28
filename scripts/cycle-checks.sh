@@ -262,13 +262,10 @@ keep_unpublished() {
     FAILED="photo records not migrated: this run's work is kept on kept/$1/$when for the next run"
   fi
   branch="$lane/$1/$when$suffix"
-  if ! keep_branch "$branch" "$saved"; then
-    [ -n "${2:-}" ] || return 0
-    branch="$lane/$1/$when-save$suffix"
-    if ! keep_branch "$branch" "$saved"; then
-      archive_video_recheck_ref "$branch" "$saved" || log "could not archive $branch at $saved"
-      return 1
-    fi
+  if [ -n "${2:-}" ]; then
+    branch=$(keep_video_recheck_ref "$branch" "$saved") || return 1
+  else
+    keep_branch "$branch" "$saved" || return 0
   fi
   case "$lane$suffix" in
     kept-out1) log "tests ran out of time: this run's work is kept on $branch for the next run" ;;
@@ -282,6 +279,19 @@ keep_unpublished() {
   # Its callers go on to say they aren't publishing, under set -e.
   return 0
 }
+# Preserve the queue and timeout count when the first ref is locked or already in use.
+keep_video_recheck_ref() {
+  local branch=$1 saved=$2 base
+  if ! keep_branch "$branch" "$saved" new >&2; then
+    base=$(uncounted "$branch")
+    branch="$base-save${branch#"$base"}"
+    if ! keep_branch "$branch" "$saved" new >&2; then
+      archive_video_recheck_ref "$branch" "$saved" >&2 || log "could not archive $branch at $saved" >&2
+      return 1
+    fi
+  fi
+  printf '%s\n' "$branch"
+}
 # If neither recovery ref can be written, preserve the commit and its queue name outside the checkout.
 archive_video_recheck_ref() {
   local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive
@@ -291,7 +301,11 @@ archive_video_recheck_ref() {
 }
 # HEAD, or commit $2, on branch $1, and in the cloud on GitHub's branch of that name.
 keep_branch() {
-  git branch -q -f "$1" "${2:-HEAD}" || return 1
+  if [ "${3:-}" = new ]; then
+    git branch -q "$1" "${2:-HEAD}"
+  else
+    git branch -q -f "$1" "${2:-HEAD}"
+  fi || return 1
   engine_cloud || return 0
   net git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
 }
@@ -1142,6 +1156,11 @@ swept_clean() {
 keep_lost_push() {
   engine_clone || engine_cloud || return 0
   local branch why=${2:-push failed three times}; branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
+  if [ "$1" = video-recheck ]; then
+    branch=$(keep_video_recheck_ref "$branch" "${3:-HEAD}") || return 1
+    log "$why: this run's work is kept on $branch for the next run"
+    return
+  fi
   if git show-ref -q --verify "refs/heads/$branch"; then log "$why, and $branch is already there: this run's work isn't kept"; return 1; fi
   keep_branch "$branch" "${3:-HEAD}" && log "$why: this run's work is kept on $branch for the next run"
 }

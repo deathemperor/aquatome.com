@@ -22,7 +22,10 @@ push_video_recheck() {
   local try run swept_main tree checked_tree='' refreshed pulled clash verification_failed commit candidate batch
   batch=$(git rev-parse HEAD) || return 1
   candidate=$batch
-  swept_main=$(git merge-base "$batch" '@{u}') || return 1
+  if ! swept_main=$(git merge-base "$batch" origin/main); then
+    keep_lost_push video-recheck "could not find the batch's base on origin/main" "$batch"
+    return 1
+  fi
   for try in 1 2 3; do
     run=$(git rev-parse HEAD) || break
     if [ "$run" != "$candidate" ]; then
@@ -33,7 +36,7 @@ push_video_recheck() {
       keep_lost_push video-recheck "the checkout had changes before publishing" "$batch"
       return 1
     fi
-    if ! net git pull -q --rebase; then
+    if ! net git pull -q --rebase origin main; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort 2>/dev/null || true
       if [ -z "$clash" ]; then
@@ -41,12 +44,12 @@ push_video_recheck() {
         continue
       fi
       log "another job changed the same files: $clash"
-      if ! net git pull -q --rebase -X theirs; then
+      if ! net git pull -q --rebase -X theirs origin main; then
         git rebase --abort 2>/dev/null || true
         continue
       fi
     fi
-    refreshed=$(git rev-parse '@{u}') || break
+    refreshed=$(git rev-parse origin/main) || break
     if ! pulled=$(git rev-parse HEAD) || ! video_recheck_pull_kept_batch "$batch" "$refreshed" "$pulled"; then
       keep_lost_push video-recheck "the first pull did not retain the video recheck batch" "$batch"
       return 1
@@ -56,7 +59,7 @@ push_video_recheck() {
       return 1
     fi
     if [ "$refreshed" != "$swept_main" ]; then
-      main_holds "$run" || [ $? = 1 ] || { keep_lost_push video-recheck "main's holds couldn't be compared" "$batch"; return 1; }
+      main_holds "$run" "$refreshed" || [ $? = 1 ] || { keep_lost_push video-recheck "main's holds couldn't be compared" "$batch"; return 1; }
       if ! sweep_merged strict; then
         keep_lost_push video-recheck "the sweep did not finish and commit" "$batch"
         return 1
@@ -87,7 +90,7 @@ push_video_recheck() {
 
     # Main may have moved during the checks. A fast-forward-only pull means it cannot combine divergent trees here.
     # If the tree changed, the next attempt checks it against the original batch before verifying again.
-    if ! net git pull -q --no-rebase --ff-only; then
+    if ! net git pull -q --no-rebase --ff-only origin main; then
       log "main moved or could not be reached after the checks: trying a fresh pull before publishing"
       continue
     fi
