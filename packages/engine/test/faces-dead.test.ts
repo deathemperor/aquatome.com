@@ -2216,7 +2216,7 @@ test('a clear after one of two album writes preserves the removal already applie
   const dead = photo('dead'), live = photo('live')
   const { root, state } = await publicFixture([live], [dead], [dead.url, live.url])
   const other = join(root, 'content/gallery/beta.json')
-  await writeFile(other, JSON.stringify({ id: 'beta', photos: [dead] }))
+  await writeFile(other, JSON.stringify({ id: 'beta', photos: [dead], seen: 1, updatedAt: '2026-11-26' }))
   const why = 'dead: held for review', marksFile = join(state, '_photo-second-look.json')
   await writeFile(marksFile, JSON.stringify({
     [dead.url]: { why, step: 'the dead-fish screen', pages: ['species/alpha'], at: '2026-11-26', off: true },

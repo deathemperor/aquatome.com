@@ -65,7 +65,7 @@ export const keptAuthorOk = (k: { by?: unknown; word?: unknown }): boolean => {
 export function photoRejections(
   rejected: Record<string, string>,
   marks: Record<string, { retainedOwnMark?: unknown }> = {},
-  heldVersion: (url: string) => boolean = () => false,
+  heldVersion: (url: string, refusal: [string, string]) => boolean = () => false,
 ): PhotoRejection {
   const retained = photoAddressSet(Object.keys(marks).filter(url => retainedOwnMark(url, marks[url])))
   const active = Object.entries(rejected).filter(([url, why]) => !why.startsWith('watermark:') || !retained(url))
@@ -75,7 +75,7 @@ export function photoRejections(
   const any = rejectedEntry(Object.fromEntries(active))
   return url => {
     const refusal = permanent(url) ?? anyWhole(url) ?? any(url)
-    if (refusal && refusal[0] !== url && isVersionRejection(refusal[1]) && heldVersion(url) &&
+    if (refusal && refusal[0] !== url && isVersionRejection(refusal[1]) && heldVersion(url, refusal) &&
         !photoKey(url)?.startsWith('commons/')) return undefined
     return refusal
   }

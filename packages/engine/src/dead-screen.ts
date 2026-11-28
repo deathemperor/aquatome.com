@@ -105,7 +105,10 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   const initialLooks = await readSecondLook(root)
   const reviewed = reviewedPhotoVersion(initialLooks, check, subjects)
   const hasOwnAlbumDecision = (url: string) => reviewed(url) || Object.hasOwn(initialLooks, url) || completedDeadVerdict(cache[url])
-  const separateVersion = o.albums ? hasOwnAlbumDecision : reviewed
+  const albumReviewed = reviewedPhotoVersion(initialLooks, check, subjects, cache)
+  const separateVersion = o.albums
+    ? (url: string, refusal: [string, string]) => Object.hasOwn(initialLooks, url) || albumReviewed(url, refusal)
+    : reviewed
   const isListed = photoRejections(await expandWholePhotoRejections(content, photoRejected, watermarkCache), watermarkCache, separateVersion)
   const initialClears = photoClears(initialLooks)
   const lookedBefore = deadLooked({ screen: cache, check, subjects, secondLook: initialLooks })
