@@ -18,22 +18,37 @@ sweep_new_video_recheck() {
   return 1
 }
 
-clear_video_recheck_recovery() {
-  # Keep the push evidence until the pending ref has been removed.
-  git update-ref -d "$VIDEO_RECHECK_PENDING_REF" "$2" || return 1
-  clear_video_recheck_outgoing "$1" &&
-    rm -f -- "$(video_recheck_queue_archive "$1")"
+clear_video_recheck_pending() {
+  rm -f -- "$(video_recheck_queue_archive "$1")" &&
+    git update-ref -d "$VIDEO_RECHECK_PENDING_REF" "$2"
 }
 
-# Runs after the checkout archive and before from_main can reset it.
-recover_interrupted_video_recheck() {
-  local rebase_merge rebase_apply pending subject batch saved branch='' base outgoing main archive_link archive queued
-  rebase_merge=$(git rev-parse --git-path rebase-merge) &&
-    rebase_apply=$(git rev-parse --git-path rebase-apply) || return 1
-  if [ -d "$rebase_merge" ] || [ -d "$rebase_apply" ]; then git rebase --abort || return 1; fi
+clear_video_recheck_recovery() {
+  clear_video_recheck_pending "$1" "$2" && clear_video_recheck_outgoing "$1"
+}
 
-  pending=$(video_recheck_pending) || return 1
-  [ -n "$pending" ] || return 0
+restore_video_recheck_queue() {
+  local branch=$1 saved=$2 batch=$3 base
+  # An earlier attempt may have left both queue ref locks in place.
+  base=$(uncounted "$branch")
+  branch=$(keep_video_recheck_ref "${base}_${saved}_resume${branch#"$base"}" "$saved" "$batch") || return 1
+  log "restored interrupted video recheck on $branch"
+}
+
+restore_video_recheck_archive() {
+  local batch=$1 link archive branch saved
+  link=$(video_recheck_queue_archive "$batch")
+  IFS= read -r archive < "$link" || return 1
+  branch=$(git -C "$archive" for-each-ref --format='%(refname:short)' refs/heads/) || return 1
+  case "$branch" in kept/video-recheck/*|held/video-recheck/*) ;; *) return 1 ;; esac
+  net git fetch -q "$archive" "refs/heads/$branch" || return 1
+  saved=$(git rev-parse --verify 'FETCH_HEAD^{commit}') &&
+    [ "$(video_recheck_recovery_parent "$saved" 1)" = "$batch" ] || return 1
+  restore_video_recheck_queue "$branch" "$saved" "$batch"
+}
+
+recover_video_recheck_pending() {
+  local pending=$1 subject batch saved branch='' outgoing main queued
   subject=$(git show -s --format=%s "$pending") || return 1
   batch=$pending
   case "$subject" in
@@ -56,34 +71,48 @@ recover_interrupted_video_recheck() {
     elif [ "$?" != 1 ]; then return 1; fi
   fi
   if [ -z "$queued" ]; then
-    archive_link=$(video_recheck_queue_archive "$batch")
-    if [ -z "$branch" ] && [ -e "$archive_link" ]; then
-      IFS= read -r archive < "$archive_link" || return 1
-      branch=$(git -C "$archive" for-each-ref --format='%(refname:short)' refs/heads/) || return 1
-      case "$branch" in kept/video-recheck/*|held/video-recheck/*) ;; *) return 1 ;; esac
-      net git fetch -q "$archive" "refs/heads/$branch" || return 1
-      saved=$(git rev-parse --verify 'FETCH_HEAD^{commit}') &&
-        [ "$(video_recheck_recovery_parent "$saved" 1)" = "$batch" ] || return 1
-    fi
     if [ -n "$branch" ]; then
-      # An earlier attempt may have left both queue ref locks in place.
-      base=$(uncounted "$branch")
-      branch=$(keep_video_recheck_ref "${base}_${saved}_resume${branch#"$base"}" "$saved" "$batch") || return 1
-      log "restored interrupted video recheck on $branch"
+      restore_video_recheck_queue "$branch" "$saved" "$batch" || return 1
+    elif [ -e "$(video_recheck_queue_archive "$batch")" ]; then
+      restore_video_recheck_archive "$batch" || return 1
     else
       keep_lost_push video-recheck "video recheck was interrupted" "$batch" || return 1
     fi
   fi
-  clear_video_recheck_recovery "$batch" "$pending"
+  # The interrupted push can still land. The queue checks this receipt before retrying.
+  clear_video_recheck_pending "$batch" "$pending"
+}
+
+# Runs after the checkout archive and before from_main can reset it.
+recover_interrupted_video_recheck() {
+  local rebase_merge rebase_apply pending link batch queued
+  rebase_merge=$(git rev-parse --git-path rebase-merge) &&
+    rebase_apply=$(git rev-parse --git-path rebase-apply) || return 1
+  if [ -d "$rebase_merge" ] || [ -d "$rebase_apply" ]; then git rebase --abort || return 1; fi
+
+  pending=$(video_recheck_pending) || return 1
+  if [ -n "$pending" ]; then recover_video_recheck_pending "$pending" || return 1; fi
+  # The first pending-ref write can fail before there is a ref to look up.
+  for link in "$(video_recheck_queue_archive '')"*; do
+    [ -f "$link" ] || continue
+    batch=${link##*.}
+    [[ "$batch" =~ ^([0-9a-f]{40}|[0-9a-f]{64})$ ]] || continue
+    queued=$(video_recheck_batch_refs "$batch") || return 1
+    if [ -z "$queued" ]; then restore_video_recheck_archive "$batch" || return 1; fi
+    rm -f -- "$link" || return 1
+  done
 }
 
 # The batch becomes reachable before local main moves to it.
 commit_video_recheck() {
   local parent tree batch
   parent=$(git rev-parse HEAD) && tree=$(git write-tree) &&
-    batch=$(git commit-tree "$tree" -p "$parent" -m "$1") &&
-    git update-ref "$VIDEO_RECHECK_PENDING_REF" "$batch" '' &&
-    git update-ref -m "$1" HEAD "$batch" "$parent"
+    batch=$(git commit-tree "$tree" -p "$parent" -m "$1") || return 1
+  if ! git update-ref "$VIDEO_RECHECK_PENDING_REF" "$batch" ''; then
+    keep_lost_push video-recheck "could not record the gated video recheck" "$batch"
+    return 1
+  fi
+  git update-ref -m "$1" HEAD "$batch" "$parent"
 }
 
 push_video_recheck() {

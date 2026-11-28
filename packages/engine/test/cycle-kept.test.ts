@@ -571,9 +571,44 @@ test('video startup can recover an anchored commit before main advances', () => 
   expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
 }, slow(60_000))
 
+test.each([false, true])('video startup recovers a first pending-ref lock (queue refs locked: %s)', queueLocked => {
+  const c = clone()
+  const base = c.sh('git rev-parse HEAD')
+  expect(() => c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    echo rechecked > content/video.json
+    git add content/video.json
+    mkdir -p .git/refs/aquatome/video-recheck
+    touch .git/refs/aquatome/video-recheck/pending.lock
+    ${queueLocked ? `
+      git() {
+        if [ "$1" = branch ] && [ "$#" -ge 3 ] && [[ "$3" = kept/video-recheck/* ]]; then return 1; fi
+        command git "$@"
+      }
+    ` : ''}
+    commit_video_recheck 'content: video guides checked again (fixture)'
+  `)).toThrow()
+  expect(c.sh('git rev-parse HEAD')).toBe(base)
+  expect(c.onMain('content/video.json')).toBe('')
+  expect(c.sh('git for-each-ref refs/aquatome/video-recheck/pending')).toBe('')
+  c.sh('rm .git/refs/aquatome/video-recheck/pending.lock')
+  const restart = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    archive_video_recheck_checkout
+    recover_interrupted_video_recheck
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    from_main
+    publish_kept video-recheck
+  `)
+  expect(restart).toContain('published kept/video-recheck/')
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.branches()).toEqual([])
+  expect(c.sh('find "$HOME/.cache/aquatome/engine-check-failures" -maxdepth 1 -name "video-recheck-queue.*"')).toBe('')
+}, slow(60_000))
+
 test.each([
   ['fresh', 'not sent'], ['fresh', 'sent'], ['fresh', 'sent then reverted'], ['fresh', 'sent but unconfirmed'],
-  ['kept', 'not sent'], ['kept', 'sent then reverted'], ['held', 'sent then reverted'],
+  ['fresh', 'lands during handoff'], ['kept', 'not sent'], ['kept', 'sent then reverted'], ['held', 'sent then reverted'],
 ] as const)('%s video startup recovers an interrupted push that was %s', (lane, outcome) => {
   const c = clone()
   const batch = c.sh("echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck && git rev-parse HEAD")
@@ -589,7 +624,7 @@ test.each([
       ${outcome === 'sent but unconfirmed' ? 'if [ "$2" = fetch ] && [ -f "$HOME/outgoing" ]; then return 1; fi' : ':'}
       if [ "$2" = push ]; then
         printf '%s\n' "${'${5%:refs/heads/main}'}" > "$HOME/outgoing"
-        ${outcome === 'not sent' ? ':' : '"$@" || return 1'}
+        ${outcome === 'not sent' || outcome === 'lands during handoff' ? ':' : '"$@" || return 1'}
         ${outcome === 'sent but unconfirmed' ? 'return 1' : 'exit 77'}
       fi
       "$@"
@@ -609,13 +644,21 @@ test.each([
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     archive_video_recheck_checkout
     recover_interrupted_video_recheck
+    ${outcome === 'lands during handoff' ? `
+      git -C "$HOME/other" fetch -q "$PWD" '${outgoing}'
+      git -C "$HOME/other" push -q origin '${outgoing}:refs/heads/main'
+      git -C "$HOME/other" reset -q --hard '${outgoing}'
+      git -C "$HOME/other" revert --no-edit '${outgoing}'
+      git -C "$HOME/other" push -q
+      git fetch -q origin
+    ` : ''}
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
     from_main
     verify_cycle() { echo VERIFIED; }
     publish_kept video-recheck
   `)
   expect(restart.includes('VERIFIED')).toBe(outcome === 'not sent')
-  expect(c.onMain('content/video.json')).toBe(outcome === 'sent then reverted' ? '' : 'rechecked')
+  expect(c.onMain('content/video.json')).toBe(outcome === 'sent then reverted' || outcome === 'lands during handoff' ? '' : 'rechecked')
   expect(c.branches()).toEqual([])
   expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
 }, slow(60_000))
