@@ -173,54 +173,43 @@ struct OwnerChart: View {
   static let whole = Color(light: 0xdde8e1, dark: 0x22382e)
 }
 
-/// A tile's small columns, one a day: the days in full colour and today's lighter, or the day picked in full colour and
-/// the rest lighter; a day still to come a faint line. The lighter green is still 3:1 on the card, light and dark (the
-/// Design Lead, 8 Nov). A tap on one, or a finger dragged across, reads it out under them, in the server's words.
-struct OwnerBars: View {
-  let label: String
-  let bars: Owner.Bars
-  @State private var picked: Int?
+/// The first screen's small bars (Design, 15 Nov), a day each: 26 pt high and 3 pt apart, the latest day in the chart's
+/// green and the others grey; a zero a 2-pt tick, red on a day that's over and grey on the day still open; a day not
+/// counted a 2-pt dotted line, never a zero. No readout and no touch of their own: the card they're on is one tap into its
+/// page, which charts them in full.
+struct OwnerSmallBars: View {
+  let values: [Double?]
+  /// The day still open, if it's among them.
+  let open: Int?
+
+  static let height: CGFloat = 26, gap: CGFloat = 3
 
   var body: some View {
-    let n = bars.values.count, high = max(bars.values.compactMap { $0 }.max() ?? 0, 1)
-    VStack(alignment: .leading, spacing: 4) {
-      Canvas { ctx, size in
-        let step = size.width / CGFloat(max(n, 1))
-        for i in 0..<n {
-          let x = CGFloat(i) * step + step * 0.1, w = step * 0.8
-          guard let v = bars.values[i] else {
-            ctx.fill(Path(CGRect(x: x, y: size.height - 2, width: w, height: 2)), with: .color(.secondary.opacity(0.25)))
-            continue
-          }
-          let h = max(2, size.height * CGFloat(v / high))
-          let full = i == picked || (picked == nil && i != bars.today)
-          ctx.fill(Path(roundedRect: CGRect(x: x, y: size.height - h, width: w, height: h), cornerRadius: 2),
-                   with: .color(OwnerChart.green.opacity(full ? 1 : 0.7)))
+    Canvas { ctx, size in
+      let n = values.count
+      guard n > 0 else { return }
+      let w = (size.width - Self.gap * CGFloat(n - 1)) / CGFloat(n), high = max(values.compactMap { $0 }.max() ?? 0, 1)
+      for i in 0..<n {
+        let x = CGFloat(i) * (w + Self.gap)
+        guard let v = values[i] else {
+          var line = Path()
+          line.move(to: CGPoint(x: x, y: size.height - 1))
+          line.addLine(to: CGPoint(x: x + w, y: size.height - 1))
+          ctx.stroke(line, with: .color(OwnerChart.mute), style: StrokeStyle(lineWidth: 2, dash: [2, 2]))
+          continue
         }
-      }
-      .frame(height: 24)
-      .overlay(ChartTouch { across in picked = min(max(Int(across * CGFloat(n)), 0), max(n - 1, 0)) })
-      .accessibilityElement()
-      .accessibilityLabel(Text(verbatim: label))
-      .accessibilityValue(Text(verbatim: said(picked ?? bars.today ?? n - 1)))
-      .accessibilityAdjustableAction { d in
-        let at = picked ?? bars.today ?? n - 1
-        switch d {
-        case .increment: picked = min(n - 1, at + 1)
-        case .decrement: picked = max(0, at - 1)
-        @unknown default: break
+        guard v > 0 else {
+          ctx.fill(Path(roundedRect: CGRect(x: x, y: size.height - 2, width: w, height: 2), cornerRadius: 1),
+                   with: .color(i == open ? OwnerChart.mute : Owner.Tone.bad.color))
+          continue
         }
-      }
-      .accessibilityIdentifier("owner-bars")
-      if let p = picked, let r = bars.readouts[safe: p] {
-        Text(verbatim: r.title + " · " + r.detail).font(.caption2).foregroundStyle(.secondary).lineLimit(2)
-          .accessibilityIdentifier("owner-bars-day")
+        let h = max(2, size.height * CGFloat(v / high))
+        ctx.fill(Path(roundedRect: CGRect(x: x, y: size.height - h, width: w, height: h), cornerRadius: 2),
+                 with: .color(i == n - 1 ? OwnerChart.green : OwnerChart.mute))
       }
     }
-  }
-
-  private func said(_ i: Int) -> String {
-    bars.readouts[safe: i].map { [$0.title, $0.detail].filter { !$0.isEmpty }.joined(separator: ", ") } ?? ""
+    .frame(height: Self.height)
+    .accessibilityHidden(true)
   }
 }
 

@@ -234,6 +234,23 @@ func overviewRead(_ d: Owner.Dashboard, _ o: Object, _ name: Comment) throws {
   #expect(read.map(\.figure) == pages.map { $0["figure"]?.object?["text"]?.string }, name)
   #expect(read.map(\.tone.rawValue) == pages.map { $0["figure"]?.object?["tone"]?.string ?? "plain" }, name)
   #expect(d.sections.map(\.title) == list("sections").map { $0["name"]!.string! }, name)
+
+  // New pages by kind: each kind's name, total and line when it stopped, its bars a day with their days and readouts.
+  let publishing = o["publishing"]?.object, kinds = publishing?["kinds"]?.array?.map { $0.object! } ?? []
+  #expect((d.publishing == nil) == (publishing == nil), name)
+  if let p = d.publishing, let publishing {
+    #expect(p.title == publishing["title"]!.string! && p.missing == publishing["missing"]?.string, name)
+    #expect(p.quiet == publishing["quiet"]?.object?["text"]?.string, name)
+    #expect(p.kinds.map(\.key) == kinds.map { $0["key"]!.string! } && p.kinds.map(\.label) == kinds.map { $0["label"]!.string! }, name)
+    #expect(p.kinds.map(\.total) == kinds.map { $0["total"]!.string! }, name)
+    #expect(p.kinds.map(\.stalled) == kinds.map { $0["stalled"]?.object?["text"]?.string }, name)
+    let kindBars = kinds.map { $0["bars"]!.object! }
+    #expect(p.kinds.map { $0.bars?.values.count } == kindBars.map { $0["values"]?.array?.count }, name)
+    #expect(p.kinds.map { $0.bars?.values.filter { $0 == nil }.count } == kindBars.map { $0["values"]?.array?.filter { $0 == .null }.count }, name)
+    #expect(p.kinds.map { $0.bars?.days } == kindBars.map { $0["days"]?.array?.map { $0.string! } }, name)
+    #expect(p.kinds.map { $0.bars?.readouts.map(\.detail) } == kindBars.map { $0["readouts"]?.array?.map { $0.object!["detail"]!.string! } }, name)
+    #expect(p.kinds.map { $0.bars?.today } == kindBars.map { $0["today"]?.int }, name)
+  }
 }
 
 @Test("Every block of every section, every part of the overview, and every page of a table's rows or of comments, is read into what the app draws: nothing dropped")
@@ -349,6 +366,27 @@ func partsLeftOut() {
   #expect(d.tiles[1].bars?.values == [1, nil] && d.tiles[1].bars?.today == 0)
   #expect(d.needs.first?.photos == ["/_ab/anh/a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d"])
   #expect(d.answers?.title == "A" && d.answers?.chart == nil)
+}
+
+@Test("New pages: a kind missing its name or total is left out, its bars without a readout a day or a day each left out, and with no kind left the part is none")
+func publishingLeftOut() {
+  let d = Owner.Dashboard(dict(#"""
+  {"tz":"UTC","publishing":{"title":"New pages","kinds":[
+    {"key":"fish","label":"Species pages","total":"2,503","bars":{"days":["2026-11-02","2026-11-03"],"values":[1,null],"readouts":[{"title":"+1","detail":"Mon 2 Nov"},{"title":"Not saved","detail":"Tue 3 Nov"}],"today":1},
+     "stalled":{"since":"2026-11-02T20:17:00.000Z","text":"No new species pages since Tue 3 Nov, 3:17"}},
+    {"key":"guide","label":"Guides","total":"310","bars":{"days":["2026-11-02"],"values":[1,2],"readouts":[{"title":"+1","detail":"Mon 2 Nov"},{"title":"+2","detail":"Tue 3 Nov"}],"today":9}},
+    {"key":"videoGuide","label":"Video guides","total":"0","bars":{"days":["2026-11-02","2026-11-03"],"values":[1,2],"readouts":[{"title":"+1","detail":"Mon 2 Nov"}]}},
+    {"key":"plant","label":"Plant pages"}]}}
+  """#))
+  let p = d.publishing
+  #expect(p?.kinds.map(\.key) == ["fish", "guide", "videoGuide"] && p?.missing == nil && p?.quiet == nil)
+  #expect(p?.kinds[0].bars?.values == [1, nil] && p?.kinds[0].bars?.days == ["2026-11-02", "2026-11-03"] && p?.kinds[0].bars?.today == 1)
+  #expect(p?.kinds[0].stalled == "No new species pages since Tue 3 Nov, 3:17")
+  // A day short, and a today past the bars: drawn without days, and with no today.
+  #expect(p?.kinds[1].bars?.days == [] && p?.kinds[1].bars?.today == nil && p?.kinds[1].bars?.values == [1, 2])
+  #expect(p?.kinds[2].bars == nil && p?.kinds[2].total == "0")
+  let none = Owner.Dashboard(dict(#"{"tz":"UTC","publishing":{"title":"New pages","kinds":[{"key":"fish"}]}}"#))
+  #expect(none.publishing == nil)
 }
 
 @Test("401 is a session the server no longer takes (sign in again), 404 not the owner, 503 storage down for now (try again): each told apart, from every path")

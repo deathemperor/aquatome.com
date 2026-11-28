@@ -82,7 +82,8 @@ page one tap away. iOS 18 or later; iOS 17 keeps the old look, without the switc
 
 The site's owner signed in sees one more row in "Bể của tôi", **Bảng điều khiển**: the owner's dashboard (the site's
 /_ab/ pages), drawn by the app from the site's JSON (`protocols/owner-dashboard.openapi.json`) with the account's
-session: the overview's to-dos, area cards and "Mấy ngày qua", and each section's charts, tables, photos and buttons,
+session: the first screen's five cards (what needs the owner, new pages by kind with their last seven days, readers, what
+shipped, the cost; each one tap into its page) and every page under them, and each section's charts, tables, photos and buttons,
 its form and switch. The server drives it, so a new section, block or button needs no app release. Only the account the
 overview answers 200 sees the row; its photos stay in memory, never on the phone's storage. At the overview's top,
 "Nhận thông báo báo cáo trên máy này" brings the 07:00 daily report to this phone as a notification (`OwnerPush`,
