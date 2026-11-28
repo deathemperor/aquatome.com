@@ -592,15 +592,25 @@ test.each([false, true])('a fresh video recheck handles a patch main already app
   if (reverted) expect(c.sh(`git show ${branches[0]}:content/video.json`)).toBe('rechecked')
 }, slow(60_000))
 
-test.each([false, true])('kept video recovery requires the guide change as well as the sweep when main reverted the guide: %s', reverted => {
+test.each([
+  ['equivalent', false],
+  ['equivalent', true],
+  ['exact', false],
+  ['exact', true],
+] as const)('kept video recovery requires the guide change as well as the sweep (%s commit, reverted: %s)', (identity, reverted) => {
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
   const kept = `kept/video-recheck/${when}`
-  c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')
+  const guide = c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm "content: video guides checked again 2026-11-28" && git rev-parse HEAD')
   const candidate = c.sh(`echo swept > content/sweep.json && git add content/sweep.json && git commit -qm sweep && git branch ${kept} && git rev-parse HEAD`)
   c.sh('git reset -q --hard origin/main')
-  c.elsewhere('content/video.json', 'rechecked')
-  if (reverted) c.sh('git -C "$HOME/other" revert --no-edit HEAD && git -C "$HOME/other" push -q')
+  if (identity === 'exact') {
+    c.sh(`git push -q origin ${guide}:refs/heads/main`)
+    c.elsewhere('code.txt', 'new')
+  } else {
+    c.elsewhere('content/video.json', 'rechecked')
+  }
+  if (reverted) c.sh(`git -C "$HOME/other" revert --no-edit ${identity === 'exact' ? guide : 'HEAD'} && git -C "$HOME/other" push -q`)
   const remoteHead = () => c.sh('git ls-remote origin refs/heads/main | cut -f1')
   const before = remoteHead()
   const log = c.cycle(`

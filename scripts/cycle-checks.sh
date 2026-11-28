@@ -646,11 +646,17 @@ video_recheck_rules_current() {
 # A rebase can skip a patch that main applied and later reverted, even while replaying other commits.
 # When the original commits were rewritten, verify that merging the whole batch would add nothing.
 video_recheck_pull_kept_batch() {
-  local pulled upstream combined
+  local pulled upstream batch_base combined
   pulled=$(git rev-parse HEAD) && upstream=$(git rev-parse "$2") || return 1
   git merge-base --is-ancestor "$upstream" "$pulled" || return 1
   if git merge-base --is-ancestor "$1" "$pulled"; then return 0; fi
-  combined=$(git merge-tree --write-tree "$pulled" "$1" 2>/dev/null) || return 1
+  # The job's guide commit starts the batch, before any sweep commits. Main may share that commit
+  # (or a later sweep) and have reverted it, so the common ancestor can omit part of the batch.
+  batch_base=$(git log -1 --first-parent --format=%P --grep='^content: video guides checked again ' "$1") || return 1
+  if [ -z "$batch_base" ]; then
+    batch_base=$(git merge-base "$pulled" "$1") || return 1
+  fi
+  combined=$(git merge-tree --write-tree --merge-base="$batch_base" "$pulled" "$1" 2>/dev/null) || return 1
   [ "$combined" = "$(git rev-parse "$pulled^{tree}")" ]
 }
 # Content loaders can read ignored paths within their input directories. last-run.json is a local run report.
