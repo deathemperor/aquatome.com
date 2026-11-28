@@ -88,6 +88,7 @@ SHOTS = {
     # The chat screen: an answer with its cards, from the stand-in's recordings.
     'chat': ['testTheChat', 'testTheChatInTheDark', 'testTheChatInTheLargestText', 'testTheChatsOpenSectionAndBackFromACardsPage',
              'testTheReport', 'testTheReportInTheDark', 'testTheReportInTheLargestText'],
+    'tank-reminders': ['testTheTankReminderEditor'],
 }
 
 
@@ -239,6 +240,7 @@ REACH = {
                                    'V2FlowTests/testAFishPutOnATankFromItsPageOpensTheTank'],
     APP + 'Tanks/TankForm.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
     # Its hint, set again on each update: the language flow that reads it after a switch too.
+    APP + 'Tanks/TankCare.swift': ['TanksFlowTests'] + shots('tank-reminders'),
     APP + 'Tanks/CappedField.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests',
                                       'LanguageFlowTests/testBackToVietnameseFromThaiReachesThePresetsAndAFieldsHint'],
     # The anonymous statistics: their own flows; and a light connected is one of the events sent.

@@ -212,6 +212,76 @@ final class TanksFlowTests: XCTestCase {
 
   // MARK: Helpers
 
+  @MainActor func testKeepsAReminderOnItsTankAndCanMarkItDone() {
+    var app = launch("-seed-tanks", "two", "-fake-tank-reminder-permission")
+    let tank = app.buttons.matching(identifier: "tank").firstMatch
+    XCTAssertTrue(tank.waitForExistence(timeout: 5))
+    tank.tap()
+    let add = app.buttons["tank-reminder-add"]
+    XCTAssertTrue(app.scrolledDown(to: add).isHittable)
+    add.tap()
+    XCTAssertTrue(app.buttons["tank-reminder-save"].waitForExistence(timeout: 5))
+    app.buttons["tank-reminder-save"].tap()
+
+    app.terminate()
+    app = launch(reset: false, "-fake-tank-reminder-permission")
+    let first = app.buttons.matching(identifier: "tank").firstMatch
+    XCTAssertTrue(first.waitForExistence(timeout: 5))
+    first.tap()
+    let reminder = app.buttons["tank-reminder"].firstMatch
+    XCTAssertTrue(app.scrolledDown(to: reminder).isHittable)
+    XCTAssertTrue(reminder.label.contains("Thay nước"), reminder.label)
+    reminder.tap()
+    let done = app.buttons["tank-reminder-done"]
+    XCTAssertTrue(app.scrolledDown(to: done).isHittable)
+    done.tap()
+    XCTAssertTrue(reminder.waitForExistence(timeout: 5))
+    XCTAssertTrue(reminder.label.contains("Đã làm"), reminder.label)
+
+    app.pageBack.tap()
+    app.buttons.matching(identifier: "tank").element(boundBy: 1).tap()
+    XCTAssertTrue(app.scrolledDown(to: app.buttons["tank-reminder-add"]).isHittable)
+    XCTAssertFalse(app.buttons["tank-reminder"].exists)
+
+    // An existing recurring task can first opt into notifications as it is completed. The stand-in refreshes the
+    // schedule at the same time as the permission request, as a tank sync could.
+    app.buttons["tank-reminder-add"].tap()
+    app.buttons["tank-reminder-repeat"].tap()
+    app.buttons["Hằng tuần"].tap()
+    app.buttons["tank-reminder-save"].tap()
+    XCTAssertTrue(reminder.waitForExistence(timeout: 5))
+    let permission = app.staticTexts["tank-reminder-permission"]
+    XCTAssertEqual(permission.label, "0")
+    reminder.tap()
+    app.switches["tank-reminder-notify"].tap()
+    XCTAssertTrue(app.scrolledDown(to: done).isHittable)
+    done.tap()
+    let asked = NSPredicate(format: "label == %@", "1")
+    XCTAssertEqual(XCTWaiter.wait(for: [XCTNSPredicateExpectation(predicate: asked, object: permission)], timeout: 5), .completed)
+    let retry = app.buttons["tank-reminder-permission-retry"]
+    XCTAssertTrue(app.scrolledDown(to: retry).isHittable)
+    retry.tap()
+    let retried = NSPredicate(format: "label == %@", "2")
+    XCTAssertEqual(XCTWaiter.wait(for: [XCTNSPredicateExpectation(predicate: retried, object: permission)], timeout: 5), .completed)
+
+    // A tap for another reminder in the same tank replaces the editor that was already open.
+    XCTAssertTrue(app.scrolledDown(to: app.buttons["tank-reminder-add"]).isHittable)
+    app.buttons["tank-reminder-add"].tap()
+    app.buttons["tank-reminder-kind"].tap()
+    app.buttons["Cắt tỉa cây"].tap()
+    app.buttons["tank-reminder-save"].tap()
+    let water = app.buttons.matching(identifier: "tank-reminder")
+      .matching(NSPredicate(format: "label CONTAINS %@", "Thay nước")).firstMatch
+    XCTAssertTrue(water.waitForExistence(timeout: 5))
+    water.tap()
+    let other = app.buttons["tank-reminder-test-notification"]
+    XCTAssertTrue(app.scrolledDown(to: other).isHittable)
+    other.tap()
+    let kind = app.buttons["tank-reminder-kind"]
+    let trimming = NSPredicate { _, _ in kind.exists && ((kind.value as? String) == "Cắt tỉa cây" || kind.label.contains("Cắt tỉa cây")) }
+    XCTAssertEqual(XCTWaiter.wait(for: [XCTNSPredicateExpectation(predicate: trimming, object: nil)], timeout: 10), .completed)
+  }
+
   private func launch(reset: Bool = true, _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + args

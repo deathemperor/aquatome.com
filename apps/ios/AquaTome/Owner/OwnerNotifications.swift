@@ -7,6 +7,15 @@ import UserNotifications
 final class OwnerNotifications: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
   /// What APNs' token is given to (the app's start sets it).
   var received: ((Data) -> Void)?
+  @MainActor private var pendingReminder: (tank: String, id: UUID)?
+  @MainActor var openReminder: ((String, UUID) -> Void)? {
+    didSet {
+      if let pendingReminder, let openReminder {
+        self.pendingReminder = nil
+        openReminder(pendingReminder.tank, pendingReminder.id)
+      }
+    }
+  }
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
     UNUserNotificationCenter.current().delegate = self
@@ -27,7 +36,16 @@ final class OwnerNotifications: NSObject, UIApplicationDelegate, UNUserNotificat
   }
 
   nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
-    guard let page = OwnerPush.page(response.notification.request.content.userInfo) else { return }
+    let request = response.notification.request
+    if request.identifier.hasPrefix(TankCare.noticePrefix),
+       let tank = request.content.userInfo[TankCare.tankKey] as? String,
+       let id = UUID(uuidString: String(request.identifier.dropFirst(TankCare.noticePrefix.count))) {
+      await MainActor.run {
+        if let openReminder { openReminder(tank, id) } else { pendingReminder = (tank, id) }
+      }
+      return
+    }
+    guard let page = OwnerPush.page(request.content.userInfo) else { return }
     await MainActor.run { UIApplication.shared.open(OwnCopy.marked(page, site: AccountsClient.site)) }
   }
 

@@ -174,7 +174,10 @@ struct AquaTomeApp: App {
       }
       .onChange(of: handbook.status) { if handbook.status != .loading { openLink() } }
       // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
-      .onChange(of: tanks.store) { account.changed() }
+      .onChange(of: tanks.store) {
+        account.changed()
+        tanks.care.refresh(tanks: tanks.tanks)
+      }
       // Signed out or in: what the master button was still to send doesn't go (MasterModel.accountChanged).
       .onChange(of: account.user?.id) { master.accountChanged() }
       // The owner known (at each launch, once the account answers): an end due goes then.
@@ -184,6 +187,7 @@ struct AquaTomeApp: App {
         if phase == .background { chat.inFront(false) }
         guard phase == .active else { return }
         chat.inFront(true)
+        tanks.care.refresh(tanks: tanks.tanks)
         Task { await account.refresh() }
         // The index again if this run's is old (HandbookModel.staleAfter): what's new and the day's card come with it.
         Task { await handbook.cameToFront() }
@@ -208,6 +212,10 @@ struct AquaTomeApp: App {
       // The owner's notifications turned on here: this launch's token, sent once the owner is known (OwnerPush).
       .task {
         notifications.received = { token in Task { await account.push.received(token) } }
+        notifications.openReminder = { tank, id in
+          tanks.care.openFromNotification(tankID: tank, reminderID: id)
+          open(.tanks(tank))
+        }
         await OwnerNotifications.register(account.push)
       }
       // Whatever tab is showing: a light left on a test colour goes back to its schedule (LightsModel.leave).
@@ -229,6 +237,9 @@ struct AquaTomeApp: App {
         VStack {
           Text(verbatim: telemetry.received.isEmpty ? "none" : telemetry.received.joined(separator: " | ")).accessibilityIdentifier("telemetry-received")
           Text(verbatim: telemetry.queueKept ? "kept" : "none").accessibilityIdentifier("telemetry-queue")
+          if tanks.care.testsPermission {
+            Text(verbatim: String(tanks.care.permissionRequests)).accessibilityIdentifier("tank-reminder-permission")
+          }
           AppearanceProbe(id: "appearance-app")
         }
         .font(.system(size: 1)).opacity(0.01)
@@ -268,6 +279,7 @@ struct AquaTomeApp: App {
     telemetry.speaks(to.code)
     handbook.speak(to.code)
     language.use(to)
+    tanks.care.refresh(tanks: tanks.tanks)
     // After the words: the press's end notification, waiting, in them.
     Task { await master.speaks() }
   }
