@@ -46,7 +46,7 @@ const KINDS = {
 // undone. oldCaller: a cycle that started on the older script calls main-holds.mjs as that script did, with two arguments.
 function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: {
   mainOther?: boolean; mainDidNotMove?: boolean; kept?: boolean; catchUp?: boolean; lostPush?: Side;
-  uncompared?: boolean | 'locked'; oldCaller?: boolean; video?: 'fresh' | 'kept';
+  uncompared?: boolean | 'locked'; oldCaller?: boolean | 'strict'; video?: 'fresh' | 'kept';
   holdFault?: 'process' | 'unreadable' | 'malformed'; baseWithoutFit?: boolean; baseWithoutEntity?: boolean; sweepBody?: string;
 } = {}) {
   const { dir: pageDir, key } = KINDS[kind]
@@ -126,7 +126,7 @@ GIT
       export PATH="${dir}/bin:$PATH"
     ` : ''}
     ${o.uncompared ? `mkdir -p ../broken && echo '${o.uncompared === 'locked' ? 'import { writeFileSync } from "node:fs"; writeFileSync(".git/index.lock", ""); ' : ''}process.exit(1)' > ../broken/main-holds.mjs && CYCLE_DIR="$PWD/../broken"` : ''}
-    ${o.oldCaller ? `main_holds() { local base; base=$(git merge-base "$1" '@{u}'); node "$CYCLE_DIR/main-holds.mjs" "$base" "$(git rev-parse '@{u}')"; echo "NODE $?"; return 0; }` : ''}
+    ${o.oldCaller ? `main_holds() { local base; base=$(git merge-base "$1" '@{u}'); node "$CYCLE_DIR/main-holds.mjs" "$base" "$(git rev-parse '@{u}')" ${o.oldCaller === 'strict' ? '--strict' : ''}; echo "NODE $?"; return 0; }` : ''}
     net() {
       ${o.lostPush ? `if [ "$1 $2" = "git push" ] && [ ! -e ../lost ]; then touch ../lost; (cd ../other && ${both(o.lostPush)} && ${o.video ? write({ 'content/concurrent.json': '{"main":true}\n' }) : ':'} && git commit -qm 'content: main again, meanwhile' && git push -q origin main); fi` : ':'}
       "$@"
@@ -629,6 +629,19 @@ test.each([false, true])('the older caller reports the valid hold alongside a ma
   expect(r.out.match(/^hold .*$/gm)).toEqual(['hold content/guides/youtube-x/vi.json'])
 })
 
+test.each([false, true])('the older strict caller retains its status and output for a tracked page (malformed: %s)', malformed => {
+  const held = hold('source')
+  const old = { ...heldFor('source'), at: '2026-11-14' }
+  const r = push('guides', {
+    base: { held, fit: old },
+    main: { held, fit: heldFor('source') },
+    run: { fit: old, ...(malformed ? { files: { 'content/guides/youtube-x/vi.json': 'null\n' } } : {}) },
+  }, { oldCaller: 'strict' })
+  expect(r.out).toContain(malformed ? 'NODE 1' : 'NODE 0')
+  expect(r.out.includes('hold content/guides/youtube-x/vi.json')).toBe(!malformed)
+  expect(r.out).not.toMatch(/^(keep|own|unread|beside|manual) /m)
+})
+
 test('a release without a new review leaves the run’s hold on its rewritten fish page', () => {
   const body = '<p>Một văn bản mới.</p>'
   const r = push('species', {
@@ -713,10 +726,10 @@ test('recovery leaves a guide open when the saved review matches the outgoing te
   expect(r.pushed.held).toBeUndefined()
 })
 
-test('recovery leaves the live text in place when the edit introduces a blocking finding', () => {
+test.each([false, true])('recovery leaves the live text in place when the edit introduces a blocking finding (already held: %s)', alreadyHeld => {
   const body = '<p>Bài cũ.</p>'
   const main = { body, fit: { ...clean, hash: guideHash(body) } }
-  const r = push('guides', { base: main, main, run: { fit: heldFor('source') } }, { kept: true, mainDidNotMove: true })
+  const r = push('guides', { base: main, main, run: { fit: heldFor('source'), ...(alreadyHeld ? { held: hold('source') } : {}) } }, { kept: true, mainDidNotMove: true })
   expect(r.out).toContain('CODE 1')
   expect(r.out).not.toContain('VERIFY')
   expect(r.out).toContain('QUEUED kept/photos/')
@@ -742,6 +755,15 @@ test.each(['matching', 'stale'] as const)('recovery considers a %s harm review e
   expect(r.pushedTh().held?.checks).toEqual(review === 'matching' ? ['harm'] : undefined)
 })
 
+test('recovery propagates deterministic harm from a held translation without a saved review', () => {
+  const main = { held: hold('source'), th: {} }
+  const body = '<p>Kanamycin ngâm: 2–5 g/L.</p>'
+  const r = push('guides', { base: main, main, run: { ...main, body } }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held?.checks).toEqual(['harm', 'source'])
+  expect(r.pushedTh().held?.checks).toEqual(['harm'])
+})
+
 test.each(['TH', 'US'])('recovery checks whether changing a card country from %s makes its translation public', country => {
   const file = 'content/cards/the-x/entity.json'
   const main = { files: { [file]: eventCard(country) } }
@@ -759,10 +781,43 @@ test('recovery checks an unread guide made visible by changing to a public sourc
   expect(r.pushed.held?.checks).toEqual([])
 })
 
+test.each(['unread', 'reviewed'] as const)('recovery checks an %s guide when its source permission makes the unchanged text public', read => {
+  const path = 'content/sources.json'
+  const sources = JSON.parse(fixtureJson('sources.json'))
+  const fit = read === 'reviewed' ? clean : undefined
+  const main = { fit, files: { [path]: JSON.stringify({ ...sources, youtube: { ...sources.youtube, publish: 'photos' } }) } }
+  const r = push('guides', { base: main, main, run: { fit, files: { [path]: fixtureJson('sources.json') } } }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held?.checks).toEqual(read === 'unread' ? [] : undefined)
+})
+
+test('recovery checks the words when a source permission reveals another section of a live page', () => {
+  const path = 'content/sources.json'
+  const sources = JSON.parse(fixtureJson('sources.json'))
+  const fish = JSON.parse(fixtureJson('species/paracheirodon-innesi/entity.json'))
+  const entity = { ...fish, id: 'ca-x', sections: [{ ...fish.sections[0], source: 'youtube' }, { key: 'maintenance', source: 'aquatome', sourceUrl: 'https://example.org/care', html: '<p>Keep it in a planted tank.</p>' }] }
+  const sections = { 'quickFacts:youtube': '<p>Đây là cá nhỏ.</p>', 'maintenance:aquatome': '<p>Nuôi trong bể có cây.</p>' }
+  const files = { 'content/species/ca-x/entity.json': JSON.stringify(entity) }
+  const main = { sections, files }
+  const exposed = { ...sources, aquatome: { ...sources.aquatome, publish: true, permission: sources.youtube.permission } }
+  const r = push('species', { base: main, main, run: { sections, files: { ...files, [path]: JSON.stringify(exposed) } } }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held?.checks).toEqual([])
+})
+
 test('recovery applies a manual hold to a translation whose saved review passes', () => {
   const manual = hold('source')
   const main = { held: manual, files: { [HELD_BY_HAND]: JSON.stringify({ 'guides/youtube-x': { ...manual, why: 'fixture' } }) } }
   const r = push('guides', { base: main, main, run: { ...main, th: { fit: clean } } }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushedTh().held).toEqual(manual)
+  expect(r.out).toContain('translations held by the manual registry')
+})
+
+test('a fresh push applies a manual hold added on main to the new translation', () => {
+  const manual = hold('source')
+  const main = { held: manual, files: { [HELD_BY_HAND]: JSON.stringify({ 'guides/youtube-x': { ...manual, why: 'fixture' } }) } }
+  const r = push('guides', { base: {}, main, run: { th: { fit: clean } } })
   expect(r.out).toContain('CODE 0')
   expect(r.pushedTh().held).toEqual(manual)
 })
