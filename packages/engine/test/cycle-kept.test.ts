@@ -212,13 +212,17 @@ test.each(['failed sweep', 'failed sweep commit', 'tracked write during verifica
   }
   c.cycle(`
     AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    TEST_FAILURES_DIR="$HOME/check-logs"
     ${reason === 'tracked write during verification'
-      ? 'checks() { echo changed > content/a.json; }'
+      ? 'checks() { echo changed > content/a.json; echo "check changed an input"; }'
       : `pnpm() { if [ "$1 $2" = "engine sweep" ]; then echo fixed > content/a.json; return ${reason === 'failed sweep' ? 1 : 0}; fi; }; checks() { [ "$(cat content/a.json)" = fixed ]; }`}
     publish_kept video-recheck
   `)
   expect(c.branches()).toEqual([kept])
   expect(c.onMain('content/video.json')).toBe('')
+  if (reason === 'tracked write during verification') {
+    expect(c.sh('cat "$HOME"/check-logs/test.*.try-1.*')).toBe('check changed an input')
+  }
 }, slow(60_000))
 
 test('a kept video recheck does not publish with an untracked verification input', () => {
@@ -284,6 +288,25 @@ test('a fresh video recheck saves a failed sweep outside the automatic publish q
   c.sh('git checkout -q main')
   expect(c.cycle('publish_kept video-recheck')).toBe('')
   expect(c.onMain('content/a.json')).toBe('main')
+}, slow(60_000))
+
+test('video recheck saves tracked and staged work before resetting after a sweep commit failure', () => {
+  const c = clone()
+  const helper = join(ROOT, 'scripts/video-recheck-publish.sh')
+  c.sh('printf "#!/bin/sh\nexit 1\n" > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit')
+  c.cycle(`
+    source '${helper}'
+    echo rechecked > content/video.json
+    pnpm() { echo partial > content/a.json; return 1; }
+    sweep_new_video_recheck && exit 2
+    archive_video_recheck_startup
+    git reset -q --hard origin/main
+  `)
+  const staged = c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-checkout.*/staged.patch')
+  expect(staged).toContain('+rechecked')
+  expect(staged).toContain('+partial')
+  expect(c.sh('cat content/a.json')).toBe('main')
+  expect(c.onMain('content/video.json')).toBe('')
 }, slow(60_000))
 
 test('a video recheck cannot pass on a retry using a file the first check created', () => {
@@ -926,7 +949,7 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
     }
     // Kept work is published once a run has installed and set its merge drivers, before it does its own work.
     if (name === 'video-recheck.sh') {
-      const archive = s.indexOf('|| archive_video_recheck_inputs')
+      const archive = s.indexOf('archive_video_recheck_startup ||')
       expect(archive).toBeGreaterThan(0)
       expect(archive).toBeLessThan(s.indexOf('from_main "$@"'))
     }

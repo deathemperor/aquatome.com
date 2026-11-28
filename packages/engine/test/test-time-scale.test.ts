@@ -102,6 +102,28 @@ test('the two failed tries keep separate output after a later check reuses the w
   for (const file of files) expect(r.stdout).toContain(join(dir, 'failed', file))
 })
 
+test('a failed archive prints the failed attempt before retry replaces the working log', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-check-fallback-'))
+  const r = spawnSync('bash', ['-c', `
+    set -euo pipefail
+    TEST_LOG="$1/engine-test.log"; TEST_FAILURES_DIR="$1/failed"
+    touch "$TEST_FAILURES_DIR"
+    source "$2"
+    log() { echo "$*"; }; calm() { :; }; settled() { :; }; slow_mac() { :; }
+    calls=0
+    checks() {
+      calls=$((calls + 1))
+      if [ "$calls" = 1 ]; then echo "failed check output"; return 1; fi
+      echo "passed check output"
+    }
+    verify check
+    verify next`, 'test', dir, CHECKS], { encoding: 'utf8', env: { ...process.env, GITHUB_ACTIONS: '' } })
+  expect(r.status, r.stderr).toBe(0)
+  expect(r.stdout).toContain('failed check output')
+  expect(r.stdout).not.toContain('passed check output')
+  expect(readFileSync(join(dir, 'engine-test.log'), 'utf8')).toBe('passed check output\n')
+})
+
 // ran_out over a check's output: whether verify reads it as tests out of time.
 function ranOut(output: string) {
   const dir = mkdtempSync(join(tmpdir(), 'aq-ran-out-'))

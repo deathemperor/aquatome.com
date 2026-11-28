@@ -163,7 +163,8 @@ archive_failed_try() {
       tail -c "+$(($1 + 1))" "$TEST_LOG" >"$path"; then
     log "check try $2 failed, output kept at $path"
   else
-    log "check try $2 failed, could not copy its output from $TEST_LOG"
+    log "check try $2 failed, could not copy its output from $TEST_LOG; its output follows"
+    tail -c "+$(($1 + 1))" "$TEST_LOG" || log "check try $2 output could not be read"
   fi
 }
 # For video rechecks a check may only read the committed tree, including on its second try.
@@ -173,8 +174,8 @@ verify_try() {
   shift 2
   if [ -n "${video_verify_tree:-}" ] && ! video_recheck_unchanged "$video_verify_tree"; then return 2; fi
   "$@" >>"$TEST_LOG" 2>&1 || failed=1
+  if [ -n "${video_verify_tree:-}" ] && ! video_recheck_unchanged "$video_verify_tree"; then failed=2; fi
   [ "$failed" = 0 ] || archive_failed_try "$from" "$attempt"
-  if [ -n "${video_verify_tree:-}" ] && ! video_recheck_unchanged "$video_verify_tree"; then return 2; fi
   return "$failed"
 }
 verify() {
