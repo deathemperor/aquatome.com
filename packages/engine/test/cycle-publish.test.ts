@@ -208,6 +208,7 @@ test.each([
       advance
     }
     ${when === 'before' ? 'advance' : ''}
+    git update-ref "$VIDEO_RECHECK_PENDING_REF" HEAD ''
     status=0; push_video_recheck || status=$?
     echo "exit $status"`
   expect(sh(run, repo)).toBe(trace)

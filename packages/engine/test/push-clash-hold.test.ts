@@ -82,7 +82,10 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     ended_row() { :; }
     ${pushFn}
     case '${o.video ?? ''}' in
-      fresh) source "${join(ROOT, 'scripts/video-recheck-publish.sh')}"; push_video_recheck ;;
+      fresh)
+        source "${join(ROOT, 'scripts/video-recheck-publish.sh')}"
+        git update-ref "$VIDEO_RECHECK_PENDING_REF" HEAD '' && push_video_recheck
+        ;;
       kept) git branch kept/video-recheck/20261116T000000 && push_kept kept/video-recheck/20261116T000000 ;;
       *) ${o.kept ? 'git branch kept/photos/20261116T000000 && push_kept kept/photos/20261116T000000' : o.catchUp ? 'catch_up' : 'push'} ;;
     esac

@@ -66,6 +66,11 @@ function clone() {
       if [ -n "\${CHECK_ONCE:-}" ] && [ ! -f "$HOME/failed-once" ]; then touch "$HOME/failed-once"; printf '%b\\n' "$CHECK_ONCE"; return 1; fi
       [ -z "\${CHECK:-}" ] || { echo "$CHECK"; return 1; }
     }
+    # These fixtures make the gated commit directly with git commit.
+    publish_fixture_video_recheck() {
+      git update-ref "$VIDEO_RECHECK_PENDING_REF" HEAD '' || return 1
+      push_video_recheck
+    }
     ${body}`, extra)
   // A run of the job: its work committed, its tests out of time twice (keep_unpublished), then the next run's start.
   const timedOutRun = () => {
@@ -433,7 +438,7 @@ test('a fresh video publish archives another checkout file before the merge swee
   expect(c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
-    push_video_recheck
+    publish_fixture_video_recheck
   `)).toContain('pushed (GitHub deploys it)')
   expect(c.onMain('content/video.json')).toBe('rechecked')
   expect(c.onMain('sources/local-only.txt')).toBe('')
@@ -520,7 +525,7 @@ test.each([
         "$@"
       }
     `}
-    ${lane === 'fresh' ? 'push_video_recheck' : 'publish_kept video-recheck'}
+    ${lane === 'fresh' ? 'publish_fixture_video_recheck' : 'publish_kept video-recheck'}
   `)).toThrow()
   expect(c.sh('cat "$HOME/interrupted-head"')).not.toBe(batch)
   expect(c.onMain('content/video.json')).toBe('')
@@ -568,6 +573,55 @@ test('video startup can recover an anchored commit before main advances', () => 
   `)
   expect(log).toContain('published kept/video-recheck/')
   expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
+}, slow(60_000))
+
+test('video recovery publishes only the gated commit when HEAD moves before publishing', () => {
+  const c = clone()
+  const batch = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    echo rechecked > content/video.json
+    git add content/video.json
+    commit_video_recheck 'content: video guides checked again (fixture)'
+    git rev-parse HEAD
+  `)
+  c.sh('echo ungated > content/ungated.json && git add content/ungated.json && git commit -qm ungated')
+  const publish = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    verify_cycle() { echo VERIFIED; }
+    push_video_recheck || echo refused
+  `)
+  expect(publish).toContain('refused')
+  expect(publish).not.toContain('VERIFIED')
+  expect(c.sh('git rev-parse refs/aquatome/video-recheck/pending')).toBe(batch)
+
+  c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    archive_video_recheck_checkout
+    recover_interrupted_video_recheck
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    from_main
+    publish_kept video-recheck
+  `)
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.onMain('content/ungated.json')).toBe('')
+  expect(c.branches()).toEqual([])
+  expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
+}, slow(60_000))
+
+test('video publishing requires a recorded gated commit', () => {
+  const c = clone()
+  c.sh('echo ungated > content/ungated.json && git add content/ungated.json && git commit -qm ungated')
+  const publish = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    verify_cycle() { echo VERIFIED; }
+    push_video_recheck || echo refused
+  `)
+  expect(publish).toContain('refused')
+  expect(publish).not.toContain('VERIFIED')
+  expect(c.onMain('content/ungated.json')).toBe('')
+  expect(c.branches()).toEqual([])
   expect(c.sh('git for-each-ref refs/aquatome/video-recheck/')).toBe('')
 }, slow(60_000))
 
@@ -629,7 +683,7 @@ test.each([
       fi
       "$@"
     }
-    ${lane === 'fresh' ? 'push_video_recheck' : 'publish_kept video-recheck'}
+    ${lane === 'fresh' ? 'publish_fixture_video_recheck' : 'publish_kept video-recheck'}
   `)).toThrow()
   if (outcome === 'sent but unconfirmed') expect(c.branches()).toHaveLength(1)
   const outgoing = c.sh('cat "$HOME/outgoing"')
@@ -724,7 +778,7 @@ test.each(['fresh', 'kept'])('a %s video recheck pushes the commit whose tree pa
       fi
       "$@"
     }
-    ${kind === 'kept' ? 'publish_kept video-recheck' : 'push_video_recheck'}
+    ${kind === 'kept' ? 'publish_kept video-recheck' : 'publish_fixture_video_recheck'}
   `)
   expect(c.onMain('content/video.json')).toBe('rechecked')
   expect(c.onMain('content/newer.json')).toBe('')
@@ -754,7 +808,7 @@ test.each(['fresh', 'kept', 'held'])('a %s video recheck keeps its batch when th
       fi
       "$@"
     }
-    ${kind === 'fresh' ? 'push_video_recheck || echo refused' : 'publish_kept video-recheck'}
+    ${kind === 'fresh' ? 'publish_fixture_video_recheck || echo refused' : 'publish_kept video-recheck'}
   `)
   expect(log).toContain(kind === 'fresh' ? 'refused' : 'isn\'t published yet')
   expect(c.onMain('content/disjoint.json')).toBe('concurrent')
@@ -779,7 +833,7 @@ test.each([0, 1])('a fresh video recheck keeps its batch when checkout moves at 
       fi
       "$@"
     }
-    push_video_recheck || echo refused
+    publish_fixture_video_recheck || echo refused
   `)
   expect(log).toContain('refused')
   expect(c.onMain('content/video.json')).toBe('')
@@ -806,7 +860,7 @@ test.each(['fresh', 'kept', 'held'])('a %s video recheck keeps its batch when ch
       fi
       "$@"
     }
-    ${kind === 'fresh' ? 'push_video_recheck || echo refused' : 'publish_kept video-recheck'}
+    ${kind === 'fresh' ? 'publish_fixture_video_recheck || echo refused' : 'publish_kept video-recheck'}
   `)
   expect(log).toContain(kind === 'fresh' ? 'refused' : "isn't published yet")
   expect(c.onMain('content/video.json')).toBe('')
@@ -824,7 +878,7 @@ test.each([false, true])('a fresh video recheck handles a patch main already app
   const log = c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
-    push_video_recheck || echo refused
+    publish_fixture_video_recheck || echo refused
   `)
   expect(log).toContain(reverted ? 'refused' : 'pushed (GitHub deploys it)')
   expect(c.onMain('content/video.json')).toBe(reverted ? '' : 'rechecked')
@@ -887,7 +941,7 @@ test.each(['fresh', 'kept', 'held'])('a %s video recheck preserves its batch if 
     pnpm() {
       if [ "$2" = sweep ]; then git reset -q --hard origin/main; fi
     }
-    ${kind === 'fresh' ? 'push_video_recheck || echo refused' : 'publish_kept video-recheck'}
+    ${kind === 'fresh' ? 'publish_fixture_video_recheck || echo refused' : 'publish_kept video-recheck'}
   `)
   expect(log).toContain(kind === 'fresh' ? 'refused' : "isn't published yet")
   expect(c.onMain('content/video.json')).toBe('')
@@ -922,7 +976,7 @@ test.each([
       echo '${queue === 'kept' ? 'Error: Test timed out in 30000ms.' : 'real check failure'}'
       return 1
     }
-    push_video_recheck || echo refused
+    publish_fixture_video_recheck || echo refused
   `)
   expect(log).toContain('refused')
   if (blockBoth) {
@@ -978,7 +1032,7 @@ test.each([false, true])('a fresh video recheck saves interrupted work when its 
       if [ "$*" = '-u +%Y%m%dT%H%M%S' ]; then echo '${when}'; else command date "$@"; fi
     }
     checks() { echo changed > content/a.json; }
-    push_video_recheck || echo refused
+    publish_fixture_video_recheck || echo refused
   `)
   expect(log).toContain('refused')
   expect(c.onMain('content/video.json')).toBe('')
@@ -1069,7 +1123,7 @@ test.each([
       ${fails ? 'echo incomplete > content/curation.json; return 1' : 'printf "%s, replanned\n" "$(cat content/curation.json)" > content/planned && mv content/planned content/curation.json'}
     }
     verify_cycle() { printf 'VERIFIED %s\n' "$(cat content/curation.json)"; }
-    ${kind === 'fresh' ? 'push_video_recheck || echo refused' : 'publish_kept video-recheck'}
+    ${kind === 'fresh' ? 'publish_fixture_video_recheck || echo refused' : 'publish_kept video-recheck'}
   `)
   expect(log).toContain('CURATE editor')
   if (fails) {
@@ -1128,7 +1182,7 @@ test.each([
       ${history === 'replan failed' ? 'echo incomplete > content/curation.json; return 1' : `echo ${mainCalendar}-replanned > content/curation.json`}
     }
     verify_cycle() { printf 'VERIFIED %s\n' "$(cat content/curation.json)"; }
-    ${kind === 'fresh' ? 'push_video_recheck || echo refused' : 'publish_kept video-recheck'}
+    ${kind === 'fresh' ? 'publish_fixture_video_recheck || echo refused' : 'publish_kept video-recheck'}
   `)
   if (history !== 'guide reverted') expect(log).toContain(`CURATE ${mainCalendar}`)
   if (history === 'guide reverted' || history === 'replan failed') {
@@ -1152,7 +1206,7 @@ test('a fresh video recheck publishes to origin/main without a configured upstre
   const log = c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
-    push_video_recheck || echo refused
+    publish_fixture_video_recheck || echo refused
   `)
   expect(log).toContain('pushed (GitHub deploys it)')
   expect(c.onMain('content/video.json')).toBe('rechecked')
@@ -1167,7 +1221,7 @@ test('a fresh video recheck keeps the batch when origin/main cannot be resolved'
   const log = c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     AQ_SCRIPT_HEAD=$(git rev-parse HEAD^)
-    push_video_recheck || echo refused
+    publish_fixture_video_recheck || echo refused
   `)
   expect(log).toContain("could not find the batch's base on origin/main")
   const branches = c.branches()
@@ -1221,7 +1275,7 @@ test('a fresh video recheck keeps the original batch when main reverts its guide
         touch "$HOME/reverted"
       fi
     }
-    push_video_recheck || echo refused
+    publish_fixture_video_recheck || echo refused
   `)
   expect(log).toContain('refused')
   const branches = c.branches()
@@ -1247,7 +1301,7 @@ test.each(['fresh', 'kept'])('a %s video recheck retains its original batch when
     AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
     ${sweep}
     checks() { test ! -f code.txt; }
-    ${kind === 'fresh' ? 'push_video_recheck || echo refused' : 'publish_kept video-recheck'}
+    ${kind === 'fresh' ? 'publish_fixture_video_recheck || echo refused' : 'publish_kept video-recheck'}
   `)
   expect(failed).toContain('failed')
   const branches = c.branches()
@@ -1295,7 +1349,7 @@ test('a fresh video recheck sweeps new main after the final pull advances the tr
       fi
       test ! -f engine-state/old-record.json
     }
-    push_video_recheck || echo refused
+    publish_fixture_video_recheck || echo refused
   `)
   expect(log).toContain('pushed (GitHub deploys it)')
   expect(c.onMain('content/video.json')).toBe('rechecked')

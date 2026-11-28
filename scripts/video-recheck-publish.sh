@@ -116,13 +116,11 @@ commit_video_recheck() {
 }
 
 push_video_recheck() {
-  local batch pending queued outgoing status=0
-  batch=$(git rev-parse HEAD) && pending=$(video_recheck_pending) || return 1
-  if [ "$pending" != "$batch" ]; then
-    if [ -n "$pending" ] || ! git update-ref "$VIDEO_RECHECK_PENDING_REF" "$batch" ''; then
-      keep_lost_push video-recheck "could not record the pending batch before verification" "$batch"
-      return 1
-    fi
+  local batch head pending queued outgoing status=0
+  batch=$(video_recheck_pending) && head=$(git rev-parse HEAD) || return 1
+  if [ "$head" != "$batch" ]; then
+    log "video recheck HEAD does not match the recorded gated commit"
+    return 1
   fi
   publish_video_recheck_batch "$batch" || status=$?
   if [ "$status" != 0 ]; then
