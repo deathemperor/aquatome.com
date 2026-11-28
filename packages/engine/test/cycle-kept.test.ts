@@ -559,9 +559,9 @@ test('video recheck preparation excludes an ignored fixture parent read by the m
   const parent = JSON.stringify({ ...material, id: 'dist' })
   mkdirSync(join(root, 'materials/dist'))
   writeFileSync(join(root, 'materials/dist/entity.json'), parent)
-  await expect(loadAll({ root, lang: 'vi' })).resolves.toMatchObject({ materials: [] })
+  await expect(loadAll({ root, lang: 'vi', publicBuild: false })).resolves.toMatchObject({ materials: [] })
   c.cycle('prepare_video_recheck')
-  await expect(loadAll({ root, lang: 'vi' })).rejects.toThrow('material wood: parent "dist" is not another material')
+  await expect(loadAll({ root, lang: 'vi', publicBuild: false })).rejects.toThrow('material wood: parent "dist" is not another material')
   expect(c.sh(`cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/${fixture}/materials/dist/entity.json`)).toBe(parent)
 }, slow(60_000))
 
