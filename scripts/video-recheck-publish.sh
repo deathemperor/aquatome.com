@@ -19,9 +19,10 @@ sweep_new_video_recheck() {
 }
 
 push_video_recheck() {
-  local try run base tree checked_tree='' refreshed clash verification_failed commit candidate batch
+  local try run swept_main tree checked_tree='' refreshed clash verification_failed commit candidate batch
   batch=$(git rev-parse HEAD) || return 1
   candidate=$batch
+  swept_main=$(git merge-base "$batch" '@{u}') || return 1
   for try in 1 2 3; do
     run=$(git rev-parse HEAD) || break
     if [ "$run" != "$candidate" ]; then
@@ -32,7 +33,6 @@ push_video_recheck() {
       keep_lost_push video-recheck "the checkout had changes before publishing" "$batch"
       return 1
     fi
-    base=$(git merge-base "$run" '@{u}') || break
     if ! net git pull -q --rebase; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort 2>/dev/null || true
@@ -55,12 +55,13 @@ push_video_recheck() {
       keep_lost_push video-recheck "video recheck rules changed during this run" "$batch"
       return 1
     fi
-    if [ "$refreshed" != "$base" ]; then
-      main_holds "$run" || [ $? = 1 ] || { keep_lost_push video-recheck "main's holds couldn't be compared" "$run"; return 1; }
+    if [ "$refreshed" != "$swept_main" ]; then
+      main_holds "$run" || [ $? = 1 ] || { keep_lost_push video-recheck "main's holds couldn't be compared" "$batch"; return 1; }
       if ! sweep_merged strict; then
         keep_lost_push video-recheck "the sweep did not finish and commit" "$batch"
         return 1
       fi
+      swept_main=$refreshed
     fi
 
     # Check the tree that includes the latest main. A disjoint content change can affect cross-page checks.
@@ -77,7 +78,8 @@ push_video_recheck() {
         return 1
       fi
       if [ "$verification_failed" != 0 ]; then
-        keep_unpublished video-recheck
+        keep_unpublished video-recheck "$batch" ||
+          keep_lost_push video-recheck "could not save the tested video recheck checkout" "$batch"
         log "tests failed, not publishing (see $TEST_LOG)"
         return 1
       fi
