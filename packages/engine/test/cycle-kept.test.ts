@@ -288,6 +288,72 @@ test('a fresh video recheck saves a failed sweep outside the automatic publish q
   expect(c.onMain('content/a.json')).toBe('main')
 }, slow(60_000))
 
+test('a video recheck cannot pass on a retry using a file the first check created', () => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${kept} && git reset -q --hard origin/main`)
+  const log = c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    checks() {
+      if [ ! -e "$HOME/first-try" ]; then
+        touch "$HOME/first-try"
+        echo generated > content/retry-input.json
+        return 1
+      fi
+      touch "$HOME/second-try"
+      test -f content/retry-input.json && rm content/retry-input.json
+    }
+    publish_kept video-recheck
+  `)
+  expect(log).toContain('the video recheck checkout changed during verification')
+  expect(c.sh('test ! -e "$HOME/second-try" && echo stopped')).toBe('stopped')
+  expect(c.branches()).toEqual([kept])
+  expect(c.onMain('content/video.json')).toBe('')
+  expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/content/retry-input.json')).toBe('generated')
+}, slow(60_000))
+
+test('a fresh video publish archives another checkout file before the merge sweep can stage it', () => {
+  const c = clone()
+  c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')
+  c.sh('echo stray > sources/local-only.txt')
+  c.elsewhere()
+  expect(c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
+    push_video_recheck
+  `)).toContain('pushed (GitHub deploys it)')
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.onMain('sources/local-only.txt')).toBe('')
+  expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/sources/local-only.txt')).toBe('stray')
+}, slow(60_000))
+
+test('video recovery archives a stray file before retrying a rejected push', () => {
+  const c = clone()
+  const kept = 'kept/video-recheck/20261127T030000'
+  c.sh(`echo rechecked > content/video.json && git add . && git commit -qm recheck && git branch ${kept} && git reset -q --hard origin/main`)
+  c.elsewhere()
+  expect(c.cycle(`
+    AQ_SCRIPT_HEAD=$(git rev-parse HEAD)
+    net() {
+      if [ "$2" = push ] && [ ! -f "$HOME/rejected-first" ]; then
+        touch "$HOME/rejected-first"
+        echo stray > sources/local-only.txt
+        echo concurrent > "$HOME/other/content/disjoint.json"
+        git -C "$HOME/other" add content/disjoint.json
+        git -C "$HOME/other" commit -qm concurrent
+        git -C "$HOME/other" push -q
+        return 1
+      fi
+      "$@"
+    }
+    publish_kept video-recheck
+  `)).toContain(`LOG published ${kept}`)
+  expect(c.onMain('content/disjoint.json')).toBe('concurrent')
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.onMain('sources/local-only.txt')).toBe('')
+  expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/sources/local-only.txt')).toBe('stray')
+}, slow(60_000))
+
 test('a held video recheck stays eligible for retry if its failing verification changed tracked files', () => {
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
@@ -775,6 +841,11 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
       expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(3)
     }
     // Kept work is published once a run has installed and set its merge drivers, before it does its own work.
+    if (name === 'video-recheck.sh') {
+      const archive = s.indexOf('|| archive_video_recheck_inputs')
+      expect(archive).toBeGreaterThan(0)
+      expect(archive).toBeLessThan(s.indexOf('from_main "$@"'))
+    }
     const install = s.indexOf('pnpm install --frozen-lockfile --silent')
     const recovery = s.indexOf(`\npublish_kept ${job}\n`)
     expect(install, name).toBeGreaterThanOrEqual(0)

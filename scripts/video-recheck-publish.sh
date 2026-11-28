@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 # Sourced by video-recheck.sh after the common cycle helpers are loaded.
 
-# Startup and recovery both reset tracked files. Preserve anything untracked before the next sweep can see it.
-prepare_video_recheck() {
-  video_recheck_tree >/dev/null && return 0
-  archive_video_recheck_inputs && video_recheck_tree >/dev/null
-}
-
 # Fresh work has yet to pass the gate. Save a failed sweep separately from batches recovery can publish.
 sweep_new_video_recheck() {
   pnpm engine sweep && return 0
@@ -28,6 +22,10 @@ push_video_recheck() {
   local try run base tree checked_tree='' refreshed clash verification_failed
   for try in 1 2 3; do
     run=$(git rev-parse HEAD) || break
+    if ! prepare_video_recheck; then
+      keep_lost_push video-recheck "the checkout had changes before publishing" "$run"
+      return 1
+    fi
     base=$(git merge-base "$run" '@{u}') || break
     if ! net git pull -q --rebase; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
@@ -61,13 +59,13 @@ push_video_recheck() {
       return 1
     fi
     if [ "$checked_tree" != "$tree" ] || [ -n "${MIGRATE_FAILED:-}" ]; then
-      verification_failed=
-      verify_cycle || verification_failed=1
-      if ! video_recheck_unchanged "$tree"; then
+      verification_failed=0
+      verify_cycle "$tree" || verification_failed=$?
+      if ! video_recheck_unchanged "$tree" || [ "$verification_failed" = 2 ]; then
         keep_lost_push video-recheck "the video recheck checkout changed during verification" "$run"
         return 1
       fi
-      if [ -n "$verification_failed" ]; then
+      if [ "$verification_failed" != 0 ]; then
         keep_unpublished video-recheck
         log "tests failed, not publishing (see $TEST_LOG)"
         return 1

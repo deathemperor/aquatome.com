@@ -166,8 +166,19 @@ archive_failed_try() {
     log "check try $2 failed, could not copy its output from $TEST_LOG"
   fi
 }
+# For video rechecks a check may only read the committed tree, including on its second try.
+# Return 2 for changed inputs so recovery keeps the batch eligible for another run.
+verify_try() {
+  local from=$1 attempt=$2 failed=0
+  shift 2
+  if [ -n "${VERIFY_TREE:-}" ] && ! video_recheck_unchanged "$VERIFY_TREE"; then return 2; fi
+  "$@" >>"$TEST_LOG" 2>&1 || failed=1
+  [ "$failed" = 0 ] || archive_failed_try "$from" "$attempt"
+  if [ -n "${VERIFY_TREE:-}" ] && ! video_recheck_unchanged "$VERIFY_TREE"; then return 2; fi
+  return "$failed"
+}
 verify() {
-  local step from first name names workers why
+  local step from first name names workers why result
   : >"$TEST_LOG"
   TIMED_OUT=
   if [ -n "${MIGRATE_FAILED:-}" ]; then log "photo records not migrated: not tested, not published"; return 1; fi
@@ -178,13 +189,15 @@ verify() {
     why=$(slow_mac)
     AQ_TEST_TIME_SCALE=1
     [ -z "$why" ] || { AQ_TEST_TIME_SCALE=$HOT_TIME_SCALE; log "$why: tests get $AQ_TEST_TIME_SCALE times their time"; }
+    result=0
     if [ -n "${GITHUB_ACTIONS:-}" ]; then
-      checks "$step" >>"$TEST_LOG" 2>&1 && continue
+      verify_try "$from" 1 checks "$step" || result=$?
     else
-      VITEST_MAX_WORKERS=$FIRST_TRY_WORKERS checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1 && continue
+      VITEST_MAX_WORKERS=$FIRST_TRY_WORKERS verify_try "$from" 1 checks "export pnpm_config_workspace_concurrency=1; $step" || result=$?
     fi
+    [ "$result" != 0 ] || continue
+    [ "$result" != 2 ] || return 2
     first=$from
-    archive_failed_try "$first" 1
     if ran_out "$first"; then log "tests ran out of time on a busy Mac: checking again once it is calmer"; else log "a check failed: running it once more once the Mac is calmer"; fi
     settled
     calm
@@ -192,13 +205,15 @@ verify() {
     # On the Mac only: GitHub's runner is a machine of its own, with no heat, and its second try keeps the first's.
     workers=
     [ -n "${GITHUB_ACTIONS:-}" ] || { AQ_TEST_TIME_SCALE=$HOT_TIME_SCALE; workers=$SECOND_TRY_WORKERS; }
-    if VITEST_MAX_WORKERS=$workers checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1; then
+    result=0
+    VITEST_MAX_WORKERS=$workers verify_try "$from" 2 checks "export pnpm_config_workspace_concurrency=1; $step" || result=$?
+    [ "$result" != 2 ] || return 2
+    if [ "$result" = 0 ]; then
       names=$(failed_tests "$first")
       [ -n "$names" ] || log "flaky: $step failed once and passed the second time, no test named"
       while IFS= read -r name; do [ -z "$name" ] || log "flaky: $name"; done <<<"$names"
       continue
     fi
-    archive_failed_try "$from" 2
     ran_out "$from" && TIMED_OUT=1
     return 1
   done
@@ -646,6 +661,12 @@ archive_video_recheck_inputs() {
   done < "$archive/paths"
 }
 
+# Use only in the dedicated video recheck checkout.
+prepare_video_recheck() {
+  video_recheck_tree >/dev/null && return 0
+  archive_video_recheck_inputs && video_recheck_tree >/dev/null
+}
+
 video_recheck_unchanged() {
   [ "$(video_recheck_tree)" = "$1" ] && return 0
   archive_video_recheck_inputs || log "could not save all files verification created"
@@ -662,11 +683,11 @@ push_kept() {
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
-  if [ -n "$video_recheck" ] && ! video_recheck_tree >/dev/null; then
-    KEPT_WHY="the video recheck checkout had changes before recovery"
-    return 1
-  fi
   for _ in 1 2 3; do
+    if [ -n "$video_recheck" ] && ! prepare_video_recheck; then
+      KEPT_WHY="the video recheck checkout had changes before recovery"
+      return 1
+    fi
     main=$(git rev-parse origin/main 2>/dev/null || true) run=$(git rev-parse HEAD) swept=
     if [ -n "$video_recheck" ]; then
       # A fetch can update origin/main before this try pulls it into the checked tree.
@@ -721,13 +742,13 @@ push_kept() {
       if [ -n "$video_recheck" ]; then
         checked_tree=$(video_recheck_tree) || { KEPT_WHY="the video recheck checkout differed from its commit before verification"; return 1; }
       fi
-      verification_failed=
-      verify_cycle || verification_failed=1
-      if [ -n "$video_recheck" ] && ! video_recheck_unchanged "$checked_tree"; then
+      verification_failed=0
+      verify_cycle "$checked_tree" || verification_failed=$?
+      if [ -n "$video_recheck" ] && { ! video_recheck_unchanged "$checked_tree" || [ "$verification_failed" = 2 ]; }; then
         KEPT_WHY="the video recheck checkout changed during verification"
         return 1
       fi
-      if [ -n "$verification_failed" ]; then
+      if [ "$verification_failed" != 0 ]; then
         if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
         elif [ -n "${MIGRATE_FAILED:-}" ]; then KEPT_WHY="its photo records couldn't be migrated"
         else KEPT_FAILED=1; fi
@@ -843,13 +864,14 @@ checks_for() {
 # and in the history read on 2026-11-07 it never failed where the tests passed. deploy.yml builds the real site before
 # anything goes live and fails before the upload, so readers keep the live site and a "Deploy failed" issue opens.
 verify_cycle() {
-  local daily=
+  local daily= result=0
   checks_for
   log "tests: $CHECKS_WHY"
   [ "$CHECKS_WHY" != "$DAILY_WHY" ] || daily=1
-  if ! verify "$CHECKS_STEP"; then
+  VERIFY_TREE=${1:-} verify "$CHECKS_STEP" || result=$?
+  if [ "$result" != 0 ]; then
     [ -z "$daily" ] || rm -f "$FULL_STAMP.taken"
-    return 1
+    return "$result"
   fi
   [ -z "$daily" ] || touch "$FULL_STAMP"
   return 0
@@ -868,6 +890,7 @@ verify_cycle() {
 # the tests see them. A migration that fails publishes nothing, and the work is kept for the next run, which migrates and
 # tests it again, never held for it (MIGRATE_FAILED; the Image Lead and the chief of staff, 13 Nov).
 sweep_merged() {
+  if [ -n "${1:-}" ] && ! prepare_video_recheck; then return 1; fi
   MIGRATE_FAILED=
   pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
   if ! pnpm engine sweep; then
