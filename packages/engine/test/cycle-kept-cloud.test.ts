@@ -28,7 +28,7 @@ function github() {
   const sh = (command: string, extra: Record<string, string> = {}, cwd = home) =>
     execSync(command, { cwd, shell: '/bin/bash', encoding: 'utf8', env: { ...env, ...extra } }).trim()
   const identity = 'git config user.email a@example.com && git config user.name a'
-  sh(`git init -q --bare -b main origin.git && git clone -q origin.git seed 2>/dev/null && cd seed && ${identity} && git checkout -q -b main && mkdir -p content sources engine-state docs/review packages && echo main > content/a.json && echo 1 > packages/code.ts && git add . && git commit -qm main && git push -q -u origin main 2>/dev/null`)
+  sh(`git init -q --bare -b main origin.git && git clone -q origin.git seed 2>/dev/null && cd seed && ${identity} && git checkout -q -b main && mkdir -p content sources engine-state docs/review packages && touch sources/.keep engine-state/.keep docs/review/.keep && echo main > content/a.json && echo 1 > packages/code.ts && git add . && git commit -qm main && git push -q -u origin main 2>/dev/null`)
   let n = 0
   const runner = () => {
     const dir = join(home, `runner-${++n}`)

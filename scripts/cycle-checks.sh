@@ -629,6 +629,29 @@ video_recheck_tree() {
     [ -z "$status" ] && git rev-parse 'HEAD^{tree}'
 }
 
+# The checkout was clean on entry to verification. Save newly created files outside it so a later sweep cannot stage them.
+archive_video_recheck_inputs() {
+  local parent=${TEST_FAILURES_DIR:-"$HOME/.cache/aquatome/engine-check-failures"} archive file to
+  mkdir -p "$parent" || return 1
+  archive=$(mktemp -d "$parent/video-recheck-inputs.XXXXXXXX") || return 1
+  git ls-files --others --exclude-standard -z > "$archive/paths" || return 1
+  if [ ! -s "$archive/paths" ]; then
+    rm "$archive/paths" && rmdir "$archive"
+    return
+  fi
+  log "saving files verification created in $archive"
+  while IFS= read -r -d '' file; do
+    to="$archive/files/$file"
+    mkdir -p "$(dirname "$to")" && mv -- "$file" "$to" || return 1
+  done < "$archive/paths"
+}
+
+video_recheck_unchanged() {
+  [ "$(video_recheck_tree)" = "$1" ] && return 0
+  archive_video_recheck_inputs || log "could not save all files verification created"
+  return 1
+}
+
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
 # when its tests failed for real; KEPT_WHY says why it isn't published; BRANCH, the branch's name now (a check that
@@ -639,6 +662,10 @@ push_kept() {
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   case "$BRANCH" in kept/video-recheck/*|held/video-recheck/*) video_recheck=1 ;; esac
+  if [ -n "$video_recheck" ] && ! video_recheck_tree >/dev/null; then
+    KEPT_WHY="the video recheck checkout had changes before recovery"
+    return 1
+  fi
   for _ in 1 2 3; do
     main=$(git rev-parse origin/main 2>/dev/null || true) run=$(git rev-parse HEAD) swept=
     if [ -n "$video_recheck" ]; then
@@ -696,7 +723,7 @@ push_kept() {
       fi
       verification_failed=
       verify_cycle || verification_failed=1
-      if [ -n "$video_recheck" ] && [ "$(video_recheck_tree)" != "$checked_tree" ]; then
+      if [ -n "$video_recheck" ] && ! video_recheck_unchanged "$checked_tree"; then
         KEPT_WHY="the video recheck checkout changed during verification"
         return 1
       fi

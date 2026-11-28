@@ -40,7 +40,7 @@ push_video_recheck() {
     if [ "$checked_tree" != "$tree" ] || [ -n "${MIGRATE_FAILED:-}" ]; then
       verification_failed=
       verify_cycle || verification_failed=1
-      if [ "$(video_recheck_tree)" != "$tree" ]; then
+      if ! video_recheck_unchanged "$tree"; then
         keep_lost_push video-recheck "the video recheck checkout changed during verification" "$run"
         return 1
       fi

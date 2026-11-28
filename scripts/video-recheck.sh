@@ -52,6 +52,10 @@ git config merge.regenerated.driver true
 if engine_clone || engine_cloud; then git config merge.main-whole.driver 'node scripts/merge-main-whole.mjs %O %A %B %P'; fi
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
+if ! video_recheck_tree >/dev/null; then
+  log "video recheck checkout had changes before recovery: leaving the work for the next run"
+  exit 1
+fi
 publish_kept video-recheck
 if ! video_recheck_rules_current; then
   log "video recheck rules changed during this run: leaving new work for the next run"

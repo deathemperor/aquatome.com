@@ -232,6 +232,11 @@ test('a kept video recheck does not publish with an untracked verification input
   `)
   expect(c.branches()).toEqual([kept])
   expect(c.onMain('content/video.json')).toBe('')
+  expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/content/material-parent.json')).toBe('local-only')
+  c.cycle('AQ_SCRIPT_HEAD=$(git rev-parse HEAD); publish_kept video-recheck')
+  expect(c.branches()).toEqual([])
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.onMain('content/material-parent.json')).toBe('')
 }, slow(60_000))
 
 test('a held video recheck stays eligible for retry if its failing verification changed tracked files', () => {
@@ -721,8 +726,11 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
       expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(3)
     }
     // Kept work is published once a run has installed and set its merge drivers, before it does its own work.
-    expect(s, name).toMatch(new RegExp(`pnpm install --frozen-lockfile --silent\\npublish_kept ${job.replace(/[$"]/g, m => `\\${m}`)}\\n`))
-    expect(s.indexOf('\npublish_kept '), name).toBeGreaterThan(s.indexOf('merge.entity.driver'))
+    const install = s.indexOf('pnpm install --frozen-lockfile --silent')
+    const recovery = s.indexOf(`\npublish_kept ${job}\n`)
+    expect(install, name).toBeGreaterThanOrEqual(0)
+    expect(recovery, name).toBeGreaterThan(install)
+    expect(recovery, name).toBeGreaterThan(s.indexOf('merge.entity.driver'))
   }
 })
 
