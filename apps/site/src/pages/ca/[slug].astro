@@ -22,6 +22,7 @@ import VideoGuideGrid from '../../components/VideoGuideGrid.astro'
 import GalleryStrip from '../../components/GalleryStrip.astro'
 import BreedList from '../../components/BreedList.astro'
 import { getContent } from '../../lib/content'
+import { lastChanged, pageDateFiles } from '../../lib/page-dates'
 import { creditsFor, VIDEO_CARDS } from '../../lib/credits'
 import { shareImage } from '../../lib/gallery'
 import { matePhoto } from '../../lib/companions'
@@ -47,7 +48,7 @@ const jsonld = [
   articleLd(Astro.site!, lang, Astro.url.pathname, {
     headline: s.t.name,
     alternativeHeadline: sciBeside(s.t.name, s.scientificName) ? s.scientificName : undefined,
-    datePublished: firstPublished(c.changelog, lang, 'species', s.id), dateModified: s.updatedAt, image: shareImage(s.photos),
+    datePublished: firstPublished(c.changelog, lang, 'species', s.id), dateModified: lastChanged(c.pageDates, pageDateFiles('species', s.id, lang)), image: shareImage(s.photos),
     about: taxonLd(s.scientificName, s.t.name, s.t.altNames),
   }),
   breadcrumbLd(Astro.site!, lang, [

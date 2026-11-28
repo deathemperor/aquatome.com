@@ -26,10 +26,10 @@ type Article = {
   citation?: string[]
 }
 
-export function articleLd(site: URL, lang: Lang, path: string, { dateModified, ...article }: Article) {
-  const edited = dateModified && (!article.datePublished || dateModified >= article.datePublished) ? dateModified : undefined
+export function articleLd(site: URL, lang: Lang, path: string, { dateModified, datePublished, ...article }: Article) {
+  const published = datePublished && (!dateModified || datePublished <= dateModified) ? datePublished : undefined
   return {
-    '@context': CONTEXT, '@type': 'Article', ...article, dateModified: edited,
+    '@context': CONTEXT, '@type': 'Article', ...article, datePublished: published, dateModified,
     inLanguage: lang, mainEntityOfPage: pageUrl(site, lang, path), publisher: publisher(site),
   }
 }
