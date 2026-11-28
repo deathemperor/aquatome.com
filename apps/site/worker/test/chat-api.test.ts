@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, test, vi } from 'vitest'
 import { emailHash, normalEmail } from '../accounts/email'
 import { COOKIE, createSession, type Client } from '../accounts/session'
 import { TESTER_ADDRESS, TESTER_ID } from '../accounts/tester'
@@ -1344,6 +1344,90 @@ test('read_tanks reads the account\'s synced tanks with their ids, its fish name
   expect(result).toContain('Bể phòng khách')
   expect(result).toContain('\\"id\\":\\"a1b2c3d4-0000-4000-8000-000000000001\\"')
   expect(result).toContain('\\"name\\":\\"Cá neon xanh\\",\\"id\\":\\"paracheirodon-innesi\\",\\"count\\":12')
+})
+
+test('a saved-tank review keeps its original tank on follow-ups and reads the current sync', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  const now = new Date()
+  const at = now.toISOString()
+  const tank = { id: crypto.randomUUID(), name: 'Bể rêu', notes: 'Nước đục', species: [], plants: [], createdAt: at, updatedAt: at }
+  const other = { ...tank, id: crypto.randomUUID(), name: 'Bể tép', notes: 'Bể khác' }
+  await syncStore(db, me.id, { v: 1, tanks: [tank, other], devices: [] }, now)
+  const c = claude([() => answers({})])
+  const auth = bearer(me.token)
+  await run(ask(auth, { from: 'tank', about: undefined, tank: tank.id, question: 'Bể này ổn không?' }), e, deps(c.fetch), now)
+  expect(JSON.stringify(c.bodies.at(-1)!.messages)).toContain('Nước đục')
+
+  // Older conversations kept the selection only in the list index.
+  const key = await convKey(me)
+  const { tankStart: _selection, ...legacyConversation } = store.read<Conversation>(key)!
+  await e.UPLOADS!.put(key, JSON.stringify(legacyConversation))
+  const later = new Date(now.getTime() + 1000)
+  await syncStore(db, me.id, { v: 1, tanks: [{ ...tank, notes: 'Nước đã trong', updatedAt: later.toISOString() }], devices: [] }, later)
+  await run(ask(auth, { from: 'tank', about: undefined, tank: other.id, question: 'Giờ thì sao?' }), e, deps(c.fetch), later)
+  const followup = JSON.stringify(c.bodies.at(-1)!.messages)
+  expect(followup).toContain(tank.id)
+  expect(followup).toContain('Nước đã trong')
+  expect(followup).not.toContain(other.id)
+  expect(followup).not.toContain('Nước đục')
+
+  const deleted = new Date(later.getTime() + 1000)
+  const tombstone = { id: tank.id, updatedAt: deleted.toISOString(), deletedAt: deleted.toISOString() }
+  await syncStore(db, me.id, { v: 1, tanks: [tombstone], devices: [] }, deleted)
+  await run(ask(auth, { question: 'Vậy cần đo gì?' }), e, deps(c.fetch), deleted)
+  const after = JSON.stringify(c.bodies.at(-1)!.messages)
+  expect(after).toContain('The saved tank this chat was opened from is unavailable.')
+  expect(after).not.toContain(other.id)
+  expect(after).not.toContain('Nước đã trong')
+})
+
+test.each(['write', 'read'] as const)('a saved-tank review survives a conversation index %s failure', async fault => {
+  const { e, db } = env()
+  const me = await signIn(db)
+  const now = new Date()
+  const at = now.toISOString()
+  const tank = { id: crypto.randomUUID(), name: 'Bể rêu', notes: 'Nước đục', species: [], plants: [], createdAt: at, updatedAt: at }
+  await syncStore(db, me.id, { v: 1, tanks: [tank], devices: [] }, now)
+  let failing = fault === 'write'
+  let failures = 0
+  const fail = async () => { failures++; throw new Error('conversation index unavailable') }
+  const prepare = db.prepare.bind(db)
+  vi.spyOn(db, 'prepare').mockImplementation(sql => {
+    const stmt = prepare(sql)
+    const bind = stmt.bind.bind(stmt)
+    vi.spyOn(stmt, 'bind').mockImplementation((...values) => {
+      const bound = bind(...values)
+      if (failing && fault === 'write' && sql.startsWith('INSERT INTO chat_conversations')) vi.spyOn(bound, 'run').mockImplementation(fail)
+      if (failing && fault === 'read' && /^SELECT hidden(?:, start)? FROM chat_conversations/.test(sql)) vi.spyOn(bound, 'first').mockImplementation(fail)
+      return bound
+    })
+    return stmt
+  })
+  const c = claude([() => answers({})])
+  const auth = bearer(me.token)
+  expect((await run(ask(auth, { from: undefined, about: undefined, tank: tank.id, question: 'Bể này ổn không?' }), e, deps(c.fetch), now)).body.n).toBe(1)
+  failing = fault === 'read'
+  if (fault === 'write') {
+    // The account opens history before asking any follow-up. The importer recreates the missing D1 row from R2.
+    const history = async (suffix = '') => {
+      const url = new URL(`https://x.test/api/chat/conversations${suffix}`)
+      const res = await chatPast(new Request(url, { headers: auth }), url, e, now)
+      expect(res.status).toBe(200)
+      return res.json()
+    }
+    expect(await history()).toMatchObject({ rows: [{ conversations: [{ id: CONV, tank: tank.id }] }] })
+    expect(await history(`/${CONV}`)).toMatchObject({ id: CONV, tank: tank.id })
+  }
+  const later = new Date(now.getTime() + 1000)
+  await syncStore(db, me.id, { v: 1, tanks: [{ ...tank, notes: 'Nước đã trong', updatedAt: later.toISOString() }], devices: [] }, later)
+  expect((await run(ask(auth, { question: 'Giờ thì sao?' }), e, deps(c.fetch), later)).body.n).toBe(2)
+  expect(failures).toBe(1)
+  const next = JSON.stringify(c.bodies.at(-1)!.messages)
+  expect(next).toContain(tank.id)
+  expect(next).toContain('Nước đã trong')
+  const listed = await db.prepare('SELECT start FROM chat_conversations WHERE id = ?').bind(CONV).first<{ start: string }>()
+  expect(JSON.parse(listed!.start)).toMatchObject({ tank: tank.id })
 })
 
 test('read_tanks reads the whole saved tank: plants, substrate, notes, days since saved, each light\'s active schedule, what its plugs power', async () => {
