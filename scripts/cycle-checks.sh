@@ -646,12 +646,16 @@ video_recheck_rules_current() {
 # Content loaders can read ignored paths within their input directories. last-run.json is a local run report.
 video_recheck_local_files() {
   git ls-files --others --exclude-standard "$@" &&
-    git ls-files --others --ignored --exclude-standard "$@" -- content sources engine-state docs/review apps/site/.hidden.json \
+    git ls-files --others --ignored --exclude-standard "$@" -- \
+      content sources engine-state docs/review apps/site/.hidden.json apps/site/test/fixture-content \
       ':(exclude)engine-state/last-run.json'
 }
 # Content checks enumerate entity directories, even though Git cannot track a directory with no files.
 video_recheck_empty_dirs() {
-  [ ! -d content ] || find content -depth -mindepth 2 -type d -empty "$@"
+  local root
+  for root in content apps/site/test/fixture-content; do
+    [ ! -d "$root" ] || find "$root" -depth -mindepth 2 -type d -empty "$@" || return 1
+  done
 }
 video_recheck_tree() {
   local status files empty

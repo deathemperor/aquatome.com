@@ -3,6 +3,7 @@ import { chmodSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, writeFil
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { loadAll } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { slow } from '@aq/schema/test-time'
 
@@ -514,13 +515,54 @@ test.each(['fresh', 'kept', 'held'])('a %s video recheck keeps its batch when th
     }
     ${kind === 'fresh' ? 'push_video_recheck || echo refused' : 'publish_kept video-recheck'}
   `)
-  expect(log).toContain('the checkout moved after a rejected video recheck push')
+  expect(log).toContain(kind === 'fresh' ? 'refused' : 'isn\'t published yet')
   expect(c.onMain('content/disjoint.json')).toBe('concurrent')
   expect(c.onMain('content/video.json')).toBe('')
   const branches = c.branches()
   if (kind === 'fresh') expect(branches).toEqual([expect.stringMatching(/^kept\/video-recheck\/\d{8}T\d{6}$/)])
   else expect(branches).toEqual([branch])
   expect(c.sh(`git show ${branches[0]}:content/video.json`)).toBe('rechecked')
+}, slow(60_000))
+
+test.each([0, 1])('a fresh video recheck keeps its batch when checkout moves at the final pull (exit %i)', status => {
+  const c = clone()
+  c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
+    net() {
+      if [ "$2" = pull ] && [ "$4" = --no-rebase ] && [ ! -f "$HOME/moved-checkout" ]; then
+        touch "$HOME/moved-checkout"
+        git reset -q --hard origin/main
+        return ${status}
+      fi
+      "$@"
+    }
+    push_video_recheck || echo refused
+  `)
+  expect(log).toContain('refused')
+  expect(c.onMain('content/video.json')).toBe('')
+  const branches = c.branches()
+  expect(branches).toEqual([expect.stringMatching(/^kept\/video-recheck\/\d{8}T\d{6}$/)])
+  expect(c.sh(`git show ${branches[0]}:content/video.json`)).toBe('rechecked')
+}, slow(60_000))
+
+test('video recheck preparation excludes an ignored fixture parent read by the material loader', async () => {
+  const c = clone()
+  const fixture = 'apps/site/test/fixture-content'
+  const root = join(c.sh('pwd'), fixture)
+  const material = JSON.parse(readFileSync(join(ROOT, fixture, 'materials/lua/entity.json'), 'utf8'))
+  mkdirSync(join(root, 'materials/wood'), { recursive: true })
+  writeFileSync(join(root, 'sources.json'), '{}')
+  writeFileSync(join(root, 'materials/wood/entity.json'), JSON.stringify({ ...material, id: 'wood', parent: 'dist' }))
+  c.sh(`echo dist > .gitignore && git add .gitignore ${fixture} && git commit -qm fixture`)
+  const parent = JSON.stringify({ ...material, id: 'dist' })
+  mkdirSync(join(root, 'materials/dist'))
+  writeFileSync(join(root, 'materials/dist/entity.json'), parent)
+  await expect(loadAll({ root, lang: 'vi' })).resolves.toMatchObject({ materials: [] })
+  c.cycle('prepare_video_recheck')
+  await expect(loadAll({ root, lang: 'vi' })).rejects.toThrow('material wood: parent "dist" is not another material')
+  expect(c.sh(`cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/${fixture}/materials/dist/entity.json`)).toBe(parent)
 }, slow(60_000))
 
 test('held video recovery archives an ignored site input before running checks', () => {
