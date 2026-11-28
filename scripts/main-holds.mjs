@@ -35,7 +35,7 @@
 //   node scripts/main-holds.mjs <base> <main> <run> [recovery]
 // prints "hold <file>" for each file to take from <main> whole, "text <file>" for each the merge holds already on a text
 // main's record didn't read, "harm <file>" for each release that waits on another language's harm, and, each written here,
-// "keep", "unread", "own", "beside" and "manual". HEAD is the merge, and <run> the run's commit before the pull. Any git read or file
+// "keep", "unread", "own", "beside", "manual" and "merge". HEAD is the merge, and <run> the run's commit before the pull.
 // it can't parse fails it, with nothing written: its caller then publishes nothing (cycle-checks.sh main_holds). Without
 // <run>, as a cycle that started on the older script calls it, it writes nothing and answers as that script did.
 // An older caller can also pass --strict to reject an unreadable tracked file.
@@ -139,15 +139,15 @@ const withHarm = held => (held ? { ...held, checks: [...new Set([...held.checks,
 
 // Check review coverage with the gate’s loader. The small content tree contains only the candidate pages, their entities,
 // and the inputs that select their text. Read it from HEAD before any holds are written to the worktree.
-function publishedReviews(candidates, fit, previous) {
-  if (!candidates.length) return { reviews: {}, newlyVisible: [], textChanged: [] }
+function publishedReviews(candidates, fit, previous, outgoing) {
+  if (!candidates.length) return { reviews: {}, newlyVisible: [], textChanged: [], sectionsExposed: [] }
   const root = mkdtempSync(join(tmpdir(), 'aq-publish-fit-'))
   const engine = fileURLToPath(new URL('../packages/engine/', import.meta.url))
   const paths = candidates.map(c => c.f)
   const copy = (rev, folder) => {
     const dirs = new Set(paths.map(dirOf))
     for (const file of [SOURCES, 'content/one-voice.json', ...[...dirs].map(d => `${d}/entity.json`), ...paths]) {
-      const value = at(rev, file)
+      const value = rev === 'HEAD' && outgoing?.has(file) ? outgoing.get(file) : at(rev, file)
       if (value === undefined) continue
       mkdirSync(join(folder, dirname(file)), { recursive: true })
       writeFileSync(join(folder, file), JSON.stringify(value))
@@ -301,9 +301,16 @@ function main() {
   const withSelection = (list, a, b) => [...new Set([...list, ...[...selectionChanged(a, b)].flatMap(d => files(d))])]
   const changed = new Set(different(main, 'HEAD'))
   const unread = { checks: [], at: new Date(Date.now() + 7 * 3600_000).toISOString().slice(0, 10) }
+  const sourceChanges = new Set()
   if (run) {
     for (const f of withSelection([...changed], main, 'HEAD')) changed.add(f)
     if (mode === 'recovery') return recoveryHolds(main, run, changed, readAt, unread)
+    if (!same(at(main, SOURCES), at('HEAD', SOURCES))) {
+      for (const dir of changedSourcePages(main)) {
+        sourceChanges.add(dir)
+        for (const f of files(dir)) changed.add(f)
+      }
+    }
     // A merge can take all of main’s page, losing a hold from the run with no diff against main.
     for (const f of different(run, 'HEAD')) {
       if (at(run, f)?.held && !at('HEAD', f)?.held) changed.add(f)
@@ -336,8 +343,8 @@ function main() {
     const mainRead = (!run || mainRecord !== undefined) && !same(fit.base[key], mainRecord) && recordWon
     if (!run && !mainRead) continue
     const ours = lookup('HEAD', f)
-    if (!ours) continue
     const theirs = lookup(main, f)
+    if (!ours) continue
     const mine = run ? at(run, f) : undefined
     const mainText = run && theirs && same(readAt('HEAD', f, ours), readAt(main, f, theirs))
     const runText = run && mine && same(readAt('HEAD', f, ours), readAt(run, f, mine))
@@ -408,6 +415,32 @@ function main() {
     const all = [...langs.values()].flat()
     atAll('HEAD', all)
     atAll(main, all.filter(f => taken.has(f)))
+    // Inspect the text that will actually leave the merge, after restoring main's pages and any earlier hold decisions.
+    // A section or translation the run's gate could not see needs a matching clean review when neither side published it.
+    const outgoing = new Map(all.map(f => [f, releases.has(f) ? releases.get(f) ?? at(main, f)
+      : written.get(f)?.[1] ?? at(taken.has(f) ? main : 'HEAD', f)]))
+    const candidates = all.filter(f => !manual.has(f) && at('HEAD', `${dirOf(f)}/entity.json`)).map(f => {
+      const [, kind, id, lang] = FILE.exec(f)
+      const oldEntity = kind === 'cards' ? at(run, `${dirOf(f)}/entity.json`) : undefined
+      return { f, key: `${lang}/${kind}/${id}`, checkCardCountry: !!oldEntity &&
+        oldEntity.event?.country !== at('HEAD', `${dirOf(f)}/entity.json`)?.event?.country }
+    })
+    const { reviews: finalReviews, newlyVisible, sectionsExposed } = publishedReviews(candidates, fit.head, { rev: run, fit: at(run, FIT) ?? {} }, outgoing)
+    const exposed = new Set([...newlyVisible, ...sectionsExposed])
+    for (const { f, key } of candidates) {
+      const page = outgoing.get(f), review = finalReviews[key]
+      let hold = page.held
+      if (review?.checks.includes('harm')) hold = withHarm(hold ?? at('HEAD', f)?.held ?? unread)
+      else if (!hold && exposed.has(key)) {
+        const prior = at(main, f)
+        const alreadyPublished = prior && !prior.held && !sourceChanges.has(dirOf(f)) && same(readAt(main, f, prior), readAt('HEAD', f, page))
+        if (!alreadyPublished && (!review || review.checks.length)) hold = { ...unread, checks: review?.checks ?? [] }
+      }
+      if (same(hold, page.held)) continue
+      releases.delete(f)
+      taken.delete(f)
+      written.set(f, ['merge', withHeld(page, hold)])
+    }
     for (const [dir, ls] of langs) {
       if (!ls.some(harmAtEnd)) continue
       for (const s of ls) {
@@ -426,11 +459,11 @@ function main() {
   for (const [f, page] of releases) {
     if (!free.has(f)) out.push(['harm', f])
     else if (page) written.set(f, ['own', page])
-    else out.push(['hold', f])
+    else { taken.add(f); out.push(['hold', f]) }
   }
   // Written once every read has passed, as gate.ts writes a hold. The older caller writes nothing.
   if (run) for (const [f, [, page]] of written) writeFileSync(f, `${JSON.stringify(page, null, 2)}\n`)
-  for (const [what, f] of out) console.log(`${what} ${f}`)
+  for (const [what, f] of out) if (what !== 'hold' || taken.has(f)) console.log(`${what} ${f}`)
   if (run) for (const [f, [what]] of written) console.log(`${what} ${f}`)
 }
 

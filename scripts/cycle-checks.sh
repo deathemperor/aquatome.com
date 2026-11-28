@@ -717,7 +717,7 @@ added_page_dirs() (
 # video reconciliation leaves the snapshot available to archive and keeps the separately recorded batch.
 CYCLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_holds() {
-  local up=${2:-} base out holds texts harms keeps unreads owns besides manuals written
+  local up=${2:-} base out holds texts harms keeps unreads owns besides manuals merge_holds written
   [ -n "$up" ] || up='@{u}'
   if ! up=$(git rev-parse "$up") || ! base=$(git merge-base "$1" "$up"); then
     uncompared "$1" "main, or where this run left it, couldn't be found"; return 2
@@ -732,7 +732,7 @@ main_holds() {
     harms=$(sed -n 's/^harm //p' <<<"$out") && keeps=$(sed -n 's/^keep //p' <<<"$out") &&
     unreads=$(sed -n 's/^unread //p' <<<"$out") && owns=$(sed -n 's/^own //p' <<<"$out") &&
     besides=$(sed -n 's/^beside //p' <<<"$out") && manuals=$(sed -n 's/^manual //p' <<<"$out") &&
-    written=$(sed -n -E 's/^(keep|unread|own|beside|manual) //p' <<<"$out") ||
+    merge_holds=$(sed -n 's/^merge //p' <<<"$out") && written=$(sed -n -E 's/^(keep|unread|own|beside|manual|merge) //p' <<<"$out") ||
     { uncompared "$1" "the pages main read during this run couldn't be listed"; return 2; }
   [ -z "$texts" ] || log "$(grep -c . <<<"$texts") pages main read during this run have main's record and this run's text, left as merged: $(head -5 <<<"$texts" | tr '\n' ' ')"
   [ -z "$harms" ] || log "$(grep -c . <<<"$harms") pages main read during this run stay held: another of their languages is held for harm: $(head -5 <<<"$harms" | tr '\n' ' ')"
@@ -750,6 +750,7 @@ main_holds() {
     [ -z "$owns" ] || log "$(grep -c . <<<"$owns") pages main read during this run take main's hold on this run's file, as its record read their text: $(head -5 <<<"$owns" | tr '\n' ' ')"
     [ -z "$besides" ] || log "$(grep -c . <<<"$besides") pages held beside another of their languages held for harm: $(head -5 <<<"$besides" | tr '\n' ' ')"
     [ -z "$manuals" ] || log "$(grep -c . <<<"$manuals") translations held by the manual registry: $(head -5 <<<"$manuals" | tr '\n' ' ')"
+    [ -z "$merge_holds" ] || log "$(grep -c . <<<"$merge_holds") translations held after checking the merged text: $(head -5 <<<"$merge_holds" | tr '\n' ' ')"
   fi
   if [ -n "$holds" ]; then
     # shellcheck disable=SC2086

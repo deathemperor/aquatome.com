@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { fitKey, fitText } from '../src/fit'
 import { GATED_KINDS, HELD_BY_HAND } from '../src/gate'
-import { loadCards, loadPages } from '../src/pages'
+import { loadCards, loadPages, sectionFields } from '../src/pages'
 // @ts-expect-error a plain script
 import { read, same } from '../../../scripts/main-holds.mjs'
 
@@ -33,7 +33,7 @@ const eventCard = (country: string) => JSON.stringify({
 // The rule: a page's hold follows the record that won, so a release on main during a run stands (Page Recovery's test,
 // widened to a hold on main, a clean pull, a species page and a text that isn't main's).
 type Held = { checks: string[]; at: string }
-type Side = { held?: Held; body?: string; sections?: Record<string, string>; extra?: Record<string, unknown>; fit?: { at: string; hash: string; checks: string[] }; th?: Side; /** Other files as written, after the page's. */ files?: Record<string, string> }
+type Side = { held?: Held; body?: string; sections?: Record<string, string>; extra?: Record<string, unknown>; fit?: { at: string; hash: string; checks: string[]; quote?: string }; th?: Side; /** Other files as written, after the page's. */ files?: Record<string, string> }
 
 const KINDS = {
   guides: { dir: 'content/guides/youtube-x', key: 'vi/guides/youtube-x' },
@@ -46,7 +46,7 @@ const KINDS = {
 // undone. oldCaller: a cycle that started on the older script calls main-holds.mjs as that script did, with two arguments.
 function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: {
   mainOther?: boolean; mainDidNotMove?: boolean; kept?: boolean; catchUp?: boolean; lostPush?: Side;
-  uncompared?: boolean | 'locked'; oldCaller?: boolean | 'strict'; video?: 'fresh' | 'kept';
+  uncompared?: boolean | 'locked'; oldCaller?: boolean | 'strict'; deleteBeforeComparison?: boolean; video?: 'fresh' | 'kept';
   holdFault?: 'process' | 'unreadable' | 'malformed'; baseWithoutFit?: boolean; baseWithoutEntity?: boolean; sweepBody?: string;
 } = {}) {
   const { dir: pageDir, key } = KINDS[kind]
@@ -56,7 +56,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
   const page = (s: Side) =>
     `${JSON.stringify({ ...(kind === 'cards' ? { title: 'Hội chợ', eyebrow: 'Sự kiện' } : { slug: 'ho-ca', name: 'Hồ cá', altNames: [], sections: s.sections ?? {}, quality: { score: 0.9, indexable: true } }), body: s.body ?? DEFAULT_BODY, ...s.extra, ...(s.held ? { held: s.held } : {}) }, null, 2)}\n`
   const record = (f: NonNullable<Side['fit']>) =>
-    ({ at: f.at, hash: f.hash, model: 'opus', checklist: 3, findings: f.checks.map(check => ({ check, part: 'P2', quote: 'Cá con quen người.', why: 'w', by: 'model' })), products: [] })
+    ({ at: f.at, hash: f.hash, model: 'opus', checklist: 3, findings: f.checks.map(check => ({ check, part: 'P2', quote: f.quote ?? 'Cá con quen người.', why: 'w', by: 'model' })), products: [] })
   // The page's Thai file and record, where a side has them.
   const thKey = key.replace(/^vi\//, 'th/'), thFile = file.replace(/vi\.json$/, 'th.json')
   const fit = (s: Side) =>
@@ -126,7 +126,7 @@ GIT
       export PATH="${dir}/bin:$PATH"
     ` : ''}
     ${o.uncompared ? `mkdir -p ../broken && echo '${o.uncompared === 'locked' ? 'import { writeFileSync } from "node:fs"; writeFileSync(".git/index.lock", ""); ' : ''}process.exit(1)' > ../broken/main-holds.mjs && CYCLE_DIR="$PWD/../broken"` : ''}
-    ${o.oldCaller ? `main_holds() { local base; base=$(git merge-base "$1" '@{u}'); node "$CYCLE_DIR/main-holds.mjs" "$base" "$(git rev-parse '@{u}')" ${o.oldCaller === 'strict' ? '--strict' : ''}; echo "NODE $?"; return 0; }` : ''}
+    ${o.oldCaller ? `main_holds() { local base; base=$(git merge-base "$1" '@{u}'); ${o.deleteBeforeComparison ? `git rm -q '${file}' && git commit -qm 'fixture removes translation' || return 2;` : ''} node "$CYCLE_DIR/main-holds.mjs" "$base" "$(git rev-parse '@{u}')" ${o.oldCaller === 'strict' ? '--strict' : ''}; echo "NODE $?"; return 0; }` : ''}
     net() {
       ${o.lostPush ? `if [ "$1 $2" = "git push" ] && [ ! -e ../lost ]; then touch ../lost; (cd ../other && ${both(o.lostPush)} && ${o.video ? write({ 'content/concurrent.json': '{"main":true}\n' }) : ':'} && git commit -qm 'content: main again, meanwhile' && git push -q origin main); fi` : ':'}
       "$@"
@@ -170,7 +170,7 @@ GIT
     const result = spawnSync('git', ['-C', join(dir, 'origin.git'), 'show', `main:${f}`], { encoding: 'utf8' })
     return result.status === 0 ? JSON.parse(result.stdout) : undefined
   }
-  return { out: r.stdout, page: read(file), record: read('engine-state/_fit.json')[key], pushed: pushed(file), pushedRecord: pushed('engine-state/_fit.json')[key], pushedTh: () => pushed(thFile), pushedSecondGuide: () => pushed(secondGuide), log: r.stdout.split('\n').filter(l => l.startsWith('COMMIT ')) }
+  return { out: r.stdout, page: o.deleteBeforeComparison ? undefined : read(file), record: read('engine-state/_fit.json')[key], pushed: pushed(file), pushedRecord: pushed('engine-state/_fit.json')[key], pushedTh: () => pushed(thFile), pushedSecondGuide: () => pushed(secondGuide), log: r.stdout.split('\n').filter(l => l.startsWith('COMMIT ')) }
 }
 
 const clean = { at: '2026-11-15', hash: defaultHash, checks: [] }
@@ -520,6 +520,26 @@ test("a part main turned on that the run rewrote while it was off waits held for
   expect(r.out).toContain('no record read')
 })
 
+test('a fresh merge holds every translation when the section switched on contains deterministic harm', () => {
+  const voice = 'content/one-voice.json'
+  const entity = 'content/species/ca-x/entity.json'
+  const fish = JSON.parse(fixtureJson('species/paracheirodon-innesi/entity.json'))
+  const files = { [entity]: JSON.stringify({ ...fish, id: 'ca-x', sections: [
+    { ...fish.sections[0], source: 'youtube' },
+    { ...fish.sections[0], key: 'diet', source: 'youtube' },
+  ] }), [voice]: '{"ca-x":{"diet":false}}\n' }
+  const sections = { 'quickFacts:youtube': '<p>Đây là cá nhỏ.</p>', 'diet:youtube': '<p>Ăn tạp.</p>' }
+  const base = { sections, files, th: { sections } }
+  const r = push('species', {
+    base,
+    main: { ...base, files: { ...files, [voice]: '{}\n' } },
+    run: { ...base, sections: { ...sections, 'diet:youtube': '<p>Kanamycin ngâm: 2–5 g/L.</p>' } },
+  })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held?.checks).toEqual(['harm'])
+  expect(r.pushedTh().held?.checks).toEqual(['harm'])
+})
+
 // A record main took out is no read: the run's hold on the same text stays.
 test("a page whose record main took out keeps the run's hold: a deleted record read nothing", () => {
   const r = push('species', {
@@ -570,7 +590,10 @@ test("a language file that isn't a page fails the comparison, and the push isn't
 // Harm is read from each file's hold, not searched for as a word: a hold written with an escape still holds a translation
 // the run added beside it.
 test("a translation the run added is held beside a hold for harm however its file spells it", () => {
-  const harmVi = '{\n  "slug": "ho-ca",\n  "name": "Hồ cá",\n  "body": "<p>Cá con quen người.</p>",\n  "held": { "checks": ["h\\u0061rm"], "at": "2026-11-15" }\n}\n'
+  const harmVi = JSON.stringify({
+    slug: 'ho-ca', name: 'Hồ cá', altNames: [], sections: {}, body: DEFAULT_BODY,
+    quality: { score: 0.9, indexable: true }, held: hold('harm'),
+  }, null, 2).replace('"harm"', '"h\\u0061rm"') + '\n'
   const r = push('guides', {
     base: { fit: clean },
     main: { files: { 'content/guides/youtube-x/vi.json': harmVi }, fit: heldFor('harm') },
@@ -640,6 +663,16 @@ test.each([false, true])('the older strict caller retains its status and output 
   expect(r.out).toContain(malformed ? 'NODE 1' : 'NODE 0')
   expect(r.out.includes('hold content/guides/youtube-x/vi.json')).toBe(!malformed)
   expect(r.out).not.toMatch(/^(keep|own|unread|beside|manual) /m)
+})
+
+test.each([true, 'strict'] as const)('an older caller (%s) reads main’s tracked file even when the merged file was deleted', oldCaller => {
+  const old = { ...heldFor('source'), at: '2026-11-14' }
+  const r = push('guides', {
+    base: { fit: old },
+    main: { fit: heldFor('source'), files: { 'content/guides/youtube-x/vi.json': 'null\n' } },
+    run: { fit: old, files: { 'content/fixture.json': '{}\n' } },
+  }, { oldCaller, deleteBeforeComparison: true })
+  expect(r.out).toContain(oldCaller === 'strict' ? 'NODE 1' : 'NODE 0')
 })
 
 test('a release without a new review leaves the run’s hold on its rewritten fish page', () => {
@@ -791,7 +824,7 @@ test.each(['unread', 'reviewed'] as const)('recovery checks an %s guide when its
   expect(r.pushed.held?.checks).toEqual(read === 'unread' ? [] : undefined)
 })
 
-test('recovery checks the words when a source permission reveals another section of a live page', () => {
+test.each(['unread', 'blocking'] as const)('recovery checks a newly visible section of a live page (%s)', review => {
   const path = 'content/sources.json'
   const sources = JSON.parse(fixtureJson('sources.json'))
   const fish = JSON.parse(fixtureJson('species/paracheirodon-innesi/entity.json'))
@@ -800,9 +833,40 @@ test('recovery checks the words when a source permission reveals another section
   const files = { 'content/species/ca-x/entity.json': JSON.stringify(entity) }
   const main = { sections, files }
   const exposed = { ...sources, aquatome: { ...sources.aquatome, publish: true, permission: sources.youtube.permission } }
-  const r = push('species', { base: main, main, run: { sections, files: { ...files, [path]: JSON.stringify(exposed) } } }, { kept: true, mainDidNotMove: true })
+  const hash = fitText({
+    lang: 'vi', kind: 'species', id: 'ca-x', path: '/vi/ca/ho-ca/', title: 'Hồ cá',
+    fields: [...sectionFields(sections), { field: 'body', html: DEFAULT_BODY }], lines: [], captions: [], latinNames: [], card: [],
+  }).hash
+  const fit = review === 'blocking' ? { ...heldFor('source'), hash, quote: 'Nuôi trong bể có cây.' } : undefined
+  const r = push('species', { base: main, main, run: { fit, sections, files: { ...files, [path]: JSON.stringify(exposed) } } }, { kept: true, mainDidNotMove: true })
+  expect(r.out).toContain(review === 'blocking' ? 'CODE 1' : 'CODE 0')
+  expect(r.pushed.held?.checks).toEqual(review === 'blocking' ? undefined : [])
+  if (review === 'blocking') expect(r.out).toContain('QUEUED kept/photos/')
+})
+
+test.each(['unread', 'reviewed'] as const)('a fresh push checks a translation made visible when main enables its source (%s)', read => {
+  const path = 'content/sources.json'
+  const sources = JSON.parse(fixtureJson('sources.json'))
+  const base = { files: { [path]: JSON.stringify({ ...sources, youtube: { ...sources.youtube, publish: 'photos' } }) } }
+  const main = { files: { [path]: fixtureJson('sources.json') } }
+  const r = push('guides', { base, main, run: { ...base, th: { fit: read === 'reviewed' ? clean : undefined } } })
   expect(r.out).toContain('CODE 0')
-  expect(r.pushed.held?.checks).toEqual([])
+  expect(r.pushed.held).toBeUndefined()
+  expect(r.pushedTh().held?.checks).toEqual(read === 'unread' ? [] : undefined)
+})
+
+test('a fresh push checks main’s new translation when the run enables its source', () => {
+  const path = 'content/sources.json'
+  const sources = JSON.parse(fixtureJson('sources.json'))
+  const base = { files: { [path]: JSON.stringify({ ...sources, youtube: { ...sources.youtube, publish: 'photos' } }) } }
+  const r = push('guides', {
+    base,
+    main: { ...base, th: {} },
+    run: { fit: clean, files: { [path]: fixtureJson('sources.json') } },
+  })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held).toBeUndefined()
+  expect(r.pushedTh().held?.checks).toEqual([])
 })
 
 test('recovery applies a manual hold to a translation whose saved review passes', () => {
