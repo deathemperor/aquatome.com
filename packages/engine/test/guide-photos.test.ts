@@ -2,7 +2,7 @@ import { listAgreed } from '../src/last-photo'
 import { mirrorPlan } from '@aq/schema'
 import { denied } from './piece-admission'
 import { expectControlledRejections } from './photo-privacy-assertions'
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, rename, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
@@ -430,6 +430,34 @@ test('an ended guide use loses its baseline entry before it can return', async (
   await pruneGuideLegacyUses(root)
 
   expect(await json(root, baseline)).toEqual([])
+})
+
+test('an unreadable guide inventory leaves the baseline intact', async () => {
+  const id = 'platy-care', entry = [id, 'platy', url('legacy')]
+  const root = await store({ [id]: { kind: 'care', photos: [photo('legacy')] } })
+  const baseline = 'content/guide-legacy-photo-uses.json'
+  await writeFile(join(root, baseline), JSON.stringify([entry]))
+  const directory = join(root, 'content/guides')
+  await rename(directory, join(root, 'guide-inventory'))
+  await writeFile(directory, 'Not a directory')
+
+  await expect(pruneGuideLegacyUses(root)).rejects.toMatchObject({ code: 'ENOTDIR' })
+  expect(await json(root, baseline)).toEqual([entry])
+})
+
+test('a refused crop cannot suppress a separate rendition’s guide subject retry', async () => {
+  const crop = 'https://inaturalist-open-data.s3.amazonaws.com/photos/456/square.jpg'
+  const mirror = `https://media.aquatome.com/${mirrorPlan(crop)!.key}`
+  const root = await store({ 'platy-care': { kind: 'care', photos: [{ ...photo('mirror'), url: mirror }] } })
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), JSON.stringify({ [crop]: 'people: withheld' }))
+  await writeFile(join(root, 'engine-state/_photo-check.json'), JSON.stringify({ [mirror]: { ok: 'yes', logo: false } }))
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [mirror]: { person: false, mark: false, brand: false } }))
+  const { d, seen } = model({ 456: { other: false } })
+
+  await screenGuidePhotos(root, d, { limit: 1 })
+
+  expect(seen.map(sheet => sheet.photos)).toEqual([['456']])
+  expect((await json(root, 'engine-state/_photo-guides.json'))[mirror]).toMatchObject({ other: { platy: false }, answeredSubjects: ['platy'] })
 })
 
 test('a waived shop-mark refusal does not stop the guide subject retry', async () => {

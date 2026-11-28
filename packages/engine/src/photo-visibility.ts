@@ -76,9 +76,9 @@ export async function readPhotoWaits(
   if (looked) {
     for (const url of await ownDeadPhotoUrls(content)) if (!looked(url)) unjudged.add(url)
   }
-  if (guideLooks) for (const url of await guidePhotoUrlsIn(content)) if (!guideLooked(guideLooks[url])) unjudged.add(url)
+  const guideUnjudged = guideLooks ? new Set([...await guidePhotoUrlsIn(content)].filter(url => !guideLooked(guideLooks[url]))) : undefined
   const effective = await expandWholePhotoRejections(content, rejected ?? {}, watermarks)
-  const waits = photoWaitsFor({ watermarks, owed, unread, faces, unjudged, lookedForDead: looked, check, subjects, deadScreen, guideLooks, secondLook,
+  const waits = photoWaitsFor({ watermarks, owed, unread, faces, unjudged, lookedForDead: looked, check, subjects, deadScreen, guideLooks, guideUnjudged, secondLook,
     rejected: photoRejections(effective, watermarks, reviewedPhotoVersion(secondLook, check, subjects)) })
   return url => setsCookies(url) || creditHeld(url) || waits(url) ||
     ((overrides.freshOwn || overrides.requireDeadLook) && !!looked && !looked(url)) ||
