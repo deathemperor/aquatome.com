@@ -682,15 +682,19 @@ ever_added() { git log --format= --name-only --no-renames --diff-filter=A "$1..$
 # After a pull that brought main's commits in, clean or not: a page's hold follows the record that won, so a release on
 # main during a run stands, and so does a hold (main-holds.mjs says which pages and why; Page Recovery and the chief of
 # staff, 16 Nov 2026). Only the hold moves, and only on a page whose text is main's: one whose text isn't stays as merged,
-# and is counted in the log. In a commit of its own. `main_holds <this run's HEAD before the pull> [<main>, @{u}]` returns
-# 1 when it restored holds and 2 when it could not write them. A restoration needs another check, as a clash does.
+# and is counted in the log. In a commit of its own. `main_holds <batch> [<main>, @{u}] [strict]` returns
+# 1 when it restored holds and 2 when it could not write them or a strict comparison failed.
 CYCLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_holds() {
-  local up=${2:-} base out holds texts harms
+  local up=${2:-} strict=${3:-} base out holds texts harms
   [ -n "$up" ] || up='@{u}'
-  up=$(git rev-parse "$up") && base=$(git merge-base "$1" "$up") || return 0
+  if ! up=$(git rev-parse "$up") || ! base=$(git merge-base "$1" "$up"); then
+    [ -z "$strict" ] || { log "main's holds: could not find the batch's base, leaving the video recheck queued"; return 2; }
+    return 0
+  fi
   [ "$base" != "$up" ] || return 0
   if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up"); then
+    [ -z "$strict" ] || { log "main's holds: comparison failed, leaving the video recheck queued"; return 2; }
     log "main's holds: the pages main read during this run couldn't be compared, so their holds stay as merged"
     return 0
   fi
@@ -1020,7 +1024,7 @@ reconcile_video_recheck() {
     video_publish_head=$pulled
     if [ "$mode" = recovery ] && ! main_pages "$batch" "$upstream"; then exit 1; fi
     if [ "$mode" = recovery ] || [ "$upstream" != "$before" ]; then
-      main_holds "$batch" "$upstream" || { [ "$?" = 1 ] || exit 1; }
+      main_holds "$batch" "$upstream" strict || { [ "$?" = 1 ] || exit 1; }
     fi
     if [ -n "$calendar" ] && ! restore_video_recheck_calendar "$upstream"; then exit 1; fi
     if [ "$video_publish_head" != "$pulled" ]; then must_check=1; fi
@@ -1161,7 +1165,7 @@ push_kept() {
         checked_tree=$(video_recheck_tree) || { KEPT_WHY="the video recheck checkout differed from its commit before verification"; return 1; }
       fi
       verification_failed=0
-      verify_cycle "$checked_tree" || verification_failed=$?
+      verify_cycle "$video_publish_head" || verification_failed=$?
       if [ -n "$video_recheck" ] && { ! video_recheck_unchanged "$checked_tree" || [ "$verification_failed" = 2 ]; }; then
         KEPT_WHY="the video recheck checkout changed during verification"
         return 1
@@ -1292,7 +1296,39 @@ checks_for() {
 # and in the history read on 2026-11-07 it never failed where the tests passed. deploy.yml builds the real site before
 # anything goes live and fails before the upload, so readers keep the live site and a "Deploy failed" issue opens.
 verify_cycle() {
-  local daily= result=0 video_verify_tree=${1:-}
+  local commit=${1:-} checkout=$PWD snapshot result=0 video_verify_tree=
+  local CHECKS_SH=$CHECKS_SH
+  TIMED_OUT=
+  if [ -z "$commit" ] || [ -n "${MIGRATE_FAILED:-}" ]; then
+    verify_cycle_checks
+    return
+  fi
+
+  # The queue can wait after the outer checkout was checked. Read only the candidate's files and check scripts.
+  if ! snapshot=$(video_recheck_open_worktree verify "$commit") ||
+    ! git -C "$snapshot" read-tree --reset -u "$commit" || ! cd "$snapshot"; then
+    log "could not prepare a private checkout for video verification"
+    return 2
+  fi
+  local video_publish_head=$commit
+  CHECKS_SH="$snapshot/scripts/checks.sh"
+  if pnpm install --offline --frozen-lockfile --silent && video_verify_tree=$(video_recheck_tree "$commit"); then
+    verify_cycle_checks || result=$?
+  else
+    log "could not install dependencies or confirm the inputs for video verification"
+    result=2
+  fi
+  if [ "$result" = 2 ] && ! archive_video_recheck_checkout; then
+    log "could not archive the video verification checkout at $snapshot"
+    cd "$checkout" || return 2
+    return 2
+  fi
+  cd "$checkout" && git worktree remove --force "$snapshot" || return 2
+  return "$result"
+}
+
+verify_cycle_checks() {
+  local daily= result=0
   checks_for
   log "tests: $CHECKS_WHY"
   [ "$CHECKS_WHY" != "$DAILY_WHY" ] || daily=1

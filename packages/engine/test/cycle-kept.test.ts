@@ -274,8 +274,7 @@ test.each(['startup', 'after recovery'])('video recheck refuses leftover files a
     touch "$HOME/archive"
     TEST_FAILURES_DIR="$HOME/archive"
     checks() { echo local-only > content/material-parent.json; }
-    publish_kept video-recheck && exit 2
-    echo refused
+    publish_kept video-recheck
   `)
   expect(c.branches()).toEqual([kept])
   expect(c.onMain('content/video.json')).toBe('')
@@ -353,6 +352,30 @@ test('a video recheck cannot pass on a retry using a file the first check create
   expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/content/retry-input.json')).toBe('generated')
 }, slow(60_000))
 
+test.each(['fresh', 'kept', 'held'])('a %s video recheck verifies the committed guide while the publishing checkout changes', kind => {
+  const c = clone()
+  const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
+  c.sh('echo rechecked > content/video.json && git add content/video.json && git commit -qm recheck')
+  if (kind !== 'fresh') c.sh(`git branch ${kind}/video-recheck/${when} && git reset -q --hard origin/main`)
+  c.elsewhere('code.txt', 'new')
+  if (kind === 'held') c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  const log = c.cycle(`
+    source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    outer_checkout=$PWD
+    checks() {
+      echo local-edit > "$outer_checkout/content/video.json"
+      cat content/video.json > "$HOME/verification-guide"
+      echo rechecked > "$outer_checkout/content/video.json"
+    }
+    ${kind === 'fresh' ? 'publish_fixture_video_recheck' : 'publish_kept video-recheck'}
+  `)
+  expect(log).toMatch(/LOG published |LOG pushed \(GitHub deploys it\)/)
+  expect(c.sh('cat "$HOME/verification-guide"')).toBe('rechecked')
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.branches()).toEqual([])
+}, slow(60_000))
+
 test('video recheck verification does not export its checkout hash into a check', () => {
   const c = clone()
   const kept = 'kept/video-recheck/20261127T030000'
@@ -366,7 +389,7 @@ test('video recheck verification does not export its checkout hash into a check'
   expect(c.onMain('content/video.json')).toBe('rechecked')
 }, slow(60_000))
 
-test.each(['kept', 'held'])('video recheck preserves untracked files if a %s batch cannot archive them before reset', prefix => {
+test.each(['kept', 'held'])('video recheck preserves untracked files if a %s batch cannot archive its verification checkout', prefix => {
   const c = clone()
   const when = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '')
   const branch = `${prefix}/video-recheck/${when}`
@@ -385,15 +408,17 @@ test.each(['kept', 'held'])('video recheck preserves untracked files if a %s bat
       echo local-only > content/retry-input.json
       return 1
     }
-    publish_kept video-recheck && exit 2
-    echo refused
+    publish_kept video-recheck
   `)
-  expect(log).toContain('could not preserve the video recheck checkout before resetting')
-  expect(log).toContain('refused')
+  expect(log).toContain('could not archive the video verification checkout')
   expect(c.branches()).toEqual([branch])
   expect(c.onMain('content/video.json')).toBe('')
   expect(c.onMain('content/retry-input.json')).toBe('from-main')
-  expect(c.sh('cat content/retry-input.json')).toBe('local-only')
+  expect(c.sh('cat "$(git rev-parse --absolute-git-dir)/aquatome-video-verify/content/retry-input.json"')).toBe('local-only')
+  expect(c.cycle('AQ_SCRIPT_HEAD=$(git rev-parse HEAD); publish_kept video-recheck')).toContain(`LOG published ${branch}`)
+  expect(c.onMain('content/retry-input.json')).toBe('from-main')
+  expect(c.onMain('content/video.json')).toBe('rechecked')
+  expect(c.sh('cat "$HOME"/.cache/aquatome/engine-check-failures/video-recheck-inputs.*/files/content/retry-input.json')).toBe('local-only')
 }, slow(60_000))
 
 test('video recheck cannot publish a material whose parent appears only in ignored content', () => {
@@ -1357,11 +1382,12 @@ test.each([
   const log = c.cycle(`
     source '${join(ROOT, 'scripts/video-recheck-publish.sh')}'
     AQ_SCRIPT_HEAD=$(git rev-parse '@{u}')
+    outer_checkout=$PWD
     date() {
       if [ "$*" = '-u +%Y%m%dT%H%M%S' ]; then echo '${when}'; else command date "$@"; fi
     }
     checks() {
-      ${pendingLocked ? 'touch .git/refs/aquatome/video-recheck/pending.lock' : ':'}
+      ${pendingLocked ? 'touch "$outer_checkout/.git/refs/aquatome/video-recheck/pending.lock"' : ':'}
       echo '${queue === 'kept' ? 'Error: Test timed out in 30000ms.' : 'real check failure'}'
       return 1
     }

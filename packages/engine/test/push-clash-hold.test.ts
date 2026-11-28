@@ -21,7 +21,7 @@ type Side = { held?: Held; body?: string; fit?: { at: string; hash: string; chec
 const KINDS = { guides: { dir: 'content/guides/youtube-x', key: 'vi/guides/youtube-x' }, species: { dir: 'content/species/ca-x', key: 'vi/species/ca-x' } }
 
 // lostPush: the run's first push loses, as main gets this side meanwhile.
-function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: { mainOther?: boolean; kept?: boolean; catchUp?: boolean; lostPush?: Side; video?: 'fresh' | 'kept' } = {}) {
+function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: { mainOther?: boolean; kept?: boolean; catchUp?: boolean; lostPush?: Side; video?: 'fresh' | 'kept'; holdComparisonFails?: boolean } = {}) {
   const { dir: pageDir, key } = KINDS[kind]
   const file = `${pageDir}/vi.json`
   const secondGuide = 'content/guides/youtube-y/vi.json'
@@ -63,6 +63,13 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     log() { echo "LOG $*"; }
     source "${join(ROOT, 'scripts/cycle-checks.sh')}"
     AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    ${o.holdComparisonFails ? `
+      engine_clone() { return 0; }
+      node() {
+        case "$1" in */main-holds.mjs) return 42 ;; esac
+        command node "$@"
+      }
+    ` : ''}
     net() {
       ${o.lostPush ? `if [ "$1 $2" = "git push" ] && [ ! -e ../lost ]; then touch ../lost; (cd ../other && ${both(o.lostPush)} && ${o.video ? write({ 'content/concurrent.json': '{"main":true}\n' }) : ':'} && git commit -qm 'content: main again, meanwhile' && git push -q origin main); fi` : ':'}
       "$@"
@@ -92,11 +99,15 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
       *) ${o.kept ? 'git branch kept/photos/20261116T000000 && push_kept kept/photos/20261116T000000' : o.catchUp ? 'catch_up' : 'push'} ;;
     esac
     echo "CODE $?"
+    git for-each-ref --format='QUEUED %(refname:short)' refs/heads/kept
     git log --format='COMMIT %s' -3`
   const r = spawnSync('bash', ['-c', script], { encoding: 'utf8' })
   expect(r.stderr).not.toMatch(/fatal/i)
   const read = (f: string) => JSON.parse(readFileSync(join(dir, 'cycle', f), 'utf8'))
-  const pushed = (f: string) => JSON.parse(spawnSync('git', ['-C', join(dir, 'origin.git'), 'show', `main:${f}`], { encoding: 'utf8' }).stdout)
+  const pushed = (f: string) => {
+    const result = spawnSync('git', ['-C', join(dir, 'origin.git'), 'show', `main:${f}`], { encoding: 'utf8' })
+    return result.status === 0 ? JSON.parse(result.stdout) : undefined
+  }
   return { out: r.stdout, page: read(file), record: read('engine-state/_fit.json')[key], pushed: pushed(file), pushedRecord: pushed('engine-state/_fit.json')[key], pushedTh: () => pushed(thFile), pushedSecondGuide: () => pushed(secondGuide) }
 }
 
@@ -271,6 +282,20 @@ test.each(['fresh', 'kept'] as const)('a %s video recheck restores main’s hold
   expect(r.out.match(/^VERIFY .*$/gm)).toEqual(['VERIFY harm', 'VERIFY harm'])
   expect(r.pushed.held).toEqual(stillHeld.held)
   expect(r.pushedSecondGuide().body).toBe('<p>Đoạn mới.</p>')
+})
+
+test.each(['fresh', 'kept'] as const)('a %s video recheck stays queued when main’s holds cannot be compared', video => {
+  const stillHeld = { held: hold('harm'), fit: heldFor('harm') }
+  const r = push('guides', {
+    base: { held: stillHeld.held, fit: { at: '2026-11-14', hash: 'e025', checks: ['harm'] } },
+    main: stillHeld,
+    run: { fit: clean },
+  }, { video, holdComparisonFails: true })
+  expect(r.out).toContain('CODE 1')
+  expect(r.out).toMatch(/^QUEUED kept\/video-recheck\//m)
+  expect(r.out).not.toContain('VERIFY')
+  expect(r.pushed.held).toEqual(stillHeld.held)
+  expect(r.pushedSecondGuide()).toBeUndefined()
 })
 
 test("main-holds.mjs reads the gate's kinds", () => {

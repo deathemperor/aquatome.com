@@ -247,7 +247,7 @@ publish_video_recheck_batch() {
     fi
     if [ "$checked_tree" != "$tree" ] || [ -n "${MIGRATE_FAILED:-}" ]; then
       verification_failed=0
-      verify_cycle "$tree" || verification_failed=$?
+      verify_cycle "$candidate" || verification_failed=$?
       if ! video_recheck_unchanged "$tree" || [ "$verification_failed" = 2 ]; then
         keep_lost_push video-recheck "the video recheck checkout changed during verification" "$batch"
         return 1
