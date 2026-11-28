@@ -19,16 +19,17 @@ sweep_new_video_recheck() {
 }
 
 push_video_recheck() {
-  local try run base tree checked_tree='' refreshed clash verification_failed commit candidate
-  candidate=$(git rev-parse HEAD) || return 1
+  local try run base tree checked_tree='' refreshed clash verification_failed commit candidate batch
+  batch=$(git rev-parse HEAD) || return 1
+  candidate=$batch
   for try in 1 2 3; do
     run=$(git rev-parse HEAD) || break
     if [ "$run" != "$candidate" ]; then
-      keep_lost_push video-recheck "the video recheck checkout moved between publish attempts" "$candidate"
+      keep_lost_push video-recheck "the video recheck checkout moved between publish attempts" "$batch"
       return 1
     fi
     if ! prepare_video_recheck; then
-      keep_lost_push video-recheck "the checkout had changes before publishing" "$run"
+      keep_lost_push video-recheck "the checkout had changes before publishing" "$batch"
       return 1
     fi
     base=$(git merge-base "$run" '@{u}') || break
@@ -46,18 +47,18 @@ push_video_recheck() {
       fi
     fi
     refreshed=$(git rev-parse '@{u}') || break
-    if ! video_recheck_pull_kept_batch "$run" "$refreshed"; then
-      keep_lost_push video-recheck "the first pull did not retain the video recheck batch" "$run"
+    if ! video_recheck_pull_kept_batch "$batch" "$refreshed"; then
+      keep_lost_push video-recheck "the first pull did not retain the video recheck batch" "$batch"
       return 1
     fi
     if ! video_recheck_rules_current; then
-      keep_lost_push video-recheck "video recheck rules changed during this run" "$run"
+      keep_lost_push video-recheck "video recheck rules changed during this run" "$batch"
       return 1
     fi
     if [ "$refreshed" != "$base" ]; then
       main_holds "$run" || [ $? = 1 ] || { keep_lost_push video-recheck "main's holds couldn't be compared" "$run"; return 1; }
       if ! sweep_merged strict; then
-        keep_lost_push video-recheck "the sweep did not finish and commit" "$run"
+        keep_lost_push video-recheck "the sweep did not finish and commit" "$batch"
         return 1
       fi
     fi
@@ -65,14 +66,14 @@ push_video_recheck() {
     # Check the tree that includes the latest main. A disjoint content change can affect cross-page checks.
     candidate=$(git rev-parse HEAD) || break
     if ! tree=$(video_recheck_tree "$candidate"); then
-      keep_lost_push video-recheck "the video recheck checkout differed from its commit before verification" "$run"
+      keep_lost_push video-recheck "the video recheck checkout differed from its commit before verification" "$batch"
       return 1
     fi
     if [ "$checked_tree" != "$tree" ] || [ -n "${MIGRATE_FAILED:-}" ]; then
       verification_failed=0
       verify_cycle "$tree" || verification_failed=$?
       if ! video_recheck_unchanged "$tree" || [ "$verification_failed" = 2 ]; then
-        keep_lost_push video-recheck "the video recheck checkout changed during verification" "$run"
+        keep_lost_push video-recheck "the video recheck checkout changed during verification" "$batch"
         return 1
       fi
       if [ "$verification_failed" != 0 ]; then
@@ -84,14 +85,14 @@ push_video_recheck() {
     fi
 
     # Main may have moved during the checks. A fast-forward-only pull means it cannot combine divergent trees here.
-    # If anything came in, the next attempt integrates and checks it before a push can run.
+    # If the tree changed, the next attempt checks it against the original batch before verifying again.
     if ! net git pull -q --no-rebase --ff-only; then
       log "main moved or could not be reached after the checks: trying a fresh pull before publishing"
       continue
     fi
     commit=$(git rev-parse HEAD) || break
     if ! git merge-base --is-ancestor "$candidate" "$commit"; then
-      keep_lost_push video-recheck "the checkout moved outside the verified video recheck history" "$candidate"
+      keep_lost_push video-recheck "the checkout moved outside the verified video recheck history" "$batch"
       return 1
     fi
     candidate=$commit
@@ -106,6 +107,6 @@ push_video_recheck() {
     if [ "$try" -lt 3 ]; then sleep 30; fi
   done
   log "could not publish after three attempts"
-  keep_lost_push video-recheck "push failed three times" "$candidate"
+  keep_lost_push video-recheck "push failed three times" "$batch"
   return 1
 }
