@@ -49,18 +49,26 @@ const FIT = 'engine-state/_fit.json'
 const GATED_KINDS = ['guides', 'species', 'plants', 'breeds', 'cards']
 const FILE = new RegExp(`^content/(${GATED_KINDS.join('|')})/([^/]+)/([a-z]{2})\\.json$`)
 
-const git = (...args) => execFileSync('git', args, { encoding: 'utf8', maxBuffer: 1 << 30 })
+const git = (...args) => {
+  try {
+    return execFileSync('git', args, { encoding: 'utf8', maxBuffer: 1 << 30, stdio: ['ignore', 'pipe', 'pipe'] })
+  } catch {
+    throw new Error(`main-holds: git ${args[0]} failed during hold comparison`)
+  }
+}
 // A file that isn't at <rev> is undefined; anything else that fails throws, a bad revision, a file that doesn't parse, or
 // one that parses to anything but an object (a page or record written as `null` would read as a page that isn't there:
 // a reader of #1703). Each file is read once per revision.
-const object = (v, what) => {
-  if (!v || typeof v !== 'object' || Array.isArray(v)) throw new Error(`main-holds: ${what} isn't a JSON object`)
-  return v
+const parseObject = (raw, what) => {
+  let value
+  try { value = JSON.parse(raw) } catch { throw new Error(`main-holds: could not parse ${what}`) }
+  if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error(`main-holds: ${what} isn't a JSON object`)
+  return value
 }
 const seen = new Map()
 const at = (rev, file) => {
   const k = `${rev}:${file}`
-  if (!seen.has(k)) seen.set(k, git('ls-tree', '--name-only', rev, '--', file).trim() ? object(JSON.parse(git('show', k)), k) : undefined)
+  if (!seen.has(k)) seen.set(k, git('ls-tree', '--full-tree', '--name-only', rev, '--', file).trim() ? parseObject(git('show', k), k) : undefined)
   return seen.get(k)
 }
 // Many files at once, for the harm look-up over every language of the pages compared: one `git cat-file --batch`.
@@ -71,12 +79,13 @@ const atAll = (rev, files) => {
     let i = 0
     for (const f of want) {
       const nl = out.indexOf(10, i)
-      const head = out.subarray(i, nl).toString('utf8')
-      if (/ missing$/.test(head)) { seen.set(`${rev}:${f}`, undefined); i = nl + 1; continue }
-      const size = Number(head.split(' ')[2])
-      if (!Number.isInteger(size)) throw new Error(`main-holds: git cat-file answered "${head}"`)
-      seen.set(`${rev}:${f}`, object(JSON.parse(out.subarray(nl + 1, nl + 1 + size).toString('utf8')), `${rev}:${f}`))
-      i = nl + 1 + size + 1
+      const header = nl >= i && /^[0-9a-f]+ blob (\d+)$/.exec(out.subarray(i, nl).toString('utf8'))
+      const size = header ? Number(header[1]) : NaN
+      const end = nl + 1 + size
+      // These paths were listed in the tree. A missing or truncated response is a failed read.
+      if (!Number.isSafeInteger(size) || out[end] !== 10) throw new Error(`main-holds: could not read ${rev}:${f}`)
+      seen.set(`${rev}:${f}`, parseObject(out.subarray(nl + 1, end).toString('utf8'), `${rev}:${f}`))
+      i = end + 1
     }
   }
   return files.map(f => seen.get(`${rev}:${f}`))

@@ -9,7 +9,9 @@ import { langOfPath, pagePathOf, type ContentStats, type Snapshot } from './cont
 import { LANG_NAME } from './content-page'
 import { dashboardUrl } from '../paths'
 import { failedBox, isFailed, page, SCOREBOARD_PATH, type Failed, type Soft } from './shell'
-import { dayStart, HOME_TZ, localDay, msOf } from './time'
+import { dayStart, HOME_TZ, localDay, mondayOf, msOf } from './time'
+
+export { mondayOf } from './time'
 
 /**
  * The scoreboard, /_ab/thanh-cong/ and /_ab/thanh-cong.json: what "the product is working" means, week by week, as
@@ -23,11 +25,6 @@ export const DOC = 'https://github.com/deathemperor/aquatome.com/blob/main/docs/
 
 // ——— Weeks ———
 
-/** The Monday of the week `day` (2026-11-04) falls in. */
-export function mondayOf(day: string): string {
-  const t = Date.parse(`${day}T00:00:00Z`)
-  return new Date(t - ((new Date(t).getUTCDay() + 6) % 7) * DAY).toISOString().slice(0, 10)
-}
 const plusDays = (day: string, n: number) => new Date(Date.parse(`${day}T00:00:00Z`) + n * DAY).toISOString().slice(0, 10)
 
 /** The `n` weeks ending with the one it is at `now`: their Mondays, oldest first. */

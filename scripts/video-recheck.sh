@@ -41,9 +41,8 @@ fi
 # A line a model call: its cost, tokens and the account it went to (claude.ts), so a week's use can be split by job.
 export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-video-recheck.jsonl}"
 
-# The reset can overwrite an untracked path that main has since committed.
-archive_video_recheck_checkout || {
-  log "could not preserve the video recheck checkout before resetting"
+recover_interrupted_video_recheck || {
+  log "could not queue the interrupted video recheck"
   exit 1
 }
 from_main "$@"
@@ -64,6 +63,7 @@ if ! video_recheck_rules_current; then
   log "video recheck rules changed during this run: leaving new work for the next run"
   exit 0
 fi
+video_batch_parent=$(git rev-parse HEAD)
 log "video recheck start"
 # Records left saying pages were done on 11 Nov 2026, when the usage limit stopped the gate, put back before a writer runs.
 pnpm engine redo-unread || log "redo-unread: failed"
@@ -92,10 +92,14 @@ sweep_new_video_recheck || exit 1
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
 # and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
 # and keeps its work on a branch (gate_or_keep).
-gate_or_keep "content: video guides checked again" content engine-state docs/review || exit 1
-if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
-# Committed before the tests, as video-cycle.sh does: the next run's reset drops uncommitted work for good, and a commit
-# stays in the reflog to publish by hand.
-git add content engine-state docs/review
-git commit -q -m "content: video guides checked again $(date -u +%F)"
+if [ "$(git rev-parse HEAD)" != "$video_batch_parent" ]; then
+  log "the video recheck checkout moved before the gate"
+  exit 1
+fi
+git add -- content engine-state docs/review
+gate_input=$(video_recheck_gate_input "$video_batch_parent")
+gate_tree=$(gate_video_recheck_tree "$video_batch_parent" "$gate_input") || exit 1
+if [ "$gate_tree" = "$(git rev-parse "$video_batch_parent^{tree}")" ]; then log "no changes"; exit 0; fi
+# Commit only the tree returned by the gate, so startup can recover it if the publishing checkout moved.
+commit_video_recheck "content: video guides checked again $(date -u +%F)" "$video_batch_parent" "$gate_input" "$gate_tree" || exit 1
 push_video_recheck

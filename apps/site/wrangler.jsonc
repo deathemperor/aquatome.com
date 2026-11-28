@@ -7,14 +7,16 @@
   "compatibility_date": "2026-10-28",
   "assets": {
     "directory": "./dist", "binding": "ASSETS", "not_found_handling": "404-page", "html_handling": "force-trailing-slash",
-    // The Worker runs first on every Vietnamese page (the root and each section, worker/paths.ts VI_SECTIONS; a test keeps
-    // them equal) and on the old /vi/ addresses, which it 301s to the root.
+    // The Worker runs first on pages in every language for Markdown and the page access rules. Vietnamese sections
+    // (worker/paths.ts VI_SECTIONS) and the old /vi/ addresses have their own patterns.
     "run_worker_first": [
       "/", "/.well-known/api-catalog", "/.well-known/apple-app-site-association", "/vi", "/vi/*",
       "/ca/*", "/cay/*", "/chinh-sach-bao-mat/*", "/cong-cu/*", "/dang-nhap/*", "/gioi-thieu/*", "/huong-dan/*", "/kham-pha/*", "/lien-he/*", "/moi-cap-nhat/*",
-      "/nguon-goc/*", "/nhom/*", "/phan-loai/*", "/san-pham/*", "/thiet-bi/*", "/thuat-ngu/*", "/tim-kiem/*", "/ung-dung/*", "/vat-lieu/*", "/video/*", "/id/aplikasi/*", "/th/mobile-app/*", "/ms/aplikasi/*",
-      // A small album's address would otherwise be the static 404 page, the Worker never asked.
-      "/id/ikan/*/foto/*", "/id/tanaman/*/foto/*", "/th/fish/*/photos/*", "/th/plants/*/photos/*", "/ms/ikan/*/foto/*", "/ms/tumbuhan/*/foto/*",
+      "/nguon-goc/*", "/nhom/*", "/phan-loai/*", "/san-pham/*", "/thiet-bi/*", "/thuat-ngu/*", "/tim-kiem/*", "/ung-dung/*", "/vat-lieu/*", "/video/*",
+      "/id/*", "/th/*", "/ms/*",
+      // The same landing addresses without a slash need the Worker to make the assets router's redirect permanent.
+      "/ca", "/cay", "/chinh-sach-bao-mat", "/cong-cu", "/dang-nhap", "/gioi-thieu", "/huong-dan", "/kham-pha", "/lien-he", "/moi-cap-nhat",
+      "/nguon-goc", "/nhom", "/phan-loai", "/san-pham", "/thiet-bi", "/thuat-ngu", "/tim-kiem", "/ung-dung", "/vat-lieu", "/video", "/id", "/th", "/ms",
       "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*",
       // The dashboard's own host (worker/dashboard-host.ts): its pages at /<key>/ (shell.ts WEB_PAGES; "/" and "/ung-dung/*"
       // are above), a page's JSON and its robots.txt. Without its line a page there is the site's 404 page, the Worker never

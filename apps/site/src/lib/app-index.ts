@@ -16,6 +16,7 @@ import { toIndexItem } from './species-index'
 import { appRange, capitalized, countryNames, originPages, regionNames, type AppCountry, type AppRange } from './range'
 import { ORIGINS, PLACE_INTRO, PLACE_INTROS, PLACE_TITLES, RANKS, TAXON_INTRO } from './taxa-places'
 import { isUnsplash } from './unsplash'
+import { TOOL_DESCRIPTIONS } from './tools'
 import { seriesGuides } from './video'
 
 /**
@@ -615,36 +616,36 @@ export function breedGroup(b: Pick<BreedEntity, 'basedOn' | 'parents'>, groupOf:
  * the tools page, the short name the card has (the same string, so the same translations), which the app's tiles show.
  */
 const TOOLS: readonly (readonly [string, string, readonly string[], string?])[] = [
-  ['/vi/cong-cu/', 'Công cụ', ['Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể, lượng nền cần mua, công suất sưởi và liều phân nước.']],
+  ['/vi/cong-cu/', 'Công cụ', [TOOL_DESCRIPTIONS['/vi/cong-cu/']]],
   ['/vi/cong-cu/nuoi-chung/', 'Nuôi chung được không? Thả bao nhiêu con?', [
     'Kiểm tra cá nuôi chung: hợp nước, hợp tính, thả bao nhiêu con',
     'Chọn 1–6 loài và số con. Công cụ so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước mật độ cá theo kích thước bể ở mục dưới. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.',
-    'Các loài cá có nuôi chung được không: so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước thả bao nhiêu con là vừa bể.',
+    TOOL_DESCRIPTIONS['/vi/cong-cu/nuoi-chung/'],
   ], 'Nuôi chung'],
   ['/vi/cong-cu/the-tich-be/', 'Bể bao nhiêu lít?', [
     'Tính thể tích bể cá: lít, gallon, độ dày kính',
     'Chọn kiểu bể, nhập kích thước lòng bể. Có 12 kiểu: chữ nhật, lục giác, bát giác, trụ, góc, chữ L…',
-    'Tính thể tích bể cá 12 kiểu (chữ nhật, lục giác, trụ tròn, bể góc, chữ L) ra lít và gallon, kèm lượng nước thực tế, cân nặng và độ dày kính nên dùng.',
+    TOOL_DESCRIPTIONS['/vi/cong-cu/the-tich-be/'],
   ], 'Thể tích bể'],
   ['/vi/cong-cu/du-toan-be/', 'Set một bể hết bao nhiêu tiền?', [
     'Dự toán chi phí set bể thủy sinh: tiền mua đồ và tiền nuôi mỗi tháng',
     'Chọn cỡ bể và mức đầu tư. Công cụ cộng giá từng món, rồi tính tiền điện, CO₂, phân và thức ăn mỗi tháng, tất cả là khoảng giá.',
-    'Dự toán chi phí set bể cá, bể thủy sinh 30–120 cm: giá bể, chân, lọc, sưởi, đèn, phân nền, CO₂, bộ test và ổ cắm thông minh theo ba mức đầu tư, cộng tiền điện và tiền nuôi mỗi tháng.',
+    TOOL_DESCRIPTIONS['/vi/cong-cu/du-toan-be/'],
   ], 'Dự toán chi phí'],
   ['/vi/cong-cu/den-chihiros/', 'Đèn Chihiros', [
     'Điều khiển đèn Chihiros trên trình duyệt: hẹn giờ, độ sáng',
     'Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên trình duyệt, không cần cài ứng dụng. Trang nhớ đèn và lịch của bạn trên máy này.',
-    'Điều khiển đèn thủy sinh Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) qua Bluetooth trên Chrome: đặt lịch bật tắt có sáng dần, tối dần, chỉnh độ sáng từng màu, lịch mẫu cho bể mới và bể bị rêu.',
+    TOOL_DESCRIPTIONS['/vi/cong-cu/den-chihiros/'],
   ], 'Đèn Chihiros'],
   ['/vi/cong-cu/nhan-dien-ca/', 'Đây là cá gì?', [
     'Nhận diện cá qua ảnh',
     'Chụp hoặc chọn ảnh một con cá, tép, ốc hay cây thủy sinh. Công cụ đoán tên loài và mở hồ sơ của nó trong cẩm nang.',
-    'Nhận diện cá cảnh, tép, ốc và cây thủy sinh từ một tấm ảnh: tên loài, dòng (betta halfmoon, guppy koi…) và hồ sơ cách nuôi trong cẩm nang AquaTome.',
+    TOOL_DESCRIPTIONS['/vi/cong-cu/nhan-dien-ca/'],
   ], 'Nhận diện cá'],
   ['/vi/cong-cu/be-cua-toi/', 'Bể của tôi', [
     'Bể của tôi: sổ ghi bể cá, cây và lịch đèn',
     'Ghi lại từng bể: kích thước, nền, cá, cây và đèn với lịch đã đặt. Lưu ngay trên máy này, không cần đăng ký.',
-    'Sổ bể cá miễn phí: lưu kích thước, thể tích, loại nền, cá, cây, ghi chú và lịch đèn Chihiros của từng bể ngay trên trình duyệt, không cần tài khoản.',
+    TOOL_DESCRIPTIONS['/vi/cong-cu/be-cua-toi/'],
   ], 'Bể của tôi'],
 ]
 

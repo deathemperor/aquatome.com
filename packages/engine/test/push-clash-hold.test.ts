@@ -35,9 +35,10 @@ const KINDS = { guides: { dir: 'content/guides/youtube-x', key: 'vi/guides/youtu
 // lostPush: the run's first push loses, as main gets this side meanwhile. uncompared: the comparison of holds fails, as a
 // git read or a file it can't parse would make it; 'locked', and it leaves a lock in the index, so the pull can't be
 // undone. oldCaller: a cycle that started on the older script calls main-holds.mjs as that script did, with two arguments.
-function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: { mainOther?: boolean; mainDidNotMove?: boolean; kept?: boolean; catchUp?: boolean; lostPush?: Side; uncompared?: boolean | 'locked'; oldCaller?: boolean } = {}) {
+function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: { mainOther?: boolean; mainDidNotMove?: boolean; kept?: boolean; catchUp?: boolean; lostPush?: Side; uncompared?: boolean | 'locked'; oldCaller?: boolean; video?: 'fresh' | 'kept'; holdFault?: 'process' | 'unreadable' | 'malformed'; baseWithoutFit?: boolean } = {}) {
   const { dir: pageDir, key } = KINDS[kind]
   const file = `${pageDir}/vi.json`
+  const secondGuide = 'content/guides/youtube-y/vi.json'
   const dir = mkdtempSync(join(tmpdir(), 'aq-push-hold-'))
   const page = (s: Side) =>
     `${JSON.stringify({ slug: 'ho-ca', name: 'Hồ cá', altNames: [], body: s.body ?? DEFAULT_BODY, sections: s.sections ?? {}, quality: { score: 0.9, indexable: true }, ...s.extra, ...(s.held ? { held: s.held } : {}) }, null, 2)}\n`
@@ -49,7 +50,12 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     `${JSON.stringify({ ...(s.fit ? { [key]: record(s.fit) } : {}), ...(s.th?.fit ? { [thKey]: record(s.th.fit) } : {}) }, null, 2)}\n`
   const write = (files: Record<string, string>) =>
     Object.entries(files).map(([f, t]) => `mkdir -p "$(dirname ${f})" && printf '%s' '${t.replace(/'/g, `'\\''`)}' > ${f} && git add ${f}`).join(' && ')
-  const both = (s: Side) => write({ [file]: page(s), ...(s.th ? { [thFile]: page(s.th) } : {}), 'engine-state/_fit.json': fit(s), ...s.files })
+  const both = (s: Side, includeFit = true) => write({
+    [file]: page(s),
+    ...(s.th ? { [thFile]: page(s.th) } : {}),
+    ...(includeFit ? { 'engine-state/_fit.json': fit(s) } : {}),
+    ...s.files,
+  })
   const entity = { ...JSON.parse(fixtureJson(kind === 'guides' ? 'guides/youtube-r53ZQW0m8VM/entity.json' : 'species/paracheirodon-innesi/entity.json')), id: pageDir.split('/').at(-1) }
   if (kind === 'species') entity.sections = [{ ...entity.sections[0], source: 'youtube' }]
   const baseline = write({ [`${pageDir}/entity.json`]: JSON.stringify(entity), 'content/sources.json': fixtureJson('sources.json') })
@@ -60,8 +66,9 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     cd "${dir}"
     git init -q -b main --bare origin.git
     git clone -q origin.git other 2>/dev/null && cd other && git checkout -q -b main
+    mkdir scripts && cp '${join(ROOT, 'scripts/main-holds.mjs')}' scripts/main-holds.mjs && git add scripts
     printf 'engine-state/_fit.json merge=jsonmap\\ncontent/species/*/*.json merge=entity\\n' > .gitattributes && git add .gitattributes
-    ${baseline} && ${both(sides.base)}
+    ${baseline} && ${both(sides.base, !o.baseWithoutFit)}
     git commit -qm 'main as the run started' && git push -q origin main && cd ..
     git clone -q -b main origin.git cycle
     for c in other cycle; do
@@ -73,36 +80,81 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     ${o.mainOther ? `${write({ 'content/guides/other/vi.json': '{"slug":"khac"}\n' })} &&` : ''} git commit -qm 'content: another part, meanwhile' && git push -q origin main && cd ..
     `}
     cd cycle && ${both(sides.run)}
-    git commit -qm 'content: this run'
+    ${o.video ? write({ [secondGuide]: '{"slug":"huong-dan","body":"<p>Đoạn mới.</p>"}\n' }) : ':'}
+    git commit -qm '${o.video ? 'content: video guides checked again (fixture)' : 'content: this run'}'
     set +e
     PART=photos
     log() { echo "LOG $*"; }
     source "${join(ROOT, 'scripts/cycle-checks.sh')}"
+    AQ_SCRIPT_HEAD=$(git rev-parse origin/main)
+    ${o.holdFault ? 'engine_clone() { return 0; }' : ''}
+    ${o.video ? `
+      # The fixture has no package installation. The same helper runs with the test checkout's loader and reads Git here.
+      node() {
+        case "$1" in
+          */aquatome-video-reconcile/scripts/main-holds.mjs)
+            ${o.holdFault === 'process' ? 'return 42' : `shift; set -- '${join(ROOT, 'scripts/main-holds.mjs')}' "$@"`}
+            ;;
+        esac
+        command node "$@"
+      }
+    ` : ''}
+    ${o.holdFault && o.holdFault !== 'process' ? `
+      export FIXTURE_GIT=$(command -v git) FIXTURE_READ="$(git -C ../other rev-parse HEAD):${file}"
+      mkdir ../bin && cat > ../bin/git <<'GIT'
+#!/bin/sh
+if [ "$1" = show ] && [ "$2" = "$FIXTURE_READ" ]; then
+  ${o.holdFault === 'malformed' ? "printf '{broken json\\n'; exit 0" : 'exit 42'}
+fi
+exec "$FIXTURE_GIT" "$@"
+GIT
+      chmod +x ../bin/git
+      export PATH="${dir}/bin:$PATH"
+    ` : ''}
     ${o.uncompared ? `mkdir -p ../broken && echo '${o.uncompared === 'locked' ? 'import { writeFileSync } from "node:fs"; writeFileSync(".git/index.lock", ""); ' : ''}process.exit(1)' > ../broken/main-holds.mjs && CYCLE_DIR="$PWD/../broken"` : ''}
     ${o.oldCaller ? `main_holds() { local base; base=$(git merge-base "$1" '@{u}'); node "$CYCLE_DIR/main-holds.mjs" "$base" "$(git rev-parse '@{u}')"; echo "NODE $?"; return 0; }` : ''}
     net() {
-      ${o.lostPush ? `if [ "$1 $2" = "git push" ] && [ ! -e ../lost ]; then touch ../lost; (cd ../other && ${both(o.lostPush)} && git commit -qm 'content: main again, meanwhile' && git push -q origin main); fi` : ':'}
+      ${o.lostPush ? `if [ "$1 $2" = "git push" ] && [ ! -e ../lost ]; then touch ../lost; (cd ../other && ${both(o.lostPush)} && ${o.video ? write({ 'content/concurrent.json': '{"main":true}\n' }) : ':'} && git commit -qm 'content: main again, meanwhile' && git push -q origin main); fi` : ':'}
       "$@"
     }
     replan_merged() { :; }
+    pnpm() { [ "$1 $2 $3 $4" = '--filter @aq/engine... install --offline' ]; }
     sweep_merged() { :; }
-    verify_cycle() { echo VERIFY; }
+    verify_cycle() {
+      git show HEAD:${file} | node -e '
+        const page = JSON.parse(require("node:fs").readFileSync(0, "utf8"))
+        console.log("VERIFY " + (page.held?.checks.join(",") ?? "clear"))
+      '
+    }
     swept_pull() { :; }
+    # On the kept retry, no sweep change can independently trigger verification.
+    ${o.kept && o.lostPush ? 'swept_clean() { return 0; }' : ''}
     keep_unpublished() { echo "KEPT"; }
-    keep_lost_push() { echo "LOST $*"; }
+    ${o.video ? '' : 'keep_lost_push() { echo "LOST $*"; }'}
     sleep() { :; }
     ended_row() { :; }
     ${pushFn}
     echo "RUN $(git rev-parse HEAD)"
-    ${o.kept ? 'git branch kept/photos/20261116T000000 && push_kept kept/photos/20261116T000000' : o.catchUp ? 'catch_up' : 'push'}
+    case '${o.video ?? ''}' in
+      fresh)
+        source "${join(ROOT, 'scripts/video-recheck-publish.sh')}"
+        git update-ref "$VIDEO_RECHECK_PENDING_REF" HEAD '' && push_video_recheck
+        ;;
+      kept) git branch kept/video-recheck/20261116T000000 && push_kept kept/video-recheck/20261116T000000 ;;
+      *) ${o.kept ? 'git branch kept/photos/20261116T000000 && push_kept kept/photos/20261116T000000' : o.catchUp ? 'catch_up' : 'push'} ;;
+    esac
     echo "CODE $?"
     echo "WHY $KEPT_WHY"
+    git for-each-ref --format='QUEUED %(refname:short)' refs/heads/kept
     git log --format='COMMIT %s' -3`
   const r = spawnSync('bash', ['-c', script], { encoding: 'utf8' })
   expect(r.stderr).not.toMatch(/fatal/i)
   const read = (f: string) => JSON.parse(readFileSync(join(dir, 'cycle', f), 'utf8'))
-  const pushed = (f: string) => JSON.parse(spawnSync('git', ['-C', join(dir, 'origin.git'), 'show', `main:${f}`], { encoding: 'utf8' }).stdout)
-  return { out: r.stdout, page: read(file), record: read('engine-state/_fit.json')[key], pushed: pushed(file), pushedRecord: pushed('engine-state/_fit.json')[key], pushedTh: () => pushed(thFile), log: r.stdout.split('\n').filter(l => l.startsWith('COMMIT ')) }
+  const pushed = (f: string) => {
+    const result = spawnSync('git', ['-C', join(dir, 'origin.git'), 'show', `main:${f}`], { encoding: 'utf8' })
+    return result.status === 0 ? JSON.parse(result.stdout) : undefined
+  }
+  return { out: r.stdout, page: read(file), record: read('engine-state/_fit.json')[key], pushed: pushed(file), pushedRecord: pushed('engine-state/_fit.json')[key], pushedTh: () => pushed(thFile), pushedSecondGuide: () => pushed(secondGuide), log: r.stdout.split('\n').filter(l => l.startsWith('COMMIT ')) }
 }
 
 const clean = { at: '2026-11-15', hash: defaultHash, checks: [] }
@@ -603,13 +655,13 @@ test('the older caller restores a hold when the only other change is a part sele
 })
 
 test("every push that compares main's holds stops on a comparison that failed", () => {
-  for (const s of ['engine-cycle.sh', 'video-cycle.sh', 'video-recheck-publish.sh', 'cycle-checks.sh']) {
-    const calls = readFileSync(join(ROOT, 'scripts', s), 'utf8').split('\n').filter(l => /\bmain_holds "\$run"/.test(l) && !/^\s*#/.test(l))
+  for (const s of ['engine-cycle.sh', 'video-cycle.sh', 'cycle-checks.sh']) {
+    const calls = readFileSync(join(ROOT, 'scripts', s), 'utf8').split('\n').filter(l => /\bmain_holds "\$(?:run|batch)"/.test(l) && !/^\s*#/.test(l))
     expect(calls.length, s).toBeGreaterThan(0)
     for (const l of calls) {
       expect(l, s).not.toMatch(/\|\| true\b/)
       // 1: main's holds committed, checked again; anything else: not published
-      expect(l, s).toMatch(/\|\| \[ \$\? = 1 \] \|\||\|\| case \$\? in 1\)/)
+      expect(l, s).toMatch(/\|\| (?:\{ )?\[ "?\$\?"? = 1 \] \|\||\|\| case \$\? in 1\)/)
     }
   }
 })
@@ -634,9 +686,63 @@ test("kept work published later takes main's holds the same way, and they're in 
   }, { kept: true })
   expect(r.out).toContain('CODE 0')
   expect(r.pushed.held).toBeUndefined()
-  // A kept branch is checked on its first try anyway (check=1). What holds a later try's check (check= once it has passed)
-  // is the order: main_holds commits before HEAD is compared.
-  expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toMatch(/head=\$\(git rev-parse HEAD\)\n\s*\[ -z "\$BRANCH" \] \|\| main_pages "\$BRANCH"\n\s*main_holds "\$run" origin\/main \|\| \[ \$\? = 1 \] \|\| \{ KEPT_WHY=[^\n]*; return 1; \}\n\s*\[ "\$\(git rev-parse HEAD\)" = "\$head" \] \|\| check=1/)
+  expect(r.out.match(/^VERIFY .*$/gm)).toEqual(['VERIFY clear'])
+})
+
+test("a kept push retries its checks when main puts a hold back after the first check", () => {
+  const r = push('guides', {
+    base: { held: hold('elsewhere'), fit: { at: '2026-11-14', hash: 'old', checks: ['elsewhere', 'source'] } },
+    main: { fit: clean },
+    run: { held: hold('source'), fit: heldFor('source') },
+  }, { kept: true, lostPush: { held: hold('harm'), fit: heldFor('harm') } })
+  expect(r.out).toContain('CODE 0')
+  expect(r.out.match(/^VERIFY .*$/gm)).toEqual(['VERIFY clear', 'VERIFY harm'])
+  expect(r.pushed.held).toEqual(hold('harm'))
+})
+
+test.each(['fresh', 'kept'] as const)('a %s video recheck restores main’s hold again on a rejected push and publishes its second guide', video => {
+  const stillHeld = { held: hold('harm'), fit: heldFor('harm') }
+  const r = push('guides', {
+    base: { held: stillHeld.held, fit: { at: '2026-11-14', hash: 'e025', checks: ['harm'] } },
+    main: stillHeld,
+    run: { fit: clean },
+  }, { video, lostPush: stillHeld })
+  expect(r.out).toContain('CODE 0')
+  expect(r.out.match(/^VERIFY .*$/gm)).toEqual(['VERIFY harm', 'VERIFY harm'])
+  expect(r.pushed.held).toEqual(stillHeld.held)
+  expect(r.pushedSecondGuide().body).toBe('<p>Đoạn mới.</p>')
+})
+
+test.each([
+  ['fresh', 'process'],
+  ['kept', 'process'],
+  ['fresh', 'unreadable'],
+  ['kept', 'malformed'],
+] as const)('a %s video recheck stays queued when main’s holds cannot be compared (%s)', (video, holdFault) => {
+  const stillHeld = { held: hold('harm'), fit: heldFor('harm') }
+  const r = push('guides', {
+    base: { held: stillHeld.held, fit: { at: '2026-11-14', hash: 'e025', checks: ['harm'] } },
+    main: stillHeld,
+    run: { fit: clean },
+  }, { video, holdFault })
+  expect(r.out).toContain('CODE 1')
+  expect(r.out).toMatch(/^QUEUED kept\/video-recheck\//m)
+  expect(r.out).not.toContain('VERIFY')
+  expect(r.pushed.held).toEqual(stillHeld.held)
+  expect(r.pushedSecondGuide()).toBeUndefined()
+})
+
+test('a video recheck can restore a hold when the base predates its review file', () => {
+  const stillHeld = { held: hold('harm'), fit: heldFor('harm') }
+  const r = push('guides', {
+    base: { held: stillHeld.held },
+    main: stillHeld,
+    run: { fit: clean },
+  }, { video: 'fresh', baseWithoutFit: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.out).toContain('VERIFY harm')
+  expect(r.pushed.held).toEqual(stillHeld.held)
+  expect(r.pushedSecondGuide().body).toBe('<p>Đoạn mới.</p>')
 })
 
 test("main-holds.mjs reads the gate's kinds", () => {

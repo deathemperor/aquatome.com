@@ -34,9 +34,9 @@ test('inventory: items per kind in content/, and how many have an Indonesian, a 
 })
 
 test('built pages: every index.html under /, /id/, /th/ and /ms/, by kind, each with its h1 and its item', () => {
-  // 177 pages, as markdown.ts counts them (every page under the four languages). Malay's tools are one fewer: no setup budget.
+  // 179 pages, including two pages of the HTML catalogue. Malay has one fewer tool because it has no setup budget.
   // No photo pages since 18 Nov: an album opens over its fish's or plant's page (the `gallery` kind reads past visits).
-  expect(stats.built!.total).toEqual({ vi: 106, id: 21, th: 21, ms: 29 })
+  expect(stats.built!.total).toEqual({ vi: 108, id: 21, th: 21, ms: 29 })
   const n = (vi: number, id = 0, th = 0, ms = 0) => ({ vi, id, th, ms })
   expect(stats.built!.byKind).toMatchObject({ fish: n(9, 0, 0, 1), breed: n(3, 0, 0, 1), plant: n(4, 0, 0, 1), guide: n(7, 0, 0, 1), videoGuide: n(2), glossary: n(5, 0, 0, 1), series: n(1), tool: n(7, 7, 7, 6), other: n(10, 5, 5, 5) })
   expect(stats.built!.byKind.gallery).toBeUndefined()
@@ -45,6 +45,7 @@ test('built pages: every index.html under /, /id/, /th/ and /ms/, by kind, each 
   expect(stats.pages!.videoGuide).toContainEqual(['/huong-dan/bon-phan-cho-cay-thuy-sinh/', 'Bón phân cho cây thủy sinh', 'youtube-r53ZQW0m8VM'])
   expect(stats.pages!.place).toContainEqual(['/nguon-goc/asia/china/', 'Trung Quốc', 'china'])
   expect(stats.pages!.list).toContainEqual(['/th/fish/', 'ทุกสายพันธุ์'])
+  expect(stats.pages!.list!.map(r => r[0])).toEqual(expect.arrayContaining(['/kham-pha/muc-luc/', '/kham-pha/muc-luc/2/']))
   // The unlisted material pilot and the about pages (the site's and its data card's), contact, privacy, sign-in and app pages are "other": every other page has its kind.
   expect(stats.pages!.other!.map(r => r[0]).sort()).toEqual(['/chinh-sach-bao-mat/', '/dang-nhap/', '/gioi-thieu/', '/gioi-thieu/bang-du-lieu/', '/id/aplikasi/', '/id/kebijakan-privasi/', '/id/kontak/', '/id/tentang/', '/id/tentang/tabel-data/', '/lien-he/', '/ms/aplikasi/', '/ms/dasar-privasi/', '/ms/hubungi/', '/ms/tentang/', '/ms/tentang/jadual-data/', '/th/about/', '/th/about/data-table/', '/th/contact/', '/th/mobile-app/', '/th/privacy/', '/ung-dung/', '/vat-lieu/', '/vat-lieu/lua-mopani/', '/vat-lieu/lua-sa-tung/', '/vat-lieu/lua/'])
   expect(Buffer.byteLength(JSON.stringify(stats.totals))).toBeLessThan(1024)

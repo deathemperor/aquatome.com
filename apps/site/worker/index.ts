@@ -22,6 +22,7 @@ import { DASHBOARD_HOST, galleryParent, isViPage, listParent, withoutVi } from '
 import { appPageClosed } from './app-switch'
 import { gonePage, isHidden, pagePath } from './hidden'
 import { prefersMarkdown } from './markdown'
+import { browserHeaders, CSP_REPORT_PATH, cspReport } from './browser-headers'
 import { deleteRoute, listPhotos, minePhotos, photosAdmin, postPhoto } from './photos'
 import { reportRoute } from './report'
 import { accounts, depsFor, type AccountDeps, type AccountsEnv } from './accounts/api'
@@ -251,6 +252,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
     if (lang !== 'vi') return finish(new Response(null, { status: 302, headers: { location: `${homeOf(lang)}${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language, Cookie', 'cache-control': 'private, no-store' } }), env)
   }
   if (url.pathname === '/_e') return events(req, url, env)
+  if (url.pathname === CSP_REPORT_PATH) return cspReport(req, env.EVENTS)
   // Names readers keep that have no page (worker/wanted.ts): open to everyone, signed in or not, accounts on or off.
   if (url.pathname === '/api/v1/wanted' || url.pathname === '/api/v1/wanted/') return finish(await wantedRoute(req, env, new Date()), env)
   // Readers report a comment or photo (worker/report.ts): signed in or not, accounts on or off.
@@ -295,6 +297,14 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   const t = Date.now()
   const res = await env.ASSETS.fetch(plain)
   const assetMs = Date.now() - t // Server-Timing: a cold edge fetches the page from storage (0.3–2 s), a warm one ~10 ms
+  // The static assets router uses 307 for a canonical slash. Keep its destination and the reader's query.
+  if (res.status === 307 && (req.method === 'GET' || req.method === 'HEAD') && !url.pathname.endsWith('/')) {
+    const slash = `${url.pathname}/`
+    const to = slash + url.search
+    const location = res.headers.get('location')
+    const path = location?.startsWith(`${url.origin}/`) ? location.slice(url.origin.length) : location
+    if (isPage(slash) && (path === slash || path === to)) return finish(new Response(null, { status: 301, headers: { location: to } }), env)
+  }
   if (res.status === 404 && isPage(url.pathname)) {
     const to = await redirectFor(env.ASSETS, url.origin, url.pathname)
     // An album's address for good (it has no page of its own since 18 Nov), a list's numbered page for now (it can come back).
@@ -323,7 +333,10 @@ export { FishIdRelay } from './fishid/relay'
 export { FishIdLedger } from './fishid/ledger'
 
 export default {
-  fetch: (req: Request, env: FullEnv, ctx: ExecutionContext) => handle(req, env, p => ctx.waitUntil(p)),
+  async fetch(req: Request, env: FullEnv, ctx: ExecutionContext) {
+    const response = await handle(req, env, p => ctx.waitUntil(p))
+    return browserHeaders(response, new URL(req.url).hostname !== DASHBOARD_HOST)
+  },
 
   /**
    * Daily: the affiliate checker, the removed-comment purge, expired sign-in data, kept fish-ID photos past their 6

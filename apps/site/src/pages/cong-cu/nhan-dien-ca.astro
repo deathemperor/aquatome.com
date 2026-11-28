@@ -1,4 +1,5 @@
 ---
+import { TOOL_DESCRIPTIONS } from '../../lib/tools'
 import Browse from '../../layouts/Browse.astro'
 import { i18n } from '../../lib/i18n'
 
@@ -12,7 +13,7 @@ const tips = [
   t('Mỗi ảnh một con là dễ nhận nhất.'),
 ]
 ---
-<Browse title={t('Nhận diện cá qua ảnh')} heading={t('Đây là cá gì?')} intro={t('Chụp hoặc chọn ảnh một con cá, tép, ốc hay cây thủy sinh. Công cụ đoán tên loài và mở hồ sơ của nó trong cẩm nang.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Nhận diện cá cảnh, tép, ốc và cây thủy sinh từ một tấm ảnh: tên loài, dòng (betta halfmoon, guppy koi…) và hồ sơ cách nuôi trong cẩm nang AquaTome.')}>
+<Browse title={t('Nhận diện cá qua ảnh')} heading={t('Đây là cá gì?')} intro={t('Chụp hoặc chọn ảnh một con cá, tép, ốc hay cây thủy sinh. Công cụ đoán tên loài và mở hồ sơ của nó trong cẩm nang.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t(TOOL_DESCRIPTIONS['/vi/cong-cu/nhan-dien-ca/'])}>
   <section class="fid" data-fish-id aria-label={t('Nhận diện qua ảnh')}>
     <form data-form>
       <div class="pick">

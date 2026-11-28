@@ -12,10 +12,21 @@ export const albumIn = (html: string): Album | undefined => {
 
 /** The first page of a section (of at most 40) whose album passes `ok`: by default any nonempty album. */
 export async function albumPage(request: APIRequestContext, section: 'ca' | 'cay', ok = (a: Album, html: string) => a.photos.length > 0 && !!html) {
-  for (const path of sourcePages().filter(p => new RegExp(`^/${section}/[^/]+/$`).test(p)).slice(0, 40)) {
-    const html = await (await request.get(path)).text()
-    const album = albumIn(html)
-    if (album && ok(album, html)) return { path, album, html }
+  const paths = sourcePages().filter(p => new RegExp(`^/${section}/[^/]+/$`).test(p)).slice(0, 40)
+  // Serial discovery ran out of the test's 30 seconds on live. Start a few lookups together, but
+  // consume them in sitemap order and surface any read error encountered before the first match.
+  const batchSize = 4
+  for (let i = 0; i < paths.length; i += batchSize) {
+    const batch = paths.slice(i, i + batchSize).map(path => request.get(path, { maxRetries: 1 })
+      .then(response => response.text())
+      .then(html => ({ path, html }), (error: unknown) => ({ error })))
+    for (const pending of batch) {
+      const result = await pending
+      if ('error' in result) throw result.error
+      const { path, html } = result
+      const album = albumIn(html)
+      if (album && ok(album, html)) return { path, album, html }
+    }
   }
   return undefined
 }

@@ -15,7 +15,7 @@ import type { ContentStats, Snapshot } from './content'
 import { inLang, items as itemCount, KIND as PAGE_KIND, LANG_NAME, MAIN, perDay, writtenPerDay } from './content-page'
 import { FISH_PERIOD_KEYS, fishSpan, periodTotals, RECENT_MAX, type Call, type FishIdStats, type FishPeriodKey, type FishSpan, type Totals } from './fishid'
 import { failedBox, ICON, isFailed, page, REPORT_NAME, REPORT_PATH, SCOREBOARD_PATH, type Soft } from './shell'
-import { clock, HOME_TZ, hourMinute, localDay, sameClock, timeTag, timeText, zoneName } from './time'
+import { clock, dayStart, HOME_TZ, hourMinute, localDay, mondayOf, sameClock, timeTag, timeText, zoneName } from './time'
 import { OUR_RUNS } from './ae'
 
 /** Each admin page's HTML from what its loaders returned; a part that failed says so in its place. */
@@ -523,6 +523,33 @@ function backParts(r: Readers) {
   }
 }
 
+/** Week rows for the web dashboard, newest first. */
+function returnWeeks(now: Date, r: Readers, tz: string): string {
+  const weeks = r.revisits?.weekly
+  if (!weeks?.length) return ''
+  const dayMs = 86_400_000
+  const measuredFrom = Math.max(now.getTime() - r.days * dayMs, r.from ? Date.parse(r.from) : -Infinity)
+  const firstDay = localDay(measuredFrom, tz)
+  const today = localDay(now, tz)
+  const thisWeek = mondayOf(today)
+  const dayCount = 1 + (Date.parse(today) - Date.parse(firstDay)) / dayMs
+  const byMonday = new Map(weeks.map(w => [w.monday, w]))
+  const mondays = new Set(lastDays(now, dayCount, tz).map(mondayOf))
+  const rows = [...mondays].reverse().map(monday => {
+    const { visitors, returning } = byMonday.get(monday) ?? { visitors: 0, returning: 0 }
+    const partial = measuredFrom > Date.parse(dayStart(monday, tz)) || monday === thisWeek
+    return [
+      { text: dayText(monday, now, tz), ...(partial ? { sub: monday === thisWeek ? 'So far' : 'Partial week' } : {}) },
+      { text: fmt(visitors) },
+      { text: fmt(returning) },
+      { text: visitors ? `${fmt(100 * returning / visitors, 1)}%` : '—' },
+    ]
+  })
+  return `<h3>Returning visitors by week</h3>
+<p class="note">Weeks start on Monday in your time zone. A browser counts as returning in a week if it visited on a later day than its first visit in the last ${r.days} days.</p>
+${tableHtml(table(['Week of', 'Visitors', 'Returned', 'Share'], rows))}`
+}
+
 /** What the readers page draws: its line, its tiles, its chart and its three rankings. */
 function readersParts(now: Date, r: Readers, tz: string) {
   const days = lastDays(now, r.days, tz)
@@ -564,7 +591,7 @@ ${tiles(p.tiles)}
 <div class="split"><section><h2>Most read pages</h2>${rankTable(p.pages, PAGE_VIEWS_HEAD)}</section>
 <section><h2>Readers’ countries</h2>${rankTable(p.countries, COUNTRY_HEAD)}</section></div>`
     const back = backParts(r)
-    if (back) body += `<h2>${BACK_TITLE}</h2><p class="lede">${back.lede}</p>${tiles(back.tiles)}${rankTable(back.pages, BACK_HEAD)}`
+    if (back) body += `<h2>${BACK_TITLE}</h2><p class="lede">${back.lede}</p>${tiles(back.tiles)}${returnWeeks(now, r, tz)}${rankTable(back.pages, BACK_HEAD)}`
     const o = leftOutParts(r, tz, now)
     body += `<h2>${SIDE_TITLE}</h2><p class="lede">${o.sideNote}</p>${rankTable(o.side, SIDE_HEAD)}
 <h2>${LEFT_OUT_TITLE}</h2><p class="lede">${o.lede}</p>${rankTable(o.rows, LEFT_OUT_HEAD)}${o.bursts.length ? `<ul>${o.bursts.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}`
